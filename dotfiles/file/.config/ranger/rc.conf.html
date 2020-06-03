@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>rc.conf - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../../../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../../../index.html">Log</a> | <a href="../../../files.html">Files</a> | <a href="../../../refs.html">Refs</a> | <a href="../../../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> rc.conf (23010B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> # ===================================================================
+<a href="#l2" class="line" id="l2">      2</a> # This file contains the default startup commands for ranger.
+<a href="#l3" class="line" id="l3">      3</a> # To change them, it is recommended to create either /etc/ranger/rc.conf
+<a href="#l4" class="line" id="l4">      4</a> # (system-wide) or ~/.config/ranger/rc.conf (per user) and add your custom
+<a href="#l5" class="line" id="l5">      5</a> # commands there.
+<a href="#l6" class="line" id="l6">      6</a> #
+<a href="#l7" class="line" id="l7">      7</a> # If you copy this whole file there, you may want to set the environment
+<a href="#l8" class="line" id="l8">      8</a> # variable RANGER_LOAD_DEFAULT_RC to FALSE to avoid loading it twice.
+<a href="#l9" class="line" id="l9">      9</a> #
+<a href="#l10" class="line" id="l10">     10</a> # The purpose of this file is mainly to define keybindings and settings.
+<a href="#l11" class="line" id="l11">     11</a> # For running more complex python code, please create a plugin in &quot;plugins/&quot; or
+<a href="#l12" class="line" id="l12">     12</a> # a command in &quot;commands.py&quot;.
+<a href="#l13" class="line" id="l13">     13</a> #
+<a href="#l14" class="line" id="l14">     14</a> # Each line is a command that will be run before the user interface
+<a href="#l15" class="line" id="l15">     15</a> # is initialized.  As a result, you can not use commands which rely
+<a href="#l16" class="line" id="l16">     16</a> # on the UI such as :delete or :mark.
+<a href="#l17" class="line" id="l17">     17</a> # ===================================================================
+<a href="#l18" class="line" id="l18">     18</a> 
+<a href="#l19" class="line" id="l19">     19</a> # ===================================================================
+<a href="#l20" class="line" id="l20">     20</a> # == Options
+<a href="#l21" class="line" id="l21">     21</a> # ===================================================================
+<a href="#l22" class="line" id="l22">     22</a> 
+<a href="#l23" class="line" id="l23">     23</a> # Which viewmode should be used?  Possible values are:
+<a href="#l24" class="line" id="l24">     24</a> #     miller: Use miller columns which show multiple levels of the hierarchy
+<a href="#l25" class="line" id="l25">     25</a> #     multipane: Midnight-commander like multipane view showing all tabs next
+<a href="#l26" class="line" id="l26">     26</a> #                to each other
+<a href="#l27" class="line" id="l27">     27</a> set viewmode miller
+<a href="#l28" class="line" id="l28">     28</a> #set viewmode multipane
+<a href="#l29" class="line" id="l29">     29</a> 
+<a href="#l30" class="line" id="l30">     30</a> # How many columns are there, and what are their relative widths?
+<a href="#l31" class="line" id="l31">     31</a> set column_ratios 1,3,4
+<a href="#l32" class="line" id="l32">     32</a> 
+<a href="#l33" class="line" id="l33">     33</a> # Which files should be hidden? (regular expression)
+<a href="#l34" class="line" id="l34">     34</a> set hidden_filter ^\.|\.(?:pyc|pyo|bak|swp)$|^lost\+found$|^__(py)?cache__$
+<a href="#l35" class="line" id="l35">     35</a> 
+<a href="#l36" class="line" id="l36">     36</a> # Show hidden files? You can toggle this by typing &#39;zh&#39;
+<a href="#l37" class="line" id="l37">     37</a> set show_hidden true
+<a href="#l38" class="line" id="l38">     38</a> 
+<a href="#l39" class="line" id="l39">     39</a> # Ask for a confirmation when running the &quot;delete&quot; command?
+<a href="#l40" class="line" id="l40">     40</a> # Valid values are &quot;always&quot;, &quot;never&quot;, &quot;multiple&quot; (default)
+<a href="#l41" class="line" id="l41">     41</a> # With &quot;multiple&quot;, ranger will ask only if you delete multiple files at once.
+<a href="#l42" class="line" id="l42">     42</a> set confirm_on_delete multiple
+<a href="#l43" class="line" id="l43">     43</a> 
+<a href="#l44" class="line" id="l44">     44</a> # Use non-default path for file preview script?
+<a href="#l45" class="line" id="l45">     45</a> # ranger ships with scope.sh, a script that calls external programs (see
+<a href="#l46" class="line" id="l46">     46</a> # README.md for dependencies) to preview images, archives, etc.
+<a href="#l47" class="line" id="l47">     47</a> set preview_script ~/.config/ranger/scope.sh
+<a href="#l48" class="line" id="l48">     48</a> 
+<a href="#l49" class="line" id="l49">     49</a> # Use the external preview script or display simple plain text or image previews?
+<a href="#l50" class="line" id="l50">     50</a> set use_preview_script true
+<a href="#l51" class="line" id="l51">     51</a> 
+<a href="#l52" class="line" id="l52">     52</a> # Automatically count files in the directory, even before entering them?
+<a href="#l53" class="line" id="l53">     53</a> set automatically_count_files true
+<a href="#l54" class="line" id="l54">     54</a> 
+<a href="#l55" class="line" id="l55">     55</a> # Open all images in this directory when running certain image viewers
+<a href="#l56" class="line" id="l56">     56</a> # like feh or sxiv?  You can still open selected files by marking them.
+<a href="#l57" class="line" id="l57">     57</a> set open_all_images true
+<a href="#l58" class="line" id="l58">     58</a> 
+<a href="#l59" class="line" id="l59">     59</a> # Be aware of version control systems and display information.
+<a href="#l60" class="line" id="l60">     60</a> set vcs_aware false
+<a href="#l61" class="line" id="l61">     61</a> 
+<a href="#l62" class="line" id="l62">     62</a> # State of the four backends git, hg, bzr, svn. The possible states are
+<a href="#l63" class="line" id="l63">     63</a> # disabled, local (only show local info), enabled (show local and remote
+<a href="#l64" class="line" id="l64">     64</a> # information).
+<a href="#l65" class="line" id="l65">     65</a> set vcs_backend_git enabled
+<a href="#l66" class="line" id="l66">     66</a> set vcs_backend_hg disabled
+<a href="#l67" class="line" id="l67">     67</a> set vcs_backend_bzr disabled
+<a href="#l68" class="line" id="l68">     68</a> set vcs_backend_svn disabled
+<a href="#l69" class="line" id="l69">     69</a> 
+<a href="#l70" class="line" id="l70">     70</a> # Use one of the supported image preview protocols
+<a href="#l71" class="line" id="l71">     71</a> set preview_images false
+<a href="#l72" class="line" id="l72">     72</a> 
+<a href="#l73" class="line" id="l73">     73</a> # Set the preview image method. Supported methods:
+<a href="#l74" class="line" id="l74">     74</a> #
+<a href="#l75" class="line" id="l75">     75</a> # * w3m (default):
+<a href="#l76" class="line" id="l76">     76</a> #   Preview images in full color with the external command &quot;w3mimgpreview&quot;?
+<a href="#l77" class="line" id="l77">     77</a> #   This requires the console web browser &quot;w3m&quot; and a supported terminal.
+<a href="#l78" class="line" id="l78">     78</a> #   It has been successfully tested with &quot;xterm&quot; and &quot;urxvt&quot; without tmux.
+<a href="#l79" class="line" id="l79">     79</a> #
+<a href="#l80" class="line" id="l80">     80</a> # * iterm2:
+<a href="#l81" class="line" id="l81">     81</a> #   Preview images in full color using iTerm2 image previews
+<a href="#l82" class="line" id="l82">     82</a> #   (http://iterm2.com/images.html). This requires using iTerm2 compiled
+<a href="#l83" class="line" id="l83">     83</a> #   with image preview support.
+<a href="#l84" class="line" id="l84">     84</a> #
+<a href="#l85" class="line" id="l85">     85</a> #   This feature relies on the dimensions of the terminal&#39;s font.  By default, a
+<a href="#l86" class="line" id="l86">     86</a> #   width of 8 and height of 11 are used.  To use other values, set the options
+<a href="#l87" class="line" id="l87">     87</a> #   iterm2_font_width and iterm2_font_height to the desired values.
+<a href="#l88" class="line" id="l88">     88</a> #
+<a href="#l89" class="line" id="l89">     89</a> # * terminology:
+<a href="#l90" class="line" id="l90">     90</a> #   Previews images in full color in the terminology terminal emulator.
+<a href="#l91" class="line" id="l91">     91</a> #   Supports a wide variety of formats, even vector graphics like svg.
+<a href="#l92" class="line" id="l92">     92</a> #
+<a href="#l93" class="line" id="l93">     93</a> # * urxvt:
+<a href="#l94" class="line" id="l94">     94</a> #   Preview images in full color using urxvt image backgrounds. This
+<a href="#l95" class="line" id="l95">     95</a> #   requires using urxvt compiled with pixbuf support.
+<a href="#l96" class="line" id="l96">     96</a> #
+<a href="#l97" class="line" id="l97">     97</a> # * urxvt-full:
+<a href="#l98" class="line" id="l98">     98</a> #   The same as urxvt but utilizing not only the preview pane but the
+<a href="#l99" class="line" id="l99">     99</a> #   whole terminal window.
+<a href="#l100" class="line" id="l100">    100</a> #
+<a href="#l101" class="line" id="l101">    101</a> # * kitty:
+<a href="#l102" class="line" id="l102">    102</a> #   Preview images in full color using kitty image protocol.
+<a href="#l103" class="line" id="l103">    103</a> #   Requires python PIL or pillow library.
+<a href="#l104" class="line" id="l104">    104</a> #   If ranger does not share the local filesystem with kitty
+<a href="#l105" class="line" id="l105">    105</a> #   the transfer method is changed to encode the whole image;
+<a href="#l106" class="line" id="l106">    106</a> #   while slower, this allows remote previews,
+<a href="#l107" class="line" id="l107">    107</a> #   for example during an ssh session.
+<a href="#l108" class="line" id="l108">    108</a> #   Tmux is unsupported.
+<a href="#l109" class="line" id="l109">    109</a> set preview_images_method w3m
+<a href="#l110" class="line" id="l110">    110</a> 
+<a href="#l111" class="line" id="l111">    111</a> # Delay in seconds before displaying an image with the w3m method.
+<a href="#l112" class="line" id="l112">    112</a> # Increase it in case of experiencing display corruption.
+<a href="#l113" class="line" id="l113">    113</a> set w3m_delay 0.02
+<a href="#l114" class="line" id="l114">    114</a> 
+<a href="#l115" class="line" id="l115">    115</a> # Default iTerm2 font size (see: preview_images_method: iterm2)
+<a href="#l116" class="line" id="l116">    116</a> set iterm2_font_width 8
+<a href="#l117" class="line" id="l117">    117</a> set iterm2_font_height 11
+<a href="#l118" class="line" id="l118">    118</a> 
+<a href="#l119" class="line" id="l119">    119</a> # Use a unicode &quot;...&quot; character to mark cut-off filenames?
+<a href="#l120" class="line" id="l120">    120</a> set unicode_ellipsis false
+<a href="#l121" class="line" id="l121">    121</a> 
+<a href="#l122" class="line" id="l122">    122</a> # BIDI support - try to properly display file names in RTL languages (Hebrew, Arabic).
+<a href="#l123" class="line" id="l123">    123</a> # Requires the python-bidi pip package
+<a href="#l124" class="line" id="l124">    124</a> set bidi_support false
+<a href="#l125" class="line" id="l125">    125</a> 
+<a href="#l126" class="line" id="l126">    126</a> # Show dotfiles in the bookmark preview box?
+<a href="#l127" class="line" id="l127">    127</a> set show_hidden_bookmarks true
+<a href="#l128" class="line" id="l128">    128</a> 
+<a href="#l129" class="line" id="l129">    129</a> # Which colorscheme to use?  These colorschemes are available by default:
+<a href="#l130" class="line" id="l130">    130</a> # default, jungle, snow, solarized
+<a href="#l131" class="line" id="l131">    131</a> set colorscheme default
+<a href="#l132" class="line" id="l132">    132</a> 
+<a href="#l133" class="line" id="l133">    133</a> # Preview files on the rightmost column?
+<a href="#l134" class="line" id="l134">    134</a> # And collapse (shrink) the last column if there is nothing to preview?
+<a href="#l135" class="line" id="l135">    135</a> set preview_files true
+<a href="#l136" class="line" id="l136">    136</a> set preview_directories true
+<a href="#l137" class="line" id="l137">    137</a> set collapse_preview false
+<a href="#l138" class="line" id="l138">    138</a> 
+<a href="#l139" class="line" id="l139">    139</a> # Save the console history on exit?
+<a href="#l140" class="line" id="l140">    140</a> set save_console_history true
+<a href="#l141" class="line" id="l141">    141</a> 
+<a href="#l142" class="line" id="l142">    142</a> # Draw the status bar on top of the browser window (default: bottom)
+<a href="#l143" class="line" id="l143">    143</a> set status_bar_on_top false
+<a href="#l144" class="line" id="l144">    144</a> 
+<a href="#l145" class="line" id="l145">    145</a> # Draw a progress bar in the status bar which displays the average state of all
+<a href="#l146" class="line" id="l146">    146</a> # currently running tasks which support progress bars?
+<a href="#l147" class="line" id="l147">    147</a> set draw_progress_bar_in_status_bar true
+<a href="#l148" class="line" id="l148">    148</a> 
+<a href="#l149" class="line" id="l149">    149</a> # Draw borders around columns? (separators, outline, both, or none)
+<a href="#l150" class="line" id="l150">    150</a> # Separators are vertical lines between columns.
+<a href="#l151" class="line" id="l151">    151</a> # Outline draws a box around all the columns.
+<a href="#l152" class="line" id="l152">    152</a> # Both combines the two.
+<a href="#l153" class="line" id="l153">    153</a> set draw_borders outline
+<a href="#l154" class="line" id="l154">    154</a> 
+<a href="#l155" class="line" id="l155">    155</a> # Display the directory name in tabs?
+<a href="#l156" class="line" id="l156">    156</a> set dirname_in_tabs false
+<a href="#l157" class="line" id="l157">    157</a> 
+<a href="#l158" class="line" id="l158">    158</a> # Enable the mouse support?
+<a href="#l159" class="line" id="l159">    159</a> set mouse_enabled true
+<a href="#l160" class="line" id="l160">    160</a> 
+<a href="#l161" class="line" id="l161">    161</a> # Display the file size in the main column or status bar?
+<a href="#l162" class="line" id="l162">    162</a> set display_size_in_main_column true
+<a href="#l163" class="line" id="l163">    163</a> set display_size_in_status_bar true
+<a href="#l164" class="line" id="l164">    164</a> 
+<a href="#l165" class="line" id="l165">    165</a> # Display the free disk space in the status bar?
+<a href="#l166" class="line" id="l166">    166</a> set display_free_space_in_status_bar true
+<a href="#l167" class="line" id="l167">    167</a> 
+<a href="#l168" class="line" id="l168">    168</a> # Display files tags in all columns or only in main column?
+<a href="#l169" class="line" id="l169">    169</a> set display_tags_in_all_columns true
+<a href="#l170" class="line" id="l170">    170</a> 
+<a href="#l171" class="line" id="l171">    171</a> # Set a title for the window?
+<a href="#l172" class="line" id="l172">    172</a> set update_title false
+<a href="#l173" class="line" id="l173">    173</a> 
+<a href="#l174" class="line" id="l174">    174</a> # Set the title to &quot;ranger&quot; in the tmux program?
+<a href="#l175" class="line" id="l175">    175</a> set update_tmux_title true
+<a href="#l176" class="line" id="l176">    176</a> 
+<a href="#l177" class="line" id="l177">    177</a> # Shorten the title if it gets long?  The number defines how many
+<a href="#l178" class="line" id="l178">    178</a> # directories are displayed at once, 0 turns off this feature.
+<a href="#l179" class="line" id="l179">    179</a> set shorten_title 3
+<a href="#l180" class="line" id="l180">    180</a> 
+<a href="#l181" class="line" id="l181">    181</a> # Show hostname in titlebar?
+<a href="#l182" class="line" id="l182">    182</a> set hostname_in_titlebar true
+<a href="#l183" class="line" id="l183">    183</a> 
+<a href="#l184" class="line" id="l184">    184</a> # Abbreviate $HOME with ~ in the titlebar (first line) of ranger?
+<a href="#l185" class="line" id="l185">    185</a> set tilde_in_titlebar false
+<a href="#l186" class="line" id="l186">    186</a> 
+<a href="#l187" class="line" id="l187">    187</a> # How many directory-changes or console-commands should be kept in history?
+<a href="#l188" class="line" id="l188">    188</a> set max_history_size 20
+<a href="#l189" class="line" id="l189">    189</a> set max_console_history_size 50
+<a href="#l190" class="line" id="l190">    190</a> 
+<a href="#l191" class="line" id="l191">    191</a> # Try to keep so much space between the top/bottom border when scrolling:
+<a href="#l192" class="line" id="l192">    192</a> set scroll_offset 8
+<a href="#l193" class="line" id="l193">    193</a> 
+<a href="#l194" class="line" id="l194">    194</a> # Flush the input after each key hit?  (Noticeable when ranger lags)
+<a href="#l195" class="line" id="l195">    195</a> set flushinput true
+<a href="#l196" class="line" id="l196">    196</a> 
+<a href="#l197" class="line" id="l197">    197</a> # Padding on the right when there&#39;s no preview?
+<a href="#l198" class="line" id="l198">    198</a> # This allows you to click into the space to run the file.
+<a href="#l199" class="line" id="l199">    199</a> set padding_right true
+<a href="#l200" class="line" id="l200">    200</a> 
+<a href="#l201" class="line" id="l201">    201</a> # Save bookmarks (used with mX and `X) instantly?
+<a href="#l202" class="line" id="l202">    202</a> # This helps to synchronize bookmarks between multiple ranger
+<a href="#l203" class="line" id="l203">    203</a> # instances but leads to *slight* performance loss.
+<a href="#l204" class="line" id="l204">    204</a> # When false, bookmarks are saved when ranger is exited.
+<a href="#l205" class="line" id="l205">    205</a> set autosave_bookmarks true
+<a href="#l206" class="line" id="l206">    206</a> 
+<a href="#l207" class="line" id="l207">    207</a> # Save the &quot;`&quot; bookmark to disk.  This can be used to switch to the last
+<a href="#l208" class="line" id="l208">    208</a> # directory by typing &quot;``&quot;.
+<a href="#l209" class="line" id="l209">    209</a> set save_backtick_bookmark true
+<a href="#l210" class="line" id="l210">    210</a> 
+<a href="#l211" class="line" id="l211">    211</a> # You can display the &quot;real&quot; cumulative size of directories by using the
+<a href="#l212" class="line" id="l212">    212</a> # command :get_cumulative_size or typing &quot;dc&quot;.  The size is expensive to
+<a href="#l213" class="line" id="l213">    213</a> # calculate and will not be updated automatically.  You can choose
+<a href="#l214" class="line" id="l214">    214</a> # to update it automatically though by turning on this option:
+<a href="#l215" class="line" id="l215">    215</a> set autoupdate_cumulative_size false
+<a href="#l216" class="line" id="l216">    216</a> 
+<a href="#l217" class="line" id="l217">    217</a> # Turning this on makes sense for screen readers:
+<a href="#l218" class="line" id="l218">    218</a> set show_cursor false
+<a href="#l219" class="line" id="l219">    219</a> 
+<a href="#l220" class="line" id="l220">    220</a> # One of: size, natural, basename, atime, ctime, mtime, type, random
+<a href="#l221" class="line" id="l221">    221</a> set sort natural
+<a href="#l222" class="line" id="l222">    222</a> 
+<a href="#l223" class="line" id="l223">    223</a> # Additional sorting options
+<a href="#l224" class="line" id="l224">    224</a> set sort_reverse false
+<a href="#l225" class="line" id="l225">    225</a> set sort_case_insensitive true
+<a href="#l226" class="line" id="l226">    226</a> set sort_directories_first true
+<a href="#l227" class="line" id="l227">    227</a> set sort_unicode false
+<a href="#l228" class="line" id="l228">    228</a> 
+<a href="#l229" class="line" id="l229">    229</a> # Enable this if key combinations with the Alt Key don&#39;t work for you.
+<a href="#l230" class="line" id="l230">    230</a> # (Especially on xterm)
+<a href="#l231" class="line" id="l231">    231</a> set xterm_alt_key false
+<a href="#l232" class="line" id="l232">    232</a> 
+<a href="#l233" class="line" id="l233">    233</a> # Whether to include bookmarks in cd command
+<a href="#l234" class="line" id="l234">    234</a> set cd_bookmarks true
+<a href="#l235" class="line" id="l235">    235</a> 
+<a href="#l236" class="line" id="l236">    236</a> # Changes case sensitivity for the cd command tab completion
+<a href="#l237" class="line" id="l237">    237</a> set cd_tab_case sensitive
+<a href="#l238" class="line" id="l238">    238</a> 
+<a href="#l239" class="line" id="l239">    239</a> # Use fuzzy tab completion with the &quot;cd&quot; command. For example,
+<a href="#l240" class="line" id="l240">    240</a> # &quot;:cd /u/lo/b&lt;tab&gt;&quot; expands to &quot;:cd /usr/local/bin&quot;.
+<a href="#l241" class="line" id="l241">    241</a> set cd_tab_fuzzy false
+<a href="#l242" class="line" id="l242">    242</a> 
+<a href="#l243" class="line" id="l243">    243</a> # Avoid previewing files larger than this size, in bytes.  Use a value of 0 to
+<a href="#l244" class="line" id="l244">    244</a> # disable this feature.
+<a href="#l245" class="line" id="l245">    245</a> set preview_max_size 1000000
+<a href="#l246" class="line" id="l246">    246</a> 
+<a href="#l247" class="line" id="l247">    247</a> # The key hint lists up to this size have their sublists expanded.
+<a href="#l248" class="line" id="l248">    248</a> # Otherwise the submaps are replaced with &quot;...&quot;.
+<a href="#l249" class="line" id="l249">    249</a> set hint_collapse_threshold 10
+<a href="#l250" class="line" id="l250">    250</a> 
+<a href="#l251" class="line" id="l251">    251</a> # Add the highlighted file to the path in the titlebar
+<a href="#l252" class="line" id="l252">    252</a> set show_selection_in_titlebar true
+<a href="#l253" class="line" id="l253">    253</a> 
+<a href="#l254" class="line" id="l254">    254</a> # The delay that ranger idly waits for user input, in milliseconds, with a
+<a href="#l255" class="line" id="l255">    255</a> # resolution of 100ms.  Lower delay reduces lag between directory updates but
+<a href="#l256" class="line" id="l256">    256</a> # increases CPU load.
+<a href="#l257" class="line" id="l257">    257</a> set idle_delay 2000
+<a href="#l258" class="line" id="l258">    258</a> 
+<a href="#l259" class="line" id="l259">    259</a> # When the metadata manager module looks for metadata, should it only look for
+<a href="#l260" class="line" id="l260">    260</a> # a &quot;.metadata.json&quot; file in the current directory, or do a deep search and
+<a href="#l261" class="line" id="l261">    261</a> # check all directories above the current one as well?
+<a href="#l262" class="line" id="l262">    262</a> set metadata_deep_search false
+<a href="#l263" class="line" id="l263">    263</a> 
+<a href="#l264" class="line" id="l264">    264</a> # Clear all existing filters when leaving a directory
+<a href="#l265" class="line" id="l265">    265</a> set clear_filters_on_dir_change false
+<a href="#l266" class="line" id="l266">    266</a> 
+<a href="#l267" class="line" id="l267">    267</a> # Disable displaying line numbers in main column.
+<a href="#l268" class="line" id="l268">    268</a> # Possible values: false, absolute, relative.
+<a href="#l269" class="line" id="l269">    269</a> set line_numbers false
+<a href="#l270" class="line" id="l270">    270</a> 
+<a href="#l271" class="line" id="l271">    271</a> # When line_numbers=relative show the absolute line number in the
+<a href="#l272" class="line" id="l272">    272</a> # current line.
+<a href="#l273" class="line" id="l273">    273</a> set relative_current_zero false
+<a href="#l274" class="line" id="l274">    274</a> 
+<a href="#l275" class="line" id="l275">    275</a> # Start line numbers from 1 instead of 0
+<a href="#l276" class="line" id="l276">    276</a> set one_indexed false
+<a href="#l277" class="line" id="l277">    277</a> 
+<a href="#l278" class="line" id="l278">    278</a> # Save tabs on exit
+<a href="#l279" class="line" id="l279">    279</a> set save_tabs_on_exit false
+<a href="#l280" class="line" id="l280">    280</a> 
+<a href="#l281" class="line" id="l281">    281</a> # Enable scroll wrapping - moving down while on the last item will wrap around to
+<a href="#l282" class="line" id="l282">    282</a> # the top and vice versa.
+<a href="#l283" class="line" id="l283">    283</a> set wrap_scroll false
+<a href="#l284" class="line" id="l284">    284</a> 
+<a href="#l285" class="line" id="l285">    285</a> # Set the global_inode_type_filter to nothing.  Possible options: d, f and l for
+<a href="#l286" class="line" id="l286">    286</a> # directories, files and symlinks respectively.
+<a href="#l287" class="line" id="l287">    287</a> set global_inode_type_filter
+<a href="#l288" class="line" id="l288">    288</a> 
+<a href="#l289" class="line" id="l289">    289</a> # This setting allows to freeze the list of files to save I/O bandwidth.  It
+<a href="#l290" class="line" id="l290">    290</a> # should be &#39;false&#39; during start-up, but you can toggle it by pressing F.
+<a href="#l291" class="line" id="l291">    291</a> set freeze_files false
+<a href="#l292" class="line" id="l292">    292</a> 
+<a href="#l293" class="line" id="l293">    293</a> # ===================================================================
+<a href="#l294" class="line" id="l294">    294</a> # == Local Options
+<a href="#l295" class="line" id="l295">    295</a> # ===================================================================
+<a href="#l296" class="line" id="l296">    296</a> # You can set local options that only affect a single directory.
+<a href="#l297" class="line" id="l297">    297</a> 
+<a href="#l298" class="line" id="l298">    298</a> # Examples:
+<a href="#l299" class="line" id="l299">    299</a> # setlocal path=~/downloads sort mtime
+<a href="#l300" class="line" id="l300">    300</a> 
+<a href="#l301" class="line" id="l301">    301</a> # ===================================================================
+<a href="#l302" class="line" id="l302">    302</a> # == Command Aliases in the Console
+<a href="#l303" class="line" id="l303">    303</a> # ===================================================================
+<a href="#l304" class="line" id="l304">    304</a> 
+<a href="#l305" class="line" id="l305">    305</a> alias e     edit
+<a href="#l306" class="line" id="l306">    306</a> alias q     quit
+<a href="#l307" class="line" id="l307">    307</a> alias q!    quit!
+<a href="#l308" class="line" id="l308">    308</a> alias qa    quitall
+<a href="#l309" class="line" id="l309">    309</a> alias qa!   quitall!
+<a href="#l310" class="line" id="l310">    310</a> alias qall  quitall
+<a href="#l311" class="line" id="l311">    311</a> alias qall! quitall!
+<a href="#l312" class="line" id="l312">    312</a> alias setl  setlocal
+<a href="#l313" class="line" id="l313">    313</a> 
+<a href="#l314" class="line" id="l314">    314</a> alias filter     scout -prts
+<a href="#l315" class="line" id="l315">    315</a> alias find       scout -aets
+<a href="#l316" class="line" id="l316">    316</a> alias mark       scout -mr
+<a href="#l317" class="line" id="l317">    317</a> alias unmark     scout -Mr
+<a href="#l318" class="line" id="l318">    318</a> alias search     scout -rs
+<a href="#l319" class="line" id="l319">    319</a> alias search_inc scout -rts
+<a href="#l320" class="line" id="l320">    320</a> alias travel     scout -aefklst
+<a href="#l321" class="line" id="l321">    321</a> 
+<a href="#l322" class="line" id="l322">    322</a> # ===================================================================
+<a href="#l323" class="line" id="l323">    323</a> # == Define keys for the browser
+<a href="#l324" class="line" id="l324">    324</a> # ===================================================================
+<a href="#l325" class="line" id="l325">    325</a> 
+<a href="#l326" class="line" id="l326">    326</a> # Basic
+<a href="#l327" class="line" id="l327">    327</a> map     Q quitall
+<a href="#l328" class="line" id="l328">    328</a> map     q quit
+<a href="#l329" class="line" id="l329">    329</a> copymap q ZZ ZQ
+<a href="#l330" class="line" id="l330">    330</a> 
+<a href="#l331" class="line" id="l331">    331</a> map R     reload_cwd
+<a href="#l332" class="line" id="l332">    332</a> map F     set freeze_files!
+<a href="#l333" class="line" id="l333">    333</a> map &lt;C-r&gt; reset
+<a href="#l334" class="line" id="l334">    334</a> map &lt;C-l&gt; redraw_window
+<a href="#l335" class="line" id="l335">    335</a> map &lt;C-c&gt; abort
+<a href="#l336" class="line" id="l336">    336</a> map &lt;esc&gt; change_mode normal
+<a href="#l337" class="line" id="l337">    337</a> map ~ set viewmode!
+<a href="#l338" class="line" id="l338">    338</a> 
+<a href="#l339" class="line" id="l339">    339</a> map i display_file
+<a href="#l340" class="line" id="l340">    340</a> map ? help
+<a href="#l341" class="line" id="l341">    341</a> map W display_log
+<a href="#l342" class="line" id="l342">    342</a> map w taskview_open
+<a href="#l343" class="line" id="l343">    343</a> map S shell $SHELL
+<a href="#l344" class="line" id="l344">    344</a> 
+<a href="#l345" class="line" id="l345">    345</a> map :  console
+<a href="#l346" class="line" id="l346">    346</a> map ;  console
+<a href="#l347" class="line" id="l347">    347</a> map !  console shell%space
+<a href="#l348" class="line" id="l348">    348</a> map @  console -p6 shell  %%s
+<a href="#l349" class="line" id="l349">    349</a> map #  console shell -p%space
+<a href="#l350" class="line" id="l350">    350</a> map s  console shell%space
+<a href="#l351" class="line" id="l351">    351</a> map r  chain draw_possible_programs; console open_with%%space
+<a href="#l352" class="line" id="l352">    352</a> map f  console find%space
+<a href="#l353" class="line" id="l353">    353</a> map cd console cd%space
+<a href="#l354" class="line" id="l354">    354</a> 
+<a href="#l355" class="line" id="l355">    355</a> map &lt;C-p&gt; chain console; eval fm.ui.console.history_move(-1)
+<a href="#l356" class="line" id="l356">    356</a> 
+<a href="#l357" class="line" id="l357">    357</a> # Change the line mode
+<a href="#l358" class="line" id="l358">    358</a> map Mf linemode filename
+<a href="#l359" class="line" id="l359">    359</a> map Mi linemode fileinfo
+<a href="#l360" class="line" id="l360">    360</a> map Mm linemode mtime
+<a href="#l361" class="line" id="l361">    361</a> map Mp linemode permissions
+<a href="#l362" class="line" id="l362">    362</a> map Ms linemode sizemtime
+<a href="#l363" class="line" id="l363">    363</a> map Mt linemode metatitle
+<a href="#l364" class="line" id="l364">    364</a> 
+<a href="#l365" class="line" id="l365">    365</a> # Tagging / Marking
+<a href="#l366" class="line" id="l366">    366</a> map t       tag_toggle
+<a href="#l367" class="line" id="l367">    367</a> map ut      tag_remove
+<a href="#l368" class="line" id="l368">    368</a> map &quot;&lt;any&gt;  tag_toggle tag=%any
+<a href="#l369" class="line" id="l369">    369</a> map &lt;Space&gt; mark_files toggle=True
+<a href="#l370" class="line" id="l370">    370</a> map v       mark_files all=True toggle=True
+<a href="#l371" class="line" id="l371">    371</a> map uv      mark_files all=True val=False
+<a href="#l372" class="line" id="l372">    372</a> map V       toggle_visual_mode
+<a href="#l373" class="line" id="l373">    373</a> map uV      toggle_visual_mode reverse=True
+<a href="#l374" class="line" id="l374">    374</a> 
+<a href="#l375" class="line" id="l375">    375</a> # For the nostalgics: Midnight Commander bindings
+<a href="#l376" class="line" id="l376">    376</a> map &lt;F1&gt; help
+<a href="#l377" class="line" id="l377">    377</a> map &lt;F2&gt; rename_append
+<a href="#l378" class="line" id="l378">    378</a> map &lt;F3&gt; display_file
+<a href="#l379" class="line" id="l379">    379</a> map &lt;F4&gt; edit
+<a href="#l380" class="line" id="l380">    380</a> map &lt;F5&gt; copy
+<a href="#l381" class="line" id="l381">    381</a> map &lt;F6&gt; cut
+<a href="#l382" class="line" id="l382">    382</a> map &lt;F7&gt; console mkdir%space
+<a href="#l383" class="line" id="l383">    383</a> map &lt;F8&gt; console delete
+<a href="#l384" class="line" id="l384">    384</a> map &lt;F10&gt; exit
+<a href="#l385" class="line" id="l385">    385</a> 
+<a href="#l386" class="line" id="l386">    386</a> # In case you work on a keyboard with dvorak layout
+<a href="#l387" class="line" id="l387">    387</a> map &lt;UP&gt;       move up=1
+<a href="#l388" class="line" id="l388">    388</a> map &lt;DOWN&gt;     move down=1
+<a href="#l389" class="line" id="l389">    389</a> map &lt;LEFT&gt;     move left=1
+<a href="#l390" class="line" id="l390">    390</a> map &lt;RIGHT&gt;    move right=1
+<a href="#l391" class="line" id="l391">    391</a> map &lt;HOME&gt;     move to=0
+<a href="#l392" class="line" id="l392">    392</a> map &lt;END&gt;      move to=-1
+<a href="#l393" class="line" id="l393">    393</a> map &lt;PAGEDOWN&gt; move down=1   pages=True
+<a href="#l394" class="line" id="l394">    394</a> map &lt;PAGEUP&gt;   move up=1     pages=True
+<a href="#l395" class="line" id="l395">    395</a> map &lt;CR&gt;       move right=1
+<a href="#l396" class="line" id="l396">    396</a> #map &lt;DELETE&gt;   console delete
+<a href="#l397" class="line" id="l397">    397</a> map &lt;INSERT&gt;   console touch%space
+<a href="#l398" class="line" id="l398">    398</a> 
+<a href="#l399" class="line" id="l399">    399</a> # VIM-like
+<a href="#l400" class="line" id="l400">    400</a> copymap &lt;UP&gt;       k
+<a href="#l401" class="line" id="l401">    401</a> copymap &lt;DOWN&gt;     j
+<a href="#l402" class="line" id="l402">    402</a> copymap &lt;LEFT&gt;     h
+<a href="#l403" class="line" id="l403">    403</a> copymap &lt;RIGHT&gt;    l
+<a href="#l404" class="line" id="l404">    404</a> copymap &lt;HOME&gt;     gg
+<a href="#l405" class="line" id="l405">    405</a> copymap &lt;END&gt;      G
+<a href="#l406" class="line" id="l406">    406</a> copymap &lt;PAGEDOWN&gt; &lt;C-F&gt;
+<a href="#l407" class="line" id="l407">    407</a> copymap &lt;PAGEUP&gt;   &lt;C-B&gt;
+<a href="#l408" class="line" id="l408">    408</a> 
+<a href="#l409" class="line" id="l409">    409</a> map J  move down=0.5  pages=True
+<a href="#l410" class="line" id="l410">    410</a> map K  move up=0.5    pages=True
+<a href="#l411" class="line" id="l411">    411</a> copymap J &lt;C-D&gt;
+<a href="#l412" class="line" id="l412">    412</a> copymap K &lt;C-U&gt;
+<a href="#l413" class="line" id="l413">    413</a> 
+<a href="#l414" class="line" id="l414">    414</a> # Jumping around
+<a href="#l415" class="line" id="l415">    415</a> map H     history_go -1
+<a href="#l416" class="line" id="l416">    416</a> map L     history_go 1
+<a href="#l417" class="line" id="l417">    417</a> map ]     move_parent 1
+<a href="#l418" class="line" id="l418">    418</a> map [     move_parent -1
+<a href="#l419" class="line" id="l419">    419</a> map }     traverse
+<a href="#l420" class="line" id="l420">    420</a> map {     traverse_backwards
+<a href="#l421" class="line" id="l421">    421</a> map )     jump_non
+<a href="#l422" class="line" id="l422">    422</a> 
+<a href="#l423" class="line" id="l423">    423</a> map gh cd ~
+<a href="#l424" class="line" id="l424">    424</a> map ge cd /etc
+<a href="#l425" class="line" id="l425">    425</a> map gu cd /usr
+<a href="#l426" class="line" id="l426">    426</a> map gd cd /dev
+<a href="#l427" class="line" id="l427">    427</a> map gl cd -r .
+<a href="#l428" class="line" id="l428">    428</a> map gL cd -r %f
+<a href="#l429" class="line" id="l429">    429</a> map go cd /opt
+<a href="#l430" class="line" id="l430">    430</a> map gv cd /var
+<a href="#l431" class="line" id="l431">    431</a> map gm cd /media
+<a href="#l432" class="line" id="l432">    432</a> map gi eval fm.cd(&#39;/run/media/&#39; + os.getenv(&#39;USER&#39;))
+<a href="#l433" class="line" id="l433">    433</a> map gM cd /mnt
+<a href="#l434" class="line" id="l434">    434</a> map gs cd /srv
+<a href="#l435" class="line" id="l435">    435</a> map gp cd /tmp
+<a href="#l436" class="line" id="l436">    436</a> map gr cd /
+<a href="#l437" class="line" id="l437">    437</a> map gR eval fm.cd(ranger.RANGERDIR)
+<a href="#l438" class="line" id="l438">    438</a> map g/ cd /
+<a href="#l439" class="line" id="l439">    439</a> map g? cd /usr/share/doc/ranger
+<a href="#l440" class="line" id="l440">    440</a> 
+<a href="#l441" class="line" id="l441">    441</a> # External Programs
+<a href="#l442" class="line" id="l442">    442</a> map E  edit
+<a href="#l443" class="line" id="l443">    443</a> map du shell -p du --max-depth=1 -h --apparent-size
+<a href="#l444" class="line" id="l444">    444</a> map dU shell -p du --max-depth=1 -h --apparent-size | sort -rh
+<a href="#l445" class="line" id="l445">    445</a> map yp yank path
+<a href="#l446" class="line" id="l446">    446</a> map yd yank dir
+<a href="#l447" class="line" id="l447">    447</a> map yn yank name
+<a href="#l448" class="line" id="l448">    448</a> map y. yank name_without_extension
+<a href="#l449" class="line" id="l449">    449</a> 
+<a href="#l450" class="line" id="l450">    450</a> # Filesystem Operations
+<a href="#l451" class="line" id="l451">    451</a> map =  chmod
+<a href="#l452" class="line" id="l452">    452</a> 
+<a href="#l453" class="line" id="l453">    453</a> map cw console rename%space
+<a href="#l454" class="line" id="l454">    454</a> map a  rename_append
+<a href="#l455" class="line" id="l455">    455</a> map A  eval fm.open_console(&#39;rename &#39; + fm.thisfile.relative_path.replace(&quot;%&quot;, &quot;%%&quot;))
+<a href="#l456" class="line" id="l456">    456</a> map I  eval fm.open_console(&#39;rename &#39; + fm.thisfile.relative_path.replace(&quot;%&quot;, &quot;%%&quot;), position=7)
+<a href="#l457" class="line" id="l457">    457</a> 
+<a href="#l458" class="line" id="l458">    458</a> map pp paste
+<a href="#l459" class="line" id="l459">    459</a> map po paste overwrite=True
+<a href="#l460" class="line" id="l460">    460</a> map pP paste append=True
+<a href="#l461" class="line" id="l461">    461</a> map pO paste overwrite=True append=True
+<a href="#l462" class="line" id="l462">    462</a> map pl paste_symlink relative=False
+<a href="#l463" class="line" id="l463">    463</a> map pL paste_symlink relative=True
+<a href="#l464" class="line" id="l464">    464</a> map phl paste_hardlink
+<a href="#l465" class="line" id="l465">    465</a> map pht paste_hardlinked_subtree
+<a href="#l466" class="line" id="l466">    466</a> 
+<a href="#l467" class="line" id="l467">    467</a> map dD console delete
+<a href="#l468" class="line" id="l468">    468</a> 
+<a href="#l469" class="line" id="l469">    469</a> map dd cut
+<a href="#l470" class="line" id="l470">    470</a> map ud uncut
+<a href="#l471" class="line" id="l471">    471</a> map da cut mode=add
+<a href="#l472" class="line" id="l472">    472</a> map dr cut mode=remove
+<a href="#l473" class="line" id="l473">    473</a> map dt cut mode=toggle
+<a href="#l474" class="line" id="l474">    474</a> 
+<a href="#l475" class="line" id="l475">    475</a> map yy copy
+<a href="#l476" class="line" id="l476">    476</a> map uy uncut
+<a href="#l477" class="line" id="l477">    477</a> map ya copy mode=add
+<a href="#l478" class="line" id="l478">    478</a> map yr copy mode=remove
+<a href="#l479" class="line" id="l479">    479</a> map yt copy mode=toggle
+<a href="#l480" class="line" id="l480">    480</a> 
+<a href="#l481" class="line" id="l481">    481</a> # Temporary workarounds
+<a href="#l482" class="line" id="l482">    482</a> map dgg eval fm.cut(dirarg=dict(to=0), narg=quantifier)
+<a href="#l483" class="line" id="l483">    483</a> map dG  eval fm.cut(dirarg=dict(to=-1), narg=quantifier)
+<a href="#l484" class="line" id="l484">    484</a> map dj  eval fm.cut(dirarg=dict(down=1), narg=quantifier)
+<a href="#l485" class="line" id="l485">    485</a> map dk  eval fm.cut(dirarg=dict(up=1), narg=quantifier)
+<a href="#l486" class="line" id="l486">    486</a> map ygg eval fm.copy(dirarg=dict(to=0), narg=quantifier)
+<a href="#l487" class="line" id="l487">    487</a> map yG  eval fm.copy(dirarg=dict(to=-1), narg=quantifier)
+<a href="#l488" class="line" id="l488">    488</a> map yj  eval fm.copy(dirarg=dict(down=1), narg=quantifier)
+<a href="#l489" class="line" id="l489">    489</a> map yk  eval fm.copy(dirarg=dict(up=1), narg=quantifier)
+<a href="#l490" class="line" id="l490">    490</a> 
+<a href="#l491" class="line" id="l491">    491</a> # Searching
+<a href="#l492" class="line" id="l492">    492</a> map /  console search%space
+<a href="#l493" class="line" id="l493">    493</a> map n  search_next
+<a href="#l494" class="line" id="l494">    494</a> map N  search_next forward=False
+<a href="#l495" class="line" id="l495">    495</a> map ct search_next order=tag
+<a href="#l496" class="line" id="l496">    496</a> map cs search_next order=size
+<a href="#l497" class="line" id="l497">    497</a> map ci search_next order=mimetype
+<a href="#l498" class="line" id="l498">    498</a> map cc search_next order=ctime
+<a href="#l499" class="line" id="l499">    499</a> map cm search_next order=mtime
+<a href="#l500" class="line" id="l500">    500</a> map ca search_next order=atime
+<a href="#l501" class="line" id="l501">    501</a> 
+<a href="#l502" class="line" id="l502">    502</a> # Tabs
+<a href="#l503" class="line" id="l503">    503</a> map &lt;C-n&gt;     tab_new
+<a href="#l504" class="line" id="l504">    504</a> map &lt;C-w&gt;     tab_close
+<a href="#l505" class="line" id="l505">    505</a> map &lt;TAB&gt;     tab_move 1
+<a href="#l506" class="line" id="l506">    506</a> map &lt;S-TAB&gt;   tab_move -1
+<a href="#l507" class="line" id="l507">    507</a> map &lt;A-Right&gt; tab_move 1
+<a href="#l508" class="line" id="l508">    508</a> map &lt;A-Left&gt;  tab_move -1
+<a href="#l509" class="line" id="l509">    509</a> map gt        tab_move 1
+<a href="#l510" class="line" id="l510">    510</a> map gT        tab_move -1
+<a href="#l511" class="line" id="l511">    511</a> map gn        tab_new
+<a href="#l512" class="line" id="l512">    512</a> map gc        tab_close
+<a href="#l513" class="line" id="l513">    513</a> map uq        tab_restore
+<a href="#l514" class="line" id="l514">    514</a> map &lt;a-1&gt;     tab_open 1
+<a href="#l515" class="line" id="l515">    515</a> map &lt;a-2&gt;     tab_open 2
+<a href="#l516" class="line" id="l516">    516</a> map &lt;a-3&gt;     tab_open 3
+<a href="#l517" class="line" id="l517">    517</a> map &lt;a-4&gt;     tab_open 4
+<a href="#l518" class="line" id="l518">    518</a> map &lt;a-5&gt;     tab_open 5
+<a href="#l519" class="line" id="l519">    519</a> map &lt;a-6&gt;     tab_open 6
+<a href="#l520" class="line" id="l520">    520</a> map &lt;a-7&gt;     tab_open 7
+<a href="#l521" class="line" id="l521">    521</a> map &lt;a-8&gt;     tab_open 8
+<a href="#l522" class="line" id="l522">    522</a> map &lt;a-9&gt;     tab_open 9
+<a href="#l523" class="line" id="l523">    523</a> map &lt;a-r&gt;     tab_shift 1
+<a href="#l524" class="line" id="l524">    524</a> map &lt;a-l&gt;     tab_shift -1
+<a href="#l525" class="line" id="l525">    525</a> 
+<a href="#l526" class="line" id="l526">    526</a> # Sorting
+<a href="#l527" class="line" id="l527">    527</a> map or set sort_reverse!
+<a href="#l528" class="line" id="l528">    528</a> map oz set sort=random
+<a href="#l529" class="line" id="l529">    529</a> map os chain set sort=size;      set sort_reverse=False
+<a href="#l530" class="line" id="l530">    530</a> map ob chain set sort=basename;  set sort_reverse=False
+<a href="#l531" class="line" id="l531">    531</a> map on chain set sort=natural;   set sort_reverse=False
+<a href="#l532" class="line" id="l532">    532</a> map om chain set sort=mtime;     set sort_reverse=False
+<a href="#l533" class="line" id="l533">    533</a> map oc chain set sort=ctime;     set sort_reverse=False
+<a href="#l534" class="line" id="l534">    534</a> map oa chain set sort=atime;     set sort_reverse=False
+<a href="#l535" class="line" id="l535">    535</a> map ot chain set sort=type;      set sort_reverse=False
+<a href="#l536" class="line" id="l536">    536</a> map oe chain set sort=extension; set sort_reverse=False
+<a href="#l537" class="line" id="l537">    537</a> 
+<a href="#l538" class="line" id="l538">    538</a> map oS chain set sort=size;      set sort_reverse=True
+<a href="#l539" class="line" id="l539">    539</a> map oB chain set sort=basename;  set sort_reverse=True
+<a href="#l540" class="line" id="l540">    540</a> map oN chain set sort=natural;   set sort_reverse=True
+<a href="#l541" class="line" id="l541">    541</a> map oM chain set sort=mtime;     set sort_reverse=True
+<a href="#l542" class="line" id="l542">    542</a> map oC chain set sort=ctime;     set sort_reverse=True
+<a href="#l543" class="line" id="l543">    543</a> map oA chain set sort=atime;     set sort_reverse=True
+<a href="#l544" class="line" id="l544">    544</a> map oT chain set sort=type;      set sort_reverse=True
+<a href="#l545" class="line" id="l545">    545</a> map oE chain set sort=extension; set sort_reverse=True
+<a href="#l546" class="line" id="l546">    546</a> 
+<a href="#l547" class="line" id="l547">    547</a> map dc get_cumulative_size
+<a href="#l548" class="line" id="l548">    548</a> 
+<a href="#l549" class="line" id="l549">    549</a> # Settings
+<a href="#l550" class="line" id="l550">    550</a> map zc    set collapse_preview!
+<a href="#l551" class="line" id="l551">    551</a> map zd    set sort_directories_first!
+<a href="#l552" class="line" id="l552">    552</a> map zh    set show_hidden!
+<a href="#l553" class="line" id="l553">    553</a> map &lt;C-h&gt; set show_hidden!
+<a href="#l554" class="line" id="l554">    554</a> copymap &lt;C-h&gt; &lt;backspace&gt;
+<a href="#l555" class="line" id="l555">    555</a> copymap &lt;backspace&gt; &lt;backspace2&gt;
+<a href="#l556" class="line" id="l556">    556</a> map zI    set flushinput!
+<a href="#l557" class="line" id="l557">    557</a> map zi    set preview_images!
+<a href="#l558" class="line" id="l558">    558</a> map zm    set mouse_enabled!
+<a href="#l559" class="line" id="l559">    559</a> map zp    set preview_files!
+<a href="#l560" class="line" id="l560">    560</a> map zP    set preview_directories!
+<a href="#l561" class="line" id="l561">    561</a> map zs    set sort_case_insensitive!
+<a href="#l562" class="line" id="l562">    562</a> map zu    set autoupdate_cumulative_size!
+<a href="#l563" class="line" id="l563">    563</a> map zv    set use_preview_script!
+<a href="#l564" class="line" id="l564">    564</a> map zf    console filter%space
+<a href="#l565" class="line" id="l565">    565</a> copymap zf zz
+<a href="#l566" class="line" id="l566">    566</a> 
+<a href="#l567" class="line" id="l567">    567</a> # Filter stack
+<a href="#l568" class="line" id="l568">    568</a> map .n console filter_stack add name%space
+<a href="#l569" class="line" id="l569">    569</a> map .m console filter_stack add mime%space
+<a href="#l570" class="line" id="l570">    570</a> map .d filter_stack add type d
+<a href="#l571" class="line" id="l571">    571</a> map .f filter_stack add type f
+<a href="#l572" class="line" id="l572">    572</a> map .l filter_stack add type l
+<a href="#l573" class="line" id="l573">    573</a> map .| filter_stack add or
+<a href="#l574" class="line" id="l574">    574</a> map .&amp; filter_stack add and
+<a href="#l575" class="line" id="l575">    575</a> map .! filter_stack add not
+<a href="#l576" class="line" id="l576">    576</a> map .r console filter_stack rotate
+<a href="#l577" class="line" id="l577">    577</a> map .c filter_stack clear
+<a href="#l578" class="line" id="l578">    578</a> map .* filter_stack decompose
+<a href="#l579" class="line" id="l579">    579</a> map .p filter_stack pop
+<a href="#l580" class="line" id="l580">    580</a> map .. filter_stack show
+<a href="#l581" class="line" id="l581">    581</a> 
+<a href="#l582" class="line" id="l582">    582</a> # Bookmarks
+<a href="#l583" class="line" id="l583">    583</a> map `&lt;any&gt;  enter_bookmark %any
+<a href="#l584" class="line" id="l584">    584</a> map &#39;&lt;any&gt;  enter_bookmark %any
+<a href="#l585" class="line" id="l585">    585</a> map m&lt;any&gt;  set_bookmark %any
+<a href="#l586" class="line" id="l586">    586</a> map um&lt;any&gt; unset_bookmark %any
+<a href="#l587" class="line" id="l587">    587</a> 
+<a href="#l588" class="line" id="l588">    588</a> map m&lt;bg&gt;   draw_bookmarks
+<a href="#l589" class="line" id="l589">    589</a> copymap m&lt;bg&gt;  um&lt;bg&gt; `&lt;bg&gt; &#39;&lt;bg&gt;
+<a href="#l590" class="line" id="l590">    590</a> 
+<a href="#l591" class="line" id="l591">    591</a> # Generate all the chmod bindings with some python help:
+<a href="#l592" class="line" id="l592">    592</a> eval for arg in &quot;rwxXst&quot;: cmd(&quot;map +u{0} shell -f chmod u+{0} %s&quot;.format(arg))
+<a href="#l593" class="line" id="l593">    593</a> eval for arg in &quot;rwxXst&quot;: cmd(&quot;map +g{0} shell -f chmod g+{0} %s&quot;.format(arg))
+<a href="#l594" class="line" id="l594">    594</a> eval for arg in &quot;rwxXst&quot;: cmd(&quot;map +o{0} shell -f chmod o+{0} %s&quot;.format(arg))
+<a href="#l595" class="line" id="l595">    595</a> eval for arg in &quot;rwxXst&quot;: cmd(&quot;map +a{0} shell -f chmod a+{0} %s&quot;.format(arg))
+<a href="#l596" class="line" id="l596">    596</a> eval for arg in &quot;rwxXst&quot;: cmd(&quot;map +{0}  shell -f chmod u+{0} %s&quot;.format(arg))
+<a href="#l597" class="line" id="l597">    597</a> 
+<a href="#l598" class="line" id="l598">    598</a> eval for arg in &quot;rwxXst&quot;: cmd(&quot;map -u{0} shell -f chmod u-{0} %s&quot;.format(arg))
+<a href="#l599" class="line" id="l599">    599</a> eval for arg in &quot;rwxXst&quot;: cmd(&quot;map -g{0} shell -f chmod g-{0} %s&quot;.format(arg))
+<a href="#l600" class="line" id="l600">    600</a> eval for arg in &quot;rwxXst&quot;: cmd(&quot;map -o{0} shell -f chmod o-{0} %s&quot;.format(arg))
+<a href="#l601" class="line" id="l601">    601</a> eval for arg in &quot;rwxXst&quot;: cmd(&quot;map -a{0} shell -f chmod a-{0} %s&quot;.format(arg))
+<a href="#l602" class="line" id="l602">    602</a> eval for arg in &quot;rwxXst&quot;: cmd(&quot;map -{0}  shell -f chmod u-{0} %s&quot;.format(arg))
+<a href="#l603" class="line" id="l603">    603</a> 
+<a href="#l604" class="line" id="l604">    604</a> # ===================================================================
+<a href="#l605" class="line" id="l605">    605</a> # == Define keys for the console
+<a href="#l606" class="line" id="l606">    606</a> # ===================================================================
+<a href="#l607" class="line" id="l607">    607</a> # Note: Unmapped keys are passed directly to the console.
+<a href="#l608" class="line" id="l608">    608</a> 
+<a href="#l609" class="line" id="l609">    609</a> # Basic
+<a href="#l610" class="line" id="l610">    610</a> cmap &lt;tab&gt;   eval fm.ui.console.tab()
+<a href="#l611" class="line" id="l611">    611</a> cmap &lt;s-tab&gt; eval fm.ui.console.tab(-1)
+<a href="#l612" class="line" id="l612">    612</a> cmap &lt;ESC&gt;   eval fm.ui.console.close()
+<a href="#l613" class="line" id="l613">    613</a> cmap &lt;CR&gt;    eval fm.ui.console.execute()
+<a href="#l614" class="line" id="l614">    614</a> cmap &lt;C-l&gt;   redraw_window
+<a href="#l615" class="line" id="l615">    615</a> 
+<a href="#l616" class="line" id="l616">    616</a> copycmap &lt;ESC&gt; &lt;C-c&gt;
+<a href="#l617" class="line" id="l617">    617</a> copycmap &lt;CR&gt;  &lt;C-j&gt;
+<a href="#l618" class="line" id="l618">    618</a> 
+<a href="#l619" class="line" id="l619">    619</a> # Move around
+<a href="#l620" class="line" id="l620">    620</a> cmap &lt;up&gt;    eval fm.ui.console.history_move(-1)
+<a href="#l621" class="line" id="l621">    621</a> cmap &lt;down&gt;  eval fm.ui.console.history_move(1)
+<a href="#l622" class="line" id="l622">    622</a> cmap &lt;left&gt;  eval fm.ui.console.move(left=1)
+<a href="#l623" class="line" id="l623">    623</a> cmap &lt;right&gt; eval fm.ui.console.move(right=1)
+<a href="#l624" class="line" id="l624">    624</a> cmap &lt;home&gt;  eval fm.ui.console.move(right=0, absolute=True)
+<a href="#l625" class="line" id="l625">    625</a> cmap &lt;end&gt;   eval fm.ui.console.move(right=-1, absolute=True)
+<a href="#l626" class="line" id="l626">    626</a> cmap &lt;a-b&gt; eval fm.ui.console.move_word(left=1)
+<a href="#l627" class="line" id="l627">    627</a> cmap &lt;a-f&gt; eval fm.ui.console.move_word(right=1)
+<a href="#l628" class="line" id="l628">    628</a> 
+<a href="#l629" class="line" id="l629">    629</a> copycmap &lt;a-b&gt; &lt;a-left&gt;
+<a href="#l630" class="line" id="l630">    630</a> copycmap &lt;a-f&gt; &lt;a-right&gt;
+<a href="#l631" class="line" id="l631">    631</a> 
+<a href="#l632" class="line" id="l632">    632</a> # Line Editing
+<a href="#l633" class="line" id="l633">    633</a> cmap &lt;backspace&gt;  eval fm.ui.console.delete(-1)
+<a href="#l634" class="line" id="l634">    634</a> cmap &lt;delete&gt;     eval fm.ui.console.delete(0)
+<a href="#l635" class="line" id="l635">    635</a> cmap &lt;C-w&gt;        eval fm.ui.console.delete_word()
+<a href="#l636" class="line" id="l636">    636</a> cmap &lt;A-d&gt;        eval fm.ui.console.delete_word(backward=False)
+<a href="#l637" class="line" id="l637">    637</a> cmap &lt;C-k&gt;        eval fm.ui.console.delete_rest(1)
+<a href="#l638" class="line" id="l638">    638</a> cmap &lt;C-u&gt;        eval fm.ui.console.delete_rest(-1)
+<a href="#l639" class="line" id="l639">    639</a> cmap &lt;C-y&gt;        eval fm.ui.console.paste()
+<a href="#l640" class="line" id="l640">    640</a> 
+<a href="#l641" class="line" id="l641">    641</a> # And of course the emacs way
+<a href="#l642" class="line" id="l642">    642</a> copycmap &lt;ESC&gt;       &lt;C-g&gt;
+<a href="#l643" class="line" id="l643">    643</a> copycmap &lt;up&gt;        &lt;C-p&gt;
+<a href="#l644" class="line" id="l644">    644</a> copycmap &lt;down&gt;      &lt;C-n&gt;
+<a href="#l645" class="line" id="l645">    645</a> copycmap &lt;left&gt;      &lt;C-b&gt;
+<a href="#l646" class="line" id="l646">    646</a> copycmap &lt;right&gt;     &lt;C-f&gt;
+<a href="#l647" class="line" id="l647">    647</a> copycmap &lt;home&gt;      &lt;C-a&gt;
+<a href="#l648" class="line" id="l648">    648</a> copycmap &lt;end&gt;       &lt;C-e&gt;
+<a href="#l649" class="line" id="l649">    649</a> copycmap &lt;delete&gt;    &lt;C-d&gt;
+<a href="#l650" class="line" id="l650">    650</a> copycmap &lt;backspace&gt; &lt;C-h&gt;
+<a href="#l651" class="line" id="l651">    651</a> 
+<a href="#l652" class="line" id="l652">    652</a> # Note: There are multiple ways to express backspaces.  &lt;backspace&gt; (code 263)
+<a href="#l653" class="line" id="l653">    653</a> # and &lt;backspace2&gt; (code 127).  To be sure, use both.
+<a href="#l654" class="line" id="l654">    654</a> copycmap &lt;backspace&gt; &lt;backspace2&gt;
+<a href="#l655" class="line" id="l655">    655</a> 
+<a href="#l656" class="line" id="l656">    656</a> # This special expression allows typing in numerals:
+<a href="#l657" class="line" id="l657">    657</a> cmap &lt;allow_quantifiers&gt; false
+<a href="#l658" class="line" id="l658">    658</a> 
+<a href="#l659" class="line" id="l659">    659</a> # ===================================================================
+<a href="#l660" class="line" id="l660">    660</a> # == Pager Keybindings
+<a href="#l661" class="line" id="l661">    661</a> # ===================================================================
+<a href="#l662" class="line" id="l662">    662</a> 
+<a href="#l663" class="line" id="l663">    663</a> # Movement
+<a href="#l664" class="line" id="l664">    664</a> pmap  &lt;down&gt;      pager_move  down=1
+<a href="#l665" class="line" id="l665">    665</a> pmap  &lt;up&gt;        pager_move  up=1
+<a href="#l666" class="line" id="l666">    666</a> pmap  &lt;left&gt;      pager_move  left=4
+<a href="#l667" class="line" id="l667">    667</a> pmap  &lt;right&gt;     pager_move  right=4
+<a href="#l668" class="line" id="l668">    668</a> pmap  &lt;home&gt;      pager_move  to=0
+<a href="#l669" class="line" id="l669">    669</a> pmap  &lt;end&gt;       pager_move  to=-1
+<a href="#l670" class="line" id="l670">    670</a> pmap  &lt;pagedown&gt;  pager_move  down=1.0  pages=True
+<a href="#l671" class="line" id="l671">    671</a> pmap  &lt;pageup&gt;    pager_move  up=1.0    pages=True
+<a href="#l672" class="line" id="l672">    672</a> pmap  &lt;C-d&gt;       pager_move  down=0.5  pages=True
+<a href="#l673" class="line" id="l673">    673</a> pmap  &lt;C-u&gt;       pager_move  up=0.5    pages=True
+<a href="#l674" class="line" id="l674">    674</a> 
+<a href="#l675" class="line" id="l675">    675</a> copypmap &lt;UP&gt;       k  &lt;C-p&gt;
+<a href="#l676" class="line" id="l676">    676</a> copypmap &lt;DOWN&gt;     j  &lt;C-n&gt; &lt;CR&gt;
+<a href="#l677" class="line" id="l677">    677</a> copypmap &lt;LEFT&gt;     h
+<a href="#l678" class="line" id="l678">    678</a> copypmap &lt;RIGHT&gt;    l
+<a href="#l679" class="line" id="l679">    679</a> copypmap &lt;HOME&gt;     g
+<a href="#l680" class="line" id="l680">    680</a> copypmap &lt;END&gt;      G
+<a href="#l681" class="line" id="l681">    681</a> copypmap &lt;C-d&gt;      d
+<a href="#l682" class="line" id="l682">    682</a> copypmap &lt;C-u&gt;      u
+<a href="#l683" class="line" id="l683">    683</a> copypmap &lt;PAGEDOWN&gt; n  f  &lt;C-F&gt;  &lt;Space&gt;
+<a href="#l684" class="line" id="l684">    684</a> copypmap &lt;PAGEUP&gt;   p  b  &lt;C-B&gt;
+<a href="#l685" class="line" id="l685">    685</a> 
+<a href="#l686" class="line" id="l686">    686</a> # Basic
+<a href="#l687" class="line" id="l687">    687</a> pmap     &lt;C-l&gt; redraw_window
+<a href="#l688" class="line" id="l688">    688</a> pmap     &lt;ESC&gt; pager_close
+<a href="#l689" class="line" id="l689">    689</a> copypmap &lt;ESC&gt; q Q i &lt;F3&gt;
+<a href="#l690" class="line" id="l690">    690</a> pmap E      edit_file
+<a href="#l691" class="line" id="l691">    691</a> 
+<a href="#l692" class="line" id="l692">    692</a> # ===================================================================
+<a href="#l693" class="line" id="l693">    693</a> # == Taskview Keybindings
+<a href="#l694" class="line" id="l694">    694</a> # ===================================================================
+<a href="#l695" class="line" id="l695">    695</a> 
+<a href="#l696" class="line" id="l696">    696</a> # Movement
+<a href="#l697" class="line" id="l697">    697</a> tmap &lt;up&gt;        taskview_move up=1
+<a href="#l698" class="line" id="l698">    698</a> tmap &lt;down&gt;      taskview_move down=1
+<a href="#l699" class="line" id="l699">    699</a> tmap &lt;home&gt;      taskview_move to=0
+<a href="#l700" class="line" id="l700">    700</a> tmap &lt;end&gt;       taskview_move to=-1
+<a href="#l701" class="line" id="l701">    701</a> tmap &lt;pagedown&gt;  taskview_move down=1.0  pages=True
+<a href="#l702" class="line" id="l702">    702</a> tmap &lt;pageup&gt;    taskview_move up=1.0    pages=True
+<a href="#l703" class="line" id="l703">    703</a> tmap &lt;C-d&gt;       taskview_move down=0.5  pages=True
+<a href="#l704" class="line" id="l704">    704</a> tmap &lt;C-u&gt;       taskview_move up=0.5    pages=True
+<a href="#l705" class="line" id="l705">    705</a> 
+<a href="#l706" class="line" id="l706">    706</a> copytmap &lt;UP&gt;       k  &lt;C-p&gt;
+<a href="#l707" class="line" id="l707">    707</a> copytmap &lt;DOWN&gt;     j  &lt;C-n&gt; &lt;CR&gt;
+<a href="#l708" class="line" id="l708">    708</a> copytmap &lt;HOME&gt;     g
+<a href="#l709" class="line" id="l709">    709</a> copytmap &lt;END&gt;      G
+<a href="#l710" class="line" id="l710">    710</a> copytmap &lt;C-u&gt;      u
+<a href="#l711" class="line" id="l711">    711</a> copytmap &lt;PAGEDOWN&gt; n  f  &lt;C-F&gt;  &lt;Space&gt;
+<a href="#l712" class="line" id="l712">    712</a> copytmap &lt;PAGEUP&gt;   p  b  &lt;C-B&gt;
+<a href="#l713" class="line" id="l713">    713</a> 
+<a href="#l714" class="line" id="l714">    714</a> # Changing priority and deleting tasks
+<a href="#l715" class="line" id="l715">    715</a> tmap J          eval -q fm.ui.taskview.task_move(-1)
+<a href="#l716" class="line" id="l716">    716</a> tmap K          eval -q fm.ui.taskview.task_move(0)
+<a href="#l717" class="line" id="l717">    717</a> tmap dd         eval -q fm.ui.taskview.task_remove()
+<a href="#l718" class="line" id="l718">    718</a> tmap &lt;pagedown&gt; eval -q fm.ui.taskview.task_move(-1)
+<a href="#l719" class="line" id="l719">    719</a> tmap &lt;pageup&gt;   eval -q fm.ui.taskview.task_move(0)
+<a href="#l720" class="line" id="l720">    720</a> tmap &lt;delete&gt;   eval -q fm.ui.taskview.task_remove()
+<a href="#l721" class="line" id="l721">    721</a> 
+<a href="#l722" class="line" id="l722">    722</a> # Basic
+<a href="#l723" class="line" id="l723">    723</a> tmap &lt;C-l&gt; redraw_window
+<a href="#l724" class="line" id="l724">    724</a> tmap &lt;ESC&gt; taskview_close
+<a href="#l725" class="line" id="l725">    725</a> copytmap &lt;ESC&gt; q Q w &lt;C-c&gt;
+</pre>
+</div>
+</body>
+</html>

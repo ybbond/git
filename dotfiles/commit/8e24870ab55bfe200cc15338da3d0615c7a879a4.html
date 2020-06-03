@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feat: README.md - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/8e24870ab55bfe200cc15338da3d0615c7a879a4.html">8e24870ab55bfe200cc15338da3d0615c7a879a4</a>
+<b>parent</b> <a href="../commit/728c25827612cc3c8cf128cb344c44c090adf2ac.html">728c25827612cc3c8cf128cb344c44c090adf2ac</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 19 May 2020 02:58:22 +0700
+
+feat: README.md
+
+<b>Diffstat:</b>
+<table><tr><td class="A">A</td><td><a href="#h0">README.md</a></td><td> | </td><td class="num">82</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>1 file changed, 82 insertions(<span id="plus">+</span>), 0 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/README.md.html">README.md</a> b/<a href="../file/README.md.html">README.md</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -0,0 +1,82 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+# Git Setup Dotfiles
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+## Setting Up
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+assuming you use Z Shell. If not, change `.zshrc` to your specific shell&#39;s config file (e.g `.bashrc` for Bash, or `config/fish/config.fish` for fish shell)
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+```sh
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+git init --bare $HOME/.cfg
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+alias config=&#39;/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME&#39;
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+config config --local status.showUntrackedFiles no
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+echo &quot;alias config=&#39;/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME&#39;&quot; &gt;&gt; $HOME/.zshrc
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+```
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+example commands:
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+```sh
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+config status
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+config add .vimrc
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+config commit -m &quot;feat: update .vimrc&quot;
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+config push
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+```
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+## Importing
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+on a new system you can migrate to this setup. Prior installation, make sure you have committed the alias to your shell config file:
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+```sh
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+alias config=&#39;/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME&#39;
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+```
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+And that your source repository ignores the folder where you&#39;ll clone it, so that you don&#39;t create weird recursion problems:
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+```sh
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+echo &quot;.cfg&quot; &gt;&gt; .gitignore
+</a><a href="#h0-0-35" id="h0-0-35" class="i">+```
+</a><a href="#h0-0-36" id="h0-0-36" class="i">+
+</a><a href="#h0-0-37" id="h0-0-37" class="i">+Now clone your dotfiles into a bare repository in a &quot;dot&quot; folder of your `$HOME`:
+</a><a href="#h0-0-38" id="h0-0-38" class="i">+
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+```sh
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+git clone --bare &lt;git-repo-url&gt; $HOME/.cfg
+</a><a href="#h0-0-41" id="h0-0-41" class="i">+```
+</a><a href="#h0-0-42" id="h0-0-42" class="i">+
+</a><a href="#h0-0-43" id="h0-0-43" class="i">+Define the alias in the current shell scope:
+</a><a href="#h0-0-44" id="h0-0-44" class="i">+
+</a><a href="#h0-0-45" id="h0-0-45" class="i">+```sh
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+alias config=&#39;/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME&#39;
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+```
+</a><a href="#h0-0-48" id="h0-0-48" class="i">+
+</a><a href="#h0-0-49" id="h0-0-49" class="i">+Checkout the actual content from the bare repository to your `${HOME}`:
+</a><a href="#h0-0-50" id="h0-0-50" class="i">+
+</a><a href="#h0-0-51" id="h0-0-51" class="i">+```sh
+</a><a href="#h0-0-52" id="h0-0-52" class="i">+config checkout
+</a><a href="#h0-0-53" id="h0-0-53" class="i">+```
+</a><a href="#h0-0-54" id="h0-0-54" class="i">+
+</a><a href="#h0-0-55" id="h0-0-55" class="i">+
+</a><a href="#h0-0-56" id="h0-0-56" class="i">+The step above might fail with a message like:
+</a><a href="#h0-0-57" id="h0-0-57" class="i">+
+</a><a href="#h0-0-58" id="h0-0-58" class="i">+```sh
+</a><a href="#h0-0-59" id="h0-0-59" class="i">+error: The following untracked working tree files would be overwritten by checkout:
+</a><a href="#h0-0-60" id="h0-0-60" class="i">+    .bashrc
+</a><a href="#h0-0-61" id="h0-0-61" class="i">+    .gitignore
+</a><a href="#h0-0-62" id="h0-0-62" class="i">+Please move or remove them before you can switch branches.
+</a><a href="#h0-0-63" id="h0-0-63" class="i">+Aborting
+</a><a href="#h0-0-64" id="h0-0-64" class="i">+```
+</a><a href="#h0-0-65" id="h0-0-65" class="i">+
+</a><a href="#h0-0-66" id="h0-0-66" class="i">+This is because your `$HOME` folder might already have some stock configuration files which would be overwritten by Git. The solution is simple, back up the files if you care about them, remove them if you don&#39;t care. I provide you with a possible rough shortcut to move all the offending files automatically to a backup folder:
+</a><a href="#h0-0-67" id="h0-0-67" class="i">+
+</a><a href="#h0-0-68" id="h0-0-68" class="i">+```sh
+</a><a href="#h0-0-69" id="h0-0-69" class="i">+mkdir -p .config-backup &amp;&amp; \
+</a><a href="#h0-0-70" id="h0-0-70" class="i">+config checkout 2&gt;&amp;1 | egrep &quot;\s+\.&quot; | awk {&#39;print $1&#39;} | \
+</a><a href="#h0-0-71" id="h0-0-71" class="i">+xargs -I{} mv {} .config-backup/{}
+</a><a href="#h0-0-72" id="h0-0-72" class="i">+```
+</a><a href="#h0-0-73" id="h0-0-73" class="i">+
+</a><a href="#h0-0-74" id="h0-0-74" class="i">+Rerun the init:
+</a><a href="#h0-0-75" id="h0-0-75" class="i">+
+</a><a href="#h0-0-76" id="h0-0-76" class="i">+```sh
+</a><a href="#h0-0-77" id="h0-0-77" class="i">+config checkout
+</a><a href="#h0-0-78" id="h0-0-78" class="i">+config config --local status.showUntrackedFiles no
+</a><a href="#h0-0-79" id="h0-0-79" class="i">+```
+</a><a href="#h0-0-80" id="h0-0-80" class="i">+
+</a><a href="#h0-0-81" id="h0-0-81" class="i">+Now, you&#39;re ready to come `${HOME}`  🏠
+</a></pre>
+</div>
+</div>
+</body>
+</html>

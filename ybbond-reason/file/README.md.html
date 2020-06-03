@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>README.md - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> README.md (2093B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> # reason-ybbond
+<a href="#l2" class="line" id="l2">      2</a> 
+<a href="#l3" class="line" id="l3">      3</a> I tried remaking my personal website using [REasonREact](https://reasonml.github.io/reason-react/)
+<a href="#l4" class="line" id="l4">      4</a> 
+<a href="#l5" class="line" id="l5">      5</a> previously, it is this website [ybbond.dev](https://ybbond.github.io)
+<a href="#l6" class="line" id="l6">      6</a> 
+<a href="#l7" class="line" id="l7">      7</a> 
+<a href="#l8" class="line" id="l8">      8</a> ## Contributing
+<a href="#l9" class="line" id="l9">      9</a> 
+<a href="#l10" class="line" id="l10">     10</a> ```sh
+<a href="#l11" class="line" id="l11">     11</a> git clone https://github.com/ybbond/ybbond-reason &amp;&amp; cd ybbond-reason
+<a href="#l12" class="line" id="l12">     12</a> yarn install
+<a href="#l13" class="line" id="l13">     13</a> yarn start
+<a href="#l14" class="line" id="l14">     14</a> # in another tab
+<a href="#l15" class="line" id="l15">     15</a> yarn run webpack
+<a href="#l16" class="line" id="l16">     16</a> ```
+<a href="#l17" class="line" id="l17">     17</a> 
+<a href="#l18" class="line" id="l18">     18</a> After you see the webpack compilation succeed (the `yarn run webpack` step), open up `build/index.html` (**no server needed!**). Then modify whichever `.re` file in `src` and refresh the page to see the changes.
+<a href="#l19" class="line" id="l19">     19</a> 
+<a href="#l20" class="line" id="l20">     20</a> **For more elaborate ReasonReact examples**, please see https://github.com/reasonml-community/reason-react-example
+<a href="#l21" class="line" id="l21">     21</a> 
+<a href="#l22" class="line" id="l22">     22</a> ## Run Project with Server
+<a href="#l23" class="line" id="l23">     23</a> 
+<a href="#l24" class="line" id="l24">     24</a> To run with the webpack development server run `yarn run server` and view in the browser at http://localhost:8000. Running in this environment provides hot reloading and support for routing; just edit and save the file and the browser will automatically refresh.
+<a href="#l25" class="line" id="l25">     25</a> 
+<a href="#l26" class="line" id="l26">     26</a> Note that any hot reload on a route will fall back to the root (`/`), so `ReasonReact.Router.dangerouslyGetInitialUrl` will likely be needed alongside the `ReasonReact.Router.watchUrl` logic to handle routing correctly on hot reload refreshes or simply opening the app at a URL that is not the root.
+<a href="#l27" class="line" id="l27">     27</a> 
+<a href="#l28" class="line" id="l28">     28</a> To use a port other than 8000 set the `PORT` environment variable (`PORT=8080 yarn run server`).
+<a href="#l29" class="line" id="l29">     29</a> 
+<a href="#l30" class="line" id="l30">     30</a> ## Build for Production
+<a href="#l31" class="line" id="l31">     31</a> 
+<a href="#l32" class="line" id="l32">     32</a> ```sh
+<a href="#l33" class="line" id="l33">     33</a> yarn run clean
+<a href="#l34" class="line" id="l34">     34</a> yarn run build
+<a href="#l35" class="line" id="l35">     35</a> yarn run webpack:production
+<a href="#l36" class="line" id="l36">     36</a> ```
+<a href="#l37" class="line" id="l37">     37</a> 
+<a href="#l38" class="line" id="l38">     38</a> This will replace the development artifact `build/Index.js` for an optimized version as well as copy `src/index.html` into `build/`. You can then deploy the contents of the `build` directory (`index.html` and `Index.js`).
+<a href="#l39" class="line" id="l39">     39</a> 
+<a href="#l40" class="line" id="l40">     40</a> If you make use of routing (via `ReasonReact.Router` or similar logic) ensure that server-side routing handles your routes or that 404&#39;s are directed back to `index.html` (which is how the dev server is set up).
+<a href="#l41" class="line" id="l41">     41</a> 
+<a href="#l42" class="line" id="l42">     42</a> **To enable dead code elimination**, change `bsconfig.json`&#39;s `package-specs` `module` from `&quot;commonjs&quot;` to `&quot;es6&quot;`. Then re-run the above 2 commands. This will allow Webpack to remove unused code.
+</pre>
+</div>
+</body>
+</html>

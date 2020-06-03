@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(core): header and footer :) - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/882d94b367a5ce380ea74d5ac52ac162f1741774.html">882d94b367a5ce380ea74d5ac52ac162f1741774</a>
+<b>parent</b> <a href="../commit/06d6f63fc6141ea38fb70a1a7b3d5b4132ee1b93.html">06d6f63fc6141ea38fb70a1a7b3d5b4132ee1b93</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 10 Mar 2020 02:44:21 +0700
+
+refactor(core): header and footer :)
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/App.js</a></td><td> | </td><td class="num">42</td><td><span class="i">++++++++++++++++++++++++++++++++++++</span><span class="d">------</span></td></tr>
+</table></pre></div><p>1 file changed, 36 insertions(<span id="plus">+</span>), 6 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/App.js.html">src/App.js</a> b/<a href="../file/src/App.js.html">src/App.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -19,6 +19,11 @@ const backgroundColor = theme(&#39;mode&#39;, {
+</a>   dark: colors.dark,
+ });
+ 
+<a href="#h0-0-3" id="h0-0-3" class="i">+const borderColor = theme(&#39;mode&#39;, {
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  light: colors.dark,
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+  dark: colors.light,
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+});
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+
+</a> const OuterWrapper = styled.div`
+   min-height: calc(100vh - 2px);
+   background-color: ${backgroundColor};
+<a href="#h0-1" id="h0-1" class="h">@@ -34,6 +39,16 @@ const InnerWrapper = styled.div`
+</a>   }
+ `;
+ 
+<a href="#h0-1-3" id="h0-1-3" class="i">+const Header = styled.header`
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+  margin-bottom: 30px;
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+`;
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+const Footer = styled.footer`
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+  margin-top: 70px;
+</a><a href="#h0-1-9" id="h0-1-9" class="i">+  padding: 20px 0;
+</a><a href="#h0-1-10" id="h0-1-10" class="i">+  border-top: 2px dashed ${borderColor};
+</a><a href="#h0-1-11" id="h0-1-11" class="i">+`;
+</a><a href="#h0-1-12" id="h0-1-12" class="i">+
+</a> const App = () =&gt; {
+   const [dark, setDark] = React.useState(true);
+ 
+<a href="#h0-2" id="h0-2" class="h">@@ -53,16 +68,18 @@ const App = () =&gt; {
+</a>       &lt;Style dark={dark} /&gt;
+       &lt;OuterWrapper&gt;
+         &lt;InnerWrapper&gt;
+<a href="#h0-2-3" id="h0-2-3" class="d">-          &lt;Text as=&quot;h1&quot;&gt;
+</a><a href="#h0-2-4" id="h0-2-4" class="d">-            Yohanes Bandung Bondowoso{&#39; &#39;}
+</a><a href="#h0-2-5" id="h0-2-5" class="d">-            &lt;Button aria-hidden=&quot;true&quot; onClick={toggleDark}&gt;
+</a><a href="#h0-2-6" id="h0-2-6" class="d">-              {dark ? &#39;🌛&#39; : &#39;🌞&#39;}
+</a><a href="#h0-2-7" id="h0-2-7" class="d">-            &lt;/Button&gt;
+</a><a href="#h0-2-8" id="h0-2-8" class="d">-          &lt;/Text&gt;
+</a><a href="#h0-2-9" id="h0-2-9" class="i">+          &lt;Header&gt;
+</a><a href="#h0-2-10" id="h0-2-10" class="i">+            &lt;Text as=&quot;h1&quot;&gt;
+</a><a href="#h0-2-11" id="h0-2-11" class="i">+              Yohanes Bandung Bondowoso{&#39; &#39;}
+</a><a href="#h0-2-12" id="h0-2-12" class="i">+              &lt;Button aria-hidden=&quot;true&quot; onClick={toggleDark}&gt;
+</a><a href="#h0-2-13" id="h0-2-13" class="i">+                {dark ? &#39;🌛&#39; : &#39;🌞&#39;}
+</a><a href="#h0-2-14" id="h0-2-14" class="i">+              &lt;/Button&gt;
+</a><a href="#h0-2-15" id="h0-2-15" class="i">+            &lt;/Text&gt;
+</a>             &lt;Text&gt;
+               &lt;Link to=&quot;/&quot;&gt;CV&lt;/Link&gt; - &lt;Link to=&quot;/uses&quot;&gt;Uses&lt;/Link&gt; -{&#39; &#39;}
+               &lt;Link to=&quot;/about&quot;&gt;About&lt;/Link&gt;
+             &lt;/Text&gt;
+<a href="#h0-2-20" id="h0-2-20" class="i">+          &lt;/Header&gt;
+</a>           &lt;Switch&gt;
+             &lt;Route exact path=&quot;/&quot;&gt;
+               &lt;CVPage /&gt;
+<a href="#h0-3" id="h0-3" class="h">@@ -77,6 +94,19 @@ const App = () =&gt; {
+</a>               &lt;NotFoundPage /&gt;
+             &lt;/Route&gt;
+           &lt;/Switch&gt;
+<a href="#h0-3-3" id="h0-3-3" class="i">+          &lt;Footer&gt;
+</a><a href="#h0-3-4" id="h0-3-4" class="i">+            &lt;Text&gt;See you sooner :)&lt;/Text&gt;
+</a><a href="#h0-3-5" id="h0-3-5" class="i">+            &lt;Text&gt;
+</a><a href="#h0-3-6" id="h0-3-6" class="i">+              Contact:{&#39; &#39;}
+</a><a href="#h0-3-7" id="h0-3-7" class="i">+              &lt;Link to=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;&gt;
+</a><a href="#h0-3-8" id="h0-3-8" class="i">+                bandungpenting@gmail.com
+</a><a href="#h0-3-9" id="h0-3-9" class="i">+              &lt;/Link&gt;
+</a><a href="#h0-3-10" id="h0-3-10" class="i">+            &lt;/Text&gt;
+</a><a href="#h0-3-11" id="h0-3-11" class="i">+            &lt;Text&gt;
+</a><a href="#h0-3-12" id="h0-3-12" class="i">+              Other site:{&#39; &#39;}
+</a><a href="#h0-3-13" id="h0-3-13" class="i">+              &lt;Link to=&quot;https://reason.ybbond.dev&quot;&gt;reason.ybbond.dev&lt;/Link&gt;
+</a><a href="#h0-3-14" id="h0-3-14" class="i">+            &lt;/Text&gt;
+</a><a href="#h0-3-15" id="h0-3-15" class="i">+          &lt;/Footer&gt;
+</a>         &lt;/InnerWrapper&gt;
+       &lt;/OuterWrapper&gt;
+     &lt;/ThemeProvider&gt;
+</pre>
+</div>
+</div>
+</body>
+</html>

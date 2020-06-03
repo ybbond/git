@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Trying bs-json and bs-fetch to Publish My Gist as Blog.md - ybbond - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../../../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../../../index.html">Log</a> | <a href="../../../files.html">Files</a> | <a href="../../../refs.html">Refs</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> Trying bs-json and bs-fetch to Publish My Gist as Blog.md (3260B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> ---
+<a href="#l2" class="line" id="l2">      2</a> title: Trying bs-json and bs-fetch to Publish My Gist as Blog
+<a href="#l3" class="line" id="l3">      3</a> author: Yohanes Bandung Bondowoso
+<a href="#l4" class="line" id="l4">      4</a> description: How I spent 4 months to successfully fetch data from GitHub Gist to my blog.
+<a href="#l5" class="line" id="l5">      5</a> tags:
+<a href="#l6" class="line" id="l6">      6</a>   - webdev #webdev
+<a href="#l7" class="line" id="l7">      7</a>   - meta #meta
+<a href="#l8" class="line" id="l8">      8</a> date: 2020-03-03T01:47:12
+<a href="#l9" class="line" id="l9">      9</a> ---
+<a href="#l10" class="line" id="l10">     10</a> 
+<a href="#l11" class="line" id="l11">     11</a> **disclaimer: this is not a tutorial**
+<a href="#l12" class="line" id="l12">     12</a> 
+<a href="#l13" class="line" id="l13">     13</a> I read an interesting article (from a website that features a great function to see its articles&#39; revisions) about using GitHub Gist as a Blogging CMS. Here is [the post](https://bit.ly/2UForoW).
+<a href="#l14" class="line" id="l14">     14</a> 
+<a href="#l15" class="line" id="l15">     15</a> Back then, my website was written in ReasonReact, and back then, I thought that implementing my own blog by fetching my Gist is a nice way to learn `bs-fetch` and `bs-json`.
+<a href="#l16" class="line" id="l16">     16</a> 
+<a href="#l17" class="line" id="l17">     17</a> &gt; tldr; the result can be seen here [reason.ybbond.dev/blog](https://reason.ybbond.dev/blog)
+<a href="#l18" class="line" id="l18">     18</a> 
+<a href="#l19" class="line" id="l19">     19</a> ## Fun Moment
+<a href="#l20" class="line" id="l20">     20</a> Implementing `bs-fetch` was the easier of both, because I follow the example of HackerNews built with ReasonReact.
+<a href="#l21" class="line" id="l21">     21</a> 
+<a href="#l22" class="line" id="l22">     22</a> Implementing `bs-json` was the one that had me stuck for more than 3 months, and made me laugh at myself because the culprit was just an __underscore__ that I used to prevent using ReasonML&#39;s reserved keyword.
+<a href="#l23" class="line" id="l23">     23</a> 
+<a href="#l24" class="line" id="l24">     24</a> So, here the story goes...
+<a href="#l25" class="line" id="l25">     25</a> 
+<a href="#l26" class="line" id="l26">     26</a> When I first writing the code for parsing the return JSON value to valid ReasonML record, I was in a bit of a hurry. I wrote the kickstarting code in a cafe while my friend is ordering something. I encountered an error that I fixed easily. What a pity that I forgot what that error was. More of a pity is if I remember I encountered that error, I will not stuck for so long.
+<a href="#l27" class="line" id="l27">     27</a> 
+<a href="#l28" class="line" id="l28">     28</a> GitHub Gist endpoint gives verbose information about the gists, one of them is the type of the file&#39;s programming language. The return value store the file type as a value with object key `type`. ReasonML doesn&#39;t want its record key as string `type`, because it is a reserved keyword. So I made the key as `type_`. Error gone.
+<a href="#l29" class="line" id="l29">     29</a> 
+<a href="#l30" class="line" id="l30">     30</a> Then I stopped writing code for that time, and I forget the progress that I&#39;ve made.
+<a href="#l31" class="line" id="l31">     31</a> 
+<a href="#l32" class="line" id="l32">     32</a> Not so long, I return to continue the progress. After coding for several LoCs and minutes, I feel happy because the fetch can be done successfully. The weird thing is the JSON cannot be parsed, and there is no error.
+<a href="#l33" class="line" id="l33">     33</a> 
+<a href="#l34" class="line" id="l34">     34</a> I try to log the parsed value part-by-part, try to reread the code up-and-down, but cannot find the culprit of the bug.
+<a href="#l35" class="line" id="l35">     35</a> 
+<a href="#l36" class="line" id="l36">     36</a> ## Solution!
+<a href="#l37" class="line" id="l37">     37</a> 
+<a href="#l38" class="line" id="l38">     38</a> After 3 months or so, I tried to rewrite the code, side-by-side. The old code on the left, the new code on the right, and when I reached to the position of `type_` key, I realized that I am a stupid.
+<a href="#l39" class="line" id="l39">     39</a> 
+<a href="#l40" class="line" id="l40">     40</a> The record value expects `type_` key, while I forgot to parse the Gist&#39;s return value as `type_`. 😿	
+<a href="#l41" class="line" id="l41">     41</a> 
+<a href="#l42" class="line" id="l42">     42</a> Okay, I got bored writing this. Straight to the **conclusion** then!!
+<a href="#l43" class="line" id="l43">     43</a> 
+<a href="#l44" class="line" id="l44">     44</a> ## Conclusion
+<a href="#l45" class="line" id="l45">     45</a> Debugging code is hard.
+<a href="#l46" class="line" id="l46">     46</a> 
+<a href="#l47" class="line" id="l47">     47</a> If you cannot find the bug in the first hour, try to have a rest for 15 minutes, make coffee! It&#39;s called _pomodoro_. It supposed to refresh your mind and allow you to find the bug.
+<a href="#l48" class="line" id="l48">     48</a> 
+<a href="#l49" class="line" id="l49">     49</a> If it doesn&#39;t work, try to rewrite the code. Side-by-side.
+<a href="#l50" class="line" id="l50">     50</a> 
+<a href="#l51" class="line" id="l51">     51</a> It&#39;s like rereading the code, but with thrice the concentration because you have to read carefully to retype it.
+<a href="#l52" class="line" id="l52">     52</a> 
+<a href="#l53" class="line" id="l53">     53</a> ----
+<a href="#l54" class="line" id="l54">     54</a> 
+<a href="#l55" class="line" id="l55">     55</a> I am currently not too good at blogging. Small chance is that in the future, I will edit this article, and maybe you will submit this certain article to HackerNews.
+<a href="#l56" class="line" id="l56">     56</a> 
+<a href="#l57" class="line" id="l57">     57</a> For now, please enjoy my writings :D</pre>
+</div>
+</body>
+</html>

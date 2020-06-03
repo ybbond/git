@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Components) =&gt; remove default components - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/825595d384dc0e1621e97597f6d9ad66f1a37086.html">825595d384dc0e1621e97597f6d9ad66f1a37086</a>
+<b>parent</b> <a href="../commit/ec91bd22cf333e31beb7457bbbfe86964318e3df.html">ec91bd22cf333e31beb7457bbbfe86964318e3df</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Wed, 14 Aug 2019 18:11:22 +0700
+
+refactor(Components) =&gt; remove default components
+
+<b>Diffstat:</b>
+<table><tr><td class="D">D</td><td><a href="#h0">src/components/Component1.re</a></td><td> | </td><td class="num">21</td><td><span class="i"></span><span class="d">---------------------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h1">src/components/Component2.re</a></td><td> | </td><td class="num">31</td><td><span class="i"></span><span class="d">-------------------------------</span></td></tr>
+</table></pre></div><p>2 files changed, 0 insertions(<span id="plus">+</span>), 52 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/components/Component1.re.html">src/components/Component1.re</a> b/<a href="../file/src/components/Component1.re.html">src/components/Component1.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,21 +0,0 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="d">-/* You&#39;re familiar handleClick from ReactJS. This mandatorily takes the payload,
+</a><a href="#h0-0-1" id="h0-0-1" class="d">-   then the `self` record, which contains state (none here), `handle`, `reduce`
+</a><a href="#h0-0-2" id="h0-0-2" class="d">-   and other utilities */
+</a><a href="#h0-0-3" id="h0-0-3" class="d">-let handleClick = (_event) =&gt; Js.log(&quot;clicked!&quot;);
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-/* `make` is the function that mandatorily takes `children` (if you want to use
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-   `JSX). `message` is a named argument, which simulates ReactJS props. Usage:
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-   `&lt;Component1 message=&quot;hello&quot; /&gt;`
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-   Which desugars to
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-   `React.createElement(
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-     Component1.make,
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-     Component1.makeProps(~message=&quot;hello&quot;, ())
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-   )` */
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-[@react.component]
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-let make = (~message) =&gt;
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-  &lt;div onClick={handleClick}&gt;
+</a><a href="#h0-0-19" id="h0-0-19" class="d">-    {ReasonReact.string(message)}
+</a><a href="#h0-0-20" id="h0-0-20" class="d">-  &lt;/div&gt;;
+</a><b>diff --git a/<a id="h1" href="../file/src/components/Component2.re.html">src/components/Component2.re</a> b/<a href="../file/src/components/Component2.re.html">src/components/Component2.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,31 +0,0 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="d">-/* State declaration */
+</a><a href="#h1-0-1" id="h1-0-1" class="d">-type state = {
+</a><a href="#h1-0-2" id="h1-0-2" class="d">-  count: int,
+</a><a href="#h1-0-3" id="h1-0-3" class="d">-  show: bool,
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-};
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-/* Action declaration */
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-type action =
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-  | Click
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-  | Toggle;
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-[@react.component]
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-let make = (~greeting) =&gt; {
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-  let (state, dispatch) = React.useReducer((state, action) =&gt;
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-  switch (action) {
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-  | Click =&gt; {...state, count: state.count + 1}
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-  | Toggle =&gt; {...state, show: ! state.show}
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-  }, {count: 0, show: true});
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-  let message =
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-    &quot;You&#39;ve clicked this &quot; ++ string_of_int(state.count) ++ &quot; times(s)&quot;;
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-  &lt;div&gt;
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-    &lt;button onClick={_event =&gt; dispatch(Click)}&gt;
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-      {ReasonReact.string(message)}
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-    &lt;/button&gt;
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-    &lt;button onClick={_event =&gt; dispatch(Toggle)}&gt;
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-      {ReasonReact.string(&quot;Toggle greeting&quot;)}
+</a><a href="#h1-0-27" id="h1-0-27" class="d">-    &lt;/button&gt;
+</a><a href="#h1-0-28" id="h1-0-28" class="d">-    {state.show ? ReasonReact.string(greeting) : ReasonReact.null}
+</a><a href="#h1-0-29" id="h1-0-29" class="d">-  &lt;/div&gt;;
+</a><a href="#h1-0-30" id="h1-0-30" class="d">-};
+</a></pre>
+</div>
+</div>
+</body>
+</html>

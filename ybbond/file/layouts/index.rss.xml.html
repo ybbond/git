@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>index.rss.xml - ybbond - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> index.rss.xml (2042B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> {{- $pctx := . -}}
+<a href="#l2" class="line" id="l2">      2</a> {{- if .IsHome -}}
+<a href="#l3" class="line" id="l3">      3</a>   {{ $pctx = .Site }}
+<a href="#l4" class="line" id="l4">      4</a> {{- end -}}
+<a href="#l5" class="line" id="l5">      5</a> {{- $pages := slice -}}
+<a href="#l6" class="line" id="l6">      6</a> {{- if or $.IsHome -}}
+<a href="#l7" class="line" id="l7">      7</a>   {{- $pages = (where $pctx.RegularPages &quot;Section&quot; &quot;posts&quot;) }}
+<a href="#l8" class="line" id="l8">      8</a> {{- else if $.IsSection -}}
+<a href="#l9" class="line" id="l9">      9</a>   {{- $pages = $pctx.RegularPages -}}
+<a href="#l10" class="line" id="l10">     10</a> {{- else -}}
+<a href="#l11" class="line" id="l11">     11</a>   {{- $pages = $pctx.Pages -}}
+<a href="#l12" class="line" id="l12">     12</a> {{- end -}}
+<a href="#l13" class="line" id="l13">     13</a> {{- $limit := .Site.Config.Services.RSS.Limit -}}
+<a href="#l14" class="line" id="l14">     14</a> {{- if ge $limit 1 -}}
+<a href="#l15" class="line" id="l15">     15</a>   {{- $pages = $pages | first $limit -}}
+<a href="#l16" class="line" id="l16">     16</a> {{- end -}}
+<a href="#l17" class="line" id="l17">     17</a> {{- printf &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot; standalone=\&quot;yes\&quot;?&gt;&quot; | safeHTML }}
+<a href="#l18" class="line" id="l18">     18</a> &lt;rss version=&quot;2.0&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot;&gt;
+<a href="#l19" class="line" id="l19">     19</a>   &lt;channel&gt;
+<a href="#l20" class="line" id="l20">     20</a>     &lt;title&gt;{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}&lt;/title&gt;
+<a href="#l21" class="line" id="l21">     21</a>     &lt;link&gt;{{ .Permalink }}&lt;/link&gt;
+<a href="#l22" class="line" id="l22">     22</a>     &lt;description&gt;Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}&lt;/description&gt;
+<a href="#l23" class="line" id="l23">     23</a>     &lt;generator&gt;Hugo -- gohugo.io&lt;/generator&gt;{{ with .Site.LanguageCode }}
+<a href="#l24" class="line" id="l24">     24</a>     &lt;language&gt;{{.}}&lt;/language&gt;{{end}}{{ with .Site.Author.email }}
+<a href="#l25" class="line" id="l25">     25</a>     &lt;managingEditor&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/managingEditor&gt;{{end}}{{ with .Site.Author.email }}
+<a href="#l26" class="line" id="l26">     26</a>     &lt;webMaster&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/webMaster&gt;{{end}}{{ with .Site.Copyright }}
+<a href="#l27" class="line" id="l27">     27</a>     &lt;copyright&gt;{{.}}&lt;/copyright&gt;{{end}}{{ if not .Date.IsZero }}
+<a href="#l28" class="line" id="l28">     28</a>     &lt;lastBuildDate&gt;{{ .Date.Format &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; | safeHTML }}&lt;/lastBuildDate&gt;{{ end }}
+<a href="#l29" class="line" id="l29">     29</a>     {{ with .OutputFormats.Get &quot;RSS&quot; }}
+<a href="#l30" class="line" id="l30">     30</a>   {{ printf &quot;&lt;atom:link href=%q rel=\&quot;self\&quot; type=%q /&gt;&quot; .Permalink .MediaType | safeHTML }}
+<a href="#l31" class="line" id="l31">     31</a>     {{ end }}
+<a href="#l32" class="line" id="l32">     32</a>     {{ range $pages }}
+<a href="#l33" class="line" id="l33">     33</a>     &lt;item&gt;
+<a href="#l34" class="line" id="l34">     34</a>       &lt;title&gt;{{ .Title }}&lt;/title&gt;
+<a href="#l35" class="line" id="l35">     35</a>       &lt;link&gt;{{ .Permalink }}&lt;/link&gt;
+<a href="#l36" class="line" id="l36">     36</a>       &lt;pubDate&gt;{{ .Date.Format &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; | safeHTML }}&lt;/pubDate&gt;
+<a href="#l37" class="line" id="l37">     37</a>       {{ with .Site.Author.email }}&lt;author&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/author&gt;{{end}}
+<a href="#l38" class="line" id="l38">     38</a>       &lt;guid&gt;{{ .Permalink }}&lt;/guid&gt;
+<a href="#l39" class="line" id="l39">     39</a>       &lt;description&gt;{{ .Content | html }}&lt;/description&gt;
+<a href="#l40" class="line" id="l40">     40</a>     &lt;/item&gt;
+<a href="#l41" class="line" id="l41">     41</a>     {{ end }}
+<a href="#l42" class="line" id="l42">     42</a>   &lt;/channel&gt;
+<a href="#l43" class="line" id="l43">     43</a> &lt;/rss&gt;
+</pre>
+</div>
+</body>
+</html>

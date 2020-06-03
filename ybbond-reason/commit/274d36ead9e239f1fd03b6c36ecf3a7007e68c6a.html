@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>moving to my PC - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/274d36ead9e239f1fd03b6c36ecf3a7007e68c6a.html">274d36ead9e239f1fd03b6c36ecf3a7007e68c6a</a>
+<b>parent</b> <a href="../commit/18e322a5ffb5eac37d6dc625d29b0e79009bd08f.html">18e322a5ffb5eac37d6dc625d29b0e79009bd08f</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Wed, 14 Aug 2019 08:40:25 +0700
+
+moving to my PC
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/App.re</a></td><td> | </td><td class="num">45</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++</span><span class="d">---</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h1">src/CurVi.re</a></td><td> | </td><td class="num">38</td><td><span class="i"></span><span class="d">--------------------------------------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h2">src/CurViScene.re</a></td><td> | </td><td class="num">36</td><td><span class="i">++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">src/List.re</a></td><td> | </td><td class="num">26</td><td><span class="i">++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">src/Spoiler.re</a></td><td> | </td><td class="num">7</td><td><span class="i">++++</span><span class="d">---</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h5">src/Styled.re</a></td><td> | </td><td class="num">30</td><td><span class="i">++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h6">src/UsesScene.re</a></td><td> | </td><td class="num">6</td><td><span class="i">++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>7 files changed, 144 insertions(<span id="plus">+</span>), 44 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/App.re.html">src/App.re</a> b/<a href="../file/src/App.re.html">src/App.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,8 +1,47 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+module Styles = {
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+  open Css;
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+  let container =
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    style([
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+      minHeight(vh(100.0)),
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+      flexGrow(1.0),
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+      flexShrink(1.0),
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+      flexBasis(`auto),
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+      display(`flex),
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+      flexDirection(`column),
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+      textAlign(`left),
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+      padding(em(1.0)),
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+      paddingTop(px(0)),
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+      paddingBottom(px(0)),
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+      fontSize(em(0.9)),
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+    ]);
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+  let main =
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+    style([
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+      flexGrow(1.0),
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+      width(`percent(100.0)),
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+      marginTop(px(0)),
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+      marginBottom(px(0)),
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+      marginLeft(`auto),
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+      marginRight(`auto),
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+      maxWidth(em(50.0)),
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+    ]);
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+};
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+
+</a> [@react.component]
+ let make = () =&gt; {
+   let url = ReasonReact.Router.useUrl();
+ 
+<a href="#h0-0-34" id="h0-0-34" class="d">-  switch (url.path) {
+</a><a href="#h0-0-35" id="h0-0-35" class="d">-  | _ =&gt; &lt;CurVi /&gt;
+</a><a href="#h0-0-36" id="h0-0-36" class="d">-  };
+</a><a href="#h0-0-37" id="h0-0-37" class="i">+  let content = () =&gt;
+</a><a href="#h0-0-38" id="h0-0-38" class="i">+    switch (url.path) {
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+    | [&quot;/uses&quot;] =&gt; &lt;CurViScene /&gt;
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+    | _ =&gt; &lt;CurViScene /&gt;
+</a><a href="#h0-0-41" id="h0-0-41" class="i">+    };
+</a><a href="#h0-0-42" id="h0-0-42" class="i">+
+</a><a href="#h0-0-43" id="h0-0-43" class="i">+  &lt;div className=Styles.container&gt;
+</a><a href="#h0-0-44" id="h0-0-44" class="i">+    &lt;main className=Styles.main&gt;
+</a><a href="#h0-0-45" id="h0-0-45" class="i">+      &lt;Styled dark=true /&gt;
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+      {content()}
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+    &lt;/main&gt;
+</a><a href="#h0-0-48" id="h0-0-48" class="i">+  &lt;/div&gt;;
+</a> };
+<b>diff --git a/<a id="h1" href="../file/src/CurVi.re.html">src/CurVi.re</a> b/<a href="../file/src/CurVi.re.html">src/CurVi.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,38 +0,0 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="d">-type state = {
+</a><a href="#h1-0-1" id="h1-0-1" class="d">-  opened: string,
+</a><a href="#h1-0-2" id="h1-0-2" class="d">-  dark: bool,
+</a><a href="#h1-0-3" id="h1-0-3" class="d">-};
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-type section =
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-  | Quest
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-  | Info
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-  | Contact;
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-type action =
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-  | ToggleDark
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-  | Open(section);
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-let convert = (s: section) =&gt;
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-  switch (s) {
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-  | Quest =&gt; &quot;quest&quot;
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-  | Info =&gt; &quot;info&quot;
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-  | Contact =&gt; &quot;contact&quot;
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-  };
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-let initialState = {opened: &quot;quest&quot;, dark: false};
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-[@react.component]
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-let make = () =&gt; {
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-  let (_, _) =
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-    React.useReducer(
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-      (state, action) =&gt;
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-        switch (action) {
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-        | ToggleDark =&gt; {...state, dark: !state.dark}
+</a><a href="#h1-0-27" id="h1-0-27" class="d">-        | Open(toOpen) =&gt; {...state, opened: convert(toOpen)}
+</a><a href="#h1-0-28" id="h1-0-28" class="d">-        },
+</a><a href="#h1-0-29" id="h1-0-29" class="d">-      initialState,
+</a><a href="#h1-0-30" id="h1-0-30" class="d">-    );
+</a><a href="#h1-0-31" id="h1-0-31" class="d">-
+</a><a href="#h1-0-32" id="h1-0-32" class="d">-  &lt;div&gt;
+</a><a href="#h1-0-33" id="h1-0-33" class="d">-    &lt;span&gt;
+</a><a href="#h1-0-34" id="h1-0-34" class="d">-      &lt;Spoiler content={ReasonReact.string(&quot;Hello&quot;)} title=&quot;Yeay&quot; /&gt;
+</a><a href="#h1-0-35" id="h1-0-35" class="d">-    &lt;/span&gt;
+</a><a href="#h1-0-36" id="h1-0-36" class="d">-  &lt;/div&gt;;
+</a><a href="#h1-0-37" id="h1-0-37" class="d">-};
+</a><b>diff --git a/<a id="h2" href="../file/src/CurViScene.re.html">src/CurViScene.re</a> b/<a href="../file/src/CurViScene.re.html">src/CurViScene.re</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -0,0 +1,36 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="i">+type state = {
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+  opened: string,
+</a><a href="#h2-0-2" id="h2-0-2" class="i">+  dark: bool,
+</a><a href="#h2-0-3" id="h2-0-3" class="i">+};
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+type section =
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+  | Quest
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+  | Info
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+  | Contact;
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+type action =
+</a><a href="#h2-0-9" id="h2-0-9" class="i">+  | ToggleDark
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+  | Open(section);
+</a><a href="#h2-0-11" id="h2-0-11" class="i">+
+</a><a href="#h2-0-12" id="h2-0-12" class="i">+let convert = (s: section) =&gt;
+</a><a href="#h2-0-13" id="h2-0-13" class="i">+  switch (s) {
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+  | Quest =&gt; &quot;quest&quot;
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+  | Info =&gt; &quot;info&quot;
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+  | Contact =&gt; &quot;contact&quot;
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+  };
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+let initialState = {opened: &quot;quest&quot;, dark: false};
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+[@react.component]
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+let make = () =&gt; {
+</a><a href="#h2-0-22" id="h2-0-22" class="i">+  let (_, _) =
+</a><a href="#h2-0-23" id="h2-0-23" class="i">+    React.useReducer(
+</a><a href="#h2-0-24" id="h2-0-24" class="i">+      (state, action) =&gt;
+</a><a href="#h2-0-25" id="h2-0-25" class="i">+        switch (action) {
+</a><a href="#h2-0-26" id="h2-0-26" class="i">+        | ToggleDark =&gt; {...state, dark: !state.dark}
+</a><a href="#h2-0-27" id="h2-0-27" class="i">+        | Open(toOpen) =&gt; {...state, opened: convert(toOpen)}
+</a><a href="#h2-0-28" id="h2-0-28" class="i">+        },
+</a><a href="#h2-0-29" id="h2-0-29" class="i">+      initialState,
+</a><a href="#h2-0-30" id="h2-0-30" class="i">+    );
+</a><a href="#h2-0-31" id="h2-0-31" class="i">+
+</a><a href="#h2-0-32" id="h2-0-32" class="i">+  &lt;React.Fragment&gt;
+</a><a href="#h2-0-33" id="h2-0-33" class="i">+    &lt;Spoiler content={ReasonReact.string(&quot;Hello&quot;)} title=&quot;Yeay&quot; /&gt;
+</a><a href="#h2-0-34" id="h2-0-34" class="i">+  &lt;/React.Fragment&gt;;
+</a><a href="#h2-0-35" id="h2-0-35" class="i">+};
+</a><b>diff --git a/<a id="h3" href="../file/src/List.re.html">src/List.re</a> b/<a href="../file/src/List.re.html">src/List.re</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,26 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+module Styles = {
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+  open Css;
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+  let ul = style([
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+    marginLeft(em(2.5)),
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+    marginTop(em(0.8)),
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+    paddingLeft(px(0)),
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+    /* listStyle((`outside, `none)), */
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+  ]);
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+}
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+type listContent = {
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+  text: ReasonReact.reactElement,
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+  customClass: string,
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+};
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+[@react.component]
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+let make = (~content: list(listContent)) =&gt; {
+</a><a href="#h3-0-17" id="h3-0-17" class="i">+  let contentMapped = List.map((item, key) =&gt; {
+</a><a href="#h3-0-18" id="h3-0-18" class="i">+    &lt;li key={key}&gt;
+</a><a href="#h3-0-19" id="h3-0-19" class="i">+      &lt;p&gt;&lt;/p&gt;
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+    &lt;/li&gt;
+</a><a href="#h3-0-21" id="h3-0-21" class="i">+  }, content);
+</a><a href="#h3-0-22" id="h3-0-22" class="i">+  &lt;ul className=Styles.ul&gt;
+</a><a href="#h3-0-23" id="h3-0-23" class="i">+    &lt;li&gt;&lt;span&gt;{ReasonReact.string(&quot;Hell&quot;)}&lt;/span&gt;&lt;/li&gt;
+</a><a href="#h3-0-24" id="h3-0-24" class="i">+  &lt;/ul&gt;
+</a><a href="#h3-0-25" id="h3-0-25" class="i">+};
+</a><b>diff --git a/<a id="h4" href="../file/src/Spoiler.re.html">src/Spoiler.re</a> b/<a href="../file/src/Spoiler.re.html">src/Spoiler.re</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -3,6 +3,7 @@ module Styles = {
+</a> 
+   let summary =
+     style([
+<a href="#h4-0-3" id="h4-0-3" class="i">+      fontSize(em(1.0)),
+</a>       marginTop(em(1.0)),
+       marginBottom(em(1.0)),
+       marginLeft(px(0)),
+<a href="#h4-1" id="h4-1" class="h">@@ -24,7 +25,7 @@ type action =
+</a> 
+ [@react.component]
+ let make = (~content: ReasonReact.reactElement, ~title: string) =&gt;
+<a href="#h4-1-3" id="h4-1-3" class="d">-  &lt;summary className=Styles.summary&gt;
+</a><a href="#h4-1-4" id="h4-1-4" class="d">-    &lt;details&gt; {ReasonReact.string(title)} &lt;/details&gt;
+</a><a href="#h4-1-5" id="h4-1-5" class="i">+  &lt;details&gt;
+</a><a href="#h4-1-6" id="h4-1-6" class="i">+    &lt;summary className=Styles.summary&gt; {ReasonReact.string(title)} &lt;/summary&gt;
+</a>     content
+<a href="#h4-1-8" id="h4-1-8" class="d">-  &lt;/summary&gt;;
+</a><a href="#h4-1-9" id="h4-1-9" class="i">+  &lt;/details&gt;;
+</a><b>diff --git a/<a id="h5" href="../file/src/Styled.re.html">src/Styled.re</a> b/<a href="../file/src/Styled.re.html">src/Styled.re</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -0,0 +1,30 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="i">+open Utils;
+</a><a href="#h5-0-1" id="h5-0-1" class="i">+
+</a><a href="#h5-0-2" id="h5-0-2" class="i">+[@react.component]
+</a><a href="#h5-0-3" id="h5-0-3" class="i">+let make = (~dark: bool) =&gt; {
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+  let backgroundColor = dark ? &quot;#1b1b1b&quot; : &quot;#fdfdfd&quot;;
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+  let textColor = dark ? &quot;#fdfdfd&quot; : &quot;#1b1b1b&quot;;
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+  let htmlStyle = &quot;html { height: 100vh; background-color:&quot; ++ backgroundColor ++ &quot;; color:&quot; ++ textColor  ++ &quot;; }&quot;;
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+  let bodyStyle = {j|
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+body {
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+  display: flex;
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+  min-height: 100vh;
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+  flex-direction: column;
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+  margin: 0;
+</a><a href="#h5-0-13" id="h5-0-13" class="i">+  padding: 0;
+</a><a href="#h5-0-14" id="h5-0-14" class="i">+  line-height: 1.8em;
+</a><a href="#h5-0-15" id="h5-0-15" class="i">+  letter-spacing: -0.01em;
+</a><a href="#h5-0-16" id="h5-0-16" class="i">+  word-wrap: break-word;
+</a><a href="#h5-0-17" id="h5-0-17" class="i">+  -webkit-font-smoothing: antialiased;
+</a><a href="#h5-0-18" id="h5-0-18" class="i">+  -moz-osx-font-smoothing: grayscale;
+</a><a href="#h5-0-19" id="h5-0-19" class="i">+}    
+</a><a href="#h5-0-20" id="h5-0-20" class="i">+  |j};
+</a><a href="#h5-0-21" id="h5-0-21" class="i">+  let miscStyle = {j|
+</a><a href="#h5-0-22" id="h5-0-22" class="i">+::selection {
+</a><a href="#h5-0-23" id="h5-0-23" class="i">+  background-color: #79d688;
+</a><a href="#h5-0-24" id="h5-0-24" class="i">+}
+</a><a href="#h5-0-25" id="h5-0-25" class="i">+  |j};
+</a><a href="#h5-0-26" id="h5-0-26" class="i">+  let setStyle = htmlStyle ++ bodyStyle ++ miscStyle;
+</a><a href="#h5-0-27" id="h5-0-27" class="i">+
+</a><a href="#h5-0-28" id="h5-0-28" class="i">+  &lt;style dangerouslySetInnerHTML={dangerousHtml(setStyle)} /&gt;
+</a><a href="#h5-0-29" id="h5-0-29" class="i">+};
+</a><b>diff --git a/<a id="h6" href="../file/src/UsesScene.re.html">src/UsesScene.re</a> b/<a href="../file/src/UsesScene.re.html">src/UsesScene.re</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -0,0 +1,6 @@
+</a><a href="#h6-0-0" id="h6-0-0" class="i">+[@react.component]
+</a><a href="#h6-0-1" id="h6-0-1" class="i">+let make = () =&gt; {
+</a><a href="#h6-0-2" id="h6-0-2" class="i">+  &lt;React.Fragment&gt;
+</a><a href="#h6-0-3" id="h6-0-3" class="i">+    &lt;span&gt;{ReasonReact.string(&quot;Hi&quot;)}&lt;/span&gt;
+</a><a href="#h6-0-4" id="h6-0-4" class="i">+  &lt;/React.Fragment&gt;
+</a><a href="#h6-0-5" id="h6-0-5" class="i">+}
+</a></pre>
+</div>
+</div>
+</body>
+</html>

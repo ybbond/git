@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Uses) =&gt; changed fish to zsh - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/559324eb0cdf91970d33a221b45a8bb383c1f544.html">559324eb0cdf91970d33a221b45a8bb383c1f544</a>
+<b>parent</b> <a href="../commit/2fa6e736e1e34b56bf547d528342947a6e678eaf.html">2fa6e736e1e34b56bf547d528342947a6e678eaf</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 22 Oct 2019 01:14:56 +0700
+
+refactor(Uses) =&gt; changed fish to zsh
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/UsesScene.re</a></td><td> | </td><td class="num">10</td><td><span class="i">++++++</span><span class="d">----</span></td></tr>
+</table></pre></div><p>1 file changed, 6 insertions(<span id="plus">+</span>), 4 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/UsesScene.re.html">src/UsesScene.re</a> b/<a href="../file/src/UsesScene.re.html">src/UsesScene.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -40,9 +40,11 @@ let make = () =&gt; {
+</a>                     variant: Default,
+                     text:
+                       &lt;span&gt;
+<a href="#h0-0-3" id="h0-0-3" class="d">-                        {ReasonReact.string(
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-                           &quot;Farewell gift from friends at Kodefox and Vospay!&quot;,
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-                         )}
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+                        {ReasonReact.string(&quot;Farewell gift from friends at &quot;)}
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+                        &lt;Link href=&quot;https://kodefox.com&quot; text=&quot;Kodefox&quot; /&gt;
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+                        {ReasonReact.string(&quot; and &quot;)}
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+                        &lt;Link href=&quot;https://vospay.id&quot; text=&quot;Vospay&quot; /&gt;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+                        {ReasonReact.string(&quot;!&quot;)}
+</a>                       &lt;/span&gt;,
+                   },
+                 |]
+<a href="#h0-1" id="h0-1" class="h">@@ -101,7 +103,7 @@ let make = () =&gt; {
+</a>           variant: Default,
+           text:
+             &lt;span&gt;
+<a href="#h0-1-3" id="h0-1-3" class="d">-              {ReasonReact.string(&quot;Fish Shell &quot;)}
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+              {ReasonReact.string(&quot;Z Shell (zsh) &quot;)}
+</a>               &lt;Link
+                 text=&quot;settings&quot;
+                 href=&quot;https://gist.github.com/ybbond/e6f827f977248b5d9eda8e1c49da82e9&quot;
+</pre>
+</div>
+</div>
+</body>
+</html>

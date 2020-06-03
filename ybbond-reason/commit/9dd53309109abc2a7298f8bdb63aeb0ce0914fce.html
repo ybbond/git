@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(Packages) =&gt; added bs-webapi - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/9dd53309109abc2a7298f8bdb63aeb0ce0914fce.html">9dd53309109abc2a7298f8bdb63aeb0ce0914fce</a>
+<b>parent</b> <a href="../commit/07e3d7c4cd48c9eaba62e3db33ceeefe775094b0.html">07e3d7c4cd48c9eaba62e3db33ceeefe775094b0</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Fri,  9 Aug 2019 21:13:26 +0700
+
+feature(Packages) =&gt; added bs-webapi
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">bsconfig.json</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">package.json</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">yarn.lock</a></td><td> | </td><td class="num">5</td><td><span class="i">+++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>3 files changed, 7 insertions(<span id="plus">+</span>), 1 deletion(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/bsconfig.json.html">bsconfig.json</a> b/<a href="../file/bsconfig.json.html">bsconfig.json</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -15,6 +15,6 @@
+</a>   ],
+   &quot;suffix&quot;: &quot;.bs.js&quot;,
+   &quot;namespace&quot;: true,
+<a href="#h0-0-3" id="h0-0-3" class="d">-  &quot;bs-dependencies&quot;: [&quot;bs-css&quot;, &quot;reason-react&quot;],
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  &quot;bs-dependencies&quot;: [&quot;bs-css&quot;, &quot;bs-webapi&quot;, &quot;reason-react&quot;],
+</a>   &quot;refmt&quot;: 3
+ }
+<b>diff --git a/<a id="h1" href="../file/package.json.html">package.json</a> b/<a href="../file/package.json.html">package.json</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -17,6 +17,7 @@
+</a>   &quot;license&quot;: &quot;MIT&quot;,
+   &quot;dependencies&quot;: {
+     &quot;bs-css&quot;: &quot;^9.0.1&quot;,
+<a href="#h1-0-3" id="h1-0-3" class="i">+    &quot;bs-webapi&quot;: &quot;^0.15.2&quot;,
+</a>     &quot;react&quot;: &quot;^16.8.1&quot;,
+     &quot;react-dom&quot;: &quot;^16.8.1&quot;,
+     &quot;reason-react&quot;: &quot;&gt;=0.7.0&quot;
+<b>diff --git a/<a id="h2" href="../file/yarn.lock.html">yarn.lock</a> b/<a href="../file/yarn.lock.html">yarn.lock</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -654,6 +654,11 @@ bs-platform@^5.0.6:
+</a>   resolved &quot;https://registry.yarnpkg.com/bs-platform/-/bs-platform-5.0.6.tgz#88c13041fb020479800de3d82c680bf971091425&quot;
+   integrity sha512-6Boa2VEcWJp2WJr38L7bp3J929nYha7gDarjxb070jWzgfPJ/WbzjipmSfnu2eqqk1MfjEIpBipbPz6n1NISwA==
+ 
+<a href="#h2-0-3" id="h2-0-3" class="i">+bs-webapi@^0.15.2:
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  version &quot;0.15.2&quot;
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/bs-webapi/-/bs-webapi-0.15.2.tgz#0bf4174cffafde748df19c4ae42f6e8e6c6a22b1&quot;
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+  integrity sha512-P3YNG9i29FjGxBLN4UkhiQpBwB4ok+xiGK6kCiUixBB/mb/hwnFGPbxAY/Q2owx0/8ehM+BwRT6vFd01T0GRRQ==
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+
+</a> buffer-from@^1.0.0:
+   version &quot;1.1.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef&quot;
+</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(core): add blog link 🌐 - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/304e1e712f8bbbd5f08653f21d570b4a24260442.html">304e1e712f8bbbd5f08653f21d570b4a24260442</a>
+<b>parent</b> <a href="../commit/38691883b26acda8f8c29d4dbcf19f26ce9c21ad.html">38691883b26acda8f8c29d4dbcf19f26ce9c21ad</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Wed, 15 Apr 2020 01:19:45 +0700
+
+refactor(core): add blog link 🌐
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">public/index.html</a></td><td> | </td><td class="num">28</td><td><span class="i">+++++++++++++++++++++++++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/Components/HeaderFooter.js</a></td><td> | </td><td class="num">8</td><td><span class="i">++++++</span><span class="d">--</span></td></tr>
+</table></pre></div><p>2 files changed, 31 insertions(<span id="plus">+</span>), 5 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/public/index.html.html">public/index.html</a> b/<a href="../file/public/index.html.html">public/index.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -32,11 +32,27 @@
+</a>   &lt;body style=&quot;min-width: 100vw;min-height: 100vh;margin:0;padding:0;&quot;&gt;
+     &lt;div id=&quot;react-app&quot;&gt;&lt;/div&gt;
+     &lt;noscript&gt;
+<a href="#h0-0-3" id="h0-0-3" class="i">+      &lt;style&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+        html {
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+          background-color: #e3e0d7;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+        }
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+        h1, p, h5 {
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+          font-family: Trebuchet MS, Helvetica, sans-serif;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+        }
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+      &lt;/style&gt;
+</a>       &lt;div&gt;
+         &lt;center&gt;
+           &lt;div style=&quot;max-width: 600px; text-align: left;&quot;&gt;
+<a href="#h0-0-15" id="h0-0-15" class="d">-            &lt;h1 style=&quot;font-family:Trebuchet MS, Helvetica, sans-serif;&quot;&gt;Yohanes Bandung Bondowoso&lt;/h1&gt;
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-            &lt;p style=&quot;font-family:Trebuchet MS, Helvetica, sans-serif;&quot;&gt;
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+            &lt;h1&gt;Yohanes Bandung Bondowoso&lt;/h1&gt;
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+            &lt;h5&gt;
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+              Hey, some tips:
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+              &lt;br/&gt;
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+              The awesome contents of this site are hidden.
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+              Try enabling JavaScript for this site, or use other browser.
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+            &lt;/h5&gt;
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+            &lt;hr/&gt;
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+            &lt;p&gt;
+</a>               Currently work as Frontend Engineer of kumparan.com in
+               Jakarta, Indonesia. Building it with React, React Native for
+               Android and iOS.
+<a href="#h0-1" id="h0-1" class="h">@@ -52,12 +68,18 @@
+</a>               I try to learn from everyone, and everything.
+               &lt;br /&gt;
+               &lt;br /&gt;
+<a href="#h0-1-3" id="h0-1-3" class="i">+            &lt;/p&gt;
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+            &lt;p&gt;
+</a>               Contact: 
+               &lt;a href=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot; target=&quot;_top&quot;&gt;
+               bandungpenting@gmail.com
+               &lt;/a&gt;
+             &lt;/p&gt;
+<a href="#h0-1-10" id="h0-1-10" class="d">-            &lt;p style=&quot;font-family:Trebuchet MS, Helvetica, sans-serif;&quot;&gt;
+</a><a href="#h0-1-11" id="h0-1-11" class="i">+            &lt;p&gt;
+</a><a href="#h0-1-12" id="h0-1-12" class="i">+              My Blog:
+</a><a href="#h0-1-13" id="h0-1-13" class="i">+              &lt;a href=&quot;https://blog.ybbond.dev&quot;&gt;blog.ybbond.dev&lt;/a&gt;
+</a><a href="#h0-1-14" id="h0-1-14" class="i">+            &lt;/p&gt;
+</a><a href="#h0-1-15" id="h0-1-15" class="i">+            &lt;p&gt;
+</a>               Other site:
+               &lt;a href=&quot;https://reason.ybbond.dev&quot;&gt;reason.ybbond.dev&lt;/a&gt;
+             &lt;/p&gt;
+<b>diff --git a/<a id="h1" href="../file/src/Components/HeaderFooter.js.html">src/Components/HeaderFooter.js</a> b/<a href="../file/src/Components/HeaderFooter.js.html">src/Components/HeaderFooter.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -45,14 +45,18 @@ const HeaderFooter = ({children, dark, toggleDark}: HeaderFooterProps) =&gt; (
+</a>         &lt;Link aria-label=&quot;Go to CV Page&quot; to=&quot;/&quot;&gt;
+           CV
+         &lt;/Link&gt;{&#39; &#39;}
+<a href="#h1-0-3" id="h1-0-3" class="d">-        -{&#39; &#39;}
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+        ::{&#39; &#39;}
+</a>         &lt;Link aria-label=&quot;Go to page that lists the tools I use&quot; to=&quot;/uses&quot;&gt;
+           Uses
+         &lt;/Link&gt;{&#39; &#39;}
+<a href="#h1-0-8" id="h1-0-8" class="d">-        -{&#39; &#39;}
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+        ::{&#39; &#39;}
+</a>         &lt;Link aria-label=&quot;Go to About Page&quot; to=&quot;/about&quot;&gt;
+           About
+         &lt;/Link&gt;{&#39; &#39;}
+<a href="#h1-0-13" id="h1-0-13" class="i">+        ::{&#39; &#39;}
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+        &lt;Link aria-label=&quot;Go to my Blog!&quot; to=&quot;https://blog.ybbond.dev&quot;&gt;
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+          Blog 🌐
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+        &lt;/Link&gt;{&#39; &#39;}
+</a>       &lt;/Text&gt;
+     &lt;/Header&gt;
+     {children}
+</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature: adjustments for the new web - ybbond - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/eb83644815aa5ed84865b5fb956cf486d1ff49f7.html">eb83644815aa5ed84865b5fb956cf486d1ff49f7</a>
+<b>parent</b> <a href="../commit/8c3ec409ca325bb24c4da6354516987166c701e0.html">8c3ec409ca325bb24c4da6354516987166c701e0</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 28 Apr 2020 14:54:56 +0700
+
+feature: adjustments for the new web
+
+<b>Diffstat:</b>
+<table><tr><td class="D">D</td><td><a href="#h0">assets/colors.scss</a></td><td> | </td><td class="num">6</td><td><span class="i"></span><span class="d">------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">assets/content.scss</a></td><td> | </td><td class="num">29</td><td><span class="i">+++++++++++++++++++++++++</span><span class="d">----</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">assets/styles.scss</a></td><td> | </td><td class="num">119</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">-------------------------------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">assets/variables.scss</a></td><td> | </td><td class="num">8</td><td><span class="i">++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">config.dev.toml</a></td><td> | </td><td class="num">3</td><td><span class="i">+++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">config.toml</a></td><td> | </td><td class="num">7</td><td><span class="i">+++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">content/_index.md</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h7">content/posts/2020-04-05-nuphy-nutype-f1-keyboard-review.md</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h8">content/posts/April Links.md</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h9">content/posts/February Links.md</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h10">content/posts/March Links.md</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h11">layouts/_default/list.html</a></td><td> | </td><td class="num">12</td><td><span class="i">++++++++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h12">layouts/_default/single.html</a></td><td> | </td><td class="num">16</td><td><span class="i">++++++</span><span class="d">----------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h13">layouts/index.html</a></td><td> | </td><td class="num">10</td><td><span class="i">++++++</span><span class="d">----</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h14">layouts/partials/components/tagitem.html</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h15">layouts/partials/footer/footer.html</a></td><td> | </td><td class="num">12</td><td><span class="i">++++++++</span><span class="d">----</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h16">layouts/partials/head/head.html</a></td><td> | </td><td class="num">4</td><td><span class="i">++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h17">layouts/partials/head/og-metas.html</a></td><td> | </td><td class="num">7</td><td><span class="i">+++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h18">layouts/partials/header/header.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h19">layouts/partials/header/menu.html</a></td><td> | </td><td class="num">10</td><td><span class="i">+++++</span><span class="d">-----</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h20">layouts/partials/post/pagination.html</a></td><td> | </td><td class="num">22</td><td><span class="i">++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h21">layouts/partials/post/summary.html</a></td><td> | </td><td class="num">33</td><td><span class="i">+++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h22">static/darkToggler.js</a></td><td> | </td><td class="num">5</td><td><span class="i">+++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>23 files changed, 228 insertions(<span id="plus">+</span>), 88 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/colors.scss.html">assets/colors.scss</a> b/<a href="../file/assets/colors.scss.html">assets/colors.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,5 +0,0 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="d">-$color-text: #E3E0D7;
+</a><a href="#h0-0-1" id="h0-0-1" class="d">-$color-background: #242424;
+</a><a href="#h0-0-2" id="h0-0-2" class="d">-$color-red: #F9690E;
+</a><a href="#h0-0-3" id="h0-0-3" class="d">-$color-blue: #8DBFFF;
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-$color-green: #79D688;</a><a href="#h0-0-5" id="h0-0-5" class="d">-
+\ No newline at end of file
+</a><b>diff --git a/<a id="h1" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,4 +1,8 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+@import &quot;fonts&quot;;
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+@import &quot;variables&quot;;
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+
+</a> .content {
+<a href="#h1-0-4" id="h1-0-4" class="i">+  font-family: $font-text;
+</a>   width: 100%;
+   pre {
+     overflow: auto;
+<a href="#h1-1" id="h1-1" class="h">@@ -6,7 +10,7 @@
+</a>   }
+   code {
+     padding: 0.1em;
+<a href="#h1-1-3" id="h1-1-3" class="d">-    font-family: &#39;iA Writer Duospace&#39;, monospace;
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+    font-family: $font-mono;
+</a>     font-size: 0.9em;
+   }
+   table {
+<a href="#h1-2" id="h1-2" class="h">@@ -22,13 +26,30 @@
+</a>     th {
+       padding: 1em 2em;
+       background-color: #333;
+<a href="#h1-2-3" id="h1-2-3" class="d">-      color: white;
+</a><a href="#h1-2-4" id="h1-2-4" class="i">+      color: $color-text;
+</a>     }
+     tr:nth-child(even) {
+<a href="#h1-2-7" id="h1-2-7" class="d">-      background-color: #F1F1F1;
+</a><a href="#h1-2-8" id="h1-2-8" class="i">+      background-color: #333;
+</a>     }
+     tr:hover {
+<a href="#h1-2-11" id="h1-2-11" class="d">-      background-color: #ddd;
+</a><a href="#h1-2-12" id="h1-2-12" class="i">+      background-color: #303030;
+</a><a href="#h1-2-13" id="h1-2-13" class="i">+    }
+</a><a href="#h1-2-14" id="h1-2-14" class="i">+  }
+</a><a href="#h1-2-15" id="h1-2-15" class="i">+  ul {
+</a><a href="#h1-2-16" id="h1-2-16" class="i">+    padding: 0;
+</a><a href="#h1-2-17" id="h1-2-17" class="i">+    li {
+</a><a href="#h1-2-18" id="h1-2-18" class="i">+      position: relative;
+</a><a href="#h1-2-19" id="h1-2-19" class="i">+      list-style: none;
+</a><a href="#h1-2-20" id="h1-2-20" class="i">+      padding-left: 20px;
+</a><a href="#h1-2-21" id="h1-2-21" class="i">+      margin-bottom: 10px;
+</a><a href="#h1-2-22" id="h1-2-22" class="i">+      &amp;:before {
+</a><a href="#h1-2-23" id="h1-2-23" class="i">+        display: inline-block;
+</a><a href="#h1-2-24" id="h1-2-24" class="i">+        content: &quot;- &quot;;
+</a><a href="#h1-2-25" id="h1-2-25" class="i">+        position: absolute;
+</a><a href="#h1-2-26" id="h1-2-26" class="i">+        width: 20px;
+</a><a href="#h1-2-27" id="h1-2-27" class="i">+        color: $color-red;
+</a><a href="#h1-2-28" id="h1-2-28" class="i">+        left: 0;
+</a><a href="#h1-2-29" id="h1-2-29" class="i">+      }
+</a>     }
+   }
+ } 
+\ No newline at end of file
+<b>diff --git a/<a id="h2" href="../file/assets/styles.scss.html">assets/styles.scss</a> b/<a href="../file/assets/styles.scss.html">assets/styles.scss</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,30 +1,48 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">-@import &quot;colors&quot;;
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+@import &quot;variables&quot;;
+</a> @import &quot;fonts&quot;;
+ @import &quot;content&quot;;
+ 
+ html {
+   background-color: $color-background;
+   color: $color-text;
+<a href="#h2-0-8" id="h2-0-8" class="d">-  font-family: &#39;iA Writer Quattro S&#39;, Arial, Helvetica, sans-serif;
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-  font-size: 1.1rem;
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+  font-family: $font-text;
+</a>   line-height: 1.6;
+ }
+ 
+ body {
+<a href="#h2-0-15" id="h2-0-15" class="d">-  max-width: 700px;
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+  max-width: 600px;
+</a>   margin: 0 auto;
+ }
+ 
+ h1, h2, h3, h4, h5, h6 {
+   color: $color-green;
+<a href="#h2-0-22" id="h2-0-22" class="d">-  font-family: &#39;iA Writer Duospace&#39;, monospace;
+</a><a href="#h2-0-23" id="h2-0-23" class="i">+  font-family: $font-mono;
+</a> }
+ 
+ a {
+<a href="#h2-0-27" id="h2-0-27" class="i">+  text-decoration: none;
+</a>   color: $color-blue;
+   &amp;:hover {
+     color: $color-red;
+   }
+<a href="#h2-0-32" id="h2-0-32" class="i">+  .link-white {
+</a><a href="#h2-0-33" id="h2-0-33" class="i">+    color: $color-text;
+</a><a href="#h2-0-34" id="h2-0-34" class="i">+  }
+</a><a href="#h2-0-35" id="h2-0-35" class="i">+  &amp;.full-width {
+</a><a href="#h2-0-36" id="h2-0-36" class="i">+    width: 100%;
+</a><a href="#h2-0-37" id="h2-0-37" class="i">+  }
+</a><a href="#h2-0-38" id="h2-0-38" class="i">+  &amp;.button {
+</a><a href="#h2-0-39" id="h2-0-39" class="i">+    display: inline-block;     
+</a><a href="#h2-0-40" id="h2-0-40" class="i">+    position: relative;    
+</a><a href="#h2-0-41" id="h2-0-41" class="i">+    z-index: 1;     
+</a><a href="#h2-0-42" id="h2-0-42" class="i">+    padding: 0.3em 0.7em;
+</a><a href="#h2-0-43" id="h2-0-43" class="i">+    &amp;:hover {
+</a><a href="#h2-0-44" id="h2-0-44" class="i">+      background-color: #303030;
+</a><a href="#h2-0-45" id="h2-0-45" class="i">+    }
+</a><a href="#h2-0-46" id="h2-0-46" class="i">+    &amp;:first-child:not(.header__menu__list__item) {
+</a><a href="#h2-0-47" id="h2-0-47" class="i">+      margin-left: -0.5em;
+</a><a href="#h2-0-48" id="h2-0-48" class="i">+    }
+</a><a href="#h2-0-49" id="h2-0-49" class="i">+  }
+</a> }
+ 
+ blockquote {
+<a href="#h2-1" id="h2-1" class="h">@@ -39,68 +57,77 @@ blockquote {
+</a> 
+ time {
+   color: $color-red;
+<a href="#h2-1-3" id="h2-1-3" class="d">-}
+</a><a href="#h2-1-4" id="h2-1-4" class="d">-
+</a><a href="#h2-1-5" id="h2-1-5" class="d">-ul {
+</a><a href="#h2-1-6" id="h2-1-6" class="d">-  padding: 0;
+</a><a href="#h2-1-7" id="h2-1-7" class="d">-  li {
+</a><a href="#h2-1-8" id="h2-1-8" class="d">-    position: relative;
+</a><a href="#h2-1-9" id="h2-1-9" class="d">-    list-style: none;
+</a><a href="#h2-1-10" id="h2-1-10" class="d">-    padding-left: 20px;
+</a><a href="#h2-1-11" id="h2-1-11" class="d">-    margin-bottom: 10px;
+</a><a href="#h2-1-12" id="h2-1-12" class="d">-    &amp;:before {
+</a><a href="#h2-1-13" id="h2-1-13" class="d">-      display: inline-block;
+</a><a href="#h2-1-14" id="h2-1-14" class="d">-      content: &quot;- &quot;;
+</a><a href="#h2-1-15" id="h2-1-15" class="d">-      position: absolute;
+</a><a href="#h2-1-16" id="h2-1-16" class="d">-      width: 20px;
+</a><a href="#h2-1-17" id="h2-1-17" class="d">-      color: $color-red;
+</a><a href="#h2-1-18" id="h2-1-18" class="d">-      left: 0;
+</a><a href="#h2-1-19" id="h2-1-19" class="d">-    }
+</a><a href="#h2-1-20" id="h2-1-20" class="d">-  }
+</a><a href="#h2-1-21" id="h2-1-21" class="i">+  font-family: $font-mono;
+</a> }
+ 
+ .header {
+   margin-top: 1em;
+   &amp;__menu {
+<a href="#h2-1-27" id="h2-1-27" class="d">-    margin: 0;
+</a><a href="#h2-1-28" id="h2-1-28" class="d">-    padding: 0 0 10px;
+</a><a href="#h2-1-29" id="h2-1-29" class="i">+    margin: 0 0 10px;
+</a>     display: flex;
+     overflow: auto;
+     justify-content: flex-start;
+     &amp;__list {
+<a href="#h2-1-34" id="h2-1-34" class="d">-      &amp; &gt; *:first-child {
+</a><a href="#h2-1-35" id="h2-1-35" class="d">-        padding: 0 1.4em 0 0;
+</a><a href="#h2-1-36" id="h2-1-36" class="d">-        &amp;:before {
+</a><a href="#h2-1-37" id="h2-1-37" class="d">-          content: &quot;&quot;;
+</a><a href="#h2-1-38" id="h2-1-38" class="d">-        }
+</a><a href="#h2-1-39" id="h2-1-39" class="d">-      }
+</a><a href="#h2-1-40" id="h2-1-40" class="d">-      &amp; &gt; *:not(:first-child) {
+</a><a href="#h2-1-41" id="h2-1-41" class="d">-        padding-left: 0;
+</a><a href="#h2-1-42" id="h2-1-42" class="d">-        &amp;:before {
+</a><a href="#h2-1-43" id="h2-1-43" class="d">-          padding-right: 1em;
+</a><a href="#h2-1-44" id="h2-1-44" class="d">-          content: &quot; :: &quot;;
+</a><a href="#h2-1-45" id="h2-1-45" class="d">-          position: relative;
+</a><a href="#h2-1-46" id="h2-1-46" class="d">-          color: $color-text;
+</a><a href="#h2-1-47" id="h2-1-47" class="d">-        }
+</a><a href="#h2-1-48" id="h2-1-48" class="d">-      }
+</a>       padding: 0;
+<a href="#h2-1-50" id="h2-1-50" class="i">+      margin: 0;
+</a>       display: flex;
+       flex-grow: 1;
+       flex-wrap: nowrap;
+<a href="#h2-1-54" id="h2-1-54" class="d">-      li {
+</a><a href="#h2-1-55" id="h2-1-55" class="d">-        padding: 0 1em;
+</a><a href="#h2-1-56" id="h2-1-56" class="d">-        display: inline;
+</a><a href="#h2-1-57" id="h2-1-57" class="i">+      &amp;__item {
+</a><a href="#h2-1-58" id="h2-1-58" class="i">+        &amp;:first-child {
+</a><a href="#h2-1-59" id="h2-1-59" class="i">+          margin-left: 0;
+</a><a href="#h2-1-60" id="h2-1-60" class="i">+        }
+</a><a href="#h2-1-61" id="h2-1-61" class="i">+        margin: 0 10px;
+</a><a href="#h2-1-62" id="h2-1-62" class="i">+        border-style: solid;
+</a><a href="#h2-1-63" id="h2-1-63" class="i">+        border-width: 1px;
+</a>       }
+     }
+   }
+ }
+ 
+<a href="#h2-1-69" id="h2-1-69" class="i">+.main {
+</a><a href="#h2-1-70" id="h2-1-70" class="i">+  &amp;__more {
+</a><a href="#h2-1-71" id="h2-1-71" class="i">+    padding: 1em 0;
+</a><a href="#h2-1-72" id="h2-1-72" class="i">+    text-align: right;
+</a><a href="#h2-1-73" id="h2-1-73" class="i">+  }
+</a><a href="#h2-1-74" id="h2-1-74" class="i">+}
+</a><a href="#h2-1-75" id="h2-1-75" class="i">+
+</a><a href="#h2-1-76" id="h2-1-76" class="i">+.summary {
+</a><a href="#h2-1-77" id="h2-1-77" class="i">+  &amp;:not(&amp;:first-child)
+</a><a href="#h2-1-78" id="h2-1-78" class="i">+  &amp;__links {
+</a><a href="#h2-1-79" id="h2-1-79" class="i">+    padding-left: 2em;
+</a><a href="#h2-1-80" id="h2-1-80" class="i">+  }
+</a><a href="#h2-1-81" id="h2-1-81" class="i">+}
+</a><a href="#h2-1-82" id="h2-1-82" class="i">+
+</a><a href="#h2-1-83" id="h2-1-83" class="i">+.pagination {
+</a><a href="#h2-1-84" id="h2-1-84" class="i">+  border-top: dashed 2px;
+</a><a href="#h2-1-85" id="h2-1-85" class="i">+  border-bottom: dashed 2px;
+</a><a href="#h2-1-86" id="h2-1-86" class="i">+  margin: 3em auto 2em auto;
+</a><a href="#h2-1-87" id="h2-1-87" class="i">+  padding: 1em 0;
+</a><a href="#h2-1-88" id="h2-1-88" class="i">+  display: flex;
+</a><a href="#h2-1-89" id="h2-1-89" class="i">+  justify-content: space-around;
+</a><a href="#h2-1-90" id="h2-1-90" class="i">+  &amp;__item {
+</a><a href="#h2-1-91" id="h2-1-91" class="i">+    padding: 0 30px;
+</a><a href="#h2-1-92" id="h2-1-92" class="i">+    @media (max-width: 600px) {
+</a><a href="#h2-1-93" id="h2-1-93" class="i">+      padding: 0 10px;
+</a><a href="#h2-1-94" id="h2-1-94" class="i">+    }
+</a><a href="#h2-1-95" id="h2-1-95" class="i">+    &amp;__left {
+</a><a href="#h2-1-96" id="h2-1-96" class="i">+      flex: 1;
+</a><a href="#h2-1-97" id="h2-1-97" class="i">+      text-align: left;
+</a><a href="#h2-1-98" id="h2-1-98" class="i">+    }
+</a><a href="#h2-1-99" id="h2-1-99" class="i">+    &amp;__right {
+</a><a href="#h2-1-100" id="h2-1-100" class="i">+      flex: 1;
+</a><a href="#h2-1-101" id="h2-1-101" class="i">+      text-align: right;
+</a><a href="#h2-1-102" id="h2-1-102" class="i">+    }
+</a><a href="#h2-1-103" id="h2-1-103" class="i">+  }
+</a><a href="#h2-1-104" id="h2-1-104" class="i">+}
+</a><a href="#h2-1-105" id="h2-1-105" class="i">+
+</a> .taglist {
+   margin: 0;
+   padding: 0;
+<a href="#h2-1-109" id="h2-1-109" class="d">-  li {
+</a><a href="#h2-1-110" id="h2-1-110" class="d">-    display: inline;
+</a><a href="#h2-1-111" id="h2-1-111" class="d">-  }
+</a><a href="#h2-1-112" id="h2-1-112" class="i">+}
+</a><a href="#h2-1-113" id="h2-1-113" class="i">+.tagitem {
+</a><a href="#h2-1-114" id="h2-1-114" class="i">+  font-family: $font-mono;
+</a> }
+ 
+ .footer {
+<b>diff --git a/<a id="h3" href="../file/assets/variables.scss.html">assets/variables.scss</a> b/<a href="../file/assets/variables.scss.html">assets/variables.scss</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,8 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+$color-text: #E3E0D7;
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+$color-background: #242424;
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+$color-red: #F9690E;
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+$color-blue: #8DBFFF;
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+$color-green: #79D688;
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+$font-mono: &#39;iA Writer Duospace&#39;, monospace;
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+$font-text: &#39;iA Writer Quattro S&#39;, Arial, Helvetica, sans-serif;
+</a><b>diff --git a/<a id="h4" href="../file/config.dev.toml.html">config.dev.toml</a> b/<a href="../file/config.dev.toml.html">config.dev.toml</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -2,6 +2,9 @@ baseURL = &quot;https://ybbond.dev&quot;
+</a> languageCode = &quot;en-us&quot;
+ title = &quot;YBBond&quot;
+ 
+<a href="#h4-0-3" id="h4-0-3" class="i">+[permalinks]
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+  posts = &quot;/:year/:month/:title/&quot;
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+
+</a> [params]
+   author = &quot;Yohanes Bandung Bondowoso&quot;
+   description = &quot;Thoughts, ideas and writings of me, Yohanes Bandung. My other site: https://ybbond.dev/&quot;
+<b>diff --git a/<a id="h5" href="../file/config.toml.html">config.toml</a> b/<a href="../file/config.toml.html">config.toml</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -2,6 +2,9 @@ baseURL = &quot;https://ybbond.dev&quot;
+</a> languageCode = &quot;en-us&quot;
+ title = &quot;YBBond&quot;
+ 
+<a href="#h5-0-3" id="h5-0-3" class="i">+[permalinks]
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+  posts = &quot;/:year/:month/:title/&quot;
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+
+</a> [params]
+   author = &quot;Yohanes Bandung Bondowoso&quot;
+   description = &quot;Thoughts, ideas and writings of me, Yohanes Bandung. My other site: https://ybbond.dev/&quot;
+<a href="#h5-1" id="h5-1" class="h">@@ -18,12 +21,12 @@ title = &quot;YBBond&quot;
+</a> [[menu.main]]
+     identifier = &quot;home&quot;
+     name = &quot;Home&quot;
+<a href="#h5-1-3" id="h5-1-3" class="d">-    url = &quot;/&quot;
+</a><a href="#h5-1-4" id="h5-1-4" class="i">+    url = &quot;https://ybbond.dev&quot;
+</a>     weight = 8
+ [[menu.main]]
+     identifier = &quot;cv&quot;
+     name = &quot;CV&quot;
+<a href="#h5-1-9" id="h5-1-9" class="d">-    url = &quot;/cv&quot;
+</a><a href="#h5-1-10" id="h5-1-10" class="i">+    url = &quot;https://ybbond.dev/cv&quot;
+</a>     weight = 9
+ [[menu.main]]
+     identifier = &quot;author&quot;
+<b>diff --git a/<a id="h6" href="../file/content/_index.md.html">content/_index.md</a> b/<a href="../file/content/_index.md.html">content/_index.md</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -2,7 +2,6 @@
+</a> menu: home
+ ---
+ Currently work as Frontend Engineer of kumparan.com in Jakarta, Indonesia. Building it with React, React Native for Android and iOS.
+<a href="#h6-0-3" id="h6-0-3" class="d">-&lt;br /&gt;
+</a> 
+ Eager to learn.
+ 
+<a href="#h6-1" id="h6-1" class="h">@@ -14,3 +13,4 @@ I try to learn from everyone, and everything.
+</a> &lt;br /&gt;
+ 
+ ૮ ・ﻌ・ა
+<a href="#h6-1-3" id="h6-1-3" class="i">+&lt;br /&gt;
+</a><b>diff --git a/<a id="h7" href="../file/content/posts/2020-04-05-nuphy-nutype-f1-keyboard-review.md.html">content/posts/2020-04-05-nuphy-nutype-f1-keyboard-review.md</a> b/<a href="../file/content/posts/2020-04-05-nuphy-nutype-f1-keyboard-review.md.html">content/posts/2020-04-05-nuphy-nutype-f1-keyboard-review.md</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -2,7 +2,7 @@
+</a> title: NuPhy NuType F1 Keyboard Review
+ author: Yohanes Bandung Bondowoso
+ tags:
+<a href="#h7-0-3" id="h7-0-3" class="d">-  - review #review
+</a><a href="#h7-0-4" id="h7-0-4" class="i">+  - Review #review
+</a> date: 2020-04-05T18:23:12
+ ---
+ 
+<b>diff --git a/<a id="h8" href="../file/content/posts/April Links.md.html">content/posts/April Links.md</a> b/<a href="../file/content/posts/April Links.md.html">content/posts/April Links.md</a></b>
+<a href="#h8-0" id="h8-0" class="h">@@ -4,6 +4,7 @@ author: Yohanes Bandung Bondowoso
+</a> tags:
+   - Bookmarks #bookmarks
+ date: 2020-05-01T00:00:01
+<a href="#h8-0-3" id="h8-0-3" class="i">+type: links
+</a> draft: true
+ ---
+ 
+<b>diff --git a/<a id="h9" href="../file/content/posts/February Links.md.html">content/posts/February Links.md</a> b/<a href="../file/content/posts/February Links.md.html">content/posts/February Links.md</a></b>
+<a href="#h9-0" id="h9-0" class="h">@@ -4,6 +4,7 @@ author: Yohanes Bandung Bondowoso
+</a> tags:
+   - Bookmarks #bookmarks
+ date: 2020-03-01T00:00:01
+<a href="#h9-0-3" id="h9-0-3" class="i">+type: links
+</a> ---
+ 
+ ## Tech
+<b>diff --git a/<a id="h10" href="../file/content/posts/March Links.md.html">content/posts/March Links.md</a> b/<a href="../file/content/posts/March Links.md.html">content/posts/March Links.md</a></b>
+<a href="#h10-0" id="h10-0" class="h">@@ -4,6 +4,7 @@ author: Yohanes Bandung Bondowoso
+</a> tags:
+   - Bookmarks #bookmarks
+ date: 2020-04-01T00:00:01
+<a href="#h10-0-3" id="h10-0-3" class="i">+type: links
+</a> ---
+ 
+ ## Tech
+<b>diff --git a/<a id="h11" href="../file/layouts/_default/list.html.html">layouts/_default/list.html</a> b/<a href="../file/layouts/_default/list.html.html">layouts/_default/list.html</a></b>
+<a href="#h11-0" id="h11-0" class="h">@@ -1,11 +1,19 @@
+</a> {{ define &quot;main&quot; }}
+   {{ if or .Title .Content }}
+     &lt;div&gt;
+<a href="#h11-0-3" id="h11-0-3" class="d">-      {{ with .Title }}&lt;h1&gt;{{ . }}&lt;/h1&gt;{{ end }}
+</a><a href="#h11-0-4" id="h11-0-4" class="i">+      {{ with .Title }}&lt;h2&gt;{{ . }}&lt;/h2&gt;{{ end }}
+</a>       {{ with .Content }}&lt;div&gt;{{ . }}&lt;/div&gt;{{ end }}
+     &lt;/div&gt;
+   {{ end }}
+ 
+<a href="#h11-0-9" id="h11-0-9" class="d">-  {{ range .Paginator.Pages }}
+</a><a href="#h11-0-10" id="h11-0-10" class="i">+  {{ if  eq .Type &quot;notes&quot; }}
+</a><a href="#h11-0-11" id="h11-0-11" class="i">+    {{ range (where .Site.RegularPages &quot;Type&quot; &quot;notes&quot;) }}
+</a><a href="#h11-0-12" id="h11-0-12" class="i">+      &lt;p&gt;{{ .Content }}&lt;/p&gt;
+</a><a href="#h11-0-13" id="h11-0-13" class="i">+    {{ end }}
+</a><a href="#h11-0-14" id="h11-0-14" class="i">+  {{ else }}
+</a><a href="#h11-0-15" id="h11-0-15" class="i">+    {{ range .Paginator.Pages }}
+</a><a href="#h11-0-16" id="h11-0-16" class="i">+      {{ partial &quot;post/summary.html&quot; . }}
+</a><a href="#h11-0-17" id="h11-0-17" class="i">+    {{ end }}
+</a><a href="#h11-0-18" id="h11-0-18" class="i">+    {{ partial &quot;post/pagination.html&quot; . }}
+</a>   {{ end }}
+ {{ end }} 
+\ No newline at end of file
+<b>diff --git a/<a id="h12" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h12-0" id="h12-0" class="h">@@ -6,16 +6,12 @@
+</a>     {{ with .Params.tags }}
+       &lt;br&gt;
+       &lt;br&gt;
+<a href="#h12-0-3" id="h12-0-3" class="d">-      &lt;p&gt;Published on &lt;time&gt;{{ $date }}&lt;/time&gt;, for story like this:&lt;/p&gt;
+</a><a href="#h12-0-4" id="h12-0-4" class="d">-      &lt;div&gt;
+</a><a href="#h12-0-5" id="h12-0-5" class="d">-        &lt;ul class=&quot;taglist&quot;&gt;
+</a><a href="#h12-0-6" id="h12-0-6" class="d">-          {{ range . }}
+</a><a href="#h12-0-7" id="h12-0-7" class="d">-          &lt;li&gt;
+</a><a href="#h12-0-8" id="h12-0-8" class="d">-            {{- partial &quot;components/tagitem.html&quot; . -}}
+</a><a href="#h12-0-9" id="h12-0-9" class="d">-          &lt;/li&gt;
+</a><a href="#h12-0-10" id="h12-0-10" class="d">-          {{ end }}
+</a><a href="#h12-0-11" id="h12-0-11" class="d">-        &lt;/ul&gt;
+</a><a href="#h12-0-12" id="h12-0-12" class="d">-      &lt;/div&gt;
+</a><a href="#h12-0-13" id="h12-0-13" class="i">+      &lt;p&gt;Published on &lt;time&gt;{{ $date }}&lt;/time&gt;, for stories like this:&lt;/p&gt;
+</a><a href="#h12-0-14" id="h12-0-14" class="i">+      &lt;p class=&quot;taglist&quot;&gt;
+</a><a href="#h12-0-15" id="h12-0-15" class="i">+        {{ range . }}
+</a><a href="#h12-0-16" id="h12-0-16" class="i">+          {{- partial &quot;components/tagitem.html&quot; . -}}
+</a><a href="#h12-0-17" id="h12-0-17" class="i">+        {{ end }}
+</a><a href="#h12-0-18" id="h12-0-18" class="i">+      &lt;/p&gt;
+</a>     {{ end }}
+   &lt;/article&gt;
+ {{ end }} 
+\ No newline at end of file
+<b>diff --git a/<a id="h13" href="../file/layouts/index.html.html">layouts/index.html</a> b/<a href="../file/layouts/index.html.html">layouts/index.html</a></b>
+<a href="#h13-0" id="h13-0" class="h">@@ -8,12 +8,14 @@
+</a>   &lt;h2&gt;Blog&lt;/h2&gt;
+   {{ range first 5 (where .Site.RegularPages &quot;Type&quot; &quot;posts&quot;) }}
+     &lt;p&gt;
+<a href="#h13-0-3" id="h13-0-3" class="d">-      &lt;time&gt;{{ .Date.Format &quot;02 Jan 2006&quot; }}&lt;/time&gt; - 
+</a><a href="#h13-0-4" id="h13-0-4" class="d">-      &lt;span&gt;{{ .Title }} &lt;a href={{ .Permalink }}&gt;&gt;&gt;&lt;/a&gt;&lt;/span&gt;
+</a><a href="#h13-0-5" id="h13-0-5" class="i">+      &lt;a href={{ .Permalink }} class=&quot;button full-width&quot;&gt;
+</a><a href="#h13-0-6" id="h13-0-6" class="i">+        &lt;time&gt;{{ .Date.Format &quot;02 Jan 2006&quot; }}&lt;/time&gt; - 
+</a><a href="#h13-0-7" id="h13-0-7" class="i">+        &lt;span class=&quot;link-white&quot;&gt;{{ .Title }}&lt;/span&gt; »
+</a><a href="#h13-0-8" id="h13-0-8" class="i">+      &lt;/a&gt;
+</a>     &lt;/p&gt;
+   {{ end }}
+   {{ $postURL := &quot;/posts&quot; | absURL }}
+<a href="#h13-0-12" id="h13-0-12" class="d">-  &lt;p&gt;More Blogs &lt;a href={{ $postURL }}&gt;&gt;&gt;&lt;/a&gt;&lt;/p&gt;
+</a><a href="#h13-0-13" id="h13-0-13" class="i">+  &lt;p class=&quot;main__more&quot;&gt;&lt;a href={{ $postURL }} class=&quot;button&quot;&gt;More Blogs ⤳&lt;/a&gt;&lt;/p&gt;
+</a> 
+   &lt;hr&gt;
+ 
+<a href="#h13-1" id="h13-1" class="h">@@ -22,7 +24,7 @@
+</a>     &lt;p&gt;{{ .Content }}&lt;/p&gt;
+   {{ end }}
+   {{ $notesURL := &quot;/notes&quot; | absURL }}
+<a href="#h13-1-3" id="h13-1-3" class="d">-  &lt;p&gt;More Notes &lt;a href={{ $notesURL }}&gt;&gt;&gt;&lt;/a&gt;&lt;/p&gt;
+</a><a href="#h13-1-4" id="h13-1-4" class="i">+  &lt;p class=&quot;main__more&quot;&gt;&lt;a href={{ $notesURL }} class=&quot;button&quot;&gt;More Notes ⤳&lt;/a&gt;&lt;/p&gt;
+</a> 
+ &lt;/article&gt;
+ 
+<b>diff --git a/<a id="h14" href="../file/layouts/partials/components/tagitem.html.html">layouts/partials/components/tagitem.html</a> b/<a href="../file/layouts/partials/components/tagitem.html.html">layouts/partials/components/tagitem.html</a></b>
+<a href="#h14-0" id="h14-0" class="h">@@ -1 +1 @@
+</a><a href="#h14-0-0" id="h14-0-0" class="d">-&lt;a class=&quot;tagitem&quot; href=&quot;{{ &quot;/tags/&quot; | relLangURL }}{{ . | urlize }}&quot;&gt;#{{ . }}&lt;/a&gt;</a><a href="#h14-0-1" id="h14-0-1" class="d">-
+\ No newline at end of file
+</a><a href="#h14-0-2" id="h14-0-2" class="i">+&lt;a class=&quot;tagitem button&quot; href=&quot;{{ &quot;/tags/&quot; | relLangURL }}{{ . | urlize }}&quot;&gt;#{{ . }}&lt;/a&gt;</a><a href="#h14-0-3" id="h14-0-3" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h15" href="../file/layouts/partials/footer/footer.html.html">layouts/partials/footer/footer.html</a> b/<a href="../file/layouts/partials/footer/footer.html.html">layouts/partials/footer/footer.html</a></b>
+<a href="#h15-0" id="h15-0" class="h">@@ -1,12 +1,16 @@
+</a> {{ $url := &quot;/index.xml&quot; | absURL }}
+ &lt;div class=&quot;footer__nav&quot;&gt;
+   &lt;p class=&quot;footer__nav__left&quot;&gt;
+<a href="#h15-0-3" id="h15-0-3" class="d">-    &lt;a href={{ .Site.BaseURL }}&gt; &lt;&lt; Back to Home&lt;/a&gt;
+</a><a href="#h15-0-4" id="h15-0-4" class="i">+    {{ if not .IsHome }}
+</a><a href="#h15-0-5" id="h15-0-5" class="i">+      &lt;a class=&quot;button&quot; href={{ .Site.BaseURL }}&gt;
+</a><a href="#h15-0-6" id="h15-0-6" class="i">+        « Back to Home
+</a><a href="#h15-0-7" id="h15-0-7" class="i">+      &lt;/a&gt;
+</a><a href="#h15-0-8" id="h15-0-8" class="i">+    {{ end }}
+</a>   &lt;/p&gt;
+   &lt;p class=&quot;footer__nav__right&quot;&gt;
+<a href="#h15-0-11" id="h15-0-11" class="d">-		&lt;a href=&quot;https://github.com/{{ .Site.Params.Github }}&quot;&gt;GitHub&lt;/a&gt;
+</a><a href="#h15-0-12" id="h15-0-12" class="d">-		&lt;a href=&quot;https://twitter.com/{{ .Site.Params.Twitter }}&quot;&gt;Twitter&lt;/a&gt;
+</a><a href="#h15-0-13" id="h15-0-13" class="d">-		&lt;a href={{ &quot;index.xml&quot; | absURL }}&gt;RSS&lt;/a&gt;
+</a><a href="#h15-0-14" id="h15-0-14" class="i">+		&lt;a class=&quot;button&quot; href=&quot;https://github.com/{{ .Site.Params.Github }}&quot;&gt;GitHub&lt;/a&gt;
+</a><a href="#h15-0-15" id="h15-0-15" class="i">+		&lt;a class=&quot;button&quot; href=&quot;https://twitter.com/{{ .Site.Params.Twitter }}&quot;&gt;Twitter&lt;/a&gt;
+</a><a href="#h15-0-16" id="h15-0-16" class="i">+		&lt;a class=&quot;button&quot; href={{ &quot;index.xml&quot; | absURL }}&gt;RSS&lt;/a&gt;
+</a>   &lt;/p&gt;
+ &lt;/div&gt;
+ &lt;p class=&quot;footer__copyright&quot;&gt;
+<b>diff --git a/<a id="h16" href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a> b/<a href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a></b>
+<a href="#h16-0" id="h16-0" class="h">@@ -24,5 +24,9 @@
+</a>   {{ end }}
+ &lt;/style&gt;
+ 
+<a href="#h16-0-3" id="h16-0-3" class="i">+&lt;script type=&quot;application/javascript&quot; src=&quot;../darkToggler.js&quot;&gt;&lt;/script&gt;
+</a><a href="#h16-0-4" id="h16-0-4" class="i">+
+</a> &lt;link rel=&quot;canonical&quot; href=&quot;{{ .Permalink }}&quot; &gt;
+ &lt;link rel=&quot;sitemap&quot; href=&quot;{{ &quot;sitemap.xml&quot; | absURL }}&quot; type=&quot;application/xml&quot; /&gt;
+<a href="#h16-0-7" id="h16-0-7" class="i">+
+</a><a href="#h16-0-8" id="h16-0-8" class="i">+{{ partial &quot;head/og-metas.html&quot; . }}
+</a><b>diff --git a/<a id="h17" href="../file/layouts/partials/head/og-metas.html.html">layouts/partials/head/og-metas.html</a> b/<a href="../file/layouts/partials/head/og-metas.html.html">layouts/partials/head/og-metas.html</a></b>
+<a href="#h17-0" id="h17-0" class="h">@@ -0,0 +1,6 @@
+</a><a href="#h17-0-0" id="h17-0-0" class="i">+&lt;meta property=&quot;og:title&quot; content=&quot;{{ .Params.Ogp.Title | default .Title }}&quot;&gt;
+</a><a href="#h17-0-1" id="h17-0-1" class="i">+&lt;meta property=&quot;og:url&quot; content=&quot;{{ .Permalink }}&quot;&gt;
+</a><a href="#h17-0-2" id="h17-0-2" class="i">+&lt;meta property=&quot;og:description&quot; content=&quot;{{if .IsHome}}{{ .Site.Params.Description }}{{else}}{{.Params.Ogp.Description | default .Description}}{{end}}&quot;&gt;
+</a><a href="#h17-0-3" id="h17-0-3" class="i">+&lt;meta property=&quot;og:image&quot; content=&quot;{{ .Params.Ogp.Image | default .Params.Image.Src | default &quot;logo.png&quot; | absURL}}&quot;&gt;
+</a><a href="#h17-0-4" id="h17-0-4" class="i">+&lt;meta property=&quot;og:type&quot; content=&quot;article&quot;&gt;
+</a><a href="#h17-0-5" id="h17-0-5" class="i">+&lt;meta property=&quot;og:site_name&quot; content=&quot;{{ .Params.Ogp.Site | default .Page.Params.FacebookSite }}&quot;&gt;</a><a href="#h17-0-6" id="h17-0-6" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h18" href="../file/layouts/partials/header/header.html.html">layouts/partials/header/header.html</a> b/<a href="../file/layouts/partials/header/header.html.html">layouts/partials/header/header.html</a></b>
+<a href="#h18-0" id="h18-0" class="h">@@ -1,4 +1,4 @@
+</a><a href="#h18-0-0" id="h18-0-0" class="d">-&lt;h1 class=&quot;header__title&quot;&gt;Yohanes Bandung Bondowoso&lt;/h1&gt;
+</a><a href="#h18-0-1" id="h18-0-1" class="i">+&lt;h1 class=&quot;header__title&quot;&gt;Yohanes Bandung Bondowoso &lt;span class=&quot;dark-toggler&quot;&gt;&lt;/span&gt;&lt;/h1&gt;
+</a> &lt;nav class=&quot;header__menu&quot;&gt;
+   {{ partial &quot;header/menu.html&quot; . }}
+ &lt;/nav&gt; 
+\ No newline at end of file
+<b>diff --git a/<a id="h19" href="../file/layouts/partials/header/menu.html.html">layouts/partials/header/menu.html</a> b/<a href="../file/layouts/partials/header/menu.html.html">layouts/partials/header/menu.html</a></b>
+<a href="#h19-0" id="h19-0" class="h">@@ -1,8 +1,7 @@
+</a><a href="#h19-0-0" id="h19-0-0" class="d">-&lt;ul class=&quot;header__menu__list&quot;&gt;
+</a><a href="#h19-0-1" id="h19-0-1" class="i">+&lt;div class=&quot;header__menu__list&quot;&gt;
+</a>   {{ $baseURL := .Site.BaseURL }}
+   {{ range .Site.Menus.main }}
+     {{ $url := trim .URL &quot;/&quot; | absURL }}
+<a href="#h19-0-5" id="h19-0-5" class="d">-    &lt;li&gt;
+</a>       &lt;a
+         href={{ $url }}
+         {{ with .Page }}
+<a href="#h19-1" id="h19-1" class="h">@@ -11,9 +10,10 @@
+</a>           target=&quot;_blank&quot;
+           rel=&quot;nofollow noopener noreferrer&quot;
+         {{ end }}
+<a href="#h19-1-3" id="h19-1-3" class="i">+        role=&quot;button&quot;
+</a><a href="#h19-1-4" id="h19-1-4" class="i">+        class=&quot;header__menu__list__item button&quot;
+</a>       &gt;
+         {{ .Pre }}&lt;span&gt;{{ .Name }}&lt;/span&gt;
+       &lt;/a&gt;
+<a href="#h19-1-8" id="h19-1-8" class="d">-    &lt;/li&gt;
+</a>   {{ end }}
+<a href="#h19-1-10" id="h19-1-10" class="d">-&lt;/ul&gt;</a><a href="#h19-1-11" id="h19-1-11" class="d">-
+\ No newline at end of file
+</a><a href="#h19-1-12" id="h19-1-12" class="i">+&lt;/div&gt;</a><a href="#h19-1-13" id="h19-1-13" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h20" href="../file/layouts/partials/post/pagination.html.html">layouts/partials/post/pagination.html</a> b/<a href="../file/layouts/partials/post/pagination.html.html">layouts/partials/post/pagination.html</a></b>
+<a href="#h20-0" id="h20-0" class="h">@@ -0,0 +1,21 @@
+</a><a href="#h20-0-0" id="h20-0-0" class="i">+&lt;nav class=&quot;pagination&quot;&gt;
+</a><a href="#h20-0-1" id="h20-0-1" class="i">+  {{ if gt .Paginator.TotalPages 1 }}
+</a><a href="#h20-0-2" id="h20-0-2" class="i">+    {{ if .Paginator.HasNext }}
+</a><a href="#h20-0-3" id="h20-0-3" class="i">+      &lt;a class=&quot;button pagination__item__left&quot; role=&quot;button&quot; href=&quot;{{ trim .Paginator.Next.URL &quot;/&quot; | absLangURL }}&quot; data-rel=&quot;prefetch&quot;&gt;
+</a><a href="#h20-0-4" id="h20-0-4" class="i">+        &lt; Older
+</a><a href="#h20-0-5" id="h20-0-5" class="i">+      &lt;/a&gt;
+</a><a href="#h20-0-6" id="h20-0-6" class="i">+    {{ else }}
+</a><a href="#h20-0-7" id="h20-0-7" class="i">+      &lt;span class=&quot;pagination__item__left&quot;&gt;&lt;/span&gt;
+</a><a href="#h20-0-8" id="h20-0-8" class="i">+    {{ end }}
+</a><a href="#h20-0-9" id="h20-0-9" class="i">+    &lt;span class=&quot;pagination__item&quot;&gt;*&lt;/span&gt;
+</a><a href="#h20-0-10" id="h20-0-10" class="i">+    {{ if .Paginator.HasPrev }}
+</a><a href="#h20-0-11" id="h20-0-11" class="i">+      &lt;a class=&quot;button pagination__item__right&quot; role=&quot;button&quot; href=&quot;{{ trim .Paginator.Prev.URL &quot;/&quot; | absLangURL }}&quot; data-rel=&quot;prefetch&quot;&gt;
+</a><a href="#h20-0-12" id="h20-0-12" class="i">+        Newer &gt;
+</a><a href="#h20-0-13" id="h20-0-13" class="i">+      &lt;/a&gt;
+</a><a href="#h20-0-14" id="h20-0-14" class="i">+    {{ else }}
+</a><a href="#h20-0-15" id="h20-0-15" class="i">+      &lt;span class=&quot;pagination__item__right&quot;&gt;&lt;/span&gt;
+</a><a href="#h20-0-16" id="h20-0-16" class="i">+    {{ end }}
+</a><a href="#h20-0-17" id="h20-0-17" class="i">+  {{ else }}
+</a><a href="#h20-0-18" id="h20-0-18" class="i">+    &lt;span&gt;No More Post&lt;/span&gt;
+</a><a href="#h20-0-19" id="h20-0-19" class="i">+  {{ end }}
+</a><a href="#h20-0-20" id="h20-0-20" class="i">+&lt;/nav&gt;</a><a href="#h20-0-21" id="h20-0-21" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h21" href="../file/layouts/partials/post/summary.html.html">layouts/partials/post/summary.html</a> b/<a href="../file/layouts/partials/post/summary.html.html">layouts/partials/post/summary.html</a></b>
+<a href="#h21-0" id="h21-0" class="h">@@ -0,0 +1,33 @@
+</a><a href="#h21-0-0" id="h21-0-0" class="i">+&lt;article class=&quot;summary&quot;&gt;
+</a><a href="#h21-0-1" id="h21-0-1" class="i">+  &lt;a href=&quot;{{ .Permalink }}&quot;&gt;&lt;h2 class=&quot;summary__title&quot;&gt;{{ .Title }}&lt;/h2&gt;&lt;/a&gt;
+</a><a href="#h21-0-2" id="h21-0-2" class="i">+  &lt;time&gt;{{ .Date.Format &quot;02 Jan 2006&quot; }}&lt;/time&gt;
+</a><a href="#h21-0-3" id="h21-0-3" class="i">+  &lt;span&gt; - &lt;/span&gt;
+</a><a href="#h21-0-4" id="h21-0-4" class="i">+  {{ range .Params.tags }}
+</a><a href="#h21-0-5" id="h21-0-5" class="i">+    {{- partial &quot;components/tagitem.html&quot; . -}}
+</a><a href="#h21-0-6" id="h21-0-6" class="i">+  {{ end }}
+</a><a href="#h21-0-7" id="h21-0-7" class="i">+&lt;!--   {{ with .Params.Image.Src }}
+</a><a href="#h21-0-8" id="h21-0-8" class="i">+      &lt;amp-img class=&quot;summary__image&quot;
+</a><a href="#h21-0-9" id="h21-0-9" class="i">+          src=&quot;{{ . }}&quot;
+</a><a href="#h21-0-10" id="h21-0-10" class="i">+          layout=&quot;responsive&quot;
+</a><a href="#h21-0-11" id="h21-0-11" class="i">+          width=&quot;1280&quot;
+</a><a href="#h21-0-12" id="h21-0-12" class="i">+          height=&quot;720&quot;
+</a><a href="#h21-0-13" id="h21-0-13" class="i">+          object-fit=&quot;contain&quot;
+</a><a href="#h21-0-14" id="h21-0-14" class="i">+          alt=&quot;{{ $.Title }}&quot;&gt;&lt;/amp-img&gt;
+</a><a href="#h21-0-15" id="h21-0-15" class="i">+  {{ end }}
+</a><a href="#h21-0-16" id="h21-0-16" class="i">+ --&gt;
+</a><a href="#h21-0-17" id="h21-0-17" class="i">+ {{ $hell := .Type }}
+</a><a href="#h21-0-18" id="h21-0-18" class="i">+  {{ if .Params.Description }}
+</a><a href="#h21-0-19" id="h21-0-19" class="i">+    &lt;p&gt; {{ .Params.Description }} &lt;/p&gt;
+</a><a href="#h21-0-20" id="h21-0-20" class="i">+      {{ else }}
+</a><a href="#h21-0-21" id="h21-0-21" class="i">+    &lt;p&gt;
+</a><a href="#h21-0-22" id="h21-0-22" class="i">+      {{ .Summary }}
+</a><a href="#h21-0-23" id="h21-0-23" class="i">+      {{ if .Truncated }}
+</a><a href="#h21-0-24" id="h21-0-24" class="i">+        &lt;p&gt;
+</a><a href="#h21-0-25" id="h21-0-25" class="i">+          &lt;a href=&quot;{{ .Permalink }}&quot;&gt;
+</a><a href="#h21-0-26" id="h21-0-26" class="i">+            Read more ⤳
+</a><a href="#h21-0-27" id="h21-0-27" class="i">+          &lt;/a&gt;
+</a><a href="#h21-0-28" id="h21-0-28" class="i">+        &lt;/p&gt;
+</a><a href="#h21-0-29" id="h21-0-29" class="i">+      {{ end }}
+</a><a href="#h21-0-30" id="h21-0-30" class="i">+    &lt;/p&gt;
+</a><a href="#h21-0-31" id="h21-0-31" class="i">+  {{ end }}
+</a><a href="#h21-0-32" id="h21-0-32" class="i">+&lt;/article&gt;
+</a><b>diff --git a/<a id="h22" href="../file/static/darkToggler.js.html">static/darkToggler.js</a> b/<a href="../file/static/darkToggler.js.html">static/darkToggler.js</a></b>
+<a href="#h22-0" id="h22-0" class="h">@@ -0,0 +1,4 @@
+</a><a href="#h22-0-0" id="h22-0-0" class="i">+(function() {
+</a><a href="#h22-0-1" id="h22-0-1" class="i">+  let toggler = document.getElementsByClassName(&quot;dark-toggler&quot;);
+</a><a href="#h22-0-2" id="h22-0-2" class="i">+  toggler.innerHTML = &quot;🌛&quot;;
+</a><a href="#h22-0-3" id="h22-0-3" class="i">+})()</a><a href="#h22-0-4" id="h22-0-4" class="i">+
+\ No newline at end of file
+</a></pre>
+</div>
+</div>
+</body>
+</html>

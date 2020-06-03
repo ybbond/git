@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>summary.html - ybbond - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../../../../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../../../../index.html">Log</a> | <a href="../../../../files.html">Files</a> | <a href="../../../../refs.html">Refs</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> summary.html (1278B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> &lt;article class=&quot;summary h-entry&quot;&gt;
+<a href="#l2" class="line" id="l2">      2</a>   {{ $permalink := .Permalink }}
+<a href="#l3" class="line" id="l3">      3</a>   {{ $slug := .Slug }}
+<a href="#l4" class="line" id="l4">      4</a>   {{ $title := .Title }}
+<a href="#l5" class="line" id="l5">      5</a>   {{ with .Params.Image.Src }}
+<a href="#l6" class="line" id="l6">      6</a>     {{ $filename := . | safeURL }}
+<a href="#l7" class="line" id="l7">      7</a>     {{ $original := printf &quot;%s%s&quot; $permalink $filename }}
+<a href="#l8" class="line" id="l8">      8</a>   {{ end }}
+<a href="#l9" class="line" id="l9">      9</a>   &lt;a data-goatcounter-click=&quot;{{ $slug }}&quot; href=&quot;{{ $permalink }}&quot; class=&quot;u-url no-outline&quot;&gt;
+<a href="#l10" class="line" id="l10">     10</a>     &lt;h2 class=&quot;summary__title p-name&quot;&gt;
+<a href="#l11" class="line" id="l11">     11</a>       {{ $title }}
+<a href="#l12" class="line" id="l12">     12</a>     &lt;/h2&gt;
+<a href="#l13" class="line" id="l13">     13</a>   &lt;/a&gt;
+<a href="#l14" class="line" id="l14">     14</a>   &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot;&gt;
+<a href="#l15" class="line" id="l15">     15</a>     {{ .Date.Format &quot;02 Jan 2006&quot; }}
+<a href="#l16" class="line" id="l16">     16</a>   &lt;/time&gt;
+<a href="#l17" class="line" id="l17">     17</a>   &lt;span&gt; - &lt;/span&gt;
+<a href="#l18" class="line" id="l18">     18</a>   {{ range .Params.tags }}
+<a href="#l19" class="line" id="l19">     19</a>     {{- partial &quot;components/tagitem.html&quot; . -}}
+<a href="#l20" class="line" id="l20">     20</a>   {{ end }}
+<a href="#l21" class="line" id="l21">     21</a> &lt;!--   {{ with .Params.Image.Src }}
+<a href="#l22" class="line" id="l22">     22</a>       &lt;amp-img class=&quot;summary__image&quot;
+<a href="#l23" class="line" id="l23">     23</a>           src=&quot;{{ . }}&quot;
+<a href="#l24" class="line" id="l24">     24</a>           layout=&quot;responsive&quot;
+<a href="#l25" class="line" id="l25">     25</a>           width=&quot;1280&quot;
+<a href="#l26" class="line" id="l26">     26</a>           height=&quot;720&quot;
+<a href="#l27" class="line" id="l27">     27</a>           object-fit=&quot;contain&quot;
+<a href="#l28" class="line" id="l28">     28</a>           alt=&quot;{{ $.Title }}&quot;&gt;&lt;/amp-img&gt;
+<a href="#l29" class="line" id="l29">     29</a>   {{ end }}
+<a href="#l30" class="line" id="l30">     30</a>  --&gt;
+<a href="#l31" class="line" id="l31">     31</a>  {{ $hell := .Type }}
+<a href="#l32" class="line" id="l32">     32</a>   {{ if .Params.Description }}
+<a href="#l33" class="line" id="l33">     33</a>     &lt;p&gt; {{ .Params.Description | safeHTML }} &lt;/p&gt;
+<a href="#l34" class="line" id="l34">     34</a>     &lt;a data-goatcounter-click=&quot;rmore-{{ $slug }}&quot; href=&quot;{{ $permalink }}&quot; class=&quot;no-outline&quot;&gt;
+<a href="#l35" class="line" id="l35">     35</a>       &lt;p&gt;Read More »&lt;/p&gt;
+<a href="#l36" class="line" id="l36">     36</a>     &lt;/a&gt;
+<a href="#l37" class="line" id="l37">     37</a>   {{ else }}
+<a href="#l38" class="line" id="l38">     38</a>     &lt;div class=&quot;content&quot;&gt;
+<a href="#l39" class="line" id="l39">     39</a>       {{ partial &quot;components/summary-seo.html&quot; .Content }}
+<a href="#l40" class="line" id="l40">     40</a>     &lt;/div&gt;
+<a href="#l41" class="line" id="l41">     41</a>   {{ end }}
+<a href="#l42" class="line" id="l42">     42</a> &lt;/article&gt;
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(SEO): add sitemap and robots - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/ad5ceda12ac5395bec767f1f4a225933b2085fe1.html">ad5ceda12ac5395bec767f1f4a225933b2085fe1</a>
+<b>parent</b> <a href="../commit/2aed1803891d83424f651c5d4b81805d08808404.html">2aed1803891d83424f651c5d4b81805d08808404</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sun, 19 Apr 2020 22:24:29 +0700
+
+feature(SEO): add sitemap and robots
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">package.json</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">public/index.html</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h2">public/robots.txt</a></td><td> | </td><td class="num">3</td><td><span class="i">+++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">webpack.config.js</a></td><td> | </td><td class="num">27</td><td><span class="i">++++++++++++++++++++++++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">yarn.lock</a></td><td> | </td><td class="num">422</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">---</span></td></tr>
+</table></pre></div><p>5 files changed, 444 insertions(<span id="plus">+</span>), 14 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/package.json.html">package.json</a> b/<a href="../file/package.json.html">package.json</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -37,6 +37,8 @@
+</a>     &quot;flow-bin&quot;: &quot;^0.120.1&quot;,
+     &quot;html-webpack-plugin&quot;: &quot;^3.2.0&quot;,
+     &quot;prettier&quot;: &quot;1.19.1&quot;,
+<a href="#h0-0-3" id="h0-0-3" class="i">+    &quot;robotstxt-webpack-plugin&quot;: &quot;^7.0.0&quot;,
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    &quot;sitemap-webpack-plugin&quot;: &quot;^0.7.1&quot;,
+</a>     &quot;webpack&quot;: &quot;^4.42.0&quot;,
+     &quot;webpack-bundle-analyzer&quot;: &quot;^3.6.1&quot;,
+     &quot;webpack-cli&quot;: &quot;^3.3.11&quot;,
+<b>diff --git a/<a id="h1" href="../file/public/index.html.html">public/index.html</a> b/<a href="../file/public/index.html.html">public/index.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -7,10 +7,10 @@
+</a>         font-family: &#39;IBM Plex Mono&#39;, monospace;
+       }
+     &lt;/style&gt;
+<a href="#h1-0-3" id="h1-0-3" class="d">-    &lt;title&gt;Yohanes Bandung Bond - Frontend Developer&lt;/title&gt;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+    &lt;title&gt;Yohanes Bandung Bondowoso&lt;/title&gt;
+</a>     &lt;meta charset=&quot;UTF-8&quot; /&gt;
+     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot; /&gt;
+<a href="#h1-0-7" id="h1-0-7" class="d">-    &lt;meta name=&quot;title&quot; content=&quot;Yohanes Bandung Bond - Frontend Developer&quot; /&gt;
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+    &lt;meta name=&quot;title&quot; content=&quot;Yohanes Bandung Bondowoso&quot; /&gt;
+</a>     &lt;meta
+       name=&quot;description&quot;
+       content=&quot;Yohanes Bandung Bondowoso currently work as Frontend Engineer of kumparan.com in Jakarta, Indonesia. Building it with React, React Native for Android and iOS. Eager to have new insight from everyone, and everything. I learn, sometimes after I broke stuff. But still, I learn. Contact: bandungpenting@gmail.com&quot;
+<b>diff --git a/<a id="h2" href="../file/public/robots.txt.html">public/robots.txt</a> b/<a href="../file/public/robots.txt.html">public/robots.txt</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -0,0 +1,3 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="i">+# https://www.robotstxt.org/robotstxt.html
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+User-agent: *
+</a><a href="#h2-0-2" id="h2-0-2" class="i">+Disallow:
+</a><b>diff --git a/<a id="h3" href="../file/webpack.config.js.html">webpack.config.js</a> b/<a href="../file/webpack.config.js.html">webpack.config.js</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -7,6 +7,27 @@ const BundleAnalyzerPlugin = require(&#39;webpack-bundle-analyzer&#39;)
+</a>   .BundleAnalyzerPlugin;
+ const {CleanWebpackPlugin} = require(&#39;clean-webpack-plugin&#39;);
+ const ZopfliPlugin = require(&#39;zopfli-webpack-plugin&#39;);
+<a href="#h3-0-3" id="h3-0-3" class="i">+const RobotstxtPlugin = require(&#39;robotstxt-webpack-plugin&#39;);
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+const SitemapPlugin = require(&#39;sitemap-webpack-plugin&#39;).default;
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+const robotOptions = {
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+  policy: [
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+    {
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+      userAgent: &#39;Googlebot&#39;,
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+      allow: &#39;/&#39;,
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+      crawlDelay: 2,
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+    },
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+    {
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+      userAgent: &#39;*&#39;,
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+      allow: &#39;/&#39;,
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+      crawlDelay: 2,
+</a><a href="#h3-0-17" id="h3-0-17" class="i">+    },
+</a><a href="#h3-0-18" id="h3-0-18" class="i">+  ],
+</a><a href="#h3-0-19" id="h3-0-19" class="i">+  sitemap: &#39;http://ybbond.dev/sitemap.xml&#39;,
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+  host: &#39;http://ybbond.dev&#39;,
+</a><a href="#h3-0-21" id="h3-0-21" class="i">+};
+</a><a href="#h3-0-22" id="h3-0-22" class="i">+
+</a><a href="#h3-0-23" id="h3-0-23" class="i">+const paths = [&#39;/&#39;, &#39;/uses/&#39;, &#39;/uses&#39;, &#39;/about/&#39;, &#39;/about&#39;];
+</a> 
+ const config = {
+   entry: path.resolve(__dirname, &#39;src/index&#39;),
+<a href="#h3-1" id="h3-1" class="h">@@ -21,10 +42,14 @@ const config = {
+</a>   },
+   plugins: [
+     new HtmlWebpackPlugin({
+<a href="#h3-1-3" id="h3-1-3" class="d">-      title: &#39;ybbond.dev&#39;,
+</a><a href="#h3-1-4" id="h3-1-4" class="i">+      title: &#39;Yohanes Bandung&#39;,
+</a>       template: &#39;public/index.html&#39;,
+       favicon: &#39;public/favicon.ico&#39;,
+     }),
+<a href="#h3-1-8" id="h3-1-8" class="i">+    new RobotstxtPlugin({
+</a><a href="#h3-1-9" id="h3-1-9" class="i">+      options: robotOptions,
+</a><a href="#h3-1-10" id="h3-1-10" class="i">+    }),
+</a><a href="#h3-1-11" id="h3-1-11" class="i">+    new SitemapPlugin(&#39;https://ybbond.dev&#39;, paths),
+</a>     new CleanWebpackPlugin(),
+     new webpack.DefinePlugin({
+       &#39;process.env.GITHUB_READ_ONLY_TOKEN&#39;: JSON.stringify(
+<b>diff --git a/<a id="h4" href="../file/yarn.lock.html">yarn.lock</a> b/<a href="../file/yarn.lock.html">yarn.lock</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -789,6 +789,13 @@
+</a>   dependencies:
+     regenerator-runtime &quot;^0.13.4&quot;
+ 
+<a href="#h4-0-3" id="h4-0-3" class="i">+&quot;@babel/runtime@^7.9.2&quot;:
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+  version &quot;7.9.2&quot;
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06&quot;
+</a><a href="#h4-0-6" id="h4-0-6" class="i">+  integrity sha512-NE2DtOdufG7R5vnfQUTehdTfNycfUANEtCa9PssN9O/xmTzP4E08UI797ixaei6hBEVL9BI/PsdJS5x7mWoB9Q==
+</a><a href="#h4-0-7" id="h4-0-7" class="i">+  dependencies:
+</a><a href="#h4-0-8" id="h4-0-8" class="i">+    regenerator-runtime &quot;^0.13.4&quot;
+</a><a href="#h4-0-9" id="h4-0-9" class="i">+
+</a> &quot;@babel/template@^7.8.3&quot;, &quot;@babel/template@^7.8.6&quot;:
+   version &quot;7.8.6&quot;
+   resolved &quot;https://registry.yarnpkg.com/@babel/template/-/template-7.8.6.tgz#86b22af15f828dfb086474f964dcc3e39c43ce2b&quot;
+<a href="#h4-1" id="h4-1" class="h">@@ -873,11 +880,38 @@
+</a>   resolved &quot;https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d&quot;
+   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
+ 
+<a href="#h4-1-3" id="h4-1-3" class="i">+&quot;@types/minimist@^1.2.0&quot;:
+</a><a href="#h4-1-4" id="h4-1-4" class="i">+  version &quot;1.2.0&quot;
+</a><a href="#h4-1-5" id="h4-1-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.0.tgz#69a23a3ad29caf0097f06eda59b361ee2f0639f6&quot;
+</a><a href="#h4-1-6" id="h4-1-6" class="i">+  integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
+</a><a href="#h4-1-7" id="h4-1-7" class="i">+
+</a> &quot;@types/node@*&quot;:
+   version &quot;13.7.7&quot;
+   resolved &quot;https://registry.yarnpkg.com/@types/node/-/node-13.7.7.tgz#1628e6461ba8cc9b53196dfeaeec7b07fa6eea99&quot;
+   integrity sha512-Uo4chgKbnPNlxQwoFmYIwctkQVkMMmsAoGGU4JKwLuvBefF0pCq4FybNSnfkfRCpC7ZW7kttcC/TrRtAJsvGtg==
+ 
+<a href="#h4-1-13" id="h4-1-13" class="i">+&quot;@types/node@^12.12.3&quot;:
+</a><a href="#h4-1-14" id="h4-1-14" class="i">+  version &quot;12.12.36&quot;
+</a><a href="#h4-1-15" id="h4-1-15" class="i">+  resolved &quot;https://registry.yarnpkg.com/@types/node/-/node-12.12.36.tgz#162c8c2a2e659da480049df0e19ae128ad3a1527&quot;
+</a><a href="#h4-1-16" id="h4-1-16" class="i">+  integrity sha512-hmmypvyO/uTLFYCYu6Hlb3ydeJ11vXRxg8/WJ0E3wvwmPO0y47VqnfmXFVuWlysO0Zyj+je1Y33rQeuYkZ51GQ==
+</a><a href="#h4-1-17" id="h4-1-17" class="i">+
+</a><a href="#h4-1-18" id="h4-1-18" class="i">+&quot;@types/normalize-package-data@^2.4.0&quot;:
+</a><a href="#h4-1-19" id="h4-1-19" class="i">+  version &quot;2.4.0&quot;
+</a><a href="#h4-1-20" id="h4-1-20" class="i">+  resolved &quot;https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e&quot;
+</a><a href="#h4-1-21" id="h4-1-21" class="i">+  integrity sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==
+</a><a href="#h4-1-22" id="h4-1-22" class="i">+
+</a><a href="#h4-1-23" id="h4-1-23" class="i">+&quot;@types/parse-json@^4.0.0&quot;:
+</a><a href="#h4-1-24" id="h4-1-24" class="i">+  version &quot;4.0.0&quot;
+</a><a href="#h4-1-25" id="h4-1-25" class="i">+  resolved &quot;https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0&quot;
+</a><a href="#h4-1-26" id="h4-1-26" class="i">+  integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
+</a><a href="#h4-1-27" id="h4-1-27" class="i">+
+</a><a href="#h4-1-28" id="h4-1-28" class="i">+&quot;@types/sax@^1.2.0&quot;:
+</a><a href="#h4-1-29" id="h4-1-29" class="i">+  version &quot;1.2.1&quot;
+</a><a href="#h4-1-30" id="h4-1-30" class="i">+  resolved &quot;https://registry.yarnpkg.com/@types/sax/-/sax-1.2.1.tgz#e0248be936ece791a82db1a57f3fb5f7c87e8172&quot;
+</a><a href="#h4-1-31" id="h4-1-31" class="i">+  integrity sha512-dqYdvN7Sbw8QT/0Ci5rhjE4/iCMJEM0Y9rHpCu+gGXD9Lwbz28t6HI2yegsB6BoV1sShRMU6lAmAcgRjmFy7LA==
+</a><a href="#h4-1-32" id="h4-1-32" class="i">+  dependencies:
+</a><a href="#h4-1-33" id="h4-1-33" class="i">+    &quot;@types/node&quot; &quot;*&quot;
+</a><a href="#h4-1-34" id="h4-1-34" class="i">+
+</a> &quot;@types/source-list-map@*&quot;:
+   version &quot;0.1.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9&quot;
+<a href="#h4-2" id="h4-2" class="h">@@ -1193,6 +1227,11 @@ are-we-there-yet@~1.1.2:
+</a>     delegates &quot;^1.0.0&quot;
+     readable-stream &quot;^2.0.6&quot;
+ 
+<a href="#h4-2-3" id="h4-2-3" class="i">+arg@^4.1.1:
+</a><a href="#h4-2-4" id="h4-2-4" class="i">+  version &quot;4.1.3&quot;
+</a><a href="#h4-2-5" id="h4-2-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/arg/-/arg-4.1.3.tgz#269fc7ad5b8e42cb63c896d5666017261c144089&quot;
+</a><a href="#h4-2-6" id="h4-2-6" class="i">+  integrity sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==
+</a><a href="#h4-2-7" id="h4-2-7" class="i">+
+</a> argparse@^1.0.7:
+   version &quot;1.0.10&quot;
+   resolved &quot;https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911&quot;
+<a href="#h4-3" id="h4-3" class="h">@@ -1251,6 +1290,11 @@ array-unique@^0.3.2:
+</a>   resolved &quot;https://registry.yarnpkg.com/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428&quot;
+   integrity sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
+ 
+<a href="#h4-3-3" id="h4-3-3" class="i">+arrify@^1.0.1:
+</a><a href="#h4-3-4" id="h4-3-4" class="i">+  version &quot;1.0.1&quot;
+</a><a href="#h4-3-5" id="h4-3-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d&quot;
+</a><a href="#h4-3-6" id="h4-3-6" class="i">+  integrity sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=
+</a><a href="#h4-3-7" id="h4-3-7" class="i">+
+</a> asn1.js@^4.0.0:
+   version &quot;4.10.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/asn1.js/-/asn1.js-4.10.1.tgz#b9c2bf5805f1e64aadeed6df3a2bfafb5a73f5a0&quot;
+<a href="#h4-4" id="h4-4" class="h">@@ -1295,6 +1339,11 @@ async@^2.4.0, async@^2.6.2:
+</a>   dependencies:
+     lodash &quot;^4.17.14&quot;
+ 
+<a href="#h4-4-3" id="h4-4-3" class="i">+at-least-node@^1.0.0:
+</a><a href="#h4-4-4" id="h4-4-4" class="i">+  version &quot;1.0.0&quot;
+</a><a href="#h4-4-5" id="h4-4-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2&quot;
+</a><a href="#h4-4-6" id="h4-4-6" class="i">+  integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
+</a><a href="#h4-4-7" id="h4-4-7" class="i">+
+</a> atob@^2.1.2:
+   version &quot;2.1.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9&quot;
+<a href="#h4-5" id="h4-5" class="h">@@ -1649,7 +1698,16 @@ camel-case@3.0.x:
+</a>     no-case &quot;^2.2.0&quot;
+     upper-case &quot;^1.1.1&quot;
+ 
+<a href="#h4-5-3" id="h4-5-3" class="d">-camelcase@^5.0.0:
+</a><a href="#h4-5-4" id="h4-5-4" class="i">+camelcase-keys@^6.1.1:
+</a><a href="#h4-5-5" id="h4-5-5" class="i">+  version &quot;6.2.2&quot;
+</a><a href="#h4-5-6" id="h4-5-6" class="i">+  resolved &quot;https://registry.yarnpkg.com/camelcase-keys/-/camelcase-keys-6.2.2.tgz#5e755d6ba51aa223ec7d3d52f25778210f9dc3c0&quot;
+</a><a href="#h4-5-7" id="h4-5-7" class="i">+  integrity sha512-YrwaA0vEKazPBkn0ipTiMpSajYDSe+KjQfrjhcBMxJt/znbvlHd8Pw/Vamaz5EB4Wfhs3SUR3Z9mwRu/P3s3Yg==
+</a><a href="#h4-5-8" id="h4-5-8" class="i">+  dependencies:
+</a><a href="#h4-5-9" id="h4-5-9" class="i">+    camelcase &quot;^5.3.1&quot;
+</a><a href="#h4-5-10" id="h4-5-10" class="i">+    map-obj &quot;^4.0.0&quot;
+</a><a href="#h4-5-11" id="h4-5-11" class="i">+    quick-lru &quot;^4.0.1&quot;
+</a><a href="#h4-5-12" id="h4-5-12" class="i">+
+</a><a href="#h4-5-13" id="h4-5-13" class="i">+camelcase@^5.0.0, camelcase@^5.3.1:
+</a>   version &quot;5.3.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320&quot;
+   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
+<a href="#h4-6" id="h4-6" class="h">@@ -1981,6 +2039,17 @@ core-util-is@~1.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7&quot;
+   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+ 
+<a href="#h4-6-3" id="h4-6-3" class="i">+cosmiconfig@^6.0.0:
+</a><a href="#h4-6-4" id="h4-6-4" class="i">+  version &quot;6.0.0&quot;
+</a><a href="#h4-6-5" id="h4-6-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-6.0.0.tgz#da4fee853c52f6b1e6935f41c1a2fc50bd4a9982&quot;
+</a><a href="#h4-6-6" id="h4-6-6" class="i">+  integrity sha512-xb3ZL6+L8b9JLLCx3ZdoZy4+2ECphCMo2PwqgP1tlfVq6M6YReyzBJtvWWtbDSpNr9hn96pkCiZqUcFEc+54Qg==
+</a><a href="#h4-6-7" id="h4-6-7" class="i">+  dependencies:
+</a><a href="#h4-6-8" id="h4-6-8" class="i">+    &quot;@types/parse-json&quot; &quot;^4.0.0&quot;
+</a><a href="#h4-6-9" id="h4-6-9" class="i">+    import-fresh &quot;^3.1.0&quot;
+</a><a href="#h4-6-10" id="h4-6-10" class="i">+    parse-json &quot;^5.0.0&quot;
+</a><a href="#h4-6-11" id="h4-6-11" class="i">+    path-type &quot;^4.0.0&quot;
+</a><a href="#h4-6-12" id="h4-6-12" class="i">+    yaml &quot;^1.7.2&quot;
+</a><a href="#h4-6-13" id="h4-6-13" class="i">+
+</a> create-ecdh@^4.0.0:
+   version &quot;4.0.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/create-ecdh/-/create-ecdh-4.0.3.tgz#c9111b6f33045c4697f144787f9254cdc77c45ff&quot;
+<a href="#h4-7" id="h4-7" class="h">@@ -2095,7 +2164,15 @@ debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
+</a>   dependencies:
+     ms &quot;^2.1.1&quot;
+ 
+<a href="#h4-7-3" id="h4-7-3" class="d">-decamelize@^1.2.0:
+</a><a href="#h4-7-4" id="h4-7-4" class="i">+decamelize-keys@^1.1.0:
+</a><a href="#h4-7-5" id="h4-7-5" class="i">+  version &quot;1.1.0&quot;
+</a><a href="#h4-7-6" id="h4-7-6" class="i">+  resolved &quot;https://registry.yarnpkg.com/decamelize-keys/-/decamelize-keys-1.1.0.tgz#d171a87933252807eb3cb61dc1c1445d078df2d9&quot;
+</a><a href="#h4-7-7" id="h4-7-7" class="i">+  integrity sha1-0XGoeTMlKAfrPLYdwcFEXQeN8tk=
+</a><a href="#h4-7-8" id="h4-7-8" class="i">+  dependencies:
+</a><a href="#h4-7-9" id="h4-7-9" class="i">+    decamelize &quot;^1.1.0&quot;
+</a><a href="#h4-7-10" id="h4-7-10" class="i">+    map-obj &quot;^1.0.0&quot;
+</a><a href="#h4-7-11" id="h4-7-11" class="i">+
+</a><a href="#h4-7-12" id="h4-7-12" class="i">+decamelize@^1.1.0, decamelize@^1.2.0:
+</a>   version &quot;1.2.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290&quot;
+   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
+<a href="#h4-8" id="h4-8" class="h">@@ -2440,6 +2517,13 @@ errno@^0.1.3, errno@~0.1.7:
+</a>   dependencies:
+     prr &quot;~1.0.1&quot;
+ 
+<a href="#h4-8-3" id="h4-8-3" class="i">+error-ex@^1.3.1:
+</a><a href="#h4-8-4" id="h4-8-4" class="i">+  version &quot;1.3.2&quot;
+</a><a href="#h4-8-5" id="h4-8-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/error-ex/-/error-ex-1.3.2.tgz#b4ac40648107fdcdcfae242f428bea8a14d4f1bf&quot;
+</a><a href="#h4-8-6" id="h4-8-6" class="i">+  integrity sha512-7dFHNmqeFSEt2ZBsCriorKnn3Z2pj+fd9kmI6QoWw4//DL+icEBfc0U7qJCisqrTsKTjw4fNFy2pW9OqStD84g==
+</a><a href="#h4-8-7" id="h4-8-7" class="i">+  dependencies:
+</a><a href="#h4-8-8" id="h4-8-8" class="i">+    is-arrayish &quot;^0.2.1&quot;
+</a><a href="#h4-8-9" id="h4-8-9" class="i">+
+</a> es-abstract@^1.17.0, es-abstract@^1.17.0-next.1:
+   version &quot;1.17.4&quot;
+   resolved &quot;https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.17.4.tgz#e3aedf19706b20e7c2594c35fc0d57605a79e184&quot;
+<a href="#h4-9" id="h4-9" class="h">@@ -2868,6 +2952,14 @@ find-up@^3.0.0:
+</a>   dependencies:
+     locate-path &quot;^3.0.0&quot;
+ 
+<a href="#h4-9-3" id="h4-9-3" class="i">+find-up@^4.1.0:
+</a><a href="#h4-9-4" id="h4-9-4" class="i">+  version &quot;4.1.0&quot;
+</a><a href="#h4-9-5" id="h4-9-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/find-up/-/find-up-4.1.0.tgz#97afe7d6cdc0bc5928584b7c8d7b16e8a9aa5d19&quot;
+</a><a href="#h4-9-6" id="h4-9-6" class="i">+  integrity sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==
+</a><a href="#h4-9-7" id="h4-9-7" class="i">+  dependencies:
+</a><a href="#h4-9-8" id="h4-9-8" class="i">+    locate-path &quot;^5.0.0&quot;
+</a><a href="#h4-9-9" id="h4-9-9" class="i">+    path-exists &quot;^4.0.0&quot;
+</a><a href="#h4-9-10" id="h4-9-10" class="i">+
+</a> findup-sync@3.0.0:
+   version &quot;3.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/findup-sync/-/findup-sync-3.0.0.tgz#17b108f9ee512dfb7a5c7f3c8b27ea9e1a9c08d1&quot;
+<a href="#h4-10" id="h4-10" class="h">@@ -2947,6 +3039,16 @@ fs-constants@^1.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/fs-constants/-/fs-constants-1.0.0.tgz#6be0de9be998ce16af8afc24497b9ee9b7ccd9ad&quot;
+   integrity sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==
+ 
+<a href="#h4-10-3" id="h4-10-3" class="i">+fs-extra@^9.0.0:
+</a><a href="#h4-10-4" id="h4-10-4" class="i">+  version &quot;9.0.0&quot;
+</a><a href="#h4-10-5" id="h4-10-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.0.0.tgz#b6afc31036e247b2466dc99c29ae797d5d4580a3&quot;
+</a><a href="#h4-10-6" id="h4-10-6" class="i">+  integrity sha512-pmEYSk3vYsG/bF651KPUXZ+hvjpgWYw/Gc7W9NFUe3ZVLczKKWIij3IKpOrQcdw4TILtibFslZ0UmR8Vvzig4g==
+</a><a href="#h4-10-7" id="h4-10-7" class="i">+  dependencies:
+</a><a href="#h4-10-8" id="h4-10-8" class="i">+    at-least-node &quot;^1.0.0&quot;
+</a><a href="#h4-10-9" id="h4-10-9" class="i">+    graceful-fs &quot;^4.2.0&quot;
+</a><a href="#h4-10-10" id="h4-10-10" class="i">+    jsonfile &quot;^6.0.1&quot;
+</a><a href="#h4-10-11" id="h4-10-11" class="i">+    universalify &quot;^1.0.0&quot;
+</a><a href="#h4-10-12" id="h4-10-12" class="i">+
+</a> fs-readdir-recursive@^1.1.0:
+   version &quot;1.1.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/fs-readdir-recursive/-/fs-readdir-recursive-1.1.0.tgz#e32fc030a2ccee44a6b5371308da54be0b397d27&quot;
+<a href="#h4-11" id="h4-11" class="h">@@ -2999,6 +3101,18 @@ gauge@~2.7.3:
+</a>     strip-ansi &quot;^3.0.1&quot;
+     wide-align &quot;^1.1.0&quot;
+ 
+<a href="#h4-11-3" id="h4-11-3" class="i">+generate-robotstxt@^8.0.0:
+</a><a href="#h4-11-4" id="h4-11-4" class="i">+  version &quot;8.0.2&quot;
+</a><a href="#h4-11-5" id="h4-11-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/generate-robotstxt/-/generate-robotstxt-8.0.2.tgz#7dac489cf1afacfd539346b7d6349da6dec79276&quot;
+</a><a href="#h4-11-6" id="h4-11-6" class="i">+  integrity sha512-i81fuxYz+4uJZy4AO0tKWVoHxDjC6JTkdUJVqG66C8Qn8BgXSWp7rpyl960za2N3u1xupjd6HOGioDNzBfEmLQ==
+</a><a href="#h4-11-7" id="h4-11-7" class="i">+  dependencies:
+</a><a href="#h4-11-8" id="h4-11-8" class="i">+    cosmiconfig &quot;^6.0.0&quot;
+</a><a href="#h4-11-9" id="h4-11-9" class="i">+    fs-extra &quot;^9.0.0&quot;
+</a><a href="#h4-11-10" id="h4-11-10" class="i">+    ip-regex &quot;^4.1.0&quot;
+</a><a href="#h4-11-11" id="h4-11-11" class="i">+    is-absolute-url &quot;^3.0.3&quot;
+</a><a href="#h4-11-12" id="h4-11-12" class="i">+    meow &quot;^6.1.0&quot;
+</a><a href="#h4-11-13" id="h4-11-13" class="i">+    resolve-from &quot;^5.0.0&quot;
+</a><a href="#h4-11-14" id="h4-11-14" class="i">+
+</a> gensync@^1.0.0-beta.1:
+   version &quot;1.0.0-beta.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.1.tgz#58f4361ff987e5ff6e1e7a210827aa371eaac269&quot;
+<a href="#h4-12" id="h4-12" class="h">@@ -3122,7 +3236,7 @@ globby@^6.1.0:
+</a>     pify &quot;^2.0.0&quot;
+     pinkie-promise &quot;^2.0.0&quot;
+ 
+<a href="#h4-12-3" id="h4-12-3" class="d">-graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
+</a><a href="#h4-12-4" id="h4-12-4" class="i">+graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0:
+</a>   version &quot;4.2.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423&quot;
+   integrity sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
+<a href="#h4-13" id="h4-13" class="h">@@ -3145,6 +3259,11 @@ handle-thing@^2.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/handle-thing/-/handle-thing-2.0.0.tgz#0e039695ff50c93fc288557d696f3c1dc6776754&quot;
+   integrity sha512-d4sze1JNC454Wdo2fkuyzCr6aHcbL6PGGuFAz0Li/NcOm1tCHGnWDRmJP85dh9IhQErTc2svWFEX5xHIOo//kQ==
+ 
+<a href="#h4-13-3" id="h4-13-3" class="i">+hard-rejection@^2.0.0:
+</a><a href="#h4-13-4" id="h4-13-4" class="i">+  version &quot;2.1.0&quot;
+</a><a href="#h4-13-5" id="h4-13-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/hard-rejection/-/hard-rejection-2.1.0.tgz#1c6eda5c1685c63942766d79bb40ae773cecd883&quot;
+</a><a href="#h4-13-6" id="h4-13-6" class="i">+  integrity sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==
+</a><a href="#h4-13-7" id="h4-13-7" class="i">+
+</a> has-flag@^3.0.0:
+   version &quot;3.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd&quot;
+<a href="#h4-14" id="h4-14" class="h">@@ -3264,6 +3383,11 @@ hoopy@^0.1.4:
+</a>   resolved &quot;https://registry.yarnpkg.com/hoopy/-/hoopy-0.1.4.tgz#609207d661100033a9a9402ad3dea677381c1b1d&quot;
+   integrity sha512-HRcs+2mr52W0K+x8RzcLzuPPmVIKMSv97RGHy0Ea9y/mpcaK+xTrjICA04KAHi4GRzxliNqNJEFYWHghy3rSfQ==
+ 
+<a href="#h4-14-3" id="h4-14-3" class="i">+hosted-git-info@^2.1.4:
+</a><a href="#h4-14-4" id="h4-14-4" class="i">+  version &quot;2.8.8&quot;
+</a><a href="#h4-14-5" id="h4-14-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.8.tgz#7539bd4bc1e0e0a895815a2e0262420b12858488&quot;
+</a><a href="#h4-14-6" id="h4-14-6" class="i">+  integrity sha512-f/wzC2QaWBs7t9IYqB4T3sR1xviIViXJRJTWBlx2Gf3g0Xi5vI7Yy4koXQ1c9OYDGHN9sBy1DQ2AB8fqZBWhUg==
+</a><a href="#h4-14-7" id="h4-14-7" class="i">+
+</a> hpack.js@^2.1.6:
+   version &quot;2.1.6&quot;
+   resolved &quot;https://registry.yarnpkg.com/hpack.js/-/hpack.js-2.1.6.tgz#87774c0949e513f42e84575b3c45681fade2a0b2&quot;
+<a href="#h4-15" id="h4-15" class="h">@@ -3405,7 +3529,7 @@ ignore@^4.0.6:
+</a>   resolved &quot;https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc&quot;
+   integrity sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==
+ 
+<a href="#h4-15-3" id="h4-15-3" class="d">-import-fresh@^3.0.0:
+</a><a href="#h4-15-4" id="h4-15-4" class="i">+import-fresh@^3.0.0, import-fresh@^3.1.0:
+</a>   version &quot;3.2.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/import-fresh/-/import-fresh-3.2.1.tgz#633ff618506e793af5ac91bf48b72677e15cbe66&quot;
+   integrity sha512-6e1q1cnWP2RXD9/keSkxHScg508CdXqXWgWBaETNhyuBFz+kUZlKboh+ISK+bU++DmbHimVBrOz/zzPe0sZ3sQ==
+<a href="#h4-16" id="h4-16" class="h">@@ -3426,6 +3550,11 @@ imurmurhash@^0.1.4:
+</a>   resolved &quot;https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea&quot;
+   integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
+ 
+<a href="#h4-16-3" id="h4-16-3" class="i">+indent-string@^4.0.0:
+</a><a href="#h4-16-4" id="h4-16-4" class="i">+  version &quot;4.0.0&quot;
+</a><a href="#h4-16-5" id="h4-16-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/indent-string/-/indent-string-4.0.0.tgz#624f8f4497d619b2d9768531d58f4122854d7251&quot;
+</a><a href="#h4-16-6" id="h4-16-6" class="i">+  integrity sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==
+</a><a href="#h4-16-7" id="h4-16-7" class="i">+
+</a> infer-owner@^1.0.3:
+   version &quot;1.0.4&quot;
+   resolved &quot;https://registry.yarnpkg.com/infer-owner/-/infer-owner-1.0.4.tgz#c4cefcaa8e51051c2a40ba2ce8a3d27295af9467&quot;
+<a href="#h4-17" id="h4-17" class="h">@@ -3517,6 +3646,11 @@ ip-regex@^2.1.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/ip-regex/-/ip-regex-2.1.0.tgz#fa78bf5d2e6913c911ce9f819ee5146bb6d844e9&quot;
+   integrity sha1-+ni/XS5pE8kRzp+BnuUUa7bYROk=
+ 
+<a href="#h4-17-3" id="h4-17-3" class="i">+ip-regex@^4.1.0:
+</a><a href="#h4-17-4" id="h4-17-4" class="i">+  version &quot;4.1.0&quot;
+</a><a href="#h4-17-5" id="h4-17-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/ip-regex/-/ip-regex-4.1.0.tgz#5ad62f685a14edb421abebc2fff8db94df67b455&quot;
+</a><a href="#h4-17-6" id="h4-17-6" class="i">+  integrity sha512-pKnZpbgCTfH/1NLIlOduP/V+WRXzC2MOz3Qo8xmxk8C5GudJLgK5QyLVXOSWy3ParAH7Eemurl3xjv/WXYFvMA==
+</a><a href="#h4-17-7" id="h4-17-7" class="i">+
+</a> ip@^1.1.0, ip@^1.1.5:
+   version &quot;1.1.5&quot;
+   resolved &quot;https://registry.yarnpkg.com/ip/-/ip-1.1.5.tgz#bdded70114290828c0a039e72ef25f5aaec4354a&quot;
+<a href="#h4-18" id="h4-18" class="h">@@ -3551,6 +3685,11 @@ is-arguments@^1.0.4:
+</a>   resolved &quot;https://registry.yarnpkg.com/is-arguments/-/is-arguments-1.0.4.tgz#3faf966c7cba0ff437fb31f6250082fcf0448cf3&quot;
+   integrity sha512-xPh0Rmt8NE65sNzvyUmWgI1tz3mKq74lGA0mL8LYZcoIzKOzDh6HmrYm3d18k60nHerC8A9Km8kYu87zfSFnLA==
+ 
+<a href="#h4-18-3" id="h4-18-3" class="i">+is-arrayish@^0.2.1:
+</a><a href="#h4-18-4" id="h4-18-4" class="i">+  version &quot;0.2.1&quot;
+</a><a href="#h4-18-5" id="h4-18-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/is-arrayish/-/is-arrayish-0.2.1.tgz#77c99840527aa8ecb1a8ba697b80645a7a926a9d&quot;
+</a><a href="#h4-18-6" id="h4-18-6" class="i">+  integrity sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=
+</a><a href="#h4-18-7" id="h4-18-7" class="i">+
+</a> is-binary-path@^1.0.0:
+   version &quot;1.0.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/is-binary-path/-/is-binary-path-1.0.1.tgz#75f16642b480f187a711c814161fd3a4a7655898&quot;
+<a href="#h4-19" id="h4-19" class="h">@@ -3679,6 +3818,11 @@ is-path-inside@^2.1.0:
+</a>   dependencies:
+     path-is-inside &quot;^1.0.2&quot;
+ 
+<a href="#h4-19-3" id="h4-19-3" class="i">+is-plain-obj@^1.1.0:
+</a><a href="#h4-19-4" id="h4-19-4" class="i">+  version &quot;1.1.0&quot;
+</a><a href="#h4-19-5" id="h4-19-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-1.1.0.tgz#71a50c8429dfca773c92a390a4a03b39fcd51d3e&quot;
+</a><a href="#h4-19-6" id="h4-19-6" class="i">+  integrity sha1-caUMhCnfync8kqOQpKA7OfzVHT4=
+</a><a href="#h4-19-7" id="h4-19-7" class="i">+
+</a> is-plain-object@^2.0.3, is-plain-object@^2.0.4:
+   version &quot;2.0.4&quot;
+   resolved &quot;https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-2.0.4.tgz#2c163b3fafb1b606d9d17928f05c2a1c38e07677&quot;
+<a href="#h4-20" id="h4-20" class="h">@@ -3775,7 +3919,7 @@ jsesc@~0.5.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d&quot;
+   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
+ 
+<a href="#h4-20-3" id="h4-20-3" class="d">-json-parse-better-errors@^1.0.2:
+</a><a href="#h4-20-4" id="h4-20-4" class="i">+json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
+</a>   version &quot;1.0.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9&quot;
+   integrity sha512-mrqyZKfX5EhL7hvqcV6WG1yYjnjeuYDzDhhcAAUrq8Po85NBQBJP+ZDUT75qZQ98IkUoBqdkExkukOU7Ts2wrw==
+<a href="#h4-21" id="h4-21" class="h">@@ -3814,6 +3958,15 @@ json5@^2.1.0:
+</a>   dependencies:
+     minimist &quot;^1.2.0&quot;
+ 
+<a href="#h4-21-3" id="h4-21-3" class="i">+jsonfile@^6.0.1:
+</a><a href="#h4-21-4" id="h4-21-4" class="i">+  version &quot;6.0.1&quot;
+</a><a href="#h4-21-5" id="h4-21-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/jsonfile/-/jsonfile-6.0.1.tgz#98966cba214378c8c84b82e085907b40bf614179&quot;
+</a><a href="#h4-21-6" id="h4-21-6" class="i">+  integrity sha512-jR2b5v7d2vIOust+w3wtFKZIfpC2pnRmFAhAC/BuweZFQR8qZzxH1OyrQ10HmdVYiXWkYUqPVsz91cG7EL2FBg==
+</a><a href="#h4-21-7" id="h4-21-7" class="i">+  dependencies:
+</a><a href="#h4-21-8" id="h4-21-8" class="i">+    universalify &quot;^1.0.0&quot;
+</a><a href="#h4-21-9" id="h4-21-9" class="i">+  optionalDependencies:
+</a><a href="#h4-21-10" id="h4-21-10" class="i">+    graceful-fs &quot;^4.1.6&quot;
+</a><a href="#h4-21-11" id="h4-21-11" class="i">+
+</a> jsx-ast-utils@^2.2.3:
+   version &quot;2.2.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/jsx-ast-utils/-/jsx-ast-utils-2.2.3.tgz#8a9364e402448a3ce7f14d357738310d9248054f&quot;
+<a href="#h4-22" id="h4-22" class="h">@@ -3878,6 +4031,11 @@ levn@^0.3.0, levn@~0.3.0:
+</a>     prelude-ls &quot;~1.1.2&quot;
+     type-check &quot;~0.3.2&quot;
+ 
+<a href="#h4-22-3" id="h4-22-3" class="i">+lines-and-columns@^1.1.6:
+</a><a href="#h4-22-4" id="h4-22-4" class="i">+  version &quot;1.1.6&quot;
+</a><a href="#h4-22-5" id="h4-22-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00&quot;
+</a><a href="#h4-22-6" id="h4-22-6" class="i">+  integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
+</a><a href="#h4-22-7" id="h4-22-7" class="i">+
+</a> loader-runner@^2.4.0:
+   version &quot;2.4.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357&quot;
+<a href="#h4-23" id="h4-23" class="h">@@ -3919,6 +4077,13 @@ locate-path@^3.0.0:
+</a>     p-locate &quot;^3.0.0&quot;
+     path-exists &quot;^3.0.0&quot;
+ 
+<a href="#h4-23-3" id="h4-23-3" class="i">+locate-path@^5.0.0:
+</a><a href="#h4-23-4" id="h4-23-4" class="i">+  version &quot;5.0.0&quot;
+</a><a href="#h4-23-5" id="h4-23-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/locate-path/-/locate-path-5.0.0.tgz#1afba396afd676a6d42504d0a67a3a7eb9f62aa0&quot;
+</a><a href="#h4-23-6" id="h4-23-6" class="i">+  integrity sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==
+</a><a href="#h4-23-7" id="h4-23-7" class="i">+  dependencies:
+</a><a href="#h4-23-8" id="h4-23-8" class="i">+    p-locate &quot;^4.1.0&quot;
+</a><a href="#h4-23-9" id="h4-23-9" class="i">+
+</a> lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3:
+   version &quot;4.17.15&quot;
+   resolved &quot;https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548&quot;
+<a href="#h4-24" id="h4-24" class="h">@@ -3973,6 +4138,16 @@ map-cache@^0.2.2:
+</a>   resolved &quot;https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf&quot;
+   integrity sha1-wyq9C9ZSXZsFFkW7TyasXcmKDb8=
+ 
+<a href="#h4-24-3" id="h4-24-3" class="i">+map-obj@^1.0.0:
+</a><a href="#h4-24-4" id="h4-24-4" class="i">+  version &quot;1.0.1&quot;
+</a><a href="#h4-24-5" id="h4-24-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d&quot;
+</a><a href="#h4-24-6" id="h4-24-6" class="i">+  integrity sha1-2TPOuSBdgr3PSIb2dCvcK03qFG0=
+</a><a href="#h4-24-7" id="h4-24-7" class="i">+
+</a><a href="#h4-24-8" id="h4-24-8" class="i">+map-obj@^4.0.0:
+</a><a href="#h4-24-9" id="h4-24-9" class="i">+  version &quot;4.1.0&quot;
+</a><a href="#h4-24-10" id="h4-24-10" class="i">+  resolved &quot;https://registry.yarnpkg.com/map-obj/-/map-obj-4.1.0.tgz#b91221b542734b9f14256c0132c897c5d7256fd5&quot;
+</a><a href="#h4-24-11" id="h4-24-11" class="i">+  integrity sha512-glc9y00wgtwcDmp7GaE/0b0OnxpNJsVf3ael/An6Fe2Q51LLwN1er6sdomLRzz5h0+yMpiYLhWYF5R7HeqVd4g==
+</a><a href="#h4-24-12" id="h4-24-12" class="i">+
+</a> map-visit@^1.0.0:
+   version &quot;1.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/map-visit/-/map-visit-1.0.0.tgz#ecdca8f13144e660f1b5bd41f12f3479d98dfb8f&quot;
+<a href="#h4-25" id="h4-25" class="h">@@ -4019,6 +4194,23 @@ memory-fs@^0.5.0:
+</a>     errno &quot;^0.1.3&quot;
+     readable-stream &quot;^2.0.1&quot;
+ 
+<a href="#h4-25-3" id="h4-25-3" class="i">+meow@^6.1.0:
+</a><a href="#h4-25-4" id="h4-25-4" class="i">+  version &quot;6.1.0&quot;
+</a><a href="#h4-25-5" id="h4-25-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/meow/-/meow-6.1.0.tgz#4ff4641818d3502afcddc631f94cb6971a581cb3&quot;
+</a><a href="#h4-25-6" id="h4-25-6" class="i">+  integrity sha512-iIAoeI01v6pmSfObAAWFoITAA4GgiT45m4SmJgoxtZfvI0fyZwhV4d0lTwiUXvAKIPlma05Feb2Xngl52Mj5Cg==
+</a><a href="#h4-25-7" id="h4-25-7" class="i">+  dependencies:
+</a><a href="#h4-25-8" id="h4-25-8" class="i">+    &quot;@types/minimist&quot; &quot;^1.2.0&quot;
+</a><a href="#h4-25-9" id="h4-25-9" class="i">+    camelcase-keys &quot;^6.1.1&quot;
+</a><a href="#h4-25-10" id="h4-25-10" class="i">+    decamelize-keys &quot;^1.1.0&quot;
+</a><a href="#h4-25-11" id="h4-25-11" class="i">+    hard-rejection &quot;^2.0.0&quot;
+</a><a href="#h4-25-12" id="h4-25-12" class="i">+    minimist-options &quot;^4.0.1&quot;
+</a><a href="#h4-25-13" id="h4-25-13" class="i">+    normalize-package-data &quot;^2.5.0&quot;
+</a><a href="#h4-25-14" id="h4-25-14" class="i">+    read-pkg-up &quot;^7.0.0&quot;
+</a><a href="#h4-25-15" id="h4-25-15" class="i">+    redent &quot;^3.0.0&quot;
+</a><a href="#h4-25-16" id="h4-25-16" class="i">+    trim-newlines &quot;^3.0.0&quot;
+</a><a href="#h4-25-17" id="h4-25-17" class="i">+    type-fest &quot;^0.8.1&quot;
+</a><a href="#h4-25-18" id="h4-25-18" class="i">+    yargs-parser &quot;^18.1.1&quot;
+</a><a href="#h4-25-19" id="h4-25-19" class="i">+
+</a> merge-descriptors@1.0.1:
+   version &quot;1.0.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/merge-descriptors/-/merge-descriptors-1.0.1.tgz#b00aaa556dd8b44568150ec9d1b953f3f90cbb61&quot;
+<a href="#h4-26" id="h4-26" class="h">@@ -4088,6 +4280,11 @@ mimic-response@^2.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/mimic-response/-/mimic-response-2.1.0.tgz#d13763d35f613d09ec37ebb30bac0469c0ee8f43&quot;
+   integrity sha512-wXqjST+SLt7R009ySCglWBCFpjUygmCIfD790/kVbiGmUgfYGuB14PiTd5DwVxSV4NcYHjzMkoj5LjQZwTQLEA==
+ 
+<a href="#h4-26-3" id="h4-26-3" class="i">+min-indent@^1.0.0:
+</a><a href="#h4-26-4" id="h4-26-4" class="i">+  version &quot;1.0.0&quot;
+</a><a href="#h4-26-5" id="h4-26-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/min-indent/-/min-indent-1.0.0.tgz#cfc45c37e9ec0d8f0a0ec3dd4ef7f7c3abe39256&quot;
+</a><a href="#h4-26-6" id="h4-26-6" class="i">+  integrity sha1-z8RcN+nsDY8KDsPdTvf3w6vjklY=
+</a><a href="#h4-26-7" id="h4-26-7" class="i">+
+</a> mini-create-react-context@^0.3.0:
+   version &quot;0.3.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/mini-create-react-context/-/mini-create-react-context-0.3.2.tgz#79fc598f283dd623da8e088b05db8cddab250189&quot;
+<a href="#h4-27" id="h4-27" class="h">@@ -4114,6 +4311,14 @@ minimatch@^3.0.4:
+</a>   dependencies:
+     brace-expansion &quot;^1.1.7&quot;
+ 
+<a href="#h4-27-3" id="h4-27-3" class="i">+minimist-options@^4.0.1:
+</a><a href="#h4-27-4" id="h4-27-4" class="i">+  version &quot;4.0.2&quot;
+</a><a href="#h4-27-5" id="h4-27-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/minimist-options/-/minimist-options-4.0.2.tgz#29c4021373ded40d546186725e57761e4b1984a7&quot;
+</a><a href="#h4-27-6" id="h4-27-6" class="i">+  integrity sha512-seq4hpWkYSUh1y7NXxzucwAN9yVlBc3Upgdjz8vLCP97jG8kaOmzYrVH/m7tQ1NYD1wdtZbSLfdy4zFmRWuc/w==
+</a><a href="#h4-27-7" id="h4-27-7" class="i">+  dependencies:
+</a><a href="#h4-27-8" id="h4-27-8" class="i">+    arrify &quot;^1.0.1&quot;
+</a><a href="#h4-27-9" id="h4-27-9" class="i">+    is-plain-obj &quot;^1.1.0&quot;
+</a><a href="#h4-27-10" id="h4-27-10" class="i">+
+</a> minimist@0.0.8:
+   version &quot;0.0.8&quot;
+   resolved &quot;https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d&quot;
+<a href="#h4-28" id="h4-28" class="h">@@ -4327,6 +4532,16 @@ noop-logger@^0.1.1:
+</a>   resolved &quot;https://registry.yarnpkg.com/noop-logger/-/noop-logger-0.1.1.tgz#94a2b1633c4f1317553007d8966fd0e841b6a4c2&quot;
+   integrity sha1-lKKxYzxPExdVMAfYlm/Q6EG2pMI=
+ 
+<a href="#h4-28-3" id="h4-28-3" class="i">+normalize-package-data@^2.5.0:
+</a><a href="#h4-28-4" id="h4-28-4" class="i">+  version &quot;2.5.0&quot;
+</a><a href="#h4-28-5" id="h4-28-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/normalize-package-data/-/normalize-package-data-2.5.0.tgz#e66db1838b200c1dfc233225d12cb36520e234a8&quot;
+</a><a href="#h4-28-6" id="h4-28-6" class="i">+  integrity sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==
+</a><a href="#h4-28-7" id="h4-28-7" class="i">+  dependencies:
+</a><a href="#h4-28-8" id="h4-28-8" class="i">+    hosted-git-info &quot;^2.1.4&quot;
+</a><a href="#h4-28-9" id="h4-28-9" class="i">+    resolve &quot;^1.10.0&quot;
+</a><a href="#h4-28-10" id="h4-28-10" class="i">+    semver &quot;2 || 3 || 4 || 5&quot;
+</a><a href="#h4-28-11" id="h4-28-11" class="i">+    validate-npm-package-license &quot;^3.0.1&quot;
+</a><a href="#h4-28-12" id="h4-28-12" class="i">+
+</a> normalize-path@^2.1.1:
+   version &quot;2.1.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9&quot;
+<a href="#h4-29" id="h4-29" class="h">@@ -4562,6 +4777,13 @@ p-limit@^2.0.0:
+</a>   dependencies:
+     p-try &quot;^2.0.0&quot;
+ 
+<a href="#h4-29-3" id="h4-29-3" class="i">+p-limit@^2.2.0:
+</a><a href="#h4-29-4" id="h4-29-4" class="i">+  version &quot;2.3.0&quot;
+</a><a href="#h4-29-5" id="h4-29-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/p-limit/-/p-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1&quot;
+</a><a href="#h4-29-6" id="h4-29-6" class="i">+  integrity sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==
+</a><a href="#h4-29-7" id="h4-29-7" class="i">+  dependencies:
+</a><a href="#h4-29-8" id="h4-29-8" class="i">+    p-try &quot;^2.0.0&quot;
+</a><a href="#h4-29-9" id="h4-29-9" class="i">+
+</a> p-locate@^3.0.0:
+   version &quot;3.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/p-locate/-/p-locate-3.0.0.tgz#322d69a05c0264b25997d9f40cd8a891ab0064a4&quot;
+<a href="#h4-30" id="h4-30" class="h">@@ -4569,6 +4791,13 @@ p-locate@^3.0.0:
+</a>   dependencies:
+     p-limit &quot;^2.0.0&quot;
+ 
+<a href="#h4-30-3" id="h4-30-3" class="i">+p-locate@^4.1.0:
+</a><a href="#h4-30-4" id="h4-30-4" class="i">+  version &quot;4.1.0&quot;
+</a><a href="#h4-30-5" id="h4-30-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/p-locate/-/p-locate-4.1.0.tgz#a3428bb7088b3a60292f66919278b7c297ad4f07&quot;
+</a><a href="#h4-30-6" id="h4-30-6" class="i">+  integrity sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==
+</a><a href="#h4-30-7" id="h4-30-7" class="i">+  dependencies:
+</a><a href="#h4-30-8" id="h4-30-8" class="i">+    p-limit &quot;^2.2.0&quot;
+</a><a href="#h4-30-9" id="h4-30-9" class="i">+
+</a> p-map@^2.0.0:
+   version &quot;2.1.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/p-map/-/p-map-2.1.0.tgz#310928feef9c9ecc65b68b17693018a665cea175&quot;
+<a href="#h4-31" id="h4-31" class="h">@@ -4626,6 +4855,16 @@ parse-asn1@^5.0.0:
+</a>     pbkdf2 &quot;^3.0.3&quot;
+     safe-buffer &quot;^5.1.1&quot;
+ 
+<a href="#h4-31-3" id="h4-31-3" class="i">+parse-json@^5.0.0:
+</a><a href="#h4-31-4" id="h4-31-4" class="i">+  version &quot;5.0.0&quot;
+</a><a href="#h4-31-5" id="h4-31-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/parse-json/-/parse-json-5.0.0.tgz#73e5114c986d143efa3712d4ea24db9a4266f60f&quot;
+</a><a href="#h4-31-6" id="h4-31-6" class="i">+  integrity sha512-OOY5b7PAEFV0E2Fir1KOkxchnZNCdowAJgQ5NuxjpBKTRP3pQhwkrkxqQjeoKJ+fO7bCpmIZaogI4eZGDMEGOw==
+</a><a href="#h4-31-7" id="h4-31-7" class="i">+  dependencies:
+</a><a href="#h4-31-8" id="h4-31-8" class="i">+    &quot;@babel/code-frame&quot; &quot;^7.0.0&quot;
+</a><a href="#h4-31-9" id="h4-31-9" class="i">+    error-ex &quot;^1.3.1&quot;
+</a><a href="#h4-31-10" id="h4-31-10" class="i">+    json-parse-better-errors &quot;^1.0.1&quot;
+</a><a href="#h4-31-11" id="h4-31-11" class="i">+    lines-and-columns &quot;^1.1.6&quot;
+</a><a href="#h4-31-12" id="h4-31-12" class="i">+
+</a> parse-passwd@^1.0.0:
+   version &quot;1.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/parse-passwd/-/parse-passwd-1.0.0.tgz#6d5b934a456993b23d37f40a382d6f1666a8e5c6&quot;
+<a href="#h4-32" id="h4-32" class="h">@@ -4656,6 +4895,11 @@ path-exists@^3.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/path-exists/-/path-exists-3.0.0.tgz#ce0ebeaa5f78cb18925ea7d810d7b59b010fd515&quot;
+   integrity sha1-zg6+ql94yxiSXqfYENe1mwEP1RU=
+ 
+<a href="#h4-32-3" id="h4-32-3" class="i">+path-exists@^4.0.0:
+</a><a href="#h4-32-4" id="h4-32-4" class="i">+  version &quot;4.0.0&quot;
+</a><a href="#h4-32-5" id="h4-32-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/path-exists/-/path-exists-4.0.0.tgz#513bdbe2d3b95d7762e8c1137efa195c6c61b5b3&quot;
+</a><a href="#h4-32-6" id="h4-32-6" class="i">+  integrity sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==
+</a><a href="#h4-32-7" id="h4-32-7" class="i">+
+</a> path-is-absolute@^1.0.0:
+   version &quot;1.0.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f&quot;
+<a href="#h4-33" id="h4-33" class="h">@@ -4688,6 +4932,11 @@ path-to-regexp@^1.7.0:
+</a>   dependencies:
+     isarray &quot;0.0.1&quot;
+ 
+<a href="#h4-33-3" id="h4-33-3" class="i">+path-type@^4.0.0:
+</a><a href="#h4-33-4" id="h4-33-4" class="i">+  version &quot;4.0.0&quot;
+</a><a href="#h4-33-5" id="h4-33-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b&quot;
+</a><a href="#h4-33-6" id="h4-33-6" class="i">+  integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
+</a><a href="#h4-33-7" id="h4-33-7" class="i">+
+</a> pbkdf2@^3.0.3:
+   version &quot;3.0.17&quot;
+   resolved &quot;https://registry.yarnpkg.com/pbkdf2/-/pbkdf2-3.0.17.tgz#976c206530617b14ebb32114239f7b09336e93a6&quot;
+<a href="#h4-34" id="h4-34" class="h">@@ -4912,6 +5161,11 @@ querystringify@^2.1.1:
+</a>   resolved &quot;https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e&quot;
+   integrity sha512-w7fLxIRCRT7U8Qu53jQnJyPkYZIaR4n5151KMfcJlO/A9397Wxb1amJvROTK6TOnp7PfoAmg/qXiNHI+08jRfA==
+ 
+<a href="#h4-34-3" id="h4-34-3" class="i">+quick-lru@^4.0.1:
+</a><a href="#h4-34-4" id="h4-34-4" class="i">+  version &quot;4.0.1&quot;
+</a><a href="#h4-34-5" id="h4-34-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/quick-lru/-/quick-lru-4.0.1.tgz#5b8878f113a58217848c6482026c73e1ba57727f&quot;
+</a><a href="#h4-34-6" id="h4-34-6" class="i">+  integrity sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==
+</a><a href="#h4-34-7" id="h4-34-7" class="i">+
+</a> randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
+   version &quot;2.1.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a&quot;
+<a href="#h4-35" id="h4-35" class="h">@@ -4992,6 +5246,25 @@ react@^16.13.0:
+</a>     object-assign &quot;^4.1.1&quot;
+     prop-types &quot;^15.6.2&quot;
+ 
+<a href="#h4-35-3" id="h4-35-3" class="i">+read-pkg-up@^7.0.0:
+</a><a href="#h4-35-4" id="h4-35-4" class="i">+  version &quot;7.0.1&quot;
+</a><a href="#h4-35-5" id="h4-35-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/read-pkg-up/-/read-pkg-up-7.0.1.tgz#f3a6135758459733ae2b95638056e1854e7ef507&quot;
+</a><a href="#h4-35-6" id="h4-35-6" class="i">+  integrity sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==
+</a><a href="#h4-35-7" id="h4-35-7" class="i">+  dependencies:
+</a><a href="#h4-35-8" id="h4-35-8" class="i">+    find-up &quot;^4.1.0&quot;
+</a><a href="#h4-35-9" id="h4-35-9" class="i">+    read-pkg &quot;^5.2.0&quot;
+</a><a href="#h4-35-10" id="h4-35-10" class="i">+    type-fest &quot;^0.8.1&quot;
+</a><a href="#h4-35-11" id="h4-35-11" class="i">+
+</a><a href="#h4-35-12" id="h4-35-12" class="i">+read-pkg@^5.2.0:
+</a><a href="#h4-35-13" id="h4-35-13" class="i">+  version &quot;5.2.0&quot;
+</a><a href="#h4-35-14" id="h4-35-14" class="i">+  resolved &quot;https://registry.yarnpkg.com/read-pkg/-/read-pkg-5.2.0.tgz#7bf295438ca5a33e56cd30e053b34ee7250c93cc&quot;
+</a><a href="#h4-35-15" id="h4-35-15" class="i">+  integrity sha512-Ug69mNOpfvKDAc2Q8DRpMjjzdtrnv9HcSMX+4VsZxD1aZ6ZzrIE7rlzXBtWTyhULSMKg076AW6WR5iZpD0JiOg==
+</a><a href="#h4-35-16" id="h4-35-16" class="i">+  dependencies:
+</a><a href="#h4-35-17" id="h4-35-17" class="i">+    &quot;@types/normalize-package-data&quot; &quot;^2.4.0&quot;
+</a><a href="#h4-35-18" id="h4-35-18" class="i">+    normalize-package-data &quot;^2.5.0&quot;
+</a><a href="#h4-35-19" id="h4-35-19" class="i">+    parse-json &quot;^5.0.0&quot;
+</a><a href="#h4-35-20" id="h4-35-20" class="i">+    type-fest &quot;^0.6.0&quot;
+</a><a href="#h4-35-21" id="h4-35-21" class="i">+
+</a> &quot;readable-stream@1 || 2&quot;, readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.6, readable-stream@~2.3.6:
+   version &quot;2.3.7&quot;
+   resolved &quot;https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57&quot;
+<a href="#h4-36" id="h4-36" class="h">@@ -5023,6 +5296,14 @@ readdirp@^2.2.1:
+</a>     micromatch &quot;^3.1.10&quot;
+     readable-stream &quot;^2.0.2&quot;
+ 
+<a href="#h4-36-3" id="h4-36-3" class="i">+redent@^3.0.0:
+</a><a href="#h4-36-4" id="h4-36-4" class="i">+  version &quot;3.0.0&quot;
+</a><a href="#h4-36-5" id="h4-36-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/redent/-/redent-3.0.0.tgz#e557b7998316bb53c9f1f56fa626352c6963059f&quot;
+</a><a href="#h4-36-6" id="h4-36-6" class="i">+  integrity sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==
+</a><a href="#h4-36-7" id="h4-36-7" class="i">+  dependencies:
+</a><a href="#h4-36-8" id="h4-36-8" class="i">+    indent-string &quot;^4.0.0&quot;
+</a><a href="#h4-36-9" id="h4-36-9" class="i">+    strip-indent &quot;^3.0.0&quot;
+</a><a href="#h4-36-10" id="h4-36-10" class="i">+
+</a> regenerate-unicode-properties@^8.1.0:
+   version &quot;8.1.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/regenerate-unicode-properties/-/regenerate-unicode-properties-8.1.0.tgz#ef51e0f0ea4ad424b77bf7cb41f3e015c70a3f0e&quot;
+<a href="#h4-37" id="h4-37" class="h">@@ -5169,6 +5450,11 @@ resolve-from@^4.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/resolve-from/-/resolve-from-4.0.0.tgz#4abcd852ad32dd7baabfe9b40e00a36db5f392e6&quot;
+   integrity sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==
+ 
+<a href="#h4-37-3" id="h4-37-3" class="i">+resolve-from@^5.0.0:
+</a><a href="#h4-37-4" id="h4-37-4" class="i">+  version &quot;5.0.0&quot;
+</a><a href="#h4-37-5" id="h4-37-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/resolve-from/-/resolve-from-5.0.0.tgz#c35225843df8f776df21c57557bc087e9dfdfc69&quot;
+</a><a href="#h4-37-6" id="h4-37-6" class="i">+  integrity sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==
+</a><a href="#h4-37-7" id="h4-37-7" class="i">+
+</a> resolve-pathname@^3.0.0:
+   version &quot;3.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/resolve-pathname/-/resolve-pathname-3.0.0.tgz#99d02224d3cf263689becbb393bc560313025dcd&quot;
+<a href="#h4-38" id="h4-38" class="h">@@ -5179,6 +5465,13 @@ resolve-url@^0.2.1:
+</a>   resolved &quot;https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a&quot;
+   integrity sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
+ 
+<a href="#h4-38-3" id="h4-38-3" class="i">+resolve@^1.10.0:
+</a><a href="#h4-38-4" id="h4-38-4" class="i">+  version &quot;1.16.1&quot;
+</a><a href="#h4-38-5" id="h4-38-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/resolve/-/resolve-1.16.1.tgz#49fac5d8bacf1fd53f200fa51247ae736175832c&quot;
+</a><a href="#h4-38-6" id="h4-38-6" class="i">+  integrity sha512-rmAglCSqWWMrrBv/XM6sW0NuRFiKViw/W4d9EbC4pt+49H8JwHy+mcGmALTEg504AUDcLTvb1T2q3E9AnmY+ig==
+</a><a href="#h4-38-7" id="h4-38-7" class="i">+  dependencies:
+</a><a href="#h4-38-8" id="h4-38-8" class="i">+    path-parse &quot;^1.0.6&quot;
+</a><a href="#h4-38-9" id="h4-38-9" class="i">+
+</a> resolve@^1.12.0, resolve@^1.15.1, resolve@^1.3.2:
+   version &quot;1.15.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/resolve/-/resolve-1.15.1.tgz#27bdcdeffeaf2d6244b95bb0f9f4b4653451f3e8&quot;
+<a href="#h4-39" id="h4-39" class="h">@@ -5226,6 +5519,14 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
+</a>     hash-base &quot;^3.0.0&quot;
+     inherits &quot;^2.0.1&quot;
+ 
+<a href="#h4-39-3" id="h4-39-3" class="i">+robotstxt-webpack-plugin@^7.0.0:
+</a><a href="#h4-39-4" id="h4-39-4" class="i">+  version &quot;7.0.0&quot;
+</a><a href="#h4-39-5" id="h4-39-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/robotstxt-webpack-plugin/-/robotstxt-webpack-plugin-7.0.0.tgz#04b26c9e1cd2ad8ebc5e20918aeeb6ed5d56835e&quot;
+</a><a href="#h4-39-6" id="h4-39-6" class="i">+  integrity sha512-Rk0moeHvqc3to6oE2z5lKW9GTJyQC/ysogNy465N2CT2Xvp2/DMPkix8idnpmBLfExrQjml18B8Z/HoAC/yPlg==
+</a><a href="#h4-39-7" id="h4-39-7" class="i">+  dependencies:
+</a><a href="#h4-39-8" id="h4-39-8" class="i">+    generate-robotstxt &quot;^8.0.0&quot;
+</a><a href="#h4-39-9" id="h4-39-9" class="i">+    webpack-sources &quot;^1.4.3&quot;
+</a><a href="#h4-39-10" id="h4-39-10" class="i">+
+</a> run-async@^2.4.0:
+   version &quot;2.4.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/run-async/-/run-async-2.4.0.tgz#e59054a5b86876cfae07f431d18cbaddc594f1e8&quot;
+<a href="#h4-40" id="h4-40" class="h">@@ -5269,6 +5570,11 @@ safe-regex@^1.1.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a&quot;
+   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+ 
+<a href="#h4-40-3" id="h4-40-3" class="i">+sax@^1.2.4:
+</a><a href="#h4-40-4" id="h4-40-4" class="i">+  version &quot;1.2.4&quot;
+</a><a href="#h4-40-5" id="h4-40-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9&quot;
+</a><a href="#h4-40-6" id="h4-40-6" class="i">+  integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
+</a><a href="#h4-40-7" id="h4-40-7" class="i">+
+</a> scheduler@^0.19.0:
+   version &quot;0.19.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/scheduler/-/scheduler-0.19.0.tgz#a715d56302de403df742f4a9be11975b32f5698d&quot;
+<a href="#h4-41" id="h4-41" class="h">@@ -5298,16 +5604,16 @@ selfsigned@^1.10.7:
+</a>   dependencies:
+     node-forge &quot;0.9.0&quot;
+ 
+<a href="#h4-41-3" id="h4-41-3" class="i">+&quot;semver@2 || 3 || 4 || 5&quot;, semver@^5.4.1, semver@^5.5.0, semver@^5.6.0:
+</a><a href="#h4-41-4" id="h4-41-4" class="i">+  version &quot;5.7.1&quot;
+</a><a href="#h4-41-5" id="h4-41-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7&quot;
+</a><a href="#h4-41-6" id="h4-41-6" class="i">+  integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
+</a><a href="#h4-41-7" id="h4-41-7" class="i">+
+</a> semver@7.0.0:
+   version &quot;7.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/semver/-/semver-7.0.0.tgz#5f3ca35761e47e05b206c6daff2cf814f0316b8e&quot;
+   integrity sha512-+GB6zVA9LWh6zovYQLALHwv5rb2PHGlJi3lfiqIHxR0uuwCgefcOJc59v9fv1w8GbStwxuuqqAjI9NMAOOgq1A==
+ 
+<a href="#h4-41-13" id="h4-41-13" class="d">-semver@^5.4.1, semver@^5.5.0, semver@^5.6.0:
+</a><a href="#h4-41-14" id="h4-41-14" class="d">-  version &quot;5.7.1&quot;
+</a><a href="#h4-41-15" id="h4-41-15" class="d">-  resolved &quot;https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7&quot;
+</a><a href="#h4-41-16" id="h4-41-16" class="d">-  integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
+</a><a href="#h4-41-17" id="h4-41-17" class="d">-
+</a> semver@^6.1.2, semver@^6.3.0:
+   version &quot;6.3.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d&quot;
+<a href="#h4-42" id="h4-42" class="h">@@ -5442,6 +5748,24 @@ simple-get@^3.0.3:
+</a>     once &quot;^1.3.1&quot;
+     simple-concat &quot;^1.0.0&quot;
+ 
+<a href="#h4-42-3" id="h4-42-3" class="i">+sitemap-webpack-plugin@^0.7.1:
+</a><a href="#h4-42-4" id="h4-42-4" class="i">+  version &quot;0.7.1&quot;
+</a><a href="#h4-42-5" id="h4-42-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/sitemap-webpack-plugin/-/sitemap-webpack-plugin-0.7.1.tgz#9103482537b79d0d484758520cef168c67966f0d&quot;
+</a><a href="#h4-42-6" id="h4-42-6" class="i">+  integrity sha512-RG82BnKUH91dPoU4LX3hmVUJqgx4cSywMjN5oAOIxXPAxc2G592erb30T0fnCRl6MXPEm3WoQZ+cBjA0BrokJQ==
+</a><a href="#h4-42-7" id="h4-42-7" class="i">+  dependencies:
+</a><a href="#h4-42-8" id="h4-42-8" class="i">+    sitemap &quot;^5.1.0&quot;
+</a><a href="#h4-42-9" id="h4-42-9" class="i">+
+</a><a href="#h4-42-10" id="h4-42-10" class="i">+sitemap@^5.1.0:
+</a><a href="#h4-42-11" id="h4-42-11" class="i">+  version &quot;5.1.0&quot;
+</a><a href="#h4-42-12" id="h4-42-12" class="i">+  resolved &quot;https://registry.yarnpkg.com/sitemap/-/sitemap-5.1.0.tgz#60c88915e20f8cd0dcd5906dac8f2ec4c0d8de68&quot;
+</a><a href="#h4-42-13" id="h4-42-13" class="i">+  integrity sha512-RAOCHYPbALEaIlqlGs46LZ9RFfh+61YYjexMqri4h+gsW6y0MLZ+WB4eJCopVP9WCWsng6z9JSPHqcKtjoydLw==
+</a><a href="#h4-42-14" id="h4-42-14" class="i">+  dependencies:
+</a><a href="#h4-42-15" id="h4-42-15" class="i">+    &quot;@types/node&quot; &quot;^12.12.3&quot;
+</a><a href="#h4-42-16" id="h4-42-16" class="i">+    &quot;@types/sax&quot; &quot;^1.2.0&quot;
+</a><a href="#h4-42-17" id="h4-42-17" class="i">+    arg &quot;^4.1.1&quot;
+</a><a href="#h4-42-18" id="h4-42-18" class="i">+    sax &quot;^1.2.4&quot;
+</a><a href="#h4-42-19" id="h4-42-19" class="i">+    xmlbuilder &quot;^13.0.2&quot;
+</a><a href="#h4-42-20" id="h4-42-20" class="i">+
+</a> slash@^2.0.0:
+   version &quot;2.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44&quot;
+<a href="#h4-43" id="h4-43" class="h">@@ -5545,6 +5869,32 @@ source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
+</a>   resolved &quot;https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263&quot;
+   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+ 
+<a href="#h4-43-3" id="h4-43-3" class="i">+spdx-correct@^3.0.0:
+</a><a href="#h4-43-4" id="h4-43-4" class="i">+  version &quot;3.1.0&quot;
+</a><a href="#h4-43-5" id="h4-43-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-3.1.0.tgz#fb83e504445268f154b074e218c87c003cd31df4&quot;
+</a><a href="#h4-43-6" id="h4-43-6" class="i">+  integrity sha512-lr2EZCctC2BNR7j7WzJ2FpDznxky1sjfxvvYEyzxNyb6lZXHODmEoJeFu4JupYlkfha1KZpJyoqiJ7pgA1qq8Q==
+</a><a href="#h4-43-7" id="h4-43-7" class="i">+  dependencies:
+</a><a href="#h4-43-8" id="h4-43-8" class="i">+    spdx-expression-parse &quot;^3.0.0&quot;
+</a><a href="#h4-43-9" id="h4-43-9" class="i">+    spdx-license-ids &quot;^3.0.0&quot;
+</a><a href="#h4-43-10" id="h4-43-10" class="i">+
+</a><a href="#h4-43-11" id="h4-43-11" class="i">+spdx-exceptions@^2.1.0:
+</a><a href="#h4-43-12" id="h4-43-12" class="i">+  version &quot;2.2.0&quot;
+</a><a href="#h4-43-13" id="h4-43-13" class="i">+  resolved &quot;https://registry.yarnpkg.com/spdx-exceptions/-/spdx-exceptions-2.2.0.tgz#2ea450aee74f2a89bfb94519c07fcd6f41322977&quot;
+</a><a href="#h4-43-14" id="h4-43-14" class="i">+  integrity sha512-2XQACfElKi9SlVb1CYadKDXvoajPgBVPn/gOQLrTvHdElaVhr7ZEbqJaRnJLVNeaI4cMEAgVCeBMKF6MWRDCRA==
+</a><a href="#h4-43-15" id="h4-43-15" class="i">+
+</a><a href="#h4-43-16" id="h4-43-16" class="i">+spdx-expression-parse@^3.0.0:
+</a><a href="#h4-43-17" id="h4-43-17" class="i">+  version &quot;3.0.0&quot;
+</a><a href="#h4-43-18" id="h4-43-18" class="i">+  resolved &quot;https://registry.yarnpkg.com/spdx-expression-parse/-/spdx-expression-parse-3.0.0.tgz#99e119b7a5da00e05491c9fa338b7904823b41d0&quot;
+</a><a href="#h4-43-19" id="h4-43-19" class="i">+  integrity sha512-Yg6D3XpRD4kkOmTpdgbUiEJFKghJH03fiC1OPll5h/0sO6neh2jqRDVHOQ4o/LMea0tgCkbMgea5ip/e+MkWyg==
+</a><a href="#h4-43-20" id="h4-43-20" class="i">+  dependencies:
+</a><a href="#h4-43-21" id="h4-43-21" class="i">+    spdx-exceptions &quot;^2.1.0&quot;
+</a><a href="#h4-43-22" id="h4-43-22" class="i">+    spdx-license-ids &quot;^3.0.0&quot;
+</a><a href="#h4-43-23" id="h4-43-23" class="i">+
+</a><a href="#h4-43-24" id="h4-43-24" class="i">+spdx-license-ids@^3.0.0:
+</a><a href="#h4-43-25" id="h4-43-25" class="i">+  version &quot;3.0.5&quot;
+</a><a href="#h4-43-26" id="h4-43-26" class="i">+  resolved &quot;https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.5.tgz#3694b5804567a458d3c8045842a6358632f62654&quot;
+</a><a href="#h4-43-27" id="h4-43-27" class="i">+  integrity sha512-J+FWzZoynJEXGphVIS+XEh3kFSjZX/1i9gFBaWQcB+/tmpe2qUsSBABpcxqxnAxFdiUFEgAX1bjYGQvIZmoz9Q==
+</a><a href="#h4-43-28" id="h4-43-28" class="i">+
+</a> spdy-transport@^3.0.0:
+   version &quot;3.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/spdy-transport/-/spdy-transport-3.0.0.tgz#00d4863a6400ad75df93361a1608605e5dcdcf31&quot;
+<a href="#h4-44" id="h4-44" class="h">@@ -5742,6 +6092,13 @@ strip-eof@^1.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/strip-eof/-/strip-eof-1.0.0.tgz#bb43ff5598a6eb05d89b59fcd129c983313606bf&quot;
+   integrity sha1-u0P/VZim6wXYm1n80SnJgzE2Br8=
+ 
+<a href="#h4-44-3" id="h4-44-3" class="i">+strip-indent@^3.0.0:
+</a><a href="#h4-44-4" id="h4-44-4" class="i">+  version &quot;3.0.0&quot;
+</a><a href="#h4-44-5" id="h4-44-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/strip-indent/-/strip-indent-3.0.0.tgz#c32e1cee940b6b3432c771bc2c54bcce73cd3001&quot;
+</a><a href="#h4-44-6" id="h4-44-6" class="i">+  integrity sha512-laJTa3Jb+VQpaC6DseHhF7dXVqHTfJPCRDaEbid/drOhgitgYku/letMUqOXFoWV0zIIUbjpdH2t+tYj4bQMRQ==
+</a><a href="#h4-44-7" id="h4-44-7" class="i">+  dependencies:
+</a><a href="#h4-44-8" id="h4-44-8" class="i">+    min-indent &quot;^1.0.0&quot;
+</a><a href="#h4-44-9" id="h4-44-9" class="i">+
+</a> strip-json-comments@^3.0.1:
+   version &quot;3.0.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.0.1.tgz#85713975a91fb87bf1b305cca77395e40d2a64a7&quot;
+<a href="#h4-45" id="h4-45" class="h">@@ -5946,6 +6303,11 @@ toposort@^1.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/toposort/-/toposort-1.0.7.tgz#2e68442d9f64ec720b8cc89e6443ac6caa950029&quot;
+   integrity sha1-LmhELZ9k7HILjMieZEOsbKqVACk=
+ 
+<a href="#h4-45-3" id="h4-45-3" class="i">+trim-newlines@^3.0.0:
+</a><a href="#h4-45-4" id="h4-45-4" class="i">+  version &quot;3.0.0&quot;
+</a><a href="#h4-45-5" id="h4-45-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/trim-newlines/-/trim-newlines-3.0.0.tgz#79726304a6a898aa8373427298d54c2ee8b1cb30&quot;
+</a><a href="#h4-45-6" id="h4-45-6" class="i">+  integrity sha512-C4+gOpvmxaSMKuEf9Qc134F1ZuOHVXKRbtEflf4NTtuuJDEIJ9p5PXsalL8SkeRw+qit1Mo+yuvMPAKwWg/1hA==
+</a><a href="#h4-45-7" id="h4-45-7" class="i">+
+</a> tryer@^1.0.1:
+   version &quot;1.0.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/tryer/-/tryer-1.0.1.tgz#f2c85406800b9b0f74c9f7465b81eaad241252f8&quot;
+<a href="#h4-46" id="h4-46" class="h">@@ -5980,6 +6342,11 @@ type-fest@^0.11.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/type-fest/-/type-fest-0.11.0.tgz#97abf0872310fed88a5c466b25681576145e33f1&quot;
+   integrity sha512-OdjXJxnCN1AvyLSzeKIgXTXxV+99ZuXl3Hpo9XpJAv9MBcHrrJOQ5kV7ypXOuQie+AmWG25hLbiKdwYTifzcfQ==
+ 
+<a href="#h4-46-3" id="h4-46-3" class="i">+type-fest@^0.6.0:
+</a><a href="#h4-46-4" id="h4-46-4" class="i">+  version &quot;0.6.0&quot;
+</a><a href="#h4-46-5" id="h4-46-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/type-fest/-/type-fest-0.6.0.tgz#8d2a2370d3df886eb5c90ada1c5bf6188acf838b&quot;
+</a><a href="#h4-46-6" id="h4-46-6" class="i">+  integrity sha512-q+MB8nYR1KDLrgr4G5yemftpMC7/QLqVndBmEEdqzmNj5dcFOO4Oo8qlwZE3ULT3+Zim1F8Kq4cBnikNhlCMlg==
+</a><a href="#h4-46-7" id="h4-46-7" class="i">+
+</a> type-fest@^0.8.1:
+   version &quot;0.8.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d&quot;
+<a href="#h4-47" id="h4-47" class="h">@@ -6053,6 +6420,11 @@ unique-slug@^2.0.0:
+</a>   dependencies:
+     imurmurhash &quot;^0.1.4&quot;
+ 
+<a href="#h4-47-3" id="h4-47-3" class="i">+universalify@^1.0.0:
+</a><a href="#h4-47-4" id="h4-47-4" class="i">+  version &quot;1.0.0&quot;
+</a><a href="#h4-47-5" id="h4-47-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/universalify/-/universalify-1.0.0.tgz#b61a1da173e8435b2fe3c67d29b9adf8594bd16d&quot;
+</a><a href="#h4-47-6" id="h4-47-6" class="i">+  integrity sha512-rb6X1W158d7pRQBg5gkR8uPaSfiids68LTJQYOtEUhoJUWBdaQHsuT/EUduxXYxcrt4r5PJ4fuHW1MHT6p0qug==
+</a><a href="#h4-47-7" id="h4-47-7" class="i">+
+</a> unpipe@1.0.0, unpipe@~1.0.0:
+   version &quot;1.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec&quot;
+<a href="#h4-48" id="h4-48" class="h">@@ -6161,6 +6533,14 @@ v8-compile-cache@^2.0.3:
+</a>   resolved &quot;https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.1.0.tgz#e14de37b31a6d194f5690d67efc4e7f6fc6ab30e&quot;
+   integrity sha512-usZBT3PW+LOjM25wbqIlZwPeJV+3OSz3M1k1Ws8snlW39dZyYL9lOGC5FgPVHfk0jKmjiDV8Z0mIbVQPiwFs7g==
+ 
+<a href="#h4-48-3" id="h4-48-3" class="i">+validate-npm-package-license@^3.0.1:
+</a><a href="#h4-48-4" id="h4-48-4" class="i">+  version &quot;3.0.4&quot;
+</a><a href="#h4-48-5" id="h4-48-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz#fc91f6b9c7ba15c857f4cb2c5defeec39d4f410a&quot;
+</a><a href="#h4-48-6" id="h4-48-6" class="i">+  integrity sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==
+</a><a href="#h4-48-7" id="h4-48-7" class="i">+  dependencies:
+</a><a href="#h4-48-8" id="h4-48-8" class="i">+    spdx-correct &quot;^3.0.0&quot;
+</a><a href="#h4-48-9" id="h4-48-9" class="i">+    spdx-expression-parse &quot;^3.0.0&quot;
+</a><a href="#h4-48-10" id="h4-48-10" class="i">+
+</a> value-equal@^1.0.1:
+   version &quot;1.0.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/value-equal/-/value-equal-1.0.1.tgz#1e0b794c734c5c0cade179c437d356d931a34d6c&quot;
+<a href="#h4-49" id="h4-49" class="h">@@ -6286,7 +6666,7 @@ webpack-log@^2.0.0:
+</a>     ansi-colors &quot;^3.0.0&quot;
+     uuid &quot;^3.3.2&quot;
+ 
+<a href="#h4-49-3" id="h4-49-3" class="d">-webpack-sources@^1.0.1, webpack-sources@^1.4.0, webpack-sources@^1.4.1:
+</a><a href="#h4-49-4" id="h4-49-4" class="i">+webpack-sources@^1.0.1, webpack-sources@^1.4.0, webpack-sources@^1.4.1, webpack-sources@^1.4.3:
+</a>   version &quot;1.4.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-1.4.3.tgz#eedd8ec0b928fbf1cbfe994e22d2d890f330a933&quot;
+   integrity sha512-lgTS3Xhv1lCOKo7SA5TjKXMjpSM4sBjNV5+q2bqesbSPs5FjGmU6jjtBSkX9b4qW87vDIsCIlUPOEhbZrMdjeQ==
+<a href="#h4-50" id="h4-50" class="h">@@ -6409,6 +6789,11 @@ ws@^6.0.0, ws@^6.2.1:
+</a>   dependencies:
+     async-limiter &quot;~1.0.0&quot;
+ 
+<a href="#h4-50-3" id="h4-50-3" class="i">+xmlbuilder@^13.0.2:
+</a><a href="#h4-50-4" id="h4-50-4" class="i">+  version &quot;13.0.2&quot;
+</a><a href="#h4-50-5" id="h4-50-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-13.0.2.tgz#02ae33614b6a047d1c32b5389c1fdacb2bce47a7&quot;
+</a><a href="#h4-50-6" id="h4-50-6" class="i">+  integrity sha512-Eux0i2QdDYKbdbA6AM6xE4m6ZTZr4G4xF9kahI2ukSEMCzwce2eX9WlTI5J3s+NU7hpasFsr8hWIONae7LluAQ==
+</a><a href="#h4-50-7" id="h4-50-7" class="i">+
+</a> xregexp@^4.3.0:
+   version &quot;4.3.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/xregexp/-/xregexp-4.3.0.tgz#7e92e73d9174a99a59743f67a4ce879a04b5ae50&quot;
+<a href="#h4-51" id="h4-51" class="h">@@ -6431,6 +6816,13 @@ yallist@^3.0.2:
+</a>   resolved &quot;https://registry.yarnpkg.com/yallist/-/yallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd&quot;
+   integrity sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==
+ 
+<a href="#h4-51-3" id="h4-51-3" class="i">+yaml@^1.7.2:
+</a><a href="#h4-51-4" id="h4-51-4" class="i">+  version &quot;1.9.1&quot;
+</a><a href="#h4-51-5" id="h4-51-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/yaml/-/yaml-1.9.1.tgz#2df608ca571a0cf94e25e417e2795c08f48acdc5&quot;
+</a><a href="#h4-51-6" id="h4-51-6" class="i">+  integrity sha512-xbWX1ayUVoW8DPM8qxOBowac4XxSTi0mFLbiokRq880ViYglN+F3nJ4Dc2GdypXpykrknKS39d8I3lzFoHv1kA==
+</a><a href="#h4-51-7" id="h4-51-7" class="i">+  dependencies:
+</a><a href="#h4-51-8" id="h4-51-8" class="i">+    &quot;@babel/runtime&quot; &quot;^7.9.2&quot;
+</a><a href="#h4-51-9" id="h4-51-9" class="i">+
+</a> yargs-parser@^11.1.1:
+   version &quot;11.1.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-11.1.1.tgz#879a0865973bca9f6bab5cbdf3b1c67ec7d3bcf4&quot;
+<a href="#h4-52" id="h4-52" class="h">@@ -6447,6 +6839,14 @@ yargs-parser@^13.1.0:
+</a>     camelcase &quot;^5.0.0&quot;
+     decamelize &quot;^1.2.0&quot;
+ 
+<a href="#h4-52-3" id="h4-52-3" class="i">+yargs-parser@^18.1.1:
+</a><a href="#h4-52-4" id="h4-52-4" class="i">+  version &quot;18.1.3&quot;
+</a><a href="#h4-52-5" id="h4-52-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-18.1.3.tgz#be68c4975c6b2abf469236b0c870362fab09a7b0&quot;
+</a><a href="#h4-52-6" id="h4-52-6" class="i">+  integrity sha512-o50j0JeToy/4K6OZcaQmW6lyXXKhq7csREXcDwk2omFPJEwUNOVtJKvmDr9EI1fAJZUyZcRF7kxGBWmRXudrCQ==
+</a><a href="#h4-52-7" id="h4-52-7" class="i">+  dependencies:
+</a><a href="#h4-52-8" id="h4-52-8" class="i">+    camelcase &quot;^5.0.0&quot;
+</a><a href="#h4-52-9" id="h4-52-9" class="i">+    decamelize &quot;^1.2.0&quot;
+</a><a href="#h4-52-10" id="h4-52-10" class="i">+
+</a> yargs@12.0.5:
+   version &quot;12.0.5&quot;
+   resolved &quot;https://registry.yarnpkg.com/yargs/-/yargs-12.0.5.tgz#05f5997b609647b64f66b81e3b4b10a368e7ad13&quot;
+</pre>
+</div>
+</div>
+</body>
+</html>

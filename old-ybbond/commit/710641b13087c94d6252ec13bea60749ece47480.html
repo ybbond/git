@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(core): add font, use defined components - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/710641b13087c94d6252ec13bea60749ece47480.html">710641b13087c94d6252ec13bea60749ece47480</a>
+<b>parent</b> <a href="../commit/0663a9f73645bed1f9a27f3ffe08a146db99b512.html">0663a9f73645bed1f9a27f3ffe08a146db99b512</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon,  9 Mar 2020 02:32:44 +0700
+
+refactor(core): add font, use defined components
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.gitignore</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">public/index.html</a></td><td> | </td><td class="num">6</td><td><span class="i">++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/App.js</a></td><td> | </td><td class="num">127</td><td><span class="i">++++++++++++++++++++++++++++++++++++++</span><span class="d">-----------------------------------------</span></td></tr>
+</table></pre></div><p>3 files changed, 68 insertions(<span id="plus">+</span>), 66 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.gitignore.html">.gitignore</a> b/<a href="../file/.gitignore.html">.gitignore</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,2 +1,3 @@
+</a> node_modules
+ build
+<a href="#h0-0-2" id="h0-0-2" class="i">+.DS_Store
+</a><b>diff --git a/<a id="h1" href="../file/public/index.html.html">public/index.html</a> b/<a href="../file/public/index.html.html">public/index.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,6 +1,12 @@
+</a> &lt;!DOCTYPE html&gt;
+ &lt;html style=&quot;min-width: 100vw;min-height: 100vh;&quot;&gt;
+   &lt;head&gt;
+<a href="#h1-0-3" id="h1-0-3" class="i">+    &lt;style&gt;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+      @import url(&#39;https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600&amp;display=swap&#39;);
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+      html {
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+        font-family: &#39;IBM Plex Mono&#39;, monospace;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+      }
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+    &lt;/style&gt;
+</a>     &lt;title&gt;Yohanes Bandung Bond - Frontend Developer&lt;/title&gt;
+     &lt;meta charset=&quot;UTF-8&quot; /&gt;
+     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot; /&gt;
+<b>diff --git a/<a id="h2" href="../file/src/App.js.html">src/App.js</a> b/<a href="../file/src/App.js.html">src/App.js</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,85 +1,80 @@
+</a> // @flow
+<a href="#h2-0-1" id="h2-0-1" class="d">-import React, {Component} from &#39;react&#39;;
+</a><a href="#h2-0-2" id="h2-0-2" class="i">+import React from &#39;react&#39;;
+</a> import styled, {ThemeProvider} from &#39;styled-components&#39;;
+ import theme from &#39;styled-theming&#39;;
+ 
+<a href="#h2-0-6" id="h2-0-6" class="i">+import Button from &#39;./Components/Button&#39;;
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+import Link from &#39;./Components/Link&#39;;
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+import Text from &#39;./Components/Text&#39;;
+</a> import Style from &#39;./Theme/Style&#39;;
+<a href="#h2-0-10" id="h2-0-10" class="i">+import {colors} from &#39;./Theme/colors&#39;;
+</a> 
+ const backgroundColor = theme(&#39;mode&#39;, {
+<a href="#h2-0-13" id="h2-0-13" class="d">-  light: &#39;#fdfdfd&#39;,
+</a><a href="#h2-0-14" id="h2-0-14" class="d">-  dark: &#39;#1b1b1b&#39;,
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+  light: colors.light,
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+  dark: colors.dark,
+</a> });
+ 
+<a href="#h2-0-19" id="h2-0-19" class="d">-const color = theme(&#39;mode&#39;, {
+</a><a href="#h2-0-20" id="h2-0-20" class="d">-  light: &#39;#1b1b1b&#39;,
+</a><a href="#h2-0-21" id="h2-0-21" class="d">-  dark: &#39;#fdfdfd&#39;,
+</a><a href="#h2-0-22" id="h2-0-22" class="d">-});
+</a><a href="#h2-0-23" id="h2-0-23" class="d">-
+</a><a href="#h2-0-24" id="h2-0-24" class="d">-const linkColor = theme(&#39;mode&#39;, {
+</a><a href="#h2-0-25" id="h2-0-25" class="d">-  light: &#39;#2d2d2d&#39;,
+</a><a href="#h2-0-26" id="h2-0-26" class="d">-  dark: &#39;#d8dcd5&#39;,
+</a><a href="#h2-0-27" id="h2-0-27" class="d">-});
+</a><a href="#h2-0-28" id="h2-0-28" class="d">-
+</a><a href="#h2-0-29" id="h2-0-29" class="d">-const Text = styled.p`
+</a><a href="#h2-0-30" id="h2-0-30" class="d">-  font-family: Trebuchet MS, Helvetica, sans-serif;
+</a><a href="#h2-0-31" id="h2-0-31" class="d">-`;
+</a><a href="#h2-0-32" id="h2-0-32" class="d">-
+</a><a href="#h2-0-33" id="h2-0-33" class="d">-const Wrapper = styled.div`
+</a><a href="#h2-0-34" id="h2-0-34" class="i">+const OuterWrapper = styled.div`
+</a>   min-height: calc(100vh - 2px);
+   background-color: ${backgroundColor};
+<a href="#h2-0-37" id="h2-0-37" class="d">-  color: ${color};
+</a>   padding: 1px;
+ `;
+ 
+<a href="#h2-0-41" id="h2-0-41" class="d">-const Link = styled.a`
+</a><a href="#h2-0-42" id="h2-0-42" class="d">-  color: ${linkColor};
+</a><a href="#h2-0-43" id="h2-0-43" class="i">+const InnerWrapper = styled.div`
+</a><a href="#h2-0-44" id="h2-0-44" class="i">+  margin: 0 auto;
+</a><a href="#h2-0-45" id="h2-0-45" class="i">+  max-width: 600px;
+</a><a href="#h2-0-46" id="h2-0-46" class="i">+
+</a><a href="#h2-0-47" id="h2-0-47" class="i">+  @media (max-width: 599px) {
+</a><a href="#h2-0-48" id="h2-0-48" class="i">+    padding: 0 10px;
+</a><a href="#h2-0-49" id="h2-0-49" class="i">+  }
+</a> `;
+ 
+<a href="#h2-0-52" id="h2-0-52" class="d">-const darkmode = true;
+</a><a href="#h2-0-53" id="h2-0-53" class="i">+const App = () =&gt; {
+</a><a href="#h2-0-54" id="h2-0-54" class="i">+  const [dark, setDark] = React.useState(true);
+</a><a href="#h2-0-55" id="h2-0-55" class="i">+  const toggleDark = () =&gt; setDark(!dark);
+</a> 
+<a href="#h2-0-57" id="h2-0-57" class="d">-class App extends Component&lt;{}&gt; {
+</a><a href="#h2-0-58" id="h2-0-58" class="d">-  render() {
+</a><a href="#h2-0-59" id="h2-0-59" class="d">-    return (
+</a><a href="#h2-0-60" id="h2-0-60" class="d">-      &lt;ThemeProvider theme={{mode: darkmode ? &#39;dark&#39; : &#39;light&#39;}}&gt;
+</a><a href="#h2-0-61" id="h2-0-61" class="d">-        &lt;Wrapper&gt;
+</a><a href="#h2-0-62" id="h2-0-62" class="d">-          &lt;Style dark={darkmode} /&gt;
+</a><a href="#h2-0-63" id="h2-0-63" class="d">-          &lt;center&gt;
+</a><a href="#h2-0-64" id="h2-0-64" class="d">-            &lt;div style={{maxWidth: 600, textAlign: &#39;left&#39;}}&gt;
+</a><a href="#h2-0-65" id="h2-0-65" class="d">-              &lt;Text as=&quot;h1&quot;&gt;Yohanes Bandung Bondowoso&lt;/Text&gt;
+</a><a href="#h2-0-66" id="h2-0-66" class="d">-              &lt;Text&gt;
+</a><a href="#h2-0-67" id="h2-0-67" class="d">-                Currently work as Frontend Engineer of kumparan.com in Jakarta,
+</a><a href="#h2-0-68" id="h2-0-68" class="d">-                Indonesia. Building it with React, React Native for Android and
+</a><a href="#h2-0-69" id="h2-0-69" class="d">-                iOS.
+</a><a href="#h2-0-70" id="h2-0-70" class="d">-                &lt;br /&gt;
+</a><a href="#h2-0-71" id="h2-0-71" class="d">-                &lt;br /&gt;
+</a><a href="#h2-0-72" id="h2-0-72" class="d">-                Eager to learn.
+</a><a href="#h2-0-73" id="h2-0-73" class="d">-                &lt;br /&gt;
+</a><a href="#h2-0-74" id="h2-0-74" class="d">-                Hardships.
+</a><a href="#h2-0-75" id="h2-0-75" class="d">-                &lt;br /&gt;
+</a><a href="#h2-0-76" id="h2-0-76" class="d">-                I cannot say that I am humble, but I learn from experience that
+</a><a href="#h2-0-77" id="h2-0-77" class="d">-                each individuals, their own excellences.
+</a><a href="#h2-0-78" id="h2-0-78" class="d">-                &lt;br /&gt;
+</a><a href="#h2-0-79" id="h2-0-79" class="d">-                I try to learn from everyone, and everything.
+</a><a href="#h2-0-80" id="h2-0-80" class="d">-                &lt;br /&gt;
+</a><a href="#h2-0-81" id="h2-0-81" class="d">-                &lt;br /&gt;
+</a><a href="#h2-0-82" id="h2-0-82" class="d">-                Contact:{&#39; &#39;}
+</a><a href="#h2-0-83" id="h2-0-83" class="d">-                &lt;Link
+</a><a href="#h2-0-84" id="h2-0-84" class="d">-                  href=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;
+</a><a href="#h2-0-85" id="h2-0-85" class="d">-                  target=&quot;_top&quot;
+</a><a href="#h2-0-86" id="h2-0-86" class="d">-                &gt;
+</a><a href="#h2-0-87" id="h2-0-87" class="d">-                  bandungpenting@gmail.com
+</a><a href="#h2-0-88" id="h2-0-88" class="d">-                &lt;/Link&gt;
+</a><a href="#h2-0-89" id="h2-0-89" class="d">-              &lt;/Text&gt;
+</a><a href="#h2-0-90" id="h2-0-90" class="d">-              &lt;Text&gt;
+</a><a href="#h2-0-91" id="h2-0-91" class="d">-                Other site:{&#39; &#39;}
+</a><a href="#h2-0-92" id="h2-0-92" class="d">-                &lt;Link href=&quot;https://reason.ybbond.dev&quot;&gt;reason.ybbond.dev&lt;/Link&gt;
+</a><a href="#h2-0-93" id="h2-0-93" class="d">-              &lt;/Text&gt;
+</a><a href="#h2-0-94" id="h2-0-94" class="d">-            &lt;/div&gt;
+</a><a href="#h2-0-95" id="h2-0-95" class="d">-          &lt;/center&gt;
+</a><a href="#h2-0-96" id="h2-0-96" class="d">-        &lt;/Wrapper&gt;
+</a><a href="#h2-0-97" id="h2-0-97" class="d">-      &lt;/ThemeProvider&gt;
+</a><a href="#h2-0-98" id="h2-0-98" class="d">-    );
+</a><a href="#h2-0-99" id="h2-0-99" class="d">-  }
+</a><a href="#h2-0-100" id="h2-0-100" class="d">-}
+</a><a href="#h2-0-101" id="h2-0-101" class="i">+  return (
+</a><a href="#h2-0-102" id="h2-0-102" class="i">+    &lt;ThemeProvider theme={{mode: dark ? &#39;dark&#39; : &#39;light&#39;}}&gt;
+</a><a href="#h2-0-103" id="h2-0-103" class="i">+      &lt;Style dark={dark} /&gt;
+</a><a href="#h2-0-104" id="h2-0-104" class="i">+      &lt;OuterWrapper&gt;
+</a><a href="#h2-0-105" id="h2-0-105" class="i">+        &lt;InnerWrapper&gt;
+</a><a href="#h2-0-106" id="h2-0-106" class="i">+          &lt;Text as=&quot;h1&quot;&gt;
+</a><a href="#h2-0-107" id="h2-0-107" class="i">+            Yohanes Bandung Bondowoso{&#39; &#39;}
+</a><a href="#h2-0-108" id="h2-0-108" class="i">+            &lt;Button aria-hidden=&quot;true&quot; onClick={toggleDark}&gt;
+</a><a href="#h2-0-109" id="h2-0-109" class="i">+              {dark ? &#39;🌛&#39; : &#39;🌞&#39;}
+</a><a href="#h2-0-110" id="h2-0-110" class="i">+            &lt;/Button&gt;
+</a><a href="#h2-0-111" id="h2-0-111" class="i">+          &lt;/Text&gt;
+</a><a href="#h2-0-112" id="h2-0-112" class="i">+          &lt;Text&gt;
+</a><a href="#h2-0-113" id="h2-0-113" class="i">+            Currently work as Frontend Engineer of kumparan.com in Jakarta,
+</a><a href="#h2-0-114" id="h2-0-114" class="i">+            Indonesia. Building it with React, React Native for Android and iOS.
+</a><a href="#h2-0-115" id="h2-0-115" class="i">+            &lt;br /&gt;
+</a><a href="#h2-0-116" id="h2-0-116" class="i">+            &lt;br /&gt;
+</a><a href="#h2-0-117" id="h2-0-117" class="i">+            Eager to learn.
+</a><a href="#h2-0-118" id="h2-0-118" class="i">+            &lt;br /&gt;
+</a><a href="#h2-0-119" id="h2-0-119" class="i">+            Hardships.
+</a><a href="#h2-0-120" id="h2-0-120" class="i">+            &lt;br /&gt;
+</a><a href="#h2-0-121" id="h2-0-121" class="i">+            I cannot say that I am humble, but I learn from experience that each
+</a><a href="#h2-0-122" id="h2-0-122" class="i">+            individuals, their own excellences.
+</a><a href="#h2-0-123" id="h2-0-123" class="i">+            &lt;br /&gt;
+</a><a href="#h2-0-124" id="h2-0-124" class="i">+            I try to learn from everyone, and everything.
+</a><a href="#h2-0-125" id="h2-0-125" class="i">+            &lt;br /&gt;
+</a><a href="#h2-0-126" id="h2-0-126" class="i">+            &lt;br /&gt;
+</a><a href="#h2-0-127" id="h2-0-127" class="i">+            Contact:{&#39; &#39;}
+</a><a href="#h2-0-128" id="h2-0-128" class="i">+            &lt;Link
+</a><a href="#h2-0-129" id="h2-0-129" class="i">+              href=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;
+</a><a href="#h2-0-130" id="h2-0-130" class="i">+              target=&quot;_top&quot;
+</a><a href="#h2-0-131" id="h2-0-131" class="i">+            &gt;
+</a><a href="#h2-0-132" id="h2-0-132" class="i">+              bandungpenting@gmail.com
+</a><a href="#h2-0-133" id="h2-0-133" class="i">+            &lt;/Link&gt;
+</a><a href="#h2-0-134" id="h2-0-134" class="i">+          &lt;/Text&gt;
+</a><a href="#h2-0-135" id="h2-0-135" class="i">+          &lt;Text&gt;
+</a><a href="#h2-0-136" id="h2-0-136" class="i">+            Other site:{&#39; &#39;}
+</a><a href="#h2-0-137" id="h2-0-137" class="i">+            &lt;Link href=&quot;https://reason.ybbond.dev&quot;&gt;reason.ybbond.dev&lt;/Link&gt;
+</a><a href="#h2-0-138" id="h2-0-138" class="i">+          &lt;/Text&gt;
+</a><a href="#h2-0-139" id="h2-0-139" class="i">+        &lt;/InnerWrapper&gt;
+</a><a href="#h2-0-140" id="h2-0-140" class="i">+      &lt;/OuterWrapper&gt;
+</a><a href="#h2-0-141" id="h2-0-141" class="i">+    &lt;/ThemeProvider&gt;
+</a><a href="#h2-0-142" id="h2-0-142" class="i">+  );
+</a><a href="#h2-0-143" id="h2-0-143" class="i">+};
+</a> 
+ export default App;
+</pre>
+</div>
+</div>
+</body>
+</html>

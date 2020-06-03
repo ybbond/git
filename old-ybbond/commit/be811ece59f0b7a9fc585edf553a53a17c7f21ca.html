@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Home): add it to main navbar - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/be811ece59f0b7a9fc585edf553a53a17c7f21ca.html">be811ece59f0b7a9fc585edf553a53a17c7f21ca</a>
+<b>parent</b> <a href="../commit/4232a5f6c0421262f49afc6f5493511d839e7c58.html">4232a5f6c0421262f49afc6f5493511d839e7c58</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 10 Mar 2020 01:06:16 +0700
+
+refactor(Home): add it to main navbar
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/App.js</a></td><td> | </td><td class="num">9</td><td><span class="i">+++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/Pages/HomePage.js</a></td><td> | </td><td class="num">5</td><td><span class="i">+</span><span class="d">----</span></td></tr>
+</table></pre></div><p>2 files changed, 10 insertions(<span id="plus">+</span>), 4 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/App.js.html">src/App.js</a> b/<a href="../file/src/App.js.html">src/App.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -4,10 +4,12 @@ import {Route, Switch} from &#39;react-router&#39;;
+</a> import styled, {ThemeProvider} from &#39;styled-components&#39;;
+ import theme from &#39;styled-theming&#39;;
+ 
+<a href="#h0-0-3" id="h0-0-3" class="i">+import HomePage from &#39;./Pages/HomePage&#39;;
+</a> import CVPage from &#39;./Pages/CVPage&#39;;
+ import UsesPage from &#39;./Pages/UsesPage&#39;;
+ import NotFoundPage from &#39;./Pages/NotFoundPage&#39;;
+ import Button from &#39;./Components/Button&#39;;
+<a href="#h0-0-8" id="h0-0-8" class="i">+import Link from &#39;./Components/Link&#39;;
+</a> import Text from &#39;./Components/Text&#39;;
+ import Style from &#39;./Theme/Style&#39;;
+ import {colors} from &#39;./Theme/colors&#39;;
+<a href="#h0-1" id="h0-1" class="h">@@ -57,8 +59,15 @@ const App = () =&gt; {
+</a>               {dark ? &#39;🌛&#39; : &#39;🌞&#39;}
+             &lt;/Button&gt;
+           &lt;/Text&gt;
+<a href="#h0-1-3" id="h0-1-3" class="i">+          &lt;Text&gt;
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+            &lt;Link to=&quot;/&quot;&gt;Home&lt;/Link&gt; - &lt;Link to=&quot;/cv&quot;&gt;CV&lt;/Link&gt; -{&#39; &#39;}
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+            &lt;Link to=&quot;/uses&quot;&gt;Uses&lt;/Link&gt;
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+          &lt;/Text&gt;
+</a>           &lt;Switch&gt;
+             &lt;Route exact path=&quot;/&quot;&gt;
+<a href="#h0-1-9" id="h0-1-9" class="i">+              &lt;HomePage /&gt;
+</a><a href="#h0-1-10" id="h0-1-10" class="i">+            &lt;/Route&gt;
+</a><a href="#h0-1-11" id="h0-1-11" class="i">+            &lt;Route exact path=&quot;/cv&quot;&gt;
+</a>               &lt;CVPage /&gt;
+             &lt;/Route&gt;
+             &lt;Route path=&quot;/uses&quot;&gt;
+<b>diff --git a/<a id="h1" href="../file/src/Pages/HomePage.js.html">src/Pages/HomePage.js</a> b/<a href="../file/src/Pages/HomePage.js.html">src/Pages/HomePage.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -23,10 +23,7 @@ const CVPage = () =&gt; {
+</a>         &lt;br /&gt;
+         &lt;br /&gt;
+         Contact:{&#39; &#39;}
+<a href="#h1-0-3" id="h1-0-3" class="d">-        &lt;Link
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-          to=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-          target=&quot;_top&quot;
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-        &gt;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+        &lt;Link to=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;&gt;
+</a>           bandungpenting@gmail.com
+         &lt;/Link&gt;
+       &lt;/Text&gt;
+</pre>
+</div>
+</div>
+</body>
+</html>

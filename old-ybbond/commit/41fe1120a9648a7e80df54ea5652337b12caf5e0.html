@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(exp): add flow and flow-typed - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/41fe1120a9648a7e80df54ea5652337b12caf5e0.html">41fe1120a9648a7e80df54ea5652337b12caf5e0</a>
+<b>parent</b> <a href="../commit/00876f77caad9dde7e55509b6f122f60baba8873.html">00876f77caad9dde7e55509b6f122f60baba8873</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sat,  7 Mar 2020 12:57:48 +0700
+
+feature(exp): add flow and flow-typed
+
+<b>Diffstat:</b>
+<table><tr><td class="A">A</td><td><a href="#h0">.flowconfig</a></td><td> | </td><td class="num">12</td><td><span class="i">++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">babel.config.js</a></td><td> | </td><td class="num">6</td><td><span class="i">+++++</span><span class="d">-</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h2">flow-typed/npm/styled-components_v5.x.x.js</a></td><td> | </td><td class="num">530</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">package.json</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">src/App.js</a></td><td> | </td><td class="num">5</td><td><span class="i">+++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">src/Theme/Style.js</a></td><td> | </td><td class="num">9</td><td><span class="i">+++++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">src/index.js</a></td><td> | </td><td class="num">5</td><td><span class="i">++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h7">yarn.lock</a></td><td> | </td><td class="num">28</td><td><span class="i">++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>8 files changed, 591 insertions(<span id="plus">+</span>), 6 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.flowconfig.html">.flowconfig</a> b/<a href="../file/.flowconfig.html">.flowconfig</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -0,0 +1,12 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+[ignore]
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+[include]
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+[libs]
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+/libdefs
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+[lints]
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+[options]
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+[strict]
+</a><b>diff --git a/<a id="h1" href="../file/babel.config.js.html">babel.config.js</a> b/<a href="../file/babel.config.js.html">babel.config.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,7 +1,11 @@
+</a> module.exports = function(api) {
+   api.cache(true);
+ 
+<a href="#h1-0-3" id="h1-0-3" class="d">-  const presets = [&quot;@babel/preset-env&quot;, &quot;@babel/preset-react&quot;];
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  const presets = [
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+    &quot;@babel/preset-env&quot;,
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+    &quot;@babel/preset-react&quot;,
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+    &quot;@babel/preset-flow&quot;
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+  ];
+</a>   const plugins = [[&quot;babel-plugin-styled-components&quot;, { ssr: true }]];
+ 
+   return {
+<b>diff --git a/<a id="h2" href="../file/flow-typed/npm/styled-components_v5.x.x.js.html">flow-typed/npm/styled-components_v5.x.x.js</a> b/<a href="../file/flow-typed/npm/styled-components_v5.x.x.js.html">flow-typed/npm/styled-components_v5.x.x.js</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -0,0 +1,530 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="i">+// flow-typed signature: 1f5de1a8acfb1cef787a7062bb304212
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+// flow-typed version: 207fb32765/styled-components_v5.x.x/flow_&gt;=v0.104.x
+</a><a href="#h2-0-2" id="h2-0-2" class="i">+
+</a><a href="#h2-0-3" id="h2-0-3" class="i">+// @flow
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+declare module &#39;styled-components&#39; {
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+  declare class InterpolatableComponent&lt;P&gt; extends React$Component&lt;P&gt; {
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+    static +styledComponentId: string;
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+  }
+</a><a href="#h2-0-9" id="h2-0-9" class="i">+
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+  declare export type Styles = {
+</a><a href="#h2-0-11" id="h2-0-11" class="i">+    [ruleOrSelector: string]: string | number, // | Styles,
+</a><a href="#h2-0-12" id="h2-0-12" class="i">+    ...,
+</a><a href="#h2-0-13" id="h2-0-13" class="i">+  };
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+  declare export type Interpolation&lt;P&gt; =
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+    | ((
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+        executionContext: P
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+      ) =&gt; ((executionContext: P) =&gt; InterpolationBase) | InterpolationBase)
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+    | InterpolationBase;
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+  declare export type InterpolationBase =
+</a><a href="#h2-0-22" id="h2-0-22" class="i">+    | CSSRules
+</a><a href="#h2-0-23" id="h2-0-23" class="i">+    | KeyFrames
+</a><a href="#h2-0-24" id="h2-0-24" class="i">+    | string
+</a><a href="#h2-0-25" id="h2-0-25" class="i">+    | number
+</a><a href="#h2-0-26" id="h2-0-26" class="i">+    | false // falsy values are OK, true is the only one not allowed, because it renders as &quot;true&quot;
+</a><a href="#h2-0-27" id="h2-0-27" class="i">+    | null
+</a><a href="#h2-0-28" id="h2-0-28" class="i">+    | void
+</a><a href="#h2-0-29" id="h2-0-29" class="i">+    | Styles
+</a><a href="#h2-0-30" id="h2-0-30" class="i">+    | Class&lt;InterpolatableComponent&lt;any&gt;&gt;; // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-31" id="h2-0-31" class="i">+
+</a><a href="#h2-0-32" id="h2-0-32" class="i">+  declare export type TaggedTemplateLiteral&lt;I, R&gt; = (
+</a><a href="#h2-0-33" id="h2-0-33" class="i">+    strings: string[],
+</a><a href="#h2-0-34" id="h2-0-34" class="i">+    ...interpolations: Interpolation&lt;I&gt;[]
+</a><a href="#h2-0-35" id="h2-0-35" class="i">+  ) =&gt; R;
+</a><a href="#h2-0-36" id="h2-0-36" class="i">+
+</a><a href="#h2-0-37" id="h2-0-37" class="i">+  // Should this be `mixed` perhaps?
+</a><a href="#h2-0-38" id="h2-0-38" class="i">+  declare export type CSSRules = Interpolation&lt;any&gt;[]; // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-39" id="h2-0-39" class="i">+
+</a><a href="#h2-0-40" id="h2-0-40" class="i">+  declare export type CSSConstructor = TaggedTemplateLiteral&lt;any, CSSRules&gt;; // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-41" id="h2-0-41" class="i">+  declare export type KeyFramesConstructor = TaggedTemplateLiteral&lt;
+</a><a href="#h2-0-42" id="h2-0-42" class="i">+    any, // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-43" id="h2-0-43" class="i">+    KeyFrames
+</a><a href="#h2-0-44" id="h2-0-44" class="i">+  &gt;;
+</a><a href="#h2-0-45" id="h2-0-45" class="i">+  declare export type CreateGlobalStyleConstructor = TaggedTemplateLiteral&lt;
+</a><a href="#h2-0-46" id="h2-0-46" class="i">+    any, // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-47" id="h2-0-47" class="i">+    React$ComponentType&lt;*&gt;
+</a><a href="#h2-0-48" id="h2-0-48" class="i">+  &gt;;
+</a><a href="#h2-0-49" id="h2-0-49" class="i">+
+</a><a href="#h2-0-50" id="h2-0-50" class="i">+  declare interface Tag&lt;T&gt; {
+</a><a href="#h2-0-51" id="h2-0-51" class="i">+    styleTag: HTMLStyleElement | null;
+</a><a href="#h2-0-52" id="h2-0-52" class="i">+    getIds(): string[];
+</a><a href="#h2-0-53" id="h2-0-53" class="i">+    hasNameForId(id: string, name: string): boolean;
+</a><a href="#h2-0-54" id="h2-0-54" class="i">+    insertMarker(id: string): T;
+</a><a href="#h2-0-55" id="h2-0-55" class="i">+    insertRules(id: string, cssRules: string[], name: ?string): void;
+</a><a href="#h2-0-56" id="h2-0-56" class="i">+    removeRules(id: string): void;
+</a><a href="#h2-0-57" id="h2-0-57" class="i">+    css(): string;
+</a><a href="#h2-0-58" id="h2-0-58" class="i">+    toHTML(additionalAttrs: ?string): string;
+</a><a href="#h2-0-59" id="h2-0-59" class="i">+    toElement(): React$Element&lt;*&gt;;
+</a><a href="#h2-0-60" id="h2-0-60" class="i">+    clone(): Tag&lt;T&gt;;
+</a><a href="#h2-0-61" id="h2-0-61" class="i">+    sealed: boolean;
+</a><a href="#h2-0-62" id="h2-0-62" class="i">+  }
+</a><a href="#h2-0-63" id="h2-0-63" class="i">+
+</a><a href="#h2-0-64" id="h2-0-64" class="i">+  // The `any`/weak types in here all come from `styled-components` directly, since those definitions were just copied over
+</a><a href="#h2-0-65" id="h2-0-65" class="i">+  declare export class StyleSheet {
+</a><a href="#h2-0-66" id="h2-0-66" class="i">+    static get master(): StyleSheet;
+</a><a href="#h2-0-67" id="h2-0-67" class="i">+    static get instance(): StyleSheet;
+</a><a href="#h2-0-68" id="h2-0-68" class="i">+    static reset(forceServer?: boolean): void;
+</a><a href="#h2-0-69" id="h2-0-69" class="i">+
+</a><a href="#h2-0-70" id="h2-0-70" class="i">+    id: number;
+</a><a href="#h2-0-71" id="h2-0-71" class="i">+    forceServer: boolean;
+</a><a href="#h2-0-72" id="h2-0-72" class="i">+    target: ?HTMLElement;
+</a><a href="#h2-0-73" id="h2-0-73" class="i">+    tagMap: { [string]: Tag&lt;any&gt;, ... }; // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-74" id="h2-0-74" class="i">+    deferred: { [string]: string[] | void, ... };
+</a><a href="#h2-0-75" id="h2-0-75" class="i">+    rehydratedNames: { [string]: boolean, ... };
+</a><a href="#h2-0-76" id="h2-0-76" class="i">+    ignoreRehydratedNames: { [string]: boolean, ... };
+</a><a href="#h2-0-77" id="h2-0-77" class="i">+    tags: Tag&lt;any&gt;[]; // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-78" id="h2-0-78" class="i">+    importRuleTag: Tag&lt;any&gt;; // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-79" id="h2-0-79" class="i">+    capacity: number;
+</a><a href="#h2-0-80" id="h2-0-80" class="i">+    clones: StyleSheet[];
+</a><a href="#h2-0-81" id="h2-0-81" class="i">+
+</a><a href="#h2-0-82" id="h2-0-82" class="i">+    constructor(?HTMLElement): this;
+</a><a href="#h2-0-83" id="h2-0-83" class="i">+    rehydrate(): this;
+</a><a href="#h2-0-84" id="h2-0-84" class="i">+    clone(): StyleSheet;
+</a><a href="#h2-0-85" id="h2-0-85" class="i">+    sealAllTags(): void;
+</a><a href="#h2-0-86" id="h2-0-86" class="i">+    makeTag(tag: ?Tag&lt;any&gt;): Tag&lt;any&gt;; // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-87" id="h2-0-87" class="i">+    getImportRuleTag(): Tag&lt;any&gt;; // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-88" id="h2-0-88" class="i">+    getTagForId(id: string): Tag&lt;any&gt;; // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-89" id="h2-0-89" class="i">+    hasId(id: string): boolean;
+</a><a href="#h2-0-90" id="h2-0-90" class="i">+    hasNameForId(id: string, name: string): boolean;
+</a><a href="#h2-0-91" id="h2-0-91" class="i">+    deferredInject(id: string, cssRules: string[]): void;
+</a><a href="#h2-0-92" id="h2-0-92" class="i">+    inject(id: string, cssRules: string[], name?: string): void;
+</a><a href="#h2-0-93" id="h2-0-93" class="i">+    remove(id: string): void;
+</a><a href="#h2-0-94" id="h2-0-94" class="i">+    toHtml(): string;
+</a><a href="#h2-0-95" id="h2-0-95" class="i">+    toReactElements(): React$ElementType[];
+</a><a href="#h2-0-96" id="h2-0-96" class="i">+  }
+</a><a href="#h2-0-97" id="h2-0-97" class="i">+
+</a><a href="#h2-0-98" id="h2-0-98" class="i">+  declare export function isStyledComponent(target: mixed): boolean;
+</a><a href="#h2-0-99" id="h2-0-99" class="i">+
+</a><a href="#h2-0-100" id="h2-0-100" class="i">+  declare type SCMProps = {
+</a><a href="#h2-0-101" id="h2-0-101" class="i">+    children?: React.Node,
+</a><a href="#h2-0-102" id="h2-0-102" class="i">+    sheet?: StyleSheet,
+</a><a href="#h2-0-103" id="h2-0-103" class="i">+    target?: HTMLElement,
+</a><a href="#h2-0-104" id="h2-0-104" class="i">+    ...
+</a><a href="#h2-0-105" id="h2-0-105" class="i">+  };
+</a><a href="#h2-0-106" id="h2-0-106" class="i">+
+</a><a href="#h2-0-107" id="h2-0-107" class="i">+  declare export var StyleSheetContext: React$Context&lt;StyleSheet&gt;;
+</a><a href="#h2-0-108" id="h2-0-108" class="i">+  declare export var StyleSheetConsumer: React$ComponentType&lt;{|
+</a><a href="#h2-0-109" id="h2-0-109" class="i">+    children: (value: StyleSheet) =&gt; ?React$Node,
+</a><a href="#h2-0-110" id="h2-0-110" class="i">+  |}&gt;;
+</a><a href="#h2-0-111" id="h2-0-111" class="i">+  declare var StyleSheetProvider: React$ComponentType&lt;{|
+</a><a href="#h2-0-112" id="h2-0-112" class="i">+    children?: React$Node,
+</a><a href="#h2-0-113" id="h2-0-113" class="i">+    value: StyleSheet,
+</a><a href="#h2-0-114" id="h2-0-114" class="i">+  |}&gt;;
+</a><a href="#h2-0-115" id="h2-0-115" class="i">+
+</a><a href="#h2-0-116" id="h2-0-116" class="i">+  /**
+</a><a href="#h2-0-117" id="h2-0-117" class="i">+   * plugin
+</a><a href="#h2-0-118" id="h2-0-118" class="i">+   *
+</a><a href="#h2-0-119" id="h2-0-119" class="i">+   * @param  {number} context
+</a><a href="#h2-0-120" id="h2-0-120" class="i">+   * @param  {Array&lt;string&gt;} selector
+</a><a href="#h2-0-121" id="h2-0-121" class="i">+   * @param  {Array&lt;string&gt;} parent
+</a><a href="#h2-0-122" id="h2-0-122" class="i">+   * @param  {string} content
+</a><a href="#h2-0-123" id="h2-0-123" class="i">+   * @param  {number} line
+</a><a href="#h2-0-124" id="h2-0-124" class="i">+   * @param  {number} column
+</a><a href="#h2-0-125" id="h2-0-125" class="i">+   * @param  {number} length
+</a><a href="#h2-0-126" id="h2-0-126" class="i">+   * @return {(string|void)?}
+</a><a href="#h2-0-127" id="h2-0-127" class="i">+   */
+</a><a href="#h2-0-128" id="h2-0-128" class="i">+
+</a><a href="#h2-0-129" id="h2-0-129" class="i">+  declare type StylisPluginSignature = (
+</a><a href="#h2-0-130" id="h2-0-130" class="i">+    context: number,
+</a><a href="#h2-0-131" id="h2-0-131" class="i">+    selector: string[],
+</a><a href="#h2-0-132" id="h2-0-132" class="i">+    parent: string[],
+</a><a href="#h2-0-133" id="h2-0-133" class="i">+    content: string,
+</a><a href="#h2-0-134" id="h2-0-134" class="i">+    line: number,
+</a><a href="#h2-0-135" id="h2-0-135" class="i">+    column: number,
+</a><a href="#h2-0-136" id="h2-0-136" class="i">+    length: number
+</a><a href="#h2-0-137" id="h2-0-137" class="i">+  ) =&gt; string | void;
+</a><a href="#h2-0-138" id="h2-0-138" class="i">+
+</a><a href="#h2-0-139" id="h2-0-139" class="i">+  declare export class StyleSheetManager extends React$Component&lt;SCMProps&gt; {
+</a><a href="#h2-0-140" id="h2-0-140" class="i">+    getContext(sheet: ?StyleSheet, target: ?HTMLElement): StyleSheet;
+</a><a href="#h2-0-141" id="h2-0-141" class="i">+    render(): React$Element&lt;typeof StyleSheetProvider&gt;;
+</a><a href="#h2-0-142" id="h2-0-142" class="i">+    stylisPlugins?: StylisPluginSignature[];
+</a><a href="#h2-0-143" id="h2-0-143" class="i">+    disableVendorPrefixes?: boolean;
+</a><a href="#h2-0-144" id="h2-0-144" class="i">+    disableCSSOMInjection?: boolean;
+</a><a href="#h2-0-145" id="h2-0-145" class="i">+  }
+</a><a href="#h2-0-146" id="h2-0-146" class="i">+
+</a><a href="#h2-0-147" id="h2-0-147" class="i">+  declare export class ServerStyleSheet {
+</a><a href="#h2-0-148" id="h2-0-148" class="i">+    instance: StyleSheet;
+</a><a href="#h2-0-149" id="h2-0-149" class="i">+    masterSheet: StyleSheet;
+</a><a href="#h2-0-150" id="h2-0-150" class="i">+    sealed: boolean;
+</a><a href="#h2-0-151" id="h2-0-151" class="i">+
+</a><a href="#h2-0-152" id="h2-0-152" class="i">+    seal(): void;
+</a><a href="#h2-0-153" id="h2-0-153" class="i">+    collectStyles(children: any): React$Element&lt;StyleSheetManager&gt;; // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-154" id="h2-0-154" class="i">+    getStyleTags(): string;
+</a><a href="#h2-0-155" id="h2-0-155" class="i">+    toReactElements(): React$ElementType[];
+</a><a href="#h2-0-156" id="h2-0-156" class="i">+    // This seems to be use a port of node streams in the Browsers. Not gonna type this for now
+</a><a href="#h2-0-157" id="h2-0-157" class="i">+    // eslint-disable-next-line flowtype/no-weak-types
+</a><a href="#h2-0-158" id="h2-0-158" class="i">+    interleaveWithNodeStream(stream: any): any;
+</a><a href="#h2-0-159" id="h2-0-159" class="i">+  }
+</a><a href="#h2-0-160" id="h2-0-160" class="i">+
+</a><a href="#h2-0-161" id="h2-0-161" class="i">+  declare export class KeyFrames {
+</a><a href="#h2-0-162" id="h2-0-162" class="i">+    id: string;
+</a><a href="#h2-0-163" id="h2-0-163" class="i">+    name: string;
+</a><a href="#h2-0-164" id="h2-0-164" class="i">+    rules: string[];
+</a><a href="#h2-0-165" id="h2-0-165" class="i">+
+</a><a href="#h2-0-166" id="h2-0-166" class="i">+    constructor(name: string, rules: string[]): this;
+</a><a href="#h2-0-167" id="h2-0-167" class="i">+    inject(StyleSheet): void;
+</a><a href="#h2-0-168" id="h2-0-168" class="i">+    toString(): string;
+</a><a href="#h2-0-169" id="h2-0-169" class="i">+    getName(): string;
+</a><a href="#h2-0-170" id="h2-0-170" class="i">+  }
+</a><a href="#h2-0-171" id="h2-0-171" class="i">+
+</a><a href="#h2-0-172" id="h2-0-172" class="i">+  // I think any is appropriate here?
+</a><a href="#h2-0-173" id="h2-0-173" class="i">+  // eslint-disable-next-line flowtype/no-weak-types
+</a><a href="#h2-0-174" id="h2-0-174" class="i">+  declare export var css: CSSConstructor;
+</a><a href="#h2-0-175" id="h2-0-175" class="i">+  declare export var keyframes: KeyFramesConstructor;
+</a><a href="#h2-0-176" id="h2-0-176" class="i">+  declare export var createGlobalStyle: CreateGlobalStyleConstructor;
+</a><a href="#h2-0-177" id="h2-0-177" class="i">+  declare export var ThemeConsumer: React$ComponentType&lt;{|
+</a><a href="#h2-0-178" id="h2-0-178" class="i">+    children: (value: mixed) =&gt; ?React$Node,
+</a><a href="#h2-0-179" id="h2-0-179" class="i">+  |}&gt;;
+</a><a href="#h2-0-180" id="h2-0-180" class="i">+  declare export var ThemeProvider: React$ComponentType&lt;{|
+</a><a href="#h2-0-181" id="h2-0-181" class="i">+    children?: ?React$Node,
+</a><a href="#h2-0-182" id="h2-0-182" class="i">+    theme: mixed | (mixed =&gt; mixed),
+</a><a href="#h2-0-183" id="h2-0-183" class="i">+  |}&gt;;
+</a><a href="#h2-0-184" id="h2-0-184" class="i">+
+</a><a href="#h2-0-185" id="h2-0-185" class="i">+  /**
+</a><a href="#h2-0-186" id="h2-0-186" class="i">+    Any because the intended use-case is for users to do:
+</a><a href="#h2-0-187" id="h2-0-187" class="i">+
+</a><a href="#h2-0-188" id="h2-0-188" class="i">+        import {ThemeContext} from &#39;styled-components&#39;;
+</a><a href="#h2-0-189" id="h2-0-189" class="i">+        ...
+</a><a href="#h2-0-190" id="h2-0-190" class="i">+        const theme = React.useContext&lt;MyTheme&gt;(ThemeContext);
+</a><a href="#h2-0-191" id="h2-0-191" class="i">+
+</a><a href="#h2-0-192" id="h2-0-192" class="i">+    If they want DRY-er code, they could declare their own version of this via something like
+</a><a href="#h2-0-193" id="h2-0-193" class="i">+
+</a><a href="#h2-0-194" id="h2-0-194" class="i">+        import { ThemeContext as SCThemeContext } from &#39;styled-components&#39;;
+</a><a href="#h2-0-195" id="h2-0-195" class="i">+        export const ThemeContext: React$Context&lt;MyTheme&gt; = SCThemeContext;
+</a><a href="#h2-0-196" id="h2-0-196" class="i">+
+</a><a href="#h2-0-197" id="h2-0-197" class="i">+    and then
+</a><a href="#h2-0-198" id="h2-0-198" class="i">+
+</a><a href="#h2-0-199" id="h2-0-199" class="i">+        import {ThemeContext} from &#39;./theme&#39;;
+</a><a href="#h2-0-200" id="h2-0-200" class="i">+  */
+</a><a href="#h2-0-201" id="h2-0-201" class="i">+  // eslint-disable-next-line flowtype/no-weak-types
+</a><a href="#h2-0-202" id="h2-0-202" class="i">+  declare export var ThemeContext: React$Context&lt;any&gt;;
+</a><a href="#h2-0-203" id="h2-0-203" class="i">+
+</a><a href="#h2-0-204" id="h2-0-204" class="i">+  declare export type ThemeProps&lt;T&gt; = {|
+</a><a href="#h2-0-205" id="h2-0-205" class="i">+    theme: T,
+</a><a href="#h2-0-206" id="h2-0-206" class="i">+  |};
+</a><a href="#h2-0-207" id="h2-0-207" class="i">+
+</a><a href="#h2-0-208" id="h2-0-208" class="i">+  declare type CommonSCProps = {|
+</a><a href="#h2-0-209" id="h2-0-209" class="i">+    children?: React$Node,
+</a><a href="#h2-0-210" id="h2-0-210" class="i">+    className?: ?string,
+</a><a href="#h2-0-211" id="h2-0-211" class="i">+    style?: { [string]: string | number, ... },
+</a><a href="#h2-0-212" id="h2-0-212" class="i">+    ref?: React$Ref&lt;any&gt;, // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-213" id="h2-0-213" class="i">+  |};
+</a><a href="#h2-0-214" id="h2-0-214" class="i">+
+</a><a href="#h2-0-215" id="h2-0-215" class="i">+  declare export type PropsWithTheme&lt;Props, T&gt; = {|
+</a><a href="#h2-0-216" id="h2-0-216" class="i">+    ...ThemeProps&lt;T&gt;,
+</a><a href="#h2-0-217" id="h2-0-217" class="i">+    ...CommonSCProps, // Not sure how useful this is here, but it&#39;s technically correct to have it
+</a><a href="#h2-0-218" id="h2-0-218" class="i">+    ...$Exact&lt;Props&gt;,
+</a><a href="#h2-0-219" id="h2-0-219" class="i">+  |};
+</a><a href="#h2-0-220" id="h2-0-220" class="i">+
+</a><a href="#h2-0-221" id="h2-0-221" class="i">+  declare export function withTheme&lt;Theme, Config: { ... }, Instance&gt;(
+</a><a href="#h2-0-222" id="h2-0-222" class="i">+    Component: React$AbstractComponent&lt;Config, Instance&gt;
+</a><a href="#h2-0-223" id="h2-0-223" class="i">+  ): React$AbstractComponent&lt;$Diff&lt;Config, ThemeProps&lt;Theme | void&gt;&gt;, Instance&gt;;
+</a><a href="#h2-0-224" id="h2-0-224" class="i">+
+</a><a href="#h2-0-225" id="h2-0-225" class="i">+  declare export function useTheme&lt;Theme&gt;(): Theme;
+</a><a href="#h2-0-226" id="h2-0-226" class="i">+
+</a><a href="#h2-0-227" id="h2-0-227" class="i">+  declare export type StyledComponent&lt;
+</a><a href="#h2-0-228" id="h2-0-228" class="i">+    Props,
+</a><a href="#h2-0-229" id="h2-0-229" class="i">+    Theme,
+</a><a href="#h2-0-230" id="h2-0-230" class="i">+    Instance,
+</a><a href="#h2-0-231" id="h2-0-231" class="i">+    MergedProps = { ...$Exact&lt;Props&gt;, ...CommonSCProps, ... }
+</a><a href="#h2-0-232" id="h2-0-232" class="i">+  &gt; = React$AbstractComponent&lt;MergedProps, Instance&gt; &amp;
+</a><a href="#h2-0-233" id="h2-0-233" class="i">+    Class&lt;InterpolatableComponent&lt;MergedProps&gt;&gt;;
+</a><a href="#h2-0-234" id="h2-0-234" class="i">+
+</a><a href="#h2-0-235" id="h2-0-235" class="i">+  declare export type StyledFactory&lt;StyleProps, Theme, Instance&gt; = {|
+</a><a href="#h2-0-236" id="h2-0-236" class="i">+    [[call]]: TaggedTemplateLiteral&lt;
+</a><a href="#h2-0-237" id="h2-0-237" class="i">+      PropsWithTheme&lt;StyleProps, Theme&gt;,
+</a><a href="#h2-0-238" id="h2-0-238" class="i">+      StyledComponent&lt;StyleProps, Theme, Instance&gt;
+</a><a href="#h2-0-239" id="h2-0-239" class="i">+    &gt;,
+</a><a href="#h2-0-240" id="h2-0-240" class="i">+    +attrs: &lt;A: { ... }&gt;(
+</a><a href="#h2-0-241" id="h2-0-241" class="i">+      (StyleProps =&gt; A) | A
+</a><a href="#h2-0-242" id="h2-0-242" class="i">+    ) =&gt; TaggedTemplateLiteral&lt;
+</a><a href="#h2-0-243" id="h2-0-243" class="i">+      PropsWithTheme&lt;{| ...$Exact&lt;StyleProps&gt;, ...$Exact&lt;A&gt; |}, Theme&gt;,
+</a><a href="#h2-0-244" id="h2-0-244" class="i">+      StyledComponent&lt;
+</a><a href="#h2-0-245" id="h2-0-245" class="i">+        React$Config&lt;{| ...$Exact&lt;StyleProps&gt;, ...$Exact&lt;A&gt; |}, $Exact&lt;A&gt;&gt;,
+</a><a href="#h2-0-246" id="h2-0-246" class="i">+        Theme,
+</a><a href="#h2-0-247" id="h2-0-247" class="i">+        Instance
+</a><a href="#h2-0-248" id="h2-0-248" class="i">+      &gt;
+</a><a href="#h2-0-249" id="h2-0-249" class="i">+    &gt;,
+</a><a href="#h2-0-250" id="h2-0-250" class="i">+  |};
+</a><a href="#h2-0-251" id="h2-0-251" class="i">+
+</a><a href="#h2-0-252" id="h2-0-252" class="i">+  declare export type StyledShorthandFactory&lt;V&gt; = {|
+</a><a href="#h2-0-253" id="h2-0-253" class="i">+    [[call]]: &lt;StyleProps, Theme&gt;(
+</a><a href="#h2-0-254" id="h2-0-254" class="i">+      string[],
+</a><a href="#h2-0-255" id="h2-0-255" class="i">+      ...Interpolation&lt;PropsWithTheme&lt;StyleProps, Theme&gt;&gt;[]
+</a><a href="#h2-0-256" id="h2-0-256" class="i">+    ) =&gt; StyledComponent&lt;StyleProps, Theme, V&gt;,
+</a><a href="#h2-0-257" id="h2-0-257" class="i">+    [[call]]: &lt;StyleProps, Theme&gt;(
+</a><a href="#h2-0-258" id="h2-0-258" class="i">+      (props: PropsWithTheme&lt;StyleProps, Theme&gt;) =&gt; Interpolation&lt;any&gt; // eslint-disable-line flowtype/no-weak-types
+</a><a href="#h2-0-259" id="h2-0-259" class="i">+    ) =&gt; StyledComponent&lt;StyleProps, Theme, V&gt;,
+</a><a href="#h2-0-260" id="h2-0-260" class="i">+    +attrs: &lt;A: { ... }, StyleProps = {||}, Theme = {||}&gt;(
+</a><a href="#h2-0-261" id="h2-0-261" class="i">+      (StyleProps =&gt; A) | A
+</a><a href="#h2-0-262" id="h2-0-262" class="i">+    ) =&gt; TaggedTemplateLiteral&lt;
+</a><a href="#h2-0-263" id="h2-0-263" class="i">+      PropsWithTheme&lt;{| ...$Exact&lt;StyleProps&gt;, ...$Exact&lt;A&gt; |}, Theme&gt;,
+</a><a href="#h2-0-264" id="h2-0-264" class="i">+      StyledComponent&lt;
+</a><a href="#h2-0-265" id="h2-0-265" class="i">+        React$Config&lt;{| ...$Exact&lt;StyleProps&gt;, ...$Exact&lt;A&gt; |}, $Exact&lt;A&gt;&gt;,
+</a><a href="#h2-0-266" id="h2-0-266" class="i">+        Theme,
+</a><a href="#h2-0-267" id="h2-0-267" class="i">+        V
+</a><a href="#h2-0-268" id="h2-0-268" class="i">+      &gt;
+</a><a href="#h2-0-269" id="h2-0-269" class="i">+    &gt;,
+</a><a href="#h2-0-270" id="h2-0-270" class="i">+  |};
+</a><a href="#h2-0-271" id="h2-0-271" class="i">+
+</a><a href="#h2-0-272" id="h2-0-272" class="i">+  declare type BuiltinElementInstances = {
+</a><a href="#h2-0-273" id="h2-0-273" class="i">+    a: React$ElementRef&lt;&#39;a&#39;&gt;,
+</a><a href="#h2-0-274" id="h2-0-274" class="i">+    abbr: React$ElementRef&lt;&#39;abbr&#39;&gt;,
+</a><a href="#h2-0-275" id="h2-0-275" class="i">+    address: React$ElementRef&lt;&#39;address&#39;&gt;,
+</a><a href="#h2-0-276" id="h2-0-276" class="i">+    area: React$ElementRef&lt;&#39;area&#39;&gt;,
+</a><a href="#h2-0-277" id="h2-0-277" class="i">+    article: React$ElementRef&lt;&#39;article&#39;&gt;,
+</a><a href="#h2-0-278" id="h2-0-278" class="i">+    aside: React$ElementRef&lt;&#39;aside&#39;&gt;,
+</a><a href="#h2-0-279" id="h2-0-279" class="i">+    audio: React$ElementRef&lt;&#39;audio&#39;&gt;,
+</a><a href="#h2-0-280" id="h2-0-280" class="i">+    b: React$ElementRef&lt;&#39;b&#39;&gt;,
+</a><a href="#h2-0-281" id="h2-0-281" class="i">+    base: React$ElementRef&lt;&#39;base&#39;&gt;,
+</a><a href="#h2-0-282" id="h2-0-282" class="i">+    bdi: React$ElementRef&lt;&#39;bdi&#39;&gt;,
+</a><a href="#h2-0-283" id="h2-0-283" class="i">+    bdo: React$ElementRef&lt;&#39;bdo&#39;&gt;,
+</a><a href="#h2-0-284" id="h2-0-284" class="i">+    big: React$ElementRef&lt;&#39;big&#39;&gt;,
+</a><a href="#h2-0-285" id="h2-0-285" class="i">+    blockquote: React$ElementRef&lt;&#39;blockquote&#39;&gt;,
+</a><a href="#h2-0-286" id="h2-0-286" class="i">+    body: React$ElementRef&lt;&#39;body&#39;&gt;,
+</a><a href="#h2-0-287" id="h2-0-287" class="i">+    br: React$ElementRef&lt;&#39;br&#39;&gt;,
+</a><a href="#h2-0-288" id="h2-0-288" class="i">+    button: React$ElementRef&lt;&#39;button&#39;&gt;,
+</a><a href="#h2-0-289" id="h2-0-289" class="i">+    canvas: React$ElementRef&lt;&#39;canvas&#39;&gt;,
+</a><a href="#h2-0-290" id="h2-0-290" class="i">+    caption: React$ElementRef&lt;&#39;caption&#39;&gt;,
+</a><a href="#h2-0-291" id="h2-0-291" class="i">+    cite: React$ElementRef&lt;&#39;cite&#39;&gt;,
+</a><a href="#h2-0-292" id="h2-0-292" class="i">+    code: React$ElementRef&lt;&#39;code&#39;&gt;,
+</a><a href="#h2-0-293" id="h2-0-293" class="i">+    col: React$ElementRef&lt;&#39;col&#39;&gt;,
+</a><a href="#h2-0-294" id="h2-0-294" class="i">+    colgroup: React$ElementRef&lt;&#39;colgroup&#39;&gt;,
+</a><a href="#h2-0-295" id="h2-0-295" class="i">+    data: React$ElementRef&lt;&#39;data&#39;&gt;,
+</a><a href="#h2-0-296" id="h2-0-296" class="i">+    datalist: React$ElementRef&lt;&#39;datalist&#39;&gt;,
+</a><a href="#h2-0-297" id="h2-0-297" class="i">+    dd: React$ElementRef&lt;&#39;dd&#39;&gt;,
+</a><a href="#h2-0-298" id="h2-0-298" class="i">+    del: React$ElementRef&lt;&#39;del&#39;&gt;,
+</a><a href="#h2-0-299" id="h2-0-299" class="i">+    details: React$ElementRef&lt;&#39;details&#39;&gt;,
+</a><a href="#h2-0-300" id="h2-0-300" class="i">+    dfn: React$ElementRef&lt;&#39;dfn&#39;&gt;,
+</a><a href="#h2-0-301" id="h2-0-301" class="i">+    dialog: React$ElementRef&lt;&#39;dialog&#39;&gt;,
+</a><a href="#h2-0-302" id="h2-0-302" class="i">+    div: React$ElementRef&lt;&#39;div&#39;&gt;,
+</a><a href="#h2-0-303" id="h2-0-303" class="i">+    dl: React$ElementRef&lt;&#39;dl&#39;&gt;,
+</a><a href="#h2-0-304" id="h2-0-304" class="i">+    dt: React$ElementRef&lt;&#39;dt&#39;&gt;,
+</a><a href="#h2-0-305" id="h2-0-305" class="i">+    em: React$ElementRef&lt;&#39;em&#39;&gt;,
+</a><a href="#h2-0-306" id="h2-0-306" class="i">+    embed: React$ElementRef&lt;&#39;embed&#39;&gt;,
+</a><a href="#h2-0-307" id="h2-0-307" class="i">+    fieldset: React$ElementRef&lt;&#39;fieldset&#39;&gt;,
+</a><a href="#h2-0-308" id="h2-0-308" class="i">+    figcaption: React$ElementRef&lt;&#39;figcaption&#39;&gt;,
+</a><a href="#h2-0-309" id="h2-0-309" class="i">+    figure: React$ElementRef&lt;&#39;figure&#39;&gt;,
+</a><a href="#h2-0-310" id="h2-0-310" class="i">+    footer: React$ElementRef&lt;&#39;footer&#39;&gt;,
+</a><a href="#h2-0-311" id="h2-0-311" class="i">+    form: React$ElementRef&lt;&#39;form&#39;&gt;,
+</a><a href="#h2-0-312" id="h2-0-312" class="i">+    h1: React$ElementRef&lt;&#39;h1&#39;&gt;,
+</a><a href="#h2-0-313" id="h2-0-313" class="i">+    h2: React$ElementRef&lt;&#39;h2&#39;&gt;,
+</a><a href="#h2-0-314" id="h2-0-314" class="i">+    h3: React$ElementRef&lt;&#39;h3&#39;&gt;,
+</a><a href="#h2-0-315" id="h2-0-315" class="i">+    h4: React$ElementRef&lt;&#39;h4&#39;&gt;,
+</a><a href="#h2-0-316" id="h2-0-316" class="i">+    h5: React$ElementRef&lt;&#39;h5&#39;&gt;,
+</a><a href="#h2-0-317" id="h2-0-317" class="i">+    h6: React$ElementRef&lt;&#39;h6&#39;&gt;,
+</a><a href="#h2-0-318" id="h2-0-318" class="i">+    head: React$ElementRef&lt;&#39;head&#39;&gt;,
+</a><a href="#h2-0-319" id="h2-0-319" class="i">+    header: React$ElementRef&lt;&#39;header&#39;&gt;,
+</a><a href="#h2-0-320" id="h2-0-320" class="i">+    hgroup: React$ElementRef&lt;&#39;hgroup&#39;&gt;,
+</a><a href="#h2-0-321" id="h2-0-321" class="i">+    hr: React$ElementRef&lt;&#39;hr&#39;&gt;,
+</a><a href="#h2-0-322" id="h2-0-322" class="i">+    html: React$ElementRef&lt;&#39;html&#39;&gt;,
+</a><a href="#h2-0-323" id="h2-0-323" class="i">+    i: React$ElementRef&lt;&#39;i&#39;&gt;,
+</a><a href="#h2-0-324" id="h2-0-324" class="i">+    iframe: React$ElementRef&lt;&#39;iframe&#39;&gt;,
+</a><a href="#h2-0-325" id="h2-0-325" class="i">+    img: React$ElementRef&lt;&#39;img&#39;&gt;,
+</a><a href="#h2-0-326" id="h2-0-326" class="i">+    input: React$ElementRef&lt;&#39;input&#39;&gt;,
+</a><a href="#h2-0-327" id="h2-0-327" class="i">+    ins: React$ElementRef&lt;&#39;ins&#39;&gt;,
+</a><a href="#h2-0-328" id="h2-0-328" class="i">+    kbd: React$ElementRef&lt;&#39;kbd&#39;&gt;,
+</a><a href="#h2-0-329" id="h2-0-329" class="i">+    label: React$ElementRef&lt;&#39;label&#39;&gt;,
+</a><a href="#h2-0-330" id="h2-0-330" class="i">+    legend: React$ElementRef&lt;&#39;legend&#39;&gt;,
+</a><a href="#h2-0-331" id="h2-0-331" class="i">+    li: React$ElementRef&lt;&#39;li&#39;&gt;,
+</a><a href="#h2-0-332" id="h2-0-332" class="i">+    link: React$ElementRef&lt;&#39;link&#39;&gt;,
+</a><a href="#h2-0-333" id="h2-0-333" class="i">+    main: React$ElementRef&lt;&#39;main&#39;&gt;,
+</a><a href="#h2-0-334" id="h2-0-334" class="i">+    map: React$ElementRef&lt;&#39;map&#39;&gt;,
+</a><a href="#h2-0-335" id="h2-0-335" class="i">+    mark: React$ElementRef&lt;&#39;mark&#39;&gt;,
+</a><a href="#h2-0-336" id="h2-0-336" class="i">+    menu: React$ElementRef&lt;&#39;menu&#39;&gt;,
+</a><a href="#h2-0-337" id="h2-0-337" class="i">+    meta: React$ElementRef&lt;&#39;meta&#39;&gt;,
+</a><a href="#h2-0-338" id="h2-0-338" class="i">+    meter: React$ElementRef&lt;&#39;meter&#39;&gt;,
+</a><a href="#h2-0-339" id="h2-0-339" class="i">+    nav: React$ElementRef&lt;&#39;nav&#39;&gt;,
+</a><a href="#h2-0-340" id="h2-0-340" class="i">+    noscript: React$ElementRef&lt;&#39;noscript&#39;&gt;,
+</a><a href="#h2-0-341" id="h2-0-341" class="i">+    object: React$ElementRef&lt;&#39;object&#39;&gt;,
+</a><a href="#h2-0-342" id="h2-0-342" class="i">+    ol: React$ElementRef&lt;&#39;ol&#39;&gt;,
+</a><a href="#h2-0-343" id="h2-0-343" class="i">+    optgroup: React$ElementRef&lt;&#39;optgroup&#39;&gt;,
+</a><a href="#h2-0-344" id="h2-0-344" class="i">+    option: React$ElementRef&lt;&#39;option&#39;&gt;,
+</a><a href="#h2-0-345" id="h2-0-345" class="i">+    output: React$ElementRef&lt;&#39;output&#39;&gt;,
+</a><a href="#h2-0-346" id="h2-0-346" class="i">+    p: React$ElementRef&lt;&#39;p&#39;&gt;,
+</a><a href="#h2-0-347" id="h2-0-347" class="i">+    param: React$ElementRef&lt;&#39;param&#39;&gt;,
+</a><a href="#h2-0-348" id="h2-0-348" class="i">+    picture: React$ElementRef&lt;&#39;picture&#39;&gt;,
+</a><a href="#h2-0-349" id="h2-0-349" class="i">+    pre: React$ElementRef&lt;&#39;pre&#39;&gt;,
+</a><a href="#h2-0-350" id="h2-0-350" class="i">+    progress: React$ElementRef&lt;&#39;progress&#39;&gt;,
+</a><a href="#h2-0-351" id="h2-0-351" class="i">+    q: React$ElementRef&lt;&#39;q&#39;&gt;,
+</a><a href="#h2-0-352" id="h2-0-352" class="i">+    rp: React$ElementRef&lt;&#39;rp&#39;&gt;,
+</a><a href="#h2-0-353" id="h2-0-353" class="i">+    rt: React$ElementRef&lt;&#39;rt&#39;&gt;,
+</a><a href="#h2-0-354" id="h2-0-354" class="i">+    ruby: React$ElementRef&lt;&#39;ruby&#39;&gt;,
+</a><a href="#h2-0-355" id="h2-0-355" class="i">+    s: React$ElementRef&lt;&#39;s&#39;&gt;,
+</a><a href="#h2-0-356" id="h2-0-356" class="i">+    samp: React$ElementRef&lt;&#39;samp&#39;&gt;,
+</a><a href="#h2-0-357" id="h2-0-357" class="i">+    script: React$ElementRef&lt;&#39;script&#39;&gt;,
+</a><a href="#h2-0-358" id="h2-0-358" class="i">+    section: React$ElementRef&lt;&#39;section&#39;&gt;,
+</a><a href="#h2-0-359" id="h2-0-359" class="i">+    select: React$ElementRef&lt;&#39;select&#39;&gt;,
+</a><a href="#h2-0-360" id="h2-0-360" class="i">+    small: React$ElementRef&lt;&#39;small&#39;&gt;,
+</a><a href="#h2-0-361" id="h2-0-361" class="i">+    source: React$ElementRef&lt;&#39;source&#39;&gt;,
+</a><a href="#h2-0-362" id="h2-0-362" class="i">+    span: React$ElementRef&lt;&#39;span&#39;&gt;,
+</a><a href="#h2-0-363" id="h2-0-363" class="i">+    strong: React$ElementRef&lt;&#39;strong&#39;&gt;,
+</a><a href="#h2-0-364" id="h2-0-364" class="i">+    style: React$ElementRef&lt;&#39;style&#39;&gt;,
+</a><a href="#h2-0-365" id="h2-0-365" class="i">+    sub: React$ElementRef&lt;&#39;sub&#39;&gt;,
+</a><a href="#h2-0-366" id="h2-0-366" class="i">+    summary: React$ElementRef&lt;&#39;summary&#39;&gt;,
+</a><a href="#h2-0-367" id="h2-0-367" class="i">+    sup: React$ElementRef&lt;&#39;sup&#39;&gt;,
+</a><a href="#h2-0-368" id="h2-0-368" class="i">+    table: React$ElementRef&lt;&#39;table&#39;&gt;,
+</a><a href="#h2-0-369" id="h2-0-369" class="i">+    tbody: React$ElementRef&lt;&#39;tbody&#39;&gt;,
+</a><a href="#h2-0-370" id="h2-0-370" class="i">+    td: React$ElementRef&lt;&#39;td&#39;&gt;,
+</a><a href="#h2-0-371" id="h2-0-371" class="i">+    textarea: React$ElementRef&lt;&#39;textarea&#39;&gt;,
+</a><a href="#h2-0-372" id="h2-0-372" class="i">+    tfoot: React$ElementRef&lt;&#39;tfoot&#39;&gt;,
+</a><a href="#h2-0-373" id="h2-0-373" class="i">+    th: React$ElementRef&lt;&#39;th&#39;&gt;,
+</a><a href="#h2-0-374" id="h2-0-374" class="i">+    thead: React$ElementRef&lt;&#39;thead&#39;&gt;,
+</a><a href="#h2-0-375" id="h2-0-375" class="i">+    time: React$ElementRef&lt;&#39;time&#39;&gt;,
+</a><a href="#h2-0-376" id="h2-0-376" class="i">+    title: React$ElementRef&lt;&#39;title&#39;&gt;,
+</a><a href="#h2-0-377" id="h2-0-377" class="i">+    tr: React$ElementRef&lt;&#39;tr&#39;&gt;,
+</a><a href="#h2-0-378" id="h2-0-378" class="i">+    track: React$ElementRef&lt;&#39;track&#39;&gt;,
+</a><a href="#h2-0-379" id="h2-0-379" class="i">+    u: React$ElementRef&lt;&#39;u&#39;&gt;,
+</a><a href="#h2-0-380" id="h2-0-380" class="i">+    ul: React$ElementRef&lt;&#39;ul&#39;&gt;,
+</a><a href="#h2-0-381" id="h2-0-381" class="i">+    var: React$ElementRef&lt;&#39;var&#39;&gt;,
+</a><a href="#h2-0-382" id="h2-0-382" class="i">+    video: React$ElementRef&lt;&#39;video&#39;&gt;,
+</a><a href="#h2-0-383" id="h2-0-383" class="i">+    wbr: React$ElementRef&lt;&#39;wbr&#39;&gt;,
+</a><a href="#h2-0-384" id="h2-0-384" class="i">+    // SVG
+</a><a href="#h2-0-385" id="h2-0-385" class="i">+    circle: React$ElementRef&lt;&#39;circle&#39;&gt;,
+</a><a href="#h2-0-386" id="h2-0-386" class="i">+    clipPath: React$ElementRef&lt;&#39;clipPath&#39;&gt;,
+</a><a href="#h2-0-387" id="h2-0-387" class="i">+    defs: React$ElementRef&lt;&#39;defs&#39;&gt;,
+</a><a href="#h2-0-388" id="h2-0-388" class="i">+    ellipse: React$ElementRef&lt;&#39;ellipse&#39;&gt;,
+</a><a href="#h2-0-389" id="h2-0-389" class="i">+    g: React$ElementRef&lt;&#39;g&#39;&gt;,
+</a><a href="#h2-0-390" id="h2-0-390" class="i">+    image: React$ElementRef&lt;&#39;image&#39;&gt;,
+</a><a href="#h2-0-391" id="h2-0-391" class="i">+    line: React$ElementRef&lt;&#39;line&#39;&gt;,
+</a><a href="#h2-0-392" id="h2-0-392" class="i">+    linearGradient: React$ElementRef&lt;&#39;linearGradient&#39;&gt;,
+</a><a href="#h2-0-393" id="h2-0-393" class="i">+    mask: React$ElementRef&lt;&#39;mask&#39;&gt;,
+</a><a href="#h2-0-394" id="h2-0-394" class="i">+    path: React$ElementRef&lt;&#39;path&#39;&gt;,
+</a><a href="#h2-0-395" id="h2-0-395" class="i">+    pattern: React$ElementRef&lt;&#39;pattern&#39;&gt;,
+</a><a href="#h2-0-396" id="h2-0-396" class="i">+    polygon: React$ElementRef&lt;&#39;polygon&#39;&gt;,
+</a><a href="#h2-0-397" id="h2-0-397" class="i">+    polyline: React$ElementRef&lt;&#39;polyline&#39;&gt;,
+</a><a href="#h2-0-398" id="h2-0-398" class="i">+    radialGradient: React$ElementRef&lt;&#39;radialGradient&#39;&gt;,
+</a><a href="#h2-0-399" id="h2-0-399" class="i">+    rect: React$ElementRef&lt;&#39;rect&#39;&gt;,
+</a><a href="#h2-0-400" id="h2-0-400" class="i">+    stop: React$ElementRef&lt;&#39;stop&#39;&gt;,
+</a><a href="#h2-0-401" id="h2-0-401" class="i">+    svg: React$ElementRef&lt;&#39;svg&#39;&gt;,
+</a><a href="#h2-0-402" id="h2-0-402" class="i">+    text: React$ElementRef&lt;&#39;text&#39;&gt;,
+</a><a href="#h2-0-403" id="h2-0-403" class="i">+    tspan: React$ElementRef&lt;&#39;tspan&#39;&gt;,
+</a><a href="#h2-0-404" id="h2-0-404" class="i">+    // Deprecated, should be HTMLUnknownElement, but Flow doesn&#39;t support it
+</a><a href="#h2-0-405" id="h2-0-405" class="i">+    keygen: React$ElementRef&lt;&#39;keygen&#39;&gt;,
+</a><a href="#h2-0-406" id="h2-0-406" class="i">+    menuitem: React$ElementRef&lt;&#39;menuitem&#39;&gt;,
+</a><a href="#h2-0-407" id="h2-0-407" class="i">+    ...
+</a><a href="#h2-0-408" id="h2-0-408" class="i">+  };
+</a><a href="#h2-0-409" id="h2-0-409" class="i">+
+</a><a href="#h2-0-410" id="h2-0-410" class="i">+  declare type BuiltinElementType&lt;ElementName: string&gt; = $ElementType&lt;
+</a><a href="#h2-0-411" id="h2-0-411" class="i">+    BuiltinElementInstances,
+</a><a href="#h2-0-412" id="h2-0-412" class="i">+    ElementName
+</a><a href="#h2-0-413" id="h2-0-413" class="i">+  &gt;;
+</a><a href="#h2-0-414" id="h2-0-414" class="i">+
+</a><a href="#h2-0-415" id="h2-0-415" class="i">+  declare type ConvenientShorthands = $ObjMap&lt;
+</a><a href="#h2-0-416" id="h2-0-416" class="i">+    BuiltinElementInstances,
+</a><a href="#h2-0-417" id="h2-0-417" class="i">+    &lt;V&gt;(V) =&gt; StyledShorthandFactory&lt;V&gt;
+</a><a href="#h2-0-418" id="h2-0-418" class="i">+  &gt;;
+</a><a href="#h2-0-419" id="h2-0-419" class="i">+
+</a><a href="#h2-0-420" id="h2-0-420" class="i">+  declare interface Styled {
+</a><a href="#h2-0-421" id="h2-0-421" class="i">+    &lt;Comp: React$ComponentType&lt;P&gt;, Theme, OwnProps = React$ElementConfig&lt;Comp&gt;&gt;(
+</a><a href="#h2-0-422" id="h2-0-422" class="i">+      Comp
+</a><a href="#h2-0-423" id="h2-0-423" class="i">+    ): StyledFactory&lt;{| ...$Exact&lt;OwnProps&gt; |}, Theme, Comp&gt;;
+</a><a href="#h2-0-424" id="h2-0-424" class="i">+    &lt;StyleProps, Theme, ElementName: $Keys&lt;BuiltinElementInstances&gt;&gt;(
+</a><a href="#h2-0-425" id="h2-0-425" class="i">+      ElementName
+</a><a href="#h2-0-426" id="h2-0-426" class="i">+    ): StyledFactory&lt;StyleProps, Theme, BuiltinElementType&lt;ElementName&gt;&gt;;
+</a><a href="#h2-0-427" id="h2-0-427" class="i">+  }
+</a><a href="#h2-0-428" id="h2-0-428" class="i">+
+</a><a href="#h2-0-429" id="h2-0-429" class="i">+  declare export default Styled &amp; ConvenientShorthands;
+</a><a href="#h2-0-430" id="h2-0-430" class="i">+}
+</a><a href="#h2-0-431" id="h2-0-431" class="i">+
+</a><a href="#h2-0-432" id="h2-0-432" class="i">+declare module &#39;styled-components/native&#39; {
+</a><a href="#h2-0-433" id="h2-0-433" class="i">+  import type {
+</a><a href="#h2-0-434" id="h2-0-434" class="i">+    CSSRules,
+</a><a href="#h2-0-435" id="h2-0-435" class="i">+    CSSConstructor,
+</a><a href="#h2-0-436" id="h2-0-436" class="i">+    KeyFramesConstructor,
+</a><a href="#h2-0-437" id="h2-0-437" class="i">+    CreateGlobalStyleConstructor,
+</a><a href="#h2-0-438" id="h2-0-438" class="i">+    StyledComponent,
+</a><a href="#h2-0-439" id="h2-0-439" class="i">+    Interpolation,
+</a><a href="#h2-0-440" id="h2-0-440" class="i">+
+</a><a href="#h2-0-441" id="h2-0-441" class="i">+    // &quot;private&quot; types
+</a><a href="#h2-0-442" id="h2-0-442" class="i">+    TaggedTemplateLiteral,
+</a><a href="#h2-0-443" id="h2-0-443" class="i">+    StyledFactory,
+</a><a href="#h2-0-444" id="h2-0-444" class="i">+    StyledShorthandFactory,
+</a><a href="#h2-0-445" id="h2-0-445" class="i">+    ThemeProps,
+</a><a href="#h2-0-446" id="h2-0-446" class="i">+    PropsWithTheme,
+</a><a href="#h2-0-447" id="h2-0-447" class="i">+  } from &#39;styled-components&#39;;
+</a><a href="#h2-0-448" id="h2-0-448" class="i">+
+</a><a href="#h2-0-449" id="h2-0-449" class="i">+  declare type BuiltinElementInstances = {
+</a><a href="#h2-0-450" id="h2-0-450" class="i">+    ActivityIndicator: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-451" id="h2-0-451" class="i">+    ActivityIndicatorIOS: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-452" id="h2-0-452" class="i">+    ART: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-453" id="h2-0-453" class="i">+    Button: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-454" id="h2-0-454" class="i">+    DatePickerIOS: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-455" id="h2-0-455" class="i">+    DrawerLayoutAndroid: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-456" id="h2-0-456" class="i">+    Image: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-457" id="h2-0-457" class="i">+    ImageBackground: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-458" id="h2-0-458" class="i">+    ImageEditor: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-459" id="h2-0-459" class="i">+    ImageStore: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-460" id="h2-0-460" class="i">+    KeyboardAvoidingView: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-461" id="h2-0-461" class="i">+    ListView: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-462" id="h2-0-462" class="i">+    MapView: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-463" id="h2-0-463" class="i">+    Modal: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-464" id="h2-0-464" class="i">+    NavigatorIOS: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-465" id="h2-0-465" class="i">+    Picker: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-466" id="h2-0-466" class="i">+    PickerIOS: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-467" id="h2-0-467" class="i">+    ProgressBarAndroid: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-468" id="h2-0-468" class="i">+    ProgressViewIOS: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-469" id="h2-0-469" class="i">+    ScrollView: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-470" id="h2-0-470" class="i">+    SegmentedControlIOS: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-471" id="h2-0-471" class="i">+    Slider: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-472" id="h2-0-472" class="i">+    SliderIOS: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-473" id="h2-0-473" class="i">+    SnapshotViewIOS: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-474" id="h2-0-474" class="i">+    Switch: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-475" id="h2-0-475" class="i">+    RecyclerViewBackedScrollView: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-476" id="h2-0-476" class="i">+    RefreshControl: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-477" id="h2-0-477" class="i">+    SafeAreaView: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-478" id="h2-0-478" class="i">+    StatusBar: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-479" id="h2-0-479" class="i">+    SwipeableListView: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-480" id="h2-0-480" class="i">+    SwitchAndroid: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-481" id="h2-0-481" class="i">+    SwitchIOS: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-482" id="h2-0-482" class="i">+    TabBarIOS: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-483" id="h2-0-483" class="i">+    Text: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-484" id="h2-0-484" class="i">+    TextInput: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-485" id="h2-0-485" class="i">+    ToastAndroid: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-486" id="h2-0-486" class="i">+    ToolbarAndroid: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-487" id="h2-0-487" class="i">+    Touchable: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-488" id="h2-0-488" class="i">+    TouchableHighlight: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-489" id="h2-0-489" class="i">+    TouchableNativeFeedback: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-490" id="h2-0-490" class="i">+    TouchableOpacity: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-491" id="h2-0-491" class="i">+    TouchableWithoutFeedback: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-492" id="h2-0-492" class="i">+    View: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-493" id="h2-0-493" class="i">+    ViewPagerAndroid: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-494" id="h2-0-494" class="i">+    WebView: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-495" id="h2-0-495" class="i">+    FlatList: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-496" id="h2-0-496" class="i">+    SectionList: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-497" id="h2-0-497" class="i">+    VirtualizedList: React$ComponentType&lt;{ ... }&gt;,
+</a><a href="#h2-0-498" id="h2-0-498" class="i">+    ...
+</a><a href="#h2-0-499" id="h2-0-499" class="i">+  };
+</a><a href="#h2-0-500" id="h2-0-500" class="i">+
+</a><a href="#h2-0-501" id="h2-0-501" class="i">+  declare type BuiltinElementType&lt;ElementName: string&gt; = $ElementType&lt;
+</a><a href="#h2-0-502" id="h2-0-502" class="i">+    BuiltinElementInstances,
+</a><a href="#h2-0-503" id="h2-0-503" class="i">+    ElementName
+</a><a href="#h2-0-504" id="h2-0-504" class="i">+  &gt;;
+</a><a href="#h2-0-505" id="h2-0-505" class="i">+
+</a><a href="#h2-0-506" id="h2-0-506" class="i">+  declare type ConvenientShorthands = $ObjMap&lt;
+</a><a href="#h2-0-507" id="h2-0-507" class="i">+    BuiltinElementInstances,
+</a><a href="#h2-0-508" id="h2-0-508" class="i">+    &lt;V&gt;(V) =&gt; StyledShorthandFactory&lt;V&gt;
+</a><a href="#h2-0-509" id="h2-0-509" class="i">+  &gt;;
+</a><a href="#h2-0-510" id="h2-0-510" class="i">+
+</a><a href="#h2-0-511" id="h2-0-511" class="i">+  declare interface Styled {
+</a><a href="#h2-0-512" id="h2-0-512" class="i">+    &lt;StyleProps, Theme, ElementName: $Keys&lt;BuiltinElementInstances&gt;&gt;(
+</a><a href="#h2-0-513" id="h2-0-513" class="i">+      ElementName
+</a><a href="#h2-0-514" id="h2-0-514" class="i">+    ): StyledFactory&lt;StyleProps, Theme, BuiltinElementType&lt;ElementName&gt;&gt;;
+</a><a href="#h2-0-515" id="h2-0-515" class="i">+    &lt;
+</a><a href="#h2-0-516" id="h2-0-516" class="i">+      Comp: React$ComponentType&lt;any&gt;,
+</a><a href="#h2-0-517" id="h2-0-517" class="i">+      Theme,
+</a><a href="#h2-0-518" id="h2-0-518" class="i">+      OwnProps = React$ElementConfig&lt;Comp&gt;
+</a><a href="#h2-0-519" id="h2-0-519" class="i">+    &gt;(
+</a><a href="#h2-0-520" id="h2-0-520" class="i">+      Comp
+</a><a href="#h2-0-521" id="h2-0-521" class="i">+    ): StyledFactory&lt;{| ...$Exact&lt;OwnProps&gt; |}, Theme, Comp&gt;;
+</a><a href="#h2-0-522" id="h2-0-522" class="i">+  }
+</a><a href="#h2-0-523" id="h2-0-523" class="i">+
+</a><a href="#h2-0-524" id="h2-0-524" class="i">+  declare export default Styled &amp; ConvenientShorthands;
+</a><a href="#h2-0-525" id="h2-0-525" class="i">+}
+</a><a href="#h2-0-526" id="h2-0-526" class="i">+
+</a><a href="#h2-0-527" id="h2-0-527" class="i">+declare module &#39;styled-components/macro&#39; {
+</a><a href="#h2-0-528" id="h2-0-528" class="i">+  declare export * from &#39;styled-components&#39;;
+</a><a href="#h2-0-529" id="h2-0-529" class="i">+}
+</a><b>diff --git a/<a id="h3" href="../file/package.json.html">package.json</a> b/<a href="../file/package.json.html">package.json</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -20,9 +20,11 @@
+</a>     &quot;@babel/cli&quot;: &quot;^7.8.4&quot;,
+     &quot;@babel/core&quot;: &quot;^7.8.7&quot;,
+     &quot;@babel/preset-env&quot;: &quot;^7.8.7&quot;,
+<a href="#h3-0-3" id="h3-0-3" class="i">+    &quot;@babel/preset-flow&quot;: &quot;^7.8.3&quot;,
+</a>     &quot;@babel/preset-react&quot;: &quot;^7.8.3&quot;,
+     &quot;babel-loader&quot;: &quot;^8.0.6&quot;,
+     &quot;babel-plugin-styled-components&quot;: &quot;^1.10.7&quot;,
+<a href="#h3-0-7" id="h3-0-7" class="i">+    &quot;flow-bin&quot;: &quot;^0.120.1&quot;,
+</a>     &quot;html-webpack-plugin&quot;: &quot;^3.2.0&quot;,
+     &quot;webpack&quot;: &quot;^4.42.0&quot;,
+     &quot;webpack-cli&quot;: &quot;^3.3.11&quot;,
+<b>diff --git a/<a id="h4" href="../file/src/App.js.html">src/App.js</a> b/<a href="../file/src/App.js.html">src/App.js</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -1,3 +1,4 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="i">+// @flow
+</a> import React, { Component } from &quot;react&quot;;
+ import styled, { ThemeProvider } from &quot;styled-components&quot;;
+ import theme from &quot;styled-theming&quot;;
+<a href="#h4-1" id="h4-1" class="h">@@ -36,12 +37,12 @@ const Link = styled.a`
+</a> 
+ const darkmode = true;
+ 
+<a href="#h4-1-3" id="h4-1-3" class="d">-class App extends Component {
+</a><a href="#h4-1-4" id="h4-1-4" class="i">+class App extends Component&lt;{}&gt; {
+</a>   render() {
+     return (
+       &lt;ThemeProvider theme={{ mode: darkmode ? &quot;dark&quot; : &quot;light&quot; }}&gt;
+         &lt;Wrapper&gt;
+<a href="#h4-1-9" id="h4-1-9" class="d">-          &lt;Style dark={darkmode ? &quot;dark&quot; : light} /&gt;
+</a><a href="#h4-1-10" id="h4-1-10" class="i">+          &lt;Style dark={darkmode} /&gt;
+</a>           &lt;center&gt;
+             &lt;div style={{ maxWidth: 600, textAlign: &quot;left&quot; }}&gt;
+               &lt;Text as=&quot;h1&quot;&gt;Yohanes Bandung Bondowoso&lt;/Text&gt;
+<b>diff --git a/<a id="h5" href="../file/src/Theme/Style.js.html">src/Theme/Style.js</a> b/<a href="../file/src/Theme/Style.js.html">src/Theme/Style.js</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -1,6 +1,11 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="i">+// @flow
+</a> import React from &quot;react&quot;;
+ 
+<a href="#h5-0-3" id="h5-0-3" class="d">-const Style = props =&gt; (
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+type Props = {
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+  dark: boolean
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+};
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+const Style = (props: Props) =&gt; (
+</a>   &lt;style
+     dangerouslySetInnerHTML={{
+       __html: `
+<a href="#h5-1" id="h5-1" class="h">@@ -12,4 +17,4 @@ html {
+</a>   /&gt;
+ );
+ 
+<a href="#h5-1-3" id="h5-1-3" class="d">-export default React.memo(Style);
+</a><a href="#h5-1-4" id="h5-1-4" class="i">+export default React.memo&lt;Props&gt;(Style);
+</a><b>diff --git a/<a id="h6" href="../file/src/index.js.html">src/index.js</a> b/<a href="../file/src/index.js.html">src/index.js</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -1,7 +1,10 @@
+</a><a href="#h6-0-0" id="h6-0-0" class="i">+// @flow
+</a> import React from &quot;react&quot;;
+ import { render } from &quot;react-dom&quot;;
+ import App from &quot;./App.js&quot;;
+ 
+ const rootElement = document.getElementById(&quot;react-app&quot;);
+ 
+<a href="#h6-0-7" id="h6-0-7" class="d">-render(&lt;App /&gt;, rootElement);
+</a><a href="#h6-0-8" id="h6-0-8" class="i">+if (rootElement) {
+</a><a href="#h6-0-9" id="h6-0-9" class="i">+  render(&lt;App /&gt;, rootElement);
+</a><a href="#h6-0-10" id="h6-0-10" class="i">+}
+</a><b>diff --git a/<a id="h7" href="../file/yarn.lock.html">yarn.lock</a> b/<a href="../file/yarn.lock.html">yarn.lock</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -351,6 +351,13 @@
+</a>   dependencies:
+     &quot;@babel/helper-plugin-utils&quot; &quot;^7.8.0&quot;
+ 
+<a href="#h7-0-3" id="h7-0-3" class="i">+&quot;@babel/plugin-syntax-flow@^7.8.3&quot;:
+</a><a href="#h7-0-4" id="h7-0-4" class="i">+  version &quot;7.8.3&quot;
+</a><a href="#h7-0-5" id="h7-0-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/@babel/plugin-syntax-flow/-/plugin-syntax-flow-7.8.3.tgz#f2c883bd61a6316f2c89380ae5122f923ba4527f&quot;
+</a><a href="#h7-0-6" id="h7-0-6" class="i">+  integrity sha512-innAx3bUbA0KSYj2E2MNFSn9hiCeowOFLxlsuhXzw8hMQnzkDomUr9QCD7E9VF60NmnG1sNTuuv6Qf4f8INYsg==
+</a><a href="#h7-0-7" id="h7-0-7" class="i">+  dependencies:
+</a><a href="#h7-0-8" id="h7-0-8" class="i">+    &quot;@babel/helper-plugin-utils&quot; &quot;^7.8.3&quot;
+</a><a href="#h7-0-9" id="h7-0-9" class="i">+
+</a> &quot;@babel/plugin-syntax-json-strings@^7.8.0&quot;:
+   version &quot;7.8.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/@babel/plugin-syntax-json-strings/-/plugin-syntax-json-strings-7.8.3.tgz#01ca21b668cd8218c9e640cb6dd88c5412b2c96a&quot;
+<a href="#h7-1" id="h7-1" class="h">@@ -482,6 +489,14 @@
+</a>     &quot;@babel/helper-builder-binary-assignment-operator-visitor&quot; &quot;^7.8.3&quot;
+     &quot;@babel/helper-plugin-utils&quot; &quot;^7.8.3&quot;
+ 
+<a href="#h7-1-3" id="h7-1-3" class="i">+&quot;@babel/plugin-transform-flow-strip-types@^7.8.3&quot;:
+</a><a href="#h7-1-4" id="h7-1-4" class="i">+  version &quot;7.8.3&quot;
+</a><a href="#h7-1-5" id="h7-1-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/@babel/plugin-transform-flow-strip-types/-/plugin-transform-flow-strip-types-7.8.3.tgz#da705a655466b2a9b36046b57bf0cbcd53551bd4&quot;
+</a><a href="#h7-1-6" id="h7-1-6" class="i">+  integrity sha512-g/6WTWG/xbdd2exBBzMfygjX/zw4eyNC4X8pRaq7aRHRoDUCzAIu3kGYIXviOv8BjCuWm8vDBwjHcjiRNgXrPA==
+</a><a href="#h7-1-7" id="h7-1-7" class="i">+  dependencies:
+</a><a href="#h7-1-8" id="h7-1-8" class="i">+    &quot;@babel/helper-plugin-utils&quot; &quot;^7.8.3&quot;
+</a><a href="#h7-1-9" id="h7-1-9" class="i">+    &quot;@babel/plugin-syntax-flow&quot; &quot;^7.8.3&quot;
+</a><a href="#h7-1-10" id="h7-1-10" class="i">+
+</a> &quot;@babel/plugin-transform-for-of@^7.8.6&quot;:
+   version &quot;7.8.6&quot;
+   resolved &quot;https://registry.yarnpkg.com/@babel/plugin-transform-for-of/-/plugin-transform-for-of-7.8.6.tgz#a051bd1b402c61af97a27ff51b468321c7c2a085&quot;
+<a href="#h7-2" id="h7-2" class="h">@@ -740,6 +755,14 @@
+</a>     levenary &quot;^1.1.1&quot;
+     semver &quot;^5.5.0&quot;
+ 
+<a href="#h7-2-3" id="h7-2-3" class="i">+&quot;@babel/preset-flow@^7.8.3&quot;:
+</a><a href="#h7-2-4" id="h7-2-4" class="i">+  version &quot;7.8.3&quot;
+</a><a href="#h7-2-5" id="h7-2-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/@babel/preset-flow/-/preset-flow-7.8.3.tgz#52af74c6a4e80d889bd9436e8e278d0fecac6e18&quot;
+</a><a href="#h7-2-6" id="h7-2-6" class="i">+  integrity sha512-iCXFk+T4demnq+dNLLvlGOgvYF6sPZ/hS1EmswugOqh1Ysp2vuiqJzpgsnp5rW8+6dLJT/0CXDzye28ZH6BAfQ==
+</a><a href="#h7-2-7" id="h7-2-7" class="i">+  dependencies:
+</a><a href="#h7-2-8" id="h7-2-8" class="i">+    &quot;@babel/helper-plugin-utils&quot; &quot;^7.8.3&quot;
+</a><a href="#h7-2-9" id="h7-2-9" class="i">+    &quot;@babel/plugin-transform-flow-strip-types&quot; &quot;^7.8.3&quot;
+</a><a href="#h7-2-10" id="h7-2-10" class="i">+
+</a> &quot;@babel/preset-react@^7.8.3&quot;:
+   version &quot;7.8.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/@babel/preset-react/-/preset-react-7.8.3.tgz#23dc63f1b5b0751283e04252e78cf1d6589273d2&quot;
+<a href="#h7-3" id="h7-3" class="h">@@ -2387,6 +2410,11 @@ findup-sync@3.0.0:
+</a>     micromatch &quot;^3.0.4&quot;
+     resolve-dir &quot;^1.0.1&quot;
+ 
+<a href="#h7-3-3" id="h7-3-3" class="i">+flow-bin@^0.120.1:
+</a><a href="#h7-3-4" id="h7-3-4" class="i">+  version &quot;0.120.1&quot;
+</a><a href="#h7-3-5" id="h7-3-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.120.1.tgz#ab051d6df71829b70a26a2c90bb81f9d43797cae&quot;
+</a><a href="#h7-3-6" id="h7-3-6" class="i">+  integrity sha512-KgE+d+rKzdXzhweYVJty1QIOOZTTbtnXZf+4SLnmArLvmdfeLreQOZpeLbtq5h79m7HhDzX/HkUkoyu/fmSC2A==
+</a><a href="#h7-3-7" id="h7-3-7" class="i">+
+</a> flush-write-stream@^1.0.0:
+   version &quot;1.1.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.1.1.tgz#8dd7d873a1babc207d94ead0c2e0e44276ebf2e8&quot;
+</pre>
+</div>
+</div>
+</body>
+</html>

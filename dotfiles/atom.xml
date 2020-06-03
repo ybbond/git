@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>dotfiles, branch HEAD</title>
+<subtitle>Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</subtitle>
+<entry>
+<id>b7c982e4d184e08975ed1b5036979479be5b0321</id>
+<published>2020-06-03T18:21:33Z</published>
+<updated>2020-06-03T18:21:33Z</updated>
+<title type="text">update mailmate and zshrc</title>
+<link rel="alternate" type="text/html" href="commit/b7c982e4d184e08975ed1b5036979479be5b0321.html" />
+<author>
+<name>Yohanes Bandung</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit b7c982e4d184e08975ed1b5036979479be5b0321
+parent 89e94639c2e8d6a9b1689a4a9cb78d6ae79e0c82
+Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
+Date:   Thu,  4 Jun 2020 01:21:33 +0700
+
+update mailmate and zshrc
+
+</content>
+</entry>
+<entry>
+<id>89e94639c2e8d6a9b1689a4a9cb78d6ae79e0c82</id>
+<published>2020-05-30T14:24:14Z</published>
+<updated>2020-05-30T14:24:14Z</updated>
+<title type="text">new: mailmate settings, updated kitty, nvim and vim</title>
+<link rel="alternate" type="text/html" href="commit/89e94639c2e8d6a9b1689a4a9cb78d6ae79e0c82.html" />
+<author>
+<name>Yohanes Bandung</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 89e94639c2e8d6a9b1689a4a9cb78d6ae79e0c82
+parent 0a02b130965e18c23eed5740a001905271c540fa
+Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
+Date:   Sat, 30 May 2020 21:24:14 +0700
+
+new: mailmate settings, updated kitty, nvim and vim
+
+</content>
+</entry>
+<entry>
+<id>0a02b130965e18c23eed5740a001905271c540fa</id>
+<published>2020-05-18T20:28:41Z</published>
+<updated>2020-05-18T20:28:41Z</updated>
+<title type="text">feat: add ranger config</title>
+<link rel="alternate" type="text/html" href="commit/0a02b130965e18c23eed5740a001905271c540fa.html" />
+<author>
+<name>Yohanes Bandung</name>
+<email>bandungpenting@gmail.com</email>
+</author>
+<content type="text">commit 0a02b130965e18c23eed5740a001905271c540fa
+parent ebe53ca0464681e83586b41696f9f09d57292923
+Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
+Date:   Tue, 19 May 2020 03:28:41 +0700
+
+feat: add ranger config
+
+</content>
+</entry>
+<entry>
+<id>ebe53ca0464681e83586b41696f9f09d57292923</id>
+<published>2020-05-18T20:07:54Z</published>
+<updated>2020-05-18T20:07:54Z</updated>
+<title type="text">feat: use minimal vimrc</title>
+<link rel="alternate" type="text/html" href="commit/ebe53ca0464681e83586b41696f9f09d57292923.html" />
+<author>
+<name>Yohanes Bandung</name>
+<email>bandungpenting@gmail.com</email>
+</author>
+<content type="text">commit ebe53ca0464681e83586b41696f9f09d57292923
+parent 233ec0c1a2fe73c669ab4583215f22831e049466
+Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
+Date:   Tue, 19 May 2020 03:07:54 +0700
+
+feat: use minimal vimrc
+
+</content>
+</entry>
+<entry>
+<id>233ec0c1a2fe73c669ab4583215f22831e049466</id>
+<published>2020-05-18T20:00:06Z</published>
+<updated>2020-05-18T20:00:06Z</updated>
+<title type="text">feat: tmux and kitty config</title>
+<link rel="alternate" type="text/html" href="commit/233ec0c1a2fe73c669ab4583215f22831e049466.html" />
+<author>
+<name>Yohanes Bandung</name>
+<email>bandungpenting@gmail.com</email>
+</author>
+<content type="text">commit 233ec0c1a2fe73c669ab4583215f22831e049466
+parent 8e24870ab55bfe200cc15338da3d0615c7a879a4
+Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
+Date:   Tue, 19 May 2020 03:00:06 +0700
+
+feat: tmux and kitty config
+
+</content>
+</entry>
+<entry>
+<id>8e24870ab55bfe200cc15338da3d0615c7a879a4</id>
+<published>2020-05-18T19:58:22Z</published>
+<updated>2020-05-18T19:58:22Z</updated>
+<title type="text">feat: README.md</title>
+<link rel="alternate" type="text/html" href="commit/8e24870ab55bfe200cc15338da3d0615c7a879a4.html" />
+<author>
+<name>Yohanes Bandung</name>
+<email>bandungpenting@gmail.com</email>
+</author>
+<content type="text">commit 8e24870ab55bfe200cc15338da3d0615c7a879a4
+parent 728c25827612cc3c8cf128cb344c44c090adf2ac
+Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
+Date:   Tue, 19 May 2020 02:58:22 +0700
+
+feat: README.md
+
+</content>
+</entry>
+<entry>
+<id>728c25827612cc3c8cf128cb344c44c090adf2ac</id>
+<published>2020-05-18T18:51:45Z</published>
+<updated>2020-05-18T18:51:45Z</updated>
+<title type="text">feat: first dump 💩</title>
+<link rel="alternate" type="text/html" href="commit/728c25827612cc3c8cf128cb344c44c090adf2ac.html" />
+<author>
+<name>Yohanes Bandung</name>
+<email>bandungpenting@gmail.com</email>
+</author>
+<content type="text">commit 728c25827612cc3c8cf128cb344c44c090adf2ac
+Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
+Date:   Tue, 19 May 2020 01:51:45 +0700
+
+feat: first dump 💩
+
+</content>
+</entry>
+</feed>

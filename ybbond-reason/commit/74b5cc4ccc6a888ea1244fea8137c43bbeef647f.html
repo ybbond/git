@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>package(bs-json) =&gt; added - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/74b5cc4ccc6a888ea1244fea8137c43bbeef647f.html">74b5cc4ccc6a888ea1244fea8137c43bbeef647f</a>
+<b>parent</b> <a href="../commit/664e905d5594074ddaf5c060560fcbd52c5cabd5.html">664e905d5594074ddaf5c060560fcbd52c5cabd5</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue,  5 Nov 2019 20:19:49 +0700
+
+package(bs-json) =&gt; added
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">bsconfig.json</a></td><td> | </td><td class="num">8</td><td><span class="i">+++++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">package.json</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">yarn.lock</a></td><td> | </td><td class="num">5</td><td><span class="i">+++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>3 files changed, 13 insertions(<span id="plus">+</span>), 1 deletion(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/bsconfig.json.html">bsconfig.json</a> b/<a href="../file/bsconfig.json.html">bsconfig.json</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -16,7 +16,13 @@
+</a>   ],
+   &quot;suffix&quot;: &quot;.bs.js&quot;,
+   &quot;namespace&quot;: true,
+<a href="#h0-0-3" id="h0-0-3" class="d">-  &quot;bs-dependencies&quot;: [&quot;bs-css&quot;, &quot;bs-webapi&quot;, &quot;bs-fetch&quot;, &quot;reason-react&quot;],
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  &quot;bs-dependencies&quot;: [
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+    &quot;bs-css&quot;,
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+    &quot;bs-webapi&quot;,
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+    &quot;bs-fetch&quot;,
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+    &quot;reason-react&quot;,
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+    &quot;@glennsl/bs-json&quot;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+  ],
+</a>   &quot;ppx-flags&quot;: [],
+   &quot;refmt&quot;: 3
+ }
+<b>diff --git a/<a id="h1" href="../file/package.json.html">package.json</a> b/<a href="../file/package.json.html">package.json</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -16,6 +16,7 @@
+</a>   &quot;author&quot;: &quot;&quot;,
+   &quot;license&quot;: &quot;MIT&quot;,
+   &quot;dependencies&quot;: {
+<a href="#h1-0-3" id="h1-0-3" class="i">+    &quot;@glennsl/bs-json&quot;: &quot;^5.0.1&quot;,
+</a>     &quot;bs-css&quot;: &quot;^9.0.1&quot;,
+     &quot;bs-fetch&quot;: &quot;^0.5.0&quot;,
+     &quot;bs-webapi&quot;: &quot;^0.15.2&quot;,
+<b>diff --git a/<a id="h2" href="../file/yarn.lock.html">yarn.lock</a> b/<a href="../file/yarn.lock.html">yarn.lock</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -81,6 +81,11 @@
+</a>   resolved &quot;https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.3.tgz#dfa0c92efe44a1d1a7974fb49ffeb40ef2da5a27&quot;
+   integrity sha512-zVgvPwGK7c1aVdUVc9Qv7SqepOGRDrqCw7KZPSZziWGxSlbII3gmvGLPzLX4d0n0BMbamBacUrN22zOMyFFEkQ==
+ 
+<a href="#h2-0-3" id="h2-0-3" class="i">+&quot;@glennsl/bs-json@^5.0.1&quot;:
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  version &quot;5.0.1&quot;
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/@glennsl/bs-json/-/bs-json-5.0.1.tgz#b19d0b45f4a80d52e6bfefa032ac99f4548f3083&quot;
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+  integrity sha512-tDxqeO4LCUz3HIwsdqyM4OIUk/bIV8QwDuhNbqy3hHIVEciePbJXTSyXMKsoIFs3ukQY8ZsQXskONtOK4TyLfA==
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+
+</a> &quot;@types/events@*&quot;:
+   version &quot;3.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7&quot;
+</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(Poems) =&gt; added poems scene - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/abe764b11519748ca52a9fc4cf4b9e7ce9e695c3.html">abe764b11519748ca52a9fc4cf4b9e7ce9e695c3</a>
+<b>parent</b> <a href="../commit/ba922822942c10f909945153416adc1eadf547b5.html">ba922822942c10f909945153416adc1eadf547b5</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon, 16 Sep 2019 21:28:45 +0700
+
+feature(Poems) =&gt; added poems scene
+
+<b>Diffstat:</b>
+<table><tr><td class="A">A</td><td><a href="#h0">src/PoemContent.re</a></td><td> | </td><td class="num">356</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/PoemsScene.re</a></td><td> | </td><td class="num">42</td><td><span class="i">++++++++++++++++++++++++++++++</span><span class="d">------------</span></td></tr>
+</table></pre></div><p>2 files changed, 386 insertions(<span id="plus">+</span>), 12 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/PoemContent.re.html">src/PoemContent.re</a> b/<a href="../file/src/PoemContent.re.html">src/PoemContent.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -0,0 +1,356 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+type poemContent = {
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+  title: string,
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+  script: string,
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+};
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+let content: array(poemContent) = [|
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+  {
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+    title: &quot;Terpesona&quot;,
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+    script: {j|Terpesona, terlarut dalam mantra
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+Terpikat guna-guna sang magi
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+Menderau di dalam jiwa
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+Berkobar bergairah terbakar api
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+Terlarut dalam mantra
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+Magi terus bergurau tanpa leta
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+Akar jiwa berderu terbakar api
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+Memancar lekuk kafan sang magi
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+~ Lupa dapat inspirasi darimana|j},
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+  },
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+  {
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+    title: &quot;Cumi-cumi&quot;,
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+    script: {j|Satu cumi-cumi mengembara
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+di padang gurun yang terus basah
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+torpedo menembus pekat laut
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+tentakel pecut nihil air.
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+Cumi-cumi pucat pualam
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+Menembus berkelana
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+pada kejauhan samudera
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+mencari hening yang tidak ditembus cahaya
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+Tanpa leta, cumi-cumi memang bangga
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+di bawah sini, ia berkuasa
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+Dalam jarak layangnya,
+</a><a href="#h0-0-35" id="h0-0-35" class="i">+semua ikan hengkang pergi
+</a><a href="#h0-0-36" id="h0-0-36" class="i">+Krustasea dan Moluska,
+</a><a href="#h0-0-37" id="h0-0-37" class="i">+sembunyi di balik pasir
+</a><a href="#h0-0-38" id="h0-0-38" class="i">+Itu paus sperma,
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+enggan anggap ia mangsa,
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+justru bahaya.
+</a><a href="#h0-0-41" id="h0-0-41" class="i">+
+</a><a href="#h0-0-42" id="h0-0-42" class="i">+Karena,
+</a><a href="#h0-0-43" id="h0-0-43" class="i">+bahkan bagi kaumnya,
+</a><a href="#h0-0-44" id="h0-0-44" class="i">+Cumi-cumi adalah raksasa.|j},
+</a><a href="#h0-0-45" id="h0-0-45" class="i">+  },
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+  {
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+    title: &quot;7 Langkah Hidup Bijak&quot;,
+</a><a href="#h0-0-48" id="h0-0-48" class="i">+    script: {j|rencana sudah matang, berdiri di tepi lautan.
+</a><a href="#h0-0-49" id="h0-0-49" class="i">+iman terhunus, siap sambut Leviathan.
+</a><a href="#h0-0-50" id="h0-0-50" class="i">+ia menyerang, aku menyerang,
+</a><a href="#h0-0-51" id="h0-0-51" class="i">+menusuk jiwa dan anak tekak.
+</a><a href="#h0-0-52" id="h0-0-52" class="i">+maka matilah semua kecemburuan.
+</a><a href="#h0-0-53" id="h0-0-53" class="i">+itu bangkainya mengambang pelan, bau.
+</a><a href="#h0-0-54" id="h0-0-54" class="i">+
+</a><a href="#h0-0-55" id="h0-0-55" class="i">+lalu dengung serangga terdengar.
+</a><a href="#h0-0-56" id="h0-0-56" class="i">+Beelzebub datang kelaparan.
+</a><a href="#h0-0-57" id="h0-0-57" class="i">+jasad itu dilahap kalap, rakus bak tikus politikus.
+</a><a href="#h0-0-58" id="h0-0-58" class="i">+penuh keyakinan, berseru ku.
+</a><a href="#h0-0-59" id="h0-0-59" class="i">+lalat terkejut, terbang memburai ketakutan.
+</a><a href="#h0-0-60" id="h0-0-60" class="i">+
+</a><a href="#h0-0-61" id="h0-0-61" class="i">+kulanjutkan dengan menyelam, menuju palung terdalam.
+</a><a href="#h0-0-62" id="h0-0-62" class="i">+Memasuki goa, penuh gairah aura merah.
+</a><a href="#h0-0-63" id="h0-0-63" class="i">+Asmodeus melenguh, sibuk entoti jiwa-jiwa pasrah.
+</a><a href="#h0-0-64" id="h0-0-64" class="i">+dengan kesadaran penuh, ku kebiri binatang itu. biar jera.
+</a><a href="#h0-0-65" id="h0-0-65" class="i">+
+</a><a href="#h0-0-66" id="h0-0-66" class="i">+menyusuri goa, berujung singgasana.
+</a><a href="#h0-0-67" id="h0-0-67" class="i">+duduk di atas takhta, Mammon si hedon.
+</a><a href="#h0-0-68" id="h0-0-68" class="i">+tak henti merenggut harta dari orang sengsara.
+</a><a href="#h0-0-69" id="h0-0-69" class="i">+itu harta kuambil, kutebar ke para papa.
+</a><a href="#h0-0-70" id="h0-0-70" class="i">+maka iblis itu menciut, tak punya apa apa.
+</a><a href="#h0-0-71" id="h0-0-71" class="i">+
+</a><a href="#h0-0-72" id="h0-0-72" class="i">+terdengar deru amarah
+</a><a href="#h0-0-73" id="h0-0-73" class="i">+dari Amon yang kehilangan saudaranya.
+</a><a href="#h0-0-74" id="h0-0-74" class="i">+kuhindari semua desing panah,
+</a><a href="#h0-0-75" id="h0-0-75" class="i">+lalu kuurapi wajah bajingan itu,
+</a><a href="#h0-0-76" id="h0-0-76" class="i">+yang langsung mati terbakar.
+</a><a href="#h0-0-77" id="h0-0-77" class="i">+
+</a><a href="#h0-0-78" id="h0-0-78" class="i">+gerbang utama terlihat jelas,
+</a><a href="#h0-0-79" id="h0-0-79" class="i">+dijaga penjaga malas.
+</a><a href="#h0-0-80" id="h0-0-80" class="i">+Belphegor meringkuk di dalam tempurungnya,
+</a><a href="#h0-0-81" id="h0-0-81" class="i">+tidak peduli akan tugasnya.
+</a><a href="#h0-0-82" id="h0-0-82" class="i">+kunyalakan api kepercayaan,
+</a><a href="#h0-0-83" id="h0-0-83" class="i">+kusulut karapaks itu.
+</a><a href="#h0-0-84" id="h0-0-84" class="i">+maka ia terjaga, terbirit-birit mencari pertolongan.
+</a><a href="#h0-0-85" id="h0-0-85" class="i">+
+</a><a href="#h0-0-86" id="h0-0-86" class="i">+di dalam ruangan besar, bercahaya.
+</a><a href="#h0-0-87" id="h0-0-87" class="i">+Azazel yang penuh talenta,
+</a><a href="#h0-0-88" id="h0-0-88" class="i">+tapi hubris menguasainya.
+</a><a href="#h0-0-89" id="h0-0-89" class="i">+kuajak ia untuk sadar, menjadi pribadi berguna.
+</a><a href="#h0-0-90" id="h0-0-90" class="i">+sial, pertarungan tak terelakkan.
+</a><a href="#h0-0-91" id="h0-0-91" class="i">+ia melawan dengan penuh kuasa.
+</a><a href="#h0-0-92" id="h0-0-92" class="i">+&quot;aku setara, bahkan lebih berkuasa!&quot;.
+</a><a href="#h0-0-93" id="h0-0-93" class="i">+kulempar biji sesawi, menghantam jiwanya.
+</a><a href="#h0-0-94" id="h0-0-94" class="i">+
+</a><a href="#h0-0-95" id="h0-0-95" class="i">+sirna
+</a><a href="#h0-0-96" id="h0-0-96" class="i">+maka terbitlah Kebajikan.|j},
+</a><a href="#h0-0-97" id="h0-0-97" class="i">+  },
+</a><a href="#h0-0-98" id="h0-0-98" class="i">+  {
+</a><a href="#h0-0-99" id="h0-0-99" class="i">+    title: &quot;Secret Tunnel&quot;,
+</a><a href="#h0-0-100" id="h0-0-100" class="i">+    script: {j|Two lovers, forbidden from one another
+</a><a href="#h0-0-101" id="h0-0-101" class="i">+A war divides their people
+</a><a href="#h0-0-102" id="h0-0-102" class="i">+And a mountain divides them apart
+</a><a href="#h0-0-103" id="h0-0-103" class="i">+Built a path to be together
+</a><a href="#h0-0-104" id="h0-0-104" class="i">+Secret tunnel
+</a><a href="#h0-0-105" id="h0-0-105" class="i">+Through the mountains
+</a><a href="#h0-0-106" id="h0-0-106" class="i">+And die...
+</a><a href="#h0-0-107" id="h0-0-107" class="i">+
+</a><a href="#h0-0-108" id="h0-0-108" class="i">+~ excerpt from Avatar - The Legends of Aang|j},
+</a><a href="#h0-0-109" id="h0-0-109" class="i">+  },
+</a><a href="#h0-0-110" id="h0-0-110" class="i">+  {
+</a><a href="#h0-0-111" id="h0-0-111" class="i">+    title: &quot;Tragedi di Senin Pagi&quot;,
+</a><a href="#h0-0-112" id="h0-0-112" class="i">+    script: {j|Mimpi apa aku semalam?
+</a><a href="#h0-0-113" id="h0-0-113" class="i">+Menjadi saksi tragedi nan kelam
+</a><a href="#h0-0-114" id="h0-0-114" class="i">+Stasiun Manggarai, pada Senin pagi
+</a><a href="#h0-0-115" id="h0-0-115" class="i">+Seakan semesta mengingatkanku
+</a><a href="#h0-0-116" id="h0-0-116" class="i">+akan nasehat yang sering dilontarkan
+</a><a href="#h0-0-117" id="h0-0-117" class="i">+           ibuku
+</a><a href="#h0-0-118" id="h0-0-118" class="i">+-Kasih rapi sepatu dan tasmu!
+</a><a href="#h0-0-119" id="h0-0-119" class="i">+-Jangan boleh hewan kecil masuk!
+</a><a href="#h0-0-120" id="h0-0-120" class="i">+Dari jendela kereta lihat ku
+</a><a href="#h0-0-121" id="h0-0-121" class="i">+Seorang ibu berdiri tenang
+</a><a href="#h0-0-122" id="h0-0-122" class="i">+           di peron stasiun
+</a><a href="#h0-0-123" id="h0-0-123" class="i">+Merogoh tas di depan dadanya
+</a><a href="#h0-0-124" id="h0-0-124" class="i">+Tiba-tiba
+</a><a href="#h0-0-125" id="h0-0-125" class="i">+Terlunjak kaget
+</a><a href="#h0-0-126" id="h0-0-126" class="i">+Itu kelabang merembet
+</a><a href="#h0-0-127" id="h0-0-127" class="i">+           dari dalam tas
+</a><a href="#h0-0-128" id="h0-0-128" class="i">+Ia panik terjun ke rel
+</a><a href="#h0-0-129" id="h0-0-129" class="i">+Kereta tujuan Bogor datang menghujam
+</a><a href="#h0-0-130" id="h0-0-130" class="i">+Mimpi apa aku semalam?
+</a><a href="#h0-0-131" id="h0-0-131" class="i">+
+</a><a href="#h0-0-132" id="h0-0-132" class="i">+-entah dapet ide darimana, ditulis di atas Commuter Line tujuan Cikini-|j},
+</a><a href="#h0-0-133" id="h0-0-133" class="i">+  },
+</a><a href="#h0-0-134" id="h0-0-134" class="i">+  {
+</a><a href="#h0-0-135" id="h0-0-135" class="i">+    title: &quot;Sin(u)s&quot;,
+</a><a href="#h0-0-136" id="h0-0-136" class="i">+    script: {j|the greater being gave human free will.
+</a><a href="#h0-0-137" id="h0-0-137" class="i">+good acts will please others. for sure.
+</a><a href="#h0-0-138" id="h0-0-138" class="i">+will wrongdoings lead us to sin?
+</a><a href="#h0-0-139" id="h0-0-139" class="i">+or free us from it?
+</a><a href="#h0-0-140" id="h0-0-140" class="i">+I don’t know.
+</a><a href="#h0-0-141" id="h0-0-141" class="i">+to me, it’s not our capacity to measure sins.
+</a><a href="#h0-0-142" id="h0-0-142" class="i">+but wrongdoings can cause harm to other humans. for sure.
+</a><a href="#h0-0-143" id="h0-0-143" class="i">+
+</a><a href="#h0-0-144" id="h0-0-144" class="i">+~ Teror Bom di Gereja di Surabaya|j},
+</a><a href="#h0-0-145" id="h0-0-145" class="i">+  },
+</a><a href="#h0-0-146" id="h0-0-146" class="i">+  {
+</a><a href="#h0-0-147" id="h0-0-147" class="i">+    title: &quot;You&quot;,
+</a><a href="#h0-0-148" id="h0-0-148" class="i">+    script: {j|I searched behind the clouds,
+</a><a href="#h0-0-149" id="h0-0-149" class="i">+I bought all flights to Manado,
+</a><a href="#h0-0-150" id="h0-0-150" class="i">+I listened to Efek Rumah Kaca,
+</a><a href="#h0-0-151" id="h0-0-151" class="i">+I asked the pedestrians,
+</a><a href="#h0-0-152" id="h0-0-152" class="i">+I dove the Mariana trench,
+</a><a href="#h0-0-153" id="h0-0-153" class="i">+I opened the trash bins,
+</a><a href="#h0-0-154" id="h0-0-154" class="i">+I cleaned all the dust,
+</a><a href="#h0-0-155" id="h0-0-155" class="i">+I beat the Pacman,
+</a><a href="#h0-0-156" id="h0-0-156" class="i">+I swam through Bermuda triangle,
+</a><a href="#h0-0-157" id="h0-0-157" class="i">+I read erotic books,
+</a><a href="#h0-0-158" id="h0-0-158" class="i">+I grew my hair till it touched ground,
+</a><a href="#h0-0-159" id="h0-0-159" class="i">+I attended all ceremonies,
+</a><a href="#h0-0-160" id="h0-0-160" class="i">+I preached to the flies,
+</a><a href="#h0-0-161" id="h0-0-161" class="i">+I lost the race,
+</a><a href="#h0-0-162" id="h0-0-162" class="i">+I hiked the pyramids,
+</a><a href="#h0-0-163" id="h0-0-163" class="i">+I built Babel tower,
+</a><a href="#h0-0-164" id="h0-0-164" class="i">+I ate mushrooms,
+</a><a href="#h0-0-165" id="h0-0-165" class="i">+I rode my car to Madagascar,
+</a><a href="#h0-0-166" id="h0-0-166" class="i">+I made our own language,
+</a><a href="#h0-0-167" id="h0-0-167" class="i">+I drew maps,
+</a><a href="#h0-0-168" id="h0-0-168" class="i">+I studied Russian culture,
+</a><a href="#h0-0-169" id="h0-0-169" class="i">+I hit that sass&#39;,
+</a><a href="#h0-0-170" id="h0-0-170" class="i">+I licked tabasco,
+</a><a href="#h0-0-171" id="h0-0-171" class="i">+I joked about ice cream,
+</a><a href="#h0-0-172" id="h0-0-172" class="i">+I woke Snorlax up,
+</a><a href="#h0-0-173" id="h0-0-173" class="i">+I got sober,
+</a><a href="#h0-0-174" id="h0-0-174" class="i">+I won a bet,
+</a><a href="#h0-0-175" id="h0-0-175" class="i">+I burned the sky,
+</a><a href="#h0-0-176" id="h0-0-176" class="i">+I drank all the martinis,
+</a><a href="#h0-0-177" id="h0-0-177" class="i">+I wandered half the universe looking for peace.
+</a><a href="#h0-0-178" id="h0-0-178" class="i">+
+</a><a href="#h0-0-179" id="h0-0-179" class="i">+Turns out the peace is in You all this time.|j},
+</a><a href="#h0-0-180" id="h0-0-180" class="i">+  },
+</a><a href="#h0-0-181" id="h0-0-181" class="i">+  {
+</a><a href="#h0-0-182" id="h0-0-182" class="i">+    title: &quot;Demi Masa&quot;,
+</a><a href="#h0-0-183" id="h0-0-183" class="i">+    script: {j|QS. Al-Ashr[103]: 1-3
+</a><a href="#h0-0-184" id="h0-0-184" class="i">+
+</a><a href="#h0-0-185" id="h0-0-185" class="i">+Demi masa
+</a><a href="#h0-0-186" id="h0-0-186" class="i">+Sungguh kita tersesat
+</a><a href="#h0-0-187" id="h0-0-187" class="i">+Membiaskan yang haram
+</a><a href="#h0-0-188" id="h0-0-188" class="i">+Karena kita manusia
+</a><a href="#h0-0-189" id="h0-0-189" class="i">+
+</a><a href="#h0-0-190" id="h0-0-190" class="i">+Demi masa
+</a><a href="#h0-0-191" id="h0-0-191" class="i">+Sungguh kita terhisap
+</a><a href="#h0-0-192" id="h0-0-192" class="i">+Ke dalam lubang hitam
+</a><a href="#h0-0-193" id="h0-0-193" class="i">+Karena kita manusia
+</a><a href="#h0-0-194" id="h0-0-194" class="i">+
+</a><a href="#h0-0-195" id="h0-0-195" class="i">+Pada saatnya nanti
+</a><a href="#h0-0-196" id="h0-0-196" class="i">+Tak bisa bersembunyi
+</a><a href="#h0-0-197" id="h0-0-197" class="i">+Kitapun menyesali, kita merugi
+</a><a href="#h0-0-198" id="h0-0-198" class="i">+
+</a><a href="#h0-0-199" id="h0-0-199" class="i">+Pada siapa mohon perlindungan
+</a><a href="#h0-0-200" id="h0-0-200" class="i">+Debu-debu berterbangan
+</a><a href="#h0-0-201" id="h0-0-201" class="i">+Pada siapa mohon perlindungan
+</a><a href="#h0-0-202" id="h0-0-202" class="i">+Debu-debu berterbangan
+</a><a href="#h0-0-203" id="h0-0-203" class="i">+
+</a><a href="#h0-0-204" id="h0-0-204" class="i">+
+</a><a href="#h0-0-205" id="h0-0-205" class="i">+~ Efek Rumah Kaca - Debu Debu Beterbangan|j},
+</a><a href="#h0-0-206" id="h0-0-206" class="i">+  },
+</a><a href="#h0-0-207" id="h0-0-207" class="i">+  {
+</a><a href="#h0-0-208" id="h0-0-208" class="i">+    title: &quot;Tidur&quot;,
+</a><a href="#h0-0-209" id="h0-0-209" class="i">+    script: {j|memang tidur itu perlu.
+</a><a href="#h0-0-210" id="h0-0-210" class="i">+ada teman yang paling khawatir akan jam tidurku.
+</a><a href="#h0-0-211" id="h0-0-211" class="i">+di samping temanku kebanyakan yang berharapku terjaga bersama untuk bergaul,
+</a><a href="#h0-0-212" id="h0-0-212" class="i">+atau komputer dan buku yang selalu berharap aku menemani mereka belajar atau bekerja.
+</a><a href="#h0-0-213" id="h0-0-213" class="i">+sampai saat itu, satu jam lalu
+</a><a href="#h0-0-214" id="h0-0-214" class="i">+pulang dari kantor, kupaksakan berkendara.
+</a><a href="#h0-0-215" id="h0-0-215" class="i">+hari ini memang belum kurasakan bantal kasur, apalagi meja kantor di pipiku.
+</a><a href="#h0-0-216" id="h0-0-216" class="i">+perjalanan pulang penuh teriakan nyanyian berbagai upaya agar tetap terjaga.
+</a><a href="#h0-0-217" id="h0-0-217" class="i">+dua simpang jalan lagi, satu kilometer lagi sampai rumahku.
+</a><a href="#h0-0-218" id="h0-0-218" class="i">+namun kesadaranku terputus di atas jok motor.
+</a><a href="#h0-0-219" id="h0-0-219" class="i">+setang tanpa sadar doyong ke timur, kecepatan enampuluh.
+</a><a href="#h0-0-220" id="h0-0-220" class="i">+saat terjaga terkejut, aku sudah di tepi kanan jalan, roda motor masih berputar kencang.
+</a><a href="#h0-0-221" id="h0-0-221" class="i">+kukendalikan kemudi agar lurus jalannya.
+</a><a href="#h0-0-222" id="h0-0-222" class="i">+tepat ketika truk enam roda meraung melewati sisi kiriku, kencang.
+</a><a href="#h0-0-223" id="h0-0-223" class="i">+sepanjang tiga puluh delapan kilometer aku aman, namun saat sampai area rumah, seperti diberi ilham.
+</a><a href="#h0-0-224" id="h0-0-224" class="i">+tidurlah yang cukup.
+</a><a href="#h0-0-225" id="h0-0-225" class="i">+jangan sampai tulang remuk karena kau abaikan tidur.
+</a><a href="#h0-0-226" id="h0-0-226" class="i">+maka sampai rumah, cuci muka sikat gigi.
+</a><a href="#h0-0-227" id="h0-0-227" class="i">+masuk ke kamar orang tua, menyelinap di kasur mereka di antara sepasang yang merawatku paling tulus.
+</a><a href="#h0-0-228" id="h0-0-228" class="i">+aku tidur di antara orang yang paling menyayangiku.
+</a><a href="#h0-0-229" id="h0-0-229" class="i">+bukan karena mumpung masih ada kesempatan.
+</a><a href="#h0-0-230" id="h0-0-230" class="i">+tapi karena akupun sayang mereka.
+</a><a href="#h0-0-231" id="h0-0-231" class="i">+terima kasih.
+</a><a href="#h0-0-232" id="h0-0-232" class="i">+semesta, Tuhan, kesadaranku,
+</a><a href="#h0-0-233" id="h0-0-233" class="i">+aku hidup.|j},
+</a><a href="#h0-0-234" id="h0-0-234" class="i">+  },
+</a><a href="#h0-0-235" id="h0-0-235" class="i">+  {
+</a><a href="#h0-0-236" id="h0-0-236" class="i">+    title: &quot;Rest Area 57&quot;,
+</a><a href="#h0-0-237" id="h0-0-237" class="i">+    script: {j|Rest area 57
+</a><a href="#h0-0-238" id="h0-0-238" class="i">+Lengkap dan terpadu
+</a><a href="#h0-0-239" id="h0-0-239" class="i">+Rest area 57
+</a><a href="#h0-0-240" id="h0-0-240" class="i">+beri semangat baru
+</a><a href="#h0-0-241" id="h0-0-241" class="i">+
+</a><a href="#h0-0-242" id="h0-0-242" class="i">+~ Perjalanan ke Bandung|j},
+</a><a href="#h0-0-243" id="h0-0-243" class="i">+  },
+</a><a href="#h0-0-244" id="h0-0-244" class="i">+  {
+</a><a href="#h0-0-245" id="h0-0-245" class="i">+    title: &quot;Ogni Pensiero Vola&quot;,
+</a><a href="#h0-0-246" id="h0-0-246" class="i">+    script: {j|Dan semua bisa terangkai,
+</a><a href="#h0-0-247" id="h0-0-247" class="i">+menyusun sela yang terlupa.
+</a><a href="#h0-0-248" id="h0-0-248" class="i">+Terurai habis tak tersentuh,
+</a><a href="#h0-0-249" id="h0-0-249" class="i">+hanya tersisa arah.
+</a><a href="#h0-0-250" id="h0-0-250" class="i">+Bawa dan hilanglah, ke dalam zamanmu.
+</a><a href="#h0-0-251" id="h0-0-251" class="i">+Hilanglah.
+</a><a href="#h0-0-252" id="h0-0-252" class="i">+Kita bisa menghitung ke bawah,
+</a><a href="#h0-0-253" id="h0-0-253" class="i">+simpan dalam tulang jeran malam.
+</a><a href="#h0-0-254" id="h0-0-254" class="i">+Semua yang kau rasakan,
+</a><a href="#h0-0-255" id="h0-0-255" class="i">+hanyalah rasa lelah.
+</a><a href="#h0-0-256" id="h0-0-256" class="i">+Merasa dan meletih,
+</a><a href="#h0-0-257" id="h0-0-257" class="i">+harap meleta harap mengerti.
+</a><a href="#h0-0-258" id="h0-0-258" class="i">+
+</a><a href="#h0-0-259" id="h0-0-259" class="i">+~ Zaman, zaman - The Trees and The Wild|j},
+</a><a href="#h0-0-260" id="h0-0-260" class="i">+  },
+</a><a href="#h0-0-261" id="h0-0-261" class="i">+  {
+</a><a href="#h0-0-262" id="h0-0-262" class="i">+    title: &quot;Void&quot;,
+</a><a href="#h0-0-263" id="h0-0-263" class="i">+    script: {j|There is no light
+</a><a href="#h0-0-264" id="h0-0-264" class="i">+for those who do not know darkness
+</a><a href="#h0-0-265" id="h0-0-265" class="i">+live on and endure the shadows.|j},
+</a><a href="#h0-0-266" id="h0-0-266" class="i">+  },
+</a><a href="#h0-0-267" id="h0-0-267" class="i">+  {
+</a><a href="#h0-0-268" id="h0-0-268" class="i">+    title: &quot;Baik mana?&quot;,
+</a><a href="#h0-0-269" id="h0-0-269" class="i">+    script: {j|Perang fisik,
+</a><a href="#h0-0-270" id="h0-0-270" class="i">+     yang kalah jadi martir
+</a><a href="#h0-0-271" id="h0-0-271" class="i">+     dielukan karena semangat menggebu
+</a><a href="#h0-0-272" id="h0-0-272" class="i">+     dan pengorbanan
+</a><a href="#h0-0-273" id="h0-0-273" class="i">+Perang licik,
+</a><a href="#h0-0-274" id="h0-0-274" class="i">+     yang kalah dibui, tersingkir
+</a><a href="#h0-0-275" id="h0-0-275" class="i">+     pilar penopang pergi membiarkan
+</a><a href="#h0-0-276" id="h0-0-276" class="i">+     umat membuyar keliaran
+</a><a href="#h0-0-277" id="h0-0-277" class="i">+Entah
+</a><a href="#h0-0-278" id="h0-0-278" class="i">+Kita= takut, pengecut
+</a><a href="#h0-0-279" id="h0-0-279" class="i">+     ancaman buat nyali kita ciut
+</a><a href="#h0-0-280" id="h0-0-280" class="i">+     segaris luka buat kita semaput
+</a><a href="#h0-0-281" id="h0-0-281" class="i">+
+</a><a href="#h0-0-282" id="h0-0-282" class="i">+~ Tragedi Bom Semanggi|j},
+</a><a href="#h0-0-283" id="h0-0-283" class="i">+  },
+</a><a href="#h0-0-284" id="h0-0-284" class="i">+  {
+</a><a href="#h0-0-285" id="h0-0-285" class="i">+    title: &quot;Parco de Moistri&quot;,
+</a><a href="#h0-0-286" id="h0-0-286" class="i">+    script: {j|Lasciate ogne speranza,
+</a><a href="#h0-0-287" id="h0-0-287" class="i">+voi ch’intrate.
+</a><a href="#h0-0-288" id="h0-0-288" class="i">+All hope abandon,
+</a><a href="#h0-0-289" id="h0-0-289" class="i">+ye who enter here
+</a><a href="#h0-0-290" id="h0-0-290" class="i">+
+</a><a href="#h0-0-291" id="h0-0-291" class="i">+~ Divine Comedy - Dante Alighieri|j},
+</a><a href="#h0-0-292" id="h0-0-292" class="i">+  },
+</a><a href="#h0-0-293" id="h0-0-293" class="i">+  {
+</a><a href="#h0-0-294" id="h0-0-294" class="i">+    title: &quot;Untuk Perempuan yang ... [WIP?]&quot;,
+</a><a href="#h0-0-295" id="h0-0-295" class="i">+    script: {j|Pada bajumu, klambi
+</a><a href="#h0-0-296" id="h0-0-296" class="i">+Lekuk tubuhmu, boddhi
+</a><a href="#h0-0-297" id="h0-0-297" class="i">+Warna ujarmu, happy
+</a><a href="#h0-0-298" id="h0-0-298" class="i">+Inang pijakmu, bhumi
+</a><a href="#h0-0-299" id="h0-0-299" class="i">+Hembus nafsumu, suci
+</a><a href="#h0-0-300" id="h0-0-300" class="i">+Derau gerakmu, menari
+</a><a href="#h0-0-301" id="h0-0-301" class="i">+Sikap tegasmu, murni
+</a><a href="#h0-0-302" id="h0-0-302" class="i">+Betapa aku, lucky
+</a><a href="#h0-0-303" id="h0-0-303" class="i">+Kusebut namamu,
+</a><a href="#h0-0-304" id="h0-0-304" class="i">+...|j},
+</a><a href="#h0-0-305" id="h0-0-305" class="i">+  },
+</a><a href="#h0-0-306" id="h0-0-306" class="i">+  {
+</a><a href="#h0-0-307" id="h0-0-307" class="i">+    title: &quot;Thoughts (1)&quot;,
+</a><a href="#h0-0-308" id="h0-0-308" class="i">+    script: {j|You don’t buy luxury.
+</a><a href="#h0-0-309" id="h0-0-309" class="i">+You obtain it by your own grateful way of thinking.|j},
+</a><a href="#h0-0-310" id="h0-0-310" class="i">+  },
+</a><a href="#h0-0-311" id="h0-0-311" class="i">+  {
+</a><a href="#h0-0-312" id="h0-0-312" class="i">+    title: &quot;Kamar Gelap&quot;,
+</a><a href="#h0-0-313" id="h0-0-313" class="i">+    script: {j|Bersender dinding, lampu mati,
+</a><a href="#h0-0-314" id="h0-0-314" class="i">+Kamar gelap berkata begini:
+</a><a href="#h0-0-315" id="h0-0-315" class="i">+
+</a><a href="#h0-0-316" id="h0-0-316" class="i">+Kamu protes soal pengunduran jam konser,
+</a><a href="#h0-0-317" id="h0-0-317" class="i">+Saat kalian hadir rapat terlambat.
+</a><a href="#h0-0-318" id="h0-0-318" class="i">+
+</a><a href="#h0-0-319" id="h0-0-319" class="i">+Kamu melabrak junior yang tak hormat,
+</a><a href="#h0-0-320" id="h0-0-320" class="i">+Ingat ulang caramu bicara pada orangtua.
+</a><a href="#h0-0-321" id="h0-0-321" class="i">+
+</a><a href="#h0-0-322" id="h0-0-322" class="i">+Kamu bilang asap rokok mengganggu,
+</a><a href="#h0-0-323" id="h0-0-323" class="i">+Bunyi makan mengecapmu lebih mengganggu.
+</a><a href="#h0-0-324" id="h0-0-324" class="i">+
+</a><a href="#h0-0-325" id="h0-0-325" class="i">+Kamu bersikeras duduk nyaman,
+</a><a href="#h0-0-326" id="h0-0-326" class="i">+Padahal nenek itu lebih membutuhkan.
+</a><a href="#h0-0-327" id="h0-0-327" class="i">+
+</a><a href="#h0-0-328" id="h0-0-328" class="i">+Kamu menghapus post instagram,
+</a><a href="#h0-0-329" id="h0-0-329" class="i">+Tapi mencibir orang yang bersikap sopan.
+</a><a href="#h0-0-330" id="h0-0-330" class="i">+
+</a><a href="#h0-0-331" id="h0-0-331" class="i">+Kamu menggugat kecurangan,
+</a><a href="#h0-0-332" id="h0-0-332" class="i">+Katakanlah, apakah mencontek bukan kecurangan?
+</a><a href="#h0-0-333" id="h0-0-333" class="i">+
+</a><a href="#h0-0-334" id="h0-0-334" class="i">+Kamu bilang, aku hanya menyindir, tanpa solusi,
+</a><a href="#h0-0-335" id="h0-0-335" class="i">+Ya, memang, aku sindir diriku.|j},
+</a><a href="#h0-0-336" id="h0-0-336" class="i">+  },
+</a><a href="#h0-0-337" id="h0-0-337" class="i">+  {
+</a><a href="#h0-0-338" id="h0-0-338" class="i">+    title: &quot;Tunguska&quot;,
+</a><a href="#h0-0-339" id="h0-0-339" class="i">+    script: {j|17 April 2451, Yogyakarta. Hari bersejarah yang membanggakan bangsa Indonesia! Trio Jenius ilmuwan muda Phoebe Danuvich Kulistyo, Kindrad Bumi, dan Rinaldo Stevan-Mulia berhasil menciptakan mesin waktu, atau lebih tepatnya, memberitakan ciptaan mereka ke publik sebelum dibungkam oleh badan penjaga perdamaian.
+</a><a href="#h0-0-340" id="h0-0-340" class="i">+
+</a><a href="#h0-0-341" id="h0-0-341" class="i">+12 Juni 2451, -------. Perencanaan dan pengamanan matang sudah siap, demonstrasi mesin waktu pada khalayak umum oleh trio jenius akan diadakan di-
+</a><a href="#h0-0-342" id="h0-0-342" class="i">+
+</a><a href="#h0-0-343" id="h0-0-343" class="i">+30 Juni 2451, Cirebon. Tepian pesisir, kaca anti-nuklir 50x30m, 1300 elit pengaman, tiket masuk Rp 30.000.000 per satuan. Tiga ribu pemirsa di amphi-theatre dan 4,2 Miliar dari layar hologram di seluruh dunia.
+</a><a href="#h0-0-344" id="h0-0-344" class="i">+Kamera lintas-waktu siap, Danu-Kindar-Aldo berjalan tembus portal biru.
+</a><a href="#h0-0-345" id="h0-0-345" class="i">+
+</a><a href="#h0-0-346" id="h0-0-346" class="i">+????????, ekstraDimensi. Steker penanda menunjukkan -543 tahun, sesuai pungutan suara masal di era mereka, trio jenius berjalan lintasi ratusan tahun dan 7500km menuju-
+</a><a href="#h0-0-347" id="h0-0-347" class="i">+
+</a><a href="#h0-0-348" id="h0-0-348" class="i">+30 Juni 1908, Tunguska-Vanavara. Matahari sudah terbit 3 jam, portal jingga terbuka ~140m di atas pepinusan. Kindar mengabadikan lanskap Siberia dengan sel-kamera untuk dokumentasi pribadi. Aldo telah merangkai kamera lintas-waktu, untuk memuaskan hasrat sponsor dan miliaran pemirsa di kampung waktu mereka.
+</a><a href="#h0-0-349" id="h0-0-349" class="i">+Entah konspirasi pembungkaman yang berhasil atau kesalahan kalkulasi, ketika Danu mengaktifkan kamera lintas-waktu, nyala biru memaksa masuk dari portal jingga.
+</a><a href="#h0-0-350" id="h0-0-350" class="i">+Itu biru hantam jingga, leleh Danu-Kindar-Aldo seketika menyublim sirna. Lantak membuat 2150km persegi pinus merata. Satu orang slav malang terkena sontak suara yang melempar tubuhnya ke batang pinus, jasadnya remuk, leta.
+</a><a href="#h0-0-351" id="h0-0-351" class="i">+
+</a><a href="#h0-0-352" id="h0-0-352" class="i">++543tahun -2507detik, Cirebon. Layar raksasa sempat menampilkan lanskap Tunguska-Vanvara, Siberia. Pemirsa pongah terpesona, kerabat trio jenius menangis bangga.
+</a><a href="#h0-0-353" id="h0-0-353" class="i">+Awalnya pelan tak disadari, lalu portal biru mendadak tilap, ditelan dirinya sendiri. Tampilan layar bergetar tremor, lalu biru, lalu jingga, lalu sirna. Lalu-|j},
+</a><a href="#h0-0-354" id="h0-0-354" class="i">+  },
+</a><a href="#h0-0-355" id="h0-0-355" class="i">+|];
+</a><b>diff --git a/<a id="h1" href="../file/src/PoemsScene.re.html">src/PoemsScene.re</a> b/<a href="../file/src/PoemsScene.re.html">src/PoemsScene.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,15 +1,33 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+module Styles = {
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+  open Css;
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+  let pre =
+</a><a href="#h1-0-3" id="h1-0-3" class="i">+    style([
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+      paddingLeft(`em(1.4)),
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+      fontFamily(&quot;Cousine for Powerline&quot;),
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+      display(`block),
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+      whiteSpace(`preWrap),
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+      fontSize(`em(0.8)),
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+      lineHeight(`em(3.3)),
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+    ]);
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+};
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+
+</a> [@react.component]
+ let make = () =&gt; {
+<a href="#h1-0-15" id="h1-0-15" class="d">-  &lt;React.Fragment&gt;
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-    &lt;p&gt;
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-      {ReasonReact.string(
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-         &quot;Poems have not been implemented on this web version :(&quot;,
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-       )}
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-    &lt;/p&gt;
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-    &lt;p&gt;
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-      {ReasonReact.string(&quot;If you want to read them, &quot;)}
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-      &lt;Link text=&quot;click here!&quot; href=&quot;https://ybbond.github.io&quot; /&gt;
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-    &lt;/p&gt;
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-    &lt;p&gt; {ReasonReact.string(&quot;Then, check the &#39;literature&#39;.&quot;)} &lt;/p&gt;
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-  &lt;/React.Fragment&gt;;
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+  open PoemContent;
+</a><a href="#h1-0-28" id="h1-0-28" class="i">+  let content: array(poemContent) = content;
+</a><a href="#h1-0-29" id="h1-0-29" class="i">+  let contentMapped =
+</a><a href="#h1-0-30" id="h1-0-30" class="i">+    Array.mapi(
+</a><a href="#h1-0-31" id="h1-0-31" class="i">+      (key, item) =&gt; {
+</a><a href="#h1-0-32" id="h1-0-32" class="i">+        let contentPre =
+</a><a href="#h1-0-33" id="h1-0-33" class="i">+          &lt;pre className=Styles.pre&gt; {ReasonReact.string(item.script)} &lt;/pre&gt;;
+</a><a href="#h1-0-34" id="h1-0-34" class="i">+        &lt;Spoiler
+</a><a href="#h1-0-35" id="h1-0-35" class="i">+          title={item.title}
+</a><a href="#h1-0-36" id="h1-0-36" class="i">+          content=contentPre
+</a><a href="#h1-0-37" id="h1-0-37" class="i">+          key={string_of_int(key)}
+</a><a href="#h1-0-38" id="h1-0-38" class="i">+        /&gt;;
+</a><a href="#h1-0-39" id="h1-0-39" class="i">+      },
+</a><a href="#h1-0-40" id="h1-0-40" class="i">+      content,
+</a><a href="#h1-0-41" id="h1-0-41" class="i">+    );
+</a><a href="#h1-0-42" id="h1-0-42" class="i">+
+</a><a href="#h1-0-43" id="h1-0-43" class="i">+  &lt;React.Fragment&gt; {ReasonReact.array(contentMapped)} &lt;/React.Fragment&gt;;
+</a> };
+</pre>
+</div>
+</div>
+</body>
+</html>

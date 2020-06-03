@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(Components) =&gt; added &lt;ContentList /&gt; - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/ec91bd22cf333e31beb7457bbbfe86964318e3df.html">ec91bd22cf333e31beb7457bbbfe86964318e3df</a>
+<b>parent</b> <a href="../commit/274d36ead9e239f1fd03b6c36ecf3a7007e68c6a.html">274d36ead9e239f1fd03b6c36ecf3a7007e68c6a</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Wed, 14 Aug 2019 18:08:11 +0700
+
+feature(Components) =&gt; added &lt;ContentList /&gt;
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">bsconfig.json</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/CurViScene.re</a></td><td> | </td><td class="num">8</td><td><span class="i">++++++++</span><span class="d"></span></td></tr>
+<tr><td class="D">D</td><td><a href="#h2">src/List.re</a></td><td> | </td><td class="num">26</td><td><span class="i"></span><span class="d">--------------------------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h3">src/Spoiler.re</a></td><td> | </td><td class="num">31</td><td><span class="i"></span><span class="d">-------------------------------</span></td></tr>
+<tr><td class="R">R</td><td><a href="#h4">src/Component1.re -&gt; src/components/Component1.re</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="R">R</td><td><a href="#h5">src/Component2.re -&gt; src/components/Component2.re</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h6">src/components/ContentList.re</a></td><td> | </td><td class="num">65</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h7">src/components/Spoiler.re</a></td><td> | </td><td class="num">31</td><td><span class="i">+++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>8 files changed, 105 insertions(<span id="plus">+</span>), 58 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/bsconfig.json.html">bsconfig.json</a> b/<a href="../file/bsconfig.json.html">bsconfig.json</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,5 +1,5 @@
+</a> {
+<a href="#h0-0-1" id="h0-0-1" class="d">-  &quot;name&quot;: &quot;react-hooks-template&quot;,
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+  &quot;name&quot;: &quot;reason-ybbond&quot;,
+</a>   &quot;reason&quot;: {
+     &quot;react-jsx&quot;: 3
+   },
+<b>diff --git a/<a id="h1" href="../file/src/CurViScene.re.html">src/CurViScene.re</a> b/<a href="../file/src/CurViScene.re.html">src/CurViScene.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -32,5 +32,13 @@ let make = () =&gt; {
+</a> 
+   &lt;React.Fragment&gt;
+     &lt;Spoiler content={ReasonReact.string(&quot;Hello&quot;)} title=&quot;Yeay&quot; /&gt;
+<a href="#h1-0-3" id="h1-0-3" class="i">+    &lt;ContentList
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+      content=[|
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+        {
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+          variant: Default,
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+          text: &lt;span&gt; {ReasonReact.string(&quot;hello&quot;)} &lt;/span&gt;,
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+        },
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+      |]
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+    /&gt;
+</a>   &lt;/React.Fragment&gt;;
+ };
+<b>diff --git a/<a id="h2" href="../file/src/List.re.html">src/List.re</a> b/<a href="../file/src/List.re.html">src/List.re</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,26 +0,0 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">-module Styles = {
+</a><a href="#h2-0-1" id="h2-0-1" class="d">-  open Css;
+</a><a href="#h2-0-2" id="h2-0-2" class="d">-  let ul = style([
+</a><a href="#h2-0-3" id="h2-0-3" class="d">-    marginLeft(em(2.5)),
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-    marginTop(em(0.8)),
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-    paddingLeft(px(0)),
+</a><a href="#h2-0-6" id="h2-0-6" class="d">-    /* listStyle((`outside, `none)), */
+</a><a href="#h2-0-7" id="h2-0-7" class="d">-  ]);
+</a><a href="#h2-0-8" id="h2-0-8" class="d">-}
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-type listContent = {
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-  text: ReasonReact.reactElement,
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-  customClass: string,
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-};
+</a><a href="#h2-0-14" id="h2-0-14" class="d">-
+</a><a href="#h2-0-15" id="h2-0-15" class="d">-[@react.component]
+</a><a href="#h2-0-16" id="h2-0-16" class="d">-let make = (~content: list(listContent)) =&gt; {
+</a><a href="#h2-0-17" id="h2-0-17" class="d">-  let contentMapped = List.map((item, key) =&gt; {
+</a><a href="#h2-0-18" id="h2-0-18" class="d">-    &lt;li key={key}&gt;
+</a><a href="#h2-0-19" id="h2-0-19" class="d">-      &lt;p&gt;&lt;/p&gt;
+</a><a href="#h2-0-20" id="h2-0-20" class="d">-    &lt;/li&gt;
+</a><a href="#h2-0-21" id="h2-0-21" class="d">-  }, content);
+</a><a href="#h2-0-22" id="h2-0-22" class="d">-  &lt;ul className=Styles.ul&gt;
+</a><a href="#h2-0-23" id="h2-0-23" class="d">-    &lt;li&gt;&lt;span&gt;{ReasonReact.string(&quot;Hell&quot;)}&lt;/span&gt;&lt;/li&gt;
+</a><a href="#h2-0-24" id="h2-0-24" class="d">-  &lt;/ul&gt;
+</a><a href="#h2-0-25" id="h2-0-25" class="d">-};
+</a><b>diff --git a/<a id="h3" href="../file/src/Spoiler.re.html">src/Spoiler.re</a> b/<a href="../file/src/Spoiler.re.html">src/Spoiler.re</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -1,31 +0,0 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="d">-module Styles = {
+</a><a href="#h3-0-1" id="h3-0-1" class="d">-  open Css;
+</a><a href="#h3-0-2" id="h3-0-2" class="d">-
+</a><a href="#h3-0-3" id="h3-0-3" class="d">-  let summary =
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-    style([
+</a><a href="#h3-0-5" id="h3-0-5" class="d">-      fontSize(em(1.0)),
+</a><a href="#h3-0-6" id="h3-0-6" class="d">-      marginTop(em(1.0)),
+</a><a href="#h3-0-7" id="h3-0-7" class="d">-      marginBottom(em(1.0)),
+</a><a href="#h3-0-8" id="h3-0-8" class="d">-      marginLeft(px(0)),
+</a><a href="#h3-0-9" id="h3-0-9" class="d">-      marginRight(px(0)),
+</a><a href="#h3-0-10" id="h3-0-10" class="d">-      flex(`num(1.0)),
+</a><a href="#h3-0-11" id="h3-0-11" class="d">-      textAlign(`left),
+</a><a href="#h3-0-12" id="h3-0-12" class="d">-      /* outline(`none), */
+</a><a href="#h3-0-13" id="h3-0-13" class="d">-      cursor(`pointer),
+</a><a href="#h3-0-14" id="h3-0-14" class="d">-      userSelect(`none),
+</a><a href="#h3-0-15" id="h3-0-15" class="d">-    ]);
+</a><a href="#h3-0-16" id="h3-0-16" class="d">-};
+</a><a href="#h3-0-17" id="h3-0-17" class="d">-
+</a><a href="#h3-0-18" id="h3-0-18" class="d">-type state = {isopen: bool};
+</a><a href="#h3-0-19" id="h3-0-19" class="d">-
+</a><a href="#h3-0-20" id="h3-0-20" class="d">-let initialState = {isopen: false};
+</a><a href="#h3-0-21" id="h3-0-21" class="d">-
+</a><a href="#h3-0-22" id="h3-0-22" class="d">-type action =
+</a><a href="#h3-0-23" id="h3-0-23" class="d">-  | Toggle;
+</a><a href="#h3-0-24" id="h3-0-24" class="d">-
+</a><a href="#h3-0-25" id="h3-0-25" class="d">-[@react.component]
+</a><a href="#h3-0-26" id="h3-0-26" class="d">-let make = (~content: ReasonReact.reactElement, ~title: string) =&gt;
+</a><a href="#h3-0-27" id="h3-0-27" class="d">-  &lt;details&gt;
+</a><a href="#h3-0-28" id="h3-0-28" class="d">-    &lt;summary className=Styles.summary&gt; {ReasonReact.string(title)} &lt;/summary&gt;
+</a><a href="#h3-0-29" id="h3-0-29" class="d">-    content
+</a><a href="#h3-0-30" id="h3-0-30" class="d">-  &lt;/details&gt;;
+</a><b>diff --git a/<a id="h4" href="../file/src/Component1.re.html">src/Component1.re</a> b/<a href="../file/src/components/Component1.re.html">src/components/Component1.re</a></b>
+<b>diff --git a/<a id="h5" href="../file/src/Component2.re.html">src/Component2.re</a> b/<a href="../file/src/components/Component2.re.html">src/components/Component2.re</a></b>
+<b>diff --git a/<a id="h6" href="../file/src/components/ContentList.re.html">src/components/ContentList.re</a> b/<a href="../file/src/components/ContentList.re.html">src/components/ContentList.re</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -0,0 +1,65 @@
+</a><a href="#h6-0-0" id="h6-0-0" class="i">+module Styles = {
+</a><a href="#h6-0-1" id="h6-0-1" class="i">+  open Css;
+</a><a href="#h6-0-2" id="h6-0-2" class="i">+  let ul =
+</a><a href="#h6-0-3" id="h6-0-3" class="i">+    style([
+</a><a href="#h6-0-4" id="h6-0-4" class="i">+      marginLeft(em(2.5)),
+</a><a href="#h6-0-5" id="h6-0-5" class="i">+      marginTop(em(0.8)),
+</a><a href="#h6-0-6" id="h6-0-6" class="i">+      paddingLeft(px(0)),
+</a><a href="#h6-0-7" id="h6-0-7" class="i">+      listStyle(`none, `inside, `none),
+</a><a href="#h6-0-8" id="h6-0-8" class="i">+    ]);
+</a><a href="#h6-0-9" id="h6-0-9" class="i">+
+</a><a href="#h6-0-10" id="h6-0-10" class="i">+  let pDefault =
+</a><a href="#h6-0-11" id="h6-0-11" class="i">+    style([
+</a><a href="#h6-0-12" id="h6-0-12" class="i">+      before([
+</a><a href="#h6-0-13" id="h6-0-13" class="i">+        position(`absolute),
+</a><a href="#h6-0-14" id="h6-0-14" class="i">+        marginLeft(em(-1.5)),
+</a><a href="#h6-0-15" id="h6-0-15" class="i">+        contentRule({j|•|j}),
+</a><a href="#h6-0-16" id="h6-0-16" class="i">+      ]),
+</a><a href="#h6-0-17" id="h6-0-17" class="i">+    ]);
+</a><a href="#h6-0-18" id="h6-0-18" class="i">+
+</a><a href="#h6-0-19" id="h6-0-19" class="i">+  let pDone =
+</a><a href="#h6-0-20" id="h6-0-20" class="i">+    style([
+</a><a href="#h6-0-21" id="h6-0-21" class="i">+      before([
+</a><a href="#h6-0-22" id="h6-0-22" class="i">+        position(`absolute),
+</a><a href="#h6-0-23" id="h6-0-23" class="i">+        marginLeft(em(-1.5)),
+</a><a href="#h6-0-24" id="h6-0-24" class="i">+        contentRule({j|⊗|j}),
+</a><a href="#h6-0-25" id="h6-0-25" class="i">+      ]),
+</a><a href="#h6-0-26" id="h6-0-26" class="i">+    ]);
+</a><a href="#h6-0-27" id="h6-0-27" class="i">+
+</a><a href="#h6-0-28" id="h6-0-28" class="i">+  let pProgress =
+</a><a href="#h6-0-29" id="h6-0-29" class="i">+    style([
+</a><a href="#h6-0-30" id="h6-0-30" class="i">+      before([
+</a><a href="#h6-0-31" id="h6-0-31" class="i">+        position(`absolute),
+</a><a href="#h6-0-32" id="h6-0-32" class="i">+        marginLeft(em(-1.5)),
+</a><a href="#h6-0-33" id="h6-0-33" class="i">+        contentRule({j|⊙|j}),
+</a><a href="#h6-0-34" id="h6-0-34" class="i">+      ]),
+</a><a href="#h6-0-35" id="h6-0-35" class="i">+    ]);
+</a><a href="#h6-0-36" id="h6-0-36" class="i">+};
+</a><a href="#h6-0-37" id="h6-0-37" class="i">+
+</a><a href="#h6-0-38" id="h6-0-38" class="i">+type listType =
+</a><a href="#h6-0-39" id="h6-0-39" class="i">+  | Default
+</a><a href="#h6-0-40" id="h6-0-40" class="i">+  | Progress
+</a><a href="#h6-0-41" id="h6-0-41" class="i">+  | Done;
+</a><a href="#h6-0-42" id="h6-0-42" class="i">+type listContent = {
+</a><a href="#h6-0-43" id="h6-0-43" class="i">+  text: ReasonReact.reactElement,
+</a><a href="#h6-0-44" id="h6-0-44" class="i">+  variant: listType,
+</a><a href="#h6-0-45" id="h6-0-45" class="i">+};
+</a><a href="#h6-0-46" id="h6-0-46" class="i">+
+</a><a href="#h6-0-47" id="h6-0-47" class="i">+[@react.component]
+</a><a href="#h6-0-48" id="h6-0-48" class="i">+let make = (~content: array(listContent)) =&gt; {
+</a><a href="#h6-0-49" id="h6-0-49" class="i">+  let contentMapped =
+</a><a href="#h6-0-50" id="h6-0-50" class="i">+    Array.map(
+</a><a href="#h6-0-51" id="h6-0-51" class="i">+      (item: listContent) =&gt; {
+</a><a href="#h6-0-52" id="h6-0-52" class="i">+        let listPointType =
+</a><a href="#h6-0-53" id="h6-0-53" class="i">+          switch (item.variant) {
+</a><a href="#h6-0-54" id="h6-0-54" class="i">+          | Progress =&gt; Styles.pProgress
+</a><a href="#h6-0-55" id="h6-0-55" class="i">+          | Done =&gt; Styles.pDone
+</a><a href="#h6-0-56" id="h6-0-56" class="i">+          | Default =&gt; Styles.pDefault
+</a><a href="#h6-0-57" id="h6-0-57" class="i">+          };
+</a><a href="#h6-0-58" id="h6-0-58" class="i">+        &lt;li&gt; &lt;p className=listPointType&gt; {item.text} &lt;/p&gt; &lt;/li&gt;;
+</a><a href="#h6-0-59" id="h6-0-59" class="i">+      },
+</a><a href="#h6-0-60" id="h6-0-60" class="i">+      content,
+</a><a href="#h6-0-61" id="h6-0-61" class="i">+    );
+</a><a href="#h6-0-62" id="h6-0-62" class="i">+
+</a><a href="#h6-0-63" id="h6-0-63" class="i">+  &lt;ul className=Styles.ul&gt; {React.array(contentMapped)} &lt;/ul&gt;;
+</a><a href="#h6-0-64" id="h6-0-64" class="i">+};
+</a><b>diff --git a/<a id="h7" href="../file/src/components/Spoiler.re.html">src/components/Spoiler.re</a> b/<a href="../file/src/components/Spoiler.re.html">src/components/Spoiler.re</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -0,0 +1,31 @@
+</a><a href="#h7-0-0" id="h7-0-0" class="i">+module Styles = {
+</a><a href="#h7-0-1" id="h7-0-1" class="i">+  open Css;
+</a><a href="#h7-0-2" id="h7-0-2" class="i">+
+</a><a href="#h7-0-3" id="h7-0-3" class="i">+  let summary =
+</a><a href="#h7-0-4" id="h7-0-4" class="i">+    style([
+</a><a href="#h7-0-5" id="h7-0-5" class="i">+      fontSize(em(1.0)),
+</a><a href="#h7-0-6" id="h7-0-6" class="i">+      marginTop(em(1.0)),
+</a><a href="#h7-0-7" id="h7-0-7" class="i">+      marginBottom(em(1.0)),
+</a><a href="#h7-0-8" id="h7-0-8" class="i">+      marginLeft(px(0)),
+</a><a href="#h7-0-9" id="h7-0-9" class="i">+      marginRight(px(0)),
+</a><a href="#h7-0-10" id="h7-0-10" class="i">+      flex(`num(1.0)),
+</a><a href="#h7-0-11" id="h7-0-11" class="i">+      textAlign(`left),
+</a><a href="#h7-0-12" id="h7-0-12" class="i">+      outlineStyle(`none),
+</a><a href="#h7-0-13" id="h7-0-13" class="i">+      cursor(`pointer),
+</a><a href="#h7-0-14" id="h7-0-14" class="i">+      userSelect(`none),
+</a><a href="#h7-0-15" id="h7-0-15" class="i">+    ]);
+</a><a href="#h7-0-16" id="h7-0-16" class="i">+};
+</a><a href="#h7-0-17" id="h7-0-17" class="i">+
+</a><a href="#h7-0-18" id="h7-0-18" class="i">+type state = {isopen: bool};
+</a><a href="#h7-0-19" id="h7-0-19" class="i">+
+</a><a href="#h7-0-20" id="h7-0-20" class="i">+let initialState = {isopen: false};
+</a><a href="#h7-0-21" id="h7-0-21" class="i">+
+</a><a href="#h7-0-22" id="h7-0-22" class="i">+type action =
+</a><a href="#h7-0-23" id="h7-0-23" class="i">+  | Toggle;
+</a><a href="#h7-0-24" id="h7-0-24" class="i">+
+</a><a href="#h7-0-25" id="h7-0-25" class="i">+[@react.component]
+</a><a href="#h7-0-26" id="h7-0-26" class="i">+let make = (~content: ReasonReact.reactElement, ~title: string) =&gt;
+</a><a href="#h7-0-27" id="h7-0-27" class="i">+  &lt;details&gt;
+</a><a href="#h7-0-28" id="h7-0-28" class="i">+    &lt;summary className=Styles.summary&gt; {ReasonReact.string(title)} &lt;/summary&gt;
+</a><a href="#h7-0-29" id="h7-0-29" class="i">+    content
+</a><a href="#h7-0-30" id="h7-0-30" class="i">+  &lt;/details&gt;;
+</a></pre>
+</div>
+</div>
+</body>
+</html>

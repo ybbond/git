@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>hotfix(Route) =&gt; added default route for netlify - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/53f64308ed4a5070e64be71fe6bcc7d49797209b.html">53f64308ed4a5070e64be71fe6bcc7d49797209b</a>
+<b>parent</b> <a href="../commit/baafdf35baf27c795de325d511f8057d2d123547.html">baafdf35baf27c795de325d511f8057d2d123547</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Thu, 15 Aug 2019 20:48:57 +0700
+
+hotfix(Route) =&gt; added default route for netlify
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/App.re</a></td><td> | </td><td class="num">6</td><td><span class="i">+++</span><span class="d">---</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">src/_redirects</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/index.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre></div><p>3 files changed, 5 insertions(<span id="plus">+</span>), 4 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/App.re.html">src/App.re</a> b/<a href="../file/src/App.re.html">src/App.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -34,14 +34,14 @@ let make = () =&gt; {
+</a> 
+   let content = () =&gt;
+     switch (url.path) {
+<a href="#h0-0-3" id="h0-0-3" class="d">-    | [&quot;/uses&quot;] =&gt; &lt;UsesScene /&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-    | [&quot;/&quot;] =&gt; &lt;CurViScene /&gt;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+    | [&quot;uses&quot;] =&gt; &lt;UsesScene /&gt;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+    | [&quot;&quot;] =&gt; &lt;CurViScene /&gt;
+</a>     | _ =&gt;
+       ReasonReact.Router.push(&quot;&quot;);
+       &lt;CurViScene /&gt;;
+     };
+ 
+   &lt;div className=Styles.container&gt;
+<a href="#h0-0-13" id="h0-0-13" class="d">-    &lt;main className=Styles.main&gt; &lt;Styled /&gt; {content()} &lt;/main&gt;
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+    &lt;div className=Styles.main&gt; &lt;Styled /&gt; {content()} &lt;/div&gt;
+</a>   &lt;/div&gt;;
+ };
+<b>diff --git a/<a id="h1" href="../file/src/_redirects.html">src/_redirects</a> b/<a href="../file/src/_redirects.html">src/_redirects</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -0,0 +1 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+/*    /index.html   200
+</a><b>diff --git a/<a id="h2" href="../file/src/index.html.html">src/index.html</a> b/<a href="../file/src/index.html.html">src/index.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -2,7 +2,7 @@
+</a> &lt;html lang=&quot;en&quot;&gt;
+ &lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+<a href="#h2-0-3" id="h2-0-3" class="d">-  &lt;title&gt;ReasonReact Examples&lt;/title&gt;
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  &lt;title&gt;YBBond&lt;/title&gt;
+</a> &lt;/head&gt;
+ &lt;body&gt;
+ 
+</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: rss enhancements - ybbond - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/253894929c8b02ee2a62ece5866f707b3b77b643.html">253894929c8b02ee2a62ece5866f707b3b77b643</a>
+<b>parent</b> <a href="../commit/53a5a074648be22df7fa5e1da7830adcc4b34719.html">53a5a074648be22df7fa5e1da7830adcc4b34719</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Fri,  1 May 2020 20:07:20 +0700
+
+refactor: rss enhancements
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/index.rss.xml</a></td><td> | </td><td class="num">13</td><td><span class="i">+++++++</span><span class="d">------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">layouts/notes/rss.xml</a></td><td> | </td><td class="num">43</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">layouts/partials/head/head.html</a></td><td> | </td><td class="num">6</td><td><span class="i">+++++</span><span class="d">-</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">layouts/posts/rss.xml</a></td><td> | </td><td class="num">41</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>4 files changed, 96 insertions(<span id="plus">+</span>), 7 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/index.rss.xml.html">layouts/index.rss.xml</a> b/<a href="../file/layouts/index.rss.xml.html">layouts/index.rss.xml</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,14 +1,16 @@
+</a> {{- $pctx := . -}}
+<a href="#h0-0-1" id="h0-0-1" class="d">-{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+{{- if .IsHome -}}
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+  {{ $pctx = .Site }}
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+{{- end -}}
+</a> {{- $pages := slice -}}
+ {{- if or $.IsHome $.IsSection -}}
+<a href="#h0-0-7" id="h0-0-7" class="d">-{{- $pages = $pctx.RegularPages -}}
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+  {{- $pages = $pctx.RegularPages -}}
+</a> {{- else -}}
+<a href="#h0-0-10" id="h0-0-10" class="d">-{{- $pages = $pctx.Pages -}}
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+  {{- $pages = $pctx.Pages -}}
+</a> {{- end -}}
+ {{- $limit := .Site.Config.Services.RSS.Limit -}}
+ {{- if ge $limit 1 -}}
+<a href="#h0-0-15" id="h0-0-15" class="d">-{{- $pages = $pages | first $limit -}}
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+  {{- $pages = $pages | first $limit -}}
+</a> {{- end -}}
+ {{- printf &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot; standalone=\&quot;yes\&quot;?&gt;&quot; | safeHTML }}
+ &lt;rss version=&quot;2.0&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot;&gt;
+<a href="#h0-1" id="h0-1" class="h">@@ -36,4 +38,4 @@
+</a>     &lt;/item&gt;
+     {{ end }}
+   &lt;/channel&gt;
+<a href="#h0-1-3" id="h0-1-3" class="d">-&lt;/rss&gt;</a><a href="#h0-1-4" id="h0-1-4" class="d">-
+\ No newline at end of file
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+&lt;/rss&gt;
+</a><b>diff --git a/<a id="h1" href="../file/layouts/notes/rss.xml.html">layouts/notes/rss.xml</a> b/<a href="../file/layouts/notes/rss.xml.html">layouts/notes/rss.xml</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -0,0 +1,43 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+{{- $pctx := . -}}
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+{{- if .IsHome -}}
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+  {{ $pctx = .Site }}
+</a><a href="#h1-0-3" id="h1-0-3" class="i">+{{- end -}}
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+{{- $pages := slice -}}
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+{{- if or $.IsHome $.IsSection -}}
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+  {{- $pages = $pctx.RegularPages -}}
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+{{- else -}}
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+  {{- $pages = $pctx.Pages -}}
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+{{- end -}}
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+{{- if ge $limit 1 -}}
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+  {{- $pages = $pages | first $limit -}}
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+{{- end -}}
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+{{- printf &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot; standalone=\&quot;yes\&quot;?&gt;&quot; | safeHTML }}
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+&lt;rss version=&quot;2.0&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot;&gt;
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+  &lt;channel&gt;
+</a><a href="#h1-0-17" id="h1-0-17" class="i">+    &lt;title&gt;{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}&lt;/title&gt;
+</a><a href="#h1-0-18" id="h1-0-18" class="i">+    &lt;link&gt;{{ .Permalink }}&lt;/link&gt;
+</a><a href="#h1-0-19" id="h1-0-19" class="i">+    &lt;description&gt;Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}&lt;/description&gt;
+</a><a href="#h1-0-20" id="h1-0-20" class="i">+    &lt;generator&gt;Hugo -- gohugo.io&lt;/generator&gt;{{ with .Site.LanguageCode }}
+</a><a href="#h1-0-21" id="h1-0-21" class="i">+    &lt;language&gt;{{.}}&lt;/language&gt;{{end}}{{ with .Site.Author.email }}
+</a><a href="#h1-0-22" id="h1-0-22" class="i">+    &lt;managingEditor&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/managingEditor&gt;{{end}}{{ with .Site.Author.email }}
+</a><a href="#h1-0-23" id="h1-0-23" class="i">+    &lt;webMaster&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/webMaster&gt;{{end}}{{ with .Site.Copyright }}
+</a><a href="#h1-0-24" id="h1-0-24" class="i">+    &lt;copyright&gt;{{.}}&lt;/copyright&gt;{{end}}{{ if not .Date.IsZero }}
+</a><a href="#h1-0-25" id="h1-0-25" class="i">+    &lt;lastBuildDate&gt;{{ .Date.Format &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; | safeHTML }}&lt;/lastBuildDate&gt;{{ end }}
+</a><a href="#h1-0-26" id="h1-0-26" class="i">+    {{ with .OutputFormats.Get &quot;RSS&quot; }}
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+  {{ printf &quot;&lt;atom:link href=%q rel=\&quot;self\&quot; type=%q /&gt;&quot; .Permalink .MediaType | safeHTML }}
+</a><a href="#h1-0-28" id="h1-0-28" class="i">+    {{ end }}
+</a><a href="#h1-0-29" id="h1-0-29" class="i">+    {{ $dateformat := .Date.Format &quot;2006-01-02 15:04&quot; }}
+</a><a href="#h1-0-30" id="h1-0-30" class="i">+    {{ $idslug := (print $dateformat &quot;-&quot;) | urlize }}
+</a><a href="#h1-0-31" id="h1-0-31" class="i">+    {{ range $pages }}
+</a><a href="#h1-0-32" id="h1-0-32" class="i">+    &lt;item&gt;
+</a><a href="#h1-0-33" id="h1-0-33" class="i">+      &lt;title&gt;{{ .Title }}&lt;/title&gt;
+</a><a href="#h1-0-34" id="h1-0-34" class="i">+      &lt;link&gt;{{ .Site.BaseURL }}notes/#{{ $idslug }}&lt;/link&gt;
+</a><a href="#h1-0-35" id="h1-0-35" class="i">+      &lt;pubDate&gt;{{ .Date.Format &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; | safeHTML }}&lt;/pubDate&gt;
+</a><a href="#h1-0-36" id="h1-0-36" class="i">+      {{ with .Site.Author.email }}&lt;author&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/author&gt;{{end}}
+</a><a href="#h1-0-37" id="h1-0-37" class="i">+      &lt;guid&gt;{{ .Site.BaseURL }}notes/#{{ $idslug }}&lt;/guid&gt;
+</a><a href="#h1-0-38" id="h1-0-38" class="i">+      &lt;description&gt;{{ .Content | html }}&lt;/description&gt;
+</a><a href="#h1-0-39" id="h1-0-39" class="i">+    &lt;/item&gt;
+</a><a href="#h1-0-40" id="h1-0-40" class="i">+    {{ end }}
+</a><a href="#h1-0-41" id="h1-0-41" class="i">+  &lt;/channel&gt;
+</a><a href="#h1-0-42" id="h1-0-42" class="i">+&lt;/rss&gt;
+</a><b>diff --git a/<a id="h2" href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a> b/<a href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -10,7 +10,11 @@
+</a> &lt;link data-hint=&quot;Email&quot; title=&quot;Email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot; rel=&quot;me&quot; /&gt;
+ &lt;link data-hint=&quot;Mastodon&quot; title=&quot;Mastodon&quot; href=&quot;https://indieweb.social/@ybbond&quot; rel=&quot;me&quot; /&gt;
+ 
+<a href="#h2-0-3" id="h2-0-3" class="d">-&lt;link type=&quot;application/rss+xml&quot; title=&quot;RSS&quot; href=&quot;/index.xml&quot; rel=&quot;alternate&quot; /&gt;
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+{{ with .OutputFormats.Get &quot;rss&quot; }}
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+    {{ $rssTitle := printf &quot;%s RSS&quot; $.Site.Title }}
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+    {{ printf `&lt;link rel=&quot;%s&quot; type=&quot;%s&quot; href=&quot;%s&quot; title=&quot;%s&quot; /&gt;` .Rel .MediaType.Type .Permalink $rssTitle | safeHTML }}
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+{{ end }}
+</a> 
+ &lt;link href=&quot;https://micro.blog/indieauth/auth&quot; rel=&quot;authorization_endpoint&quot; /&gt;
+ &lt;link href=&quot;https://micro.blog/indieauth/token&quot; rel=&quot;token_endpoint&quot; /&gt;
+<b>diff --git a/<a id="h3" href="../file/layouts/posts/rss.xml.html">layouts/posts/rss.xml</a> b/<a href="../file/layouts/posts/rss.xml.html">layouts/posts/rss.xml</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,41 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+{{- $pctx := . -}}
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+{{- if .IsHome -}}
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+  {{ $pctx = .Site }}
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+{{- end -}}
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+{{- $pages := slice -}}
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+{{- if or $.IsHome $.IsSection -}}
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+  {{- $pages = $pctx.RegularPages -}}
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+{{- else -}}
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+  {{- $pages = $pctx.Pages -}}
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+{{- end -}}
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+{{- if ge $limit 1 -}}
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+  {{- $pages = $pages | first $limit -}}
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+{{- end -}}
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+{{- printf &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot; standalone=\&quot;yes\&quot;?&gt;&quot; | safeHTML }}
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+&lt;rss version=&quot;2.0&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot;&gt;
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+  &lt;channel&gt;
+</a><a href="#h3-0-17" id="h3-0-17" class="i">+    &lt;title&gt;{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}&lt;/title&gt;
+</a><a href="#h3-0-18" id="h3-0-18" class="i">+    &lt;link&gt;{{ .Permalink }}&lt;/link&gt;
+</a><a href="#h3-0-19" id="h3-0-19" class="i">+    &lt;description&gt;Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}&lt;/description&gt;
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+    &lt;generator&gt;Hugo -- gohugo.io&lt;/generator&gt;{{ with .Site.LanguageCode }}
+</a><a href="#h3-0-21" id="h3-0-21" class="i">+    &lt;language&gt;{{.}}&lt;/language&gt;{{end}}{{ with .Site.Author.email }}
+</a><a href="#h3-0-22" id="h3-0-22" class="i">+    &lt;managingEditor&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/managingEditor&gt;{{end}}{{ with .Site.Author.email }}
+</a><a href="#h3-0-23" id="h3-0-23" class="i">+    &lt;webMaster&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/webMaster&gt;{{end}}{{ with .Site.Copyright }}
+</a><a href="#h3-0-24" id="h3-0-24" class="i">+    &lt;copyright&gt;{{.}}&lt;/copyright&gt;{{end}}{{ if not .Date.IsZero }}
+</a><a href="#h3-0-25" id="h3-0-25" class="i">+    &lt;lastBuildDate&gt;{{ .Date.Format &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; | safeHTML }}&lt;/lastBuildDate&gt;{{ end }}
+</a><a href="#h3-0-26" id="h3-0-26" class="i">+    {{ with .OutputFormats.Get &quot;RSS&quot; }}
+</a><a href="#h3-0-27" id="h3-0-27" class="i">+  {{ printf &quot;&lt;atom:link href=%q rel=\&quot;self\&quot; type=%q /&gt;&quot; .Permalink .MediaType | safeHTML }}
+</a><a href="#h3-0-28" id="h3-0-28" class="i">+    {{ end }}
+</a><a href="#h3-0-29" id="h3-0-29" class="i">+    {{ range $pages }}
+</a><a href="#h3-0-30" id="h3-0-30" class="i">+    &lt;item&gt;
+</a><a href="#h3-0-31" id="h3-0-31" class="i">+      &lt;title&gt;{{ .Title }}&lt;/title&gt;
+</a><a href="#h3-0-32" id="h3-0-32" class="i">+      &lt;link&gt;{{ .Permalink }}&lt;/link&gt;
+</a><a href="#h3-0-33" id="h3-0-33" class="i">+      &lt;pubDate&gt;{{ .Date.Format &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; | safeHTML }}&lt;/pubDate&gt;
+</a><a href="#h3-0-34" id="h3-0-34" class="i">+      {{ with .Site.Author.email }}&lt;author&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/author&gt;{{end}}
+</a><a href="#h3-0-35" id="h3-0-35" class="i">+      &lt;guid&gt;{{ .Permalink }}&lt;/guid&gt;
+</a><a href="#h3-0-36" id="h3-0-36" class="i">+      &lt;description&gt;{{ .Content | html }}&lt;/description&gt;
+</a><a href="#h3-0-37" id="h3-0-37" class="i">+    &lt;/item&gt;
+</a><a href="#h3-0-38" id="h3-0-38" class="i">+    {{ end }}
+</a><a href="#h3-0-39" id="h3-0-39" class="i">+  &lt;/channel&gt;
+</a><a href="#h3-0-40" id="h3-0-40" class="i">+&lt;/rss&gt;
+</a></pre>
+</div>
+</div>
+</body>
+</html>

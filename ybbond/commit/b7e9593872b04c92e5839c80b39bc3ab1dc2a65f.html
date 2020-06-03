@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>styles: unordered, ordered, checkbox list improvements - ybbond - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/b7e9593872b04c92e5839c80b39bc3ab1dc2a65f.html">b7e9593872b04c92e5839c80b39bc3ab1dc2a65f</a>
+<b>parent</b> <a href="../commit/83a18bd2d0ecc24c4531264b250a4d0dfd6a2056.html">83a18bd2d0ecc24c4531264b250a4d0dfd6a2056</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sat,  9 May 2020 17:14:35 +0700
+
+styles: unordered, ordered, checkbox list improvements
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.scss</a></td><td> | </td><td class="num">54</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++</span><span class="d">-------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">assets/styles.scss</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">layouts/_default/_markup/render-image.html</a></td><td> | </td><td class="num">20</td><td><span class="i">+++++++++++</span><span class="d">---------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">layouts/_default/_markup/render-link.html</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">layouts/partials/components/content.html</a></td><td> | </td><td class="num">3</td><td><span class="i">++</span><span class="d">-</span></td></tr>
+</table></pre></div><p>5 files changed, 56 insertions(<span id="plus">+</span>), 24 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -91,26 +91,54 @@
+</a>     }
+   }
+ 
+<a href="#h0-0-3" id="h0-0-3" class="i">+  ol {
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    margin: 1.5em 0;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+    padding: 0;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+    list-style: none;
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+    counter-reset: my-awesome-counter;
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+    li {
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+      counter-increment: my-awesome-counter;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+      list-style-position: outside;
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+      margin-bottom: 0.2em;
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+      span {
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+        position: relative;
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+        &amp;:before {
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+          position: absolute;
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+          right: 0.5em;
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+          top: 0.25em;
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+          content: counter(my-awesome-counter)&#39;.&#39;;
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+          font-size: 0.8em;
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+          @include themify($themes) {
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+            color: themed(&#39;color-red&#39;);
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+          }
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+        }
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+      }
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+    }
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+  }
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+
+</a>   ul {
+<a href="#h0-0-29" id="h0-0-29" class="i">+    margin: 1.5em 0;
+</a>     padding: 0;
+<a href="#h0-0-31" id="h0-0-31" class="i">+    list-style: none;
+</a>     li {
+<a href="#h0-0-33" id="h0-0-33" class="i">+      margin-bottom: 0.2em;
+</a>       position: relative;
+<a href="#h0-0-35" id="h0-0-35" class="d">-      list-style: none;
+</a><a href="#h0-0-36" id="h0-0-36" class="d">-      padding-left: 20px;
+</a><a href="#h0-0-37" id="h0-0-37" class="d">-      margin-bottom: 10px;
+</a><a href="#h0-0-38" id="h0-0-38" class="d">-      &amp;:before {
+</a><a href="#h0-0-39" id="h0-0-39" class="d">-        display: inline-block;
+</a><a href="#h0-0-40" id="h0-0-40" class="d">-        content: &quot;- &quot;;
+</a><a href="#h0-0-41" id="h0-0-41" class="d">-        position: absolute;
+</a><a href="#h0-0-42" id="h0-0-42" class="d">-        z-index: 1;
+</a><a href="#h0-0-43" id="h0-0-43" class="d">-        width: 20px;
+</a><a href="#h0-0-44" id="h0-0-44" class="d">-        @include themify($themes) {
+</a><a href="#h0-0-45" id="h0-0-45" class="d">-          color: themed(&#39;color-red&#39;);
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+      span {
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+        position: relative;
+</a><a href="#h0-0-48" id="h0-0-48" class="i">+        &amp;:before {
+</a><a href="#h0-0-49" id="h0-0-49" class="i">+          display: inline-block;
+</a><a href="#h0-0-50" id="h0-0-50" class="i">+          content: &quot;– &quot;;
+</a><a href="#h0-0-51" id="h0-0-51" class="i">+          position: absolute;
+</a><a href="#h0-0-52" id="h0-0-52" class="i">+          z-index: 1;
+</a><a href="#h0-0-53" id="h0-0-53" class="i">+          width: 20px;
+</a><a href="#h0-0-54" id="h0-0-54" class="i">+          @include themify($themes) {
+</a><a href="#h0-0-55" id="h0-0-55" class="i">+            color: themed(&#39;color-red&#39;);
+</a><a href="#h0-0-56" id="h0-0-56" class="i">+          }
+</a><a href="#h0-0-57" id="h0-0-57" class="i">+          left: -1.2em;
+</a>         }
+<a href="#h0-0-59" id="h0-0-59" class="d">-        left: 0;
+</a>       }
+       input {
+<a href="#h0-0-62" id="h0-0-62" class="d">-        margin-left: -20px;
+</a><a href="#h0-0-63" id="h0-0-63" class="i">+        margin-left: -1.9em;
+</a>         position: absolute;
+         z-index: 2;
+         top: 3.9px;
+<b>diff --git a/<a id="h1" href="../file/assets/styles.scss.html">assets/styles.scss</a> b/<a href="../file/assets/styles.scss.html">assets/styles.scss</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -57,7 +57,7 @@ h1 {
+</a> 
+ a {
+   text-decoration: none;
+<a href="#h1-0-3" id="h1-0-3" class="d">-  &amp;:not(.button h2) {
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  &amp;:not(.button, h2) {
+</a>     &amp;:hover {
+       outline-style: solid;
+       outline-width: 0.3em;
+<b>diff --git a/<a id="h2" href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a> b/<a href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -14,15 +14,17 @@
+</a> 
+ &lt;figure&gt;
+     &lt;center&gt;
+<a href="#h2-0-3" id="h2-0-3" class="d">-    &lt;img
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-        style=&quot;max-width: 100%; height: auto;&quot;
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-        src=&quot;{{ $thumb }}&quot;
+</a><a href="#h2-0-6" id="h2-0-6" class="d">-        width=&quot;{{ $original.Width }}&quot;
+</a><a href="#h2-0-7" id="h2-0-7" class="d">-        height=&quot;{{ $original.Height }}&quot;
+</a><a href="#h2-0-8" id="h2-0-8" class="d">-        alt=&quot;{{ default $text &quot;image&quot; }}&quot;
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-        data-src=&quot;{{$original.RelPermalink}}&quot;
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-        class=&quot;lazy&quot;
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-    /&gt;
+</a><a href="#h2-0-12" id="h2-0-12" class="i">+    &lt;a href={{ $original.RelPermalink }} class=&quot;button&quot;&gt;
+</a><a href="#h2-0-13" id="h2-0-13" class="i">+      &lt;img
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+          style=&quot;max-width: 100%; height: auto;&quot;
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+          src=&quot;{{ $thumb }}&quot;
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+          width=&quot;{{ $original.Width }}&quot;
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+          height=&quot;{{ $original.Height }}&quot;
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+          alt=&quot;{{ default $text &quot;image&quot; }}&quot;
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+          data-src=&quot;{{$original.RelPermalink}}&quot;
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+          class=&quot;lazy&quot;
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+      /&gt;
+</a><a href="#h2-0-22" id="h2-0-22" class="i">+    &lt;/a&gt;
+</a>     {{with $text }}
+     &lt;figcaption&gt;{{ . }}&lt;/figcaption&gt;
+     {{end}}
+<b>diff --git a/<a id="h3" href="../file/layouts/_default/_markup/render-link.html.html">layouts/_default/_markup/render-link.html</a> b/<a href="../file/layouts/_default/_markup/render-link.html.html">layouts/_default/_markup/render-link.html</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+&lt;a href={{ .Destination | safeURL }}&gt;{{ .Text | safeHTML }}&lt;/a&gt;
+</a><b>diff --git a/<a id="h4" href="../file/layouts/partials/components/content.html.html">layouts/partials/components/content.html</a> b/<a href="../file/layouts/partials/components/content.html.html">layouts/partials/components/content.html</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -2,5 +2,6 @@
+</a> {{ $h2_hash := $add_hash_after | replaceRE &quot;(&lt;h2 id=\&quot;([^\&quot;]+)\&quot;&gt;)(.+)(&lt;/h2&gt;)&quot; &quot;${1}&lt;a class=\&quot;before-hash h2\&quot; href=\&quot;#${2}\&quot;&gt;##&lt;/a&gt; ${3} ${4}&quot; }} 
+ {{ $h3_hash := $h2_hash | replaceRE &quot;(&lt;h3 id=\&quot;([^\&quot;]+)\&quot;&gt;)(.+)(&lt;/h3&gt;)&quot; &quot;${1}&lt;a class=\&quot;before-hash h3\&quot; href=\&quot;#${2}\&quot;&gt;###&lt;/a&gt; ${3} ${4}&quot; }} 
+ {{ $h4_hash := $h3_hash | replaceRE &quot;(&lt;h4 id=\&quot;([^\&quot;]+)\&quot;&gt;)(.+)(&lt;/h4&gt;)&quot; &quot;${1}&lt;a class=\&quot;before-hash h4\&quot; href=\&quot;#${2}\&quot;&gt;####&lt;/a&gt; ${3} ${4}&quot; }} 
+<a href="#h4-0-3" id="h4-0-3" class="d">-{{ $checkbox_non_disabled := $h3_hash | replaceRE &quot;disabled=\&quot;\&quot; type=\&quot;checkbox&quot; &quot;type=\&quot;checkbox&quot; }}
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+{{ $list_span := $h4_hash | replaceRE &quot;&lt;li&gt;&quot; &quot;&lt;li&gt;&lt;span&gt;&lt;/span&gt;&quot; }}
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+{{ $checkbox_non_disabled := $list_span | replaceRE &quot;disabled=\&quot;\&quot; type=\&quot;checkbox&quot; &quot;type=\&quot;checkbox&quot; }}
+</a> {{ $checkbox_non_disabled | safeHTML }}
+</pre>
+</div>
+</div>
+</body>
+</html>

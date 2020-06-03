@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(bs-css) =&gt; use enum for all - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/15d62c278580b57c4ba0640f21626bd4e34cb63b.html">15d62c278580b57c4ba0640f21626bd4e34cb63b</a>
+<b>parent</b> <a href="../commit/d1841b494bfb96b565f48445354657768c6cfbbe.html">d1841b494bfb96b565f48445354657768c6cfbbe</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon, 19 Aug 2019 22:48:33 +0700
+
+refactor(bs-css) =&gt; use enum for all
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/App.re</a></td><td> | </td><td class="num">14</td><td><span class="i">+++++++</span><span class="d">-------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/Styled.re</a></td><td> | </td><td class="num">52</td><td><span class="i">+++++++++++++++++++++++++++++++</span><span class="d">---------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/Template.re</a></td><td> | </td><td class="num">1</td><td><span class="i"></span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">src/UsesScene.re</a></td><td> | </td><td class="num">34</td><td><span class="i">++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">src/components/ContentList.re</a></td><td> | </td><td class="num">12</td><td><span class="i">++++++</span><span class="d">------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">src/components/Spoiler.re</a></td><td> | </td><td class="num">10</td><td><span class="i">+++++</span><span class="d">-----</span></td></tr>
+</table></pre></div><p>6 files changed, 83 insertions(<span id="plus">+</span>), 40 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/App.re.html">src/App.re</a> b/<a href="../file/src/App.re.html">src/App.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -10,21 +10,21 @@ module Styles = {
+</a>       display(`flex),
+       flexDirection(`column),
+       textAlign(`left),
+<a href="#h0-0-3" id="h0-0-3" class="d">-      padding(em(1.0)),
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-      paddingTop(px(0)),
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-      paddingBottom(px(0)),
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-      fontSize(em(0.9)),
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+      padding(`em(1.0)),
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+      paddingTop(`px(0)),
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+      paddingBottom(`px(0)),
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+      fontSize(`em(0.9)),
+</a>     ]);
+ 
+   let main =
+     style([
+       flexGrow(1.0),
+       width(`percent(100.0)),
+<a href="#h0-0-17" id="h0-0-17" class="d">-      marginTop(px(0)),
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-      marginBottom(px(0)),
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+      marginTop(`px(0)),
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+      marginBottom(`px(0)),
+</a>       marginLeft(`auto),
+       marginRight(`auto),
+<a href="#h0-0-23" id="h0-0-23" class="d">-      maxWidth(em(50.0)),
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+      maxWidth(`em(50.0)),
+</a>     ]);
+ };
+ 
+<b>diff --git a/<a id="h1" href="../file/src/Styled.re.html">src/Styled.re</a> b/<a href="../file/src/Styled.re.html">src/Styled.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -29,13 +29,14 @@ let make = () =&gt; {
+</a>   let anchorColor = state.dark ? &quot;#d8dcd5&quot; : &quot;#2d2d2d&quot;;
+   let anchorHover = state.dark ? &quot;#2d2d2d&quot; : &quot;#d8dcd5&quot;;
+ 
+<a href="#h1-0-3" id="h1-0-3" class="d">-  let htmlStyle =
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-    &quot;html { height: 100vh; font-family: &#39;Cousine for Powerline&#39;, monospace; background-color:&quot;
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-    ++ backgroundColor
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-    ++ &quot;; color:&quot;
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-    ++ textColor
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-    ++ &quot;; }&quot;;
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-  /* let fontFace = &quot;@import url(&#39;https://fonts.googleapis.com/css?family=Cousine:400,700&amp;display=swap&#39;);&quot;; */
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+  let htmlStyle = {j|
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+html {
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+  height: 100vh;
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+  background-color: $backgroundColor;
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+  color: $textColor;
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+}
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+|j};
+</a><a href="#h1-0-17" id="h1-0-17" class="i">+
+</a>   let fontFace = {j|
+ @font-face {
+   font-family: &#39;Cousine for Powerline&#39;;
+<a href="#h1-1" id="h1-1" class="h">@@ -44,6 +45,7 @@ let make = () =&gt; {
+</a>   src: url(&#39;../assets/fonts/Cousine for Powerline.ttf&#39;); /* IE9 Compat Modes */
+ }
+   |j};
+<a href="#h1-1-3" id="h1-1-3" class="i">+
+</a>   let bodyStyle = {j|
+ body {
+   display: flex;
+<a href="#h1-2" id="h1-2" class="h">@@ -54,29 +56,37 @@ body {
+</a>   line-height: 1.8em;
+   letter-spacing: -0.01em;
+   word-wrap: break-word;
+<a href="#h1-2-3" id="h1-2-3" class="i">+  font-family: &#39;Cousine for Powerline&#39;, monospace;
+</a>   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+ }
+   |j};
+<a href="#h1-2-8" id="h1-2-8" class="i">+
+</a>   let miscStyle = {j|
+ ::selection {
+   background-color: #79d688;
+ }
+   |j};
+<a href="#h1-2-14" id="h1-2-14" class="d">-  let markStyle =
+</a><a href="#h1-2-15" id="h1-2-15" class="d">-    &quot;mark{background-color:&quot;
+</a><a href="#h1-2-16" id="h1-2-16" class="d">-    ++ markColor
+</a><a href="#h1-2-17" id="h1-2-17" class="d">-    ++ &quot;;}&quot;
+</a><a href="#h1-2-18" id="h1-2-18" class="d">-    ++ &quot;mark:hover{background-color:&quot;
+</a><a href="#h1-2-19" id="h1-2-19" class="d">-    ++ markHover
+</a><a href="#h1-2-20" id="h1-2-20" class="d">-    ++ &quot;;}&quot;;
+</a><a href="#h1-2-21" id="h1-2-21" class="d">-  let anchorStyle =
+</a><a href="#h1-2-22" id="h1-2-22" class="d">-    &quot;a{text-decoration: none;cursor: pointer;color:&quot;
+</a><a href="#h1-2-23" id="h1-2-23" class="d">-    ++ anchorColor
+</a><a href="#h1-2-24" id="h1-2-24" class="d">-    ++ &quot;;}&quot;
+</a><a href="#h1-2-25" id="h1-2-25" class="d">-    ++ &quot;a:hover{color:&quot;
+</a><a href="#h1-2-26" id="h1-2-26" class="d">-    ++ anchorHover
+</a><a href="#h1-2-27" id="h1-2-27" class="d">-    ++ &quot;;}&quot;;
+</a><a href="#h1-2-28" id="h1-2-28" class="i">+
+</a><a href="#h1-2-29" id="h1-2-29" class="i">+  let markStyle = {j|
+</a><a href="#h1-2-30" id="h1-2-30" class="i">+mark {
+</a><a href="#h1-2-31" id="h1-2-31" class="i">+  background-color: $markColor;
+</a><a href="#h1-2-32" id="h1-2-32" class="i">+}
+</a><a href="#h1-2-33" id="h1-2-33" class="i">+mark:hover {
+</a><a href="#h1-2-34" id="h1-2-34" class="i">+  background-color: $markHover;
+</a><a href="#h1-2-35" id="h1-2-35" class="i">+}
+</a><a href="#h1-2-36" id="h1-2-36" class="i">+|j};
+</a><a href="#h1-2-37" id="h1-2-37" class="i">+
+</a><a href="#h1-2-38" id="h1-2-38" class="i">+  let anchorStyle = {j|
+</a><a href="#h1-2-39" id="h1-2-39" class="i">+a {
+</a><a href="#h1-2-40" id="h1-2-40" class="i">+  text-decoration: none;
+</a><a href="#h1-2-41" id="h1-2-41" class="i">+  cursor: pointer;
+</a><a href="#h1-2-42" id="h1-2-42" class="i">+  color: $anchorColor;
+</a><a href="#h1-2-43" id="h1-2-43" class="i">+}
+</a><a href="#h1-2-44" id="h1-2-44" class="i">+a:hover {
+</a><a href="#h1-2-45" id="h1-2-45" class="i">+  color: $anchorHover;
+</a><a href="#h1-2-46" id="h1-2-46" class="i">+}
+</a><a href="#h1-2-47" id="h1-2-47" class="i">+|j};
+</a> 
+   let setStyle =
+     htmlStyle ++ fontFace ++ bodyStyle ++ miscStyle ++ markStyle ++ anchorStyle;
+<b>diff --git a/<a id="h2" href="../file/src/Template.re.html">src/Template.re</a> b/<a href="../file/src/Template.re.html">src/Template.re</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,4 +1,3 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">-[@react.component]
+</a> let make = (~content, ~title, ()) =&gt; {j|
+   &lt;!DOCTYPE html&gt;
+     &lt;html&gt;
+<b>diff --git a/<a id="h3" href="../file/src/UsesScene.re.html">src/UsesScene.re</a> b/<a href="../file/src/UsesScene.re.html">src/UsesScene.re</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -20,5 +20,39 @@ let make = () =&gt; {
+</a>         },
+       |]
+     /&gt;
+<a href="#h3-0-3" id="h3-0-3" class="i">+    &lt;h3&gt; {ReasonReact.string(&quot;Code Editor&quot;)} &lt;/h3&gt;
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+    &lt;ContentList
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+      content=[|
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+        {
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+          variant: Default,
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+          text: &lt;span&gt; {ReasonReact.string(&quot;Neovim on Kitty&quot;)} &lt;/span&gt;,
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+        },
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+        {
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+          variant: Default,
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+          text: &lt;span&gt; {ReasonReact.string(&quot;Visual Studio Code&quot;)} &lt;/span&gt;,
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+        },
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+      |]
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+    /&gt;
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+    &lt;h3&gt; {ReasonReact.string(&quot;Terminal&quot;)} &lt;/h3&gt;
+</a><a href="#h3-0-17" id="h3-0-17" class="i">+    &lt;ContentList
+</a><a href="#h3-0-18" id="h3-0-18" class="i">+      content=[|
+</a><a href="#h3-0-19" id="h3-0-19" class="i">+        {
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+          variant: Default,
+</a><a href="#h3-0-21" id="h3-0-21" class="i">+          text: &lt;span&gt; {ReasonReact.string(&quot;Kitty&quot;)} &lt;/span&gt;,
+</a><a href="#h3-0-22" id="h3-0-22" class="i">+        },
+</a><a href="#h3-0-23" id="h3-0-23" class="i">+        {
+</a><a href="#h3-0-24" id="h3-0-24" class="i">+          variant: Default,
+</a><a href="#h3-0-25" id="h3-0-25" class="i">+          text: &lt;span&gt; {ReasonReact.string(&quot;Fish Shell&quot;)} &lt;/span&gt;,
+</a><a href="#h3-0-26" id="h3-0-26" class="i">+        },
+</a><a href="#h3-0-27" id="h3-0-27" class="i">+        {
+</a><a href="#h3-0-28" id="h3-0-28" class="i">+          variant: Default,
+</a><a href="#h3-0-29" id="h3-0-29" class="i">+          text: &lt;span&gt; {ReasonReact.string(&quot;Ranger File Manager&quot;)} &lt;/span&gt;,
+</a><a href="#h3-0-30" id="h3-0-30" class="i">+        },
+</a><a href="#h3-0-31" id="h3-0-31" class="i">+        {
+</a><a href="#h3-0-32" id="h3-0-32" class="i">+          variant: Default,
+</a><a href="#h3-0-33" id="h3-0-33" class="i">+          text: &lt;span&gt; {ReasonReact.string(&quot;lazygit&quot;)} &lt;/span&gt;,
+</a><a href="#h3-0-34" id="h3-0-34" class="i">+        },
+</a><a href="#h3-0-35" id="h3-0-35" class="i">+      |]
+</a><a href="#h3-0-36" id="h3-0-36" class="i">+    /&gt;
+</a>   &lt;/React.Fragment&gt;;
+ };
+<b>diff --git a/<a id="h4" href="../file/src/components/ContentList.re.html">src/components/ContentList.re</a> b/<a href="../file/src/components/ContentList.re.html">src/components/ContentList.re</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -3,9 +3,9 @@ module Styles = {
+</a> 
+   let ul =
+     style([
+<a href="#h4-0-3" id="h4-0-3" class="d">-      marginLeft(em(2.5)),
+</a><a href="#h4-0-4" id="h4-0-4" class="d">-      marginTop(em(0.8)),
+</a><a href="#h4-0-5" id="h4-0-5" class="d">-      paddingLeft(px(0)),
+</a><a href="#h4-0-6" id="h4-0-6" class="i">+      marginLeft(`em(2.5)),
+</a><a href="#h4-0-7" id="h4-0-7" class="i">+      marginTop(`em(0.8)),
+</a><a href="#h4-0-8" id="h4-0-8" class="i">+      paddingLeft(`px(0)),
+</a>       listStyle(`none, `inside, `none),
+     ]);
+ 
+<a href="#h4-1" id="h4-1" class="h">@@ -13,7 +13,7 @@ module Styles = {
+</a>     style([
+       before([
+         position(`absolute),
+<a href="#h4-1-3" id="h4-1-3" class="d">-        marginLeft(em(-1.5)),
+</a><a href="#h4-1-4" id="h4-1-4" class="i">+        marginLeft(`em(-1.5)),
+</a>         contentRule({j|•|j}),
+       ]),
+     ]);
+<a href="#h4-2" id="h4-2" class="h">@@ -22,7 +22,7 @@ module Styles = {
+</a>     style([
+       before([
+         position(`absolute),
+<a href="#h4-2-3" id="h4-2-3" class="d">-        marginLeft(em(-1.5)),
+</a><a href="#h4-2-4" id="h4-2-4" class="i">+        marginLeft(`em(-1.5)),
+</a>         contentRule({j|⊗|j}),
+       ]),
+     ]);
+<a href="#h4-3" id="h4-3" class="h">@@ -31,7 +31,7 @@ module Styles = {
+</a>     style([
+       before([
+         position(`absolute),
+<a href="#h4-3-3" id="h4-3-3" class="d">-        marginLeft(em(-1.5)),
+</a><a href="#h4-3-4" id="h4-3-4" class="i">+        marginLeft(`em(-1.5)),
+</a>         contentRule({j|⊙|j}),
+       ]),
+     ]);
+<b>diff --git a/<a id="h5" href="../file/src/components/Spoiler.re.html">src/components/Spoiler.re</a> b/<a href="../file/src/components/Spoiler.re.html">src/components/Spoiler.re</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -3,11 +3,11 @@ module Styles = {
+</a> 
+   let summary =
+     style([
+<a href="#h5-0-3" id="h5-0-3" class="d">-      fontSize(em(1.0)),
+</a><a href="#h5-0-4" id="h5-0-4" class="d">-      marginTop(em(1.0)),
+</a><a href="#h5-0-5" id="h5-0-5" class="d">-      marginBottom(em(1.0)),
+</a><a href="#h5-0-6" id="h5-0-6" class="d">-      marginLeft(px(0)),
+</a><a href="#h5-0-7" id="h5-0-7" class="d">-      marginRight(px(0)),
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+      fontSize(`em(1.0)),
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+      marginTop(`em(1.0)),
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+      marginBottom(`em(1.0)),
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+      marginLeft(`px(0)),
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+      marginRight(`px(0)),
+</a>       flex(`num(1.0)),
+       textAlign(`left),
+       outlineStyle(`none),
+</pre>
+</div>
+</div>
+</body>
+</html>

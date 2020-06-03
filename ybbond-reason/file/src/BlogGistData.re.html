@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BlogGistData.re - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> BlogGistData.re (4134B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> let apiBaseUrl = &quot;https://api.github.com/users/ybbond/gists&quot;;
+<a href="#l2" class="line" id="l2">      2</a> 
+<a href="#l3" class="line" id="l3">      3</a> type gist_file_content = {
+<a href="#l4" class="line" id="l4">      4</a>   filename: string,
+<a href="#l5" class="line" id="l5">      5</a>   language: option(string),
+<a href="#l6" class="line" id="l6">      6</a>   raw_url: string,
+<a href="#l7" class="line" id="l7">      7</a>   size: int,
+<a href="#l8" class="line" id="l8">      8</a>   type_: string,
+<a href="#l9" class="line" id="l9">      9</a> };
+<a href="#l10" class="line" id="l10">     10</a> 
+<a href="#l11" class="line" id="l11">     11</a> type gist_files = Js.Dict.t(gist_file_content);
+<a href="#l12" class="line" id="l12">     12</a> 
+<a href="#l13" class="line" id="l13">     13</a> type owner_content = {
+<a href="#l14" class="line" id="l14">     14</a>   avatar_url: string,
+<a href="#l15" class="line" id="l15">     15</a>   events_url: string,
+<a href="#l16" class="line" id="l16">     16</a>   followers_url: string,
+<a href="#l17" class="line" id="l17">     17</a>   following_url: string,
+<a href="#l18" class="line" id="l18">     18</a>   gists_url: string,
+<a href="#l19" class="line" id="l19">     19</a>   gravatar_id: string,
+<a href="#l20" class="line" id="l20">     20</a>   html_url: string,
+<a href="#l21" class="line" id="l21">     21</a>   id: int,
+<a href="#l22" class="line" id="l22">     22</a>   login: string,
+<a href="#l23" class="line" id="l23">     23</a>   node_id: string,
+<a href="#l24" class="line" id="l24">     24</a>   organizations_url: string,
+<a href="#l25" class="line" id="l25">     25</a>   received_events_url: string,
+<a href="#l26" class="line" id="l26">     26</a>   repos_url: string,
+<a href="#l27" class="line" id="l27">     27</a>   site_admin: bool,
+<a href="#l28" class="line" id="l28">     28</a>   starred_url: string,
+<a href="#l29" class="line" id="l29">     29</a>   subscriptions_url: string,
+<a href="#l30" class="line" id="l30">     30</a>   type_: string,
+<a href="#l31" class="line" id="l31">     31</a>   url: string,
+<a href="#l32" class="line" id="l32">     32</a> };
+<a href="#l33" class="line" id="l33">     33</a> 
+<a href="#l34" class="line" id="l34">     34</a> type gist_type = {
+<a href="#l35" class="line" id="l35">     35</a>   comments: int,
+<a href="#l36" class="line" id="l36">     36</a>   comments_url: string,
+<a href="#l37" class="line" id="l37">     37</a>   commits_url: string,
+<a href="#l38" class="line" id="l38">     38</a>   created_at: string,
+<a href="#l39" class="line" id="l39">     39</a>   description: string,
+<a href="#l40" class="line" id="l40">     40</a>   files: gist_files,
+<a href="#l41" class="line" id="l41">     41</a>   forks_url: string,
+<a href="#l42" class="line" id="l42">     42</a>   git_pull_url: string,
+<a href="#l43" class="line" id="l43">     43</a>   git_push_url: string,
+<a href="#l44" class="line" id="l44">     44</a>   html_url: string,
+<a href="#l45" class="line" id="l45">     45</a>   id: string,
+<a href="#l46" class="line" id="l46">     46</a>   node_id: string,
+<a href="#l47" class="line" id="l47">     47</a>   owner: owner_content,
+<a href="#l48" class="line" id="l48">     48</a>   public: bool,
+<a href="#l49" class="line" id="l49">     49</a>   truncated: bool,
+<a href="#l50" class="line" id="l50">     50</a>   updated_at: string,
+<a href="#l51" class="line" id="l51">     51</a>   url: string,
+<a href="#l52" class="line" id="l52">     52</a> };
+<a href="#l53" class="line" id="l53">     53</a> 
+<a href="#l54" class="line" id="l54">     54</a> type gist_return = array(gist_type);
+<a href="#l55" class="line" id="l55">     55</a> 
+<a href="#l56" class="line" id="l56">     56</a> module Decode = {
+<a href="#l57" class="line" id="l57">     57</a>   let gistFileContent = (json): gist_file_content =&gt; {
+<a href="#l58" class="line" id="l58">     58</a>     Json.Decode.{
+<a href="#l59" class="line" id="l59">     59</a>       filename: json |&gt; field(&quot;filename&quot;, string),
+<a href="#l60" class="line" id="l60">     60</a>       language: json |&gt; field(&quot;language&quot;, optional(string)),
+<a href="#l61" class="line" id="l61">     61</a>       raw_url: json |&gt; field(&quot;raw_url&quot;, string),
+<a href="#l62" class="line" id="l62">     62</a>       size: json |&gt; field(&quot;size&quot;, int),
+<a href="#l63" class="line" id="l63">     63</a>       type_: json |&gt; field(&quot;type&quot;, string),
+<a href="#l64" class="line" id="l64">     64</a>     };
+<a href="#l65" class="line" id="l65">     65</a>   };
+<a href="#l66" class="line" id="l66">     66</a> 
+<a href="#l67" class="line" id="l67">     67</a>   let gistFiles = (json): gist_files =&gt; {
+<a href="#l68" class="line" id="l68">     68</a>     json |&gt; Json.Decode.dict(gistFileContent);
+<a href="#l69" class="line" id="l69">     69</a>   };
+<a href="#l70" class="line" id="l70">     70</a> 
+<a href="#l71" class="line" id="l71">     71</a>   let ownerContent = (json): owner_content =&gt; {
+<a href="#l72" class="line" id="l72">     72</a>     Json.Decode.{
+<a href="#l73" class="line" id="l73">     73</a>       avatar_url: json |&gt; field(&quot;avatar_url&quot;, string),
+<a href="#l74" class="line" id="l74">     74</a>       events_url: json |&gt; field(&quot;events_url&quot;, string),
+<a href="#l75" class="line" id="l75">     75</a>       followers_url: json |&gt; field(&quot;followers_url&quot;, string),
+<a href="#l76" class="line" id="l76">     76</a>       following_url: json |&gt; field(&quot;following_url&quot;, string),
+<a href="#l77" class="line" id="l77">     77</a>       gists_url: json |&gt; field(&quot;gists_url&quot;, string),
+<a href="#l78" class="line" id="l78">     78</a>       gravatar_id: json |&gt; field(&quot;gravatar_id&quot;, string),
+<a href="#l79" class="line" id="l79">     79</a>       html_url: json |&gt; field(&quot;html_url&quot;, string),
+<a href="#l80" class="line" id="l80">     80</a>       id: json |&gt; field(&quot;id&quot;, int),
+<a href="#l81" class="line" id="l81">     81</a>       login: json |&gt; field(&quot;login&quot;, string),
+<a href="#l82" class="line" id="l82">     82</a>       node_id: json |&gt; field(&quot;node_id&quot;, string),
+<a href="#l83" class="line" id="l83">     83</a>       organizations_url: json |&gt; field(&quot;organizations_url&quot;, string),
+<a href="#l84" class="line" id="l84">     84</a>       received_events_url: json |&gt; field(&quot;received_events_url&quot;, string),
+<a href="#l85" class="line" id="l85">     85</a>       repos_url: json |&gt; field(&quot;repos_url&quot;, string),
+<a href="#l86" class="line" id="l86">     86</a>       site_admin: json |&gt; field(&quot;site_admin&quot;, bool),
+<a href="#l87" class="line" id="l87">     87</a>       starred_url: json |&gt; field(&quot;starred_url&quot;, string),
+<a href="#l88" class="line" id="l88">     88</a>       subscriptions_url: json |&gt; field(&quot;subscriptions_url&quot;, string),
+<a href="#l89" class="line" id="l89">     89</a>       type_: json |&gt; field(&quot;type&quot;, string),
+<a href="#l90" class="line" id="l90">     90</a>       url: json |&gt; field(&quot;url&quot;, string),
+<a href="#l91" class="line" id="l91">     91</a>     };
+<a href="#l92" class="line" id="l92">     92</a>   };
+<a href="#l93" class="line" id="l93">     93</a> 
+<a href="#l94" class="line" id="l94">     94</a>   let gist = (json): gist_type =&gt; {
+<a href="#l95" class="line" id="l95">     95</a>     Json.Decode.{
+<a href="#l96" class="line" id="l96">     96</a>       comments: json |&gt; field(&quot;comments&quot;, int),
+<a href="#l97" class="line" id="l97">     97</a>       comments_url: json |&gt; field(&quot;commits_url&quot;, string),
+<a href="#l98" class="line" id="l98">     98</a>       commits_url: json |&gt; field(&quot;commits_url&quot;, string),
+<a href="#l99" class="line" id="l99">     99</a>       created_at: json |&gt; field(&quot;created_at&quot;, string),
+<a href="#l100" class="line" id="l100">    100</a>       description: json |&gt; field(&quot;description&quot;, string),
+<a href="#l101" class="line" id="l101">    101</a>       files: json |&gt; field(&quot;files&quot;, gistFiles),
+<a href="#l102" class="line" id="l102">    102</a>       forks_url: json |&gt; field(&quot;forks_url&quot;, string),
+<a href="#l103" class="line" id="l103">    103</a>       git_pull_url: json |&gt; field(&quot;git_pull_url&quot;, string),
+<a href="#l104" class="line" id="l104">    104</a>       git_push_url: json |&gt; field(&quot;git_push_url&quot;, string),
+<a href="#l105" class="line" id="l105">    105</a>       html_url: json |&gt; field(&quot;html_url&quot;, string),
+<a href="#l106" class="line" id="l106">    106</a>       id: json |&gt; field(&quot;id&quot;, string),
+<a href="#l107" class="line" id="l107">    107</a>       node_id: json |&gt; field(&quot;node_id&quot;, string),
+<a href="#l108" class="line" id="l108">    108</a>       owner: json |&gt; field(&quot;owner&quot;, ownerContent),
+<a href="#l109" class="line" id="l109">    109</a>       public: json |&gt; field(&quot;public&quot;, bool),
+<a href="#l110" class="line" id="l110">    110</a>       truncated: json |&gt; field(&quot;truncated&quot;, bool),
+<a href="#l111" class="line" id="l111">    111</a>       updated_at: json |&gt; field(&quot;updated_at&quot;, string),
+<a href="#l112" class="line" id="l112">    112</a>       url: json |&gt; field(&quot;url&quot;, string),
+<a href="#l113" class="line" id="l113">    113</a>     };
+<a href="#l114" class="line" id="l114">    114</a>   };
+<a href="#l115" class="line" id="l115">    115</a>   let decodeReturnValue = Json.Decode.array(gist);
+<a href="#l116" class="line" id="l116">    116</a> };
+<a href="#l117" class="line" id="l117">    117</a> 
+<a href="#l118" class="line" id="l118">    118</a> let fetchGist = callback =&gt;
+<a href="#l119" class="line" id="l119">    119</a>   Js.Promise.(
+<a href="#l120" class="line" id="l120">    120</a>     Fetch.fetch(apiBaseUrl)
+<a href="#l121" class="line" id="l121">    121</a>     |&gt; then_(Fetch.Response.json)
+<a href="#l122" class="line" id="l122">    122</a>     |&gt; then_(data_array =&gt;
+<a href="#l123" class="line" id="l123">    123</a>          Json.stringify(data_array)
+<a href="#l124" class="line" id="l124">    124</a>          |&gt; Json.parseOrRaise
+<a href="#l125" class="line" id="l125">    125</a>          |&gt; Decode.decodeReturnValue
+<a href="#l126" class="line" id="l126">    126</a>          |&gt; (
+<a href="#l127" class="line" id="l127">    127</a>            gistContent =&gt; {
+<a href="#l128" class="line" id="l128">    128</a>              callback(gistContent);
+<a href="#l129" class="line" id="l129">    129</a>              resolve();
+<a href="#l130" class="line" id="l130">    130</a>            }
+<a href="#l131" class="line" id="l131">    131</a>          )
+<a href="#l132" class="line" id="l132">    132</a>        )
+<a href="#l133" class="line" id="l133">    133</a>   );
+<a href="#l134" class="line" id="l134">    134</a> 
+<a href="#l135" class="line" id="l135">    135</a> let fetchBlog = (callback, link) =&gt;
+<a href="#l136" class="line" id="l136">    136</a>   Js.Promise.(
+<a href="#l137" class="line" id="l137">    137</a>     Fetch.fetch(link)
+<a href="#l138" class="line" id="l138">    138</a>     |&gt; then_(Fetch.Response.text)
+<a href="#l139" class="line" id="l139">    139</a>     |&gt; then_(blog =&gt; {
+<a href="#l140" class="line" id="l140">    140</a>          callback(blog);
+<a href="#l141" class="line" id="l141">    141</a>          resolve();
+<a href="#l142" class="line" id="l142">    142</a>        })
+<a href="#l143" class="line" id="l143">    143</a>   );
+</pre>
+</div>
+</body>
+</html>

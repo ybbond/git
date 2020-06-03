@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>PoemContent.re - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> PoemContent.re (12266B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> type poemContent = {
+<a href="#l2" class="line" id="l2">      2</a>   title: string,
+<a href="#l3" class="line" id="l3">      3</a>   script: string,
+<a href="#l4" class="line" id="l4">      4</a> };
+<a href="#l5" class="line" id="l5">      5</a> 
+<a href="#l6" class="line" id="l6">      6</a> let content: array(poemContent) = [|
+<a href="#l7" class="line" id="l7">      7</a>   {
+<a href="#l8" class="line" id="l8">      8</a>     title: &quot;Aku tidak bisa masuk ke rumahku&quot;,
+<a href="#l9" class="line" id="l9">      9</a>     script: {j|Beberapa saat yang lalu, setelah lelah kabur dari rumah karena masalah biasanya, aku memutuskan untuk pulang. Aku kabur ketika matahari mulai terbenam dan mungkin ini sudah lebih dari pukul sembilan.
+<a href="#l10" class="line" id="l10">     10</a> 
+<a href="#l11" class="line" id="l11">     11</a> Melewati gerbang depan ke pekarangan, membuka pintu rumah dan berjalan masuk, menyadari aku kembali berada di pekarangan, menatap pintu tertutup.
+<a href="#l12" class="line" id="l12">     12</a> 
+<a href="#l13" class="line" id="l13">     13</a> Aku diam sebentar, melihat ke pekarangan di belakangku. Mungkin hanya khayalan atau deja vu, jadi aku coba lagi. Menekan kenop dan membuka pintu, berjalan masuk, dan berdiri di depan pintu tertutup.
+<a href="#l14" class="line" id="l14">     14</a> Bunyi jangkrik di rerumputan kiriku.
+<a href="#l15" class="line" id="l15">     15</a> 
+<a href="#l16" class="line" id="l16">     16</a> Aku menggedor pintu, sekeras mungkin. Paling tidak Bapakku akan dengar, dan jika ia masih peduli, akan membukakan pintu. Mungkin Kakakku yang akan dengar, dan jika ia mau membelaku, akan membukakan pintu. Aku bisa menjelaskan soal keributan ini nantinya, biarlah jika mereka tambah benci aku.
+<a href="#l17" class="line" id="l17">     17</a> 
+<a href="#l18" class="line" id="l18">     18</a> Sudah kucoba pukul, tendang, atau dengan ketukan We Will Rock You. Lalu berhenti.
+<a href="#l19" class="line" id="l19">     19</a> Bunyi jangkrik di sebelah kiri.
+<a href="#l20" class="line" id="l20">     20</a> 
+<a href="#l21" class="line" id="l21">     21</a> Nihil harapan dari dalam rumah, balik badan berlari melewati gerbang depan. Gelap dan bunyi langkahku di konblok, lalu sigap berhenti karena nyaris menabrak gerbang. Aku berdiri menghadap gerbang depan yang tertutup.
+<a href="#l22" class="line" id="l22">     22</a> Rerumputan di kanan gemersik dan bunyi jangkrik.
+<a href="#l23" class="line" id="l23">     23</a> 
+<a href="#l24" class="line" id="l24">     24</a> &quot;Kenapa bingung, kenapa takut, kenapa berang? Sini gabung aku biar tenang&quot;, kata Ujang, dari rerumputan.
+<a href="#l25" class="line" id="l25">     25</a> 
+<a href="#l26" class="line" id="l26">     26</a> Maka aku lompat ke rumput dan melata ke arahnya, mendongak ke arah bulan, melepas rumah, pekarangan, gerbang, dan berbunyi tenang.|j},
+<a href="#l27" class="line" id="l27">     27</a>   },
+<a href="#l28" class="line" id="l28">     28</a>   {
+<a href="#l29" class="line" id="l29">     29</a>     title: &quot;Terpesona&quot;,
+<a href="#l30" class="line" id="l30">     30</a>     script: {j|Terpesona, terlarut dalam mantra
+<a href="#l31" class="line" id="l31">     31</a> Terpikat guna-guna sang magi
+<a href="#l32" class="line" id="l32">     32</a> Menderau di dalam jiwa
+<a href="#l33" class="line" id="l33">     33</a> Berkobar bergairah terbakar api
+<a href="#l34" class="line" id="l34">     34</a> 
+<a href="#l35" class="line" id="l35">     35</a> Terlarut dalam mantra
+<a href="#l36" class="line" id="l36">     36</a> Magi terus bergurau tanpa leta
+<a href="#l37" class="line" id="l37">     37</a> Akar jiwa berderu terbakar api
+<a href="#l38" class="line" id="l38">     38</a> Memancar lekuk kafan sang magi
+<a href="#l39" class="line" id="l39">     39</a> 
+<a href="#l40" class="line" id="l40">     40</a> ~ Lupa dapat inspirasi darimana|j},
+<a href="#l41" class="line" id="l41">     41</a>   },
+<a href="#l42" class="line" id="l42">     42</a>   {
+<a href="#l43" class="line" id="l43">     43</a>     title: &quot;Cumi-cumi&quot;,
+<a href="#l44" class="line" id="l44">     44</a>     script: {j|Satu cumi-cumi mengembara
+<a href="#l45" class="line" id="l45">     45</a> di padang gurun yang terus basah
+<a href="#l46" class="line" id="l46">     46</a> torpedo menembus pekat laut
+<a href="#l47" class="line" id="l47">     47</a> tentakel pecut nihil air.
+<a href="#l48" class="line" id="l48">     48</a> 
+<a href="#l49" class="line" id="l49">     49</a> Cumi-cumi pucat pualam
+<a href="#l50" class="line" id="l50">     50</a> Menembus berkelana
+<a href="#l51" class="line" id="l51">     51</a> pada kejauhan samudera
+<a href="#l52" class="line" id="l52">     52</a> mencari hening yang tidak ditembus cahaya
+<a href="#l53" class="line" id="l53">     53</a> 
+<a href="#l54" class="line" id="l54">     54</a> Tanpa leta, cumi-cumi memang bangga
+<a href="#l55" class="line" id="l55">     55</a> di bawah sini, ia berkuasa
+<a href="#l56" class="line" id="l56">     56</a> Dalam jarak layangnya,
+<a href="#l57" class="line" id="l57">     57</a> semua ikan hengkang pergi
+<a href="#l58" class="line" id="l58">     58</a> Krustasea dan Moluska,
+<a href="#l59" class="line" id="l59">     59</a> sembunyi di balik pasir
+<a href="#l60" class="line" id="l60">     60</a> Itu paus sperma,
+<a href="#l61" class="line" id="l61">     61</a> enggan anggap ia mangsa,
+<a href="#l62" class="line" id="l62">     62</a> justru bahaya.
+<a href="#l63" class="line" id="l63">     63</a> 
+<a href="#l64" class="line" id="l64">     64</a> Karena,
+<a href="#l65" class="line" id="l65">     65</a> bahkan bagi kaumnya,
+<a href="#l66" class="line" id="l66">     66</a> Cumi-cumi adalah raksasa.|j},
+<a href="#l67" class="line" id="l67">     67</a>   },
+<a href="#l68" class="line" id="l68">     68</a>   {
+<a href="#l69" class="line" id="l69">     69</a>     title: &quot;7 Langkah Hidup Bijak&quot;,
+<a href="#l70" class="line" id="l70">     70</a>     script: {j|rencana sudah matang, berdiri di tepi lautan.
+<a href="#l71" class="line" id="l71">     71</a> iman terhunus, siap sambut Leviathan.
+<a href="#l72" class="line" id="l72">     72</a> ia menyerang, aku menyerang,
+<a href="#l73" class="line" id="l73">     73</a> menusuk jiwa dan anak tekak.
+<a href="#l74" class="line" id="l74">     74</a> maka matilah semua kecemburuan.
+<a href="#l75" class="line" id="l75">     75</a> itu bangkainya mengambang pelan, bau.
+<a href="#l76" class="line" id="l76">     76</a> 
+<a href="#l77" class="line" id="l77">     77</a> lalu dengung serangga terdengar.
+<a href="#l78" class="line" id="l78">     78</a> Beelzebub datang kelaparan.
+<a href="#l79" class="line" id="l79">     79</a> jasad itu dilahap kalap, rakus bak tikus politikus.
+<a href="#l80" class="line" id="l80">     80</a> penuh keyakinan, berseru ku.
+<a href="#l81" class="line" id="l81">     81</a> lalat terkejut, terbang memburai ketakutan.
+<a href="#l82" class="line" id="l82">     82</a> 
+<a href="#l83" class="line" id="l83">     83</a> kulanjutkan dengan menyelam, menuju palung terdalam.
+<a href="#l84" class="line" id="l84">     84</a> Memasuki goa, penuh gairah aura merah.
+<a href="#l85" class="line" id="l85">     85</a> Asmodeus melenguh, sibuk entoti jiwa-jiwa pasrah.
+<a href="#l86" class="line" id="l86">     86</a> dengan kesadaran penuh, ku kebiri binatang itu. biar jera.
+<a href="#l87" class="line" id="l87">     87</a> 
+<a href="#l88" class="line" id="l88">     88</a> menyusuri goa, berujung singgasana.
+<a href="#l89" class="line" id="l89">     89</a> duduk di atas takhta, Mammon si hedon.
+<a href="#l90" class="line" id="l90">     90</a> tak henti merenggut harta dari orang sengsara.
+<a href="#l91" class="line" id="l91">     91</a> itu harta kuambil, kutebar ke para papa.
+<a href="#l92" class="line" id="l92">     92</a> maka iblis itu menciut, tak punya apa apa.
+<a href="#l93" class="line" id="l93">     93</a> 
+<a href="#l94" class="line" id="l94">     94</a> terdengar deru amarah
+<a href="#l95" class="line" id="l95">     95</a> dari Amon yang kehilangan saudaranya.
+<a href="#l96" class="line" id="l96">     96</a> kuhindari semua desing panah,
+<a href="#l97" class="line" id="l97">     97</a> lalu kuurapi wajah bajingan itu,
+<a href="#l98" class="line" id="l98">     98</a> yang langsung mati terbakar.
+<a href="#l99" class="line" id="l99">     99</a> 
+<a href="#l100" class="line" id="l100">    100</a> gerbang utama terlihat jelas,
+<a href="#l101" class="line" id="l101">    101</a> dijaga penjaga malas.
+<a href="#l102" class="line" id="l102">    102</a> Belphegor meringkuk di dalam tempurungnya,
+<a href="#l103" class="line" id="l103">    103</a> tidak peduli akan tugasnya.
+<a href="#l104" class="line" id="l104">    104</a> kunyalakan api kepercayaan,
+<a href="#l105" class="line" id="l105">    105</a> kusulut karapaks itu.
+<a href="#l106" class="line" id="l106">    106</a> maka ia terjaga, terbirit-birit mencari pertolongan.
+<a href="#l107" class="line" id="l107">    107</a> 
+<a href="#l108" class="line" id="l108">    108</a> di dalam ruangan besar, bercahaya.
+<a href="#l109" class="line" id="l109">    109</a> Azazel yang penuh talenta,
+<a href="#l110" class="line" id="l110">    110</a> tapi hubris menguasainya.
+<a href="#l111" class="line" id="l111">    111</a> kuajak ia untuk sadar, menjadi pribadi berguna.
+<a href="#l112" class="line" id="l112">    112</a> sial, pertarungan tak terelakkan.
+<a href="#l113" class="line" id="l113">    113</a> ia melawan dengan penuh kuasa.
+<a href="#l114" class="line" id="l114">    114</a> &quot;aku setara, bahkan lebih berkuasa!&quot;.
+<a href="#l115" class="line" id="l115">    115</a> kulempar biji sesawi, menghantam jiwanya.
+<a href="#l116" class="line" id="l116">    116</a> 
+<a href="#l117" class="line" id="l117">    117</a> sirna
+<a href="#l118" class="line" id="l118">    118</a> maka terbitlah Kebajikan.|j},
+<a href="#l119" class="line" id="l119">    119</a>   },
+<a href="#l120" class="line" id="l120">    120</a>   {
+<a href="#l121" class="line" id="l121">    121</a>     title: &quot;Secret Tunnel&quot;,
+<a href="#l122" class="line" id="l122">    122</a>     script: {j|Two lovers, forbidden from one another
+<a href="#l123" class="line" id="l123">    123</a> A war divides their people
+<a href="#l124" class="line" id="l124">    124</a> And a mountain divides them apart
+<a href="#l125" class="line" id="l125">    125</a> Built a path to be together
+<a href="#l126" class="line" id="l126">    126</a> Secret tunnel
+<a href="#l127" class="line" id="l127">    127</a> Through the mountains
+<a href="#l128" class="line" id="l128">    128</a> And die...
+<a href="#l129" class="line" id="l129">    129</a> 
+<a href="#l130" class="line" id="l130">    130</a> ~ excerpt from Avatar - The Legends of Aang|j},
+<a href="#l131" class="line" id="l131">    131</a>   },
+<a href="#l132" class="line" id="l132">    132</a>   {
+<a href="#l133" class="line" id="l133">    133</a>     title: &quot;Tragedi di Senin Pagi&quot;,
+<a href="#l134" class="line" id="l134">    134</a>     script: {j|Mimpi apa aku semalam?
+<a href="#l135" class="line" id="l135">    135</a> Menjadi saksi tragedi nan kelam
+<a href="#l136" class="line" id="l136">    136</a> Stasiun Manggarai, pada Senin pagi
+<a href="#l137" class="line" id="l137">    137</a> Seakan semesta mengingatkanku
+<a href="#l138" class="line" id="l138">    138</a> akan nasehat yang sering dilontarkan
+<a href="#l139" class="line" id="l139">    139</a>            ibuku
+<a href="#l140" class="line" id="l140">    140</a> -Kasih rapi sepatu dan tasmu!
+<a href="#l141" class="line" id="l141">    141</a> -Jangan boleh hewan kecil masuk!
+<a href="#l142" class="line" id="l142">    142</a> Dari jendela kereta lihat ku
+<a href="#l143" class="line" id="l143">    143</a> Seorang ibu berdiri tenang
+<a href="#l144" class="line" id="l144">    144</a>            di peron stasiun
+<a href="#l145" class="line" id="l145">    145</a> Merogoh tas di depan dadanya
+<a href="#l146" class="line" id="l146">    146</a> Tiba-tiba
+<a href="#l147" class="line" id="l147">    147</a> Terlunjak kaget
+<a href="#l148" class="line" id="l148">    148</a> Itu kelabang merembet
+<a href="#l149" class="line" id="l149">    149</a>            dari dalam tas
+<a href="#l150" class="line" id="l150">    150</a> Ia panik terjun ke rel
+<a href="#l151" class="line" id="l151">    151</a> Kereta tujuan Bogor datang menghujam
+<a href="#l152" class="line" id="l152">    152</a> Mimpi apa aku semalam?
+<a href="#l153" class="line" id="l153">    153</a> 
+<a href="#l154" class="line" id="l154">    154</a> -entah dapet ide darimana, ditulis di atas Commuter Line tujuan Cikini-|j},
+<a href="#l155" class="line" id="l155">    155</a>   },
+<a href="#l156" class="line" id="l156">    156</a>   {
+<a href="#l157" class="line" id="l157">    157</a>     title: &quot;Sin(u)s&quot;,
+<a href="#l158" class="line" id="l158">    158</a>     script: {j|the greater being gave human free will.
+<a href="#l159" class="line" id="l159">    159</a> good acts will please others. for sure.
+<a href="#l160" class="line" id="l160">    160</a> will wrongdoings lead us to sin?
+<a href="#l161" class="line" id="l161">    161</a> or free us from it?
+<a href="#l162" class="line" id="l162">    162</a> I don’t know.
+<a href="#l163" class="line" id="l163">    163</a> to me, it’s not our capacity to measure sins.
+<a href="#l164" class="line" id="l164">    164</a> but wrongdoings can cause harm to other humans. for sure.
+<a href="#l165" class="line" id="l165">    165</a> 
+<a href="#l166" class="line" id="l166">    166</a> ~ Teror Bom di Gereja di Surabaya|j},
+<a href="#l167" class="line" id="l167">    167</a>   },
+<a href="#l168" class="line" id="l168">    168</a>   {
+<a href="#l169" class="line" id="l169">    169</a>     title: &quot;You&quot;,
+<a href="#l170" class="line" id="l170">    170</a>     script: {j|I searched behind the clouds,
+<a href="#l171" class="line" id="l171">    171</a> I bought all flights to Manado,
+<a href="#l172" class="line" id="l172">    172</a> I listened to Efek Rumah Kaca,
+<a href="#l173" class="line" id="l173">    173</a> I asked the pedestrians,
+<a href="#l174" class="line" id="l174">    174</a> I dove the Mariana trench,
+<a href="#l175" class="line" id="l175">    175</a> I opened the trash bins,
+<a href="#l176" class="line" id="l176">    176</a> I cleaned all the dust,
+<a href="#l177" class="line" id="l177">    177</a> I beat the Pacman,
+<a href="#l178" class="line" id="l178">    178</a> I swam through Bermuda triangle,
+<a href="#l179" class="line" id="l179">    179</a> I read erotic books,
+<a href="#l180" class="line" id="l180">    180</a> I grew my hair till it touched ground,
+<a href="#l181" class="line" id="l181">    181</a> I attended all ceremonies,
+<a href="#l182" class="line" id="l182">    182</a> I preached to the flies,
+<a href="#l183" class="line" id="l183">    183</a> I lost the race,
+<a href="#l184" class="line" id="l184">    184</a> I hiked the pyramids,
+<a href="#l185" class="line" id="l185">    185</a> I built Babel tower,
+<a href="#l186" class="line" id="l186">    186</a> I ate mushrooms,
+<a href="#l187" class="line" id="l187">    187</a> I rode my car to Madagascar,
+<a href="#l188" class="line" id="l188">    188</a> I made our own language,
+<a href="#l189" class="line" id="l189">    189</a> I drew maps,
+<a href="#l190" class="line" id="l190">    190</a> I studied Russian culture,
+<a href="#l191" class="line" id="l191">    191</a> I hit that sass&#39;,
+<a href="#l192" class="line" id="l192">    192</a> I licked tabasco,
+<a href="#l193" class="line" id="l193">    193</a> I joked about ice cream,
+<a href="#l194" class="line" id="l194">    194</a> I woke Snorlax up,
+<a href="#l195" class="line" id="l195">    195</a> I got sober,
+<a href="#l196" class="line" id="l196">    196</a> I won a bet,
+<a href="#l197" class="line" id="l197">    197</a> I burned the sky,
+<a href="#l198" class="line" id="l198">    198</a> I drank all the martinis,
+<a href="#l199" class="line" id="l199">    199</a> I wandered half the universe looking for peace.
+<a href="#l200" class="line" id="l200">    200</a> 
+<a href="#l201" class="line" id="l201">    201</a> Turns out the peace is in You all this time.|j},
+<a href="#l202" class="line" id="l202">    202</a>   },
+<a href="#l203" class="line" id="l203">    203</a>   {
+<a href="#l204" class="line" id="l204">    204</a>     title: &quot;Demi Masa&quot;,
+<a href="#l205" class="line" id="l205">    205</a>     script: {j|QS. Al-Ashr[103]: 1-3
+<a href="#l206" class="line" id="l206">    206</a> 
+<a href="#l207" class="line" id="l207">    207</a> Demi masa
+<a href="#l208" class="line" id="l208">    208</a> Sungguh kita tersesat
+<a href="#l209" class="line" id="l209">    209</a> Membiaskan yang haram
+<a href="#l210" class="line" id="l210">    210</a> Karena kita manusia
+<a href="#l211" class="line" id="l211">    211</a> 
+<a href="#l212" class="line" id="l212">    212</a> Demi masa
+<a href="#l213" class="line" id="l213">    213</a> Sungguh kita terhisap
+<a href="#l214" class="line" id="l214">    214</a> Ke dalam lubang hitam
+<a href="#l215" class="line" id="l215">    215</a> Karena kita manusia
+<a href="#l216" class="line" id="l216">    216</a> 
+<a href="#l217" class="line" id="l217">    217</a> Pada saatnya nanti
+<a href="#l218" class="line" id="l218">    218</a> Tak bisa bersembunyi
+<a href="#l219" class="line" id="l219">    219</a> Kitapun menyesali, kita merugi
+<a href="#l220" class="line" id="l220">    220</a> 
+<a href="#l221" class="line" id="l221">    221</a> Pada siapa mohon perlindungan
+<a href="#l222" class="line" id="l222">    222</a> Debu-debu berterbangan
+<a href="#l223" class="line" id="l223">    223</a> Pada siapa mohon perlindungan
+<a href="#l224" class="line" id="l224">    224</a> Debu-debu berterbangan
+<a href="#l225" class="line" id="l225">    225</a> 
+<a href="#l226" class="line" id="l226">    226</a> 
+<a href="#l227" class="line" id="l227">    227</a> ~ Efek Rumah Kaca - Debu Debu Beterbangan|j},
+<a href="#l228" class="line" id="l228">    228</a>   },
+<a href="#l229" class="line" id="l229">    229</a>   {
+<a href="#l230" class="line" id="l230">    230</a>     title: &quot;Tidur&quot;,
+<a href="#l231" class="line" id="l231">    231</a>     script: {j|memang tidur itu perlu.
+<a href="#l232" class="line" id="l232">    232</a> ada teman yang paling khawatir akan jam tidurku.
+<a href="#l233" class="line" id="l233">    233</a> di samping temanku kebanyakan yang berharapku terjaga bersama untuk bergaul,
+<a href="#l234" class="line" id="l234">    234</a> atau komputer dan buku yang selalu berharap aku menemani mereka belajar atau bekerja.
+<a href="#l235" class="line" id="l235">    235</a> sampai saat itu, satu jam lalu
+<a href="#l236" class="line" id="l236">    236</a> pulang dari kantor, kupaksakan berkendara.
+<a href="#l237" class="line" id="l237">    237</a> hari ini memang belum kurasakan bantal kasur, apalagi meja kantor di pipiku.
+<a href="#l238" class="line" id="l238">    238</a> perjalanan pulang penuh teriakan nyanyian berbagai upaya agar tetap terjaga.
+<a href="#l239" class="line" id="l239">    239</a> dua simpang jalan lagi, satu kilometer lagi sampai rumahku.
+<a href="#l240" class="line" id="l240">    240</a> namun kesadaranku terputus di atas jok motor.
+<a href="#l241" class="line" id="l241">    241</a> setang tanpa sadar doyong ke timur, kecepatan enampuluh.
+<a href="#l242" class="line" id="l242">    242</a> saat terjaga terkejut, aku sudah di tepi kanan jalan, roda motor masih berputar kencang.
+<a href="#l243" class="line" id="l243">    243</a> kukendalikan kemudi agar lurus jalannya.
+<a href="#l244" class="line" id="l244">    244</a> tepat ketika truk enam roda meraung melewati sisi kiriku, kencang.
+<a href="#l245" class="line" id="l245">    245</a> sepanjang tiga puluh delapan kilometer aku aman, namun saat sampai area rumah, seperti diberi ilham.
+<a href="#l246" class="line" id="l246">    246</a> tidurlah yang cukup.
+<a href="#l247" class="line" id="l247">    247</a> jangan sampai tulang remuk karena kau abaikan tidur.
+<a href="#l248" class="line" id="l248">    248</a> maka sampai rumah, cuci muka sikat gigi.
+<a href="#l249" class="line" id="l249">    249</a> masuk ke kamar orang tua, menyelinap di kasur mereka di antara sepasang yang merawatku paling tulus.
+<a href="#l250" class="line" id="l250">    250</a> aku tidur di antara orang yang paling menyayangiku.
+<a href="#l251" class="line" id="l251">    251</a> bukan karena mumpung masih ada kesempatan.
+<a href="#l252" class="line" id="l252">    252</a> tapi karena akupun sayang mereka.
+<a href="#l253" class="line" id="l253">    253</a> terima kasih.
+<a href="#l254" class="line" id="l254">    254</a> semesta, Tuhan, kesadaranku,
+<a href="#l255" class="line" id="l255">    255</a> aku hidup.|j},
+<a href="#l256" class="line" id="l256">    256</a>   },
+<a href="#l257" class="line" id="l257">    257</a>   {
+<a href="#l258" class="line" id="l258">    258</a>     title: &quot;Rest Area 57&quot;,
+<a href="#l259" class="line" id="l259">    259</a>     script: {j|Rest area 57
+<a href="#l260" class="line" id="l260">    260</a> Lengkap dan terpadu
+<a href="#l261" class="line" id="l261">    261</a> Rest area 57
+<a href="#l262" class="line" id="l262">    262</a> beri semangat baru
+<a href="#l263" class="line" id="l263">    263</a> 
+<a href="#l264" class="line" id="l264">    264</a> ~ Perjalanan ke Bandung|j},
+<a href="#l265" class="line" id="l265">    265</a>   },
+<a href="#l266" class="line" id="l266">    266</a>   {
+<a href="#l267" class="line" id="l267">    267</a>     title: &quot;Ogni Pensiero Vola&quot;,
+<a href="#l268" class="line" id="l268">    268</a>     script: {j|Dan semua bisa terangkai,
+<a href="#l269" class="line" id="l269">    269</a> menyusun sela yang terlupa.
+<a href="#l270" class="line" id="l270">    270</a> Terurai habis tak tersentuh,
+<a href="#l271" class="line" id="l271">    271</a> hanya tersisa arah.
+<a href="#l272" class="line" id="l272">    272</a> Bawa dan hilanglah, ke dalam zamanmu.
+<a href="#l273" class="line" id="l273">    273</a> Hilanglah.
+<a href="#l274" class="line" id="l274">    274</a> Kita bisa menghitung ke bawah,
+<a href="#l275" class="line" id="l275">    275</a> simpan dalam tulang jeran malam.
+<a href="#l276" class="line" id="l276">    276</a> Semua yang kau rasakan,
+<a href="#l277" class="line" id="l277">    277</a> hanyalah rasa lelah.
+<a href="#l278" class="line" id="l278">    278</a> Merasa dan meletih,
+<a href="#l279" class="line" id="l279">    279</a> harap meleta harap mengerti.
+<a href="#l280" class="line" id="l280">    280</a> 
+<a href="#l281" class="line" id="l281">    281</a> ~ Zaman, zaman - The Trees and The Wild|j},
+<a href="#l282" class="line" id="l282">    282</a>   },
+<a href="#l283" class="line" id="l283">    283</a>   {
+<a href="#l284" class="line" id="l284">    284</a>     title: &quot;Void&quot;,
+<a href="#l285" class="line" id="l285">    285</a>     script: {j|There is no light
+<a href="#l286" class="line" id="l286">    286</a> for those who do not know darkness
+<a href="#l287" class="line" id="l287">    287</a> live on and endure the shadows.|j},
+<a href="#l288" class="line" id="l288">    288</a>   },
+<a href="#l289" class="line" id="l289">    289</a>   {
+<a href="#l290" class="line" id="l290">    290</a>     title: &quot;Baik mana?&quot;,
+<a href="#l291" class="line" id="l291">    291</a>     script: {j|Perang fisik,
+<a href="#l292" class="line" id="l292">    292</a>      yang kalah jadi martir
+<a href="#l293" class="line" id="l293">    293</a>      dielukan karena semangat menggebu
+<a href="#l294" class="line" id="l294">    294</a>      dan pengorbanan
+<a href="#l295" class="line" id="l295">    295</a> Perang licik,
+<a href="#l296" class="line" id="l296">    296</a>      yang kalah dibui, tersingkir
+<a href="#l297" class="line" id="l297">    297</a>      pilar penopang pergi membiarkan
+<a href="#l298" class="line" id="l298">    298</a>      umat membuyar keliaran
+<a href="#l299" class="line" id="l299">    299</a> Entah
+<a href="#l300" class="line" id="l300">    300</a> Kita= takut, pengecut
+<a href="#l301" class="line" id="l301">    301</a>      ancaman buat nyali kita ciut
+<a href="#l302" class="line" id="l302">    302</a>      segaris luka buat kita semaput
+<a href="#l303" class="line" id="l303">    303</a> 
+<a href="#l304" class="line" id="l304">    304</a> ~ Tragedi Bom Semanggi|j},
+<a href="#l305" class="line" id="l305">    305</a>   },
+<a href="#l306" class="line" id="l306">    306</a>   {
+<a href="#l307" class="line" id="l307">    307</a>     title: &quot;Parco de Moistri&quot;,
+<a href="#l308" class="line" id="l308">    308</a>     script: {j|Lasciate ogne speranza,
+<a href="#l309" class="line" id="l309">    309</a> voi ch’intrate.
+<a href="#l310" class="line" id="l310">    310</a> All hope abandon,
+<a href="#l311" class="line" id="l311">    311</a> ye who enter here
+<a href="#l312" class="line" id="l312">    312</a> 
+<a href="#l313" class="line" id="l313">    313</a> ~ Divine Comedy - Dante Alighieri|j},
+<a href="#l314" class="line" id="l314">    314</a>   },
+<a href="#l315" class="line" id="l315">    315</a>   {
+<a href="#l316" class="line" id="l316">    316</a>     title: &quot;Untuk Perempuan yang ... [WIP?]&quot;,
+<a href="#l317" class="line" id="l317">    317</a>     script: {j|Pada bajumu, klambi
+<a href="#l318" class="line" id="l318">    318</a> Lekuk tubuhmu, boddhi
+<a href="#l319" class="line" id="l319">    319</a> Warna ujarmu, happy
+<a href="#l320" class="line" id="l320">    320</a> Inang pijakmu, bhumi
+<a href="#l321" class="line" id="l321">    321</a> Hembus nafsumu, suci
+<a href="#l322" class="line" id="l322">    322</a> Derau gerakmu, menari
+<a href="#l323" class="line" id="l323">    323</a> Sikap tegasmu, murni
+<a href="#l324" class="line" id="l324">    324</a> Betapa aku, lucky
+<a href="#l325" class="line" id="l325">    325</a> Kusebut namamu,
+<a href="#l326" class="line" id="l326">    326</a> ...|j},
+<a href="#l327" class="line" id="l327">    327</a>   },
+<a href="#l328" class="line" id="l328">    328</a>   {
+<a href="#l329" class="line" id="l329">    329</a>     title: &quot;Thoughts (1)&quot;,
+<a href="#l330" class="line" id="l330">    330</a>     script: {j|You don’t buy luxury.
+<a href="#l331" class="line" id="l331">    331</a> You obtain it by your own grateful way of thinking.|j},
+<a href="#l332" class="line" id="l332">    332</a>   },
+<a href="#l333" class="line" id="l333">    333</a>   {
+<a href="#l334" class="line" id="l334">    334</a>     title: &quot;Kamar Gelap&quot;,
+<a href="#l335" class="line" id="l335">    335</a>     script: {j|Bersender dinding, lampu mati,
+<a href="#l336" class="line" id="l336">    336</a> Kamar gelap berkata begini:
+<a href="#l337" class="line" id="l337">    337</a> 
+<a href="#l338" class="line" id="l338">    338</a> Kamu protes soal pengunduran jam konser,
+<a href="#l339" class="line" id="l339">    339</a> Saat kalian hadir rapat terlambat.
+<a href="#l340" class="line" id="l340">    340</a> 
+<a href="#l341" class="line" id="l341">    341</a> Kamu melabrak junior yang tak hormat,
+<a href="#l342" class="line" id="l342">    342</a> Ingat ulang caramu bicara pada orangtua.
+<a href="#l343" class="line" id="l343">    343</a> 
+<a href="#l344" class="line" id="l344">    344</a> Kamu bilang asap rokok mengganggu,
+<a href="#l345" class="line" id="l345">    345</a> Bunyi makan mengecapmu lebih mengganggu.
+<a href="#l346" class="line" id="l346">    346</a> 
+<a href="#l347" class="line" id="l347">    347</a> Kamu bersikeras duduk nyaman,
+<a href="#l348" class="line" id="l348">    348</a> Padahal nenek itu lebih membutuhkan.
+<a href="#l349" class="line" id="l349">    349</a> 
+<a href="#l350" class="line" id="l350">    350</a> Kamu menghapus post instagram,
+<a href="#l351" class="line" id="l351">    351</a> Tapi mencibir orang yang bersikap sopan.
+<a href="#l352" class="line" id="l352">    352</a> 
+<a href="#l353" class="line" id="l353">    353</a> Kamu menggugat kecurangan,
+<a href="#l354" class="line" id="l354">    354</a> Katakanlah, apakah mencontek bukan kecurangan?
+<a href="#l355" class="line" id="l355">    355</a> 
+<a href="#l356" class="line" id="l356">    356</a> Kamu bilang, aku hanya menyindir, tanpa solusi,
+<a href="#l357" class="line" id="l357">    357</a> Ya, memang, aku sindir diriku.|j},
+<a href="#l358" class="line" id="l358">    358</a>   },
+<a href="#l359" class="line" id="l359">    359</a>   {
+<a href="#l360" class="line" id="l360">    360</a>     title: &quot;Tunguska&quot;,
+<a href="#l361" class="line" id="l361">    361</a>     script: {j|17 April 2451, Yogyakarta. Hari bersejarah yang membanggakan bangsa Indonesia! Trio Jenius ilmuwan muda Phoebe Danuvich Kulistyo, Kindrad Bumi, dan Rinaldo Stevan-Mulia berhasil menciptakan mesin waktu, atau lebih tepatnya, memberitakan ciptaan mereka ke publik sebelum dibungkam oleh badan penjaga perdamaian.
+<a href="#l362" class="line" id="l362">    362</a> 
+<a href="#l363" class="line" id="l363">    363</a> 12 Juni 2451, -------. Perencanaan dan pengamanan matang sudah siap, demonstrasi mesin waktu pada khalayak umum oleh trio jenius akan diadakan di-
+<a href="#l364" class="line" id="l364">    364</a> 
+<a href="#l365" class="line" id="l365">    365</a> 30 Juni 2451, Cirebon. Tepian pesisir, kaca anti-nuklir 50x30m, 1300 elit pengaman, tiket masuk Rp 30.000.000 per satuan. Tiga ribu pemirsa di amphi-theatre dan 4,2 Miliar dari layar hologram di seluruh dunia.
+<a href="#l366" class="line" id="l366">    366</a> Kamera lintas-waktu siap, Danu-Kindar-Aldo berjalan tembus portal biru.
+<a href="#l367" class="line" id="l367">    367</a> 
+<a href="#l368" class="line" id="l368">    368</a> ????????, ekstraDimensi. Steker penanda menunjukkan -543 tahun, sesuai pungutan suara masal di era mereka, trio jenius berjalan lintasi ratusan tahun dan 7500km menuju-
+<a href="#l369" class="line" id="l369">    369</a> 
+<a href="#l370" class="line" id="l370">    370</a> 30 Juni 1908, Tunguska-Vanavara. Matahari sudah terbit 3 jam, portal jingga terbuka ~140m di atas pepinusan. Kindar mengabadikan lanskap Siberia dengan sel-kamera untuk dokumentasi pribadi. Aldo telah merangkai kamera lintas-waktu, untuk memuaskan hasrat sponsor dan miliaran pemirsa di kampung waktu mereka.
+<a href="#l371" class="line" id="l371">    371</a> Entah konspirasi pembungkaman yang berhasil atau kesalahan kalkulasi, ketika Danu mengaktifkan kamera lintas-waktu, nyala biru memaksa masuk dari portal jingga.
+<a href="#l372" class="line" id="l372">    372</a> Itu biru hantam jingga, leleh Danu-Kindar-Aldo seketika menyublim sirna. Lantak membuat 2150km persegi pinus merata. Satu orang slav malang terkena sontak suara yang melempar tubuhnya ke batang pinus, jasadnya remuk, leta.
+<a href="#l373" class="line" id="l373">    373</a> 
+<a href="#l374" class="line" id="l374">    374</a> +543tahun -2507detik, Cirebon. Layar raksasa sempat menampilkan lanskap Tunguska-Vanvara, Siberia. Pemirsa pongah terpesona, kerabat trio jenius menangis bangga.
+<a href="#l375" class="line" id="l375">    375</a> Awalnya pelan tak disadari, lalu portal biru mendadak tilap, ditelan dirinya sendiri. Tampilan layar bergetar tremor, lalu biru, lalu jingga, lalu sirna. Lalu-|j},
+<a href="#l376" class="line" id="l376">    376</a>   },
+<a href="#l377" class="line" id="l377">    377</a> |];
+</pre>
+</div>
+</body>
+</html>

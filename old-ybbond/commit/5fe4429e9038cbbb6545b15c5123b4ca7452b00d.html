@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(core): router and 2 placeholder pages - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/5fe4429e9038cbbb6545b15c5123b4ca7452b00d.html">5fe4429e9038cbbb6545b15c5123b4ca7452b00d</a>
+<b>parent</b> <a href="../commit/9f5d0ecaf38d5a36fd8f3e214713170017fead5e.html">9f5d0ecaf38d5a36fd8f3e214713170017fead5e</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon,  9 Mar 2020 20:29:57 +0700
+
+feature(core): router and 2 placeholder pages
+
+<b>Diffstat:</b>
+<table><tr><td class="A">A</td><td><a href="#h0">flow-typed/npm/react-router_v5.x.x.js</a></td><td> | </td><td class="num">156</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">package.json</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/App.js</a></td><td> | </td><td class="num">43</td><td><span class="i">+++++++++++++++</span><span class="d">----------------------------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">src/Pages/CVPage.js</a></td><td> | </td><td class="num">49</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h4">src/Pages/NotFoundPage.js</a></td><td> | </td><td class="num">21</td><td><span class="i">+++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h5">src/Pages/UsesPage.js</a></td><td> | </td><td class="num">43</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">src/index.js</a></td><td> | </td><td class="num">10</td><td><span class="i">+++++++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h7">webpack.config.js</a></td><td> | </td><td class="num">31</td><td><span class="i">++++++++++++++++</span><span class="d">---------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h8">yarn.lock</a></td><td> | </td><td class="num">15</td><td><span class="i">+</span><span class="d">--------------</span></td></tr>
+</table></pre></div><p>9 files changed, 311 insertions(<span id="plus">+</span>), 59 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/flow-typed/npm/react-router_v5.x.x.js.html">flow-typed/npm/react-router_v5.x.x.js</a> b/<a href="../file/flow-typed/npm/react-router_v5.x.x.js.html">flow-typed/npm/react-router_v5.x.x.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -0,0 +1,156 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+// flow-typed signature: 38d16d2099bb076f9f375a333a268246
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+// flow-typed version: 45d63d67fa/react-router_v5.x.x/flow_&gt;=v0.104.x
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+declare module &quot;react-router&quot; {
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  // NOTE: many of these are re-exported by react-router-dom and
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+  // react-router-native, so when making changes, please be sure to update those
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+  // as well.
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+  declare export type Location = {
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+    pathname: string,
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+    search: string,
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+    hash: string,
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+    ...
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+  };
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+  declare export type LocationShape = {
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+    pathname?: string,
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+    search?: string,
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+    hash?: string,
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+    ...
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+  };
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+  declare export type HistoryAction = &quot;PUSH&quot; | &quot;REPLACE&quot; | &quot;POP&quot;;
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+  declare export type RouterHistory = {
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+    length: number,
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+    location: Location,
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+    action: HistoryAction,
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+    listen(
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+      callback: (location: Location, action: HistoryAction) =&gt; void
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+    ): () =&gt; void,
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+    push(path: string | LocationShape, state?: any): void,
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+    replace(path: string | LocationShape, state?: any): void,
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+    go(n: number): void,
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+    goBack(): void,
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+    goForward(): void,
+</a><a href="#h0-0-35" id="h0-0-35" class="i">+    canGo?: (n: number) =&gt; boolean,
+</a><a href="#h0-0-36" id="h0-0-36" class="i">+    block(
+</a><a href="#h0-0-37" id="h0-0-37" class="i">+      callback: string | (location: Location, action: HistoryAction) =&gt; ?string
+</a><a href="#h0-0-38" id="h0-0-38" class="i">+    ): () =&gt; void,
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+    ...
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+  };
+</a><a href="#h0-0-41" id="h0-0-41" class="i">+
+</a><a href="#h0-0-42" id="h0-0-42" class="i">+  declare export type Match = {
+</a><a href="#h0-0-43" id="h0-0-43" class="i">+    params: { [key: string]: ?string, ... },
+</a><a href="#h0-0-44" id="h0-0-44" class="i">+    isExact: boolean,
+</a><a href="#h0-0-45" id="h0-0-45" class="i">+    path: string,
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+    url: string,
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+    ...
+</a><a href="#h0-0-48" id="h0-0-48" class="i">+  };
+</a><a href="#h0-0-49" id="h0-0-49" class="i">+
+</a><a href="#h0-0-50" id="h0-0-50" class="i">+  declare export type ContextRouter = {|
+</a><a href="#h0-0-51" id="h0-0-51" class="i">+    history: RouterHistory,
+</a><a href="#h0-0-52" id="h0-0-52" class="i">+    location: Location,
+</a><a href="#h0-0-53" id="h0-0-53" class="i">+    match: Match,
+</a><a href="#h0-0-54" id="h0-0-54" class="i">+    staticContext?: StaticRouterContext
+</a><a href="#h0-0-55" id="h0-0-55" class="i">+  |};
+</a><a href="#h0-0-56" id="h0-0-56" class="i">+
+</a><a href="#h0-0-57" id="h0-0-57" class="i">+  declare export type GetUserConfirmation = (
+</a><a href="#h0-0-58" id="h0-0-58" class="i">+    message: string,
+</a><a href="#h0-0-59" id="h0-0-59" class="i">+    callback: (confirmed: boolean) =&gt; void
+</a><a href="#h0-0-60" id="h0-0-60" class="i">+  ) =&gt; void;
+</a><a href="#h0-0-61" id="h0-0-61" class="i">+
+</a><a href="#h0-0-62" id="h0-0-62" class="i">+  declare type StaticRouterContext = { url?: string, ... };
+</a><a href="#h0-0-63" id="h0-0-63" class="i">+
+</a><a href="#h0-0-64" id="h0-0-64" class="i">+  declare export class StaticRouter extends React$Component&lt;{
+</a><a href="#h0-0-65" id="h0-0-65" class="i">+    basename?: string,
+</a><a href="#h0-0-66" id="h0-0-66" class="i">+    location?: string | Location,
+</a><a href="#h0-0-67" id="h0-0-67" class="i">+    context: StaticRouterContext,
+</a><a href="#h0-0-68" id="h0-0-68" class="i">+    children?: React$Node,
+</a><a href="#h0-0-69" id="h0-0-69" class="i">+    ...
+</a><a href="#h0-0-70" id="h0-0-70" class="i">+  }&gt; {}
+</a><a href="#h0-0-71" id="h0-0-71" class="i">+
+</a><a href="#h0-0-72" id="h0-0-72" class="i">+  declare export class MemoryRouter extends React$Component&lt;{
+</a><a href="#h0-0-73" id="h0-0-73" class="i">+    initialEntries?: Array&lt;LocationShape | string&gt;,
+</a><a href="#h0-0-74" id="h0-0-74" class="i">+    initialIndex?: number,
+</a><a href="#h0-0-75" id="h0-0-75" class="i">+    getUserConfirmation?: GetUserConfirmation,
+</a><a href="#h0-0-76" id="h0-0-76" class="i">+    keyLength?: number,
+</a><a href="#h0-0-77" id="h0-0-77" class="i">+    children?: React$Node,
+</a><a href="#h0-0-78" id="h0-0-78" class="i">+    ...
+</a><a href="#h0-0-79" id="h0-0-79" class="i">+  }&gt; {}
+</a><a href="#h0-0-80" id="h0-0-80" class="i">+
+</a><a href="#h0-0-81" id="h0-0-81" class="i">+  declare export class Router extends React$Component&lt;{
+</a><a href="#h0-0-82" id="h0-0-82" class="i">+    history: RouterHistory,
+</a><a href="#h0-0-83" id="h0-0-83" class="i">+    children?: React$Node,
+</a><a href="#h0-0-84" id="h0-0-84" class="i">+    ...
+</a><a href="#h0-0-85" id="h0-0-85" class="i">+  }&gt; {}
+</a><a href="#h0-0-86" id="h0-0-86" class="i">+
+</a><a href="#h0-0-87" id="h0-0-87" class="i">+  declare export class Prompt extends React$Component&lt;{
+</a><a href="#h0-0-88" id="h0-0-88" class="i">+    message: string | ((location: Location) =&gt; string | true),
+</a><a href="#h0-0-89" id="h0-0-89" class="i">+    when?: boolean,
+</a><a href="#h0-0-90" id="h0-0-90" class="i">+    ...
+</a><a href="#h0-0-91" id="h0-0-91" class="i">+  }&gt; {}
+</a><a href="#h0-0-92" id="h0-0-92" class="i">+
+</a><a href="#h0-0-93" id="h0-0-93" class="i">+  declare export class Redirect extends React$Component&lt;{|
+</a><a href="#h0-0-94" id="h0-0-94" class="i">+    to: string | LocationShape,
+</a><a href="#h0-0-95" id="h0-0-95" class="i">+    push?: boolean,
+</a><a href="#h0-0-96" id="h0-0-96" class="i">+    from?: string,
+</a><a href="#h0-0-97" id="h0-0-97" class="i">+    exact?: boolean,
+</a><a href="#h0-0-98" id="h0-0-98" class="i">+    strict?: boolean
+</a><a href="#h0-0-99" id="h0-0-99" class="i">+  |}&gt; {}
+</a><a href="#h0-0-100" id="h0-0-100" class="i">+
+</a><a href="#h0-0-101" id="h0-0-101" class="i">+
+</a><a href="#h0-0-102" id="h0-0-102" class="i">+  declare export class Route extends React$Component&lt;{|
+</a><a href="#h0-0-103" id="h0-0-103" class="i">+    component?: React$ComponentType&lt;*&gt;,
+</a><a href="#h0-0-104" id="h0-0-104" class="i">+    render?: (router: ContextRouter) =&gt; React$Node,
+</a><a href="#h0-0-105" id="h0-0-105" class="i">+    children?: React$ComponentType&lt;ContextRouter&gt; | React$Node,
+</a><a href="#h0-0-106" id="h0-0-106" class="i">+    path?: string | Array&lt;string&gt;,
+</a><a href="#h0-0-107" id="h0-0-107" class="i">+    exact?: boolean,
+</a><a href="#h0-0-108" id="h0-0-108" class="i">+    strict?: boolean,
+</a><a href="#h0-0-109" id="h0-0-109" class="i">+    location?: LocationShape,
+</a><a href="#h0-0-110" id="h0-0-110" class="i">+    sensitive?: boolean
+</a><a href="#h0-0-111" id="h0-0-111" class="i">+  |}&gt; {}
+</a><a href="#h0-0-112" id="h0-0-112" class="i">+
+</a><a href="#h0-0-113" id="h0-0-113" class="i">+  declare export class Switch extends React$Component&lt;{|
+</a><a href="#h0-0-114" id="h0-0-114" class="i">+    children?: React$Node,
+</a><a href="#h0-0-115" id="h0-0-115" class="i">+    location?: Location
+</a><a href="#h0-0-116" id="h0-0-116" class="i">+  |}&gt; {}
+</a><a href="#h0-0-117" id="h0-0-117" class="i">+
+</a><a href="#h0-0-118" id="h0-0-118" class="i">+  declare export function withRouter&lt;P&gt;(
+</a><a href="#h0-0-119" id="h0-0-119" class="i">+    Component: React$ComponentType&lt;{| ...ContextRouter, ...P |}&gt;
+</a><a href="#h0-0-120" id="h0-0-120" class="i">+  ): React$ComponentType&lt;P&gt;;
+</a><a href="#h0-0-121" id="h0-0-121" class="i">+
+</a><a href="#h0-0-122" id="h0-0-122" class="i">+  declare type MatchPathOptions = {
+</a><a href="#h0-0-123" id="h0-0-123" class="i">+    path?: string | string[],
+</a><a href="#h0-0-124" id="h0-0-124" class="i">+    exact?: boolean,
+</a><a href="#h0-0-125" id="h0-0-125" class="i">+    strict?: boolean,
+</a><a href="#h0-0-126" id="h0-0-126" class="i">+    sensitive?: boolean,
+</a><a href="#h0-0-127" id="h0-0-127" class="i">+    ...
+</a><a href="#h0-0-128" id="h0-0-128" class="i">+  };
+</a><a href="#h0-0-129" id="h0-0-129" class="i">+
+</a><a href="#h0-0-130" id="h0-0-130" class="i">+  declare export function matchPath(
+</a><a href="#h0-0-131" id="h0-0-131" class="i">+    pathname: string,
+</a><a href="#h0-0-132" id="h0-0-132" class="i">+    options?: MatchPathOptions | string | string[]
+</a><a href="#h0-0-133" id="h0-0-133" class="i">+  ): null | Match;
+</a><a href="#h0-0-134" id="h0-0-134" class="i">+
+</a><a href="#h0-0-135" id="h0-0-135" class="i">+  declare export function useHistory(): $PropertyType&lt;ContextRouter, &#39;history&#39;&gt;;
+</a><a href="#h0-0-136" id="h0-0-136" class="i">+  declare export function useLocation(): $PropertyType&lt;ContextRouter, &#39;location&#39;&gt;;
+</a><a href="#h0-0-137" id="h0-0-137" class="i">+  declare export function useParams(): $PropertyType&lt;$PropertyType&lt;ContextRouter, &#39;match&#39;&gt;, &#39;params&#39;&gt;;
+</a><a href="#h0-0-138" id="h0-0-138" class="i">+  declare export function useRouteMatch(path?: MatchPathOptions | string | string[]): $PropertyType&lt;ContextRouter, &#39;match&#39;&gt;;
+</a><a href="#h0-0-139" id="h0-0-139" class="i">+
+</a><a href="#h0-0-140" id="h0-0-140" class="i">+  declare export function generatePath(pattern?: string, params?: {...}): string;
+</a><a href="#h0-0-141" id="h0-0-141" class="i">+
+</a><a href="#h0-0-142" id="h0-0-142" class="i">+  declare export default {
+</a><a href="#h0-0-143" id="h0-0-143" class="i">+    StaticRouter: typeof StaticRouter,
+</a><a href="#h0-0-144" id="h0-0-144" class="i">+    MemoryRouter: typeof MemoryRouter,
+</a><a href="#h0-0-145" id="h0-0-145" class="i">+    Router: typeof Router,
+</a><a href="#h0-0-146" id="h0-0-146" class="i">+    Prompt: typeof Prompt,
+</a><a href="#h0-0-147" id="h0-0-147" class="i">+    Redirect: typeof Redirect,
+</a><a href="#h0-0-148" id="h0-0-148" class="i">+    Route: typeof Route,
+</a><a href="#h0-0-149" id="h0-0-149" class="i">+    Switch: typeof Switch,
+</a><a href="#h0-0-150" id="h0-0-150" class="i">+    withRouter: typeof withRouter,
+</a><a href="#h0-0-151" id="h0-0-151" class="i">+    matchPath: typeof matchPath,
+</a><a href="#h0-0-152" id="h0-0-152" class="i">+    generatePath: typeof generatePath,
+</a><a href="#h0-0-153" id="h0-0-153" class="i">+    ...
+</a><a href="#h0-0-154" id="h0-0-154" class="i">+  };
+</a><a href="#h0-0-155" id="h0-0-155" class="i">+}
+</a><b>diff --git a/<a id="h1" href="../file/package.json.html">package.json</a> b/<a href="../file/package.json.html">package.json</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -13,7 +13,7 @@
+</a>   &quot;dependencies&quot;: {
+     &quot;react&quot;: &quot;^16.13.0&quot;,
+     &quot;react-dom&quot;: &quot;^16.13.0&quot;,
+<a href="#h1-0-3" id="h1-0-3" class="d">-    &quot;react-router-dom&quot;: &quot;^5.1.2&quot;,
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+    &quot;react-router&quot;: &quot;^5.1.2&quot;,
+</a>     &quot;styled-components&quot;: &quot;^5.0.1&quot;,
+     &quot;styled-theming&quot;: &quot;^2.2.0&quot;
+   },
+<b>diff --git a/<a id="h2" href="../file/src/App.js.html">src/App.js</a> b/<a href="../file/src/App.js.html">src/App.js</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,10 +1,13 @@
+</a> // @flow
+ import React from &#39;react&#39;;
+<a href="#h2-0-2" id="h2-0-2" class="i">+import {Route, Switch} from &#39;react-router&#39;;
+</a> import styled, {ThemeProvider} from &#39;styled-components&#39;;
+ import theme from &#39;styled-theming&#39;;
+ 
+<a href="#h2-0-6" id="h2-0-6" class="i">+import CVPage from &#39;./Pages/CVPage&#39;;
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+import UsesPage from &#39;./Pages/UsesPage&#39;;
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+import NotFoundPage from &#39;./Pages/NotFoundPage&#39;;
+</a> import Button from &#39;./Components/Button&#39;;
+<a href="#h2-0-10" id="h2-0-10" class="d">-import Link from &#39;./Components/Link&#39;;
+</a> import Text from &#39;./Components/Text&#39;;
+ import Style from &#39;./Theme/Style&#39;;
+ import {colors} from &#39;./Theme/colors&#39;;
+<a href="#h2-1" id="h2-1" class="h">@@ -54,33 +57,17 @@ const App = () =&gt; {
+</a>               {dark ? &#39;🌛&#39; : &#39;🌞&#39;}
+             &lt;/Button&gt;
+           &lt;/Text&gt;
+<a href="#h2-1-3" id="h2-1-3" class="d">-          &lt;Text&gt;
+</a><a href="#h2-1-4" id="h2-1-4" class="d">-            Currently work as Frontend Engineer of kumparan.com in Jakarta,
+</a><a href="#h2-1-5" id="h2-1-5" class="d">-            Indonesia. Building it with React, React Native for Android and iOS.
+</a><a href="#h2-1-6" id="h2-1-6" class="d">-            &lt;br /&gt;
+</a><a href="#h2-1-7" id="h2-1-7" class="d">-            &lt;br /&gt;
+</a><a href="#h2-1-8" id="h2-1-8" class="d">-            Eager to learn.
+</a><a href="#h2-1-9" id="h2-1-9" class="d">-            &lt;br /&gt;
+</a><a href="#h2-1-10" id="h2-1-10" class="d">-            Hardships.
+</a><a href="#h2-1-11" id="h2-1-11" class="d">-            &lt;br /&gt;
+</a><a href="#h2-1-12" id="h2-1-12" class="d">-            I cannot say that I am humble, but I learn from experience that each
+</a><a href="#h2-1-13" id="h2-1-13" class="d">-            individuals, their own excellences.
+</a><a href="#h2-1-14" id="h2-1-14" class="d">-            &lt;br /&gt;
+</a><a href="#h2-1-15" id="h2-1-15" class="d">-            I try to learn from everyone, and everything.
+</a><a href="#h2-1-16" id="h2-1-16" class="d">-            &lt;br /&gt;
+</a><a href="#h2-1-17" id="h2-1-17" class="d">-            &lt;br /&gt;
+</a><a href="#h2-1-18" id="h2-1-18" class="d">-            Contact:{&#39; &#39;}
+</a><a href="#h2-1-19" id="h2-1-19" class="d">-            &lt;Link
+</a><a href="#h2-1-20" id="h2-1-20" class="d">-              href=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;
+</a><a href="#h2-1-21" id="h2-1-21" class="d">-              target=&quot;_top&quot;
+</a><a href="#h2-1-22" id="h2-1-22" class="d">-            &gt;
+</a><a href="#h2-1-23" id="h2-1-23" class="d">-              bandungpenting@gmail.com
+</a><a href="#h2-1-24" id="h2-1-24" class="d">-            &lt;/Link&gt;
+</a><a href="#h2-1-25" id="h2-1-25" class="d">-          &lt;/Text&gt;
+</a><a href="#h2-1-26" id="h2-1-26" class="d">-          &lt;Text&gt;
+</a><a href="#h2-1-27" id="h2-1-27" class="d">-            Other site:{&#39; &#39;}
+</a><a href="#h2-1-28" id="h2-1-28" class="d">-            &lt;Link href=&quot;https://reason.ybbond.dev&quot;&gt;reason.ybbond.dev&lt;/Link&gt;
+</a><a href="#h2-1-29" id="h2-1-29" class="d">-          &lt;/Text&gt;
+</a><a href="#h2-1-30" id="h2-1-30" class="i">+          &lt;Switch&gt;
+</a><a href="#h2-1-31" id="h2-1-31" class="i">+            &lt;Route exact path=&quot;/&quot;&gt;
+</a><a href="#h2-1-32" id="h2-1-32" class="i">+              &lt;CVPage /&gt;
+</a><a href="#h2-1-33" id="h2-1-33" class="i">+            &lt;/Route&gt;
+</a><a href="#h2-1-34" id="h2-1-34" class="i">+            &lt;Route path=&quot;/uses&quot;&gt;
+</a><a href="#h2-1-35" id="h2-1-35" class="i">+              &lt;UsesPage /&gt;
+</a><a href="#h2-1-36" id="h2-1-36" class="i">+            &lt;/Route&gt;
+</a><a href="#h2-1-37" id="h2-1-37" class="i">+            &lt;Route&gt;
+</a><a href="#h2-1-38" id="h2-1-38" class="i">+              &lt;NotFoundPage /&gt;
+</a><a href="#h2-1-39" id="h2-1-39" class="i">+            &lt;/Route&gt;
+</a><a href="#h2-1-40" id="h2-1-40" class="i">+          &lt;/Switch&gt;
+</a>         &lt;/InnerWrapper&gt;
+       &lt;/OuterWrapper&gt;
+     &lt;/ThemeProvider&gt;
+<b>diff --git a/<a id="h3" href="../file/src/Pages/CVPage.js.html">src/Pages/CVPage.js</a> b/<a href="../file/src/Pages/CVPage.js.html">src/Pages/CVPage.js</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,49 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+// @flow
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+import React from &#39;react&#39;;
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+import {useHistory} from &#39;react-router&#39;;
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+import Link from &#39;../Components/Link&#39;;
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+import Text from &#39;../Components/Text&#39;;
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+const CVPage = () =&gt; {
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+  let history = useHistory();
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+  const handleClick = () =&gt; {
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+    history.push(&#39;/uses&#39;);
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+  };
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+  return (
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+    &lt;React.Fragment&gt;
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+      &lt;Text onClick={handleClick}&gt;hehe&lt;/Text&gt;
+</a><a href="#h3-0-17" id="h3-0-17" class="i">+      &lt;Text&gt;
+</a><a href="#h3-0-18" id="h3-0-18" class="i">+        Currently work as Frontend Engineer of kumparan.com in Jakarta,
+</a><a href="#h3-0-19" id="h3-0-19" class="i">+        Indonesia. Building it with React, React Native for Android and iOS.
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+        &lt;br /&gt;
+</a><a href="#h3-0-21" id="h3-0-21" class="i">+        &lt;br /&gt;
+</a><a href="#h3-0-22" id="h3-0-22" class="i">+        Eager to learn.
+</a><a href="#h3-0-23" id="h3-0-23" class="i">+        &lt;br /&gt;
+</a><a href="#h3-0-24" id="h3-0-24" class="i">+        Hardships.
+</a><a href="#h3-0-25" id="h3-0-25" class="i">+        &lt;br /&gt;
+</a><a href="#h3-0-26" id="h3-0-26" class="i">+        I cannot say that I am humble, but I learn from experience that each
+</a><a href="#h3-0-27" id="h3-0-27" class="i">+        individuals, their own excellences.
+</a><a href="#h3-0-28" id="h3-0-28" class="i">+        &lt;br /&gt;
+</a><a href="#h3-0-29" id="h3-0-29" class="i">+        I try to learn from everyone, and everything.
+</a><a href="#h3-0-30" id="h3-0-30" class="i">+        &lt;br /&gt;
+</a><a href="#h3-0-31" id="h3-0-31" class="i">+        &lt;br /&gt;
+</a><a href="#h3-0-32" id="h3-0-32" class="i">+        Contact:{&#39; &#39;}
+</a><a href="#h3-0-33" id="h3-0-33" class="i">+        &lt;Link
+</a><a href="#h3-0-34" id="h3-0-34" class="i">+          href=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;
+</a><a href="#h3-0-35" id="h3-0-35" class="i">+          target=&quot;_top&quot;
+</a><a href="#h3-0-36" id="h3-0-36" class="i">+        &gt;
+</a><a href="#h3-0-37" id="h3-0-37" class="i">+          bandungpenting@gmail.com
+</a><a href="#h3-0-38" id="h3-0-38" class="i">+        &lt;/Link&gt;
+</a><a href="#h3-0-39" id="h3-0-39" class="i">+      &lt;/Text&gt;
+</a><a href="#h3-0-40" id="h3-0-40" class="i">+      &lt;Text&gt;
+</a><a href="#h3-0-41" id="h3-0-41" class="i">+        Other site:{&#39; &#39;}
+</a><a href="#h3-0-42" id="h3-0-42" class="i">+        &lt;Link href=&quot;https://reason.ybbond.dev&quot;&gt;reason.ybbond.dev&lt;/Link&gt;
+</a><a href="#h3-0-43" id="h3-0-43" class="i">+      &lt;/Text&gt;
+</a><a href="#h3-0-44" id="h3-0-44" class="i">+    &lt;/React.Fragment&gt;
+</a><a href="#h3-0-45" id="h3-0-45" class="i">+  );
+</a><a href="#h3-0-46" id="h3-0-46" class="i">+};
+</a><a href="#h3-0-47" id="h3-0-47" class="i">+
+</a><a href="#h3-0-48" id="h3-0-48" class="i">+export default React.memo&lt;{}&gt;(CVPage);
+</a><b>diff --git a/<a id="h4" href="../file/src/Pages/NotFoundPage.js.html">src/Pages/NotFoundPage.js</a> b/<a href="../file/src/Pages/NotFoundPage.js.html">src/Pages/NotFoundPage.js</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -0,0 +1,21 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="i">+// @flow
+</a><a href="#h4-0-1" id="h4-0-1" class="i">+import React from &#39;react&#39;;
+</a><a href="#h4-0-2" id="h4-0-2" class="i">+
+</a><a href="#h4-0-3" id="h4-0-3" class="i">+import Link from &#39;../Components/Link&#39;;
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+import Text from &#39;../Components/Text&#39;;
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+
+</a><a href="#h4-0-6" id="h4-0-6" class="i">+const NotFoundPage = () =&gt; {
+</a><a href="#h4-0-7" id="h4-0-7" class="i">+  return (
+</a><a href="#h4-0-8" id="h4-0-8" class="i">+    &lt;Text&gt;
+</a><a href="#h4-0-9" id="h4-0-9" class="i">+      Contact:{&#39; &#39;}
+</a><a href="#h4-0-10" id="h4-0-10" class="i">+      &lt;Link
+</a><a href="#h4-0-11" id="h4-0-11" class="i">+        href=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;
+</a><a href="#h4-0-12" id="h4-0-12" class="i">+        target=&quot;_top&quot;
+</a><a href="#h4-0-13" id="h4-0-13" class="i">+      &gt;
+</a><a href="#h4-0-14" id="h4-0-14" class="i">+        bandungpenting@gmail.com
+</a><a href="#h4-0-15" id="h4-0-15" class="i">+      &lt;/Link&gt;
+</a><a href="#h4-0-16" id="h4-0-16" class="i">+    &lt;/Text&gt;
+</a><a href="#h4-0-17" id="h4-0-17" class="i">+  );
+</a><a href="#h4-0-18" id="h4-0-18" class="i">+};
+</a><a href="#h4-0-19" id="h4-0-19" class="i">+
+</a><a href="#h4-0-20" id="h4-0-20" class="i">+export default React.memo&lt;{}&gt;(NotFoundPage);
+</a><b>diff --git a/<a id="h5" href="../file/src/Pages/UsesPage.js.html">src/Pages/UsesPage.js</a> b/<a href="../file/src/Pages/UsesPage.js.html">src/Pages/UsesPage.js</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -0,0 +1,43 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="i">+// @flow
+</a><a href="#h5-0-1" id="h5-0-1" class="i">+import React from &#39;react&#39;;
+</a><a href="#h5-0-2" id="h5-0-2" class="i">+import {useHistory} from &#39;react-router&#39;;
+</a><a href="#h5-0-3" id="h5-0-3" class="i">+
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+import Text from &#39;../Components/Text&#39;;
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+import List from &#39;../Components/List&#39;;
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+const UsesPage = () =&gt; {
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+  let history = useHistory();
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+  const handleClick = () =&gt; {
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+    history.push(&#39;/&#39;);
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+  };
+</a><a href="#h5-0-13" id="h5-0-13" class="i">+  return (
+</a><a href="#h5-0-14" id="h5-0-14" class="i">+    &lt;React.Fragment&gt;
+</a><a href="#h5-0-15" id="h5-0-15" class="i">+      &lt;Text onClick={handleClick}&gt;hehe&lt;/Text&gt;
+</a><a href="#h5-0-16" id="h5-0-16" class="i">+      &lt;Text as=&quot;h2&quot;&gt;Platform&lt;/Text&gt;
+</a><a href="#h5-0-17" id="h5-0-17" class="i">+      &lt;List&gt;
+</a><a href="#h5-0-18" id="h5-0-18" class="i">+        &lt;List as=&quot;li&quot;&gt;{&#39;Macbook Pro 2018 13&quot; (Office)&#39;}&lt;/List&gt;
+</a><a href="#h5-0-19" id="h5-0-19" class="i">+        &lt;List as=&quot;li&quot;&gt;{&#39;Low-End PC with Manjaro Linux XFCE (Home)&#39;}&lt;/List&gt;
+</a><a href="#h5-0-20" id="h5-0-20" class="i">+      &lt;/List&gt;
+</a><a href="#h5-0-21" id="h5-0-21" class="i">+      &lt;Text as=&quot;h2&quot;&gt;Hardware&lt;/Text&gt;
+</a><a href="#h5-0-22" id="h5-0-22" class="i">+      &lt;List&gt;
+</a><a href="#h5-0-23" id="h5-0-23" class="i">+        &lt;List as=&quot;li&quot;&gt;Ducky One 2 Mini Keyboard image&lt;/List&gt;
+</a><a href="#h5-0-24" id="h5-0-24" class="i">+      &lt;/List&gt;
+</a><a href="#h5-0-25" id="h5-0-25" class="i">+      &lt;Text as=&quot;h2&quot;&gt;Code Editor&lt;/Text&gt;
+</a><a href="#h5-0-26" id="h5-0-26" class="i">+      &lt;List&gt;
+</a><a href="#h5-0-27" id="h5-0-27" class="i">+        &lt;List as=&quot;li&quot;&gt;Neovim image settings&lt;/List&gt;
+</a><a href="#h5-0-28" id="h5-0-28" class="i">+        &lt;List as=&quot;li&quot;&gt;Visual Studio Code settings&lt;/List&gt;
+</a><a href="#h5-0-29" id="h5-0-29" class="i">+      &lt;/List&gt;
+</a><a href="#h5-0-30" id="h5-0-30" class="i">+      &lt;Text as=&quot;h2&quot;&gt;Terminal&lt;/Text&gt;
+</a><a href="#h5-0-31" id="h5-0-31" class="i">+      &lt;List&gt;
+</a><a href="#h5-0-32" id="h5-0-32" class="i">+        &lt;List as=&quot;li&quot;&gt;tmux on Alacritty settings&lt;/List&gt;
+</a><a href="#h5-0-33" id="h5-0-33" class="i">+        &lt;List as=&quot;li&quot;&gt;Kitty settings&lt;/List&gt;
+</a><a href="#h5-0-34" id="h5-0-34" class="i">+        &lt;List as=&quot;li&quot;&gt;Z Shell (zsh) settings&lt;/List&gt;
+</a><a href="#h5-0-35" id="h5-0-35" class="i">+        &lt;List as=&quot;li&quot;&gt;Ranger File Manager settings&lt;/List&gt;
+</a><a href="#h5-0-36" id="h5-0-36" class="i">+        &lt;List as=&quot;li&quot;&gt;lazygit&lt;/List&gt;
+</a><a href="#h5-0-37" id="h5-0-37" class="i">+      &lt;/List&gt;
+</a><a href="#h5-0-38" id="h5-0-38" class="i">+    &lt;/React.Fragment&gt;
+</a><a href="#h5-0-39" id="h5-0-39" class="i">+  );
+</a><a href="#h5-0-40" id="h5-0-40" class="i">+};
+</a><a href="#h5-0-41" id="h5-0-41" class="i">+
+</a><a href="#h5-0-42" id="h5-0-42" class="i">+export default React.memo&lt;{}&gt;(UsesPage);
+</a><b>diff --git a/<a id="h6" href="../file/src/index.js.html">src/index.js</a> b/<a href="../file/src/index.js.html">src/index.js</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -1,10 +1,18 @@
+</a> // @flow
+ import React from &#39;react&#39;;
+ import {render} from &#39;react-dom&#39;;
+<a href="#h6-0-3" id="h6-0-3" class="i">+import {Router} from &#39;react-router&#39;;
+</a><a href="#h6-0-4" id="h6-0-4" class="i">+import {createBrowserHistory} from &#39;history&#39;;
+</a> import App from &#39;./App.js&#39;;
+ 
+<a href="#h6-0-7" id="h6-0-7" class="i">+const history = createBrowserHistory();
+</a> const rootElement = document.getElementById(&#39;react-app&#39;);
+ 
+ if (rootElement) {
+<a href="#h6-0-11" id="h6-0-11" class="d">-  render(&lt;App /&gt;, rootElement);
+</a><a href="#h6-0-12" id="h6-0-12" class="i">+  render(
+</a><a href="#h6-0-13" id="h6-0-13" class="i">+    &lt;Router history={history}&gt;
+</a><a href="#h6-0-14" id="h6-0-14" class="i">+      &lt;App /&gt;
+</a><a href="#h6-0-15" id="h6-0-15" class="i">+    &lt;/Router&gt;,
+</a><a href="#h6-0-16" id="h6-0-16" class="i">+    rootElement,
+</a><a href="#h6-0-17" id="h6-0-17" class="i">+  );
+</a> }
+<b>diff --git a/<a id="h7" href="../file/webpack.config.js.html">webpack.config.js</a> b/<a href="../file/webpack.config.js.html">webpack.config.js</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -1,30 +1,31 @@
+</a><a href="#h7-0-0" id="h7-0-0" class="d">-const path = require(&quot;path&quot;);
+</a><a href="#h7-0-1" id="h7-0-1" class="d">-const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+</a><a href="#h7-0-2" id="h7-0-2" class="i">+const path = require(&#39;path&#39;);
+</a><a href="#h7-0-3" id="h7-0-3" class="i">+const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);
+</a> 
+ module.exports = {
+<a href="#h7-0-6" id="h7-0-6" class="d">-  entry: path.resolve(__dirname, &quot;src/index&quot;),
+</a><a href="#h7-0-7" id="h7-0-7" class="i">+  entry: path.resolve(__dirname, &#39;src/index&#39;),
+</a>   module: {
+     rules: [
+       {
+         test: /\.js$/,
+<a href="#h7-0-12" id="h7-0-12" class="d">-        include: path.resolve(__dirname, &quot;src&quot;),
+</a><a href="#h7-0-13" id="h7-0-13" class="d">-        loader: &quot;babel-loader&quot;
+</a><a href="#h7-0-14" id="h7-0-14" class="d">-      }
+</a><a href="#h7-0-15" id="h7-0-15" class="d">-    ]
+</a><a href="#h7-0-16" id="h7-0-16" class="i">+        include: path.resolve(__dirname, &#39;src&#39;),
+</a><a href="#h7-0-17" id="h7-0-17" class="i">+        loader: &#39;babel-loader&#39;,
+</a><a href="#h7-0-18" id="h7-0-18" class="i">+      },
+</a><a href="#h7-0-19" id="h7-0-19" class="i">+    ],
+</a>   },
+   plugins: [
+     new HtmlWebpackPlugin({
+<a href="#h7-0-23" id="h7-0-23" class="d">-      template: &quot;public/index.html&quot;,
+</a><a href="#h7-0-24" id="h7-0-24" class="d">-      favicon: &quot;public/favicon.ico&quot;
+</a><a href="#h7-0-25" id="h7-0-25" class="d">-    })
+</a><a href="#h7-0-26" id="h7-0-26" class="i">+      template: &#39;public/index.html&#39;,
+</a><a href="#h7-0-27" id="h7-0-27" class="i">+      favicon: &#39;public/favicon.ico&#39;,
+</a><a href="#h7-0-28" id="h7-0-28" class="i">+    }),
+</a>   ],
+   devServer: {
+<a href="#h7-0-31" id="h7-0-31" class="d">-    contentBase: path.resolve(__dirname, &quot;build&quot;),
+</a><a href="#h7-0-32" id="h7-0-32" class="i">+    contentBase: path.resolve(__dirname, &#39;build&#39;),
+</a><a href="#h7-0-33" id="h7-0-33" class="i">+    historyApiFallback: true,
+</a>     hot: true,
+<a href="#h7-0-35" id="h7-0-35" class="d">-    port: 3000
+</a><a href="#h7-0-36" id="h7-0-36" class="i">+    port: 3000,
+</a>   },
+   output: {
+<a href="#h7-0-39" id="h7-0-39" class="d">-    path: path.resolve(__dirname, &quot;build&quot;),
+</a><a href="#h7-0-40" id="h7-0-40" class="d">-    filename: &quot;bundle.js&quot;
+</a><a href="#h7-0-41" id="h7-0-41" class="d">-  }
+</a><a href="#h7-0-42" id="h7-0-42" class="i">+    path: path.resolve(__dirname, &#39;build&#39;),
+</a><a href="#h7-0-43" id="h7-0-43" class="i">+    filename: &#39;bundle.js&#39;,
+</a><a href="#h7-0-44" id="h7-0-44" class="i">+  },
+</a> };
+<b>diff --git a/<a id="h8" href="../file/yarn.lock.html">yarn.lock</a> b/<a href="../file/yarn.lock.html">yarn.lock</a></b>
+<a href="#h8-0" id="h8-0" class="h">@@ -4672,20 +4672,7 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
+</a>   resolved &quot;https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527&quot;
+   integrity sha512-GFMtL0vHkiBv9HluwNZTggSn/sCyEt9n02aM0dSAjGGyqyNlAyftYm4phPxdvCigG15JreC5biwxCgTAJZ7yAA==
+ 
+<a href="#h8-0-3" id="h8-0-3" class="d">-react-router-dom@^5.1.2:
+</a><a href="#h8-0-4" id="h8-0-4" class="d">-  version &quot;5.1.2&quot;
+</a><a href="#h8-0-5" id="h8-0-5" class="d">-  resolved &quot;https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.1.2.tgz#06701b834352f44d37fbb6311f870f84c76b9c18&quot;
+</a><a href="#h8-0-6" id="h8-0-6" class="d">-  integrity sha512-7BPHAaIwWpZS074UKaw1FjVdZBSVWEk8IuDXdB+OkLb8vd/WRQIpA4ag9WQk61aEfQs47wHyjWUoUGGZxpQXew==
+</a><a href="#h8-0-7" id="h8-0-7" class="d">-  dependencies:
+</a><a href="#h8-0-8" id="h8-0-8" class="d">-    &quot;@babel/runtime&quot; &quot;^7.1.2&quot;
+</a><a href="#h8-0-9" id="h8-0-9" class="d">-    history &quot;^4.9.0&quot;
+</a><a href="#h8-0-10" id="h8-0-10" class="d">-    loose-envify &quot;^1.3.1&quot;
+</a><a href="#h8-0-11" id="h8-0-11" class="d">-    prop-types &quot;^15.6.2&quot;
+</a><a href="#h8-0-12" id="h8-0-12" class="d">-    react-router &quot;5.1.2&quot;
+</a><a href="#h8-0-13" id="h8-0-13" class="d">-    tiny-invariant &quot;^1.0.2&quot;
+</a><a href="#h8-0-14" id="h8-0-14" class="d">-    tiny-warning &quot;^1.0.0&quot;
+</a><a href="#h8-0-15" id="h8-0-15" class="d">-
+</a><a href="#h8-0-16" id="h8-0-16" class="d">-react-router@5.1.2:
+</a><a href="#h8-0-17" id="h8-0-17" class="i">+react-router@^5.1.2:
+</a>   version &quot;5.1.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/react-router/-/react-router-5.1.2.tgz#6ea51d789cb36a6be1ba5f7c0d48dd9e817d3418&quot;
+   integrity sha512-yjEuMFy1ONK246B+rsa0cUam5OeAQ8pyclRDgpxuSCrAlJ1qN9uZ5IgyKC7gQg0w8OM50NXHEegPh/ks9YuR2A==
+</pre>
+</div>
+</div>
+</body>
+</html>

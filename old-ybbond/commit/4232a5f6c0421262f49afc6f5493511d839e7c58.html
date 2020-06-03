@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(page): add default HomePage - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/4232a5f6c0421262f49afc6f5493511d839e7c58.html">4232a5f6c0421262f49afc6f5493511d839e7c58</a>
+<b>parent</b> <a href="../commit/b186f52f10baeff987825f22fcb3cd61a0134f7d.html">b186f52f10baeff987825f22fcb3cd61a0134f7d</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon,  9 Mar 2020 21:31:49 +0700
+
+feature(page): add default HomePage
+
+<b>Diffstat:</b>
+<table><tr><td class="A">A</td><td><a href="#h0">src/Pages/HomePage.js</a></td><td> | </td><td class="num">41</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>1 file changed, 41 insertions(<span id="plus">+</span>), 0 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/Pages/HomePage.js.html">src/Pages/HomePage.js</a> b/<a href="../file/src/Pages/HomePage.js.html">src/Pages/HomePage.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -0,0 +1,41 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+// @flow
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+import React from &#39;react&#39;;
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+import Link from &#39;../Components/Link&#39;;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+import Text from &#39;../Components/Text&#39;;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+const CVPage = () =&gt; {
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+  return (
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+    &lt;React.Fragment&gt;
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+      &lt;Text&gt;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+        Currently work as Frontend Engineer of kumparan.com in Jakarta,
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+        Indonesia. Building it with React, React Native for Android and iOS.
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+        &lt;br /&gt;
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+        &lt;br /&gt;
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+        Eager to learn.
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+        &lt;br /&gt;
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+        Hardships.
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+        &lt;br /&gt;
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+        I cannot say that I am humble, but I learn from experience that each
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+        individuals, their own excellences.
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+        &lt;br /&gt;
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+        I try to learn from everyone, and everything.
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+        &lt;br /&gt;
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+        &lt;br /&gt;
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+        Contact:{&#39; &#39;}
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+        &lt;Link
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+          to=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+          target=&quot;_top&quot;
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+        &gt;
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+          bandungpenting@gmail.com
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+        &lt;/Link&gt;
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+      &lt;/Text&gt;
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+      &lt;Text&gt;
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+        Other site:{&#39; &#39;}
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+        &lt;Link to=&quot;https://reason.ybbond.dev&quot;&gt;reason.ybbond.dev&lt;/Link&gt;
+</a><a href="#h0-0-35" id="h0-0-35" class="i">+      &lt;/Text&gt;
+</a><a href="#h0-0-36" id="h0-0-36" class="i">+    &lt;/React.Fragment&gt;
+</a><a href="#h0-0-37" id="h0-0-37" class="i">+  );
+</a><a href="#h0-0-38" id="h0-0-38" class="i">+};
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+export default React.memo&lt;{}&gt;(CVPage);
+</a></pre>
+</div>
+</div>
+</body>
+</html>

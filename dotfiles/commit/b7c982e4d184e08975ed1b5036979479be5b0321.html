@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>update mailmate and zshrc - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/b7c982e4d184e08975ed1b5036979479be5b0321.html">b7c982e4d184e08975ed1b5036979479be5b0321</a>
+<b>parent</b> <a href="../commit/89e94639c2e8d6a9b1689a4a9cb78d6ae79e0c82.html">89e94639c2e8d6a9b1689a4a9cb78d6ae79e0c82</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Thu,  4 Jun 2020 01:21:33 +0700
+
+update mailmate and zshrc
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.zshrc</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">Library/Application Support/MailMate/Resources/KeyBindings/gmail-extended.plist</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre></div><p>2 files changed, 3 insertions(<span id="plus">+</span>), 1 deletion(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.zshrc.html">.zshrc</a> b/<a href="../file/.zshrc.html">.zshrc</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -21,6 +21,8 @@ export PATH=$PATH:$KUMPATH/yowez-cli/bin
+</a> export GOPATH=$HOME/go
+ export PATH=$GOPATH/bin:$PATH
+ export PATH=/Users/yohanesbandung/.nimble/bin:$PATH
+<a href="#h0-0-3" id="h0-0-3" class="i">+export PATH=&quot;/Applications/Emacs.app/Contents/MacOS:$PATH&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+export PATH=&quot;$HOME/.emacs.d/bin:$PATH&quot;
+</a> # export INITVIM=$HOME/.config/nvim/init.vim
+ # export PATH=$HOME/bin:$PATH
+ 
+<b>diff --git a/<a id="h1" href="../file/Library/Application Support/MailMate/Resources/KeyBindings/gmail-extended.plist.html">Library/Application Support/MailMate/Resources/KeyBindings/gmail-extended.plist</a> b/<a href="../file/Library/Application Support/MailMate/Resources/KeyBindings/gmail-extended.plist.html">Library/Application Support/MailMate/Resources/KeyBindings/gmail-extended.plist</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -32,7 +32,7 @@
+</a>   &quot;^m&quot;   = ( &quot;toggleMuteState:&quot;, &quot;archive:&quot; ); // FIXME: Should be &#39;markAsMuted:&#39;
+   &quot;s&quot;    = &quot;toggleFlag:&quot;;
+   &quot;!&quot;    = &quot;moveToJunk:&quot;;
+<a href="#h1-0-3" id="h1-0-3" class="d">-  &quot;r&quot;    = &quot;reply:&quot;;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  &quot;r&quot;    = &quot;replySender:&quot;;
+</a>   &quot;a&quot;    = &quot;replyAll:&quot;;
+   &quot;f&quot;    = &quot;forwardMessage:&quot;;
+   &quot;^s&quot;   = &quot;saveDocument:&quot;;
+</pre>
+</div>
+</div>
+</body>
+</html>

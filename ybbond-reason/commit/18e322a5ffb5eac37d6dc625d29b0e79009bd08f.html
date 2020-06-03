@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>moving to my pc - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/18e322a5ffb5eac37d6dc625d29b0e79009bd08f.html">18e322a5ffb5eac37d6dc625d29b0e79009bd08f</a>
+<b>parent</b> <a href="../commit/6f5d7287bb56531c0bc9dac925c118acd3e0c768.html">6f5d7287bb56531c0bc9dac925c118acd3e0c768</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 13 Aug 2019 19:29:52 +0700
+
+moving to my pc
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.gitignore</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">build/index.html</a></td><td> | </td><td class="num">14</td><td><span class="i">++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/App.re</a></td><td> | </td><td class="num">7</td><td><span class="i">+++</span><span class="d">----</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">src/CurVi.re</a></td><td> | </td><td class="num">33</td><td><span class="i">++++++++++++++++++</span><span class="d">---------------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h4">src/Spoiler.re</a></td><td> | </td><td class="num">30</td><td><span class="i">++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">src/Utils.re</a></td><td> | </td><td class="num">3</td><td><span class="i">++</span><span class="d">-</span></td></tr>
+</table></pre></div><p>6 files changed, 68 insertions(<span id="plus">+</span>), 20 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.gitignore.html">.gitignore</a> b/<a href="../file/.gitignore.html">.gitignore</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -4,3 +4,4 @@
+</a> npm-debug.log
+ /lib/bs/
+ /node_modules/
+<a href="#h0-0-3" id="h0-0-3" class="i">+*.bs.js
+</a><b>diff --git a/<a id="h1" href="../file/build/index.html.html">build/index.html</a> b/<a href="../file/build/index.html.html">build/index.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -0,0 +1,14 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+&lt;!DOCTYPE html&gt;
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+&lt;html lang=&quot;en&quot;&gt;
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+&lt;head&gt;
+</a><a href="#h1-0-3" id="h1-0-3" class="i">+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  &lt;title&gt;ReasonReact Examples&lt;/title&gt;
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+&lt;/head&gt;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+&lt;body&gt;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+  &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+  &lt;noscript&gt;Please enable Javascript to use this app.&lt;/noscript&gt;
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+  &lt;script src=&quot;Index.js&quot;&gt;&lt;/script&gt;
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+&lt;/body&gt;
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+&lt;/html&gt;
+</a><b>diff --git a/<a id="h2" href="../file/src/App.re.html">src/App.re</a> b/<a href="../file/src/App.re.html">src/App.re</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -3,7 +3,6 @@ let make = () =&gt; {
+</a>   let url = ReasonReact.Router.useUrl();
+ 
+   switch (url.path) {
+<a href="#h2-0-3" id="h2-0-3" class="d">-    | [] =&gt; &lt;CurVi /&gt;
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-    | _ =&gt; &lt;CurVi /&gt;
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-  }
+</a><a href="#h2-0-6" id="h2-0-6" class="d">-}
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+  | _ =&gt; &lt;CurVi /&gt;
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+  };
+</a><a href="#h2-0-9" id="h2-0-9" class="i">+};
+</a><b>diff --git a/<a id="h3" href="../file/src/CurVi.re.html">src/CurVi.re</a> b/<a href="../file/src/CurVi.re.html">src/CurVi.re</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -2,34 +2,37 @@ type state = {
+</a>   opened: string,
+   dark: bool,
+ };
+<a href="#h3-0-3" id="h3-0-3" class="i">+type section =
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+  | Quest
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+  | Info
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+  | Contact;
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+type action =
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+  | ToggleDark
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+  | Open(section);
+</a> 
+<a href="#h3-0-11" id="h3-0-11" class="d">-type section = Quest | Info | Contact;
+</a> let convert = (s: section) =&gt;
+<a href="#h3-0-13" id="h3-0-13" class="d">-switch s {
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+  switch (s) {
+</a>   | Quest =&gt; &quot;quest&quot;
+   | Info =&gt; &quot;info&quot;
+   | Contact =&gt; &quot;contact&quot;
+<a href="#h3-0-18" id="h3-0-18" class="d">-};
+</a><a href="#h3-0-19" id="h3-0-19" class="d">-
+</a><a href="#h3-0-20" id="h3-0-20" class="d">-type action =
+</a><a href="#h3-0-21" id="h3-0-21" class="d">-  | ToggleDark
+</a><a href="#h3-0-22" id="h3-0-22" class="d">-  | Open((section));
+</a><a href="#h3-0-23" id="h3-0-23" class="d">-
+</a><a href="#h3-0-24" id="h3-0-24" class="i">+  };
+</a> let initialState = {opened: &quot;quest&quot;, dark: false};
+ 
+ [@react.component]
+ let make = () =&gt; {
+<a href="#h3-0-29" id="h3-0-29" class="d">-  let (state, _) =
+</a><a href="#h3-0-30" id="h3-0-30" class="d">-    React.useReducer (
+</a><a href="#h3-0-31" id="h3-0-31" class="i">+  let (_, _) =
+</a><a href="#h3-0-32" id="h3-0-32" class="i">+    React.useReducer(
+</a>       (state, action) =&gt;
+         switch (action) {
+<a href="#h3-0-35" id="h3-0-35" class="d">-          | ToggleDark =&gt; {...state, dark: !state.dark}
+</a><a href="#h3-0-36" id="h3-0-36" class="d">-          | Open((toOpen)) =&gt; {...state, opened: convert( toOpen )};
+</a><a href="#h3-0-37" id="h3-0-37" class="i">+        | ToggleDark =&gt; {...state, dark: !state.dark}
+</a><a href="#h3-0-38" id="h3-0-38" class="i">+        | Open(toOpen) =&gt; {...state, opened: convert(toOpen)}
+</a>         },
+       initialState,
+     );
+ 
+   &lt;div&gt;
+<a href="#h3-0-44" id="h3-0-44" class="d">-    {ReasonReact.createElement(span, _, state.opened)}
+</a><a href="#h3-0-45" id="h3-0-45" class="d">-  &lt;/div&gt;
+</a><a href="#h3-0-46" id="h3-0-46" class="d">-}
+</a><a href="#h3-0-47" id="h3-0-47" class="i">+    &lt;span&gt;
+</a><a href="#h3-0-48" id="h3-0-48" class="i">+      &lt;Spoiler content={ReasonReact.string(&quot;Hello&quot;)} title=&quot;Yeay&quot; /&gt;
+</a><a href="#h3-0-49" id="h3-0-49" class="i">+    &lt;/span&gt;
+</a><a href="#h3-0-50" id="h3-0-50" class="i">+  &lt;/div&gt;;
+</a><a href="#h3-0-51" id="h3-0-51" class="i">+};
+</a><b>diff --git a/<a id="h4" href="../file/src/Spoiler.re.html">src/Spoiler.re</a> b/<a href="../file/src/Spoiler.re.html">src/Spoiler.re</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -0,0 +1,30 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="i">+module Styles = {
+</a><a href="#h4-0-1" id="h4-0-1" class="i">+  open Css;
+</a><a href="#h4-0-2" id="h4-0-2" class="i">+
+</a><a href="#h4-0-3" id="h4-0-3" class="i">+  let summary =
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+    style([
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+      marginTop(em(1.0)),
+</a><a href="#h4-0-6" id="h4-0-6" class="i">+      marginBottom(em(1.0)),
+</a><a href="#h4-0-7" id="h4-0-7" class="i">+      marginLeft(px(0)),
+</a><a href="#h4-0-8" id="h4-0-8" class="i">+      marginRight(px(0)),
+</a><a href="#h4-0-9" id="h4-0-9" class="i">+      flex(`num(1.0)),
+</a><a href="#h4-0-10" id="h4-0-10" class="i">+      textAlign(`left),
+</a><a href="#h4-0-11" id="h4-0-11" class="i">+      /* outline(`none), */
+</a><a href="#h4-0-12" id="h4-0-12" class="i">+      cursor(`pointer),
+</a><a href="#h4-0-13" id="h4-0-13" class="i">+      userSelect(`none),
+</a><a href="#h4-0-14" id="h4-0-14" class="i">+    ]);
+</a><a href="#h4-0-15" id="h4-0-15" class="i">+};
+</a><a href="#h4-0-16" id="h4-0-16" class="i">+
+</a><a href="#h4-0-17" id="h4-0-17" class="i">+type state = {isopen: bool};
+</a><a href="#h4-0-18" id="h4-0-18" class="i">+
+</a><a href="#h4-0-19" id="h4-0-19" class="i">+let initialState = {isopen: false};
+</a><a href="#h4-0-20" id="h4-0-20" class="i">+
+</a><a href="#h4-0-21" id="h4-0-21" class="i">+type action =
+</a><a href="#h4-0-22" id="h4-0-22" class="i">+  | Toggle;
+</a><a href="#h4-0-23" id="h4-0-23" class="i">+
+</a><a href="#h4-0-24" id="h4-0-24" class="i">+[@react.component]
+</a><a href="#h4-0-25" id="h4-0-25" class="i">+let make = (~content: ReasonReact.reactElement, ~title: string) =&gt;
+</a><a href="#h4-0-26" id="h4-0-26" class="i">+  &lt;summary className=Styles.summary&gt;
+</a><a href="#h4-0-27" id="h4-0-27" class="i">+    &lt;details&gt; {ReasonReact.string(title)} &lt;/details&gt;
+</a><a href="#h4-0-28" id="h4-0-28" class="i">+    content
+</a><a href="#h4-0-29" id="h4-0-29" class="i">+  &lt;/summary&gt;;
+</a><b>diff --git a/<a id="h5" href="../file/src/Utils.re.html">src/Utils.re</a> b/<a href="../file/src/Utils.re.html">src/Utils.re</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -31,4 +31,5 @@ let distanceFromBottom: unit =&gt; int =
+</a>   };
+ 
+ /* registerServiceWorker */
+<a href="#h5-0-3" id="h5-0-3" class="d">-[@bs.module] external registerServiceWorker: unit =&gt; unit = &quot;src/registerServiceWorker&quot;;
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+[@bs.module]
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+external registerServiceWorker: unit =&gt; unit = &quot;./registerServiceWorker&quot;;
+</a></pre>
+</div>
+</div>
+</body>
+</html>

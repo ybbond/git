@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: use IndieAuth for indie authorization - ybbond - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/e3f389f01659e902780b4b4c1eb377a6d45bd9bf.html">e3f389f01659e902780b4b4c1eb377a6d45bd9bf</a>
+<b>parent</b> <a href="../commit/58ae70cf98bc8d6f8101b88ec313f599bfff8996.html">58ae70cf98bc8d6f8101b88ec313f599bfff8996</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sun,  3 May 2020 21:10:29 +0700
+
+refactor: use IndieAuth for indie authorization
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/partials/head/head.html</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+</table></pre></div><p>1 file changed, 2 insertions(<span id="plus">+</span>), 2 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a> b/<a href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -14,8 +14,8 @@
+</a>     {{ printf `&lt;link rel=&quot;%s&quot; type=&quot;%s&quot; href=&quot;%s&quot; title=&quot;%s&quot; /&gt;` .Rel .MediaType.Type .Permalink $rssTitle | safeHTML }}
+ {{ end }}
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-&lt;link href=&quot;https://micro.blog/indieauth/auth&quot; rel=&quot;authorization_endpoint&quot; /&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-&lt;link href=&quot;https://micro.blog/indieauth/token&quot; rel=&quot;token_endpoint&quot; /&gt;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+&lt;link rel=&quot;openid.delegate&quot; href=&quot;https://ybbond.dev/&quot; /&gt;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+&lt;link rel=&quot;openid.server&quot; href=&quot;https://openid.indieauth.com/openid&quot; /&gt;
+</a> 
+ &lt;title&gt;{{ with or (.Page.Title) (.Site.Title) }}{{ . }} ::{{ end }} {{ .Site.Params.Author }}&lt;/title&gt;
+ 
+</pre>
+</div>
+</div>
+</body>
+</html>

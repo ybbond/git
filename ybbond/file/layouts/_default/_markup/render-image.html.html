@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>render-image.html - ybbond - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../../../../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../../../../index.html">Log</a> | <a href="../../../../files.html">Files</a> | <a href="../../../../refs.html">Refs</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> render-image.html (1920B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> {{ $image := (.Page.Resources.GetMatch  .Destination) }}
+<a href="#l2" class="line" id="l2">      2</a> {{ $alt := .Text }}
+<a href="#l3" class="line" id="l3">      3</a> {{ $placeholder := ($image.Resize &quot;48x q20&quot;) | images.Filter (images.GaussianBlur 6) }}
+<a href="#l4" class="line" id="l4">      4</a> {{ $src := $image }}
+<a href="#l5" class="line" id="l5">      5</a> {{ $src_set := &quot;&quot;}}
+<a href="#l6" class="line" id="l6">      6</a> 
+<a href="#l7" class="line" id="l7">      7</a> {{ $src_set = (print $image.RelPermalink &quot; &quot; $image.Width &quot;w&quot;) }}
+<a href="#l8" class="line" id="l8">      8</a> {{ $src := $image }}
+<a href="#l9" class="line" id="l9">      9</a> 
+<a href="#l10" class="line" id="l10">     10</a> {{ if ge $image.Width &quot;500&quot;}}
+<a href="#l11" class="line" id="l11">     11</a> {{ $x_small := $image.Resize &quot;500x&quot; }}
+<a href="#l12" class="line" id="l12">     12</a> {{ $src_set = (print $src_set &quot;, &quot;  $x_small.RelPermalink &quot; 500w&quot;) }}
+<a href="#l13" class="line" id="l13">     13</a> {{ end }}
+<a href="#l14" class="line" id="l14">     14</a> 
+<a href="#l15" class="line" id="l15">     15</a> {{ if ge $image.Width &quot;800&quot;}}
+<a href="#l16" class="line" id="l16">     16</a> {{ $small := $image.Resize &quot;800x&quot; }}
+<a href="#l17" class="line" id="l17">     17</a> {{ $src_set = (print $src_set &quot;, &quot; $small.RelPermalink &quot; 800w&quot;) }}
+<a href="#l18" class="line" id="l18">     18</a> {{ end }}
+<a href="#l19" class="line" id="l19">     19</a> 
+<a href="#l20" class="line" id="l20">     20</a> {{ if ge $image.Width &quot;1200&quot;}}
+<a href="#l21" class="line" id="l21">     21</a> {{ $medium := $image.Resize &quot;1200x&quot; }}
+<a href="#l22" class="line" id="l22">     22</a> {{ $src_set = (print $src_set &quot;, &quot; $medium.RelPermalink &quot; 1200w&quot;) }}
+<a href="#l23" class="line" id="l23">     23</a> {{ end }}
+<a href="#l24" class="line" id="l24">     24</a> 
+<a href="#l25" class="line" id="l25">     25</a> {{ if gt $image.Width &quot;1500&quot;}}
+<a href="#l26" class="line" id="l26">     26</a> {{ $large := $image.Resize &quot;1500x&quot; }}
+<a href="#l27" class="line" id="l27">     27</a> {{ $src_set = (print $src_set &quot;, &quot; $large.RelPermalink &quot; 1500w&quot;) }}
+<a href="#l28" class="line" id="l28">     28</a> {{ end }}
+<a href="#l29" class="line" id="l29">     29</a> 
+<a href="#l30" class="line" id="l30">     30</a> {{ $border_class := &quot;image-border&quot; }}
+<a href="#l31" class="line" id="l31">     31</a> 
+<a href="#l32" class="line" id="l32">     32</a> 
+<a href="#l33" class="line" id="l33">     33</a> &lt;noscript&gt;
+<a href="#l34" class="line" id="l34">     34</a>   &lt;style&gt;
+<a href="#l35" class="line" id="l35">     35</a>     figure.lazy {
+<a href="#l36" class="line" id="l36">     36</a>       display: none;
+<a href="#l37" class="line" id="l37">     37</a>     }
+<a href="#l38" class="line" id="l38">     38</a>   &lt;/style&gt;
+<a href="#l39" class="line" id="l39">     39</a>   &lt;figure class=&quot;{{ $border_class }}&quot;&gt;
+<a href="#l40" class="line" id="l40">     40</a>     &lt;center&gt;
+<a href="#l41" class="line" id="l41">     41</a>       &lt;a class=&quot;no-outline&quot; href=&#39;{{ $image.RelPermalink }}&#39;&gt;
+<a href="#l42" class="line" id="l42">     42</a>         &lt;img
+<a href="#l43" class="line" id="l43">     43</a>           src=&quot;{{ $src.RelPermalink }}&quot;
+<a href="#l44" class="line" id="l44">     44</a>           style=&quot;max-width: 100%; height: auto;&quot;
+<a href="#l45" class="line" id="l45">     45</a>         /&gt;
+<a href="#l46" class="line" id="l46">     46</a>       &lt;/a&gt;
+<a href="#l47" class="line" id="l47">     47</a>       &lt;figcaption&gt;
+<a href="#l48" class="line" id="l48">     48</a>         &lt;em&gt;{{ .Text }}&lt;/em&gt;
+<a href="#l49" class="line" id="l49">     49</a>       &lt;/figcaption&gt;
+<a href="#l50" class="line" id="l50">     50</a>     &lt;/center&gt;
+<a href="#l51" class="line" id="l51">     51</a>   &lt;/figure&gt;
+<a href="#l52" class="line" id="l52">     52</a> &lt;/noscript&gt;
+<a href="#l53" class="line" id="l53">     53</a> 
+<a href="#l54" class="line" id="l54">     54</a> &lt;figure class=&quot;{{ $border_class }} lazy&quot;&gt;
+<a href="#l55" class="line" id="l55">     55</a>   &lt;center&gt;
+<a href="#l56" class="line" id="l56">     56</a>     &lt;a class=&quot;no-outline&quot; href=&#39;{{ $image.RelPermalink }}&#39;&gt;
+<a href="#l57" class="line" id="l57">     57</a>       &lt;img class=&quot;lazyload&quot; data-sizes=&quot;auto&quot; src=&quot;{{ $src.RelPermalink }}&quot;
+<a href="#l58" class="line" id="l58">     58</a>         style=&quot;max-width: 100%; height: auto;&quot;
+<a href="#l59" class="line" id="l59">     59</a>         srcset=&quot;data:image/jpeg;base64,{{ $placeholder.Content | base64Encode }}&quot; data-src=&quot;{{ $src.RelPermalink }}&quot;
+<a href="#l60" class="line" id="l60">     60</a>         data-srcset=&quot;{{ $src_set }}&quot; width=&quot;{{ $image.Width }}&quot; height=&quot;{{ $image.Height }}&quot; alt=&quot;{{ $alt }}&quot; /&gt;
+<a href="#l61" class="line" id="l61">     61</a>     &lt;/a&gt;
+<a href="#l62" class="line" id="l62">     62</a>     &lt;figcaption&gt;
+<a href="#l63" class="line" id="l63">     63</a>       &lt;em&gt;{{ .Text | safeHTML }}&lt;/em&gt;
+<a href="#l64" class="line" id="l64">     64</a>     &lt;/figcaption&gt;
+<a href="#l65" class="line" id="l65">     65</a>   &lt;/center&gt;
+<a href="#l66" class="line" id="l66">     66</a> &lt;/figure&gt;
+</pre>
+</div>
+</body>
+</html>

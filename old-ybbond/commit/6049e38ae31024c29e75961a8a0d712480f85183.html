@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(theme): add colors constant - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/6049e38ae31024c29e75961a8a0d712480f85183.html">6049e38ae31024c29e75961a8a0d712480f85183</a>
+<b>parent</b> <a href="../commit/3a54871c29506231c5d6b796e1ed56f86b984f56.html">3a54871c29506231c5d6b796e1ed56f86b984f56</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon,  9 Mar 2020 01:59:39 +0700
+
+feature(theme): add colors constant
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/Theme/Style.js</a></td><td> | </td><td class="num">8</td><td><span class="i">+++++++</span><span class="d">-</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">src/Theme/colors.js</a></td><td> | </td><td class="num">15</td><td><span class="i">+++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>2 files changed, 22 insertions(<span id="plus">+</span>), 1 deletion(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/Theme/Style.js.html">src/Theme/Style.js</a> b/<a href="../file/src/Theme/Style.js.html">src/Theme/Style.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,5 +1,6 @@
+</a> // @flow
+ import React from &#39;react&#39;;
+<a href="#h0-0-2" id="h0-0-2" class="i">+import {colors} from &#39;./colors&#39;;
+</a> 
+ type Props = {
+   dark: boolean,
+<a href="#h0-1" id="h0-1" class="h">@@ -10,7 +11,12 @@ const Style = (props: Props) =&gt; (
+</a>     dangerouslySetInnerHTML={{
+       __html: `
+ html {
+<a href="#h0-1-3" id="h0-1-3" class="d">-  background-color: ${props.dark ? &#39;#1b1b1b&#39; : &#39;#fdfdfd&#39;};
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+  background-color: ${props.dark ? colors.dark : colors.light};
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+}
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+::selection {
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+  background-color: ${
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+    props.dark ? colors.darkSelection : colors.lightSelection
+</a><a href="#h0-1-9" id="h0-1-9" class="i">+  };
+</a> }
+       `,
+     }}
+<b>diff --git a/<a id="h1" href="../file/src/Theme/colors.js.html">src/Theme/colors.js</a> b/<a href="../file/src/Theme/colors.js.html">src/Theme/colors.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -0,0 +1,15 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+// @flow
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+const colors = {
+</a><a href="#h1-0-3" id="h1-0-3" class="i">+  dark: &#39;#242424&#39;,
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  light: &#39;#e3e0d7&#39;,
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+  darkSelection: &#39;#3e3e3e&#39;,
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+  lightSelection: &#39;#bdbcb6&#39;,
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+  transparent: &#39;transparent&#39;,
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+  linkLight: &#39;#8dbfff&#39;,
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+  linkDark: &#39;#2585ff&#39;,
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+  green: &#39;#79d688&#39;,
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+  darkGreen: &#39;#257933&#39;,
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+};
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+export {colors};
+</a></pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(Page): generate 404 Not Found page - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/fd0139cc8441de4d6ea482bed76a99fd587a897f.html">fd0139cc8441de4d6ea482bed76a99fd587a897f</a>
+<b>parent</b> <a href="../commit/12d5eeb7fa7d1fe4810c9e78bedb43b4872f6ece.html">12d5eeb7fa7d1fe4810c9e78bedb43b4872f6ece</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 10 Mar 2020 02:42:35 +0700
+
+feature(Page): generate 404 Not Found page
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/Pages/NotFoundPage.js</a></td><td> | </td><td class="num">29</td><td><span class="i">++++++++++++++++++++</span><span class="d">---------</span></td></tr>
+</table></pre></div><p>1 file changed, 20 insertions(<span id="plus">+</span>), 9 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/Pages/NotFoundPage.js.html">src/Pages/NotFoundPage.js</a> b/<a href="../file/src/Pages/NotFoundPage.js.html">src/Pages/NotFoundPage.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -6,15 +6,26 @@ import Text from &#39;../Components/Text&#39;;
+</a> 
+ const NotFoundPage = () =&gt; {
+   return (
+<a href="#h0-0-3" id="h0-0-3" class="d">-    &lt;Text&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-      Contact:{&#39; &#39;}
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-      &lt;Link
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-        href=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-        target=&quot;_top&quot;
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-      &gt;
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-        bandungpenting@gmail.com
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-      &lt;/Link&gt;
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-    &lt;/Text&gt;
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+    &lt;React.Fragment&gt;
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+      &lt;Text&gt;
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+        &lt;br /&gt;I regret to tell that you may have entered the
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+      &lt;/Text&gt;
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+      &lt;Text as=&quot;h2&quot;&gt;404 page&lt;/Text&gt;
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+      &lt;Text&gt;
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+        Website will typically generate a{&#39; &#39;}
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+        &lt;Text as=&quot;span&quot; variant=&quot;red&quot;&gt;
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+          &amp;quot;404 Not Found&amp;quot;
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+        &lt;/Text&gt;{&#39; &#39;}
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+        web page when a user attempts to follow a broken or dead link; hence the
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+        404 error is one of the most recognizable errors encountered on the
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+        World Wide Web. [
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+        &lt;Link to=&quot;https://en.wikipedia.org/wiki/HTTP_404&quot;&gt;1&lt;/Link&gt;]
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+        &lt;br /&gt;
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+        &lt;br /&gt;
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+        &lt;br /&gt;
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+        get back to &lt;Link to=&quot;/&quot;&gt;safety »&lt;/Link&gt;
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+      &lt;/Text&gt;
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+    &lt;/React.Fragment&gt;
+</a>   );
+ };
+ 
+</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(ContentList) =&gt; use Array.mapi - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/f12181eb118d3ea4abea8db380bdcc360f809f11.html">f12181eb118d3ea4abea8db380bdcc360f809f11</a>
+<b>parent</b> <a href="../commit/7b7dde43c368fb23adc9577cfdda2c89b872150d.html">7b7dde43c368fb23adc9577cfdda2c89b872150d</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Wed, 14 Aug 2019 18:43:06 +0700
+
+refactor(ContentList) =&gt; use Array.mapi
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/components/ContentList.re</a></td><td> | </td><td class="num">6</td><td><span class="i">+++</span><span class="d">---</span></td></tr>
+</table></pre></div><p>1 file changed, 3 insertions(<span id="plus">+</span>), 3 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/components/ContentList.re.html">src/components/ContentList.re</a> b/<a href="../file/src/components/ContentList.re.html">src/components/ContentList.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -48,15 +48,15 @@ type listContent = {
+</a> [@react.component]
+ let make = (~content: array(listContent)) =&gt; {
+   let contentMapped =
+<a href="#h0-0-3" id="h0-0-3" class="d">-    Array.map(
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-      (item: listContent) =&gt; {
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+    Array.mapi(
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+      (key, item: listContent) =&gt; {
+</a>         let listPointType =
+           switch (item.variant) {
+           | Progress =&gt; Styles.pProgress
+           | Done =&gt; Styles.pDone
+           | Default =&gt; Styles.pDefault
+           };
+<a href="#h0-0-13" id="h0-0-13" class="d">-        &lt;li&gt; &lt;p className=listPointType&gt; {item.text} &lt;/p&gt; &lt;/li&gt;;
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+        &lt;li key=string_of_int(key)&gt; &lt;p className=listPointType&gt; {item.text} &lt;/p&gt; &lt;/li&gt;;
+</a>       },
+       content,
+     );
+</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(theme): store dark to localStorage - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/cf1b70202e2e81c144e386ac70dd73bd9344fb5c.html">cf1b70202e2e81c144e386ac70dd73bd9344fb5c</a>
+<b>parent</b> <a href="../commit/710641b13087c94d6252ec13bea60749ece47480.html">710641b13087c94d6252ec13bea60749ece47480</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon,  9 Mar 2020 02:33:49 +0700
+
+refactor(theme): store dark to localStorage
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/App.js</a></td><td> | </td><td class="num">12</td><td><span class="i">+++++++++++</span><span class="d">-</span></td></tr>
+</table></pre></div><p>1 file changed, 11 insertions(<span id="plus">+</span>), 1 deletion(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/App.js.html">src/App.js</a> b/<a href="../file/src/App.js.html">src/App.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -31,7 +31,17 @@ const InnerWrapper = styled.div`
+</a> 
+ const App = () =&gt; {
+   const [dark, setDark] = React.useState(true);
+<a href="#h0-0-3" id="h0-0-3" class="d">-  const toggleDark = () =&gt; setDark(!dark);
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+  React.useEffect(() =&gt; {
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+    const isDark = localStorage.getItem(&#39;dark&#39;) === &#39;true&#39;;
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+    setDark(isDark);
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+  }, []);
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+  const toggleDark = () =&gt; {
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+    const newState = !dark;
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+    localStorage.setItem(&#39;dark&#39;, JSON.stringify(newState));
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+    setDark(newState);
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+  };
+</a> 
+   return (
+     &lt;ThemeProvider theme={{mode: dark ? &#39;dark&#39; : &#39;light&#39;}}&gt;
+</pre>
+</div>
+</div>
+</body>
+</html>

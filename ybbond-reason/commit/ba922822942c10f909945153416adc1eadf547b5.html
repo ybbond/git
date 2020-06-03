@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Poems) =&gt; WIP announcement - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/ba922822942c10f909945153416adc1eadf547b5.html">ba922822942c10f909945153416adc1eadf547b5</a>
+<b>parent</b> <a href="../commit/6e53a32d1f8d3c7033550d3b3452f7efe6855628.html">6e53a32d1f8d3c7033550d3b3452f7efe6855628</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Fri, 30 Aug 2019 01:16:32 +0700
+
+refactor(Poems) =&gt; WIP announcement
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/PoemsScene.re</a></td><td> | </td><td class="num">13</td><td><span class="i">++++++++++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/components/Footer.re</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre></div><p>2 files changed, 13 insertions(<span id="plus">+</span>), 2 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/PoemsScene.re.html">src/PoemsScene.re</a> b/<a href="../file/src/PoemsScene.re.html">src/PoemsScene.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,4 +1,15 @@
+</a> [@react.component]
+ let make = () =&gt; {
+<a href="#h0-0-2" id="h0-0-2" class="d">-  &lt;React.Fragment&gt; &lt;p&gt; {ReasonReact.string(&quot;Poems&quot;)} &lt;/p&gt; &lt;/React.Fragment&gt;;
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+  &lt;React.Fragment&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    &lt;p&gt;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+      {ReasonReact.string(
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+         &quot;Poems have not been implemented on this web version :(&quot;,
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+       )}
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+    &lt;/p&gt;
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+    &lt;p&gt;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+      {ReasonReact.string(&quot;If you want to read them, &quot;)}
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+      &lt;Link text=&quot;click here!&quot; href=&quot;https://ybbond.github.io&quot; /&gt;
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+    &lt;/p&gt;
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+    &lt;p&gt; {ReasonReact.string(&quot;Then, check the &#39;literature&#39;.&quot;)} &lt;/p&gt;
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+  &lt;/React.Fragment&gt;;
+</a> };
+<b>diff --git a/<a id="h1" href="../file/src/components/Footer.re.html">src/components/Footer.re</a> b/<a href="../file/src/components/Footer.re.html">src/components/Footer.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -18,7 +18,7 @@ let make = () =&gt;
+</a>   &lt;footer className=Styles.footer&gt;
+     &lt;p&gt; {ReasonReact.string(&quot;See you sooner :)&quot;)} &lt;/p&gt;
+     &lt;p&gt;
+<a href="#h1-0-3" id="h1-0-3" class="d">-      {ReasonReact.string(&quot;@19/08/2019  &quot;)}
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+      {ReasonReact.string(&quot;@30/08/2019  &quot;)}
+</a>       &lt;Link text=&quot;ybbond&quot; href=&quot;https://github.com/ybbond/ybbond-reason&quot; /&gt;
+     &lt;/p&gt;
+   &lt;/footer&gt;;
+</pre>
+</div>
+</div>
+</body>
+</html>

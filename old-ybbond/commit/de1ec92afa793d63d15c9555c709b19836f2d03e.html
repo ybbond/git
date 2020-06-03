@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(core): indexing the components - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/de1ec92afa793d63d15c9555c709b19836f2d03e.html">de1ec92afa793d63d15c9555c709b19836f2d03e</a>
+<b>parent</b> <a href="../commit/bdf06580f6056f471643d00bcc8ec9b83138c80c.html">bdf06580f6056f471643d00bcc8ec9b83138c80c</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Wed, 25 Mar 2020 21:40:55 +0700
+
+refactor(core): indexing the components
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/App.js</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/Components/HeaderFooter.js</a></td><td> | </td><td class="num">4</td><td><span class="i">+</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/Components/List.js</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">src/Components/index.js</a></td><td> | </td><td class="num">6</td><td><span class="i">++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">src/Pages/AboutPage.js</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">src/Pages/CVPage.js</a></td><td> | </td><td class="num">4</td><td><span class="i">+</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">src/Pages/NotFoundPage.js</a></td><td> | </td><td class="num">3</td><td><span class="i">+</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h7">src/Pages/UsesPage.js</a></td><td> | </td><td class="num">4</td><td><span class="i">+</span><span class="d">---</span></td></tr>
+</table></pre></div><p>8 files changed, 13 insertions(<span id="plus">+</span>), 14 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/App.js.html">src/App.js</a> b/<a href="../file/src/App.js.html">src/App.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -6,7 +6,7 @@ import {createBrowserHistory} from &#39;history&#39;;
+</a> import theme from &#39;styled-theming&#39;;
+ 
+ import routes from &#39;./routes&#39;;
+<a href="#h0-0-3" id="h0-0-3" class="d">-import HeaderFooter from &#39;./Components/HeaderFooter&#39;;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+import {HeaderFooter} from &#39;./Components&#39;;
+</a> import Style from &#39;./Theme/Style&#39;;
+ import {colors} from &#39;./Theme/colors&#39;;
+ 
+<b>diff --git a/<a id="h1" href="../file/src/Components/HeaderFooter.js.html">src/Components/HeaderFooter.js</a> b/<a href="../file/src/Components/HeaderFooter.js.html">src/Components/HeaderFooter.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -3,9 +3,7 @@ import React from &#39;react&#39;;
+</a> import styled from &#39;styled-components&#39;;
+ import theme from &#39;styled-theming&#39;;
+ 
+<a href="#h1-0-3" id="h1-0-3" class="d">-import Button from &#39;./Button&#39;;
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-import Link from &#39;./Link&#39;;
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-import Text from &#39;./Text&#39;;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+import {Button, Link, Text} from &#39;./&#39;;
+</a> import {colors} from &#39;../Theme/colors&#39;;
+ 
+ const borderColor = theme(&#39;mode&#39;, {
+<b>diff --git a/<a id="h2" href="../file/src/Components/List.js.html">src/Components/List.js</a> b/<a href="../file/src/Components/List.js.html">src/Components/List.js</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,7 +1,7 @@
+</a> // @flow
+ import React from &#39;react&#39;;
+ import styled, {css, type StyledComponent} from &#39;styled-components&#39;;
+<a href="#h2-0-3" id="h2-0-3" class="d">-import Text from &#39;./Text&#39;;
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+import {Text} from &#39;./&#39;;
+</a> import {colors} from &#39;../Theme/colors&#39;;
+ 
+ type Props = {|
+<b>diff --git a/<a id="h3" href="../file/src/Components/index.js.html">src/Components/index.js</a> b/<a href="../file/src/Components/index.js.html">src/Components/index.js</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,6 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+// @flow
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+export {default as Button} from &#39;./Button&#39;;
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+export {default as HeaderFooter} from &#39;./HeaderFooter&#39;;
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+export {default as Link} from &#39;./Link&#39;;
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+export {default as List} from &#39;./List&#39;;
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+export {default as Text} from &#39;./Text&#39;;
+</a><b>diff --git a/<a id="h4" href="../file/src/Pages/AboutPage.js.html">src/Pages/AboutPage.js</a> b/<a href="../file/src/Pages/AboutPage.js.html">src/Pages/AboutPage.js</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -1,7 +1,7 @@
+</a> // @flow
+ import React from &#39;react&#39;;
+ 
+<a href="#h4-0-3" id="h4-0-3" class="d">-import Text from &#39;../Components/Text&#39;;
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+import {Text} from &#39;../Components&#39;;
+</a> 
+ const CVPage = () =&gt; {
+   return (
+<b>diff --git a/<a id="h5" href="../file/src/Pages/CVPage.js.html">src/Pages/CVPage.js</a> b/<a href="../file/src/Pages/CVPage.js.html">src/Pages/CVPage.js</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -1,9 +1,7 @@
+</a> // @flow
+ import React from &#39;react&#39;;
+ 
+<a href="#h5-0-3" id="h5-0-3" class="d">-import Link from &#39;../Components/Link&#39;;
+</a><a href="#h5-0-4" id="h5-0-4" class="d">-import List from &#39;../Components/List&#39;;
+</a><a href="#h5-0-5" id="h5-0-5" class="d">-import Text from &#39;../Components/Text&#39;;
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+import {Link, List, Text} from &#39;../Components&#39;;
+</a> 
+ const CVPage = () =&gt; {
+   return (
+<b>diff --git a/<a id="h6" href="../file/src/Pages/NotFoundPage.js.html">src/Pages/NotFoundPage.js</a> b/<a href="../file/src/Pages/NotFoundPage.js.html">src/Pages/NotFoundPage.js</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -1,8 +1,7 @@
+</a> // @flow
+ import React from &#39;react&#39;;
+ 
+<a href="#h6-0-3" id="h6-0-3" class="d">-import Link from &#39;../Components/Link&#39;;
+</a><a href="#h6-0-4" id="h6-0-4" class="d">-import Text from &#39;../Components/Text&#39;;
+</a><a href="#h6-0-5" id="h6-0-5" class="i">+import {Link, Text} from &#39;../Components&#39;;
+</a> 
+ const NotFoundPage = () =&gt; {
+   return (
+<b>diff --git a/<a id="h7" href="../file/src/Pages/UsesPage.js.html">src/Pages/UsesPage.js</a> b/<a href="../file/src/Pages/UsesPage.js.html">src/Pages/UsesPage.js</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -1,9 +1,7 @@
+</a> // @flow
+ import React from &#39;react&#39;;
+ 
+<a href="#h7-0-3" id="h7-0-3" class="d">-import Text from &#39;../Components/Text&#39;;
+</a><a href="#h7-0-4" id="h7-0-4" class="d">-import List from &#39;../Components/List&#39;;
+</a><a href="#h7-0-5" id="h7-0-5" class="d">-import Link from &#39;../Components/Link&#39;;
+</a><a href="#h7-0-6" id="h7-0-6" class="i">+import {List, Link, Text} from &#39;../Components&#39;;
+</a> 
+ const UsesPage = () =&gt; {
+   return (
+</pre>
+</div>
+</div>
+</body>
+</html>

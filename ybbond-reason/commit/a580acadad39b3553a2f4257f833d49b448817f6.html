@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>wip - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/a580acadad39b3553a2f4257f833d49b448817f6.html">a580acadad39b3553a2f4257f833d49b448817f6</a>
+<b>parent</b> <a href="../commit/309cd507b98fcbe901255e4afd5a142c48014a7c.html">309cd507b98fcbe901255e4afd5a142c48014a7c</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue,  3 Mar 2020 04:49:12 +0700
+
+wip
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/BlogContent.re</a></td><td> | </td><td class="num">47</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++</span><span class="d">--------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/PoemsScene.re</a></td><td> | </td><td class="num">9</td><td><span class="i">+++++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/Styled.re</a></td><td> | </td><td class="num">3</td><td><span class="i">++</span><span class="d">-</span></td></tr>
+</table></pre></div><p>3 files changed, 48 insertions(<span id="plus">+</span>), 11 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/BlogContent.re.html">src/BlogContent.re</a> b/<a href="../file/src/BlogContent.re.html">src/BlogContent.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,6 +1,12 @@
+</a> module Styles = {
+   open Css;
+<a href="#h0-0-2" id="h0-0-2" class="d">-  let h1 = style([fontWeight(`num(600)), fontSize(`em(1.2))]);
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+  let h1 =
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    style([
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+      fontWeight(`num(600)),
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+      fontSize(`em(1.2)),
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+      media(&quot;(max-width: 544px)&quot;, [fontSize(`em(1.1))]),
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+    ]);
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+
+</a>   let summary =
+     style([
+       fontSize(`em(1.0)),
+<a href="#h0-1" id="h0-1" class="h">@@ -13,6 +19,28 @@ module Styles = {
+</a>       cursor(`pointer),
+       userSelect(`none),
+     ]);
+<a href="#h0-1-3" id="h0-1-3" class="i">+
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+  let date =
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+    style([
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+      fontFamily(&quot;Cousine for Powerline, monospace&quot;),
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+      fontSize(`em(0.8)),
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+      color(`hex(&quot;777777&quot;)),
+</a><a href="#h0-1-9" id="h0-1-9" class="i">+      whiteSpace(`nowrap),
+</a><a href="#h0-1-10" id="h0-1-10" class="i">+    ]);
+</a><a href="#h0-1-11" id="h0-1-11" class="i">+
+</a><a href="#h0-1-12" id="h0-1-12" class="i">+  let pre =
+</a><a href="#h0-1-13" id="h0-1-13" class="i">+    style([
+</a><a href="#h0-1-14" id="h0-1-14" class="i">+      fontFamily(&quot;Cousine for Powerline, monospace&quot;),
+</a><a href="#h0-1-15" id="h0-1-15" class="i">+      display(`block),
+</a><a href="#h0-1-16" id="h0-1-16" class="i">+      whiteSpace(`preWrap),
+</a><a href="#h0-1-17" id="h0-1-17" class="i">+      maxWidth(`px(544)),
+</a><a href="#h0-1-18" id="h0-1-18" class="i">+      fontSize(`em(0.9)),
+</a><a href="#h0-1-19" id="h0-1-19" class="i">+      lineHeight(`em(2.8)),
+</a><a href="#h0-1-20" id="h0-1-20" class="i">+      media(
+</a><a href="#h0-1-21" id="h0-1-21" class="i">+        &quot;(max-width: 544px)&quot;,
+</a><a href="#h0-1-22" id="h0-1-22" class="i">+        [fontSize(`em(0.8)), lineHeight(`em(3.0))],
+</a><a href="#h0-1-23" id="h0-1-23" class="i">+      ),
+</a><a href="#h0-1-24" id="h0-1-24" class="i">+    ]);
+</a> };
+ 
+ type state = {blog_content: string};
+<a href="#h0-2" id="h0-2" class="h">@@ -39,14 +67,17 @@ let make =
+</a> 
+   &lt;details&gt;
+     &lt;summary className=Styles.summary&gt; {ReasonReact.string(title)} &lt;/summary&gt;
+<a href="#h0-2-3" id="h0-2-3" class="d">-    &lt;h1 className=Styles.h1&gt;
+</a><a href="#h0-2-4" id="h0-2-4" class="d">-      {ReasonReact.string(&quot;# &quot; ++ title ++ &quot; [&quot;)}
+</a><a href="#h0-2-5" id="h0-2-5" class="i">+    &lt;h1 className=Styles.h1&gt; {ReasonReact.string(&quot;# &quot; ++ title)} &lt;/h1&gt;
+</a><a href="#h0-2-6" id="h0-2-6" class="i">+    &lt;span className=Styles.date&gt;
+</a><a href="#h0-2-7" id="h0-2-7" class="i">+      &lt;time&gt;
+</a><a href="#h0-2-8" id="h0-2-8" class="i">+        {ReasonReact.string(
+</a><a href="#h0-2-9" id="h0-2-9" class="i">+           createdAt |&gt; Js.Date.fromString |&gt; Js.Date.toLocaleString,
+</a><a href="#h0-2-10" id="h0-2-10" class="i">+         )}
+</a><a href="#h0-2-11" id="h0-2-11" class="i">+      &lt;/time&gt;
+</a><a href="#h0-2-12" id="h0-2-12" class="i">+      {ReasonReact.string(&quot; [&quot;)}
+</a>       &lt;Link href=source text=&quot;link&quot; /&gt;
+       {ReasonReact.string(&quot;]&quot;)}
+<a href="#h0-2-15" id="h0-2-15" class="d">-    &lt;/h1&gt;
+</a><a href="#h0-2-16" id="h0-2-16" class="d">-    &lt;date&gt;
+</a><a href="#h0-2-17" id="h0-2-17" class="d">-      {ReasonReact.string(createdAt |&gt; Js.Date.fromString |&gt; Js.Date.toString)}
+</a><a href="#h0-2-18" id="h0-2-18" class="d">-    &lt;/date&gt;
+</a><a href="#h0-2-19" id="h0-2-19" class="d">-    &lt;pre&gt; {ReasonReact.string(state.blog_content)} &lt;/pre&gt;
+</a><a href="#h0-2-20" id="h0-2-20" class="i">+    &lt;/span&gt;
+</a><a href="#h0-2-21" id="h0-2-21" class="i">+    &lt;pre className=Styles.pre&gt; {ReasonReact.string(state.blog_content)} &lt;/pre&gt;
+</a>   &lt;/details&gt;;
+ };
+<b>diff --git a/<a id="h1" href="../file/src/PoemsScene.re.html">src/PoemsScene.re</a> b/<a href="../file/src/PoemsScene.re.html">src/PoemsScene.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -6,8 +6,13 @@ module Styles = {
+</a>       fontFamily(&quot;Cousine for Powerline, monospace&quot;),
+       display(`block),
+       whiteSpace(`preWrap),
+<a href="#h1-0-3" id="h1-0-3" class="d">-      fontSize(`em(0.8)),
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-      lineHeight(`em(3.3)),
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+      maxWidth(`px(544)),
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+      fontSize(`em(0.9)),
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+      lineHeight(`em(2.8)),
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+      media(
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+        &quot;(max-width: 414px)&quot;,
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+        [fontSize(`em(0.8)), lineHeight(`em(3.0))],
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+      ),
+</a>     ]);
+ };
+ 
+<b>diff --git a/<a id="h2" href="../file/src/Styled.re.html">src/Styled.re</a> b/<a href="../file/src/Styled.re.html">src/Styled.re</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -70,7 +70,8 @@ h5 {
+</a>   margin: 1em 0;
+ }
+ *:focus {
+<a href="#h2-0-3" id="h2-0-3" class="d">-  outline-color: #79d688;
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  outline-color: #79d688 !important;
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+  outline: solid #79d688 !important;
+</a> }
+ ::selection {
+   background-color: #79d688;
+</pre>
+</div>
+</div>
+</body>
+</html>

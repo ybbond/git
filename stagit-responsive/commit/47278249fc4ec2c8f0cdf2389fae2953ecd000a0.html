@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: make the css accessible for nginx - stagit-responsive - My mobile friendly fork of stagit
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="stagit-responsive Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>stagit-responsive</h1><span class="desc">My mobile friendly fork of stagit
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/47278249fc4ec2c8f0cdf2389fae2953ecd000a0.html">47278249fc4ec2c8f0cdf2389fae2953ecd000a0</a>
+<b>parent</b> <a href="../commit/6f71bd7f3d993ef4196000cc27f67500df945140.html">6f71bd7f3d993ef4196000cc27f67500df945140</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Thu, 14 May 2020 22:45:29 +0700
+
+refactor: make the css accessible for nginx
+
+refactor: absolute pathfor stagit-index
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">stagit-index.c</a></td><td> | </td><td class="num">8</td><td><span class="i">++++</span><span class="d">----</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">stagit.c</a></td><td> | </td><td class="num">8</td><td><span class="i">++++</span><span class="d">----</span></td></tr>
+</table></pre></div><p>2 files changed, 8 insertions(<span id="plus">+</span>), 8 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/stagit-index.c.html">stagit-index.c</a> b/<a href="../file/stagit-index.c.html">stagit-index.c</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -69,11 +69,11 @@ writeheader(FILE *fp)
+</a> 		&quot;&lt;meta http-equiv=\&quot;Content-Type\&quot; content=\&quot;text/html; charset=UTF-8\&quot; /&gt;\n&quot;
+ 		&quot;&lt;title&gt;&quot;, fp);
+ 	xmlencode(fp, description, strlen(description));
+<a href="#h0-0-3" id="h0-0-3" class="d">-	fprintf(fp, &quot;&lt;/title&gt;\n&lt;link rel=\&quot;icon\&quot; type=\&quot;image/png\&quot; href=\&quot;%sfavicon.png\&quot; /&gt;\n&quot;, relpath);
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-	fprintf(fp, &quot;&lt;link rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot; href=\&quot;%sstyle.css\&quot; /&gt;\n&quot;, relpath);
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+	fprintf(fp, &quot;&lt;/title&gt;\n&lt;link rel=\&quot;icon\&quot; type=\&quot;image/png\&quot; href=\&quot;/favicon.png\&quot; /&gt;\n&quot;);
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+	fprintf(fp, &quot;&lt;link rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot; href=\&quot;/style.css\&quot; /&gt;\n&quot;);
+</a> 	fputs(&quot;&lt;/head&gt;\n&lt;body&gt;\n&quot;, fp);
+<a href="#h0-0-8" id="h0-0-8" class="d">-	fprintf(fp, &quot;&lt;table&gt;\n&lt;tr&gt;&lt;td&gt;&lt;img src=\&quot;%slogo.png\&quot; alt=\&quot;\&quot; width=\&quot;32\&quot; height=\&quot;32\&quot; /&gt;&lt;/td&gt;\n&quot;
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-	        &quot;&lt;td&gt;&lt;span class=\&quot;desc\&quot;&gt;&quot;, relpath);
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+	fprintf(fp, &quot;&lt;table&gt;\n&lt;tr&gt;&lt;td&gt;&lt;img src=\&quot;/logo.png\&quot; alt=\&quot;\&quot; width=\&quot;32\&quot; height=\&quot;32\&quot; /&gt;&lt;/td&gt;\n&quot;
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+	        &quot;&lt;td&gt;&lt;span class=\&quot;desc\&quot;&gt;&quot;);
+</a> 	xmlencode(fp, description, strlen(description));
+ 	fputs(&quot;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;\n&quot;
+ 		&quot;&lt;/td&gt;&lt;/tr&gt;\n&lt;/table&gt;\n&lt;hr/&gt;\n&lt;div id=\&quot;content\&quot;&gt;\n&quot;
+<b>diff --git a/<a id="h1" href="../file/stagit.c.html">stagit.c</a> b/<a href="../file/stagit.c.html">stagit.c</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -353,13 +353,13 @@ writeheader(FILE *fp, const char *title)
+</a> 	if (description[0])
+ 		fputs(&quot; - &quot;, fp);
+ 	xmlencode(fp, description, strlen(description));
+<a href="#h1-0-3" id="h1-0-3" class="d">-	fprintf(fp, &quot;&lt;/title&gt;\n&lt;link rel=\&quot;icon\&quot; type=\&quot;image/png\&quot; href=\&quot;%sfavicon.png\&quot; /&gt;\n&quot;, relpath);
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+	fprintf(fp, &quot;&lt;/title&gt;\n&lt;link rel=\&quot;icon\&quot; type=\&quot;image/png\&quot; href=\&quot;/favicon.png\&quot; /&gt;\n&quot;);
+</a> 	fprintf(fp, &quot;&lt;link rel=\&quot;alternate\&quot; type=\&quot;application/atom+xml\&quot; title=\&quot;%s Atom Feed\&quot; href=\&quot;%satom.xml\&quot; /&gt;\n&quot;,
+ 		name, relpath);
+<a href="#h1-0-7" id="h1-0-7" class="d">-	fprintf(fp, &quot;&lt;link rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot; href=\&quot;%sstyle.css\&quot; /&gt;\n&quot;, relpath);
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+	fprintf(fp, &quot;&lt;link rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot; href=\&quot;/style.css\&quot; /&gt;\n&quot;);
+</a> 	fputs(&quot;&lt;/head&gt;\n&lt;body&gt;\n&lt;table&gt;&lt;tr&gt;&lt;td&gt;&quot;, fp);
+<a href="#h1-0-10" id="h1-0-10" class="d">-	fprintf(fp, &quot;&lt;a href=\&quot;../%s\&quot;&gt;&lt;img src=\&quot;%slogo.png\&quot; alt=\&quot;\&quot; width=\&quot;32\&quot; height=\&quot;32\&quot; /&gt;&lt;/a&gt;&quot;,
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-	        relpath, relpath);
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+	fprintf(fp, &quot;&lt;a href=\&quot;../%s\&quot;&gt;&lt;img src=\&quot;/logo.png\&quot; alt=\&quot;\&quot; width=\&quot;32\&quot; height=\&quot;32\&quot; /&gt;&lt;/a&gt;&quot;,
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+	        relpath);
+</a> 	fputs(&quot;&lt;/td&gt;&lt;td&gt;&lt;h1&gt;&quot;, fp);
+ 	xmlencode(fp, strippedname, strlen(strippedname));
+ 	fputs(&quot;&lt;/h1&gt;&lt;span class=\&quot;desc\&quot;&gt;&quot;, fp);
+</pre>
+</div>
+</div>
+</body>
+</html>

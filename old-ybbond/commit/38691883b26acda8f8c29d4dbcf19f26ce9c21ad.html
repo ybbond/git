@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(core): add compression - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/38691883b26acda8f8c29d4dbcf19f26ce9c21ad.html">38691883b26acda8f8c29d4dbcf19f26ce9c21ad</a>
+<b>parent</b> <a href="../commit/523ba2cf900307dbefc595cf4346446ca0323790.html">523ba2cf900307dbefc595cf4346446ca0323790</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Thu, 26 Mar 2020 08:52:45 +0700
+
+feature(core): add compression
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">package.json</a></td><td> | </td><td class="num">3</td><td><span class="i">++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">webpack.config.js</a></td><td> | </td><td class="num">8</td><td><span class="i">++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">yarn.lock</a></td><td> | </td><td class="num">276</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">----</span></td></tr>
+</table></pre></div><p>3 files changed, 275 insertions(<span id="plus">+</span>), 12 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/package.json.html">package.json</a> b/<a href="../file/package.json.html">package.json</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -40,6 +40,7 @@
+</a>     &quot;webpack&quot;: &quot;^4.42.0&quot;,
+     &quot;webpack-bundle-analyzer&quot;: &quot;^3.6.1&quot;,
+     &quot;webpack-cli&quot;: &quot;^3.3.11&quot;,
+<a href="#h0-0-3" id="h0-0-3" class="d">-    &quot;webpack-dev-server&quot;: &quot;^3.10.3&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    &quot;webpack-dev-server&quot;: &quot;^3.10.3&quot;,
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+    &quot;zopfli-webpack-plugin&quot;: &quot;^0.1.0&quot;
+</a>   }
+ }
+<b>diff --git a/<a id="h1" href="../file/webpack.config.js.html">webpack.config.js</a> b/<a href="../file/webpack.config.js.html">webpack.config.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);
+</a> const BundleAnalyzerPlugin = require(&#39;webpack-bundle-analyzer&#39;)
+   .BundleAnalyzerPlugin;
+ const {CleanWebpackPlugin} = require(&#39;clean-webpack-plugin&#39;);
+<a href="#h1-0-3" id="h1-0-3" class="i">+const ZopfliPlugin = require(&#39;zopfli-webpack-plugin&#39;);
+</a> 
+ const config = {
+   entry: path.resolve(__dirname, &#39;src/index&#39;),
+<a href="#h1-1" id="h1-1" class="h">@@ -30,6 +31,13 @@ const config = {
+</a>         process.env.GITHUB_READ_ONLY_TOKEN,
+       ),
+     }),
+<a href="#h1-1-3" id="h1-1-3" class="i">+    new ZopfliPlugin({
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+      asset: &#39;[path].gz[query]&#39;,
+</a><a href="#h1-1-5" id="h1-1-5" class="i">+      algorithm: &#39;zopfli&#39;,
+</a><a href="#h1-1-6" id="h1-1-6" class="i">+      test: /\.(js|html)$/,
+</a><a href="#h1-1-7" id="h1-1-7" class="i">+      threshold: 10240,
+</a><a href="#h1-1-8" id="h1-1-8" class="i">+      minRatio: 0.8,
+</a><a href="#h1-1-9" id="h1-1-9" class="i">+    }),
+</a>   ],
+   devServer: {
+     contentBase: path.resolve(__dirname, &#39;build&#39;),
+<b>diff --git a/<a id="h2" href="../file/yarn.lock.html">yarn.lock</a> b/<a href="../file/yarn.lock.html">yarn.lock</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1180,11 +1180,19 @@ anymatch@^2.0.0:
+</a>     micromatch &quot;^3.1.4&quot;
+     normalize-path &quot;^2.1.1&quot;
+ 
+<a href="#h2-0-3" id="h2-0-3" class="d">-aproba@^1.1.1:
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+aproba@^1.0.3, aproba@^1.1.1:
+</a>   version &quot;1.2.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a&quot;
+   integrity sha512-Y9J6ZjXtoYh8RnXVCMOU/ttDmk1aBjunq9vO0ta5x85WDQiQfUF9sIPBITdbiiIVcBo03Hi3jMxigBtsddlXRw==
+ 
+<a href="#h2-0-9" id="h2-0-9" class="i">+are-we-there-yet@~1.1.2:
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+  version &quot;1.1.5&quot;
+</a><a href="#h2-0-11" id="h2-0-11" class="i">+  resolved &quot;https://registry.yarnpkg.com/are-we-there-yet/-/are-we-there-yet-1.1.5.tgz#4b35c2944f062a8bfcda66410760350fe9ddfc21&quot;
+</a><a href="#h2-0-12" id="h2-0-12" class="i">+  integrity sha512-5hYdAkZlcG8tOLujVDTgCT+uPX0VnpAH28gWsLfzpXYm7wP6mp5Q/gYyR7YQ0cKVJcXJnl3j2kpBan13PtQf6w==
+</a><a href="#h2-0-13" id="h2-0-13" class="i">+  dependencies:
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+    delegates &quot;^1.0.0&quot;
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+    readable-stream &quot;^2.0.6&quot;
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+
+</a> argparse@^1.0.7:
+   version &quot;1.0.10&quot;
+   resolved &quot;https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911&quot;
+<a href="#h2-1" id="h2-1" class="h">@@ -1280,7 +1288,7 @@ async-limiter@~1.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd&quot;
+   integrity sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
+ 
+<a href="#h2-1-3" id="h2-1-3" class="d">-async@^2.6.2:
+</a><a href="#h2-1-4" id="h2-1-4" class="i">+async@^2.4.0, async@^2.6.2:
+</a>   version &quot;2.6.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/async/-/async-2.6.3.tgz#d72625e2344a3656e3a3ad4fa749fa83299d82ff&quot;
+   integrity sha512-zflvls11DCy+dQWzTW2dzuilv8Z5X/pjfmZOWba6TNIVDm+2UDaJmXSOXlasHKfNBs8oo3M0aT50fDEWfKZjXg==
+<a href="#h2-2" id="h2-2" class="h">@@ -1396,6 +1404,15 @@ bindings@^1.5.0:
+</a>   dependencies:
+     file-uri-to-path &quot;1.0.0&quot;
+ 
+<a href="#h2-2-3" id="h2-2-3" class="i">+bl@^4.0.1:
+</a><a href="#h2-2-4" id="h2-2-4" class="i">+  version &quot;4.0.2&quot;
+</a><a href="#h2-2-5" id="h2-2-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/bl/-/bl-4.0.2.tgz#52b71e9088515d0606d9dd9cc7aa48dc1f98e73a&quot;
+</a><a href="#h2-2-6" id="h2-2-6" class="i">+  integrity sha512-j4OH8f6Qg2bGuWfRiltT2HYGx0e1QcBTrK9KAHNMwMZdQnDZFk0ZSYIpADjYCB3U12nicC5tVJwSIhwOWjb4RQ==
+</a><a href="#h2-2-7" id="h2-2-7" class="i">+  dependencies:
+</a><a href="#h2-2-8" id="h2-2-8" class="i">+    buffer &quot;^5.5.0&quot;
+</a><a href="#h2-2-9" id="h2-2-9" class="i">+    inherits &quot;^2.0.4&quot;
+</a><a href="#h2-2-10" id="h2-2-10" class="i">+    readable-stream &quot;^3.4.0&quot;
+</a><a href="#h2-2-11" id="h2-2-11" class="i">+
+</a> bluebird@^3.5.5:
+   version &quot;3.7.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f&quot;
+<a href="#h2-3" id="h2-3" class="h">@@ -1560,6 +1577,14 @@ buffer@^4.3.0:
+</a>     ieee754 &quot;^1.1.4&quot;
+     isarray &quot;^1.0.0&quot;
+ 
+<a href="#h2-3-3" id="h2-3-3" class="i">+buffer@^5.5.0:
+</a><a href="#h2-3-4" id="h2-3-4" class="i">+  version &quot;5.5.0&quot;
+</a><a href="#h2-3-5" id="h2-3-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/buffer/-/buffer-5.5.0.tgz#9c3caa3d623c33dd1c7ef584b89b88bf9c9bc1ce&quot;
+</a><a href="#h2-3-6" id="h2-3-6" class="i">+  integrity sha512-9FTEDjLjwoAkEwyMGDjYJQN2gfRgOKBKRfiglhvibGbpeeU/pQn1bJxQqm32OD/AIeEuHxU9roxXxg34Byp/Ww==
+</a><a href="#h2-3-7" id="h2-3-7" class="i">+  dependencies:
+</a><a href="#h2-3-8" id="h2-3-8" class="i">+    base64-js &quot;^1.0.2&quot;
+</a><a href="#h2-3-9" id="h2-3-9" class="i">+    ieee754 &quot;^1.1.4&quot;
+</a><a href="#h2-3-10" id="h2-3-10" class="i">+
+</a> builtin-status-codes@^3.0.0:
+   version &quot;3.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8&quot;
+<a href="#h2-4" id="h2-4" class="h">@@ -1760,6 +1785,11 @@ cliui@^5.0.0:
+</a>     strip-ansi &quot;^5.2.0&quot;
+     wrap-ansi &quot;^5.1.0&quot;
+ 
+<a href="#h2-4-3" id="h2-4-3" class="i">+clone@^1.0.2:
+</a><a href="#h2-4-4" id="h2-4-4" class="i">+  version &quot;1.0.4&quot;
+</a><a href="#h2-4-5" id="h2-4-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e&quot;
+</a><a href="#h2-4-6" id="h2-4-6" class="i">+  integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
+</a><a href="#h2-4-7" id="h2-4-7" class="i">+
+</a> code-point-at@^1.0.0:
+   version &quot;1.1.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77&quot;
+<a href="#h2-5" id="h2-5" class="h">@@ -1807,6 +1837,11 @@ commander@^2.18.0, commander@^2.20.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33&quot;
+   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+ 
+<a href="#h2-5-3" id="h2-5-3" class="i">+commander@^3.0.0:
+</a><a href="#h2-5-4" id="h2-5-4" class="i">+  version &quot;3.0.2&quot;
+</a><a href="#h2-5-5" id="h2-5-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/commander/-/commander-3.0.2.tgz#6837c3fb677ad9933d1cfba42dd14d5117d6b39e&quot;
+</a><a href="#h2-5-6" id="h2-5-6" class="i">+  integrity sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow==
+</a><a href="#h2-5-7" id="h2-5-7" class="i">+
+</a> commander@^4.0.1:
+   version &quot;4.1.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068&quot;
+<a href="#h2-6" id="h2-6" class="h">@@ -1872,6 +1907,11 @@ console-browserify@^1.1.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/console-browserify/-/console-browserify-1.2.0.tgz#67063cef57ceb6cf4993a2ab3a55840ae8c49336&quot;
+   integrity sha512-ZMkYO/LkF17QvCPqM0gxw8yUzigAOZOSWSHg91FH6orS7vcEj5dVZTidN2fQ14yBSdg97RqhSNwLUXInd52OTA==
+ 
+<a href="#h2-6-3" id="h2-6-3" class="i">+console-control-strings@^1.0.0, console-control-strings@~1.1.0:
+</a><a href="#h2-6-4" id="h2-6-4" class="i">+  version &quot;1.1.0&quot;
+</a><a href="#h2-6-5" id="h2-6-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e&quot;
+</a><a href="#h2-6-6" id="h2-6-6" class="i">+  integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
+</a><a href="#h2-6-7" id="h2-6-7" class="i">+
+</a> constants-browserify@^1.0.0:
+   version &quot;1.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75&quot;
+<a href="#h2-7" id="h2-7" class="h">@@ -2065,6 +2105,13 @@ decode-uri-component@^0.2.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545&quot;
+   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+ 
+<a href="#h2-7-3" id="h2-7-3" class="i">+decompress-response@^4.2.0:
+</a><a href="#h2-7-4" id="h2-7-4" class="i">+  version &quot;4.2.1&quot;
+</a><a href="#h2-7-5" id="h2-7-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/decompress-response/-/decompress-response-4.2.1.tgz#414023cc7a302da25ce2ec82d0d5238ccafd8986&quot;
+</a><a href="#h2-7-6" id="h2-7-6" class="i">+  integrity sha512-jOSne2qbyE+/r8G1VU+G/82LBs2Fs4LAsTiLSHOCOMZQl2OKZ6i8i4IyHemTe+/yIXOtTcRQMzPcgyhoFlqPkw==
+</a><a href="#h2-7-7" id="h2-7-7" class="i">+  dependencies:
+</a><a href="#h2-7-8" id="h2-7-8" class="i">+    mimic-response &quot;^2.0.0&quot;
+</a><a href="#h2-7-9" id="h2-7-9" class="i">+
+</a> deep-equal@^1.0.1:
+   version &quot;1.1.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.1.1.tgz#b5c98c942ceffaf7cb051e24e1434a25a2e6076a&quot;
+<a href="#h2-8" id="h2-8" class="h">@@ -2077,6 +2124,11 @@ deep-equal@^1.0.1:
+</a>     object-keys &quot;^1.1.1&quot;
+     regexp.prototype.flags &quot;^1.2.0&quot;
+ 
+<a href="#h2-8-3" id="h2-8-3" class="i">+deep-extend@^0.6.0:
+</a><a href="#h2-8-4" id="h2-8-4" class="i">+  version &quot;0.6.0&quot;
+</a><a href="#h2-8-5" id="h2-8-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac&quot;
+</a><a href="#h2-8-6" id="h2-8-6" class="i">+  integrity sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==
+</a><a href="#h2-8-7" id="h2-8-7" class="i">+
+</a> deep-is@~0.1.3:
+   version &quot;0.1.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34&quot;
+<a href="#h2-9" id="h2-9" class="h">@@ -2090,6 +2142,13 @@ default-gateway@^4.2.0:
+</a>     execa &quot;^1.0.0&quot;
+     ip-regex &quot;^2.1.0&quot;
+ 
+<a href="#h2-9-3" id="h2-9-3" class="i">+defaults@^1.0.3:
+</a><a href="#h2-9-4" id="h2-9-4" class="i">+  version &quot;1.0.3&quot;
+</a><a href="#h2-9-5" id="h2-9-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/defaults/-/defaults-1.0.3.tgz#c656051e9817d9ff08ed881477f3fe4019f3ef7d&quot;
+</a><a href="#h2-9-6" id="h2-9-6" class="i">+  integrity sha1-xlYFHpgX2f8I7YgUd/P+QBnz730=
+</a><a href="#h2-9-7" id="h2-9-7" class="i">+  dependencies:
+</a><a href="#h2-9-8" id="h2-9-8" class="i">+    clone &quot;^1.0.2&quot;
+</a><a href="#h2-9-9" id="h2-9-9" class="i">+
+</a> define-properties@^1.1.2, define-properties@^1.1.3:
+   version &quot;1.1.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/define-properties/-/define-properties-1.1.3.tgz#cf88da6cbee26fe6db7094f61d870cbd84cee9f1&quot;
+<a href="#h2-10" id="h2-10" class="h">@@ -2132,6 +2191,11 @@ del@^4.1.1:
+</a>     pify &quot;^4.0.1&quot;
+     rimraf &quot;^2.6.3&quot;
+ 
+<a href="#h2-10-3" id="h2-10-3" class="i">+delegates@^1.0.0:
+</a><a href="#h2-10-4" id="h2-10-4" class="i">+  version &quot;1.0.0&quot;
+</a><a href="#h2-10-5" id="h2-10-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a&quot;
+</a><a href="#h2-10-6" id="h2-10-6" class="i">+  integrity sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
+</a><a href="#h2-10-7" id="h2-10-7" class="i">+
+</a> depd@~1.1.2:
+   version &quot;1.1.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9&quot;
+<a href="#h2-11" id="h2-11" class="h">@@ -2155,6 +2219,11 @@ detect-file@^1.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/detect-file/-/detect-file-1.0.0.tgz#f0d66d03672a825cb1b73bdb3fe62310c8e552b7&quot;
+   integrity sha1-8NZtA2cqglyxtzvbP+YjEMjlUrc=
+ 
+<a href="#h2-11-3" id="h2-11-3" class="i">+detect-libc@^1.0.3:
+</a><a href="#h2-11-4" id="h2-11-4" class="i">+  version &quot;1.0.3&quot;
+</a><a href="#h2-11-5" id="h2-11-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b&quot;
+</a><a href="#h2-11-6" id="h2-11-6" class="i">+  integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
+</a><a href="#h2-11-7" id="h2-11-7" class="i">+
+</a> detect-node@^2.0.4:
+   version &quot;2.0.4&quot;
+   resolved &quot;https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.4.tgz#014ee8f8f669c5c58023da64b8179c083a28c46c&quot;
+<a href="#h2-12" id="h2-12" class="h">@@ -2329,7 +2398,7 @@ encodeurl@~1.0.2:
+</a>   resolved &quot;https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59&quot;
+   integrity sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+ 
+<a href="#h2-12-3" id="h2-12-3" class="d">-end-of-stream@^1.0.0, end-of-stream@^1.1.0:
+</a><a href="#h2-12-4" id="h2-12-4" class="i">+end-of-stream@^1.0.0, end-of-stream@^1.1.0, end-of-stream@^1.4.1:
+</a>   version &quot;1.4.4&quot;
+   resolved &quot;https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.4.4.tgz#5ae64a5f45057baf3626ec14da0ca5e4b2431eb0&quot;
+   integrity sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==
+<a href="#h2-13" id="h2-13" class="h">@@ -2611,6 +2680,11 @@ expand-brackets@^2.1.4:
+</a>     snapdragon &quot;^0.8.1&quot;
+     to-regex &quot;^3.0.1&quot;
+ 
+<a href="#h2-13-3" id="h2-13-3" class="i">+expand-template@^2.0.3:
+</a><a href="#h2-13-4" id="h2-13-4" class="i">+  version &quot;2.0.3&quot;
+</a><a href="#h2-13-5" id="h2-13-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/expand-template/-/expand-template-2.0.3.tgz#6e14b3fcee0f3a6340ecb57d2e8918692052a47c&quot;
+</a><a href="#h2-13-6" id="h2-13-6" class="i">+  integrity sha512-XYfuKMvj4O35f/pOXLObndIRvyQ+/+6AhODh+OKWj9S9498pHHn/IMszH+gt0fBCRWMNfk1ZSp5x3AifmnI2vg==
+</a><a href="#h2-13-7" id="h2-13-7" class="i">+
+</a> expand-tilde@^2.0.0, expand-tilde@^2.0.2:
+   version &quot;2.0.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/expand-tilde/-/expand-tilde-2.0.2.tgz#97e801aa052df02454de46b02bf621642cdc8502&quot;
+<a href="#h2-14" id="h2-14" class="h">@@ -2868,6 +2942,11 @@ from2@^2.1.0:
+</a>     inherits &quot;^2.0.1&quot;
+     readable-stream &quot;^2.0.0&quot;
+ 
+<a href="#h2-14-3" id="h2-14-3" class="i">+fs-constants@^1.0.0:
+</a><a href="#h2-14-4" id="h2-14-4" class="i">+  version &quot;1.0.0&quot;
+</a><a href="#h2-14-5" id="h2-14-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/fs-constants/-/fs-constants-1.0.0.tgz#6be0de9be998ce16af8afc24497b9ee9b7ccd9ad&quot;
+</a><a href="#h2-14-6" id="h2-14-6" class="i">+  integrity sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==
+</a><a href="#h2-14-7" id="h2-14-7" class="i">+
+</a> fs-readdir-recursive@^1.1.0:
+   version &quot;1.1.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/fs-readdir-recursive/-/fs-readdir-recursive-1.1.0.tgz#e32fc030a2ccee44a6b5371308da54be0b397d27&quot;
+<a href="#h2-15" id="h2-15" class="h">@@ -2906,6 +2985,20 @@ functional-red-black-tree@^1.0.1:
+</a>   resolved &quot;https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327&quot;
+   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
+ 
+<a href="#h2-15-3" id="h2-15-3" class="i">+gauge@~2.7.3:
+</a><a href="#h2-15-4" id="h2-15-4" class="i">+  version &quot;2.7.4&quot;
+</a><a href="#h2-15-5" id="h2-15-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7&quot;
+</a><a href="#h2-15-6" id="h2-15-6" class="i">+  integrity sha1-LANAXHU4w51+s3sxcCLjJfsBi/c=
+</a><a href="#h2-15-7" id="h2-15-7" class="i">+  dependencies:
+</a><a href="#h2-15-8" id="h2-15-8" class="i">+    aproba &quot;^1.0.3&quot;
+</a><a href="#h2-15-9" id="h2-15-9" class="i">+    console-control-strings &quot;^1.0.0&quot;
+</a><a href="#h2-15-10" id="h2-15-10" class="i">+    has-unicode &quot;^2.0.0&quot;
+</a><a href="#h2-15-11" id="h2-15-11" class="i">+    object-assign &quot;^4.1.0&quot;
+</a><a href="#h2-15-12" id="h2-15-12" class="i">+    signal-exit &quot;^3.0.0&quot;
+</a><a href="#h2-15-13" id="h2-15-13" class="i">+    string-width &quot;^1.0.1&quot;
+</a><a href="#h2-15-14" id="h2-15-14" class="i">+    strip-ansi &quot;^3.0.1&quot;
+</a><a href="#h2-15-15" id="h2-15-15" class="i">+    wide-align &quot;^1.1.0&quot;
+</a><a href="#h2-15-16" id="h2-15-16" class="i">+
+</a> gensync@^1.0.0-beta.1:
+   version &quot;1.0.0-beta.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.1.tgz#58f4361ff987e5ff6e1e7a210827aa371eaac269&quot;
+<a href="#h2-16" id="h2-16" class="h">@@ -2938,6 +3031,11 @@ get-value@^2.0.3, get-value@^2.0.6:
+</a>   resolved &quot;https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28&quot;
+   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
+ 
+<a href="#h2-16-3" id="h2-16-3" class="i">+github-from-package@0.0.0:
+</a><a href="#h2-16-4" id="h2-16-4" class="i">+  version &quot;0.0.0&quot;
+</a><a href="#h2-16-5" id="h2-16-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/github-from-package/-/github-from-package-0.0.0.tgz#97fb5d96bfde8973313f20e8288ef9a167fa64ce&quot;
+</a><a href="#h2-16-6" id="h2-16-6" class="i">+  integrity sha1-l/tdlr/eiXMxPyDoKI75oWf6ZM4=
+</a><a href="#h2-16-7" id="h2-16-7" class="i">+
+</a> glob-parent@^3.1.0:
+   version &quot;3.1.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/glob-parent/-/glob-parent-3.1.0.tgz#9e6af6299d8d3bd2bd40430832bd113df906c5ae&quot;
+<a href="#h2-17" id="h2-17" class="h">@@ -3062,6 +3160,11 @@ has-symbols@^1.0.0, has-symbols@^1.0.1:
+</a>   resolved &quot;https://registry.yarnpkg.com/has-symbols/-/has-symbols-1.0.1.tgz#9f5214758a44196c406d9bd76cebf81ec2dd31e8&quot;
+   integrity sha512-PLcsoqu++dmEIZB+6totNFKq/7Do+Z0u4oT0zKOJNl3lYK6vGwwu2hjHs+68OEZbTjiUE9bgOABXbP/GvrS0Kg==
+ 
+<a href="#h2-17-3" id="h2-17-3" class="i">+has-unicode@^2.0.0:
+</a><a href="#h2-17-4" id="h2-17-4" class="i">+  version &quot;2.0.1&quot;
+</a><a href="#h2-17-5" id="h2-17-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/has-unicode/-/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9&quot;
+</a><a href="#h2-17-6" id="h2-17-6" class="i">+  integrity sha1-4Ob+aijPUROIVeCG0Wkedx3iqLk=
+</a><a href="#h2-17-7" id="h2-17-7" class="i">+
+</a> has-value@^0.3.1:
+   version &quot;0.3.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/has-value/-/has-value-0.3.1.tgz#7b1f58bada62ca827ec0a2078025654845995e1f&quot;
+<a href="#h2-18" id="h2-18" class="h">@@ -3336,7 +3439,7 @@ inflight@^1.0.4:
+</a>     once &quot;^1.3.0&quot;
+     wrappy &quot;1&quot;
+ 
+<a href="#h2-18-3" id="h2-18-3" class="d">-inherits@2, inherits@2.0.4, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.1, inherits@~2.0.3:
+</a><a href="#h2-18-4" id="h2-18-4" class="i">+inherits@2, inherits@2.0.4, inherits@^2.0.1, inherits@^2.0.3, inherits@^2.0.4, inherits@~2.0.1, inherits@~2.0.3:
+</a>   version &quot;2.0.4&quot;
+   resolved &quot;https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c&quot;
+   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
+<a href="#h2-19" id="h2-19" class="h">@@ -3351,7 +3454,7 @@ inherits@2.0.3:
+</a>   resolved &quot;https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de&quot;
+   integrity sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
+ 
+<a href="#h2-19-3" id="h2-19-3" class="d">-ini@^1.3.4, ini@^1.3.5:
+</a><a href="#h2-19-4" id="h2-19-4" class="i">+ini@^1.3.4, ini@^1.3.5, ini@~1.3.0:
+</a>   version &quot;1.3.5&quot;
+   resolved &quot;https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927&quot;
+   integrity sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw==
+<a href="#h2-20" id="h2-20" class="h">@@ -3980,6 +4083,11 @@ mimic-fn@^2.0.0, mimic-fn@^2.1.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b&quot;
+   integrity sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==
+ 
+<a href="#h2-20-3" id="h2-20-3" class="i">+mimic-response@^2.0.0:
+</a><a href="#h2-20-4" id="h2-20-4" class="i">+  version &quot;2.1.0&quot;
+</a><a href="#h2-20-5" id="h2-20-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/mimic-response/-/mimic-response-2.1.0.tgz#d13763d35f613d09ec37ebb30bac0469c0ee8f43&quot;
+</a><a href="#h2-20-6" id="h2-20-6" class="i">+  integrity sha512-wXqjST+SLt7R009ySCglWBCFpjUygmCIfD790/kVbiGmUgfYGuB14PiTd5DwVxSV4NcYHjzMkoj5LjQZwTQLEA==
+</a><a href="#h2-20-7" id="h2-20-7" class="i">+
+</a> mini-create-react-context@^0.3.0:
+   version &quot;0.3.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/mini-create-react-context/-/mini-create-react-context-0.3.2.tgz#79fc598f283dd623da8e088b05db8cddab250189&quot;
+<a href="#h2-21" id="h2-21" class="h">@@ -4040,6 +4148,11 @@ mixin-deep@^1.2.0:
+</a>     for-in &quot;^1.0.2&quot;
+     is-extendable &quot;^1.0.1&quot;
+ 
+<a href="#h2-21-3" id="h2-21-3" class="i">+mkdirp-classic@^0.5.2:
+</a><a href="#h2-21-4" id="h2-21-4" class="i">+  version &quot;0.5.2&quot;
+</a><a href="#h2-21-5" id="h2-21-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/mkdirp-classic/-/mkdirp-classic-0.5.2.tgz#54c441ce4c96cd7790e10b41a87aa51068ecab2b&quot;
+</a><a href="#h2-21-6" id="h2-21-6" class="i">+  integrity sha512-ejdnDQcR75gwknmMw/tx02AuRs8jCtqFoFqDZMjiNxsu85sRIJVXDKHuLYvUUPRBUtV2FpSZa9bL1BUa3BdR2g==
+</a><a href="#h2-21-7" id="h2-21-7" class="i">+
+</a> mkdirp@^0.5.1:
+   version &quot;0.5.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903&quot;
+<a href="#h2-22" id="h2-22" class="h">@@ -4114,6 +4227,11 @@ nanomatch@^1.2.9:
+</a>     snapdragon &quot;^0.8.1&quot;
+     to-regex &quot;^3.0.1&quot;
+ 
+<a href="#h2-22-3" id="h2-22-3" class="i">+napi-build-utils@^1.0.1:
+</a><a href="#h2-22-4" id="h2-22-4" class="i">+  version &quot;1.0.2&quot;
+</a><a href="#h2-22-5" id="h2-22-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/napi-build-utils/-/napi-build-utils-1.0.2.tgz#b1fddc0b2c46e380a0b7a76f984dd47c41a13806&quot;
+</a><a href="#h2-22-6" id="h2-22-6" class="i">+  integrity sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==
+</a><a href="#h2-22-7" id="h2-22-7" class="i">+
+</a> natural-compare@^1.4.0:
+   version &quot;1.4.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7&quot;
+<a href="#h2-23" id="h2-23" class="h">@@ -4141,6 +4259,18 @@ no-case@^2.2.0:
+</a>   dependencies:
+     lower-case &quot;^1.1.1&quot;
+ 
+<a href="#h2-23-3" id="h2-23-3" class="i">+node-abi@^2.7.0:
+</a><a href="#h2-23-4" id="h2-23-4" class="i">+  version &quot;2.15.0&quot;
+</a><a href="#h2-23-5" id="h2-23-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/node-abi/-/node-abi-2.15.0.tgz#51d55cc711bd9e4a24a572ace13b9231945ccb10&quot;
+</a><a href="#h2-23-6" id="h2-23-6" class="i">+  integrity sha512-FeLpTS0F39U7hHZU1srAK4Vx+5AHNVOTP+hxBNQknR/54laTHSFIJkDWDqiquY1LeLUgTfPN7sLPhMubx0PLAg==
+</a><a href="#h2-23-7" id="h2-23-7" class="i">+  dependencies:
+</a><a href="#h2-23-8" id="h2-23-8" class="i">+    semver &quot;^5.4.1&quot;
+</a><a href="#h2-23-9" id="h2-23-9" class="i">+
+</a><a href="#h2-23-10" id="h2-23-10" class="i">+node-addon-api@^1.6.3:
+</a><a href="#h2-23-11" id="h2-23-11" class="i">+  version &quot;1.7.1&quot;
+</a><a href="#h2-23-12" id="h2-23-12" class="i">+  resolved &quot;https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-1.7.1.tgz#cf813cd69bb8d9100f6bdca6755fc268f54ac492&quot;
+</a><a href="#h2-23-13" id="h2-23-13" class="i">+  integrity sha512-2+DuKodWvwRTrCfKOeR24KIc5unKjOh8mz17NCzVnHWfjAdDqbfbjqh7gUT+BkXBRQM52+xCHciKWonJ3CbJMQ==
+</a><a href="#h2-23-14" id="h2-23-14" class="i">+
+</a> node-forge@0.9.0:
+   version &quot;0.9.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/node-forge/-/node-forge-0.9.0.tgz#d624050edbb44874adca12bb9a52ec63cb782579&quot;
+<a href="#h2-24" id="h2-24" class="h">@@ -4182,6 +4312,21 @@ node-releases@^1.1.50:
+</a>   dependencies:
+     semver &quot;^6.3.0&quot;
+ 
+<a href="#h2-24-3" id="h2-24-3" class="i">+node-zopfli@^2.0.2:
+</a><a href="#h2-24-4" id="h2-24-4" class="i">+  version &quot;2.1.3&quot;
+</a><a href="#h2-24-5" id="h2-24-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/node-zopfli/-/node-zopfli-2.1.3.tgz#d68e7f115896708c77ab6ce0f5ee3238636bdc50&quot;
+</a><a href="#h2-24-6" id="h2-24-6" class="i">+  integrity sha512-aKiMoFIaDDrYkW2tGqTY0TZx5RwlEV2cs2VoojoHCT7sQUOvaxHp45pFCDHqBmac6gb8UGDYniqdBWcMMuNUWA==
+</a><a href="#h2-24-7" id="h2-24-7" class="i">+  dependencies:
+</a><a href="#h2-24-8" id="h2-24-8" class="i">+    commander &quot;^3.0.0&quot;
+</a><a href="#h2-24-9" id="h2-24-9" class="i">+    defaults &quot;^1.0.3&quot;
+</a><a href="#h2-24-10" id="h2-24-10" class="i">+    node-addon-api &quot;^1.6.3&quot;
+</a><a href="#h2-24-11" id="h2-24-11" class="i">+    prebuild-install &quot;^5.3.0&quot;
+</a><a href="#h2-24-12" id="h2-24-12" class="i">+
+</a><a href="#h2-24-13" id="h2-24-13" class="i">+noop-logger@^0.1.1:
+</a><a href="#h2-24-14" id="h2-24-14" class="i">+  version &quot;0.1.1&quot;
+</a><a href="#h2-24-15" id="h2-24-15" class="i">+  resolved &quot;https://registry.yarnpkg.com/noop-logger/-/noop-logger-0.1.1.tgz#94a2b1633c4f1317553007d8966fd0e841b6a4c2&quot;
+</a><a href="#h2-24-16" id="h2-24-16" class="i">+  integrity sha1-lKKxYzxPExdVMAfYlm/Q6EG2pMI=
+</a><a href="#h2-24-17" id="h2-24-17" class="i">+
+</a> normalize-path@^2.1.1:
+   version &quot;2.1.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9&quot;
+<a href="#h2-25" id="h2-25" class="h">@@ -4201,6 +4346,16 @@ npm-run-path@^2.0.0:
+</a>   dependencies:
+     path-key &quot;^2.0.0&quot;
+ 
+<a href="#h2-25-3" id="h2-25-3" class="i">+npmlog@^4.0.1:
+</a><a href="#h2-25-4" id="h2-25-4" class="i">+  version &quot;4.1.2&quot;
+</a><a href="#h2-25-5" id="h2-25-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/npmlog/-/npmlog-4.1.2.tgz#08a7f2a8bf734604779a9efa4ad5cc717abb954b&quot;
+</a><a href="#h2-25-6" id="h2-25-6" class="i">+  integrity sha512-2uUqazuKlTaSI/dC8AzicUck7+IrEaOnN/e0jd3Xtt1KcGpwx30v50mL7oPyr/h9bL3E4aZccVwpwP+5W9Vjkg==
+</a><a href="#h2-25-7" id="h2-25-7" class="i">+  dependencies:
+</a><a href="#h2-25-8" id="h2-25-8" class="i">+    are-we-there-yet &quot;~1.1.2&quot;
+</a><a href="#h2-25-9" id="h2-25-9" class="i">+    console-control-strings &quot;~1.1.0&quot;
+</a><a href="#h2-25-10" id="h2-25-10" class="i">+    gauge &quot;~2.7.3&quot;
+</a><a href="#h2-25-11" id="h2-25-11" class="i">+    set-blocking &quot;~2.0.0&quot;
+</a><a href="#h2-25-12" id="h2-25-12" class="i">+
+</a> nth-check@~1.0.1:
+   version &quot;1.0.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/nth-check/-/nth-check-1.0.2.tgz#b2bd295c37e3dd58a3bf0700376663ba4d9cf05c&quot;
+<a href="#h2-26" id="h2-26" class="h">@@ -4213,7 +4368,7 @@ number-is-nan@^1.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d&quot;
+   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
+ 
+<a href="#h2-26-3" id="h2-26-3" class="d">-object-assign@^4.0.1, object-assign@^4.1.1:
+</a><a href="#h2-26-4" id="h2-26-4" class="i">+object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
+</a>   version &quot;4.1.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863&quot;
+   integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+<a href="#h2-27" id="h2-27" class="h">@@ -4592,6 +4747,27 @@ postcss-value-parser@^4.0.2:
+</a>   resolved &quot;https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.0.3.tgz#651ff4593aa9eda8d5d0d66593a2417aeaeb325d&quot;
+   integrity sha512-N7h4pG+Nnu5BEIzyeaaIYWs0LI5XC40OrRh5L60z0QjFsqGWcHcbkBvpe1WYpcIS9yQ8sOi/vIPt1ejQCrMVrg==
+ 
+<a href="#h2-27-3" id="h2-27-3" class="i">+prebuild-install@^5.3.0:
+</a><a href="#h2-27-4" id="h2-27-4" class="i">+  version &quot;5.3.3&quot;
+</a><a href="#h2-27-5" id="h2-27-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-5.3.3.tgz#ef4052baac60d465f5ba6bf003c9c1de79b9da8e&quot;
+</a><a href="#h2-27-6" id="h2-27-6" class="i">+  integrity sha512-GV+nsUXuPW2p8Zy7SarF/2W/oiK8bFQgJcncoJ0d7kRpekEA0ftChjfEaF9/Y+QJEc/wFR7RAEa8lYByuUIe2g==
+</a><a href="#h2-27-7" id="h2-27-7" class="i">+  dependencies:
+</a><a href="#h2-27-8" id="h2-27-8" class="i">+    detect-libc &quot;^1.0.3&quot;
+</a><a href="#h2-27-9" id="h2-27-9" class="i">+    expand-template &quot;^2.0.3&quot;
+</a><a href="#h2-27-10" id="h2-27-10" class="i">+    github-from-package &quot;0.0.0&quot;
+</a><a href="#h2-27-11" id="h2-27-11" class="i">+    minimist &quot;^1.2.0&quot;
+</a><a href="#h2-27-12" id="h2-27-12" class="i">+    mkdirp &quot;^0.5.1&quot;
+</a><a href="#h2-27-13" id="h2-27-13" class="i">+    napi-build-utils &quot;^1.0.1&quot;
+</a><a href="#h2-27-14" id="h2-27-14" class="i">+    node-abi &quot;^2.7.0&quot;
+</a><a href="#h2-27-15" id="h2-27-15" class="i">+    noop-logger &quot;^0.1.1&quot;
+</a><a href="#h2-27-16" id="h2-27-16" class="i">+    npmlog &quot;^4.0.1&quot;
+</a><a href="#h2-27-17" id="h2-27-17" class="i">+    pump &quot;^3.0.0&quot;
+</a><a href="#h2-27-18" id="h2-27-18" class="i">+    rc &quot;^1.2.7&quot;
+</a><a href="#h2-27-19" id="h2-27-19" class="i">+    simple-get &quot;^3.0.3&quot;
+</a><a href="#h2-27-20" id="h2-27-20" class="i">+    tar-fs &quot;^2.0.0&quot;
+</a><a href="#h2-27-21" id="h2-27-21" class="i">+    tunnel-agent &quot;^0.6.0&quot;
+</a><a href="#h2-27-22" id="h2-27-22" class="i">+    which-pm-runs &quot;^1.0.0&quot;
+</a><a href="#h2-27-23" id="h2-27-23" class="i">+
+</a> prelude-ls@~1.1.2:
+   version &quot;1.1.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54&quot;
+<a href="#h2-28" id="h2-28" class="h">@@ -4766,6 +4942,16 @@ raw-body@2.4.0:
+</a>     iconv-lite &quot;0.4.24&quot;
+     unpipe &quot;1.0.0&quot;
+ 
+<a href="#h2-28-3" id="h2-28-3" class="i">+rc@^1.2.7:
+</a><a href="#h2-28-4" id="h2-28-4" class="i">+  version &quot;1.2.8&quot;
+</a><a href="#h2-28-5" id="h2-28-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed&quot;
+</a><a href="#h2-28-6" id="h2-28-6" class="i">+  integrity sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==
+</a><a href="#h2-28-7" id="h2-28-7" class="i">+  dependencies:
+</a><a href="#h2-28-8" id="h2-28-8" class="i">+    deep-extend &quot;^0.6.0&quot;
+</a><a href="#h2-28-9" id="h2-28-9" class="i">+    ini &quot;~1.3.0&quot;
+</a><a href="#h2-28-10" id="h2-28-10" class="i">+    minimist &quot;^1.2.0&quot;
+</a><a href="#h2-28-11" id="h2-28-11" class="i">+    strip-json-comments &quot;~2.0.1&quot;
+</a><a href="#h2-28-12" id="h2-28-12" class="i">+
+</a> react-dom@^16.13.0:
+   version &quot;16.13.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.0.tgz#cdde54b48eb9e8a0ca1b3dc9943d9bb409b81866&quot;
+<a href="#h2-29" id="h2-29" class="h">@@ -4806,7 +4992,7 @@ react@^16.13.0:
+</a>     object-assign &quot;^4.1.1&quot;
+     prop-types &quot;^15.6.2&quot;
+ 
+<a href="#h2-29-3" id="h2-29-3" class="d">-&quot;readable-stream@1 || 2&quot;, readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.6, readable-stream@~2.3.6:
+</a><a href="#h2-29-4" id="h2-29-4" class="i">+&quot;readable-stream@1 || 2&quot;, readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.6, readable-stream@~2.3.6:
+</a>   version &quot;2.3.7&quot;
+   resolved &quot;https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57&quot;
+   integrity sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw==
+<a href="#h2-30" id="h2-30" class="h">@@ -4819,7 +5005,7 @@ react@^16.13.0:
+</a>     string_decoder &quot;~1.1.1&quot;
+     util-deprecate &quot;~1.0.1&quot;
+ 
+<a href="#h2-30-3" id="h2-30-3" class="d">-readable-stream@^3.0.6, readable-stream@^3.1.1:
+</a><a href="#h2-30-4" id="h2-30-4" class="i">+readable-stream@^3.0.6, readable-stream@^3.1.1, readable-stream@^3.4.0:
+</a>   version &quot;3.6.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.6.0.tgz#337bbda3adc0706bd3e024426a286d4b4b2c9198&quot;
+   integrity sha512-BViHy7LKeTz4oNnkcLJ+lVSL6vpiFeX6/d3oSH8zCW7UxP2onchk+vTGB143xuFjHS3deTgkKoXXymXqymiIdA==
+<a href="#h2-31" id="h2-31" class="h">@@ -5174,7 +5360,7 @@ serve-static@1.14.1:
+</a>     parseurl &quot;~1.3.3&quot;
+     send &quot;0.17.1&quot;
+ 
+<a href="#h2-31-3" id="h2-31-3" class="d">-set-blocking@^2.0.0:
+</a><a href="#h2-31-4" id="h2-31-4" class="i">+set-blocking@^2.0.0, set-blocking@~2.0.0:
+</a>   version &quot;2.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7&quot;
+   integrity sha1-BF+XgtARrppoA93TgrJDkrPYkPc=
+<a href="#h2-32" id="h2-32" class="h">@@ -5242,6 +5428,20 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
+</a>   resolved &quot;https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d&quot;
+   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
+ 
+<a href="#h2-32-3" id="h2-32-3" class="i">+simple-concat@^1.0.0:
+</a><a href="#h2-32-4" id="h2-32-4" class="i">+  version &quot;1.0.0&quot;
+</a><a href="#h2-32-5" id="h2-32-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/simple-concat/-/simple-concat-1.0.0.tgz#7344cbb8b6e26fb27d66b2fc86f9f6d5997521c6&quot;
+</a><a href="#h2-32-6" id="h2-32-6" class="i">+  integrity sha1-c0TLuLbib7J9ZrL8hvn21Zl1IcY=
+</a><a href="#h2-32-7" id="h2-32-7" class="i">+
+</a><a href="#h2-32-8" id="h2-32-8" class="i">+simple-get@^3.0.3:
+</a><a href="#h2-32-9" id="h2-32-9" class="i">+  version &quot;3.1.0&quot;
+</a><a href="#h2-32-10" id="h2-32-10" class="i">+  resolved &quot;https://registry.yarnpkg.com/simple-get/-/simple-get-3.1.0.tgz#b45be062435e50d159540b576202ceec40b9c6b3&quot;
+</a><a href="#h2-32-11" id="h2-32-11" class="i">+  integrity sha512-bCR6cP+aTdScaQCnQKbPKtJOKDp/hj9EDLJo3Nw4y1QksqaovlW/bnptB6/c1e+qmNIDHRK+oXFDdEqBT8WzUA==
+</a><a href="#h2-32-12" id="h2-32-12" class="i">+  dependencies:
+</a><a href="#h2-32-13" id="h2-32-13" class="i">+    decompress-response &quot;^4.2.0&quot;
+</a><a href="#h2-32-14" id="h2-32-14" class="i">+    once &quot;^1.3.1&quot;
+</a><a href="#h2-32-15" id="h2-32-15" class="i">+    simple-concat &quot;^1.0.0&quot;
+</a><a href="#h2-32-16" id="h2-32-16" class="i">+
+</a> slash@^2.0.0:
+   version &quot;2.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44&quot;
+<a href="#h2-33" id="h2-33" class="h">@@ -5441,7 +5641,7 @@ string-width@^1.0.1:
+</a>     is-fullwidth-code-point &quot;^1.0.0&quot;
+     strip-ansi &quot;^3.0.0&quot;
+ 
+<a href="#h2-33-3" id="h2-33-3" class="d">-string-width@^2.0.0, string-width@^2.1.1:
+</a><a href="#h2-33-4" id="h2-33-4" class="i">+&quot;string-width@^1.0.2 || 2&quot;, string-width@^2.0.0, string-width@^2.1.1:
+</a>   version &quot;2.1.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/string-width/-/string-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e&quot;
+   integrity sha512-nOqH59deCq9SRHlxq1Aw85Jnt4w6KvLKqWVik6oA9ZklXLNIOlqg4F2yrT1MVaTjAqvVwdfeZ7w7aCvJD7ugkw==
+<a href="#h2-34" id="h2-34" class="h">@@ -5547,6 +5747,11 @@ strip-json-comments@^3.0.1:
+</a>   resolved &quot;https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.0.1.tgz#85713975a91fb87bf1b305cca77395e40d2a64a7&quot;
+   integrity sha512-VTyMAUfdm047mwKl+u79WIdrZxtFtn+nBxHeb844XBQ9uMNTuTHdx2hc5RiAJYqwTj3wc/xe5HLSdJSkJ+WfZw==
+ 
+<a href="#h2-34-3" id="h2-34-3" class="i">+strip-json-comments@~2.0.1:
+</a><a href="#h2-34-4" id="h2-34-4" class="i">+  version &quot;2.0.1&quot;
+</a><a href="#h2-34-5" id="h2-34-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a&quot;
+</a><a href="#h2-34-6" id="h2-34-6" class="i">+  integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
+</a><a href="#h2-34-7" id="h2-34-7" class="i">+
+</a> styled-components@^5.0.1:
+   version &quot;5.0.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/styled-components/-/styled-components-5.0.1.tgz#57782a6471031abefb2db5820a1876ae853bc619&quot;
+<a href="#h2-35" id="h2-35" class="h">@@ -5604,6 +5809,27 @@ tapable@^1.0.0, tapable@^1.1.3:
+</a>   resolved &quot;https://registry.yarnpkg.com/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2&quot;
+   integrity sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA==
+ 
+<a href="#h2-35-3" id="h2-35-3" class="i">+tar-fs@^2.0.0:
+</a><a href="#h2-35-4" id="h2-35-4" class="i">+  version &quot;2.0.1&quot;
+</a><a href="#h2-35-5" id="h2-35-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/tar-fs/-/tar-fs-2.0.1.tgz#e44086c1c60d31a4f0cf893b1c4e155dabfae9e2&quot;
+</a><a href="#h2-35-6" id="h2-35-6" class="i">+  integrity sha512-6tzWDMeroL87uF/+lin46k+Q+46rAJ0SyPGz7OW7wTgblI273hsBqk2C1j0/xNadNLKDTUL9BukSjB7cwgmlPA==
+</a><a href="#h2-35-7" id="h2-35-7" class="i">+  dependencies:
+</a><a href="#h2-35-8" id="h2-35-8" class="i">+    chownr &quot;^1.1.1&quot;
+</a><a href="#h2-35-9" id="h2-35-9" class="i">+    mkdirp-classic &quot;^0.5.2&quot;
+</a><a href="#h2-35-10" id="h2-35-10" class="i">+    pump &quot;^3.0.0&quot;
+</a><a href="#h2-35-11" id="h2-35-11" class="i">+    tar-stream &quot;^2.0.0&quot;
+</a><a href="#h2-35-12" id="h2-35-12" class="i">+
+</a><a href="#h2-35-13" id="h2-35-13" class="i">+tar-stream@^2.0.0:
+</a><a href="#h2-35-14" id="h2-35-14" class="i">+  version &quot;2.1.2&quot;
+</a><a href="#h2-35-15" id="h2-35-15" class="i">+  resolved &quot;https://registry.yarnpkg.com/tar-stream/-/tar-stream-2.1.2.tgz#6d5ef1a7e5783a95ff70b69b97455a5968dc1325&quot;
+</a><a href="#h2-35-16" id="h2-35-16" class="i">+  integrity sha512-UaF6FoJ32WqALZGOIAApXx+OdxhekNMChu6axLJR85zMMjXKWFGjbIRe+J6P4UnRGg9rAwWvbTT0oI7hD/Un7Q==
+</a><a href="#h2-35-17" id="h2-35-17" class="i">+  dependencies:
+</a><a href="#h2-35-18" id="h2-35-18" class="i">+    bl &quot;^4.0.1&quot;
+</a><a href="#h2-35-19" id="h2-35-19" class="i">+    end-of-stream &quot;^1.4.1&quot;
+</a><a href="#h2-35-20" id="h2-35-20" class="i">+    fs-constants &quot;^1.0.0&quot;
+</a><a href="#h2-35-21" id="h2-35-21" class="i">+    inherits &quot;^2.0.3&quot;
+</a><a href="#h2-35-22" id="h2-35-22" class="i">+    readable-stream &quot;^3.1.1&quot;
+</a><a href="#h2-35-23" id="h2-35-23" class="i">+
+</a> terser-webpack-plugin@^1.4.3:
+   version &quot;1.4.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-1.4.3.tgz#5ecaf2dbdc5fb99745fd06791f46fc9ddb1c9a7c&quot;
+<a href="#h2-36" id="h2-36" class="h">@@ -5735,6 +5961,13 @@ tty-browserify@0.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6&quot;
+   integrity sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY=
+ 
+<a href="#h2-36-3" id="h2-36-3" class="i">+tunnel-agent@^0.6.0:
+</a><a href="#h2-36-4" id="h2-36-4" class="i">+  version &quot;0.6.0&quot;
+</a><a href="#h2-36-5" id="h2-36-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd&quot;
+</a><a href="#h2-36-6" id="h2-36-6" class="i">+  integrity sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0=
+</a><a href="#h2-36-7" id="h2-36-7" class="i">+  dependencies:
+</a><a href="#h2-36-8" id="h2-36-8" class="i">+    safe-buffer &quot;^5.0.1&quot;
+</a><a href="#h2-36-9" id="h2-36-9" class="i">+
+</a> type-check@~0.3.2:
+   version &quot;0.3.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/type-check/-/type-check-0.3.2.tgz#5884cab512cf1d355e3fb784f30804b2b520db72&quot;
+<a href="#h2-37" id="h2-37" class="h">@@ -6053,7 +6286,7 @@ webpack-log@^2.0.0:
+</a>     ansi-colors &quot;^3.0.0&quot;
+     uuid &quot;^3.3.2&quot;
+ 
+<a href="#h2-37-3" id="h2-37-3" class="d">-webpack-sources@^1.4.0, webpack-sources@^1.4.1:
+</a><a href="#h2-37-4" id="h2-37-4" class="i">+webpack-sources@^1.0.1, webpack-sources@^1.4.0, webpack-sources@^1.4.1:
+</a>   version &quot;1.4.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-1.4.3.tgz#eedd8ec0b928fbf1cbfe994e22d2d890f330a933&quot;
+   integrity sha512-lgTS3Xhv1lCOKo7SA5TjKXMjpSM4sBjNV5+q2bqesbSPs5FjGmU6jjtBSkX9b4qW87vDIsCIlUPOEhbZrMdjeQ==
+<a href="#h2-38" id="h2-38" class="h">@@ -6109,6 +6342,11 @@ which-module@^2.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/which-module/-/which-module-2.0.0.tgz#d9ef07dce77b9902b8a3a8fa4b31c3e3f7e6e87a&quot;
+   integrity sha1-2e8H3Od7mQK4o6j6SzHD4/fm6Ho=
+ 
+<a href="#h2-38-3" id="h2-38-3" class="i">+which-pm-runs@^1.0.0:
+</a><a href="#h2-38-4" id="h2-38-4" class="i">+  version &quot;1.0.0&quot;
+</a><a href="#h2-38-5" id="h2-38-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/which-pm-runs/-/which-pm-runs-1.0.0.tgz#670b3afbc552e0b55df6b7780ca74615f23ad1cb&quot;
+</a><a href="#h2-38-6" id="h2-38-6" class="i">+  integrity sha1-Zws6+8VS4LVd9rd4DKdGFfI60cs=
+</a><a href="#h2-38-7" id="h2-38-7" class="i">+
+</a> which@^1.2.14, which@^1.2.9, which@^1.3.1:
+   version &quot;1.3.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/which/-/which-1.3.1.tgz#a45043d54f5805316da8d62f9f50918d3da70b0a&quot;
+<a href="#h2-39" id="h2-39" class="h">@@ -6116,6 +6354,13 @@ which@^1.2.14, which@^1.2.9, which@^1.3.1:
+</a>   dependencies:
+     isexe &quot;^2.0.0&quot;
+ 
+<a href="#h2-39-3" id="h2-39-3" class="i">+wide-align@^1.1.0:
+</a><a href="#h2-39-4" id="h2-39-4" class="i">+  version &quot;1.1.3&quot;
+</a><a href="#h2-39-5" id="h2-39-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/wide-align/-/wide-align-1.1.3.tgz#ae074e6bdc0c14a431e804e624549c633b000457&quot;
+</a><a href="#h2-39-6" id="h2-39-6" class="i">+  integrity sha512-QGkOQc8XL6Bt5PwnsExKBPuMKBxnGxWWW3fU55Xt4feHozMUhdUMaBCk290qpm/wG5u/RSKzwdAC4i51YigihA==
+</a><a href="#h2-39-7" id="h2-39-7" class="i">+  dependencies:
+</a><a href="#h2-39-8" id="h2-39-8" class="i">+    string-width &quot;^1.0.2 || 2&quot;
+</a><a href="#h2-39-9" id="h2-39-9" class="i">+
+</a> word-wrap@~1.2.3:
+   version &quot;1.2.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c&quot;
+<a href="#h2-40" id="h2-40" class="h">@@ -6236,3 +6481,12 @@ yargs@13.2.4:
+</a>     which-module &quot;^2.0.0&quot;
+     y18n &quot;^4.0.0&quot;
+     yargs-parser &quot;^13.1.0&quot;
+<a href="#h2-40-3" id="h2-40-3" class="i">+
+</a><a href="#h2-40-4" id="h2-40-4" class="i">+zopfli-webpack-plugin@^0.1.0:
+</a><a href="#h2-40-5" id="h2-40-5" class="i">+  version &quot;0.1.0&quot;
+</a><a href="#h2-40-6" id="h2-40-6" class="i">+  resolved &quot;https://registry.yarnpkg.com/zopfli-webpack-plugin/-/zopfli-webpack-plugin-0.1.0.tgz#f33226b84b0273c6e6e8649f7bfa9708a9c00955&quot;
+</a><a href="#h2-40-7" id="h2-40-7" class="i">+  integrity sha512-GumWSeLFv115rKxhzks2vDPZaG7dzbJC48ueYwhf44f3jIrcHSkLiXeMmNbEW1iakkyLOSdZJTFGNmxtK+kang==
+</a><a href="#h2-40-8" id="h2-40-8" class="i">+  dependencies:
+</a><a href="#h2-40-9" id="h2-40-9" class="i">+    async &quot;^2.4.0&quot;
+</a><a href="#h2-40-10" id="h2-40-10" class="i">+    node-zopfli &quot;^2.0.2&quot;
+</a><a href="#h2-40-11" id="h2-40-11" class="i">+    webpack-sources &quot;^1.0.1&quot;
+</a></pre>
+</div>
+</div>
+</body>
+</html>

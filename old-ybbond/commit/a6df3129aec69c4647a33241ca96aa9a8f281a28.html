@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(core): remove error from trying to access bundle.js - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/a6df3129aec69c4647a33241ca96aa9a8f281a28.html">a6df3129aec69c4647a33241ca96aa9a8f281a28</a>
+<b>parent</b> <a href="../commit/d6f95790f1f9cc2e280e8b74581b7501cdc131f3.html">d6f95790f1f9cc2e280e8b74581b7501cdc131f3</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 24 Mar 2020 08:20:18 +0700
+
+refactor(core): remove error from trying to access bundle.js
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">public/index.html</a></td><td> | </td><td class="num">1</td><td><span class="i"></span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">webpack.config.js</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+</table></pre></div><p>2 files changed, 1 insertion(<span id="plus">+</span>), 1 deletion(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/public/index.html.html">public/index.html</a> b/<a href="../file/public/index.html.html">public/index.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -65,6 +65,5 @@
+</a>         &lt;/center&gt;
+       &lt;/div&gt;
+     &lt;/noscript&gt;
+<a href="#h0-0-3" id="h0-0-3" class="d">-    &lt;script src=&quot;../dist/bundle.js&quot;&gt;&lt;/script&gt;
+</a>   &lt;/body&gt;
+ &lt;/html&gt;
+<b>diff --git a/<a id="h1" href="../file/webpack.config.js.html">webpack.config.js</a> b/<a href="../file/webpack.config.js.html">webpack.config.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -14,6 +14,7 @@ module.exports = {
+</a>   },
+   plugins: [
+     new HtmlWebpackPlugin({
+<a href="#h1-0-3" id="h1-0-3" class="i">+      title: &#39;ybbond.dev&#39;,
+</a>       template: &#39;public/index.html&#39;,
+       favicon: &#39;public/favicon.ico&#39;,
+     }),
+</pre>
+</div>
+</div>
+</body>
+</html>

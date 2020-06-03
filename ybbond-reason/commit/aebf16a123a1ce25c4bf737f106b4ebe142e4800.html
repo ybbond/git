@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(SEO) =&gt; don&#39;t know about it, but at least I am trying - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/aebf16a123a1ce25c4bf737f106b4ebe142e4800.html">aebf16a123a1ce25c4bf737f106b4ebe142e4800</a>
+<b>parent</b> <a href="../commit/f6d311e690a1bc39f77e81d7fa56a664a226e202.html">f6d311e690a1bc39f77e81d7fa56a664a226e202</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sat, 24 Aug 2019 17:57:06 +0700
+
+feature(SEO) =&gt; don&#39;t know about it, but at least I am trying
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/CurViScene.re</a></td><td> | </td><td class="num">18</td><td><span class="i">++++++++++++</span><span class="d">------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/Styled.re</a></td><td> | </td><td class="num">6</td><td><span class="i">++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/components/Header.re</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">src/index.html</a></td><td> | </td><td class="num">4</td><td><span class="i">+++</span><span class="d">-</span></td></tr>
+</table></pre></div><p>4 files changed, 23 insertions(<span id="plus">+</span>), 9 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/CurViScene.re.html">src/CurViScene.re</a> b/<a href="../file/src/CurViScene.re.html">src/CurViScene.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -63,11 +63,11 @@ let make = () =&gt; {
+</a>         {
+           variant: Progress,
+           text:
+<a href="#h0-0-3" id="h0-0-3" class="d">-            &lt;span&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+            &lt;h5&gt;
+</a>               {ReasonReact.string(&quot;Frontend Engineer at &quot;)}
+               &lt;Link href=&quot;https://kumparan.com&quot; text=&quot;kumparan&quot; /&gt;
+               {ReasonReact.string(&quot;.&quot;)}
+<a href="#h0-0-8" id="h0-0-8" class="d">-            &lt;/span&gt;,
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+            &lt;/h5&gt;,
+</a>         },
+       |]
+     /&gt;;
+<a href="#h0-1" id="h0-1" class="h">@@ -95,7 +95,11 @@ let make = () =&gt; {
+</a>         },
+         {
+           variant: Default,
+<a href="#h0-1-3" id="h0-1-3" class="d">-          text: &lt;span&gt; {ReasonReact.string(&quot;Vim user.&quot;)} &lt;/span&gt;,
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+          text:
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+            &lt;span&gt;
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+              &lt;Link text=&quot;Vim user&quot; internal=&quot;uses&quot; /&gt;
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+              {ReasonReact.string(&quot;.&quot;)}
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+            &lt;/span&gt;,
+</a>         },
+         {
+           variant: Default,
+<a href="#h0-2" id="h0-2" class="h">@@ -106,6 +110,7 @@ let make = () =&gt; {
+</a>                 href=&quot;https://goo.gl/maps/gMGbA5juGAx&quot;
+                 text=&quot;Jakarta, Indonesia&quot;
+               /&gt;
+<a href="#h0-2-3" id="h0-2-3" class="i">+              {ReasonReact.string(&quot;.&quot;)}
+</a>             &lt;/span&gt;,
+         },
+       |]
+<a href="#h0-3" id="h0-3" class="h">@@ -118,18 +123,19 @@ let make = () =&gt; {
+</a>           variant: Default,
+           text:
+             &lt;span&gt;
+<a href="#h0-3-3" id="h0-3-3" class="d">-              {ReasonReact.string(&quot;everywhere: ybbond or bandungpenting&quot;)}
+</a><a href="#h0-3-4" id="h0-3-4" class="i">+              {ReasonReact.string(&quot;everywhere: ybbond or bandungpenting.&quot;)}
+</a>             &lt;/span&gt;,
+         },
+         {
+           variant: Default,
+           text:
+<a href="#h0-3-10" id="h0-3-10" class="d">-            &lt;span&gt;
+</a><a href="#h0-3-11" id="h0-3-11" class="i">+            &lt;h5&gt;
+</a>               &lt;Link
+                 href=&quot;mailto:bandungpenting@gmail.com?subject=From%20ybbond.dev&quot;
+                 text=&quot;bandungpenting@gmail.com&quot;
+               /&gt;
+<a href="#h0-3-16" id="h0-3-16" class="d">-            &lt;/span&gt;,
+</a><a href="#h0-3-17" id="h0-3-17" class="i">+              {ReasonReact.string(&quot;.&quot;)}
+</a><a href="#h0-3-18" id="h0-3-18" class="i">+            &lt;/h5&gt;,
+</a>         },
+         {
+           variant: Default,
+<b>diff --git a/<a id="h1" href="../file/src/Styled.re.html">src/Styled.re</a> b/<a href="../file/src/Styled.re.html">src/Styled.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -63,6 +63,12 @@ body {
+</a>   |j};
+ 
+   let miscStyle = {j|
+<a href="#h1-0-3" id="h1-0-3" class="i">+h5 {
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  font-weight: 400;
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+  font-style: normal;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+  font-size: 1em;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+  margin: 1em 0;
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+}
+</a> *:focus {
+   outline-color: #79d688;
+ }
+<b>diff --git a/<a id="h2" href="../file/src/components/Header.re.html">src/components/Header.re</a> b/<a href="../file/src/components/Header.re.html">src/components/Header.re</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -41,10 +41,10 @@ let make = (~current: string) =&gt; {
+</a>       content,
+     );
+ 
+<a href="#h2-0-3" id="h2-0-3" class="d">-  &lt;React.Fragment&gt;
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  &lt;header&gt;
+</a>     &lt;h1 className=Styles.h1&gt;
+       {ReasonReact.string(&quot;Yohanes Bandung Bondowoso&quot;)}
+     &lt;/h1&gt;
+     {React.array(contentElements)}
+<a href="#h2-0-9" id="h2-0-9" class="d">-  &lt;/React.Fragment&gt;;
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+  &lt;/header&gt;;
+</a> };
+<b>diff --git a/<a id="h3" href="../file/src/index.html.html">src/index.html</a> b/<a href="../file/src/index.html.html">src/index.html</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -2,7 +2,9 @@
+</a> &lt;html lang=&quot;en&quot;&gt;
+ &lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+<a href="#h3-0-3" id="h3-0-3" class="d">-  &lt;title&gt;YBBond&lt;/title&gt;
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+  &lt;title&gt;YBBond | Frontend Adventurer from Indonesia&lt;/title&gt;
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+  &lt;meta name=&quot;author&quot; content=&quot;Yohanes Bandung Bondowoso&quot; /&gt;
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+  &lt;meta name=&quot;description&quot; content=&quot;Curriculum Vitae, Experiences, Contact, My Literature Works, and the Hardware and Software I use!&quot; /&gt;
+</a>   &lt;meta
+     name=&quot;viewport&quot;
+     content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;
+</pre>
+</div>
+</div>
+</body>
+</html>

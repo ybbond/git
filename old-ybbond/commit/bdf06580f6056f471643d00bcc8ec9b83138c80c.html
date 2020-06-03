@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(core): declutter main component App - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/bdf06580f6056f471643d00bcc8ec9b83138c80c.html">bdf06580f6056f471643d00bcc8ec9b83138c80c</a>
+<b>parent</b> <a href="../commit/850c558cd0b10304525b6f968aec70c0315ee90a.html">850c558cd0b10304525b6f968aec70c0315ee90a</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Wed, 25 Mar 2020 21:23:48 +0700
+
+refactor(core): declutter main component App
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/App.js</a></td><td> | </td><td class="num">102</td><td><span class="i">++++++++++++++</span><span class="d">------------------------------------------------------------------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">src/Components/HeaderFooter.js</a></td><td> | </td><td class="num">77</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/index.js</a></td><td> | </td><td class="num">10</td><td><span class="i">+</span><span class="d">---------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">src/routes.js</a></td><td> | </td><td class="num">27</td><td><span class="i">+++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>4 files changed, 122 insertions(<span id="plus">+</span>), 94 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/App.js.html">src/App.js</a> b/<a href="../file/src/App.js.html">src/App.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,16 +1,12 @@
+</a> // @flow
+ import React from &#39;react&#39;;
+<a href="#h0-0-2" id="h0-0-2" class="d">-import {Route, Switch} from &#39;react-router&#39;;
+</a> import styled, {ThemeProvider} from &#39;styled-components&#39;;
+<a href="#h0-0-4" id="h0-0-4" class="i">+import {Router} from &#39;react-router&#39;;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+import {createBrowserHistory} from &#39;history&#39;;
+</a> import theme from &#39;styled-theming&#39;;
+ 
+<a href="#h0-0-8" id="h0-0-8" class="d">-import AboutPage from &#39;./Pages/AboutPage&#39;;
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-import CVPage from &#39;./Pages/CVPage&#39;;
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-import UsesPage from &#39;./Pages/UsesPage&#39;;
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-import NotFoundPage from &#39;./Pages/NotFoundPage&#39;;
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-import Button from &#39;./Components/Button&#39;;
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-import Link from &#39;./Components/Link&#39;;
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-import Text from &#39;./Components/Text&#39;;
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+import routes from &#39;./routes&#39;;
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+import HeaderFooter from &#39;./Components/HeaderFooter&#39;;
+</a> import Style from &#39;./Theme/Style&#39;;
+ import {colors} from &#39;./Theme/colors&#39;;
+ 
+<a href="#h0-1" id="h0-1" class="h">@@ -19,11 +15,6 @@ const backgroundColor = theme(&#39;mode&#39;, {
+</a>   dark: colors.dark,
+ });
+ 
+<a href="#h0-1-3" id="h0-1-3" class="d">-const borderColor = theme(&#39;mode&#39;, {
+</a><a href="#h0-1-4" id="h0-1-4" class="d">-  light: colors.dark,
+</a><a href="#h0-1-5" id="h0-1-5" class="d">-  dark: colors.light,
+</a><a href="#h0-1-6" id="h0-1-6" class="d">-});
+</a><a href="#h0-1-7" id="h0-1-7" class="d">-
+</a> const OuterWrapper = styled.div`
+   min-height: calc(100vh - 2px);
+   background-color: ${backgroundColor};
+<a href="#h0-2" id="h0-2" class="h">@@ -39,15 +30,7 @@ const InnerWrapper = styled.div`
+</a>   }
+ `;
+ 
+<a href="#h0-2-3" id="h0-2-3" class="d">-const Header = styled.header`
+</a><a href="#h0-2-4" id="h0-2-4" class="d">-  margin-bottom: 30px;
+</a><a href="#h0-2-5" id="h0-2-5" class="d">-`;
+</a><a href="#h0-2-6" id="h0-2-6" class="d">-
+</a><a href="#h0-2-7" id="h0-2-7" class="d">-const Footer = styled.footer`
+</a><a href="#h0-2-8" id="h0-2-8" class="d">-  margin-top: 70px;
+</a><a href="#h0-2-9" id="h0-2-9" class="d">-  padding: 20px 0;
+</a><a href="#h0-2-10" id="h0-2-10" class="d">-  border-top: 2px dashed ${borderColor};
+</a><a href="#h0-2-11" id="h0-2-11" class="d">-`;
+</a><a href="#h0-2-12" id="h0-2-12" class="i">+const history = createBrowserHistory();
+</a> 
+ const App = () =&gt; {
+   const [dark, setDark] = React.useState(true);
+<a href="#h0-3" id="h0-3" class="h">@@ -64,69 +47,18 @@ const App = () =&gt; {
+</a>   };
+ 
+   return (
+<a href="#h0-3-3" id="h0-3-3" class="d">-    &lt;ThemeProvider theme={{mode: dark ? &#39;dark&#39; : &#39;light&#39;}}&gt;
+</a><a href="#h0-3-4" id="h0-3-4" class="d">-      &lt;Style dark={dark} /&gt;
+</a><a href="#h0-3-5" id="h0-3-5" class="d">-      &lt;OuterWrapper&gt;
+</a><a href="#h0-3-6" id="h0-3-6" class="d">-        &lt;InnerWrapper&gt;
+</a><a href="#h0-3-7" id="h0-3-7" class="d">-          &lt;Header&gt;
+</a><a href="#h0-3-8" id="h0-3-8" class="d">-            &lt;Text as=&quot;h1&quot;&gt;
+</a><a href="#h0-3-9" id="h0-3-9" class="d">-              Yohanes Bandung Bondowoso{&#39; &#39;}
+</a><a href="#h0-3-10" id="h0-3-10" class="d">-              &lt;Button
+</a><a href="#h0-3-11" id="h0-3-11" class="d">-                aria-label=&quot;Toggle dark mode, is current mode dark?&quot;
+</a><a href="#h0-3-12" id="h0-3-12" class="d">-                aria-pressed={dark}
+</a><a href="#h0-3-13" id="h0-3-13" class="d">-                onClick={toggleDark}
+</a><a href="#h0-3-14" id="h0-3-14" class="d">-                tabindex=&quot;0&quot;
+</a><a href="#h0-3-15" id="h0-3-15" class="d">-              &gt;
+</a><a href="#h0-3-16" id="h0-3-16" class="d">-                {dark ? &#39;🌛&#39; : &#39;🌞&#39;}
+</a><a href="#h0-3-17" id="h0-3-17" class="d">-              &lt;/Button&gt;
+</a><a href="#h0-3-18" id="h0-3-18" class="d">-            &lt;/Text&gt;
+</a><a href="#h0-3-19" id="h0-3-19" class="d">-            &lt;Text&gt;
+</a><a href="#h0-3-20" id="h0-3-20" class="d">-              &lt;Link aria-label=&quot;Go to CV Page&quot; to=&quot;/&quot;&gt;
+</a><a href="#h0-3-21" id="h0-3-21" class="d">-                CV
+</a><a href="#h0-3-22" id="h0-3-22" class="d">-              &lt;/Link&gt;{&#39; &#39;}
+</a><a href="#h0-3-23" id="h0-3-23" class="d">-              -{&#39; &#39;}
+</a><a href="#h0-3-24" id="h0-3-24" class="d">-              &lt;Link
+</a><a href="#h0-3-25" id="h0-3-25" class="d">-                aria-label=&quot;Go to page that lists the tools I use&quot;
+</a><a href="#h0-3-26" id="h0-3-26" class="d">-                to=&quot;/uses&quot;
+</a><a href="#h0-3-27" id="h0-3-27" class="d">-              &gt;
+</a><a href="#h0-3-28" id="h0-3-28" class="d">-                Uses
+</a><a href="#h0-3-29" id="h0-3-29" class="d">-              &lt;/Link&gt;{&#39; &#39;}
+</a><a href="#h0-3-30" id="h0-3-30" class="d">-              -{&#39; &#39;}
+</a><a href="#h0-3-31" id="h0-3-31" class="d">-              &lt;Link aria-label=&quot;Go to About Page&quot; to=&quot;/about&quot;&gt;
+</a><a href="#h0-3-32" id="h0-3-32" class="d">-                About
+</a><a href="#h0-3-33" id="h0-3-33" class="d">-              &lt;/Link&gt;{&#39; &#39;}
+</a><a href="#h0-3-34" id="h0-3-34" class="d">-            &lt;/Text&gt;
+</a><a href="#h0-3-35" id="h0-3-35" class="d">-          &lt;/Header&gt;
+</a><a href="#h0-3-36" id="h0-3-36" class="d">-          &lt;Switch&gt;
+</a><a href="#h0-3-37" id="h0-3-37" class="d">-            &lt;Route exact path=&quot;/&quot;&gt;
+</a><a href="#h0-3-38" id="h0-3-38" class="d">-              &lt;CVPage /&gt;
+</a><a href="#h0-3-39" id="h0-3-39" class="d">-            &lt;/Route&gt;
+</a><a href="#h0-3-40" id="h0-3-40" class="d">-            &lt;Route path=&quot;/uses&quot;&gt;
+</a><a href="#h0-3-41" id="h0-3-41" class="d">-              &lt;UsesPage /&gt;
+</a><a href="#h0-3-42" id="h0-3-42" class="d">-            &lt;/Route&gt;
+</a><a href="#h0-3-43" id="h0-3-43" class="d">-            &lt;Route path=&quot;/about&quot;&gt;
+</a><a href="#h0-3-44" id="h0-3-44" class="d">-              &lt;AboutPage /&gt;
+</a><a href="#h0-3-45" id="h0-3-45" class="d">-            &lt;/Route&gt;
+</a><a href="#h0-3-46" id="h0-3-46" class="d">-            &lt;Route&gt;
+</a><a href="#h0-3-47" id="h0-3-47" class="d">-              &lt;NotFoundPage /&gt;
+</a><a href="#h0-3-48" id="h0-3-48" class="d">-            &lt;/Route&gt;
+</a><a href="#h0-3-49" id="h0-3-49" class="d">-          &lt;/Switch&gt;
+</a><a href="#h0-3-50" id="h0-3-50" class="d">-          &lt;Footer&gt;
+</a><a href="#h0-3-51" id="h0-3-51" class="d">-            &lt;Text&gt;See you sooner :)&lt;/Text&gt;
+</a><a href="#h0-3-52" id="h0-3-52" class="d">-            &lt;Text&gt;
+</a><a href="#h0-3-53" id="h0-3-53" class="d">-              Contact:{&#39; &#39;}
+</a><a href="#h0-3-54" id="h0-3-54" class="d">-              &lt;Link to=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;&gt;
+</a><a href="#h0-3-55" id="h0-3-55" class="d">-                bandungpenting@gmail.com
+</a><a href="#h0-3-56" id="h0-3-56" class="d">-              &lt;/Link&gt;
+</a><a href="#h0-3-57" id="h0-3-57" class="d">-            &lt;/Text&gt;
+</a><a href="#h0-3-58" id="h0-3-58" class="d">-            &lt;Text&gt;
+</a><a href="#h0-3-59" id="h0-3-59" class="d">-              Other site:{&#39; &#39;}
+</a><a href="#h0-3-60" id="h0-3-60" class="d">-              &lt;Link to=&quot;https://reason.ybbond.dev&quot;&gt;reason.ybbond.dev&lt;/Link&gt;
+</a><a href="#h0-3-61" id="h0-3-61" class="d">-            &lt;/Text&gt;
+</a><a href="#h0-3-62" id="h0-3-62" class="d">-          &lt;/Footer&gt;
+</a><a href="#h0-3-63" id="h0-3-63" class="d">-        &lt;/InnerWrapper&gt;
+</a><a href="#h0-3-64" id="h0-3-64" class="d">-      &lt;/OuterWrapper&gt;
+</a><a href="#h0-3-65" id="h0-3-65" class="d">-    &lt;/ThemeProvider&gt;
+</a><a href="#h0-3-66" id="h0-3-66" class="i">+    &lt;Router history={history}&gt;
+</a><a href="#h0-3-67" id="h0-3-67" class="i">+      &lt;ThemeProvider theme={{mode: dark ? &#39;dark&#39; : &#39;light&#39;}}&gt;
+</a><a href="#h0-3-68" id="h0-3-68" class="i">+        &lt;Style dark={dark} /&gt;
+</a><a href="#h0-3-69" id="h0-3-69" class="i">+        &lt;OuterWrapper&gt;
+</a><a href="#h0-3-70" id="h0-3-70" class="i">+          &lt;InnerWrapper&gt;
+</a><a href="#h0-3-71" id="h0-3-71" class="i">+            &lt;HeaderFooter dark={dark} toggleDark={toggleDark}&gt;
+</a><a href="#h0-3-72" id="h0-3-72" class="i">+              {routes()}
+</a><a href="#h0-3-73" id="h0-3-73" class="i">+            &lt;/HeaderFooter&gt;
+</a><a href="#h0-3-74" id="h0-3-74" class="i">+          &lt;/InnerWrapper&gt;
+</a><a href="#h0-3-75" id="h0-3-75" class="i">+        &lt;/OuterWrapper&gt;
+</a><a href="#h0-3-76" id="h0-3-76" class="i">+      &lt;/ThemeProvider&gt;
+</a><a href="#h0-3-77" id="h0-3-77" class="i">+    &lt;/Router&gt;
+</a>   );
+ };
+ 
+<b>diff --git a/<a id="h1" href="../file/src/Components/HeaderFooter.js.html">src/Components/HeaderFooter.js</a> b/<a href="../file/src/Components/HeaderFooter.js.html">src/Components/HeaderFooter.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -0,0 +1,77 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+// @flow
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+import React from &#39;react&#39;;
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+import styled from &#39;styled-components&#39;;
+</a><a href="#h1-0-3" id="h1-0-3" class="i">+import theme from &#39;styled-theming&#39;;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+import Button from &#39;./Button&#39;;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+import Link from &#39;./Link&#39;;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+import Text from &#39;./Text&#39;;
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+import {colors} from &#39;../Theme/colors&#39;;
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+const borderColor = theme(&#39;mode&#39;, {
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+  light: colors.dark,
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+  dark: colors.light,
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+});
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+const Header = styled.header`
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+  margin-bottom: 30px;
+</a><a href="#h1-0-17" id="h1-0-17" class="i">+`;
+</a><a href="#h1-0-18" id="h1-0-18" class="i">+
+</a><a href="#h1-0-19" id="h1-0-19" class="i">+const Footer = styled.footer`
+</a><a href="#h1-0-20" id="h1-0-20" class="i">+  margin-top: 70px;
+</a><a href="#h1-0-21" id="h1-0-21" class="i">+  padding: 20px 0;
+</a><a href="#h1-0-22" id="h1-0-22" class="i">+  border-top: 2px dashed ${borderColor};
+</a><a href="#h1-0-23" id="h1-0-23" class="i">+`;
+</a><a href="#h1-0-24" id="h1-0-24" class="i">+
+</a><a href="#h1-0-25" id="h1-0-25" class="i">+type HeaderFooterProps = {
+</a><a href="#h1-0-26" id="h1-0-26" class="i">+  children: React$Node,
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+  dark: boolean,
+</a><a href="#h1-0-28" id="h1-0-28" class="i">+  toggleDark: () =&gt; void,
+</a><a href="#h1-0-29" id="h1-0-29" class="i">+};
+</a><a href="#h1-0-30" id="h1-0-30" class="i">+
+</a><a href="#h1-0-31" id="h1-0-31" class="i">+const HeaderFooter = ({children, dark, toggleDark}: HeaderFooterProps) =&gt; (
+</a><a href="#h1-0-32" id="h1-0-32" class="i">+  &lt;&gt;
+</a><a href="#h1-0-33" id="h1-0-33" class="i">+    &lt;Header&gt;
+</a><a href="#h1-0-34" id="h1-0-34" class="i">+      &lt;Text as=&quot;h1&quot;&gt;
+</a><a href="#h1-0-35" id="h1-0-35" class="i">+        Yohanes Bandung Bondowoso{&#39; &#39;}
+</a><a href="#h1-0-36" id="h1-0-36" class="i">+        &lt;Button
+</a><a href="#h1-0-37" id="h1-0-37" class="i">+          aria-label=&quot;Toggle dark mode, is current mode dark?&quot;
+</a><a href="#h1-0-38" id="h1-0-38" class="i">+          aria-pressed={dark}
+</a><a href="#h1-0-39" id="h1-0-39" class="i">+          onClick={toggleDark}
+</a><a href="#h1-0-40" id="h1-0-40" class="i">+          tabindex=&quot;0&quot;
+</a><a href="#h1-0-41" id="h1-0-41" class="i">+        &gt;
+</a><a href="#h1-0-42" id="h1-0-42" class="i">+          {dark ? &#39;🌛&#39; : &#39;🌞&#39;}
+</a><a href="#h1-0-43" id="h1-0-43" class="i">+        &lt;/Button&gt;
+</a><a href="#h1-0-44" id="h1-0-44" class="i">+      &lt;/Text&gt;
+</a><a href="#h1-0-45" id="h1-0-45" class="i">+      &lt;Text&gt;
+</a><a href="#h1-0-46" id="h1-0-46" class="i">+        &lt;Link aria-label=&quot;Go to CV Page&quot; to=&quot;/&quot;&gt;
+</a><a href="#h1-0-47" id="h1-0-47" class="i">+          CV
+</a><a href="#h1-0-48" id="h1-0-48" class="i">+        &lt;/Link&gt;{&#39; &#39;}
+</a><a href="#h1-0-49" id="h1-0-49" class="i">+        -{&#39; &#39;}
+</a><a href="#h1-0-50" id="h1-0-50" class="i">+        &lt;Link aria-label=&quot;Go to page that lists the tools I use&quot; to=&quot;/uses&quot;&gt;
+</a><a href="#h1-0-51" id="h1-0-51" class="i">+          Uses
+</a><a href="#h1-0-52" id="h1-0-52" class="i">+        &lt;/Link&gt;{&#39; &#39;}
+</a><a href="#h1-0-53" id="h1-0-53" class="i">+        -{&#39; &#39;}
+</a><a href="#h1-0-54" id="h1-0-54" class="i">+        &lt;Link aria-label=&quot;Go to About Page&quot; to=&quot;/about&quot;&gt;
+</a><a href="#h1-0-55" id="h1-0-55" class="i">+          About
+</a><a href="#h1-0-56" id="h1-0-56" class="i">+        &lt;/Link&gt;{&#39; &#39;}
+</a><a href="#h1-0-57" id="h1-0-57" class="i">+      &lt;/Text&gt;
+</a><a href="#h1-0-58" id="h1-0-58" class="i">+    &lt;/Header&gt;
+</a><a href="#h1-0-59" id="h1-0-59" class="i">+    {children}
+</a><a href="#h1-0-60" id="h1-0-60" class="i">+    &lt;Footer&gt;
+</a><a href="#h1-0-61" id="h1-0-61" class="i">+      &lt;Text&gt;See you sooner :)&lt;/Text&gt;
+</a><a href="#h1-0-62" id="h1-0-62" class="i">+      &lt;Text&gt;
+</a><a href="#h1-0-63" id="h1-0-63" class="i">+        Contact:{&#39; &#39;}
+</a><a href="#h1-0-64" id="h1-0-64" class="i">+        &lt;Link to=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;&gt;
+</a><a href="#h1-0-65" id="h1-0-65" class="i">+          bandungpenting@gmail.com
+</a><a href="#h1-0-66" id="h1-0-66" class="i">+        &lt;/Link&gt;
+</a><a href="#h1-0-67" id="h1-0-67" class="i">+      &lt;/Text&gt;
+</a><a href="#h1-0-68" id="h1-0-68" class="i">+      &lt;Text&gt;
+</a><a href="#h1-0-69" id="h1-0-69" class="i">+        Other site:{&#39; &#39;}
+</a><a href="#h1-0-70" id="h1-0-70" class="i">+        &lt;Link to=&quot;https://reason.ybbond.dev&quot;&gt;reason.ybbond.dev&lt;/Link&gt;
+</a><a href="#h1-0-71" id="h1-0-71" class="i">+      &lt;/Text&gt;
+</a><a href="#h1-0-72" id="h1-0-72" class="i">+    &lt;/Footer&gt;
+</a><a href="#h1-0-73" id="h1-0-73" class="i">+  &lt;/&gt;
+</a><a href="#h1-0-74" id="h1-0-74" class="i">+);
+</a><a href="#h1-0-75" id="h1-0-75" class="i">+
+</a><a href="#h1-0-76" id="h1-0-76" class="i">+export default React.memo&lt;HeaderFooterProps&gt;(HeaderFooter);
+</a><b>diff --git a/<a id="h2" href="../file/src/index.js.html">src/index.js</a> b/<a href="../file/src/index.js.html">src/index.js</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,18 +1,10 @@
+</a> // @flow
+ import React from &#39;react&#39;;
+ import {render} from &#39;react-dom&#39;;
+<a href="#h2-0-3" id="h2-0-3" class="d">-import {Router} from &#39;react-router&#39;;
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-import {createBrowserHistory} from &#39;history&#39;;
+</a> import App from &#39;./App.js&#39;;
+ 
+<a href="#h2-0-7" id="h2-0-7" class="d">-const history = createBrowserHistory();
+</a> const rootElement = document.getElementById(&#39;react-app&#39;);
+ 
+ if (rootElement) {
+<a href="#h2-0-11" id="h2-0-11" class="d">-  render(
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-    &lt;Router history={history}&gt;
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-      &lt;App /&gt;
+</a><a href="#h2-0-14" id="h2-0-14" class="d">-    &lt;/Router&gt;,
+</a><a href="#h2-0-15" id="h2-0-15" class="d">-    rootElement,
+</a><a href="#h2-0-16" id="h2-0-16" class="d">-  );
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+  render(&lt;App /&gt;, rootElement);
+</a> }
+<b>diff --git a/<a id="h3" href="../file/src/routes.js.html">src/routes.js</a> b/<a href="../file/src/routes.js.html">src/routes.js</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,27 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+// @flow
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+import React from &#39;react&#39;;
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+import {Route, Switch} from &#39;react-router&#39;;
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+import AboutPage from &#39;./Pages/AboutPage&#39;;
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+import CVPage from &#39;./Pages/CVPage&#39;;
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+import UsesPage from &#39;./Pages/UsesPage&#39;;
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+import NotFoundPage from &#39;./Pages/NotFoundPage&#39;;
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+export default function routes() {
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+  return (
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+    &lt;Switch&gt;
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+      &lt;Route exact path=&quot;/&quot;&gt;
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+        &lt;CVPage /&gt;
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+      &lt;/Route&gt;
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+      &lt;Route path=&quot;/uses&quot;&gt;
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+        &lt;UsesPage /&gt;
+</a><a href="#h3-0-17" id="h3-0-17" class="i">+      &lt;/Route&gt;
+</a><a href="#h3-0-18" id="h3-0-18" class="i">+      &lt;Route path=&quot;/about&quot;&gt;
+</a><a href="#h3-0-19" id="h3-0-19" class="i">+        &lt;AboutPage /&gt;
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+      &lt;/Route&gt;
+</a><a href="#h3-0-21" id="h3-0-21" class="i">+      &lt;Route&gt;
+</a><a href="#h3-0-22" id="h3-0-22" class="i">+        &lt;NotFoundPage /&gt;
+</a><a href="#h3-0-23" id="h3-0-23" class="i">+      &lt;/Route&gt;
+</a><a href="#h3-0-24" id="h3-0-24" class="i">+    &lt;/Switch&gt;
+</a><a href="#h3-0-25" id="h3-0-25" class="i">+  );
+</a><a href="#h3-0-26" id="h3-0-26" class="i">+}
+</a></pre>
+</div>
+</div>
+</body>
+</html>

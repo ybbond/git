@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: alignments - stagit-responsive - My mobile friendly fork of stagit
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="stagit-responsive Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>stagit-responsive</h1><span class="desc">My mobile friendly fork of stagit
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/3bef738a10f66467cd7f6f4bf4c1cf1a3dee4c63.html">3bef738a10f66467cd7f6f4bf4c1cf1a3dee4c63</a>
+<b>parent</b> <a href="../commit/430b79e27a3c12e839e6ffab375279c63f7e4cec.html">430b79e27a3c12e839e6ffab375279c63f7e4cec</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sun, 17 May 2020 04:41:44 +0700
+
+refactor: alignments
+
+mobile friendly
+
+style
+
+nno
+
+ail
+
+alignment
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">stagit.c</a></td><td> | </td><td class="num">18</td><td><span class="i">+++++++++</span><span class="d">---------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">style.css</a></td><td> | </td><td class="num">15</td><td><span class="i">+++++++++++</span><span class="d">----</span></td></tr>
+</table></pre></div><p>2 files changed, 20 insertions(<span id="plus">+</span>), 13 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/stagit.c.html">stagit.c</a> b/<a href="../file/stagit.c.html">stagit.c</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -594,11 +594,11 @@ writelogline(FILE *fp, struct commitinfo *ci)
+</a> 	fputs(&quot;&lt;/td&gt;&lt;td&gt;&quot;, fp);
+ 	if (ci-&gt;author)
+ 		xmlencode(fp, ci-&gt;author-&gt;name, strlen(ci-&gt;author-&gt;name));
+<a href="#h0-0-3" id="h0-0-3" class="d">-	fputs(&quot;&lt;/td&gt;&lt;td class=\&quot;num\&quot; align=\&quot;right\&quot;&gt;&quot;, fp);
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+	fputs(&quot;&lt;/td&gt;&lt;td class=\&quot;num\&quot;&gt;&quot;, fp);
+</a> 	fprintf(fp, &quot;%zu&quot;, ci-&gt;filecount);
+<a href="#h0-0-6" id="h0-0-6" class="d">-	fputs(&quot;&lt;/td&gt;&lt;td class=\&quot;num\&quot; align=\&quot;right\&quot;&gt;&quot;, fp);
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+	fputs(&quot;&lt;/td&gt;&lt;td class=\&quot;num\&quot;&gt;&quot;, fp);
+</a> 	fprintf(fp, &quot;+%zu&quot;, ci-&gt;addcount);
+<a href="#h0-0-9" id="h0-0-9" class="d">-	fputs(&quot;&lt;/td&gt;&lt;td class=\&quot;num\&quot; align=\&quot;right\&quot;&gt;&quot;, fp);
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+	fputs(&quot;&lt;/td&gt;&lt;td class=\&quot;num\&quot;&gt;&quot;, fp);
+</a> 	fprintf(fp, &quot;-%zu&quot;, ci-&gt;delcount);
+ 	fputs(&quot;&lt;/td&gt;&lt;/tr&gt;\n&quot;, fp);
+ }
+<a href="#h0-1" id="h0-1" class="h">@@ -894,7 +894,7 @@ writefilestree(FILE *fp, git_tree *tree, const char *path)
+</a> 			xmlencode(fp, filepath, strlen(filepath));
+ 			fputs(&quot;\&quot;&gt;&quot;, fp);
+ 			xmlencode(fp, entrypath, strlen(entrypath));
+<a href="#h0-1-3" id="h0-1-3" class="d">-			fputs(&quot;&lt;/a&gt;&lt;/td&gt;&lt;td class=\&quot;num\&quot; align=\&quot;right\&quot;&gt;&quot;, fp);
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+			fputs(&quot;&lt;/a&gt;&lt;/td&gt;&lt;td class=\&quot;num\&quot;&gt;&quot;, fp);
+</a> 			if (lc &gt; 0)
+ 				fprintf(fp, &quot;%dL&quot;, lc);
+ 			else
+<a href="#h0-2" id="h0-2" class="h">@@ -906,7 +906,7 @@ writefilestree(FILE *fp, git_tree *tree, const char *path)
+</a> 				relpath);
+ 			xmlencode(fp, entrypath, strlen(entrypath));
+ 			git_submodule_free(module);
+<a href="#h0-2-3" id="h0-2-3" class="d">-			fputs(&quot;&lt;/a&gt;&lt;/td&gt;&lt;td class=\&quot;num\&quot; align=\&quot;right\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;\n&quot;, fp);
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+			fputs(&quot;&lt;/a&gt;&lt;/td&gt;&lt;td class=\&quot;num\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;\n&quot;, fp);
+</a> 		}
+ 	}
+ 
+<a href="#h0-3" id="h0-3" class="h">@@ -922,7 +922,7 @@ writefiles(FILE *fp, const git_oid *id)
+</a> 
+ 	fputs(&quot;&lt;div id=\&quot;table-scroll\&quot;&gt;&lt;table id=\&quot;files\&quot;&gt;&lt;thead&gt;\n&lt;tr&gt;&quot;
+ 	      &quot;&lt;th&gt;Mode&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&quot;
+<a href="#h0-3-3" id="h0-3-3" class="d">-	      &quot;&lt;th class=\&quot;num\&quot; align=\&quot;right\&quot;&gt;Size&lt;/th&gt;&quot;
+</a><a href="#h0-3-4" id="h0-3-4" class="i">+	      &quot;&lt;th class=\&quot;num\&quot;&gt;Size&lt;/th&gt;&quot;
+</a> 	      &quot;&lt;/tr&gt;\n&lt;/thead&gt;&lt;tbody&gt;\n&quot;, fp);
+ 
+ 	if (!git_commit_lookup(&amp;commit, repo, id) &amp;&amp;
+<a href="#h0-4" id="h0-4" class="h">@@ -1191,9 +1191,9 @@ main(int argc, char *argv[])
+</a> 	writeheader(fp, &quot;Log&quot;);
+ 	fputs(&quot;&lt;div id=\&quot;table-scroll\&quot;&gt;&lt;table id=\&quot;log\&quot;&gt;&lt;thead&gt;\n&lt;tr&gt;&lt;th&gt;Date&lt;/th&gt;&quot;
+ 	      &quot;&lt;th&gt;Commit message&lt;/th&gt;&quot;
+<a href="#h0-4-3" id="h0-4-3" class="d">-	      &quot;&lt;th&gt;Author&lt;/th&gt;&lt;td class=\&quot;num\&quot; align=\&quot;right\&quot;&gt;&lt;b&gt;Files&lt;/th&gt;&quot;
+</a><a href="#h0-4-4" id="h0-4-4" class="d">-	      &quot;&lt;td class=\&quot;num\&quot; align=\&quot;right\&quot;&gt;&lt;b&gt;+&lt;/th&gt;&quot;
+</a><a href="#h0-4-5" id="h0-4-5" class="d">-	      &quot;&lt;td class=\&quot;num\&quot; align=\&quot;right\&quot;&gt;&lt;b&gt;-&lt;/th&gt;&lt;/tr&gt;\n&lt;/thead&gt;&lt;tbody&gt;\n&quot;, fp);
+</a><a href="#h0-4-6" id="h0-4-6" class="i">+	      &quot;&lt;th&gt;Author&lt;/th&gt;&lt;td class=\&quot;num\&quot;&gt;&lt;b&gt;Files&lt;/th&gt;&quot;
+</a><a href="#h0-4-7" id="h0-4-7" class="i">+	      &quot;&lt;td class=\&quot;num\&quot; id=\&quot;plus\&quot;&gt;&lt;b&gt;+&lt;/th&gt;&quot;
+</a><a href="#h0-4-8" id="h0-4-8" class="i">+	      &quot;&lt;td class=\&quot;num\&quot; id=\&quot;min\&quot;&gt;&lt;b&gt;-&lt;/th&gt;&lt;/tr&gt;\n&lt;/thead&gt;&lt;tbody&gt;\n&quot;, fp);
+</a> 
+ 	if (cachefile &amp;&amp; head) {
+ 		/* read from cache file (does not need to exist) */
+<b>diff --git a/<a id="h1" href="../file/style.css.html">style.css</a> b/<a href="../file/style.css.html">style.css</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -42,14 +42,21 @@ a.line {
+</a> 
+ #blob a:hover {
+ 	color: #F9690E;
+<a href="#h1-0-3" id="h1-0-3" class="i">+	background-color: #303030;
+</a> 	text-decoration: none;
+ }
+ 
+<a href="#h1-0-7" id="h1-0-7" class="d">-table thead td {
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+table th {
+</a> 	font-weight: bold;
+<a href="#h1-0-10" id="h1-0-10" class="i">+	text-align: left;
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+}
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+@media screen and (min-width: 600px) {
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+  table:not(#branches) th {
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+    text-align: center;
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+  }
+</a> }
+ 
+<a href="#h1-0-18" id="h1-0-18" class="d">-table td {
+</a><a href="#h1-0-19" id="h1-0-19" class="i">+table td, table th {
+</a> 	padding: 0 0.4em;
+ }
+ 
+<a href="#h1-1" id="h1-1" class="h">@@ -58,7 +65,7 @@ table td {
+</a>   padding-bottom: 3em;
+ }
+ 
+<a href="#h1-1-3" id="h1-1-3" class="d">-#content table td {
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+#content table td, #content table th {
+</a> 	vertical-align: top;
+ 	white-space: nowrap;
+ }
+<a href="#h1-2" id="h1-2" class="h">@@ -78,7 +85,7 @@ table td {
+</a> 	white-space: normal;
+ }
+ 
+<a href="#h1-2-3" id="h1-2-3" class="d">-td.num {
+</a><a href="#h1-2-4" id="h1-2-4" class="i">+th.num, td.num {
+</a> 	text-align: right;
+ }
+ 
+</pre>
+</div>
+</div>
+</body>
+</html>

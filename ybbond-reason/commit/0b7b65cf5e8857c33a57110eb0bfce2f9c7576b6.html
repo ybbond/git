@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(CurViScene) =&gt; completed curviscene links - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/0b7b65cf5e8857c33a57110eb0bfce2f9c7576b6.html">0b7b65cf5e8857c33a57110eb0bfce2f9c7576b6</a>
+<b>parent</b> <a href="../commit/53f64308ed4a5070e64be71fe6bcc7d49797209b.html">53f64308ed4a5070e64be71fe6bcc7d49797209b</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sun, 18 Aug 2019 22:10:51 +0700
+
+feature(CurViScene) =&gt; completed curviscene links
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">build/index.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/CurViScene.re</a></td><td> | </td><td class="num">16</td><td><span class="i">++++++++++++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/Styled.re</a></td><td> | </td><td class="num">15</td><td><span class="i">++++++++++++</span><span class="d">---</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">src/Template.re</a></td><td> | </td><td class="num">12</td><td><span class="i">++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>4 files changed, 39 insertions(<span id="plus">+</span>), 6 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/build/index.html.html">build/index.html</a> b/<a href="../file/build/index.html.html">build/index.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -2,7 +2,7 @@
+</a> &lt;html lang=&quot;en&quot;&gt;
+ &lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+<a href="#h0-0-3" id="h0-0-3" class="d">-  &lt;title&gt;ReasonReact Examples&lt;/title&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  &lt;title&gt;YBBond&lt;/title&gt;
+</a> &lt;/head&gt;
+ &lt;body&gt;
+ 
+<b>diff --git a/<a id="h1" href="../file/src/CurViScene.re.html">src/CurViScene.re</a> b/<a href="../file/src/CurViScene.re.html">src/CurViScene.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -91,7 +91,14 @@ let make = () =&gt; {
+</a>         },
+         {
+           variant: Default,
+<a href="#h1-0-3" id="h1-0-3" class="d">-          text: &lt;span&gt; {ReasonReact.string(&quot;Jakarta, Indonesia&quot;)} &lt;/span&gt;,
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+          text:
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+            &lt;span&gt;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+              {ReasonReact.string(&quot;from &quot;)}
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+              &lt;Link
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+                href=&quot;https://goo.gl/maps/gMGbA5juGAx&quot;
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+                text=&quot;Jakarta, Indonesia&quot;
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+              /&gt;
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+            &lt;/span&gt;,
+</a>         },
+       |]
+     /&gt;;
+<a href="#h1-1" id="h1-1" class="h">@@ -109,7 +116,12 @@ let make = () =&gt; {
+</a>         {
+           variant: Default,
+           text:
+<a href="#h1-1-3" id="h1-1-3" class="d">-            &lt;span&gt; {ReasonReact.string(&quot;bandungpenting@gmail.com&quot;)} &lt;/span&gt;,
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+            &lt;span&gt;
+</a><a href="#h1-1-5" id="h1-1-5" class="i">+              &lt;Link
+</a><a href="#h1-1-6" id="h1-1-6" class="i">+                href=&quot;mailto:bandungpenting@gmail.com&quot;
+</a><a href="#h1-1-7" id="h1-1-7" class="i">+                text=&quot;bandungpenting@gmail.com&quot;
+</a><a href="#h1-1-8" id="h1-1-8" class="i">+              /&gt;
+</a><a href="#h1-1-9" id="h1-1-9" class="i">+            &lt;/span&gt;,
+</a>         },
+         {
+           variant: Default,
+<b>diff --git a/<a id="h2" href="../file/src/Styled.re.html">src/Styled.re</a> b/<a href="../file/src/Styled.re.html">src/Styled.re</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,5 +1,10 @@
+</a> open Utils;
+ 
+<a href="#h2-0-2" id="h2-0-2" class="i">+module Styles = {
+</a><a href="#h2-0-3" id="h2-0-3" class="i">+  open Css;
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  let toggler = style([cursor(`pointer), userSelect(`none)]);
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+};
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+
+</a> type state = {dark: bool};
+ type action =
+   | ToggleDark;
+<a href="#h2-1" id="h2-1" class="h">@@ -69,8 +74,12 @@ body {
+</a> 
+   &lt;React.Fragment&gt;
+     &lt;style dangerouslySetInnerHTML={dangerousHtml(setStyle)} /&gt;
+<a href="#h2-1-3" id="h2-1-3" class="d">-    &lt;button onClick={_ =&gt; dispatch(ToggleDark)}&gt;
+</a><a href="#h2-1-4" id="h2-1-4" class="d">-      {ReasonReact.string(&quot;hai&quot;)}
+</a><a href="#h2-1-5" id="h2-1-5" class="d">-    &lt;/button&gt;
+</a><a href="#h2-1-6" id="h2-1-6" class="i">+    &lt;div onClick={_ =&gt; dispatch(ToggleDark)} className=Styles.toggler&gt;
+</a><a href="#h2-1-7" id="h2-1-7" class="i">+      &lt;p&gt;
+</a><a href="#h2-1-8" id="h2-1-8" class="i">+        {ReasonReact.string(
+</a><a href="#h2-1-9" id="h2-1-9" class="i">+           (state.dark ? {j|☑|j} : {j|☐|j}) ++ &quot; Dark Mode&quot;,
+</a><a href="#h2-1-10" id="h2-1-10" class="i">+         )}
+</a><a href="#h2-1-11" id="h2-1-11" class="i">+      &lt;/p&gt;
+</a><a href="#h2-1-12" id="h2-1-12" class="i">+    &lt;/div&gt;
+</a>   &lt;/React.Fragment&gt;;
+ };
+<b>diff --git a/<a id="h3" href="../file/src/Template.re.html">src/Template.re</a> b/<a href="../file/src/Template.re.html">src/Template.re</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,12 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+[@react.component]
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+let make = (~content, ~title, ()) =&gt; {j|
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+  &lt;!DOCTYPE html&gt;
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+    &lt;html&gt;
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+      &lt;head&gt;
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+        &lt;title&gt;$title&lt;/title&gt;
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+      &lt;/head&gt;
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+      &lt;body&gt;
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+        &lt;div id=&quot;react-root&quot;&gt;$content&lt;/div&gt;
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+      &lt;/body&gt;
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+    &lt;/html&gt;
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+|j};
+</a></pre>
+</div>
+</div>
+</body>
+</html>

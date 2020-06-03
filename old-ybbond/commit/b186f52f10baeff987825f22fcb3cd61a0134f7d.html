@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Uses): tweak List and Text - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/b186f52f10baeff987825f22fcb3cd61a0134f7d.html">b186f52f10baeff987825f22fcb3cd61a0134f7d</a>
+<b>parent</b> <a href="../commit/2bd8f4dc133f7954553317ac081fc6c5fa018b64.html">2bd8f4dc133f7954553317ac081fc6c5fa018b64</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon,  9 Mar 2020 21:31:33 +0700
+
+refactor(Uses): tweak List and Text
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/Components/List.js</a></td><td> | </td><td class="num">8</td><td><span class="i">+++++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/Components/Text.js</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/Pages/UsesPage.js</a></td><td> | </td><td class="num">19</td><td><span class="i">+++++++++</span><span class="d">----------</span></td></tr>
+</table></pre></div><p>3 files changed, 18 insertions(<span id="plus">+</span>), 11 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/Components/List.js.html">src/Components/List.js</a> b/<a href="../file/src/Components/List.js.html">src/Components/List.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -10,16 +10,22 @@ type Props = {|
+</a> |};
+ 
+ const ListBase: StyledComponent&lt;Props, {}, {}&gt; = styled.ul`
+<a href="#h0-0-3" id="h0-0-3" class="d">-  list-style: none;
+</a>   padding: 0;
+ 
+   ${props =&gt;
+     props.as === &#39;li&#39;
+       ? css`
+<a href="#h0-0-9" id="h0-0-9" class="i">+          position: relative;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+          list-style: none;
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+          padding-left: 20px;
+</a>           margin-bottom: 5px;
+           &amp;:before {
+<a href="#h0-0-14" id="h0-0-14" class="i">+            display: inline-block;
+</a>             content: &#39;- &#39;;
+<a href="#h0-0-16" id="h0-0-16" class="i">+            position: absolute;
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+            width: 20px;
+</a>             color: ${colors.orange};
+<a href="#h0-0-19" id="h0-0-19" class="i">+            left: 0;
+</a>           }
+         `
+       : css``}
+<b>diff --git a/<a id="h1" href="../file/src/Components/Text.js.html">src/Components/Text.js</a> b/<a href="../file/src/Components/Text.js.html">src/Components/Text.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -57,6 +57,8 @@ const Text: StyledComponent&lt;TextProps, {}, {}&gt; = styled.p`
+</a>   color: ${color};
+   letter-spacing: 0.03rem;
+   line-height: 1.4;
+<a href="#h1-0-3" id="h1-0-3" class="i">+  word-wrap: break-word;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  overflow-wrap: break-word;
+</a> 
+   @media (max-width: 599px) {
+     font-size: ${({as}) =&gt; `${mobileSizeResolver(as)}rem`};
+<b>diff --git a/<a id="h2" href="../file/src/Pages/UsesPage.js.html">src/Pages/UsesPage.js</a> b/<a href="../file/src/Pages/UsesPage.js.html">src/Pages/UsesPage.js</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,27 +1,26 @@
+</a> // @flow
+ import React from &#39;react&#39;;
+<a href="#h2-0-2" id="h2-0-2" class="d">-import {useHistory} from &#39;react-router&#39;;
+</a> 
+ import Text from &#39;../Components/Text&#39;;
+ import List from &#39;../Components/List&#39;;
+<a href="#h2-0-6" id="h2-0-6" class="i">+import Link from &#39;../Components/Link&#39;;
+</a> 
+ const UsesPage = () =&gt; {
+<a href="#h2-0-9" id="h2-0-9" class="d">-  let history = useHistory();
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-  const handleClick = () =&gt; {
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-    history.push(&#39;/&#39;);
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-  };
+</a>   return (
+     &lt;React.Fragment&gt;
+<a href="#h2-0-16" id="h2-0-16" class="d">-      &lt;Text onClick={handleClick}&gt;hehe&lt;/Text&gt;
+</a>       &lt;Text as=&quot;h2&quot;&gt;Platform&lt;/Text&gt;
+       &lt;List&gt;
+<a href="#h2-0-19" id="h2-0-19" class="d">-        &lt;List as=&quot;li&quot;&gt;{&#39;Macbook Pro 2018 13&quot; (Office)&#39;}&lt;/List&gt;
+</a><a href="#h2-0-20" id="h2-0-20" class="d">-        &lt;List as=&quot;li&quot;&gt;{&#39;Low-End PC with Manjaro Linux XFCE (Home)&#39;}&lt;/List&gt;
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+        &lt;List as=&quot;li&quot;&gt;Macbook Pro 2018 13&amp;quot; (Office)&lt;/List&gt;
+</a><a href="#h2-0-22" id="h2-0-22" class="i">+        &lt;List as=&quot;li&quot;&gt;Low-End PC with Manjaro Linux XFCE (Home)&lt;/List&gt;
+</a>       &lt;/List&gt;
+       &lt;Text as=&quot;h2&quot;&gt;Hardware&lt;/Text&gt;
+       &lt;List&gt;
+<a href="#h2-0-26" id="h2-0-26" class="d">-        &lt;List as=&quot;li&quot;&gt;Ducky One 2 Mini Keyboard image&lt;/List&gt;
+</a><a href="#h2-0-27" id="h2-0-27" class="i">+        &lt;List as=&quot;li&quot;&gt;
+</a><a href="#h2-0-28" id="h2-0-28" class="i">+          Ducky One 2 Mini Keyboard{&#39; &#39;}
+</a><a href="#h2-0-29" id="h2-0-29" class="i">+          &lt;Link to=&quot;https://twitter.com/bandungpenting/status/1146845120618090497&quot;&gt;
+</a><a href="#h2-0-30" id="h2-0-30" class="i">+            image
+</a><a href="#h2-0-31" id="h2-0-31" class="i">+          &lt;/Link&gt;
+</a><a href="#h2-0-32" id="h2-0-32" class="i">+        &lt;/List&gt;
+</a>       &lt;/List&gt;
+       &lt;Text as=&quot;h2&quot;&gt;Code Editor&lt;/Text&gt;
+       &lt;List&gt;
+</pre>
+</div>
+</div>
+</body>
+</html>

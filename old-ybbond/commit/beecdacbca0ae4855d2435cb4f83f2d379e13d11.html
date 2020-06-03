@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Text): add variant as color - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/beecdacbca0ae4855d2435cb4f83f2d379e13d11.html">beecdacbca0ae4855d2435cb4f83f2d379e13d11</a>
+<b>parent</b> <a href="../commit/5632a45fd4990d33b5eca7ae22286d2e3a0b9650.html">5632a45fd4990d33b5eca7ae22286d2e3a0b9650</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 10 Mar 2020 01:50:15 +0700
+
+refactor(Text): add variant as color
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/Components/Link.js</a></td><td> | </td><td class="num">5</td><td><span class="i">+++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/Components/List.js</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/Components/Text.js</a></td><td> | </td><td class="num">42</td><td><span class="i">++++++++++++++++++++++++++++++</span><span class="d">------------</span></td></tr>
+</table></pre></div><p>3 files changed, 35 insertions(<span id="plus">+</span>), 16 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/Components/Link.js.html">src/Components/Link.js</a> b/<a href="../file/src/Components/Link.js.html">src/Components/Link.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -21,11 +21,12 @@ type LinkProps = {to: string, children: React$Node};
+</a> const LinkBase: StyledComponent&lt;{isCurrentRoute?: boolean}, {}, {}&gt; = styled.a`
+   color: ${({isCurrentRoute}) =&gt; (isCurrentRoute ? linkHoverColor : linkColor)};
+   cursor: pointer;
+<a href="#h0-0-3" id="h0-0-3" class="d">-  text-decoration: none;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  text-decoration: underline solid
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+    ${({isCurrentRoute}) =&gt; (isCurrentRoute ? linkHoverColor : linkColor)} 0.5px;
+</a> 
+   &amp;:hover {
+     color: ${linkHoverColor};
+<a href="#h0-0-9" id="h0-0-9" class="d">-    text-decoration: underline solid ${linkHoverColor};
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+    text-decoration: underline solid ${linkHoverColor} 2px;
+</a>   }
+ `;
+ 
+<b>diff --git a/<a id="h1" href="../file/src/Components/List.js.html">src/Components/List.js</a> b/<a href="../file/src/Components/List.js.html">src/Components/List.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -18,7 +18,7 @@ const ListBase: StyledComponent&lt;Props, {}, {}&gt; = styled.ul`
+</a>           position: relative;
+           list-style: none;
+           padding-left: 20px;
+<a href="#h1-0-3" id="h1-0-3" class="d">-          margin-bottom: 5px;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+          margin-bottom: 10px;
+</a>           &amp;:before {
+             display: inline-block;
+             content: &#39;- &#39;;
+<a href="#h1-1" id="h1-1" class="h">@@ -35,7 +35,7 @@ const List = (props: Props) =&gt; {
+</a>   const {as, children, ...rest} = props;
+   return as &amp;&amp; as === &#39;li&#39; ? (
+     &lt;ListBase as={as} {...rest}&gt;
+<a href="#h1-1-3" id="h1-1-3" class="d">-      &lt;Text as=&quot;span&quot;&gt;{children}&lt;/Text&gt;
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+      &lt;Text&gt;{children}&lt;/Text&gt;
+</a>     &lt;/ListBase&gt;
+   ) : (
+     &lt;ListBase as={as} {...rest}&gt;
+<b>diff --git a/<a id="h2" href="../file/src/Components/Text.js.html">src/Components/Text.js</a> b/<a href="../file/src/Components/Text.js.html">src/Components/Text.js</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,16 +1,26 @@
+</a> // @flow
+<a href="#h2-0-1" id="h2-0-1" class="i">+import React from &#39;react&#39;;
+</a> import styled, {css, type StyledComponent} from &#39;styled-components&#39;;
+ import theme from &#39;styled-theming&#39;;
+ import {colors} from &#39;../Theme/colors&#39;;
+ 
+<a href="#h2-0-6" id="h2-0-6" class="d">-const color = theme(&#39;mode&#39;, {
+</a><a href="#h2-0-7" id="h2-0-7" class="d">-  light: colors.dark,
+</a><a href="#h2-0-8" id="h2-0-8" class="d">-  dark: colors.light,
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-});
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-const colorHeading = theme(&#39;mode&#39;, {
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-  light: colors.darkGreen,
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-  dark: colors.green,
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+const color = theme.variants(&#39;mode&#39;, &#39;variant&#39;, {
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+  default: {
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+    light: colors.dark,
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+    dark: colors.light,
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+  },
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+  green: {
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+    light: colors.darkGreen,
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+    dark: colors.green,
+</a><a href="#h2-0-22" id="h2-0-22" class="i">+  },
+</a><a href="#h2-0-23" id="h2-0-23" class="i">+  red: {
+</a><a href="#h2-0-24" id="h2-0-24" class="i">+    light: colors.brown,
+</a><a href="#h2-0-25" id="h2-0-25" class="i">+    dark: colors.orange,
+</a><a href="#h2-0-26" id="h2-0-26" class="i">+  },
+</a><a href="#h2-0-27" id="h2-0-27" class="i">+  blue: {
+</a><a href="#h2-0-28" id="h2-0-28" class="i">+    light: colors.linkDark,
+</a><a href="#h2-0-29" id="h2-0-29" class="i">+    dark: colors.linkLight,
+</a><a href="#h2-0-30" id="h2-0-30" class="i">+  },
+</a> });
+ 
+ const mobileSizeResolver = (as?: string) =&gt; {
+<a href="#h2-1" id="h2-1" class="h">@@ -50,10 +60,10 @@ const headingTagResolver = (as?: string) =&gt; {
+</a> 
+ type TextProps = {
+   as?: string,
+<a href="#h2-1-3" id="h2-1-3" class="d">-} &amp; HTMLParagraphElement &amp;
+</a><a href="#h2-1-4" id="h2-1-4" class="d">-  HTMLHeadingElement;
+</a><a href="#h2-1-5" id="h2-1-5" class="i">+  variant?: &#39;default&#39; | &#39;red&#39; | &#39;green&#39; | &#39;blue&#39;,
+</a><a href="#h2-1-6" id="h2-1-6" class="i">+};
+</a> 
+<a href="#h2-1-8" id="h2-1-8" class="d">-const Text: StyledComponent&lt;TextProps, {}, {}&gt; = styled.p`
+</a><a href="#h2-1-9" id="h2-1-9" class="i">+const TextBase: StyledComponent&lt;TextProps, {}, {}&gt; = styled.p`
+</a>   color: ${color};
+   letter-spacing: 0.03rem;
+   line-height: 1.4;
+<a href="#h2-2" id="h2-2" class="h">@@ -68,7 +78,6 @@ const Text: StyledComponent&lt;TextProps, {}, {}&gt; = styled.p`
+</a>   ${props =&gt;
+     props.as &amp;&amp; props.as[0] === &#39;h&#39;
+       ? css`
+<a href="#h2-2-3" id="h2-2-3" class="d">-          color: ${colorHeading};
+</a>           &amp;:before {
+             content: ${props =&gt; `&quot;${headingTagResolver(props.as)}&quot;`};
+             font-size: 0.8em;
+<a href="#h2-3" id="h2-3" class="h">@@ -77,4 +86,13 @@ const Text: StyledComponent&lt;TextProps, {}, {}&gt; = styled.p`
+</a>       : css``}
+ `;
+ 
+<a href="#h2-3-3" id="h2-3-3" class="i">+const Text = (props: TextProps) =&gt; {
+</a><a href="#h2-3-4" id="h2-3-4" class="i">+  let {as, variant: baseVariant} = props;
+</a><a href="#h2-3-5" id="h2-3-5" class="i">+  let variant = baseVariant ?? &#39;default&#39;;
+</a><a href="#h2-3-6" id="h2-3-6" class="i">+  if (as &amp;&amp; as[0] === &#39;h&#39;) {
+</a><a href="#h2-3-7" id="h2-3-7" class="i">+    variant = &#39;green&#39;;
+</a><a href="#h2-3-8" id="h2-3-8" class="i">+  }
+</a><a href="#h2-3-9" id="h2-3-9" class="i">+  return &lt;TextBase {...props} as={as} variant={baseVariant ?? variant} /&gt;;
+</a><a href="#h2-3-10" id="h2-3-10" class="i">+};
+</a><a href="#h2-3-11" id="h2-3-11" class="i">+
+</a> export default Text;
+</pre>
+</div>
+</div>
+</body>
+</html>

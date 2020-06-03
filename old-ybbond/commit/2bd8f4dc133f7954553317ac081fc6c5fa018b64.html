@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Link): integrate with react-router - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/2bd8f4dc133f7954553317ac081fc6c5fa018b64.html">2bd8f4dc133f7954553317ac081fc6c5fa018b64</a>
+<b>parent</b> <a href="../commit/5fe4429e9038cbbb6545b15c5123b4ca7452b00d.html">5fe4429e9038cbbb6545b15c5123b4ca7452b00d</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon,  9 Mar 2020 21:28:14 +0700
+
+refactor(Link): integrate with react-router
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/Components/Link.js</a></td><td> | </td><td class="num">31</td><td><span class="i">++++++++++++++++++++++++++++</span><span class="d">---</span></td></tr>
+</table></pre></div><p>1 file changed, 28 insertions(<span id="plus">+</span>), 3 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/Components/Link.js.html">src/Components/Link.js</a> b/<a href="../file/src/Components/Link.js.html">src/Components/Link.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,4 +1,6 @@
+</a> // @flow
+<a href="#h0-0-1" id="h0-0-1" class="i">+import React from &#39;react&#39;;
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+import {useHistory} from &#39;react-router&#39;;
+</a> import styled, {type StyledComponent} from &#39;styled-components&#39;;
+ import theme from &#39;styled-theming&#39;;
+ 
+<a href="#h0-1" id="h0-1" class="h">@@ -9,11 +11,34 @@ const linkColor = theme(&#39;mode&#39;, {
+</a>   dark: colors.linkLight,
+ });
+ 
+<a href="#h0-1-3" id="h0-1-3" class="d">-type LinkProps = {} &amp; HTMLAnchorElement;
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+type LinkProps = {to: string, children: React$Node};
+</a> 
+<a href="#h0-1-6" id="h0-1-6" class="d">-const LinkBase: StyledComponent&lt;LinkProps, {}, {}&gt; = styled.a`
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+const LinkBase: StyledComponent&lt;{}, {}, {}&gt; = styled.a`
+</a>   color: ${linkColor};
+<a href="#h0-1-9" id="h0-1-9" class="i">+  cursor: pointer;
+</a>   text-decoration: underline solid ${linkColor};
+<a href="#h0-1-11" id="h0-1-11" class="i">+
+</a><a href="#h0-1-12" id="h0-1-12" class="i">+  &amp;:hover {
+</a><a href="#h0-1-13" id="h0-1-13" class="i">+    color: ${colors.orange};
+</a><a href="#h0-1-14" id="h0-1-14" class="i">+    text-decoration: underline solid ${colors.orange};
+</a><a href="#h0-1-15" id="h0-1-15" class="i">+  }
+</a> `;
+ 
+<a href="#h0-1-18" id="h0-1-18" class="d">-export default LinkBase;
+</a><a href="#h0-1-19" id="h0-1-19" class="i">+const Link = ({children, to, ...props}: LinkProps) =&gt; {
+</a><a href="#h0-1-20" id="h0-1-20" class="i">+  const history = useHistory();
+</a><a href="#h0-1-21" id="h0-1-21" class="i">+  const isExternal = to[0] !== &#39;/&#39;;
+</a><a href="#h0-1-22" id="h0-1-22" class="i">+  const handleClick = () =&gt; {
+</a><a href="#h0-1-23" id="h0-1-23" class="i">+    history.push(to);
+</a><a href="#h0-1-24" id="h0-1-24" class="i">+  };
+</a><a href="#h0-1-25" id="h0-1-25" class="i">+  return isExternal ? (
+</a><a href="#h0-1-26" id="h0-1-26" class="i">+    &lt;LinkBase {...props} target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; href={to}&gt;
+</a><a href="#h0-1-27" id="h0-1-27" class="i">+      {children}
+</a><a href="#h0-1-28" id="h0-1-28" class="i">+    &lt;/LinkBase&gt;
+</a><a href="#h0-1-29" id="h0-1-29" class="i">+  ) : (
+</a><a href="#h0-1-30" id="h0-1-30" class="i">+    &lt;LinkBase as=&quot;span&quot; onClick={handleClick}&gt;
+</a><a href="#h0-1-31" id="h0-1-31" class="i">+      {children}
+</a><a href="#h0-1-32" id="h0-1-32" class="i">+    &lt;/LinkBase&gt;
+</a><a href="#h0-1-33" id="h0-1-33" class="i">+  );
+</a><a href="#h0-1-34" id="h0-1-34" class="i">+};
+</a><a href="#h0-1-35" id="h0-1-35" class="i">+
+</a><a href="#h0-1-36" id="h0-1-36" class="i">+export default Link;
+</a></pre>
+</div>
+</div>
+</body>
+</html>

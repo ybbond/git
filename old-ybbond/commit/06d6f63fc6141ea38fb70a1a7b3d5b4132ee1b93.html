@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Uses): add more link and update gists - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/06d6f63fc6141ea38fb70a1a7b3d5b4132ee1b93.html">06d6f63fc6141ea38fb70a1a7b3d5b4132ee1b93</a>
+<b>parent</b> <a href="../commit/fd0139cc8441de4d6ea482bed76a99fd587a897f.html">fd0139cc8441de4d6ea482bed76a99fd587a897f</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 10 Mar 2020 02:44:06 +0700
+
+refactor(Uses): add more link and update gists
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/Pages/UsesPage.js</a></td><td> | </td><td class="num">40</td><td><span class="i">+++++++++++++++++++++++++++++</span><span class="d">-----------</span></td></tr>
+</table></pre></div><p>1 file changed, 29 insertions(<span id="plus">+</span>), 11 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/Pages/UsesPage.js.html">src/Pages/UsesPage.js</a> b/<a href="../file/src/Pages/UsesPage.js.html">src/Pages/UsesPage.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -21,19 +21,37 @@ const UsesPage = () =&gt; {
+</a>             image
+           &lt;/Link&gt;
+         &lt;/List&gt;
+<a href="#h0-0-3" id="h0-0-3" class="i">+        &lt;List as=&quot;li&quot;&gt;Roland FP-30 Digital Piano&lt;/List&gt;
+</a>       &lt;/List&gt;
+<a href="#h0-0-5" id="h0-0-5" class="d">-      &lt;Text as=&quot;h2&quot;&gt;Code Editor&lt;/Text&gt;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+      &lt;Text as=&quot;h2&quot;&gt;Software&lt;/Text&gt;
+</a>       &lt;List&gt;
+<a href="#h0-0-8" id="h0-0-8" class="d">-        &lt;List as=&quot;li&quot;&gt;Neovim image settings&lt;/List&gt;
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-        &lt;List as=&quot;li&quot;&gt;Visual Studio Code settings&lt;/List&gt;
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-      &lt;/List&gt;
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-      &lt;Text as=&quot;h2&quot;&gt;Terminal&lt;/Text&gt;
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-      &lt;List&gt;
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-        &lt;List as=&quot;li&quot;&gt;tmux on Alacritty settings&lt;/List&gt;
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-        &lt;List as=&quot;li&quot;&gt;Kitty settings&lt;/List&gt;
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-        &lt;List as=&quot;li&quot;&gt;Z Shell (zsh) settings&lt;/List&gt;
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-        &lt;List as=&quot;li&quot;&gt;Ranger File Manager settings&lt;/List&gt;
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-        &lt;List as=&quot;li&quot;&gt;lazygit&lt;/List&gt;
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+        &lt;List as=&quot;li&quot;&gt;
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+          Neovim{&#39; &#39;}
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+          &lt;Link to=&quot;https://twitter.com/bandungpenting/status/1162210601340305409&quot;&gt;
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+            image
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+          &lt;/Link&gt;{&#39; &#39;}
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+          &lt;Link to=&quot;https://gist.github.com/ybbond/16ee5000eeca727899eac43a4c20291c&quot;&gt;
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+            settings
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+          &lt;/Link&gt;
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+        &lt;/List&gt;
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+        &lt;List as=&quot;li&quot;&gt;
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+          tmux on kitty{&#39; &#39;}
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+          &lt;Link to=&quot;https://gist.github.com/ybbond/26165e50f36a439b6b930607976a1e82&quot;&gt;
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+            settings
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+          &lt;/Link&gt;
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+        &lt;/List&gt;
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+        &lt;List as=&quot;li&quot;&gt;
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+          Z Shell (zsh){&#39; &#39;}
+</a><a href="#h0-0-35" id="h0-0-35" class="i">+          &lt;Link to=&quot;https://gist.github.com/ybbond/e6f827f977248b5d9eda8e1c49da82e9&quot;&gt;
+</a><a href="#h0-0-36" id="h0-0-36" class="i">+            settings
+</a><a href="#h0-0-37" id="h0-0-37" class="i">+          &lt;/Link&gt;
+</a><a href="#h0-0-38" id="h0-0-38" class="i">+        &lt;/List&gt;
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+        &lt;List as=&quot;li&quot;&gt;
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+          &lt;Link to=&quot;https://github.com/ranger/ranger&quot;&gt;Ranger&lt;/Link&gt; File Manager
+</a><a href="#h0-0-41" id="h0-0-41" class="i">+        &lt;/List&gt;
+</a><a href="#h0-0-42" id="h0-0-42" class="i">+        &lt;List as=&quot;li&quot;&gt;
+</a><a href="#h0-0-43" id="h0-0-43" class="i">+          &lt;Link to=&quot;https://github.com/jesseduffield/lazygit&quot;&gt;lazygit&lt;/Link&gt;
+</a><a href="#h0-0-44" id="h0-0-44" class="i">+        &lt;/List&gt;
+</a>       &lt;/List&gt;
+     &lt;/React.Fragment&gt;
+   );
+</pre>
+</div>
+</div>
+</body>
+</html>

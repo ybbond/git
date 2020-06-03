@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feat: use minimal vimrc - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/ebe53ca0464681e83586b41696f9f09d57292923.html">ebe53ca0464681e83586b41696f9f09d57292923</a>
+<b>parent</b> <a href="../commit/233ec0c1a2fe73c669ab4583215f22831e049466.html">233ec0c1a2fe73c669ab4583215f22831e049466</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 19 May 2020 03:07:54 +0700
+
+feat: use minimal vimrc
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.config/nvim/init.vim</a></td><td> | </td><td class="num">6</td><td><span class="i">++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.vimrc</a></td><td> | </td><td class="num">434</td><td><span class="i">++++++</span><span class="d">-------------------------------------------------------------------------</span></td></tr>
+</table></pre></div><p>2 files changed, 36 insertions(<span id="plus">+</span>), 404 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a> b/<a href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -399,6 +399,9 @@ autocmd! User GoyoLeave nested call &lt;SID&gt;goyo_leave()
+</a> 
+ &quot; change cursor in different mode
+ if has(&#39;nvim&#39;)
+<a href="#h0-0-3" id="h0-0-3" class="i">+  &quot; make the ^[ sign with:
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  &quot; (INSERT MODE) &lt;C-v&gt;&lt;ESC&gt;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+  &quot; make sure it shows different color than the rest
+</a>   set t_SI=[5\ q
+   set t_SR=[4\ q
+   set t_EI=[1\ q
+<a href="#h0-1" id="h0-1" class="h">@@ -410,6 +413,9 @@ else
+</a>       let &amp;t_EI .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[1 q\&lt;Esc&gt;\\&quot;
+       autocmd VimLeave * silent !echo -ne &quot;\033Ptmux;\033\033[0 q\033\\&quot;
+   else
+<a href="#h0-1-3" id="h0-1-3" class="i">+      &quot; make the ^[ sign with:
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+      &quot; (INSERT MODE) &lt;C-v&gt;&lt;ESC&gt;
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+      &quot; make sure it shows different color than the rest
+</a>       set t_SI=[5\ q
+       set t_SR=[4\ q
+       set t_EI=[1\ q
+<b>diff --git a/<a id="h1" href="../file/.vimrc.html">.vimrc</a> b/<a href="../file/.vimrc.html">.vimrc</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,424 +1,50 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="d">-&quot; For Vim
+</a><a href="#h1-0-1" id="h1-0-1" class="d">-set nocompatible
+</a><a href="#h1-0-2" id="h1-0-2" class="d">-set encoding=UTF-8
+</a><a href="#h1-0-3" id="h1-0-3" class="d">-
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-let s:plugin_location = &#39;~/.vim/plugged&#39;
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-if has(&#39;nvim&#39;)
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-  let s:plugin_location = &#39;~/.local/share/nvim/plugged&#39;
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-endif
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-&quot; PlugIns
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-call plug#begin(s:plugin_location)
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-  Plug &#39;sainnhe/gruvbox-material&#39;
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-    let g:gruvbox_material_enable_italic = 1
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-  &quot; *fzf.vim*
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-  Plug &#39;/usr/local/opt/fzf&#39;
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-  Plug &#39;ybbond/fzf.vim&#39;
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-  &quot; *bufkill*
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-  Plug &#39;qpkorr/vim-bufkill&#39;
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-  Plug &#39;junegunn/goyo.vim&#39;
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-  Plug &#39;junegunn/limelight.vim&#39;
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-    let g:limelight_conceal_ctermfg = &#39;gray&#39;
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-    let g:limelight_conceal_ctermfg = 240
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-  &quot; *vim-fugitive*
+</a><a href="#h1-0-27" id="h1-0-27" class="d">-  Plug &#39;tpope/vim-fugitive&#39;
+</a><a href="#h1-0-28" id="h1-0-28" class="d">-  Plug &#39;tpope/vim-rhubarb&#39;
+</a><a href="#h1-0-29" id="h1-0-29" class="d">-  Plug &#39;mhinz/vim-signify&#39;
+</a><a href="#h1-0-30" id="h1-0-30" class="d">-    let g:signify_realtime = 1
+</a><a href="#h1-0-31" id="h1-0-31" class="d">-    let g:signify_cursorhold_normal = 0
+</a><a href="#h1-0-32" id="h1-0-32" class="d">-    let g:signify_cursorhold_insert = 0
+</a><a href="#h1-0-33" id="h1-0-33" class="d">-  Plug &#39;shumphrey/fugitive-gitlab.vim&#39;
+</a><a href="#h1-0-34" id="h1-0-34" class="d">-    let g:fugitive_gitlab_domains = [&#39;https://gitlab.kumparan.com&#39;]
+</a><a href="#h1-0-35" id="h1-0-35" class="d">-  &quot; *git-messenger*
+</a><a href="#h1-0-36" id="h1-0-36" class="d">-  Plug &#39;rhysd/git-messenger.vim&#39;
+</a><a href="#h1-0-37" id="h1-0-37" class="d">-    let g:git_messenger_git_command = &#39;hub&#39;
+</a><a href="#h1-0-38" id="h1-0-38" class="d">-    let g:git_messenger_no_default_mappings = v:true
+</a><a href="#h1-0-39" id="h1-0-39" class="d">-
+</a><a href="#h1-0-40" id="h1-0-40" class="d">-  &quot; *vim-easymotion*
+</a><a href="#h1-0-41" id="h1-0-41" class="d">-  &quot; Plug &#39;easymotion/vim-easymotion&#39;
+</a><a href="#h1-0-42" id="h1-0-42" class="d">-  Plug &#39;justinmk/vim-sneak&#39;
+</a><a href="#h1-0-43" id="h1-0-43" class="d">-
+</a><a href="#h1-0-44" id="h1-0-44" class="d">-  &quot; *vim-airline*
+</a><a href="#h1-0-45" id="h1-0-45" class="d">-  Plug &#39;vim-airline/vim-airline&#39;
+</a><a href="#h1-0-46" id="h1-0-46" class="d">-    let g:airline#extensions#tabline#enabled = 1
+</a><a href="#h1-0-47" id="h1-0-47" class="d">-    let g:airline#extensions#tabline#show_tabs = 0
+</a><a href="#h1-0-48" id="h1-0-48" class="d">-    let g:airline#extensions#tabline#buffer_nr_show = 1
+</a><a href="#h1-0-49" id="h1-0-49" class="d">-    let g:airline#extensions#tabline#formatter = &#39;jsformatter&#39;
+</a><a href="#h1-0-50" id="h1-0-50" class="d">-
+</a><a href="#h1-0-51" id="h1-0-51" class="d">-    let g:airline_section_x = []
+</a><a href="#h1-0-52" id="h1-0-52" class="d">-    let g:airline_section_y = []
+</a><a href="#h1-0-53" id="h1-0-53" class="d">-
+</a><a href="#h1-0-54" id="h1-0-54" class="d">-    let g:airline#extensions#coc#enabled = 1
+</a><a href="#h1-0-55" id="h1-0-55" class="d">-    &quot; use error &amp; warning count of diagnostics form coc.nvim
+</a><a href="#h1-0-56" id="h1-0-56" class="d">-    let g:airline_section_error = &#39;%{airline#util#wrap(airline#extensions#coc#get_error(),0)}&#39;
+</a><a href="#h1-0-57" id="h1-0-57" class="d">-    let g:airline_section_warning = &#39;%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}&#39;
+</a><a href="#h1-0-58" id="h1-0-58" class="d">-    let g:airline#extensions#vimtex#enabled = 0
+</a><a href="#h1-0-59" id="h1-0-59" class="d">-    let g:airline_theme = &#39;gruvbox_material&#39;
+</a><a href="#h1-0-60" id="h1-0-60" class="d">-
+</a><a href="#h1-0-61" id="h1-0-61" class="d">-  &quot; *tmux*
+</a><a href="#h1-0-62" id="h1-0-62" class="d">-  Plug &#39;tmux-plugins/vim-tmux&#39;
+</a><a href="#h1-0-63" id="h1-0-63" class="d">-  Plug &#39;tmux-plugins/vim-tmux-focus-events&#39;
+</a><a href="#h1-0-64" id="h1-0-64" class="d">-  Plug &#39;edkolev/tmuxline.vim&#39;
+</a><a href="#h1-0-65" id="h1-0-65" class="d">-    let g:tmuxline_powerline_separators = 0
+</a><a href="#h1-0-66" id="h1-0-66" class="d">-    let g:tmuxline_preset = {
+</a><a href="#h1-0-67" id="h1-0-67" class="d">-      \&#39;win&#39;      : &#39;#I #W #F&#39;,
+</a><a href="#h1-0-68" id="h1-0-68" class="d">-      \&#39;cwin&#39;     : &#39;#I #W #F&#39;,
+</a><a href="#h1-0-69" id="h1-0-69" class="d">-      \&#39;y&#39;        : &#39;#[bg=colour236] #(sh ~/.config/pane-border-format.sh --pane-current-path=#{pane_current_path} --pane-active=#{pane_active})&#39;,
+</a><a href="#h1-0-70" id="h1-0-70" class="d">-      \&#39;z&#39;        : &#39;#[bold]:D&#39;,
+</a><a href="#h1-0-71" id="h1-0-71" class="d">-      \&#39;options&#39;  : {&#39;status-justify&#39; : &#39;left&#39;}}
+</a><a href="#h1-0-72" id="h1-0-72" class="d">-
+</a><a href="#h1-0-73" id="h1-0-73" class="d">-  &quot; *nerdtree*
+</a><a href="#h1-0-74" id="h1-0-74" class="d">-  Plug &#39;scrooloose/nerdtree&#39;
+</a><a href="#h1-0-75" id="h1-0-75" class="d">-    Plug &#39;Xuyuanp/nerdtree-git-plugin&#39;
+</a><a href="#h1-0-76" id="h1-0-76" class="d">-
+</a><a href="#h1-0-77" id="h1-0-77" class="d">-  Plug &#39;junegunn/vim-peekaboo&#39;
+</a><a href="#h1-0-78" id="h1-0-78" class="d">-  Plug &#39;machakann/vim-highlightedyank&#39;
+</a><a href="#h1-0-79" id="h1-0-79" class="d">-  Plug &#39;jiangmiao/auto-pairs&#39;
+</a><a href="#h1-0-80" id="h1-0-80" class="d">-    let g:AutoPairsMultilineClose = 0	
+</a><a href="#h1-0-81" id="h1-0-81" class="d">-
+</a><a href="#h1-0-82" id="h1-0-82" class="d">-  Plug &#39;tpope/vim-commentary&#39;
+</a><a href="#h1-0-83" id="h1-0-83" class="d">-  Plug &#39;tpope/vim-surround&#39;
+</a><a href="#h1-0-84" id="h1-0-84" class="d">-  Plug &#39;tpope/vim-repeat&#39;
+</a><a href="#h1-0-85" id="h1-0-85" class="d">-
+</a><a href="#h1-0-86" id="h1-0-86" class="d">-  &quot; *coc.nvim*
+</a><a href="#h1-0-87" id="h1-0-87" class="d">-  Plug &#39;neoclide/coc.nvim&#39;, {&#39;branch&#39;: &#39;release&#39;}
+</a><a href="#h1-0-88" id="h1-0-88" class="d">-    function! s:show_documentation()
+</a><a href="#h1-0-89" id="h1-0-89" class="d">-      if &amp;filetype == &#39;vim&#39;
+</a><a href="#h1-0-90" id="h1-0-90" class="d">-        execute &#39;h &#39;.expand(&#39;&lt;cword&gt;&#39;)
+</a><a href="#h1-0-91" id="h1-0-91" class="d">-      else
+</a><a href="#h1-0-92" id="h1-0-92" class="d">-        call CocAction(&#39;doHover&#39;)
+</a><a href="#h1-0-93" id="h1-0-93" class="d">-      endif
+</a><a href="#h1-0-94" id="h1-0-94" class="d">-    endfunction
+</a><a href="#h1-0-95" id="h1-0-95" class="d">-
+</a><a href="#h1-0-96" id="h1-0-96" class="d">-  &quot; *vim-clap*
+</a><a href="#h1-0-97" id="h1-0-97" class="d">-  Plug &#39;liuchengxu/vim-clap&#39;, { &#39;do&#39;: &#39;:Clap install-binary!&#39; }
+</a><a href="#h1-0-98" id="h1-0-98" class="d">-    let g:clap_provider_grep_delay = 100
+</a><a href="#h1-0-99" id="h1-0-99" class="d">-    let g:clap_disable_run_rooter = v:true
+</a><a href="#h1-0-100" id="h1-0-100" class="d">-    let g:clap_layout = { &#39;relative&#39;: &#39;editor&#39; }
+</a><a href="#h1-0-101" id="h1-0-101" class="d">-
+</a><a href="#h1-0-102" id="h1-0-102" class="d">-  &quot; JavaScript
+</a><a href="#h1-0-103" id="h1-0-103" class="d">-  Plug &#39;pangloss/vim-javascript&#39;
+</a><a href="#h1-0-104" id="h1-0-104" class="d">-    let g:javascript_plugin_flow = 1
+</a><a href="#h1-0-105" id="h1-0-105" class="d">-    let g:javascript_plugin_jsdoc = 1
+</a><a href="#h1-0-106" id="h1-0-106" class="d">-  Plug &#39;othree/yajs.vim&#39;
+</a><a href="#h1-0-107" id="h1-0-107" class="d">-  Plug &#39;maxmellon/vim-jsx-pretty&#39;
+</a><a href="#h1-0-108" id="h1-0-108" class="d">-    let g:vim_jsx_pretty_colorful_config = 1
+</a><a href="#h1-0-109" id="h1-0-109" class="d">-    let g:jsx_ext_required = 0
+</a><a href="#h1-0-110" id="h1-0-110" class="d">-
+</a><a href="#h1-0-111" id="h1-0-111" class="d">-  &quot; styled-components
+</a><a href="#h1-0-112" id="h1-0-112" class="d">-  Plug &#39;styled-components/vim-styled-components&#39;, { &#39;branch&#39;: &#39;main&#39; }
+</a><a href="#h1-0-113" id="h1-0-113" class="d">-
+</a><a href="#h1-0-114" id="h1-0-114" class="d">-  &quot; TypeScript
+</a><a href="#h1-0-115" id="h1-0-115" class="d">-  Plug &#39;leafgarland/typescript-vim&#39;
+</a><a href="#h1-0-116" id="h1-0-116" class="d">-  Plug &#39;HerringtonDarkholme/yats.vim&#39;
+</a><a href="#h1-0-117" id="h1-0-117" class="d">-
+</a><a href="#h1-0-118" id="h1-0-118" class="d">-  &quot; Markdown
+</a><a href="#h1-0-119" id="h1-0-119" class="d">-  Plug &#39;ybbond/vim-markdown&#39;
+</a><a href="#h1-0-120" id="h1-0-120" class="d">-    let g:vim_markdown_folding_disabled = 1
+</a><a href="#h1-0-121" id="h1-0-121" class="d">-    let g:vim_markdown_conceal = 0
+</a><a href="#h1-0-122" id="h1-0-122" class="d">-    let g:vim_markdown_strikethrough = 1
+</a><a href="#h1-0-123" id="h1-0-123" class="d">-    let g:tex_conceal = &quot;&quot;
+</a><a href="#h1-0-124" id="h1-0-124" class="d">-    let g:vim_markdown_math = 1
+</a><a href="#h1-0-125" id="h1-0-125" class="d">-    let g:vim_markdown_frontmatter = 1  &quot; for YAML format
+</a><a href="#h1-0-126" id="h1-0-126" class="d">-    let g:vim_markdown_toml_frontmatter = 1  &quot; for TOML format
+</a><a href="#h1-0-127" id="h1-0-127" class="d">-    let g:vim_markdown_json_frontmatter = 1  &quot; for JSON format
+</a><a href="#h1-0-128" id="h1-0-128" class="d">-  Plug &#39;godlygeek/tabular&#39;
+</a><a href="#h1-0-129" id="h1-0-129" class="d">-
+</a><a href="#h1-0-130" id="h1-0-130" class="d">-  &quot; GRAPHQL
+</a><a href="#h1-0-131" id="h1-0-131" class="d">-  Plug &#39;jparise/vim-graphql&#39;
+</a><a href="#h1-0-132" id="h1-0-132" class="d">-
+</a><a href="#h1-0-133" id="h1-0-133" class="d">-  &quot; Go
+</a><a href="#h1-0-134" id="h1-0-134" class="d">-  Plug &#39;fatih/vim-go&#39;, { &#39;do&#39;: &#39;:GoUpdateBinaries&#39; }
+</a><a href="#h1-0-135" id="h1-0-135" class="d">-
+</a><a href="#h1-0-136" id="h1-0-136" class="d">-  &quot; Rust
+</a><a href="#h1-0-137" id="h1-0-137" class="d">-  Plug &#39;rust-lang/rust.vim&#39;
+</a><a href="#h1-0-138" id="h1-0-138" class="d">-    let g:rustfmt_autosave = 1
+</a><a href="#h1-0-139" id="h1-0-139" class="d">-
+</a><a href="#h1-0-140" id="h1-0-140" class="d">-  &quot; Reason
+</a><a href="#h1-0-141" id="h1-0-141" class="d">-  Plug &#39;reasonml-editor/vim-reason-plus&#39;
+</a><a href="#h1-0-142" id="h1-0-142" class="d">-    autocmd BufNewFile,BufRead *.re nnoremap &lt;leader&gt;w :!refmt --in-place %&lt;CR&gt;
+</a><a href="#h1-0-143" id="h1-0-143" class="d">-
+</a><a href="#h1-0-144" id="h1-0-144" class="d">-  &quot; vlang
+</a><a href="#h1-0-145" id="h1-0-145" class="d">-  Plug &#39;cheap-glitch/vim-v&#39;
+</a><a href="#h1-0-146" id="h1-0-146" class="d">-    let g:v_warnings=1
+</a><a href="#h1-0-147" id="h1-0-147" class="d">-    au BufNewFile,BufRead *.v setlocal tabstop=4
+</a><a href="#h1-0-148" id="h1-0-148" class="d">-    au BufNewFile,BufRead *.v setlocal softtabstop=4
+</a><a href="#h1-0-149" id="h1-0-149" class="d">-    au BufNewFile,BufRead *.v setlocal shiftwidth=4
+</a><a href="#h1-0-150" id="h1-0-150" class="d">-
+</a><a href="#h1-0-151" id="h1-0-151" class="d">-  &quot; LaTex
+</a><a href="#h1-0-152" id="h1-0-152" class="d">-  Plug &#39;lervag/vimtex&#39;
+</a><a href="#h1-0-153" id="h1-0-153" class="d">-    let g:vimtex_compiler_progname = &#39;nvr&#39;
+</a><a href="#h1-0-154" id="h1-0-154" class="d">-    let g:vimtex_view_method = &#39;skim&#39;
+</a><a href="#h1-0-155" id="h1-0-155" class="d">-    let g:vimtex_texcount_custom_arg = &#39;macro \cmt [state1]&#39;
+</a><a href="#h1-0-156" id="h1-0-156" class="d">-
+</a><a href="#h1-0-157" id="h1-0-157" class="d">-call plug#end()
+</a><a href="#h1-0-158" id="h1-0-158" class="d">-
+</a><a href="#h1-0-159" id="h1-0-159" class="d">-colorscheme gruvbox-material
+</a><a href="#h1-0-160" id="h1-0-160" class="d">-set background=dark
+</a><a href="#h1-0-161" id="h1-0-161" class="d">-set termguicolors
+</a><a href="#h1-0-162" id="h1-0-162" class="d">-
+</a> syntax enable
+ syntax on
+<a href="#h1-0-165" id="h1-0-165" class="d">-filetype plugin on
+</a> filetype plugin indent on
+ 
+<a href="#h1-0-168" id="h1-0-168" class="d">-set nopaste
+</a><a href="#h1-0-169" id="h1-0-169" class="d">-set pastetoggle=&lt;F2&gt;
+</a><a href="#h1-0-170" id="h1-0-170" class="i">+set number
+</a><a href="#h1-0-171" id="h1-0-171" class="i">+set relativenumber
+</a> 
+ set tabstop=2
+ set softtabstop=2
+ set shiftwidth=2
+<a href="#h1-0-176" id="h1-0-176" class="d">-set scrolloff=3
+</a> set expandtab
+<a href="#h1-0-178" id="h1-0-178" class="d">-set nowrap
+</a><a href="#h1-0-179" id="h1-0-179" class="d">-set linebreak
+</a><a href="#h1-0-180" id="h1-0-180" class="d">-&quot; set listchars=tab:▷\ ,trail:·,extends:◣,precedes:◢,nbsp:○,eol:↪
+</a><a href="#h1-0-181" id="h1-0-181" class="d">-
+</a><a href="#h1-0-182" id="h1-0-182" class="d">-set mouse=n
+</a><a href="#h1-0-183" id="h1-0-183" class="d">-set noshowmode
+</a><a href="#h1-0-184" id="h1-0-184" class="d">-
+</a><a href="#h1-0-185" id="h1-0-185" class="d">-set number
+</a><a href="#h1-0-186" id="h1-0-186" class="d">-set relativenumber
+</a> 
+ set ruler
+<a href="#h1-0-189" id="h1-0-189" class="d">-set showmatch
+</a><a href="#h1-0-190" id="h1-0-190" class="d">-set cursorline
+</a> 
+<a href="#h1-0-192" id="h1-0-192" class="i">+set incsearch
+</a><a href="#h1-0-193" id="h1-0-193" class="i">+set showmatch
+</a> set ignorecase
+ set smartcase
+<a href="#h1-0-196" id="h1-0-196" class="d">-set incsearch
+</a> set hlsearch
+ 
+<a href="#h1-0-199" id="h1-0-199" class="d">-if has(&#39;nvim&#39;)
+</a><a href="#h1-0-200" id="h1-0-200" class="d">-  set inccommand=split
+</a><a href="#h1-0-201" id="h1-0-201" class="i">+nnoremap &lt;LEADER&gt;&lt;SPACE&gt; :nohlsearch&lt;CR&gt;
+</a><a href="#h1-0-202" id="h1-0-202" class="i">+inoremap jk &lt;ESC&gt;
+</a><a href="#h1-0-203" id="h1-0-203" class="i">+
+</a><a href="#h1-0-204" id="h1-0-204" class="i">+if !isdirectory($HOME.&quot;/.vim&quot;)
+</a><a href="#h1-0-205" id="h1-0-205" class="i">+  call mkdir($HOME.&quot;/.vim&quot;, &quot;&quot;, 0770)
+</a><a href="#h1-0-206" id="h1-0-206" class="i">+endif
+</a><a href="#h1-0-207" id="h1-0-207" class="i">+if !isdirectory($HOME.&quot;/.vim/undo-dir&quot;)
+</a><a href="#h1-0-208" id="h1-0-208" class="i">+  call mkdir($HOME.&quot;/.vim/undo-dir&quot;, &quot;&quot;, 0770)
+</a><a href="#h1-0-209" id="h1-0-209" class="i">+endif
+</a><a href="#h1-0-210" id="h1-0-210" class="i">+set undodir=~/.vim/undo-dir
+</a><a href="#h1-0-211" id="h1-0-211" class="i">+if has (&#39;persistent_undo&#39;)
+</a><a href="#h1-0-212" id="h1-0-212" class="i">+  set undofile
+</a><a href="#h1-0-213" id="h1-0-213" class="i">+  set undolevels=250
+</a><a href="#h1-0-214" id="h1-0-214" class="i">+  set undoreload=500
+</a> endif
+ 
+<a href="#h1-0-217" id="h1-0-217" class="d">-&quot; Let&#39;s save undo info!
+</a><a href="#h1-0-218" id="h1-0-218" class="d">-if has(&#39;nvim&#39;)
+</a><a href="#h1-0-219" id="h1-0-219" class="d">-  if has(&#39;persistent_undo&#39;)
+</a><a href="#h1-0-220" id="h1-0-220" class="d">-    set undofile
+</a><a href="#h1-0-221" id="h1-0-221" class="d">-    set undolevels=250
+</a><a href="#h1-0-222" id="h1-0-222" class="d">-    set undoreload=500
+</a><a href="#h1-0-223" id="h1-0-223" class="d">-  endif
+</a><a href="#h1-0-224" id="h1-0-224" class="i">+if exists(&#39;$TMUX&#39;)
+</a><a href="#h1-0-225" id="h1-0-225" class="i">+  &quot; tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
+</a><a href="#h1-0-226" id="h1-0-226" class="i">+  let &amp;t_SI .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[5 q\&lt;Esc&gt;\\&quot;
+</a><a href="#h1-0-227" id="h1-0-227" class="i">+  let &amp;t_SR .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[4 q\&lt;Esc&gt;\\&quot;
+</a><a href="#h1-0-228" id="h1-0-228" class="i">+  let &amp;t_EI .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[1 q\&lt;Esc&gt;\\&quot;
+</a><a href="#h1-0-229" id="h1-0-229" class="i">+  autocmd VimLeave * silent !echo -ne &quot;\033Ptmux;\033\033[0 q\033\\&quot;
+</a> else
+<a href="#h1-0-231" id="h1-0-231" class="d">-  if !isdirectory($HOME.&quot;/.vim&quot;)
+</a><a href="#h1-0-232" id="h1-0-232" class="d">-    call mkdir($HOME.&quot;/.vim&quot;, &quot;&quot;, 0770)
+</a><a href="#h1-0-233" id="h1-0-233" class="d">-  endif
+</a><a href="#h1-0-234" id="h1-0-234" class="d">-  if !isdirectory($HOME.&quot;/.vim/undo-dir&quot;)
+</a><a href="#h1-0-235" id="h1-0-235" class="d">-    call mkdir($HOME.&quot;/.vim/undo-dir&quot;, &quot;&quot;, 0700)
+</a><a href="#h1-0-236" id="h1-0-236" class="d">-  endif
+</a><a href="#h1-0-237" id="h1-0-237" class="d">-  set undodir=~/.vim/undo-dir
+</a><a href="#h1-0-238" id="h1-0-238" class="d">-  &quot; Then set persistent undo!
+</a><a href="#h1-0-239" id="h1-0-239" class="d">-  if has(&#39;persistent_undo&#39;)
+</a><a href="#h1-0-240" id="h1-0-240" class="d">-    set undofile
+</a><a href="#h1-0-241" id="h1-0-241" class="d">-    set undolevels=250
+</a><a href="#h1-0-242" id="h1-0-242" class="d">-    set undoreload=500
+</a><a href="#h1-0-243" id="h1-0-243" class="d">-  endif
+</a><a href="#h1-0-244" id="h1-0-244" class="i">+  &quot; make the ^[ sign with:
+</a><a href="#h1-0-245" id="h1-0-245" class="i">+  &quot; (INSERT MODE) &lt;C-v&gt;&lt;ESC&gt;
+</a><a href="#h1-0-246" id="h1-0-246" class="i">+  &quot; make sure it shows different color than the rest
+</a><a href="#h1-0-247" id="h1-0-247" class="i">+  set t_SI=[5\ q
+</a><a href="#h1-0-248" id="h1-0-248" class="i">+  set t_SR=[4\ q
+</a><a href="#h1-0-249" id="h1-0-249" class="i">+  set t_EI=[1\ q
+</a> endif
+<a href="#h1-0-251" id="h1-0-251" class="d">-
+</a><a href="#h1-0-252" id="h1-0-252" class="d">-nnoremap &lt;expr&gt; j &amp;wrap == 1 ? &#39;gj&#39; : &#39;j&#39;
+</a><a href="#h1-0-253" id="h1-0-253" class="d">-nnoremap &lt;expr&gt; k &amp;wrap == 1 ? &#39;gk&#39; : &#39;k&#39;
+</a><a href="#h1-0-254" id="h1-0-254" class="d">-nnoremap &lt;expr&gt; $ &amp;wrap == 1 ? &#39;g$&#39; : &#39;$&#39;
+</a><a href="#h1-0-255" id="h1-0-255" class="d">-nnoremap &lt;expr&gt; 0 &amp;wrap == 1 ? &#39;g0&#39; : &#39;0&#39;
+</a><a href="#h1-0-256" id="h1-0-256" class="d">-
+</a><a href="#h1-0-257" id="h1-0-257" class="d">-
+</a><a href="#h1-0-258" id="h1-0-258" class="d">-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+</a><a href="#h1-0-259" id="h1-0-259" class="d">-&quot;                      NORMAL MODE 
+</a><a href="#h1-0-260" id="h1-0-260" class="d">-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+</a><a href="#h1-0-261" id="h1-0-261" class="d">-
+</a><a href="#h1-0-262" id="h1-0-262" class="d">-
+</a><a href="#h1-0-263" id="h1-0-263" class="d">-&quot; reload all opened buffer
+</a><a href="#h1-0-264" id="h1-0-264" class="d">-nnoremap &lt;leader&gt;br :bufdo e&lt;cr&gt;
+</a><a href="#h1-0-265" id="h1-0-265" class="d">-
+</a><a href="#h1-0-266" id="h1-0-266" class="d">-&quot; Copy, Paste and Copy Whole File to clipboard
+</a><a href="#h1-0-267" id="h1-0-267" class="d">-map &lt;leader&gt;c :w !pbcopy&lt;cr&gt;&lt;cr&gt;
+</a><a href="#h1-0-268" id="h1-0-268" class="d">-map &lt;leader&gt;v :r !pbpaste&lt;cr&gt;&lt;cr&gt;
+</a><a href="#h1-0-269" id="h1-0-269" class="d">-map &lt;leader&gt;ac :%w !pbcopy&lt;cr&gt;&lt;cr&gt;
+</a><a href="#h1-0-270" id="h1-0-270" class="d">-
+</a><a href="#h1-0-271" id="h1-0-271" class="d">-&quot; Unhighlight search
+</a><a href="#h1-0-272" id="h1-0-272" class="d">-nnoremap &lt;silent&gt; &lt;LEADER&gt;&lt;SPACE&gt; :nohlsearch&lt;CR&gt;
+</a><a href="#h1-0-273" id="h1-0-273" class="d">-
+</a><a href="#h1-0-274" id="h1-0-274" class="d">-&quot; Toggle check spelling
+</a><a href="#h1-0-275" id="h1-0-275" class="d">-nnoremap &lt;leader&gt;s :set spell! spelllang=en_us&lt;CR&gt;
+</a><a href="#h1-0-276" id="h1-0-276" class="d">-
+</a><a href="#h1-0-277" id="h1-0-277" class="d">-map &lt;silent&gt; ˙ &lt;C-w&gt;&lt;
+</a><a href="#h1-0-278" id="h1-0-278" class="d">-map &lt;silent&gt; ˚ &lt;C-W&gt;-
+</a><a href="#h1-0-279" id="h1-0-279" class="d">-map &lt;silent&gt; ∆ &lt;C-W&gt;+
+</a><a href="#h1-0-280" id="h1-0-280" class="d">-map &lt;silent&gt; ¬ &lt;C-w&gt;&gt;
+</a><a href="#h1-0-281" id="h1-0-281" class="d">-
+</a><a href="#h1-0-282" id="h1-0-282" class="d">-&quot; Remap leader-% to source %
+</a><a href="#h1-0-283" id="h1-0-283" class="d">-nnoremap &lt;leader&gt;% :source %&lt;cr&gt;
+</a><a href="#h1-0-284" id="h1-0-284" class="d">-
+</a><a href="#h1-0-285" id="h1-0-285" class="d">-&quot; navigating buffers
+</a><a href="#h1-0-286" id="h1-0-286" class="d">-nnoremap gb :bnext&lt;cr&gt;
+</a><a href="#h1-0-287" id="h1-0-287" class="d">-nnoremap gB :bprevious&lt;cr&gt;
+</a><a href="#h1-0-288" id="h1-0-288" class="d">-
+</a><a href="#h1-0-289" id="h1-0-289" class="d">-&quot; |vim-sneak|
+</a><a href="#h1-0-290" id="h1-0-290" class="d">-  map f &lt;Plug&gt;Sneak_f
+</a><a href="#h1-0-291" id="h1-0-291" class="d">-  map F &lt;Plug&gt;Sneak_F
+</a><a href="#h1-0-292" id="h1-0-292" class="d">-  map t &lt;Plug&gt;Sneak_t
+</a><a href="#h1-0-293" id="h1-0-293" class="d">-  map T &lt;Plug&gt;Sneak_T
+</a><a href="#h1-0-294" id="h1-0-294" class="d">-  &quot; 2-character Sneak (default)
+</a><a href="#h1-0-295" id="h1-0-295" class="d">-  nmap Q &lt;Plug&gt;Sneak_s
+</a><a href="#h1-0-296" id="h1-0-296" class="d">-  nmap &lt;leader&gt;Q &lt;Plug&gt;Sneak_S
+</a><a href="#h1-0-297" id="h1-0-297" class="d">-  &quot; visual-mode
+</a><a href="#h1-0-298" id="h1-0-298" class="d">-  xmap Q &lt;Plug&gt;Sneak_s
+</a><a href="#h1-0-299" id="h1-0-299" class="d">-  xmap &lt;leader&gt;Q &lt;Plug&gt;Sneak_S
+</a><a href="#h1-0-300" id="h1-0-300" class="d">-  &quot; operator-pending-mode
+</a><a href="#h1-0-301" id="h1-0-301" class="d">-  omap Q &lt;Plug&gt;Sneak_s
+</a><a href="#h1-0-302" id="h1-0-302" class="d">-  omap &lt;leader&gt;Q &lt;Plug&gt;Sneak_S
+</a><a href="#h1-0-303" id="h1-0-303" class="d">-
+</a><a href="#h1-0-304" id="h1-0-304" class="d">-&quot; |vim-fugitive|
+</a><a href="#h1-0-305" id="h1-0-305" class="d">-  map &lt;leader&gt;kp :Gdiff!&lt;cr&gt;
+</a><a href="#h1-0-306" id="h1-0-306" class="d">-  map &lt;leader&gt;kb :Gblame&lt;cr&gt;
+</a><a href="#h1-0-307" id="h1-0-307" class="d">-
+</a><a href="#h1-0-308" id="h1-0-308" class="d">-&quot; |coc.nvim|
+</a><a href="#h1-0-309" id="h1-0-309" class="d">-  nmap gd &lt;Plug&gt;(coc-definition)
+</a><a href="#h1-0-310" id="h1-0-310" class="d">-  nmap &lt;2-LeftMouse&gt; &lt;Plug&gt;(coc-definition)
+</a><a href="#h1-0-311" id="h1-0-311" class="d">-  nmap gh :call &lt;SID&gt;show_documentation()&lt;cr&gt;
+</a><a href="#h1-0-312" id="h1-0-312" class="d">-  nmap &lt;2-LeftMouse&gt; :call &lt;SID&gt;show_documentation()&lt;cr&gt;
+</a><a href="#h1-0-313" id="h1-0-313" class="d">-  nmap &lt;leader&gt;gd &lt;Plug&gt;(coc-diagnostics-info)
+</a><a href="#h1-0-314" id="h1-0-314" class="d">-  nmap ]C &lt;Plug&gt;(coc-diagnostic-next)
+</a><a href="#h1-0-315" id="h1-0-315" class="d">-  nmap [C &lt;Plug&gt;(coc-diagnostic-prev)
+</a><a href="#h1-0-316" id="h1-0-316" class="d">-  nmap gi &lt;Plug&gt;(coc-implementation)
+</a><a href="#h1-0-317" id="h1-0-317" class="d">-  nmap gr &lt;Plug&gt;(coc-references)
+</a><a href="#h1-0-318" id="h1-0-318" class="d">-  nmap &lt;leader&gt;. :call CocAction(&quot;codeAction&quot;)&lt;cr&gt;
+</a><a href="#h1-0-319" id="h1-0-319" class="d">-
+</a><a href="#h1-0-320" id="h1-0-320" class="d">-&quot; |git-messenger|
+</a><a href="#h1-0-321" id="h1-0-321" class="d">-  nmap &lt;C-w&gt;m &lt;Plug&gt;(git-messenger)
+</a><a href="#h1-0-322" id="h1-0-322" class="d">-  nmap &lt;C-w&gt;&lt;C-m&gt; &lt;Plug&gt;(git-messenger)
+</a><a href="#h1-0-323" id="h1-0-323" class="d">-
+</a><a href="#h1-0-324" id="h1-0-324" class="d">-&quot; |bufkill|
+</a><a href="#h1-0-325" id="h1-0-325" class="d">-  nnoremap gx :BD&lt;cr&gt;
+</a><a href="#h1-0-326" id="h1-0-326" class="d">-
+</a><a href="#h1-0-327" id="h1-0-327" class="d">-&quot; |fzf.vim|
+</a><a href="#h1-0-328" id="h1-0-328" class="d">-  let g:rg_command = &#39;
+</a><a href="#h1-0-329" id="h1-0-329" class="d">-    \ rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color &quot;always&quot;
+</a><a href="#h1-0-330" id="h1-0-330" class="d">-    \ -g &quot;*.{css,js,jsx,ts,tsx,json,re,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}&quot;
+</a><a href="#h1-0-331" id="h1-0-331" class="d">-    \ -g &quot;!{.git,node_modules,coverage,vendor,build}/*&quot; &#39;
+</a><a href="#h1-0-332" id="h1-0-332" class="d">-  &quot; :F for Ripgrep
+</a><a href="#h1-0-333" id="h1-0-333" class="d">-  command! -bang -nargs=* Strings call fzf#vim#grep(g:rg_command .shellescape(&lt;q-args&gt;), 1, &lt;bang&gt;0)
+</a><a href="#h1-0-334" id="h1-0-334" class="d">-  &quot; nnoremap &lt;C-p&gt; &lt;C-o&gt;
+</a><a href="#h1-0-335" id="h1-0-335" class="d">-  &quot; nnoremap &lt;C-o&gt; :Strings&lt;cr&gt;
+</a><a href="#h1-0-336" id="h1-0-336" class="d">-  &quot; nnoremap &lt;C-i&gt; :Files&lt;cr&gt;
+</a><a href="#h1-0-337" id="h1-0-337" class="d">-
+</a><a href="#h1-0-338" id="h1-0-338" class="d">-&quot; |vim-clap|
+</a><a href="#h1-0-339" id="h1-0-339" class="d">-  nnoremap &lt;C-i&gt; :Clap grep ++opt=--hidden ++opt=-g=!.git&lt;CR&gt;
+</a><a href="#h1-0-340" id="h1-0-340" class="d">-  nnoremap &lt;C-p&gt; :Clap files --hidden&lt;CR&gt;
+</a><a href="#h1-0-341" id="h1-0-341" class="d">-  nnoremap &lt;leader&gt;* :Clap grep ++query=&lt;cword&gt; ++opt=--hidden ++opt=-g=!.git&lt;CR&gt;
+</a><a href="#h1-0-342" id="h1-0-342" class="d">-  nnoremap &lt;C-b&gt; :Clap buffers&lt;CR&gt;
+</a><a href="#h1-0-343" id="h1-0-343" class="d">-
+</a><a href="#h1-0-344" id="h1-0-344" class="d">-&quot; |nerdtree|
+</a><a href="#h1-0-345" id="h1-0-345" class="d">-  map &lt;leader&gt;e :NERDTreeToggle&lt;cr&gt;
+</a><a href="#h1-0-346" id="h1-0-346" class="d">-  map &lt;leader&gt;r :NERDTreeFind&lt;cr&gt;
+</a><a href="#h1-0-347" id="h1-0-347" class="d">-
+</a><a href="#h1-0-348" id="h1-0-348" class="d">-
+</a><a href="#h1-0-349" id="h1-0-349" class="d">-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+</a><a href="#h1-0-350" id="h1-0-350" class="d">-&quot;                      INSERT MODE
+</a><a href="#h1-0-351" id="h1-0-351" class="d">-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+</a><a href="#h1-0-352" id="h1-0-352" class="d">-
+</a><a href="#h1-0-353" id="h1-0-353" class="d">-&quot; Remap &lt;c-f&gt; to delete
+</a><a href="#h1-0-354" id="h1-0-354" class="d">-inoremap &lt;C-f&gt; &lt;Del&gt;
+</a><a href="#h1-0-355" id="h1-0-355" class="d">-
+</a><a href="#h1-0-356" id="h1-0-356" class="d">-&quot; Remap &lt;c-b&gt; to delete within word
+</a><a href="#h1-0-357" id="h1-0-357" class="d">-inoremap &lt;C-b&gt; &lt;ESC&gt;lcw
+</a><a href="#h1-0-358" id="h1-0-358" class="d">-
+</a><a href="#h1-0-359" id="h1-0-359" class="d">-&quot; Remap escape to j + k
+</a><a href="#h1-0-360" id="h1-0-360" class="d">-inoremap jk &lt;ESC&gt;
+</a><a href="#h1-0-361" id="h1-0-361" class="d">-inoremap &lt;C-c&gt; &lt;ESC&gt;
+</a><a href="#h1-0-362" id="h1-0-362" class="d">-
+</a><a href="#h1-0-363" id="h1-0-363" class="d">-&quot; |fzf.vim|
+</a><a href="#h1-0-364" id="h1-0-364" class="d">-  inoremap &lt;expr&gt; &lt;C-x&gt;&lt;C-h&gt; fzf#vim#complete#path_relative(&#39;rg --files&#39;)
+</a><a href="#h1-0-365" id="h1-0-365" class="d">-
+</a><a href="#h1-0-366" id="h1-0-366" class="d">-
+</a><a href="#h1-0-367" id="h1-0-367" class="d">-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+</a><a href="#h1-0-368" id="h1-0-368" class="d">-&quot;                      APPEARANCE
+</a><a href="#h1-0-369" id="h1-0-369" class="d">-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+</a><a href="#h1-0-370" id="h1-0-370" class="d">-
+</a><a href="#h1-0-371" id="h1-0-371" class="d">-augroup numbertoggle
+</a><a href="#h1-0-372" id="h1-0-372" class="d">-  if &amp;number == 1
+</a><a href="#h1-0-373" id="h1-0-373" class="d">-    autocmd!
+</a><a href="#h1-0-374" id="h1-0-374" class="d">-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+</a><a href="#h1-0-375" id="h1-0-375" class="d">-    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+</a><a href="#h1-0-376" id="h1-0-376" class="d">-  endif
+</a><a href="#h1-0-377" id="h1-0-377" class="d">-augroup end
+</a><a href="#h1-0-378" id="h1-0-378" class="d">-
+</a><a href="#h1-0-379" id="h1-0-379" class="d">-function ToggleNumberToggle(numberVar)
+</a><a href="#h1-0-380" id="h1-0-380" class="d">-  &quot; Reset group
+</a><a href="#h1-0-381" id="h1-0-381" class="d">-  augroup numbertoggle
+</a><a href="#h1-0-382" id="h1-0-382" class="d">-    autocmd!
+</a><a href="#h1-0-383" id="h1-0-383" class="d">-  augroup end
+</a><a href="#h1-0-384" id="h1-0-384" class="d">-
+</a><a href="#h1-0-385" id="h1-0-385" class="d">-  &quot; Enable if toggled on
+</a><a href="#h1-0-386" id="h1-0-386" class="d">-  if a:numberVar
+</a><a href="#h1-0-387" id="h1-0-387" class="d">-    augroup numbertoggle
+</a><a href="#h1-0-388" id="h1-0-388" class="d">-      if &amp;number == 1
+</a><a href="#h1-0-389" id="h1-0-389" class="d">-        autocmd!
+</a><a href="#h1-0-390" id="h1-0-390" class="d">-        autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+</a><a href="#h1-0-391" id="h1-0-391" class="d">-        autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+</a><a href="#h1-0-392" id="h1-0-392" class="d">-      endif
+</a><a href="#h1-0-393" id="h1-0-393" class="d">-    augroup end
+</a><a href="#h1-0-394" id="h1-0-394" class="d">-  endif
+</a><a href="#h1-0-395" id="h1-0-395" class="d">-endfunction
+</a><a href="#h1-0-396" id="h1-0-396" class="d">-
+</a><a href="#h1-0-397" id="h1-0-397" class="d">-function! s:goyo_enter()
+</a><a href="#h1-0-398" id="h1-0-398" class="d">-  if executable(&#39;tmux&#39;) &amp;&amp; strlen($TMUX)
+</a><a href="#h1-0-399" id="h1-0-399" class="d">-    silent !tmux set status off
+</a><a href="#h1-0-400" id="h1-0-400" class="d">-    silent !tmux list-panes -F &#39;\#F&#39; | grep -q Z || tmux resize-pane -Z
+</a><a href="#h1-0-401" id="h1-0-401" class="d">-  endif
+</a><a href="#h1-0-402" id="h1-0-402" class="d">-  set noshowcmd
+</a><a href="#h1-0-403" id="h1-0-403" class="d">-  set wrap
+</a><a href="#h1-0-404" id="h1-0-404" class="d">-  set nonumber
+</a><a href="#h1-0-405" id="h1-0-405" class="d">-  set norelativenumber
+</a><a href="#h1-0-406" id="h1-0-406" class="d">-  set eventignore=FocusGained,BufEnter
+</a><a href="#h1-0-407" id="h1-0-407" class="d">-  set nocursorline
+</a><a href="#h1-0-408" id="h1-0-408" class="d">-  Limelight
+</a><a href="#h1-0-409" id="h1-0-409" class="d">-  :call ToggleNumberToggle(0)
+</a><a href="#h1-0-410" id="h1-0-410" class="d">-endfunction
+</a><a href="#h1-0-411" id="h1-0-411" class="d">-
+</a><a href="#h1-0-412" id="h1-0-412" class="d">-function! s:goyo_leave()
+</a><a href="#h1-0-413" id="h1-0-413" class="d">-  if executable(&#39;tmux&#39;) &amp;&amp; strlen($TMUX)
+</a><a href="#h1-0-414" id="h1-0-414" class="d">-    silent !tmux set status on
+</a><a href="#h1-0-415" id="h1-0-415" class="d">-    silent !tmux list-panes -F &#39;\#F&#39; | grep -q Z &amp;&amp; tmux resize-pane -Z
+</a><a href="#h1-0-416" id="h1-0-416" class="d">-  endif
+</a><a href="#h1-0-417" id="h1-0-417" class="d">-  colorscheme gruvbox-material
+</a><a href="#h1-0-418" id="h1-0-418" class="d">-  set showcmd
+</a><a href="#h1-0-419" id="h1-0-419" class="d">-  set nowrap
+</a><a href="#h1-0-420" id="h1-0-420" class="d">-  set number
+</a><a href="#h1-0-421" id="h1-0-421" class="d">-  set relativenumber
+</a><a href="#h1-0-422" id="h1-0-422" class="d">-  set eventignore=
+</a><a href="#h1-0-423" id="h1-0-423" class="d">-  set cursorline
+</a><a href="#h1-0-424" id="h1-0-424" class="d">-  Limelight!
+</a><a href="#h1-0-425" id="h1-0-425" class="d">-  :call ToggleNumberToggle(1)
+</a><a href="#h1-0-426" id="h1-0-426" class="d">-endfunction
+</a><a href="#h1-0-427" id="h1-0-427" class="d">-
+</a><a href="#h1-0-428" id="h1-0-428" class="d">-autocmd! User GoyoEnter nested call &lt;SID&gt;goyo_enter()
+</a><a href="#h1-0-429" id="h1-0-429" class="d">-autocmd! User GoyoLeave nested call &lt;SID&gt;goyo_leave()
+</a><a href="#h1-0-430" id="h1-0-430" class="d">-
+</a><a href="#h1-0-431" id="h1-0-431" class="d">-&quot; change cursor in different mode
+</a><a href="#h1-0-432" id="h1-0-432" class="d">-  let &amp;t_SI .= &quot;\e[5 q&quot;
+</a><a href="#h1-0-433" id="h1-0-433" class="d">-  let &amp;t_SR .= &quot;\e[4 q&quot;
+</a><a href="#h1-0-434" id="h1-0-434" class="d">-  let &amp;t_EI .= &quot;\e[1 q&quot;
+</a><a href="#h1-0-435" id="h1-0-435" class="d">-
+</a><a href="#h1-0-436" id="h1-0-436" class="d">-&quot; |vim-fugitive|
+</a><a href="#h1-0-437" id="h1-0-437" class="d">-set diffopt+=vertical
+</a><a href="#h1-0-438" id="h1-0-438" class="d">-
+</a><a href="#h1-0-439" id="h1-0-439" class="d">-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+</a><a href="#h1-0-440" id="h1-0-440" class="d">-&quot;                      COLOR RELATED
+</a><a href="#h1-0-441" id="h1-0-441" class="d">-&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+</a><a href="#h1-0-442" id="h1-0-442" class="d">-
+</a><a href="#h1-0-443" id="h1-0-443" class="d">-&quot; TODO highlight
+</a><a href="#h1-0-444" id="h1-0-444" class="d">-&quot; FIXME highlight
+</a><a href="#h1-0-445" id="h1-0-445" class="d">-&quot; XXX highlight
+</a><a href="#h1-0-446" id="h1-0-446" class="d">-
+</a><a href="#h1-0-447" id="h1-0-447" class="d">-&quot; Change comment color
+</a><a href="#h1-0-448" id="h1-0-448" class="d">-&quot; hi Comment guifg=LightBlue
+</a><a href="#h1-0-449" id="h1-0-449" class="d">-hi Comment gui=bold cterm=bold
+</a><a href="#h1-0-450" id="h1-0-450" class="d">-hi htmlStrike gui=strikethrough cterm=strikethrough guibg=Black ctermbg=Black
+</a><a href="#h1-0-451" id="h1-0-451" class="d">-hi Todo guibg=White ctermbg=White guifg=Black ctermfg=Black gui=bold,italic cterm=bold,italic
+</a><a href="#h1-0-452" id="h1-0-452" class="d">-hi NonText guifg=#4a4a59 ctermfg=Gray
+</a><a href="#h1-0-453" id="h1-0-453" class="d">-hi SpecialKey guifg=#4a4a59 ctermfg=Gray
+</a></pre>
+</div>
+</div>
+</body>
+</html>

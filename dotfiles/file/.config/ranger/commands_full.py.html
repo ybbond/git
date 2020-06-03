@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>commands_full.py - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../../../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../../../index.html">Log</a> | <a href="../../../files.html">Files</a> | <a href="../../../refs.html">Refs</a> | <a href="../../../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> commands_full.py (57039B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> # -*- coding: utf-8 -*-
+<a href="#l2" class="line" id="l2">      2</a> # This file is part of ranger, the console file manager.
+<a href="#l3" class="line" id="l3">      3</a> # This configuration file is licensed under the same terms as ranger.
+<a href="#l4" class="line" id="l4">      4</a> # ===================================================================
+<a href="#l5" class="line" id="l5">      5</a> #
+<a href="#l6" class="line" id="l6">      6</a> # NOTE: If you copied this file to /etc/ranger/commands_full.py or
+<a href="#l7" class="line" id="l7">      7</a> # ~/.config/ranger/commands_full.py, then it will NOT be loaded by ranger,
+<a href="#l8" class="line" id="l8">      8</a> # and only serve as a reference.
+<a href="#l9" class="line" id="l9">      9</a> #
+<a href="#l10" class="line" id="l10">     10</a> # ===================================================================
+<a href="#l11" class="line" id="l11">     11</a> # This file contains ranger&#39;s commands.
+<a href="#l12" class="line" id="l12">     12</a> # It&#39;s all in python; lines beginning with # are comments.
+<a href="#l13" class="line" id="l13">     13</a> #
+<a href="#l14" class="line" id="l14">     14</a> # Note that additional commands are automatically generated from the methods
+<a href="#l15" class="line" id="l15">     15</a> # of the class ranger.core.actions.Actions.
+<a href="#l16" class="line" id="l16">     16</a> #
+<a href="#l17" class="line" id="l17">     17</a> # You can customize commands in the files /etc/ranger/commands.py (system-wide)
+<a href="#l18" class="line" id="l18">     18</a> # and ~/.config/ranger/commands.py (per user).
+<a href="#l19" class="line" id="l19">     19</a> # They have the same syntax as this file.  In fact, you can just copy this
+<a href="#l20" class="line" id="l20">     20</a> # file to ~/.config/ranger/commands_full.py with
+<a href="#l21" class="line" id="l21">     21</a> # `ranger --copy-config=commands_full&#39; and make your modifications, don&#39;t
+<a href="#l22" class="line" id="l22">     22</a> # forget to rename it to commands.py.  You can also use
+<a href="#l23" class="line" id="l23">     23</a> # `ranger --copy-config=commands&#39; to copy a short sample commands.py that
+<a href="#l24" class="line" id="l24">     24</a> # has everything you need to get started.
+<a href="#l25" class="line" id="l25">     25</a> # But make sure you update your configs when you update ranger.
+<a href="#l26" class="line" id="l26">     26</a> #
+<a href="#l27" class="line" id="l27">     27</a> # ===================================================================
+<a href="#l28" class="line" id="l28">     28</a> # Every class defined here which is a subclass of `Command&#39; will be used as a
+<a href="#l29" class="line" id="l29">     29</a> # command in ranger.  Several methods are defined to interface with ranger:
+<a href="#l30" class="line" id="l30">     30</a> #   execute():   called when the command is executed.
+<a href="#l31" class="line" id="l31">     31</a> #   cancel():    called when closing the console.
+<a href="#l32" class="line" id="l32">     32</a> #   tab(tabnum): called when &lt;TAB&gt; is pressed.
+<a href="#l33" class="line" id="l33">     33</a> #   quick():     called after each keypress.
+<a href="#l34" class="line" id="l34">     34</a> #
+<a href="#l35" class="line" id="l35">     35</a> # tab() argument tabnum is 1 for &lt;TAB&gt; and -1 for &lt;S-TAB&gt; by default
+<a href="#l36" class="line" id="l36">     36</a> #
+<a href="#l37" class="line" id="l37">     37</a> # The return values for tab() can be either:
+<a href="#l38" class="line" id="l38">     38</a> #   None: There is no tab completion
+<a href="#l39" class="line" id="l39">     39</a> #   A string: Change the console to this string
+<a href="#l40" class="line" id="l40">     40</a> #   A list/tuple/generator: cycle through every item in it
+<a href="#l41" class="line" id="l41">     41</a> #
+<a href="#l42" class="line" id="l42">     42</a> # The return value for quick() can be:
+<a href="#l43" class="line" id="l43">     43</a> #   False: Nothing happens
+<a href="#l44" class="line" id="l44">     44</a> #   True: Execute the command afterwards
+<a href="#l45" class="line" id="l45">     45</a> #
+<a href="#l46" class="line" id="l46">     46</a> # The return value for execute() and cancel() doesn&#39;t matter.
+<a href="#l47" class="line" id="l47">     47</a> #
+<a href="#l48" class="line" id="l48">     48</a> # ===================================================================
+<a href="#l49" class="line" id="l49">     49</a> # Commands have certain attributes and methods that facilitate parsing of
+<a href="#l50" class="line" id="l50">     50</a> # the arguments:
+<a href="#l51" class="line" id="l51">     51</a> #
+<a href="#l52" class="line" id="l52">     52</a> # self.line: The whole line that was written in the console.
+<a href="#l53" class="line" id="l53">     53</a> # self.args: A list of all (space-separated) arguments to the command.
+<a href="#l54" class="line" id="l54">     54</a> # self.quantifier: If this command was mapped to the key &quot;X&quot; and
+<a href="#l55" class="line" id="l55">     55</a> #      the user pressed 6X, self.quantifier will be 6.
+<a href="#l56" class="line" id="l56">     56</a> # self.arg(n): The n-th argument, or an empty string if it doesn&#39;t exist.
+<a href="#l57" class="line" id="l57">     57</a> # self.rest(n): The n-th argument plus everything that followed.  For example,
+<a href="#l58" class="line" id="l58">     58</a> #      if the command was &quot;search foo bar a b c&quot;, rest(2) will be &quot;bar a b c&quot;
+<a href="#l59" class="line" id="l59">     59</a> # self.start(n): Anything before the n-th argument.  For example, if the
+<a href="#l60" class="line" id="l60">     60</a> #      command was &quot;search foo bar a b c&quot;, start(2) will be &quot;search foo&quot;
+<a href="#l61" class="line" id="l61">     61</a> #
+<a href="#l62" class="line" id="l62">     62</a> # ===================================================================
+<a href="#l63" class="line" id="l63">     63</a> # And this is a little reference for common ranger functions and objects:
+<a href="#l64" class="line" id="l64">     64</a> #
+<a href="#l65" class="line" id="l65">     65</a> # self.fm: A reference to the &quot;fm&quot; object which contains most information
+<a href="#l66" class="line" id="l66">     66</a> #      about ranger.
+<a href="#l67" class="line" id="l67">     67</a> # self.fm.notify(string): Print the given string on the screen.
+<a href="#l68" class="line" id="l68">     68</a> # self.fm.notify(string, bad=True): Print the given string in RED.
+<a href="#l69" class="line" id="l69">     69</a> # self.fm.reload_cwd(): Reload the current working directory.
+<a href="#l70" class="line" id="l70">     70</a> # self.fm.thisdir: The current working directory. (A File object.)
+<a href="#l71" class="line" id="l71">     71</a> # self.fm.thisfile: The current file. (A File object too.)
+<a href="#l72" class="line" id="l72">     72</a> # self.fm.thistab.get_selection(): A list of all selected files.
+<a href="#l73" class="line" id="l73">     73</a> # self.fm.execute_console(string): Execute the string as a ranger command.
+<a href="#l74" class="line" id="l74">     74</a> # self.fm.open_console(string): Open the console with the given string
+<a href="#l75" class="line" id="l75">     75</a> #      already typed in for you.
+<a href="#l76" class="line" id="l76">     76</a> # self.fm.move(direction): Moves the cursor in the given direction, which
+<a href="#l77" class="line" id="l77">     77</a> #      can be something like down=3, up=5, right=1, left=1, to=6, ...
+<a href="#l78" class="line" id="l78">     78</a> #
+<a href="#l79" class="line" id="l79">     79</a> # File objects (for example self.fm.thisfile) have these useful attributes and
+<a href="#l80" class="line" id="l80">     80</a> # methods:
+<a href="#l81" class="line" id="l81">     81</a> #
+<a href="#l82" class="line" id="l82">     82</a> # tfile.path: The path to the file.
+<a href="#l83" class="line" id="l83">     83</a> # tfile.basename: The base name only.
+<a href="#l84" class="line" id="l84">     84</a> # tfile.load_content(): Force a loading of the directories content (which
+<a href="#l85" class="line" id="l85">     85</a> #      obviously works with directories only)
+<a href="#l86" class="line" id="l86">     86</a> # tfile.is_directory: True/False depending on whether it&#39;s a directory.
+<a href="#l87" class="line" id="l87">     87</a> #
+<a href="#l88" class="line" id="l88">     88</a> # For advanced commands it is unavoidable to dive a bit into the source code
+<a href="#l89" class="line" id="l89">     89</a> # of ranger.
+<a href="#l90" class="line" id="l90">     90</a> # ===================================================================
+<a href="#l91" class="line" id="l91">     91</a> 
+<a href="#l92" class="line" id="l92">     92</a> from __future__ import (absolute_import, division, print_function)
+<a href="#l93" class="line" id="l93">     93</a> 
+<a href="#l94" class="line" id="l94">     94</a> from collections import deque
+<a href="#l95" class="line" id="l95">     95</a> import os
+<a href="#l96" class="line" id="l96">     96</a> import re
+<a href="#l97" class="line" id="l97">     97</a> 
+<a href="#l98" class="line" id="l98">     98</a> from ranger.api.commands import Command
+<a href="#l99" class="line" id="l99">     99</a> 
+<a href="#l100" class="line" id="l100">    100</a> 
+<a href="#l101" class="line" id="l101">    101</a> class alias(Command):
+<a href="#l102" class="line" id="l102">    102</a>     &quot;&quot;&quot;:alias &lt;newcommand&gt; &lt;oldcommand&gt;
+<a href="#l103" class="line" id="l103">    103</a> 
+<a href="#l104" class="line" id="l104">    104</a>     Copies the oldcommand as newcommand.
+<a href="#l105" class="line" id="l105">    105</a>     &quot;&quot;&quot;
+<a href="#l106" class="line" id="l106">    106</a> 
+<a href="#l107" class="line" id="l107">    107</a>     context = &#39;browser&#39;
+<a href="#l108" class="line" id="l108">    108</a>     resolve_macros = False
+<a href="#l109" class="line" id="l109">    109</a> 
+<a href="#l110" class="line" id="l110">    110</a>     def execute(self):
+<a href="#l111" class="line" id="l111">    111</a>         if not self.arg(1) or not self.arg(2):
+<a href="#l112" class="line" id="l112">    112</a>             self.fm.notify(&#39;Syntax: alias &lt;newcommand&gt; &lt;oldcommand&gt;&#39;, bad=True)
+<a href="#l113" class="line" id="l113">    113</a>             return
+<a href="#l114" class="line" id="l114">    114</a> 
+<a href="#l115" class="line" id="l115">    115</a>         self.fm.commands.alias(self.arg(1), self.rest(2))
+<a href="#l116" class="line" id="l116">    116</a> 
+<a href="#l117" class="line" id="l117">    117</a> 
+<a href="#l118" class="line" id="l118">    118</a> class echo(Command):
+<a href="#l119" class="line" id="l119">    119</a>     &quot;&quot;&quot;:echo &lt;text&gt;
+<a href="#l120" class="line" id="l120">    120</a> 
+<a href="#l121" class="line" id="l121">    121</a>     Display the text in the statusbar.
+<a href="#l122" class="line" id="l122">    122</a>     &quot;&quot;&quot;
+<a href="#l123" class="line" id="l123">    123</a> 
+<a href="#l124" class="line" id="l124">    124</a>     def execute(self):
+<a href="#l125" class="line" id="l125">    125</a>         self.fm.notify(self.rest(1))
+<a href="#l126" class="line" id="l126">    126</a> 
+<a href="#l127" class="line" id="l127">    127</a> 
+<a href="#l128" class="line" id="l128">    128</a> class cd(Command):
+<a href="#l129" class="line" id="l129">    129</a>     &quot;&quot;&quot;:cd [-r] &lt;path&gt;
+<a href="#l130" class="line" id="l130">    130</a> 
+<a href="#l131" class="line" id="l131">    131</a>     The cd command changes the directory.
+<a href="#l132" class="line" id="l132">    132</a>     If the path is a file, selects that file.
+<a href="#l133" class="line" id="l133">    133</a>     The command &#39;cd -&#39; is equivalent to typing ``.
+<a href="#l134" class="line" id="l134">    134</a>     Using the option &quot;-r&quot; will get you to the real path.
+<a href="#l135" class="line" id="l135">    135</a>     &quot;&quot;&quot;
+<a href="#l136" class="line" id="l136">    136</a> 
+<a href="#l137" class="line" id="l137">    137</a>     def execute(self):
+<a href="#l138" class="line" id="l138">    138</a>         if self.arg(1) == &#39;-r&#39;:
+<a href="#l139" class="line" id="l139">    139</a>             self.shift()
+<a href="#l140" class="line" id="l140">    140</a>             destination = os.path.realpath(self.rest(1))
+<a href="#l141" class="line" id="l141">    141</a>             if os.path.isfile(destination):
+<a href="#l142" class="line" id="l142">    142</a>                 self.fm.select_file(destination)
+<a href="#l143" class="line" id="l143">    143</a>                 return
+<a href="#l144" class="line" id="l144">    144</a>         else:
+<a href="#l145" class="line" id="l145">    145</a>             destination = self.rest(1)
+<a href="#l146" class="line" id="l146">    146</a> 
+<a href="#l147" class="line" id="l147">    147</a>         if not destination:
+<a href="#l148" class="line" id="l148">    148</a>             destination = &#39;~&#39;
+<a href="#l149" class="line" id="l149">    149</a> 
+<a href="#l150" class="line" id="l150">    150</a>         if destination == &#39;-&#39;:
+<a href="#l151" class="line" id="l151">    151</a>             self.fm.enter_bookmark(&#39;`&#39;)
+<a href="#l152" class="line" id="l152">    152</a>         else:
+<a href="#l153" class="line" id="l153">    153</a>             self.fm.cd(destination)
+<a href="#l154" class="line" id="l154">    154</a> 
+<a href="#l155" class="line" id="l155">    155</a>     def _tab_args(self):
+<a href="#l156" class="line" id="l156">    156</a>         # dest must be rest because path could contain spaces
+<a href="#l157" class="line" id="l157">    157</a>         if self.arg(1) == &#39;-r&#39;:
+<a href="#l158" class="line" id="l158">    158</a>             start = self.start(2)
+<a href="#l159" class="line" id="l159">    159</a>             dest = self.rest(2)
+<a href="#l160" class="line" id="l160">    160</a>         else:
+<a href="#l161" class="line" id="l161">    161</a>             start = self.start(1)
+<a href="#l162" class="line" id="l162">    162</a>             dest = self.rest(1)
+<a href="#l163" class="line" id="l163">    163</a> 
+<a href="#l164" class="line" id="l164">    164</a>         if dest:
+<a href="#l165" class="line" id="l165">    165</a>             head, tail = os.path.split(os.path.expanduser(dest))
+<a href="#l166" class="line" id="l166">    166</a>             if head:
+<a href="#l167" class="line" id="l167">    167</a>                 dest_exp = os.path.join(os.path.normpath(head), tail)
+<a href="#l168" class="line" id="l168">    168</a>             else:
+<a href="#l169" class="line" id="l169">    169</a>                 dest_exp = tail
+<a href="#l170" class="line" id="l170">    170</a>         else:
+<a href="#l171" class="line" id="l171">    171</a>             dest_exp = &#39;&#39;
+<a href="#l172" class="line" id="l172">    172</a>         return (start, dest_exp, os.path.join(self.fm.thisdir.path, dest_exp),
+<a href="#l173" class="line" id="l173">    173</a>                 dest.endswith(os.path.sep))
+<a href="#l174" class="line" id="l174">    174</a> 
+<a href="#l175" class="line" id="l175">    175</a>     @staticmethod
+<a href="#l176" class="line" id="l176">    176</a>     def _tab_paths(dest, dest_abs, ends_with_sep):
+<a href="#l177" class="line" id="l177">    177</a>         if not dest:
+<a href="#l178" class="line" id="l178">    178</a>             try:
+<a href="#l179" class="line" id="l179">    179</a>                 return next(os.walk(dest_abs))[1], dest_abs
+<a href="#l180" class="line" id="l180">    180</a>             except (OSError, StopIteration):
+<a href="#l181" class="line" id="l181">    181</a>                 return [], &#39;&#39;
+<a href="#l182" class="line" id="l182">    182</a> 
+<a href="#l183" class="line" id="l183">    183</a>         if ends_with_sep:
+<a href="#l184" class="line" id="l184">    184</a>             try:
+<a href="#l185" class="line" id="l185">    185</a>                 return [os.path.join(dest, path) for path in next(os.walk(dest_abs))[1]], &#39;&#39;
+<a href="#l186" class="line" id="l186">    186</a>             except (OSError, StopIteration):
+<a href="#l187" class="line" id="l187">    187</a>                 return [], &#39;&#39;
+<a href="#l188" class="line" id="l188">    188</a> 
+<a href="#l189" class="line" id="l189">    189</a>         return None, None
+<a href="#l190" class="line" id="l190">    190</a> 
+<a href="#l191" class="line" id="l191">    191</a>     def _tab_match(self, path_user, path_file):
+<a href="#l192" class="line" id="l192">    192</a>         if self.fm.settings.cd_tab_case == &#39;insensitive&#39;:
+<a href="#l193" class="line" id="l193">    193</a>             path_user = path_user.lower()
+<a href="#l194" class="line" id="l194">    194</a>             path_file = path_file.lower()
+<a href="#l195" class="line" id="l195">    195</a>         elif self.fm.settings.cd_tab_case == &#39;smart&#39; and path_user.islower():
+<a href="#l196" class="line" id="l196">    196</a>             path_file = path_file.lower()
+<a href="#l197" class="line" id="l197">    197</a>         return path_file.startswith(path_user)
+<a href="#l198" class="line" id="l198">    198</a> 
+<a href="#l199" class="line" id="l199">    199</a>     def _tab_normal(self, dest, dest_abs):
+<a href="#l200" class="line" id="l200">    200</a>         dest_dir = os.path.dirname(dest)
+<a href="#l201" class="line" id="l201">    201</a>         dest_base = os.path.basename(dest)
+<a href="#l202" class="line" id="l202">    202</a> 
+<a href="#l203" class="line" id="l203">    203</a>         try:
+<a href="#l204" class="line" id="l204">    204</a>             dirnames = next(os.walk(os.path.dirname(dest_abs)))[1]
+<a href="#l205" class="line" id="l205">    205</a>         except (OSError, StopIteration):
+<a href="#l206" class="line" id="l206">    206</a>             return [], &#39;&#39;
+<a href="#l207" class="line" id="l207">    207</a> 
+<a href="#l208" class="line" id="l208">    208</a>         return [os.path.join(dest_dir, d) for d in dirnames if self._tab_match(dest_base, d)], &#39;&#39;
+<a href="#l209" class="line" id="l209">    209</a> 
+<a href="#l210" class="line" id="l210">    210</a>     def _tab_fuzzy_match(self, basepath, tokens):
+<a href="#l211" class="line" id="l211">    211</a>         &quot;&quot;&quot; Find directories matching tokens recursively &quot;&quot;&quot;
+<a href="#l212" class="line" id="l212">    212</a>         if not tokens:
+<a href="#l213" class="line" id="l213">    213</a>             tokens = [&#39;&#39;]
+<a href="#l214" class="line" id="l214">    214</a>         paths = [basepath]
+<a href="#l215" class="line" id="l215">    215</a>         while True:
+<a href="#l216" class="line" id="l216">    216</a>             token = tokens.pop()
+<a href="#l217" class="line" id="l217">    217</a>             matches = []
+<a href="#l218" class="line" id="l218">    218</a>             for path in paths:
+<a href="#l219" class="line" id="l219">    219</a>                 try:
+<a href="#l220" class="line" id="l220">    220</a>                     directories = next(os.walk(path))[1]
+<a href="#l221" class="line" id="l221">    221</a>                 except (OSError, StopIteration):
+<a href="#l222" class="line" id="l222">    222</a>                     continue
+<a href="#l223" class="line" id="l223">    223</a>                 matches += [os.path.join(path, d) for d in directories
+<a href="#l224" class="line" id="l224">    224</a>                             if self._tab_match(token, d)]
+<a href="#l225" class="line" id="l225">    225</a>             if not tokens or not matches:
+<a href="#l226" class="line" id="l226">    226</a>                 return matches
+<a href="#l227" class="line" id="l227">    227</a>             paths = matches
+<a href="#l228" class="line" id="l228">    228</a> 
+<a href="#l229" class="line" id="l229">    229</a>         return None
+<a href="#l230" class="line" id="l230">    230</a> 
+<a href="#l231" class="line" id="l231">    231</a>     def _tab_fuzzy(self, dest, dest_abs):
+<a href="#l232" class="line" id="l232">    232</a>         tokens = []
+<a href="#l233" class="line" id="l233">    233</a>         basepath = dest_abs
+<a href="#l234" class="line" id="l234">    234</a>         while True:
+<a href="#l235" class="line" id="l235">    235</a>             basepath_old = basepath
+<a href="#l236" class="line" id="l236">    236</a>             basepath, token = os.path.split(basepath)
+<a href="#l237" class="line" id="l237">    237</a>             if basepath == basepath_old:
+<a href="#l238" class="line" id="l238">    238</a>                 break
+<a href="#l239" class="line" id="l239">    239</a>             if os.path.isdir(basepath_old) and not token.startswith(&#39;.&#39;):
+<a href="#l240" class="line" id="l240">    240</a>                 basepath = basepath_old
+<a href="#l241" class="line" id="l241">    241</a>                 break
+<a href="#l242" class="line" id="l242">    242</a>             tokens.append(token)
+<a href="#l243" class="line" id="l243">    243</a> 
+<a href="#l244" class="line" id="l244">    244</a>         paths = self._tab_fuzzy_match(basepath, tokens)
+<a href="#l245" class="line" id="l245">    245</a>         if not os.path.isabs(dest):
+<a href="#l246" class="line" id="l246">    246</a>             paths_rel = basepath
+<a href="#l247" class="line" id="l247">    247</a>             paths = [os.path.relpath(path, paths_rel) for path in paths]
+<a href="#l248" class="line" id="l248">    248</a>         else:
+<a href="#l249" class="line" id="l249">    249</a>             paths_rel = &#39;&#39;
+<a href="#l250" class="line" id="l250">    250</a>         return paths, paths_rel
+<a href="#l251" class="line" id="l251">    251</a> 
+<a href="#l252" class="line" id="l252">    252</a>     def tab(self, tabnum):
+<a href="#l253" class="line" id="l253">    253</a>         from os.path import sep
+<a href="#l254" class="line" id="l254">    254</a> 
+<a href="#l255" class="line" id="l255">    255</a>         start, dest, dest_abs, ends_with_sep = self._tab_args()
+<a href="#l256" class="line" id="l256">    256</a> 
+<a href="#l257" class="line" id="l257">    257</a>         paths, paths_rel = self._tab_paths(dest, dest_abs, ends_with_sep)
+<a href="#l258" class="line" id="l258">    258</a>         if paths is None:
+<a href="#l259" class="line" id="l259">    259</a>             if self.fm.settings.cd_tab_fuzzy:
+<a href="#l260" class="line" id="l260">    260</a>                 paths, paths_rel = self._tab_fuzzy(dest, dest_abs)
+<a href="#l261" class="line" id="l261">    261</a>             else:
+<a href="#l262" class="line" id="l262">    262</a>                 paths, paths_rel = self._tab_normal(dest, dest_abs)
+<a href="#l263" class="line" id="l263">    263</a> 
+<a href="#l264" class="line" id="l264">    264</a>         paths.sort()
+<a href="#l265" class="line" id="l265">    265</a> 
+<a href="#l266" class="line" id="l266">    266</a>         if self.fm.settings.cd_bookmarks:
+<a href="#l267" class="line" id="l267">    267</a>             paths[0:0] = [
+<a href="#l268" class="line" id="l268">    268</a>                 os.path.relpath(v.path, paths_rel) if paths_rel else v.path
+<a href="#l269" class="line" id="l269">    269</a>                 for v in self.fm.bookmarks.dct.values() for path in paths
+<a href="#l270" class="line" id="l270">    270</a>                 if v.path.startswith(os.path.join(paths_rel, path) + sep)
+<a href="#l271" class="line" id="l271">    271</a>             ]
+<a href="#l272" class="line" id="l272">    272</a> 
+<a href="#l273" class="line" id="l273">    273</a>         if not paths:
+<a href="#l274" class="line" id="l274">    274</a>             return None
+<a href="#l275" class="line" id="l275">    275</a>         if len(paths) == 1:
+<a href="#l276" class="line" id="l276">    276</a>             return start + paths[0] + sep
+<a href="#l277" class="line" id="l277">    277</a>         return [start + dirname for dirname in paths]
+<a href="#l278" class="line" id="l278">    278</a> 
+<a href="#l279" class="line" id="l279">    279</a> 
+<a href="#l280" class="line" id="l280">    280</a> class chain(Command):
+<a href="#l281" class="line" id="l281">    281</a>     &quot;&quot;&quot;:chain &lt;command1&gt;; &lt;command2&gt;; ...
+<a href="#l282" class="line" id="l282">    282</a> 
+<a href="#l283" class="line" id="l283">    283</a>     Calls multiple commands at once, separated by semicolons.
+<a href="#l284" class="line" id="l284">    284</a>     &quot;&quot;&quot;
+<a href="#l285" class="line" id="l285">    285</a> 
+<a href="#l286" class="line" id="l286">    286</a>     def execute(self):
+<a href="#l287" class="line" id="l287">    287</a>         if not self.rest(1).strip():
+<a href="#l288" class="line" id="l288">    288</a>             self.fm.notify(&#39;Syntax: chain &lt;command1&gt;; &lt;command2&gt;; ...&#39;, bad=True)
+<a href="#l289" class="line" id="l289">    289</a>             return
+<a href="#l290" class="line" id="l290">    290</a>         for command in [s.strip() for s in self.rest(1).split(&quot;;&quot;)]:
+<a href="#l291" class="line" id="l291">    291</a>             self.fm.execute_console(command)
+<a href="#l292" class="line" id="l292">    292</a> 
+<a href="#l293" class="line" id="l293">    293</a> 
+<a href="#l294" class="line" id="l294">    294</a> class shell(Command):
+<a href="#l295" class="line" id="l295">    295</a>     escape_macros_for_shell = True
+<a href="#l296" class="line" id="l296">    296</a> 
+<a href="#l297" class="line" id="l297">    297</a>     def execute(self):
+<a href="#l298" class="line" id="l298">    298</a>         if self.arg(1) and self.arg(1)[0] == &#39;-&#39;:
+<a href="#l299" class="line" id="l299">    299</a>             flags = self.arg(1)[1:]
+<a href="#l300" class="line" id="l300">    300</a>             command = self.rest(2)
+<a href="#l301" class="line" id="l301">    301</a>         else:
+<a href="#l302" class="line" id="l302">    302</a>             flags = &#39;&#39;
+<a href="#l303" class="line" id="l303">    303</a>             command = self.rest(1)
+<a href="#l304" class="line" id="l304">    304</a> 
+<a href="#l305" class="line" id="l305">    305</a>         if command:
+<a href="#l306" class="line" id="l306">    306</a>             self.fm.execute_command(command, flags=flags)
+<a href="#l307" class="line" id="l307">    307</a> 
+<a href="#l308" class="line" id="l308">    308</a>     def tab(self, tabnum):
+<a href="#l309" class="line" id="l309">    309</a>         from ranger.ext.get_executables import get_executables
+<a href="#l310" class="line" id="l310">    310</a>         if self.arg(1) and self.arg(1)[0] == &#39;-&#39;:
+<a href="#l311" class="line" id="l311">    311</a>             command = self.rest(2)
+<a href="#l312" class="line" id="l312">    312</a>         else:
+<a href="#l313" class="line" id="l313">    313</a>             command = self.rest(1)
+<a href="#l314" class="line" id="l314">    314</a>         start = self.line[0:len(self.line) - len(command)]
+<a href="#l315" class="line" id="l315">    315</a> 
+<a href="#l316" class="line" id="l316">    316</a>         try:
+<a href="#l317" class="line" id="l317">    317</a>             position_of_last_space = command.rindex(&quot; &quot;)
+<a href="#l318" class="line" id="l318">    318</a>         except ValueError:
+<a href="#l319" class="line" id="l319">    319</a>             return (start + program + &#39; &#39; for program
+<a href="#l320" class="line" id="l320">    320</a>                     in get_executables() if program.startswith(command))
+<a href="#l321" class="line" id="l321">    321</a>         if position_of_last_space == len(command) - 1:
+<a href="#l322" class="line" id="l322">    322</a>             selection = self.fm.thistab.get_selection()
+<a href="#l323" class="line" id="l323">    323</a>             if len(selection) == 1:
+<a href="#l324" class="line" id="l324">    324</a>                 return self.line + selection[0].shell_escaped_basename + &#39; &#39;
+<a href="#l325" class="line" id="l325">    325</a>             return self.line + &#39;%s &#39;
+<a href="#l326" class="line" id="l326">    326</a> 
+<a href="#l327" class="line" id="l327">    327</a>         before_word, start_of_word = self.line.rsplit(&#39; &#39;, 1)
+<a href="#l328" class="line" id="l328">    328</a>         return (before_word + &#39; &#39; + file.shell_escaped_basename
+<a href="#l329" class="line" id="l329">    329</a>                 for file in self.fm.thisdir.files or []
+<a href="#l330" class="line" id="l330">    330</a>                 if file.shell_escaped_basename.startswith(start_of_word))
+<a href="#l331" class="line" id="l331">    331</a> 
+<a href="#l332" class="line" id="l332">    332</a> 
+<a href="#l333" class="line" id="l333">    333</a> class open_with(Command):
+<a href="#l334" class="line" id="l334">    334</a> 
+<a href="#l335" class="line" id="l335">    335</a>     def execute(self):
+<a href="#l336" class="line" id="l336">    336</a>         app, flags, mode = self._get_app_flags_mode(self.rest(1))
+<a href="#l337" class="line" id="l337">    337</a>         self.fm.execute_file(
+<a href="#l338" class="line" id="l338">    338</a>             files=[f for f in self.fm.thistab.get_selection()],
+<a href="#l339" class="line" id="l339">    339</a>             app=app,
+<a href="#l340" class="line" id="l340">    340</a>             flags=flags,
+<a href="#l341" class="line" id="l341">    341</a>             mode=mode)
+<a href="#l342" class="line" id="l342">    342</a> 
+<a href="#l343" class="line" id="l343">    343</a>     def tab(self, tabnum):
+<a href="#l344" class="line" id="l344">    344</a>         return self._tab_through_executables()
+<a href="#l345" class="line" id="l345">    345</a> 
+<a href="#l346" class="line" id="l346">    346</a>     def _get_app_flags_mode(self, string):  # pylint: disable=too-many-branches,too-many-statements
+<a href="#l347" class="line" id="l347">    347</a>         &quot;&quot;&quot;Extracts the application, flags and mode from a string.
+<a href="#l348" class="line" id="l348">    348</a> 
+<a href="#l349" class="line" id="l349">    349</a>         examples:
+<a href="#l350" class="line" id="l350">    350</a>         &quot;mplayer f 1&quot; =&gt; (&quot;mplayer&quot;, &quot;f&quot;, 1)
+<a href="#l351" class="line" id="l351">    351</a>         &quot;atool 4&quot; =&gt; (&quot;atool&quot;, &quot;&quot;, 4)
+<a href="#l352" class="line" id="l352">    352</a>         &quot;p&quot; =&gt; (&quot;&quot;, &quot;p&quot;, 0)
+<a href="#l353" class="line" id="l353">    353</a>         &quot;&quot; =&gt; None
+<a href="#l354" class="line" id="l354">    354</a>         &quot;&quot;&quot;
+<a href="#l355" class="line" id="l355">    355</a> 
+<a href="#l356" class="line" id="l356">    356</a>         app = &#39;&#39;
+<a href="#l357" class="line" id="l357">    357</a>         flags = &#39;&#39;
+<a href="#l358" class="line" id="l358">    358</a>         mode = 0
+<a href="#l359" class="line" id="l359">    359</a>         split = string.split()
+<a href="#l360" class="line" id="l360">    360</a> 
+<a href="#l361" class="line" id="l361">    361</a>         if len(split) == 1:
+<a href="#l362" class="line" id="l362">    362</a>             part = split[0]
+<a href="#l363" class="line" id="l363">    363</a>             if self._is_app(part):
+<a href="#l364" class="line" id="l364">    364</a>                 app = part
+<a href="#l365" class="line" id="l365">    365</a>             elif self._is_flags(part):
+<a href="#l366" class="line" id="l366">    366</a>                 flags = part
+<a href="#l367" class="line" id="l367">    367</a>             elif self._is_mode(part):
+<a href="#l368" class="line" id="l368">    368</a>                 mode = part
+<a href="#l369" class="line" id="l369">    369</a> 
+<a href="#l370" class="line" id="l370">    370</a>         elif len(split) == 2:
+<a href="#l371" class="line" id="l371">    371</a>             part0 = split[0]
+<a href="#l372" class="line" id="l372">    372</a>             part1 = split[1]
+<a href="#l373" class="line" id="l373">    373</a> 
+<a href="#l374" class="line" id="l374">    374</a>             if self._is_app(part0):
+<a href="#l375" class="line" id="l375">    375</a>                 app = part0
+<a href="#l376" class="line" id="l376">    376</a>                 if self._is_flags(part1):
+<a href="#l377" class="line" id="l377">    377</a>                     flags = part1
+<a href="#l378" class="line" id="l378">    378</a>                 elif self._is_mode(part1):
+<a href="#l379" class="line" id="l379">    379</a>                     mode = part1
+<a href="#l380" class="line" id="l380">    380</a>             elif self._is_flags(part0):
+<a href="#l381" class="line" id="l381">    381</a>                 flags = part0
+<a href="#l382" class="line" id="l382">    382</a>                 if self._is_mode(part1):
+<a href="#l383" class="line" id="l383">    383</a>                     mode = part1
+<a href="#l384" class="line" id="l384">    384</a>             elif self._is_mode(part0):
+<a href="#l385" class="line" id="l385">    385</a>                 mode = part0
+<a href="#l386" class="line" id="l386">    386</a>                 if self._is_flags(part1):
+<a href="#l387" class="line" id="l387">    387</a>                     flags = part1
+<a href="#l388" class="line" id="l388">    388</a> 
+<a href="#l389" class="line" id="l389">    389</a>         elif len(split) &gt;= 3:
+<a href="#l390" class="line" id="l390">    390</a>             part0 = split[0]
+<a href="#l391" class="line" id="l391">    391</a>             part1 = split[1]
+<a href="#l392" class="line" id="l392">    392</a>             part2 = split[2]
+<a href="#l393" class="line" id="l393">    393</a> 
+<a href="#l394" class="line" id="l394">    394</a>             if self._is_app(part0):
+<a href="#l395" class="line" id="l395">    395</a>                 app = part0
+<a href="#l396" class="line" id="l396">    396</a>                 if self._is_flags(part1):
+<a href="#l397" class="line" id="l397">    397</a>                     flags = part1
+<a href="#l398" class="line" id="l398">    398</a>                     if self._is_mode(part2):
+<a href="#l399" class="line" id="l399">    399</a>                         mode = part2
+<a href="#l400" class="line" id="l400">    400</a>                 elif self._is_mode(part1):
+<a href="#l401" class="line" id="l401">    401</a>                     mode = part1
+<a href="#l402" class="line" id="l402">    402</a>                     if self._is_flags(part2):
+<a href="#l403" class="line" id="l403">    403</a>                         flags = part2
+<a href="#l404" class="line" id="l404">    404</a>             elif self._is_flags(part0):
+<a href="#l405" class="line" id="l405">    405</a>                 flags = part0
+<a href="#l406" class="line" id="l406">    406</a>                 if self._is_mode(part1):
+<a href="#l407" class="line" id="l407">    407</a>                     mode = part1
+<a href="#l408" class="line" id="l408">    408</a>             elif self._is_mode(part0):
+<a href="#l409" class="line" id="l409">    409</a>                 mode = part0
+<a href="#l410" class="line" id="l410">    410</a>                 if self._is_flags(part1):
+<a href="#l411" class="line" id="l411">    411</a>                     flags = part1
+<a href="#l412" class="line" id="l412">    412</a> 
+<a href="#l413" class="line" id="l413">    413</a>         return app, flags, int(mode)
+<a href="#l414" class="line" id="l414">    414</a> 
+<a href="#l415" class="line" id="l415">    415</a>     def _is_app(self, arg):
+<a href="#l416" class="line" id="l416">    416</a>         return not self._is_flags(arg) and not arg.isdigit()
+<a href="#l417" class="line" id="l417">    417</a> 
+<a href="#l418" class="line" id="l418">    418</a>     @staticmethod
+<a href="#l419" class="line" id="l419">    419</a>     def _is_flags(arg):
+<a href="#l420" class="line" id="l420">    420</a>         from ranger.core.runner import ALLOWED_FLAGS
+<a href="#l421" class="line" id="l421">    421</a>         return all(x in ALLOWED_FLAGS for x in arg)
+<a href="#l422" class="line" id="l422">    422</a> 
+<a href="#l423" class="line" id="l423">    423</a>     @staticmethod
+<a href="#l424" class="line" id="l424">    424</a>     def _is_mode(arg):
+<a href="#l425" class="line" id="l425">    425</a>         return all(x in &#39;0123456789&#39; for x in arg)
+<a href="#l426" class="line" id="l426">    426</a> 
+<a href="#l427" class="line" id="l427">    427</a> 
+<a href="#l428" class="line" id="l428">    428</a> class set_(Command):
+<a href="#l429" class="line" id="l429">    429</a>     &quot;&quot;&quot;:set &lt;option name&gt;=&lt;python expression&gt;
+<a href="#l430" class="line" id="l430">    430</a> 
+<a href="#l431" class="line" id="l431">    431</a>     Gives an option a new value.
+<a href="#l432" class="line" id="l432">    432</a> 
+<a href="#l433" class="line" id="l433">    433</a>     Use `:set &lt;option&gt;!` to toggle or cycle it, e.g. `:set flush_input!`
+<a href="#l434" class="line" id="l434">    434</a>     &quot;&quot;&quot;
+<a href="#l435" class="line" id="l435">    435</a>     name = &#39;set&#39;  # don&#39;t override the builtin set class
+<a href="#l436" class="line" id="l436">    436</a> 
+<a href="#l437" class="line" id="l437">    437</a>     def execute(self):
+<a href="#l438" class="line" id="l438">    438</a>         name = self.arg(1)
+<a href="#l439" class="line" id="l439">    439</a>         name, value, _, toggle = self.parse_setting_line_v2()
+<a href="#l440" class="line" id="l440">    440</a>         if toggle:
+<a href="#l441" class="line" id="l441">    441</a>             self.fm.toggle_option(name)
+<a href="#l442" class="line" id="l442">    442</a>         else:
+<a href="#l443" class="line" id="l443">    443</a>             self.fm.set_option_from_string(name, value)
+<a href="#l444" class="line" id="l444">    444</a> 
+<a href="#l445" class="line" id="l445">    445</a>     def tab(self, tabnum):  # pylint: disable=too-many-return-statements
+<a href="#l446" class="line" id="l446">    446</a>         from ranger.gui.colorscheme import get_all_colorschemes
+<a href="#l447" class="line" id="l447">    447</a>         name, value, name_done = self.parse_setting_line()
+<a href="#l448" class="line" id="l448">    448</a>         settings = self.fm.settings
+<a href="#l449" class="line" id="l449">    449</a>         if not name:
+<a href="#l450" class="line" id="l450">    450</a>             return sorted(self.firstpart + setting for setting in settings)
+<a href="#l451" class="line" id="l451">    451</a>         if not value and not name_done:
+<a href="#l452" class="line" id="l452">    452</a>             return sorted(self.firstpart + setting for setting in settings
+<a href="#l453" class="line" id="l453">    453</a>                           if setting.startswith(name))
+<a href="#l454" class="line" id="l454">    454</a>         if not value:
+<a href="#l455" class="line" id="l455">    455</a>             value_completers = {
+<a href="#l456" class="line" id="l456">    456</a>                 &quot;colorscheme&quot;:
+<a href="#l457" class="line" id="l457">    457</a>                 # Cycle through colorschemes when name, but no value is specified
+<a href="#l458" class="line" id="l458">    458</a>                 lambda: sorted(self.firstpart + colorscheme for colorscheme
+<a href="#l459" class="line" id="l459">    459</a>                                in get_all_colorschemes(self.fm)),
+<a href="#l460" class="line" id="l460">    460</a> 
+<a href="#l461" class="line" id="l461">    461</a>                 &quot;column_ratios&quot;:
+<a href="#l462" class="line" id="l462">    462</a>                 lambda: self.firstpart + &quot;,&quot;.join(map(str, settings[name])),
+<a href="#l463" class="line" id="l463">    463</a>             }
+<a href="#l464" class="line" id="l464">    464</a> 
+<a href="#l465" class="line" id="l465">    465</a>             def default_value_completer():
+<a href="#l466" class="line" id="l466">    466</a>                 return self.firstpart + str(settings[name])
+<a href="#l467" class="line" id="l467">    467</a> 
+<a href="#l468" class="line" id="l468">    468</a>             return value_completers.get(name, default_value_completer)()
+<a href="#l469" class="line" id="l469">    469</a>         if bool in settings.types_of(name):
+<a href="#l470" class="line" id="l470">    470</a>             if &#39;true&#39;.startswith(value.lower()):
+<a href="#l471" class="line" id="l471">    471</a>                 return self.firstpart + &#39;True&#39;
+<a href="#l472" class="line" id="l472">    472</a>             if &#39;false&#39;.startswith(value.lower()):
+<a href="#l473" class="line" id="l473">    473</a>                 return self.firstpart + &#39;False&#39;
+<a href="#l474" class="line" id="l474">    474</a>         # Tab complete colorscheme values if incomplete value is present
+<a href="#l475" class="line" id="l475">    475</a>         if name == &quot;colorscheme&quot;:
+<a href="#l476" class="line" id="l476">    476</a>             return sorted(self.firstpart + colorscheme for colorscheme
+<a href="#l477" class="line" id="l477">    477</a>                           in get_all_colorschemes(self.fm) if colorscheme.startswith(value))
+<a href="#l478" class="line" id="l478">    478</a>         return None
+<a href="#l479" class="line" id="l479">    479</a> 
+<a href="#l480" class="line" id="l480">    480</a> 
+<a href="#l481" class="line" id="l481">    481</a> class setlocal(set_):
+<a href="#l482" class="line" id="l482">    482</a>     &quot;&quot;&quot;:setlocal path=&lt;regular expression&gt; &lt;option name&gt;=&lt;python expression&gt;
+<a href="#l483" class="line" id="l483">    483</a> 
+<a href="#l484" class="line" id="l484">    484</a>     Gives an option a new value.
+<a href="#l485" class="line" id="l485">    485</a>     &quot;&quot;&quot;
+<a href="#l486" class="line" id="l486">    486</a>     PATH_RE_DQUOTED = re.compile(r&#39;^setlocal\s+path=&quot;(.*?)&quot;&#39;)
+<a href="#l487" class="line" id="l487">    487</a>     PATH_RE_SQUOTED = re.compile(r&quot;^setlocal\s+path=&#39;(.*?)&#39;&quot;)
+<a href="#l488" class="line" id="l488">    488</a>     PATH_RE_UNQUOTED = re.compile(r&#39;^path=(.*?)$&#39;)
+<a href="#l489" class="line" id="l489">    489</a> 
+<a href="#l490" class="line" id="l490">    490</a>     def _re_shift(self, match):
+<a href="#l491" class="line" id="l491">    491</a>         if not match:
+<a href="#l492" class="line" id="l492">    492</a>             return None
+<a href="#l493" class="line" id="l493">    493</a>         path = os.path.expanduser(match.group(1))
+<a href="#l494" class="line" id="l494">    494</a>         for _ in range(len(path.split())):
+<a href="#l495" class="line" id="l495">    495</a>             self.shift()
+<a href="#l496" class="line" id="l496">    496</a>         return path
+<a href="#l497" class="line" id="l497">    497</a> 
+<a href="#l498" class="line" id="l498">    498</a>     def execute(self):
+<a href="#l499" class="line" id="l499">    499</a>         path = self._re_shift(self.PATH_RE_DQUOTED.match(self.line))
+<a href="#l500" class="line" id="l500">    500</a>         if path is None:
+<a href="#l501" class="line" id="l501">    501</a>             path = self._re_shift(self.PATH_RE_SQUOTED.match(self.line))
+<a href="#l502" class="line" id="l502">    502</a>         if path is None:
+<a href="#l503" class="line" id="l503">    503</a>             path = self._re_shift(self.PATH_RE_UNQUOTED.match(self.arg(1)))
+<a href="#l504" class="line" id="l504">    504</a>         if path is None and self.fm.thisdir:
+<a href="#l505" class="line" id="l505">    505</a>             path = self.fm.thisdir.path
+<a href="#l506" class="line" id="l506">    506</a>         if not path:
+<a href="#l507" class="line" id="l507">    507</a>             return
+<a href="#l508" class="line" id="l508">    508</a> 
+<a href="#l509" class="line" id="l509">    509</a>         name, value, _ = self.parse_setting_line()
+<a href="#l510" class="line" id="l510">    510</a>         self.fm.set_option_from_string(name, value, localpath=path)
+<a href="#l511" class="line" id="l511">    511</a> 
+<a href="#l512" class="line" id="l512">    512</a> 
+<a href="#l513" class="line" id="l513">    513</a> class setintag(set_):
+<a href="#l514" class="line" id="l514">    514</a>     &quot;&quot;&quot;:setintag &lt;tag or tags&gt; &lt;option name&gt;=&lt;option value&gt;
+<a href="#l515" class="line" id="l515">    515</a> 
+<a href="#l516" class="line" id="l516">    516</a>     Sets an option for directories that are tagged with a specific tag.
+<a href="#l517" class="line" id="l517">    517</a>     &quot;&quot;&quot;
+<a href="#l518" class="line" id="l518">    518</a> 
+<a href="#l519" class="line" id="l519">    519</a>     def execute(self):
+<a href="#l520" class="line" id="l520">    520</a>         tags = self.arg(1)
+<a href="#l521" class="line" id="l521">    521</a>         self.shift()
+<a href="#l522" class="line" id="l522">    522</a>         name, value, _ = self.parse_setting_line()
+<a href="#l523" class="line" id="l523">    523</a>         self.fm.set_option_from_string(name, value, tags=tags)
+<a href="#l524" class="line" id="l524">    524</a> 
+<a href="#l525" class="line" id="l525">    525</a> 
+<a href="#l526" class="line" id="l526">    526</a> class default_linemode(Command):
+<a href="#l527" class="line" id="l527">    527</a> 
+<a href="#l528" class="line" id="l528">    528</a>     def execute(self):
+<a href="#l529" class="line" id="l529">    529</a>         from ranger.container.fsobject import FileSystemObject
+<a href="#l530" class="line" id="l530">    530</a> 
+<a href="#l531" class="line" id="l531">    531</a>         if len(self.args) &lt; 2:
+<a href="#l532" class="line" id="l532">    532</a>             self.fm.notify(
+<a href="#l533" class="line" id="l533">    533</a>                 &quot;Usage: default_linemode [path=&lt;regexp&gt; | tag=&lt;tag(s)&gt;] &lt;linemode&gt;&quot;, bad=True)
+<a href="#l534" class="line" id="l534">    534</a> 
+<a href="#l535" class="line" id="l535">    535</a>         # Extract options like &quot;path=...&quot; or &quot;tag=...&quot; from the command line
+<a href="#l536" class="line" id="l536">    536</a>         arg1 = self.arg(1)
+<a href="#l537" class="line" id="l537">    537</a>         method = &quot;always&quot;
+<a href="#l538" class="line" id="l538">    538</a>         argument = None
+<a href="#l539" class="line" id="l539">    539</a>         if arg1.startswith(&quot;path=&quot;):
+<a href="#l540" class="line" id="l540">    540</a>             method = &quot;path&quot;
+<a href="#l541" class="line" id="l541">    541</a>             argument = re.compile(arg1[5:])
+<a href="#l542" class="line" id="l542">    542</a>             self.shift()
+<a href="#l543" class="line" id="l543">    543</a>         elif arg1.startswith(&quot;tag=&quot;):
+<a href="#l544" class="line" id="l544">    544</a>             method = &quot;tag&quot;
+<a href="#l545" class="line" id="l545">    545</a>             argument = arg1[4:]
+<a href="#l546" class="line" id="l546">    546</a>             self.shift()
+<a href="#l547" class="line" id="l547">    547</a> 
+<a href="#l548" class="line" id="l548">    548</a>         # Extract and validate the line mode from the command line
+<a href="#l549" class="line" id="l549">    549</a>         lmode = self.rest(1)
+<a href="#l550" class="line" id="l550">    550</a>         if lmode not in FileSystemObject.linemode_dict:
+<a href="#l551" class="line" id="l551">    551</a>             self.fm.notify(
+<a href="#l552" class="line" id="l552">    552</a>                 &quot;Invalid linemode: %s; should be %s&quot; % (
+<a href="#l553" class="line" id="l553">    553</a>                     lmode, &quot;/&quot;.join(FileSystemObject.linemode_dict)),
+<a href="#l554" class="line" id="l554">    554</a>                 bad=True,
+<a href="#l555" class="line" id="l555">    555</a>             )
+<a href="#l556" class="line" id="l556">    556</a> 
+<a href="#l557" class="line" id="l557">    557</a>         # Add the prepared entry to the fm.default_linemodes
+<a href="#l558" class="line" id="l558">    558</a>         entry = [method, argument, lmode]
+<a href="#l559" class="line" id="l559">    559</a>         self.fm.default_linemodes.appendleft(entry)
+<a href="#l560" class="line" id="l560">    560</a> 
+<a href="#l561" class="line" id="l561">    561</a>         # Redraw the columns
+<a href="#l562" class="line" id="l562">    562</a>         if self.fm.ui.browser:
+<a href="#l563" class="line" id="l563">    563</a>             for col in self.fm.ui.browser.columns:
+<a href="#l564" class="line" id="l564">    564</a>                 col.need_redraw = True
+<a href="#l565" class="line" id="l565">    565</a> 
+<a href="#l566" class="line" id="l566">    566</a>     def tab(self, tabnum):
+<a href="#l567" class="line" id="l567">    567</a>         return (self.arg(0) + &quot; &quot; + lmode
+<a href="#l568" class="line" id="l568">    568</a>                 for lmode in self.fm.thisfile.linemode_dict.keys()
+<a href="#l569" class="line" id="l569">    569</a>                 if lmode.startswith(self.arg(1)))
+<a href="#l570" class="line" id="l570">    570</a> 
+<a href="#l571" class="line" id="l571">    571</a> 
+<a href="#l572" class="line" id="l572">    572</a> class quit(Command):  # pylint: disable=redefined-builtin
+<a href="#l573" class="line" id="l573">    573</a>     &quot;&quot;&quot;:quit
+<a href="#l574" class="line" id="l574">    574</a> 
+<a href="#l575" class="line" id="l575">    575</a>     Closes the current tab, if there&#39;s only one tab.
+<a href="#l576" class="line" id="l576">    576</a>     Otherwise quits if there are no tasks in progress.
+<a href="#l577" class="line" id="l577">    577</a>     &quot;&quot;&quot;
+<a href="#l578" class="line" id="l578">    578</a>     def _exit_no_work(self):
+<a href="#l579" class="line" id="l579">    579</a>         if self.fm.loader.has_work():
+<a href="#l580" class="line" id="l580">    580</a>             self.fm.notify(&#39;Not quitting: Tasks in progress: Use `quit!` to force quit&#39;)
+<a href="#l581" class="line" id="l581">    581</a>         else:
+<a href="#l582" class="line" id="l582">    582</a>             self.fm.exit()
+<a href="#l583" class="line" id="l583">    583</a> 
+<a href="#l584" class="line" id="l584">    584</a>     def execute(self):
+<a href="#l585" class="line" id="l585">    585</a>         if len(self.fm.tabs) &gt;= 2:
+<a href="#l586" class="line" id="l586">    586</a>             self.fm.tab_close()
+<a href="#l587" class="line" id="l587">    587</a>         else:
+<a href="#l588" class="line" id="l588">    588</a>             self._exit_no_work()
+<a href="#l589" class="line" id="l589">    589</a> 
+<a href="#l590" class="line" id="l590">    590</a> 
+<a href="#l591" class="line" id="l591">    591</a> class quit_bang(Command):
+<a href="#l592" class="line" id="l592">    592</a>     &quot;&quot;&quot;:quit!
+<a href="#l593" class="line" id="l593">    593</a> 
+<a href="#l594" class="line" id="l594">    594</a>     Closes the current tab, if there&#39;s only one tab.
+<a href="#l595" class="line" id="l595">    595</a>     Otherwise force quits immediately.
+<a href="#l596" class="line" id="l596">    596</a>     &quot;&quot;&quot;
+<a href="#l597" class="line" id="l597">    597</a>     name = &#39;quit!&#39;
+<a href="#l598" class="line" id="l598">    598</a>     allow_abbrev = False
+<a href="#l599" class="line" id="l599">    599</a> 
+<a href="#l600" class="line" id="l600">    600</a>     def execute(self):
+<a href="#l601" class="line" id="l601">    601</a>         if len(self.fm.tabs) &gt;= 2:
+<a href="#l602" class="line" id="l602">    602</a>             self.fm.tab_close()
+<a href="#l603" class="line" id="l603">    603</a>         else:
+<a href="#l604" class="line" id="l604">    604</a>             self.fm.exit()
+<a href="#l605" class="line" id="l605">    605</a> 
+<a href="#l606" class="line" id="l606">    606</a> 
+<a href="#l607" class="line" id="l607">    607</a> class quitall(Command):
+<a href="#l608" class="line" id="l608">    608</a>     &quot;&quot;&quot;:quitall
+<a href="#l609" class="line" id="l609">    609</a> 
+<a href="#l610" class="line" id="l610">    610</a>     Quits if there are no tasks in progress.
+<a href="#l611" class="line" id="l611">    611</a>     &quot;&quot;&quot;
+<a href="#l612" class="line" id="l612">    612</a>     def _exit_no_work(self):
+<a href="#l613" class="line" id="l613">    613</a>         if self.fm.loader.has_work():
+<a href="#l614" class="line" id="l614">    614</a>             self.fm.notify(&#39;Not quitting: Tasks in progress: Use `quitall!` to force quit&#39;)
+<a href="#l615" class="line" id="l615">    615</a>         else:
+<a href="#l616" class="line" id="l616">    616</a>             self.fm.exit()
+<a href="#l617" class="line" id="l617">    617</a> 
+<a href="#l618" class="line" id="l618">    618</a>     def execute(self):
+<a href="#l619" class="line" id="l619">    619</a>         self._exit_no_work()
+<a href="#l620" class="line" id="l620">    620</a> 
+<a href="#l621" class="line" id="l621">    621</a> 
+<a href="#l622" class="line" id="l622">    622</a> class quitall_bang(Command):
+<a href="#l623" class="line" id="l623">    623</a>     &quot;&quot;&quot;:quitall!
+<a href="#l624" class="line" id="l624">    624</a> 
+<a href="#l625" class="line" id="l625">    625</a>     Force quits immediately.
+<a href="#l626" class="line" id="l626">    626</a>     &quot;&quot;&quot;
+<a href="#l627" class="line" id="l627">    627</a>     name = &#39;quitall!&#39;
+<a href="#l628" class="line" id="l628">    628</a>     allow_abbrev = False
+<a href="#l629" class="line" id="l629">    629</a> 
+<a href="#l630" class="line" id="l630">    630</a>     def execute(self):
+<a href="#l631" class="line" id="l631">    631</a>         self.fm.exit()
+<a href="#l632" class="line" id="l632">    632</a> 
+<a href="#l633" class="line" id="l633">    633</a> 
+<a href="#l634" class="line" id="l634">    634</a> class terminal(Command):
+<a href="#l635" class="line" id="l635">    635</a>     &quot;&quot;&quot;:terminal
+<a href="#l636" class="line" id="l636">    636</a> 
+<a href="#l637" class="line" id="l637">    637</a>     Spawns an &quot;x-terminal-emulator&quot; starting in the current directory.
+<a href="#l638" class="line" id="l638">    638</a>     &quot;&quot;&quot;
+<a href="#l639" class="line" id="l639">    639</a> 
+<a href="#l640" class="line" id="l640">    640</a>     def execute(self):
+<a href="#l641" class="line" id="l641">    641</a>         from ranger.ext.get_executables import get_term
+<a href="#l642" class="line" id="l642">    642</a>         self.fm.run(get_term(), flags=&#39;f&#39;)
+<a href="#l643" class="line" id="l643">    643</a> 
+<a href="#l644" class="line" id="l644">    644</a> 
+<a href="#l645" class="line" id="l645">    645</a> class delete(Command):
+<a href="#l646" class="line" id="l646">    646</a>     &quot;&quot;&quot;:delete
+<a href="#l647" class="line" id="l647">    647</a> 
+<a href="#l648" class="line" id="l648">    648</a>     Tries to delete the selection or the files passed in arguments (if any).
+<a href="#l649" class="line" id="l649">    649</a>     The arguments use a shell-like escaping.
+<a href="#l650" class="line" id="l650">    650</a> 
+<a href="#l651" class="line" id="l651">    651</a>     &quot;Selection&quot; is defined as all the &quot;marked files&quot; (by default, you
+<a href="#l652" class="line" id="l652">    652</a>     can mark files with space or v). If there are no marked files,
+<a href="#l653" class="line" id="l653">    653</a>     use the &quot;current file&quot; (where the cursor is)
+<a href="#l654" class="line" id="l654">    654</a> 
+<a href="#l655" class="line" id="l655">    655</a>     When attempting to delete non-empty directories or multiple
+<a href="#l656" class="line" id="l656">    656</a>     marked files, it will require a confirmation.
+<a href="#l657" class="line" id="l657">    657</a>     &quot;&quot;&quot;
+<a href="#l658" class="line" id="l658">    658</a> 
+<a href="#l659" class="line" id="l659">    659</a>     allow_abbrev = False
+<a href="#l660" class="line" id="l660">    660</a>     escape_macros_for_shell = True
+<a href="#l661" class="line" id="l661">    661</a> 
+<a href="#l662" class="line" id="l662">    662</a>     def execute(self):
+<a href="#l663" class="line" id="l663">    663</a>         import shlex
+<a href="#l664" class="line" id="l664">    664</a>         from functools import partial
+<a href="#l665" class="line" id="l665">    665</a> 
+<a href="#l666" class="line" id="l666">    666</a>         def is_directory_with_files(path):
+<a href="#l667" class="line" id="l667">    667</a>             return os.path.isdir(path) and not os.path.islink(path) and len(os.listdir(path)) &gt; 0
+<a href="#l668" class="line" id="l668">    668</a> 
+<a href="#l669" class="line" id="l669">    669</a>         if self.rest(1):
+<a href="#l670" class="line" id="l670">    670</a>             files = shlex.split(self.rest(1))
+<a href="#l671" class="line" id="l671">    671</a>             many_files = (len(files) &gt; 1 or is_directory_with_files(files[0]))
+<a href="#l672" class="line" id="l672">    672</a>         else:
+<a href="#l673" class="line" id="l673">    673</a>             cwd = self.fm.thisdir
+<a href="#l674" class="line" id="l674">    674</a>             tfile = self.fm.thisfile
+<a href="#l675" class="line" id="l675">    675</a>             if not cwd or not tfile:
+<a href="#l676" class="line" id="l676">    676</a>                 self.fm.notify(&quot;Error: no file selected for deletion!&quot;, bad=True)
+<a href="#l677" class="line" id="l677">    677</a>                 return
+<a href="#l678" class="line" id="l678">    678</a> 
+<a href="#l679" class="line" id="l679">    679</a>             # relative_path used for a user-friendly output in the confirmation.
+<a href="#l680" class="line" id="l680">    680</a>             files = [f.relative_path for f in self.fm.thistab.get_selection()]
+<a href="#l681" class="line" id="l681">    681</a>             many_files = (cwd.marked_items or is_directory_with_files(tfile.path))
+<a href="#l682" class="line" id="l682">    682</a> 
+<a href="#l683" class="line" id="l683">    683</a>         confirm = self.fm.settings.confirm_on_delete
+<a href="#l684" class="line" id="l684">    684</a>         if confirm != &#39;never&#39; and (confirm != &#39;multiple&#39; or many_files):
+<a href="#l685" class="line" id="l685">    685</a>             self.fm.ui.console.ask(
+<a href="#l686" class="line" id="l686">    686</a>                 &quot;Confirm deletion of: %s (y/N)&quot; % &#39;, &#39;.join(files),
+<a href="#l687" class="line" id="l687">    687</a>                 partial(self._question_callback, files),
+<a href="#l688" class="line" id="l688">    688</a>                 (&#39;n&#39;, &#39;N&#39;, &#39;y&#39;, &#39;Y&#39;),
+<a href="#l689" class="line" id="l689">    689</a>             )
+<a href="#l690" class="line" id="l690">    690</a>         else:
+<a href="#l691" class="line" id="l691">    691</a>             # no need for a confirmation, just delete
+<a href="#l692" class="line" id="l692">    692</a>             self.fm.delete(files)
+<a href="#l693" class="line" id="l693">    693</a> 
+<a href="#l694" class="line" id="l694">    694</a>     def tab(self, tabnum):
+<a href="#l695" class="line" id="l695">    695</a>         return self._tab_directory_content()
+<a href="#l696" class="line" id="l696">    696</a> 
+<a href="#l697" class="line" id="l697">    697</a>     def _question_callback(self, files, answer):
+<a href="#l698" class="line" id="l698">    698</a>         if answer == &#39;y&#39; or answer == &#39;Y&#39;:
+<a href="#l699" class="line" id="l699">    699</a>             self.fm.delete(files)
+<a href="#l700" class="line" id="l700">    700</a> 
+<a href="#l701" class="line" id="l701">    701</a> 
+<a href="#l702" class="line" id="l702">    702</a> class jump_non(Command):
+<a href="#l703" class="line" id="l703">    703</a>     &quot;&quot;&quot;:jump_non [-FLAGS...]
+<a href="#l704" class="line" id="l704">    704</a> 
+<a href="#l705" class="line" id="l705">    705</a>     Jumps to first non-directory if highlighted file is a directory and vice versa.
+<a href="#l706" class="line" id="l706">    706</a> 
+<a href="#l707" class="line" id="l707">    707</a>     Flags:
+<a href="#l708" class="line" id="l708">    708</a>      -r    Jump in reverse order
+<a href="#l709" class="line" id="l709">    709</a>      -w    Wrap around if reaching end of filelist
+<a href="#l710" class="line" id="l710">    710</a>     &quot;&quot;&quot;
+<a href="#l711" class="line" id="l711">    711</a>     def __init__(self, *args, **kwargs):
+<a href="#l712" class="line" id="l712">    712</a>         super(jump_non, self).__init__(*args, **kwargs)
+<a href="#l713" class="line" id="l713">    713</a> 
+<a href="#l714" class="line" id="l714">    714</a>         flags, _ = self.parse_flags()
+<a href="#l715" class="line" id="l715">    715</a>         self._flag_reverse = &#39;r&#39; in flags
+<a href="#l716" class="line" id="l716">    716</a>         self._flag_wrap = &#39;w&#39; in flags
+<a href="#l717" class="line" id="l717">    717</a> 
+<a href="#l718" class="line" id="l718">    718</a>     @staticmethod
+<a href="#l719" class="line" id="l719">    719</a>     def _non(fobj, is_directory):
+<a href="#l720" class="line" id="l720">    720</a>         return fobj.is_directory if not is_directory else not fobj.is_directory
+<a href="#l721" class="line" id="l721">    721</a> 
+<a href="#l722" class="line" id="l722">    722</a>     def execute(self):
+<a href="#l723" class="line" id="l723">    723</a>         tfile = self.fm.thisfile
+<a href="#l724" class="line" id="l724">    724</a>         passed = False
+<a href="#l725" class="line" id="l725">    725</a>         found_before = None
+<a href="#l726" class="line" id="l726">    726</a>         found_after = None
+<a href="#l727" class="line" id="l727">    727</a>         for fobj in self.fm.thisdir.files[::-1] if self._flag_reverse else self.fm.thisdir.files:
+<a href="#l728" class="line" id="l728">    728</a>             if fobj.path == tfile.path:
+<a href="#l729" class="line" id="l729">    729</a>                 passed = True
+<a href="#l730" class="line" id="l730">    730</a>                 continue
+<a href="#l731" class="line" id="l731">    731</a> 
+<a href="#l732" class="line" id="l732">    732</a>             if passed:
+<a href="#l733" class="line" id="l733">    733</a>                 if self._non(fobj, tfile.is_directory):
+<a href="#l734" class="line" id="l734">    734</a>                     found_after = fobj.path
+<a href="#l735" class="line" id="l735">    735</a>                     break
+<a href="#l736" class="line" id="l736">    736</a>             elif not found_before and self._non(fobj, tfile.is_directory):
+<a href="#l737" class="line" id="l737">    737</a>                 found_before = fobj.path
+<a href="#l738" class="line" id="l738">    738</a> 
+<a href="#l739" class="line" id="l739">    739</a>         if found_after:
+<a href="#l740" class="line" id="l740">    740</a>             self.fm.select_file(found_after)
+<a href="#l741" class="line" id="l741">    741</a>         elif self._flag_wrap and found_before:
+<a href="#l742" class="line" id="l742">    742</a>             self.fm.select_file(found_before)
+<a href="#l743" class="line" id="l743">    743</a> 
+<a href="#l744" class="line" id="l744">    744</a> 
+<a href="#l745" class="line" id="l745">    745</a> class mark_tag(Command):
+<a href="#l746" class="line" id="l746">    746</a>     &quot;&quot;&quot;:mark_tag [&lt;tags&gt;]
+<a href="#l747" class="line" id="l747">    747</a> 
+<a href="#l748" class="line" id="l748">    748</a>     Mark all tags that are tagged with either of the given tags.
+<a href="#l749" class="line" id="l749">    749</a>     When leaving out the tag argument, all tagged files are marked.
+<a href="#l750" class="line" id="l750">    750</a>     &quot;&quot;&quot;
+<a href="#l751" class="line" id="l751">    751</a>     do_mark = True
+<a href="#l752" class="line" id="l752">    752</a> 
+<a href="#l753" class="line" id="l753">    753</a>     def execute(self):
+<a href="#l754" class="line" id="l754">    754</a>         cwd = self.fm.thisdir
+<a href="#l755" class="line" id="l755">    755</a>         tags = self.rest(1).replace(&quot; &quot;, &quot;&quot;)
+<a href="#l756" class="line" id="l756">    756</a>         if not self.fm.tags or not cwd.files:
+<a href="#l757" class="line" id="l757">    757</a>             return
+<a href="#l758" class="line" id="l758">    758</a>         for fileobj in cwd.files:
+<a href="#l759" class="line" id="l759">    759</a>             try:
+<a href="#l760" class="line" id="l760">    760</a>                 tag = self.fm.tags.tags[fileobj.realpath]
+<a href="#l761" class="line" id="l761">    761</a>             except KeyError:
+<a href="#l762" class="line" id="l762">    762</a>                 continue
+<a href="#l763" class="line" id="l763">    763</a>             if not tags or tag in tags:
+<a href="#l764" class="line" id="l764">    764</a>                 cwd.mark_item(fileobj, val=self.do_mark)
+<a href="#l765" class="line" id="l765">    765</a>         self.fm.ui.status.need_redraw = True
+<a href="#l766" class="line" id="l766">    766</a>         self.fm.ui.need_redraw = True
+<a href="#l767" class="line" id="l767">    767</a> 
+<a href="#l768" class="line" id="l768">    768</a> 
+<a href="#l769" class="line" id="l769">    769</a> class console(Command):
+<a href="#l770" class="line" id="l770">    770</a>     &quot;&quot;&quot;:console &lt;command&gt;
+<a href="#l771" class="line" id="l771">    771</a> 
+<a href="#l772" class="line" id="l772">    772</a>     Open the console with the given command.
+<a href="#l773" class="line" id="l773">    773</a>     &quot;&quot;&quot;
+<a href="#l774" class="line" id="l774">    774</a> 
+<a href="#l775" class="line" id="l775">    775</a>     def execute(self):
+<a href="#l776" class="line" id="l776">    776</a>         position = None
+<a href="#l777" class="line" id="l777">    777</a>         if self.arg(1)[0:2] == &#39;-p&#39;:
+<a href="#l778" class="line" id="l778">    778</a>             try:
+<a href="#l779" class="line" id="l779">    779</a>                 position = int(self.arg(1)[2:])
+<a href="#l780" class="line" id="l780">    780</a>             except ValueError:
+<a href="#l781" class="line" id="l781">    781</a>                 pass
+<a href="#l782" class="line" id="l782">    782</a>             else:
+<a href="#l783" class="line" id="l783">    783</a>                 self.shift()
+<a href="#l784" class="line" id="l784">    784</a>         self.fm.open_console(self.rest(1), position=position)
+<a href="#l785" class="line" id="l785">    785</a> 
+<a href="#l786" class="line" id="l786">    786</a> 
+<a href="#l787" class="line" id="l787">    787</a> class load_copy_buffer(Command):
+<a href="#l788" class="line" id="l788">    788</a>     &quot;&quot;&quot;:load_copy_buffer
+<a href="#l789" class="line" id="l789">    789</a> 
+<a href="#l790" class="line" id="l790">    790</a>     Load the copy buffer from datadir/copy_buffer
+<a href="#l791" class="line" id="l791">    791</a>     &quot;&quot;&quot;
+<a href="#l792" class="line" id="l792">    792</a>     copy_buffer_filename = &#39;copy_buffer&#39;
+<a href="#l793" class="line" id="l793">    793</a> 
+<a href="#l794" class="line" id="l794">    794</a>     def execute(self):
+<a href="#l795" class="line" id="l795">    795</a>         import sys
+<a href="#l796" class="line" id="l796">    796</a>         from ranger.container.file import File
+<a href="#l797" class="line" id="l797">    797</a>         from os.path import exists
+<a href="#l798" class="line" id="l798">    798</a>         fname = self.fm.datapath(self.copy_buffer_filename)
+<a href="#l799" class="line" id="l799">    799</a>         unreadable = IOError if sys.version_info[0] &lt; 3 else OSError
+<a href="#l800" class="line" id="l800">    800</a>         try:
+<a href="#l801" class="line" id="l801">    801</a>             fobj = open(fname, &#39;r&#39;)
+<a href="#l802" class="line" id="l802">    802</a>         except unreadable:
+<a href="#l803" class="line" id="l803">    803</a>             return self.fm.notify(
+<a href="#l804" class="line" id="l804">    804</a>                 &quot;Cannot open %s&quot; % (fname or self.copy_buffer_filename), bad=True)
+<a href="#l805" class="line" id="l805">    805</a> 
+<a href="#l806" class="line" id="l806">    806</a>         self.fm.copy_buffer = set(File(g)
+<a href="#l807" class="line" id="l807">    807</a>                                   for g in fobj.read().split(&quot;\n&quot;) if exists(g))
+<a href="#l808" class="line" id="l808">    808</a>         fobj.close()
+<a href="#l809" class="line" id="l809">    809</a>         self.fm.ui.redraw_main_column()
+<a href="#l810" class="line" id="l810">    810</a>         return None
+<a href="#l811" class="line" id="l811">    811</a> 
+<a href="#l812" class="line" id="l812">    812</a> 
+<a href="#l813" class="line" id="l813">    813</a> class save_copy_buffer(Command):
+<a href="#l814" class="line" id="l814">    814</a>     &quot;&quot;&quot;:save_copy_buffer
+<a href="#l815" class="line" id="l815">    815</a> 
+<a href="#l816" class="line" id="l816">    816</a>     Save the copy buffer to datadir/copy_buffer
+<a href="#l817" class="line" id="l817">    817</a>     &quot;&quot;&quot;
+<a href="#l818" class="line" id="l818">    818</a>     copy_buffer_filename = &#39;copy_buffer&#39;
+<a href="#l819" class="line" id="l819">    819</a> 
+<a href="#l820" class="line" id="l820">    820</a>     def execute(self):
+<a href="#l821" class="line" id="l821">    821</a>         import sys
+<a href="#l822" class="line" id="l822">    822</a>         fname = None
+<a href="#l823" class="line" id="l823">    823</a>         fname = self.fm.datapath(self.copy_buffer_filename)
+<a href="#l824" class="line" id="l824">    824</a>         unwritable = IOError if sys.version_info[0] &lt; 3 else OSError
+<a href="#l825" class="line" id="l825">    825</a>         try:
+<a href="#l826" class="line" id="l826">    826</a>             fobj = open(fname, &#39;w&#39;)
+<a href="#l827" class="line" id="l827">    827</a>         except unwritable:
+<a href="#l828" class="line" id="l828">    828</a>             return self.fm.notify(&quot;Cannot open %s&quot; %
+<a href="#l829" class="line" id="l829">    829</a>                                   (fname or self.copy_buffer_filename), bad=True)
+<a href="#l830" class="line" id="l830">    830</a>         fobj.write(&quot;\n&quot;.join(fobj.path for fobj in self.fm.copy_buffer))
+<a href="#l831" class="line" id="l831">    831</a>         fobj.close()
+<a href="#l832" class="line" id="l832">    832</a>         return None
+<a href="#l833" class="line" id="l833">    833</a> 
+<a href="#l834" class="line" id="l834">    834</a> 
+<a href="#l835" class="line" id="l835">    835</a> class unmark_tag(mark_tag):
+<a href="#l836" class="line" id="l836">    836</a>     &quot;&quot;&quot;:unmark_tag [&lt;tags&gt;]
+<a href="#l837" class="line" id="l837">    837</a> 
+<a href="#l838" class="line" id="l838">    838</a>     Unmark all tags that are tagged with either of the given tags.
+<a href="#l839" class="line" id="l839">    839</a>     When leaving out the tag argument, all tagged files are unmarked.
+<a href="#l840" class="line" id="l840">    840</a>     &quot;&quot;&quot;
+<a href="#l841" class="line" id="l841">    841</a>     do_mark = False
+<a href="#l842" class="line" id="l842">    842</a> 
+<a href="#l843" class="line" id="l843">    843</a> 
+<a href="#l844" class="line" id="l844">    844</a> class mkdir(Command):
+<a href="#l845" class="line" id="l845">    845</a>     &quot;&quot;&quot;:mkdir &lt;dirname&gt;
+<a href="#l846" class="line" id="l846">    846</a> 
+<a href="#l847" class="line" id="l847">    847</a>     Creates a directory with the name &lt;dirname&gt;.
+<a href="#l848" class="line" id="l848">    848</a>     &quot;&quot;&quot;
+<a href="#l849" class="line" id="l849">    849</a> 
+<a href="#l850" class="line" id="l850">    850</a>     def execute(self):
+<a href="#l851" class="line" id="l851">    851</a>         from os.path import join, expanduser, lexists
+<a href="#l852" class="line" id="l852">    852</a>         from os import makedirs
+<a href="#l853" class="line" id="l853">    853</a> 
+<a href="#l854" class="line" id="l854">    854</a>         dirname = join(self.fm.thisdir.path, expanduser(self.rest(1)))
+<a href="#l855" class="line" id="l855">    855</a>         if not lexists(dirname):
+<a href="#l856" class="line" id="l856">    856</a>             makedirs(dirname)
+<a href="#l857" class="line" id="l857">    857</a>         else:
+<a href="#l858" class="line" id="l858">    858</a>             self.fm.notify(&quot;file/directory exists!&quot;, bad=True)
+<a href="#l859" class="line" id="l859">    859</a> 
+<a href="#l860" class="line" id="l860">    860</a>     def tab(self, tabnum):
+<a href="#l861" class="line" id="l861">    861</a>         return self._tab_directory_content()
+<a href="#l862" class="line" id="l862">    862</a> 
+<a href="#l863" class="line" id="l863">    863</a> 
+<a href="#l864" class="line" id="l864">    864</a> class touch(Command):
+<a href="#l865" class="line" id="l865">    865</a>     &quot;&quot;&quot;:touch &lt;fname&gt;
+<a href="#l866" class="line" id="l866">    866</a> 
+<a href="#l867" class="line" id="l867">    867</a>     Creates a file with the name &lt;fname&gt;.
+<a href="#l868" class="line" id="l868">    868</a>     &quot;&quot;&quot;
+<a href="#l869" class="line" id="l869">    869</a> 
+<a href="#l870" class="line" id="l870">    870</a>     def execute(self):
+<a href="#l871" class="line" id="l871">    871</a>         from os.path import join, expanduser, lexists
+<a href="#l872" class="line" id="l872">    872</a> 
+<a href="#l873" class="line" id="l873">    873</a>         fname = join(self.fm.thisdir.path, expanduser(self.rest(1)))
+<a href="#l874" class="line" id="l874">    874</a>         if not lexists(fname):
+<a href="#l875" class="line" id="l875">    875</a>             open(fname, &#39;a&#39;).close()
+<a href="#l876" class="line" id="l876">    876</a>         else:
+<a href="#l877" class="line" id="l877">    877</a>             self.fm.notify(&quot;file/directory exists!&quot;, bad=True)
+<a href="#l878" class="line" id="l878">    878</a> 
+<a href="#l879" class="line" id="l879">    879</a>     def tab(self, tabnum):
+<a href="#l880" class="line" id="l880">    880</a>         return self._tab_directory_content()
+<a href="#l881" class="line" id="l881">    881</a> 
+<a href="#l882" class="line" id="l882">    882</a> 
+<a href="#l883" class="line" id="l883">    883</a> class edit(Command):
+<a href="#l884" class="line" id="l884">    884</a>     &quot;&quot;&quot;:edit &lt;filename&gt;
+<a href="#l885" class="line" id="l885">    885</a> 
+<a href="#l886" class="line" id="l886">    886</a>     Opens the specified file in vim
+<a href="#l887" class="line" id="l887">    887</a>     &quot;&quot;&quot;
+<a href="#l888" class="line" id="l888">    888</a> 
+<a href="#l889" class="line" id="l889">    889</a>     def execute(self):
+<a href="#l890" class="line" id="l890">    890</a>         if not self.arg(1):
+<a href="#l891" class="line" id="l891">    891</a>             self.fm.edit_file(self.fm.thisfile.path)
+<a href="#l892" class="line" id="l892">    892</a>         else:
+<a href="#l893" class="line" id="l893">    893</a>             self.fm.edit_file(self.rest(1))
+<a href="#l894" class="line" id="l894">    894</a> 
+<a href="#l895" class="line" id="l895">    895</a>     def tab(self, tabnum):
+<a href="#l896" class="line" id="l896">    896</a>         return self._tab_directory_content()
+<a href="#l897" class="line" id="l897">    897</a> 
+<a href="#l898" class="line" id="l898">    898</a> 
+<a href="#l899" class="line" id="l899">    899</a> class eval_(Command):
+<a href="#l900" class="line" id="l900">    900</a>     &quot;&quot;&quot;:eval [-q] &lt;python code&gt;
+<a href="#l901" class="line" id="l901">    901</a> 
+<a href="#l902" class="line" id="l902">    902</a>     Evaluates the python code.
+<a href="#l903" class="line" id="l903">    903</a>     `fm&#39; is a reference to the FM instance.
+<a href="#l904" class="line" id="l904">    904</a>     To display text, use the function `p&#39;.
+<a href="#l905" class="line" id="l905">    905</a> 
+<a href="#l906" class="line" id="l906">    906</a>     Examples:
+<a href="#l907" class="line" id="l907">    907</a>     :eval fm
+<a href="#l908" class="line" id="l908">    908</a>     :eval len(fm.directories)
+<a href="#l909" class="line" id="l909">    909</a>     :eval p(&quot;Hello World!&quot;)
+<a href="#l910" class="line" id="l910">    910</a>     &quot;&quot;&quot;
+<a href="#l911" class="line" id="l911">    911</a>     name = &#39;eval&#39;
+<a href="#l912" class="line" id="l912">    912</a>     resolve_macros = False
+<a href="#l913" class="line" id="l913">    913</a> 
+<a href="#l914" class="line" id="l914">    914</a>     def execute(self):
+<a href="#l915" class="line" id="l915">    915</a>         # The import is needed so eval() can access the ranger module
+<a href="#l916" class="line" id="l916">    916</a>         import ranger  # NOQA pylint: disable=unused-import,unused-variable
+<a href="#l917" class="line" id="l917">    917</a>         if self.arg(1) == &#39;-q&#39;:
+<a href="#l918" class="line" id="l918">    918</a>             code = self.rest(2)
+<a href="#l919" class="line" id="l919">    919</a>             quiet = True
+<a href="#l920" class="line" id="l920">    920</a>         else:
+<a href="#l921" class="line" id="l921">    921</a>             code = self.rest(1)
+<a href="#l922" class="line" id="l922">    922</a>             quiet = False
+<a href="#l923" class="line" id="l923">    923</a>         global cmd, fm, p, quantifier  # pylint: disable=invalid-name,global-variable-undefined
+<a href="#l924" class="line" id="l924">    924</a>         fm = self.fm
+<a href="#l925" class="line" id="l925">    925</a>         cmd = self.fm.execute_console
+<a href="#l926" class="line" id="l926">    926</a>         p = fm.notify
+<a href="#l927" class="line" id="l927">    927</a>         quantifier = self.quantifier
+<a href="#l928" class="line" id="l928">    928</a>         try:
+<a href="#l929" class="line" id="l929">    929</a>             try:
+<a href="#l930" class="line" id="l930">    930</a>                 result = eval(code)  # pylint: disable=eval-used
+<a href="#l931" class="line" id="l931">    931</a>             except SyntaxError:
+<a href="#l932" class="line" id="l932">    932</a>                 exec(code)  # pylint: disable=exec-used
+<a href="#l933" class="line" id="l933">    933</a>             else:
+<a href="#l934" class="line" id="l934">    934</a>                 if result and not quiet:
+<a href="#l935" class="line" id="l935">    935</a>                     p(result)
+<a href="#l936" class="line" id="l936">    936</a>         except Exception as err:  # pylint: disable=broad-except
+<a href="#l937" class="line" id="l937">    937</a>             fm.notify(&quot;The error `%s` was caused by evaluating the &quot;
+<a href="#l938" class="line" id="l938">    938</a>                       &quot;following code: `%s`&quot; % (err, code), bad=True)
+<a href="#l939" class="line" id="l939">    939</a> 
+<a href="#l940" class="line" id="l940">    940</a> 
+<a href="#l941" class="line" id="l941">    941</a> class rename(Command):
+<a href="#l942" class="line" id="l942">    942</a>     &quot;&quot;&quot;:rename &lt;newname&gt;
+<a href="#l943" class="line" id="l943">    943</a> 
+<a href="#l944" class="line" id="l944">    944</a>     Changes the name of the currently highlighted file to &lt;newname&gt;
+<a href="#l945" class="line" id="l945">    945</a>     &quot;&quot;&quot;
+<a href="#l946" class="line" id="l946">    946</a> 
+<a href="#l947" class="line" id="l947">    947</a>     def execute(self):
+<a href="#l948" class="line" id="l948">    948</a>         from ranger.container.file import File
+<a href="#l949" class="line" id="l949">    949</a>         from os import access
+<a href="#l950" class="line" id="l950">    950</a> 
+<a href="#l951" class="line" id="l951">    951</a>         new_name = self.rest(1)
+<a href="#l952" class="line" id="l952">    952</a> 
+<a href="#l953" class="line" id="l953">    953</a>         if not new_name:
+<a href="#l954" class="line" id="l954">    954</a>             return self.fm.notify(&#39;Syntax: rename &lt;newname&gt;&#39;, bad=True)
+<a href="#l955" class="line" id="l955">    955</a> 
+<a href="#l956" class="line" id="l956">    956</a>         if new_name == self.fm.thisfile.relative_path:
+<a href="#l957" class="line" id="l957">    957</a>             return None
+<a href="#l958" class="line" id="l958">    958</a> 
+<a href="#l959" class="line" id="l959">    959</a>         if access(new_name, os.F_OK):
+<a href="#l960" class="line" id="l960">    960</a>             return self.fm.notify(&quot;Can&#39;t rename: file already exists!&quot;, bad=True)
+<a href="#l961" class="line" id="l961">    961</a> 
+<a href="#l962" class="line" id="l962">    962</a>         if self.fm.rename(self.fm.thisfile, new_name):
+<a href="#l963" class="line" id="l963">    963</a>             file_new = File(new_name)
+<a href="#l964" class="line" id="l964">    964</a>             self.fm.bookmarks.update_path(self.fm.thisfile.path, file_new)
+<a href="#l965" class="line" id="l965">    965</a>             self.fm.tags.update_path(self.fm.thisfile.path, file_new.path)
+<a href="#l966" class="line" id="l966">    966</a>             self.fm.thisdir.pointed_obj = file_new
+<a href="#l967" class="line" id="l967">    967</a>             self.fm.thisfile = file_new
+<a href="#l968" class="line" id="l968">    968</a> 
+<a href="#l969" class="line" id="l969">    969</a>         return None
+<a href="#l970" class="line" id="l970">    970</a> 
+<a href="#l971" class="line" id="l971">    971</a>     def tab(self, tabnum):
+<a href="#l972" class="line" id="l972">    972</a>         return self._tab_directory_content()
+<a href="#l973" class="line" id="l973">    973</a> 
+<a href="#l974" class="line" id="l974">    974</a> 
+<a href="#l975" class="line" id="l975">    975</a> class rename_append(Command):
+<a href="#l976" class="line" id="l976">    976</a>     &quot;&quot;&quot;:rename_append [-FLAGS...]
+<a href="#l977" class="line" id="l977">    977</a> 
+<a href="#l978" class="line" id="l978">    978</a>     Opens the console with &quot;:rename &lt;current file&gt;&quot; with the cursor positioned
+<a href="#l979" class="line" id="l979">    979</a>     before the file extension.
+<a href="#l980" class="line" id="l980">    980</a> 
+<a href="#l981" class="line" id="l981">    981</a>     Flags:
+<a href="#l982" class="line" id="l982">    982</a>      -a    Position before all extensions
+<a href="#l983" class="line" id="l983">    983</a>      -r    Remove everything before extensions
+<a href="#l984" class="line" id="l984">    984</a>     &quot;&quot;&quot;
+<a href="#l985" class="line" id="l985">    985</a>     def __init__(self, *args, **kwargs):
+<a href="#l986" class="line" id="l986">    986</a>         super(rename_append, self).__init__(*args, **kwargs)
+<a href="#l987" class="line" id="l987">    987</a> 
+<a href="#l988" class="line" id="l988">    988</a>         flags, _ = self.parse_flags()
+<a href="#l989" class="line" id="l989">    989</a>         self._flag_ext_all = &#39;a&#39; in flags
+<a href="#l990" class="line" id="l990">    990</a>         self._flag_remove = &#39;r&#39; in flags
+<a href="#l991" class="line" id="l991">    991</a> 
+<a href="#l992" class="line" id="l992">    992</a>     def execute(self):
+<a href="#l993" class="line" id="l993">    993</a>         from ranger import MACRO_DELIMITER, MACRO_DELIMITER_ESC
+<a href="#l994" class="line" id="l994">    994</a> 
+<a href="#l995" class="line" id="l995">    995</a>         tfile = self.fm.thisfile
+<a href="#l996" class="line" id="l996">    996</a>         relpath = tfile.relative_path.replace(MACRO_DELIMITER, MACRO_DELIMITER_ESC)
+<a href="#l997" class="line" id="l997">    997</a>         basename = tfile.basename.replace(MACRO_DELIMITER, MACRO_DELIMITER_ESC)
+<a href="#l998" class="line" id="l998">    998</a> 
+<a href="#l999" class="line" id="l999">    999</a>         if basename.find(&#39;.&#39;) &lt;= 0:
+<a href="#l1000" class="line" id="l1000">   1000</a>             self.fm.open_console(&#39;rename &#39; + relpath)
+<a href="#l1001" class="line" id="l1001">   1001</a>             return
+<a href="#l1002" class="line" id="l1002">   1002</a> 
+<a href="#l1003" class="line" id="l1003">   1003</a>         if self._flag_ext_all:
+<a href="#l1004" class="line" id="l1004">   1004</a>             pos_ext = re.search(r&#39;[^.]+&#39;, basename).end(0)
+<a href="#l1005" class="line" id="l1005">   1005</a>         else:
+<a href="#l1006" class="line" id="l1006">   1006</a>             pos_ext = basename.rindex(&#39;.&#39;)
+<a href="#l1007" class="line" id="l1007">   1007</a>         pos = len(relpath) - len(basename) + pos_ext
+<a href="#l1008" class="line" id="l1008">   1008</a> 
+<a href="#l1009" class="line" id="l1009">   1009</a>         if self._flag_remove:
+<a href="#l1010" class="line" id="l1010">   1010</a>             relpath = relpath[:-len(basename)] + basename[pos_ext:]
+<a href="#l1011" class="line" id="l1011">   1011</a>             pos -= pos_ext
+<a href="#l1012" class="line" id="l1012">   1012</a> 
+<a href="#l1013" class="line" id="l1013">   1013</a>         self.fm.open_console(&#39;rename &#39; + relpath, position=(7 + pos))
+<a href="#l1014" class="line" id="l1014">   1014</a> 
+<a href="#l1015" class="line" id="l1015">   1015</a> 
+<a href="#l1016" class="line" id="l1016">   1016</a> class chmod(Command):
+<a href="#l1017" class="line" id="l1017">   1017</a>     &quot;&quot;&quot;:chmod &lt;octal number&gt;
+<a href="#l1018" class="line" id="l1018">   1018</a> 
+<a href="#l1019" class="line" id="l1019">   1019</a>     Sets the permissions of the selection to the octal number.
+<a href="#l1020" class="line" id="l1020">   1020</a> 
+<a href="#l1021" class="line" id="l1021">   1021</a>     The octal number is between 0 and 777. The digits specify the
+<a href="#l1022" class="line" id="l1022">   1022</a>     permissions for the user, the group and others.
+<a href="#l1023" class="line" id="l1023">   1023</a> 
+<a href="#l1024" class="line" id="l1024">   1024</a>     A 1 permits execution, a 2 permits writing, a 4 permits reading.
+<a href="#l1025" class="line" id="l1025">   1025</a>     Add those numbers to combine them. So a 7 permits everything.
+<a href="#l1026" class="line" id="l1026">   1026</a>     &quot;&quot;&quot;
+<a href="#l1027" class="line" id="l1027">   1027</a> 
+<a href="#l1028" class="line" id="l1028">   1028</a>     def execute(self):
+<a href="#l1029" class="line" id="l1029">   1029</a>         mode_str = self.rest(1)
+<a href="#l1030" class="line" id="l1030">   1030</a>         if not mode_str:
+<a href="#l1031" class="line" id="l1031">   1031</a>             if not self.quantifier:
+<a href="#l1032" class="line" id="l1032">   1032</a>                 self.fm.notify(&quot;Syntax: chmod &lt;octal number&gt;&quot;, bad=True)
+<a href="#l1033" class="line" id="l1033">   1033</a>                 return
+<a href="#l1034" class="line" id="l1034">   1034</a>             mode_str = str(self.quantifier)
+<a href="#l1035" class="line" id="l1035">   1035</a> 
+<a href="#l1036" class="line" id="l1036">   1036</a>         try:
+<a href="#l1037" class="line" id="l1037">   1037</a>             mode = int(mode_str, 8)
+<a href="#l1038" class="line" id="l1038">   1038</a>             if mode &lt; 0 or mode &gt; 0o777:
+<a href="#l1039" class="line" id="l1039">   1039</a>                 raise ValueError
+<a href="#l1040" class="line" id="l1040">   1040</a>         except ValueError:
+<a href="#l1041" class="line" id="l1041">   1041</a>             self.fm.notify(&quot;Need an octal number between 0 and 777!&quot;, bad=True)
+<a href="#l1042" class="line" id="l1042">   1042</a>             return
+<a href="#l1043" class="line" id="l1043">   1043</a> 
+<a href="#l1044" class="line" id="l1044">   1044</a>         for fobj in self.fm.thistab.get_selection():
+<a href="#l1045" class="line" id="l1045">   1045</a>             try:
+<a href="#l1046" class="line" id="l1046">   1046</a>                 os.chmod(fobj.path, mode)
+<a href="#l1047" class="line" id="l1047">   1047</a>             except OSError as ex:
+<a href="#l1048" class="line" id="l1048">   1048</a>                 self.fm.notify(ex)
+<a href="#l1049" class="line" id="l1049">   1049</a> 
+<a href="#l1050" class="line" id="l1050">   1050</a>         # reloading directory.  maybe its better to reload the selected
+<a href="#l1051" class="line" id="l1051">   1051</a>         # files only.
+<a href="#l1052" class="line" id="l1052">   1052</a>         self.fm.thisdir.content_outdated = True
+<a href="#l1053" class="line" id="l1053">   1053</a> 
+<a href="#l1054" class="line" id="l1054">   1054</a> 
+<a href="#l1055" class="line" id="l1055">   1055</a> class bulkrename(Command):
+<a href="#l1056" class="line" id="l1056">   1056</a>     &quot;&quot;&quot;:bulkrename
+<a href="#l1057" class="line" id="l1057">   1057</a> 
+<a href="#l1058" class="line" id="l1058">   1058</a>     This command opens a list of selected files in an external editor.
+<a href="#l1059" class="line" id="l1059">   1059</a>     After you edit and save the file, it will generate a shell script
+<a href="#l1060" class="line" id="l1060">   1060</a>     which does bulk renaming according to the changes you did in the file.
+<a href="#l1061" class="line" id="l1061">   1061</a> 
+<a href="#l1062" class="line" id="l1062">   1062</a>     This shell script is opened in an editor for you to review.
+<a href="#l1063" class="line" id="l1063">   1063</a>     After you close it, it will be executed.
+<a href="#l1064" class="line" id="l1064">   1064</a>     &quot;&quot;&quot;
+<a href="#l1065" class="line" id="l1065">   1065</a> 
+<a href="#l1066" class="line" id="l1066">   1066</a>     def execute(self):  # pylint: disable=too-many-locals,too-many-statements
+<a href="#l1067" class="line" id="l1067">   1067</a>         import sys
+<a href="#l1068" class="line" id="l1068">   1068</a>         import tempfile
+<a href="#l1069" class="line" id="l1069">   1069</a>         from ranger.container.file import File
+<a href="#l1070" class="line" id="l1070">   1070</a>         from ranger.ext.shell_escape import shell_escape as esc
+<a href="#l1071" class="line" id="l1071">   1071</a>         py3 = sys.version_info[0] &gt;= 3
+<a href="#l1072" class="line" id="l1072">   1072</a> 
+<a href="#l1073" class="line" id="l1073">   1073</a>         # Create and edit the file list
+<a href="#l1074" class="line" id="l1074">   1074</a>         filenames = [f.relative_path for f in self.fm.thistab.get_selection()]
+<a href="#l1075" class="line" id="l1075">   1075</a>         listfile = tempfile.NamedTemporaryFile(delete=False)
+<a href="#l1076" class="line" id="l1076">   1076</a>         listpath = listfile.name
+<a href="#l1077" class="line" id="l1077">   1077</a> 
+<a href="#l1078" class="line" id="l1078">   1078</a>         if py3:
+<a href="#l1079" class="line" id="l1079">   1079</a>             listfile.write(&quot;\n&quot;.join(filenames).encode(&quot;utf-8&quot;))
+<a href="#l1080" class="line" id="l1080">   1080</a>         else:
+<a href="#l1081" class="line" id="l1081">   1081</a>             listfile.write(&quot;\n&quot;.join(filenames))
+<a href="#l1082" class="line" id="l1082">   1082</a>         listfile.close()
+<a href="#l1083" class="line" id="l1083">   1083</a>         self.fm.execute_file([File(listpath)], app=&#39;editor&#39;)
+<a href="#l1084" class="line" id="l1084">   1084</a>         listfile = open(listpath, &#39;r&#39;)
+<a href="#l1085" class="line" id="l1085">   1085</a>         new_filenames = listfile.read().split(&quot;\n&quot;)
+<a href="#l1086" class="line" id="l1086">   1086</a>         listfile.close()
+<a href="#l1087" class="line" id="l1087">   1087</a>         os.unlink(listpath)
+<a href="#l1088" class="line" id="l1088">   1088</a>         if all(a == b for a, b in zip(filenames, new_filenames)):
+<a href="#l1089" class="line" id="l1089">   1089</a>             self.fm.notify(&quot;No renaming to be done!&quot;)
+<a href="#l1090" class="line" id="l1090">   1090</a>             return
+<a href="#l1091" class="line" id="l1091">   1091</a> 
+<a href="#l1092" class="line" id="l1092">   1092</a>         # Generate script
+<a href="#l1093" class="line" id="l1093">   1093</a>         cmdfile = tempfile.NamedTemporaryFile()
+<a href="#l1094" class="line" id="l1094">   1094</a>         script_lines = []
+<a href="#l1095" class="line" id="l1095">   1095</a>         script_lines.append(&quot;# This file will be executed when you close the editor.\n&quot;)
+<a href="#l1096" class="line" id="l1096">   1096</a>         script_lines.append(&quot;# Please double-check everything, clear the file to abort.\n&quot;)
+<a href="#l1097" class="line" id="l1097">   1097</a>         script_lines.extend(&quot;mv -vi -- %s %s\n&quot; % (esc(old), esc(new))
+<a href="#l1098" class="line" id="l1098">   1098</a>                             for old, new in zip(filenames, new_filenames) if old != new)
+<a href="#l1099" class="line" id="l1099">   1099</a>         script_content = &quot;&quot;.join(script_lines)
+<a href="#l1100" class="line" id="l1100">   1100</a>         if py3:
+<a href="#l1101" class="line" id="l1101">   1101</a>             cmdfile.write(script_content.encode(&quot;utf-8&quot;))
+<a href="#l1102" class="line" id="l1102">   1102</a>         else:
+<a href="#l1103" class="line" id="l1103">   1103</a>             cmdfile.write(script_content)
+<a href="#l1104" class="line" id="l1104">   1104</a>         cmdfile.flush()
+<a href="#l1105" class="line" id="l1105">   1105</a> 
+<a href="#l1106" class="line" id="l1106">   1106</a>         # Open the script and let the user review it, then check if the script
+<a href="#l1107" class="line" id="l1107">   1107</a>         # was modified by the user
+<a href="#l1108" class="line" id="l1108">   1108</a>         self.fm.execute_file([File(cmdfile.name)], app=&#39;editor&#39;)
+<a href="#l1109" class="line" id="l1109">   1109</a>         cmdfile.seek(0)
+<a href="#l1110" class="line" id="l1110">   1110</a>         script_was_edited = (script_content != cmdfile.read())
+<a href="#l1111" class="line" id="l1111">   1111</a> 
+<a href="#l1112" class="line" id="l1112">   1112</a>         # Do the renaming
+<a href="#l1113" class="line" id="l1113">   1113</a>         self.fm.run([&#39;/bin/sh&#39;, cmdfile.name], flags=&#39;w&#39;)
+<a href="#l1114" class="line" id="l1114">   1114</a>         cmdfile.close()
+<a href="#l1115" class="line" id="l1115">   1115</a> 
+<a href="#l1116" class="line" id="l1116">   1116</a>         # Retag the files, but only if the script wasn&#39;t changed during review,
+<a href="#l1117" class="line" id="l1117">   1117</a>         # because only then we know which are the source and destination files.
+<a href="#l1118" class="line" id="l1118">   1118</a>         if not script_was_edited:
+<a href="#l1119" class="line" id="l1119">   1119</a>             tags_changed = False
+<a href="#l1120" class="line" id="l1120">   1120</a>             for old, new in zip(filenames, new_filenames):
+<a href="#l1121" class="line" id="l1121">   1121</a>                 if old != new:
+<a href="#l1122" class="line" id="l1122">   1122</a>                     oldpath = self.fm.thisdir.path + &#39;/&#39; + old
+<a href="#l1123" class="line" id="l1123">   1123</a>                     newpath = self.fm.thisdir.path + &#39;/&#39; + new
+<a href="#l1124" class="line" id="l1124">   1124</a>                     if oldpath in self.fm.tags:
+<a href="#l1125" class="line" id="l1125">   1125</a>                         old_tag = self.fm.tags.tags[oldpath]
+<a href="#l1126" class="line" id="l1126">   1126</a>                         self.fm.tags.remove(oldpath)
+<a href="#l1127" class="line" id="l1127">   1127</a>                         self.fm.tags.tags[newpath] = old_tag
+<a href="#l1128" class="line" id="l1128">   1128</a>                         tags_changed = True
+<a href="#l1129" class="line" id="l1129">   1129</a>             if tags_changed:
+<a href="#l1130" class="line" id="l1130">   1130</a>                 self.fm.tags.dump()
+<a href="#l1131" class="line" id="l1131">   1131</a>         else:
+<a href="#l1132" class="line" id="l1132">   1132</a>             fm.notify(&quot;files have not been retagged&quot;)
+<a href="#l1133" class="line" id="l1133">   1133</a> 
+<a href="#l1134" class="line" id="l1134">   1134</a> 
+<a href="#l1135" class="line" id="l1135">   1135</a> class relink(Command):
+<a href="#l1136" class="line" id="l1136">   1136</a>     &quot;&quot;&quot;:relink &lt;newpath&gt;
+<a href="#l1137" class="line" id="l1137">   1137</a> 
+<a href="#l1138" class="line" id="l1138">   1138</a>     Changes the linked path of the currently highlighted symlink to &lt;newpath&gt;
+<a href="#l1139" class="line" id="l1139">   1139</a>     &quot;&quot;&quot;
+<a href="#l1140" class="line" id="l1140">   1140</a> 
+<a href="#l1141" class="line" id="l1141">   1141</a>     def execute(self):
+<a href="#l1142" class="line" id="l1142">   1142</a>         new_path = self.rest(1)
+<a href="#l1143" class="line" id="l1143">   1143</a>         tfile = self.fm.thisfile
+<a href="#l1144" class="line" id="l1144">   1144</a> 
+<a href="#l1145" class="line" id="l1145">   1145</a>         if not new_path:
+<a href="#l1146" class="line" id="l1146">   1146</a>             return self.fm.notify(&#39;Syntax: relink &lt;newpath&gt;&#39;, bad=True)
+<a href="#l1147" class="line" id="l1147">   1147</a> 
+<a href="#l1148" class="line" id="l1148">   1148</a>         if not tfile.is_link:
+<a href="#l1149" class="line" id="l1149">   1149</a>             return self.fm.notify(&#39;%s is not a symlink!&#39; % tfile.relative_path, bad=True)
+<a href="#l1150" class="line" id="l1150">   1150</a> 
+<a href="#l1151" class="line" id="l1151">   1151</a>         if new_path == os.readlink(tfile.path):
+<a href="#l1152" class="line" id="l1152">   1152</a>             return None
+<a href="#l1153" class="line" id="l1153">   1153</a> 
+<a href="#l1154" class="line" id="l1154">   1154</a>         try:
+<a href="#l1155" class="line" id="l1155">   1155</a>             os.remove(tfile.path)
+<a href="#l1156" class="line" id="l1156">   1156</a>             os.symlink(new_path, tfile.path)
+<a href="#l1157" class="line" id="l1157">   1157</a>         except OSError as err:
+<a href="#l1158" class="line" id="l1158">   1158</a>             self.fm.notify(err)
+<a href="#l1159" class="line" id="l1159">   1159</a> 
+<a href="#l1160" class="line" id="l1160">   1160</a>         self.fm.reset()
+<a href="#l1161" class="line" id="l1161">   1161</a>         self.fm.thisdir.pointed_obj = tfile
+<a href="#l1162" class="line" id="l1162">   1162</a>         self.fm.thisfile = tfile
+<a href="#l1163" class="line" id="l1163">   1163</a> 
+<a href="#l1164" class="line" id="l1164">   1164</a>         return None
+<a href="#l1165" class="line" id="l1165">   1165</a> 
+<a href="#l1166" class="line" id="l1166">   1166</a>     def tab(self, tabnum):
+<a href="#l1167" class="line" id="l1167">   1167</a>         if not self.rest(1):
+<a href="#l1168" class="line" id="l1168">   1168</a>             return self.line + os.readlink(self.fm.thisfile.path)
+<a href="#l1169" class="line" id="l1169">   1169</a>         return self._tab_directory_content()
+<a href="#l1170" class="line" id="l1170">   1170</a> 
+<a href="#l1171" class="line" id="l1171">   1171</a> 
+<a href="#l1172" class="line" id="l1172">   1172</a> class help_(Command):
+<a href="#l1173" class="line" id="l1173">   1173</a>     &quot;&quot;&quot;:help
+<a href="#l1174" class="line" id="l1174">   1174</a> 
+<a href="#l1175" class="line" id="l1175">   1175</a>     Display ranger&#39;s manual page.
+<a href="#l1176" class="line" id="l1176">   1176</a>     &quot;&quot;&quot;
+<a href="#l1177" class="line" id="l1177">   1177</a>     name = &#39;help&#39;
+<a href="#l1178" class="line" id="l1178">   1178</a> 
+<a href="#l1179" class="line" id="l1179">   1179</a>     def execute(self):
+<a href="#l1180" class="line" id="l1180">   1180</a>         def callback(answer):
+<a href="#l1181" class="line" id="l1181">   1181</a>             if answer == &quot;q&quot;:
+<a href="#l1182" class="line" id="l1182">   1182</a>                 return
+<a href="#l1183" class="line" id="l1183">   1183</a>             elif answer == &quot;m&quot;:
+<a href="#l1184" class="line" id="l1184">   1184</a>                 self.fm.display_help()
+<a href="#l1185" class="line" id="l1185">   1185</a>             elif answer == &quot;c&quot;:
+<a href="#l1186" class="line" id="l1186">   1186</a>                 self.fm.dump_commands()
+<a href="#l1187" class="line" id="l1187">   1187</a>             elif answer == &quot;k&quot;:
+<a href="#l1188" class="line" id="l1188">   1188</a>                 self.fm.dump_keybindings()
+<a href="#l1189" class="line" id="l1189">   1189</a>             elif answer == &quot;s&quot;:
+<a href="#l1190" class="line" id="l1190">   1190</a>                 self.fm.dump_settings()
+<a href="#l1191" class="line" id="l1191">   1191</a> 
+<a href="#l1192" class="line" id="l1192">   1192</a>         self.fm.ui.console.ask(
+<a href="#l1193" class="line" id="l1193">   1193</a>             &quot;View [m]an page, [k]ey bindings, [c]ommands or [s]ettings? (press q to abort)&quot;,
+<a href="#l1194" class="line" id="l1194">   1194</a>             callback,
+<a href="#l1195" class="line" id="l1195">   1195</a>             list(&quot;mqkcs&quot;)
+<a href="#l1196" class="line" id="l1196">   1196</a>         )
+<a href="#l1197" class="line" id="l1197">   1197</a> 
+<a href="#l1198" class="line" id="l1198">   1198</a> 
+<a href="#l1199" class="line" id="l1199">   1199</a> class copymap(Command):
+<a href="#l1200" class="line" id="l1200">   1200</a>     &quot;&quot;&quot;:copymap &lt;keys&gt; &lt;newkeys1&gt; [&lt;newkeys2&gt;...]
+<a href="#l1201" class="line" id="l1201">   1201</a> 
+<a href="#l1202" class="line" id="l1202">   1202</a>     Copies a &quot;browser&quot; keybinding from &lt;keys&gt; to &lt;newkeys&gt;
+<a href="#l1203" class="line" id="l1203">   1203</a>     &quot;&quot;&quot;
+<a href="#l1204" class="line" id="l1204">   1204</a>     context = &#39;browser&#39;
+<a href="#l1205" class="line" id="l1205">   1205</a> 
+<a href="#l1206" class="line" id="l1206">   1206</a>     def execute(self):
+<a href="#l1207" class="line" id="l1207">   1207</a>         if not self.arg(1) or not self.arg(2):
+<a href="#l1208" class="line" id="l1208">   1208</a>             return self.fm.notify(&quot;Not enough arguments&quot;, bad=True)
+<a href="#l1209" class="line" id="l1209">   1209</a> 
+<a href="#l1210" class="line" id="l1210">   1210</a>         for arg in self.args[2:]:
+<a href="#l1211" class="line" id="l1211">   1211</a>             self.fm.ui.keymaps.copy(self.context, self.arg(1), arg)
+<a href="#l1212" class="line" id="l1212">   1212</a> 
+<a href="#l1213" class="line" id="l1213">   1213</a>         return None
+<a href="#l1214" class="line" id="l1214">   1214</a> 
+<a href="#l1215" class="line" id="l1215">   1215</a> 
+<a href="#l1216" class="line" id="l1216">   1216</a> class copypmap(copymap):
+<a href="#l1217" class="line" id="l1217">   1217</a>     &quot;&quot;&quot;:copypmap &lt;keys&gt; &lt;newkeys1&gt; [&lt;newkeys2&gt;...]
+<a href="#l1218" class="line" id="l1218">   1218</a> 
+<a href="#l1219" class="line" id="l1219">   1219</a>     Copies a &quot;pager&quot; keybinding from &lt;keys&gt; to &lt;newkeys&gt;
+<a href="#l1220" class="line" id="l1220">   1220</a>     &quot;&quot;&quot;
+<a href="#l1221" class="line" id="l1221">   1221</a>     context = &#39;pager&#39;
+<a href="#l1222" class="line" id="l1222">   1222</a> 
+<a href="#l1223" class="line" id="l1223">   1223</a> 
+<a href="#l1224" class="line" id="l1224">   1224</a> class copycmap(copymap):
+<a href="#l1225" class="line" id="l1225">   1225</a>     &quot;&quot;&quot;:copycmap &lt;keys&gt; &lt;newkeys1&gt; [&lt;newkeys2&gt;...]
+<a href="#l1226" class="line" id="l1226">   1226</a> 
+<a href="#l1227" class="line" id="l1227">   1227</a>     Copies a &quot;console&quot; keybinding from &lt;keys&gt; to &lt;newkeys&gt;
+<a href="#l1228" class="line" id="l1228">   1228</a>     &quot;&quot;&quot;
+<a href="#l1229" class="line" id="l1229">   1229</a>     context = &#39;console&#39;
+<a href="#l1230" class="line" id="l1230">   1230</a> 
+<a href="#l1231" class="line" id="l1231">   1231</a> 
+<a href="#l1232" class="line" id="l1232">   1232</a> class copytmap(copymap):
+<a href="#l1233" class="line" id="l1233">   1233</a>     &quot;&quot;&quot;:copycmap &lt;keys&gt; &lt;newkeys1&gt; [&lt;newkeys2&gt;...]
+<a href="#l1234" class="line" id="l1234">   1234</a> 
+<a href="#l1235" class="line" id="l1235">   1235</a>     Copies a &quot;taskview&quot; keybinding from &lt;keys&gt; to &lt;newkeys&gt;
+<a href="#l1236" class="line" id="l1236">   1236</a>     &quot;&quot;&quot;
+<a href="#l1237" class="line" id="l1237">   1237</a>     context = &#39;taskview&#39;
+<a href="#l1238" class="line" id="l1238">   1238</a> 
+<a href="#l1239" class="line" id="l1239">   1239</a> 
+<a href="#l1240" class="line" id="l1240">   1240</a> class unmap(Command):
+<a href="#l1241" class="line" id="l1241">   1241</a>     &quot;&quot;&quot;:unmap &lt;keys&gt; [&lt;keys2&gt;, ...]
+<a href="#l1242" class="line" id="l1242">   1242</a> 
+<a href="#l1243" class="line" id="l1243">   1243</a>     Remove the given &quot;browser&quot; mappings
+<a href="#l1244" class="line" id="l1244">   1244</a>     &quot;&quot;&quot;
+<a href="#l1245" class="line" id="l1245">   1245</a>     context = &#39;browser&#39;
+<a href="#l1246" class="line" id="l1246">   1246</a> 
+<a href="#l1247" class="line" id="l1247">   1247</a>     def execute(self):
+<a href="#l1248" class="line" id="l1248">   1248</a>         for arg in self.args[1:]:
+<a href="#l1249" class="line" id="l1249">   1249</a>             self.fm.ui.keymaps.unbind(self.context, arg)
+<a href="#l1250" class="line" id="l1250">   1250</a> 
+<a href="#l1251" class="line" id="l1251">   1251</a> 
+<a href="#l1252" class="line" id="l1252">   1252</a> class cunmap(unmap):
+<a href="#l1253" class="line" id="l1253">   1253</a>     &quot;&quot;&quot;:cunmap &lt;keys&gt; [&lt;keys2&gt;, ...]
+<a href="#l1254" class="line" id="l1254">   1254</a> 
+<a href="#l1255" class="line" id="l1255">   1255</a>     Remove the given &quot;console&quot; mappings
+<a href="#l1256" class="line" id="l1256">   1256</a>     &quot;&quot;&quot;
+<a href="#l1257" class="line" id="l1257">   1257</a>     context = &#39;browser&#39;
+<a href="#l1258" class="line" id="l1258">   1258</a> 
+<a href="#l1259" class="line" id="l1259">   1259</a> 
+<a href="#l1260" class="line" id="l1260">   1260</a> class punmap(unmap):
+<a href="#l1261" class="line" id="l1261">   1261</a>     &quot;&quot;&quot;:punmap &lt;keys&gt; [&lt;keys2&gt;, ...]
+<a href="#l1262" class="line" id="l1262">   1262</a> 
+<a href="#l1263" class="line" id="l1263">   1263</a>     Remove the given &quot;pager&quot; mappings
+<a href="#l1264" class="line" id="l1264">   1264</a>     &quot;&quot;&quot;
+<a href="#l1265" class="line" id="l1265">   1265</a>     context = &#39;pager&#39;
+<a href="#l1266" class="line" id="l1266">   1266</a> 
+<a href="#l1267" class="line" id="l1267">   1267</a> 
+<a href="#l1268" class="line" id="l1268">   1268</a> class tunmap(unmap):
+<a href="#l1269" class="line" id="l1269">   1269</a>     &quot;&quot;&quot;:tunmap &lt;keys&gt; [&lt;keys2&gt;, ...]
+<a href="#l1270" class="line" id="l1270">   1270</a> 
+<a href="#l1271" class="line" id="l1271">   1271</a>     Remove the given &quot;taskview&quot; mappings
+<a href="#l1272" class="line" id="l1272">   1272</a>     &quot;&quot;&quot;
+<a href="#l1273" class="line" id="l1273">   1273</a>     context = &#39;taskview&#39;
+<a href="#l1274" class="line" id="l1274">   1274</a> 
+<a href="#l1275" class="line" id="l1275">   1275</a> 
+<a href="#l1276" class="line" id="l1276">   1276</a> class map_(Command):
+<a href="#l1277" class="line" id="l1277">   1277</a>     &quot;&quot;&quot;:map &lt;keysequence&gt; &lt;command&gt;
+<a href="#l1278" class="line" id="l1278">   1278</a> 
+<a href="#l1279" class="line" id="l1279">   1279</a>     Maps a command to a keysequence in the &quot;browser&quot; context.
+<a href="#l1280" class="line" id="l1280">   1280</a> 
+<a href="#l1281" class="line" id="l1281">   1281</a>     Example:
+<a href="#l1282" class="line" id="l1282">   1282</a>     map j move down
+<a href="#l1283" class="line" id="l1283">   1283</a>     map J move down 10
+<a href="#l1284" class="line" id="l1284">   1284</a>     &quot;&quot;&quot;
+<a href="#l1285" class="line" id="l1285">   1285</a>     name = &#39;map&#39;
+<a href="#l1286" class="line" id="l1286">   1286</a>     context = &#39;browser&#39;
+<a href="#l1287" class="line" id="l1287">   1287</a>     resolve_macros = False
+<a href="#l1288" class="line" id="l1288">   1288</a> 
+<a href="#l1289" class="line" id="l1289">   1289</a>     def execute(self):
+<a href="#l1290" class="line" id="l1290">   1290</a>         if not self.arg(1) or not self.arg(2):
+<a href="#l1291" class="line" id="l1291">   1291</a>             self.fm.notify(&quot;Syntax: {0} &lt;keysequence&gt; &lt;command&gt;&quot;.format(self.get_name()), bad=True)
+<a href="#l1292" class="line" id="l1292">   1292</a>             return
+<a href="#l1293" class="line" id="l1293">   1293</a> 
+<a href="#l1294" class="line" id="l1294">   1294</a>         self.fm.ui.keymaps.bind(self.context, self.arg(1), self.rest(2))
+<a href="#l1295" class="line" id="l1295">   1295</a> 
+<a href="#l1296" class="line" id="l1296">   1296</a> 
+<a href="#l1297" class="line" id="l1297">   1297</a> class cmap(map_):
+<a href="#l1298" class="line" id="l1298">   1298</a>     &quot;&quot;&quot;:cmap &lt;keysequence&gt; &lt;command&gt;
+<a href="#l1299" class="line" id="l1299">   1299</a> 
+<a href="#l1300" class="line" id="l1300">   1300</a>     Maps a command to a keysequence in the &quot;console&quot; context.
+<a href="#l1301" class="line" id="l1301">   1301</a> 
+<a href="#l1302" class="line" id="l1302">   1302</a>     Example:
+<a href="#l1303" class="line" id="l1303">   1303</a>     cmap &lt;ESC&gt; console_close
+<a href="#l1304" class="line" id="l1304">   1304</a>     cmap &lt;C-x&gt; console_type test
+<a href="#l1305" class="line" id="l1305">   1305</a>     &quot;&quot;&quot;
+<a href="#l1306" class="line" id="l1306">   1306</a>     context = &#39;console&#39;
+<a href="#l1307" class="line" id="l1307">   1307</a> 
+<a href="#l1308" class="line" id="l1308">   1308</a> 
+<a href="#l1309" class="line" id="l1309">   1309</a> class tmap(map_):
+<a href="#l1310" class="line" id="l1310">   1310</a>     &quot;&quot;&quot;:tmap &lt;keysequence&gt; &lt;command&gt;
+<a href="#l1311" class="line" id="l1311">   1311</a> 
+<a href="#l1312" class="line" id="l1312">   1312</a>     Maps a command to a keysequence in the &quot;taskview&quot; context.
+<a href="#l1313" class="line" id="l1313">   1313</a>     &quot;&quot;&quot;
+<a href="#l1314" class="line" id="l1314">   1314</a>     context = &#39;taskview&#39;
+<a href="#l1315" class="line" id="l1315">   1315</a> 
+<a href="#l1316" class="line" id="l1316">   1316</a> 
+<a href="#l1317" class="line" id="l1317">   1317</a> class pmap(map_):
+<a href="#l1318" class="line" id="l1318">   1318</a>     &quot;&quot;&quot;:pmap &lt;keysequence&gt; &lt;command&gt;
+<a href="#l1319" class="line" id="l1319">   1319</a> 
+<a href="#l1320" class="line" id="l1320">   1320</a>     Maps a command to a keysequence in the &quot;pager&quot; context.
+<a href="#l1321" class="line" id="l1321">   1321</a>     &quot;&quot;&quot;
+<a href="#l1322" class="line" id="l1322">   1322</a>     context = &#39;pager&#39;
+<a href="#l1323" class="line" id="l1323">   1323</a> 
+<a href="#l1324" class="line" id="l1324">   1324</a> 
+<a href="#l1325" class="line" id="l1325">   1325</a> class scout(Command):
+<a href="#l1326" class="line" id="l1326">   1326</a>     &quot;&quot;&quot;:scout [-FLAGS...] &lt;pattern&gt;
+<a href="#l1327" class="line" id="l1327">   1327</a> 
+<a href="#l1328" class="line" id="l1328">   1328</a>     Swiss army knife command for searching, traveling and filtering files.
+<a href="#l1329" class="line" id="l1329">   1329</a> 
+<a href="#l1330" class="line" id="l1330">   1330</a>     Flags:
+<a href="#l1331" class="line" id="l1331">   1331</a>      -a    Automatically open a file on unambiguous match
+<a href="#l1332" class="line" id="l1332">   1332</a>      -e    Open the selected file when pressing enter
+<a href="#l1333" class="line" id="l1333">   1333</a>      -f    Filter files that match the current search pattern
+<a href="#l1334" class="line" id="l1334">   1334</a>      -g    Interpret pattern as a glob pattern
+<a href="#l1335" class="line" id="l1335">   1335</a>      -i    Ignore the letter case of the files
+<a href="#l1336" class="line" id="l1336">   1336</a>      -k    Keep the console open when changing a directory with the command
+<a href="#l1337" class="line" id="l1337">   1337</a>      -l    Letter skipping; e.g. allow &quot;rdme&quot; to match the file &quot;readme&quot;
+<a href="#l1338" class="line" id="l1338">   1338</a>      -m    Mark the matching files after pressing enter
+<a href="#l1339" class="line" id="l1339">   1339</a>      -M    Unmark the matching files after pressing enter
+<a href="#l1340" class="line" id="l1340">   1340</a>      -p    Permanent filter: hide non-matching files after pressing enter
+<a href="#l1341" class="line" id="l1341">   1341</a>      -r    Interpret pattern as a regular expression pattern
+<a href="#l1342" class="line" id="l1342">   1342</a>      -s    Smart case; like -i unless pattern contains upper case letters
+<a href="#l1343" class="line" id="l1343">   1343</a>      -t    Apply filter and search pattern as you type
+<a href="#l1344" class="line" id="l1344">   1344</a>      -v    Inverts the match
+<a href="#l1345" class="line" id="l1345">   1345</a> 
+<a href="#l1346" class="line" id="l1346">   1346</a>     Multiple flags can be combined.  For example, &quot;:scout -gpt&quot; would create
+<a href="#l1347" class="line" id="l1347">   1347</a>     a :filter-like command using globbing.
+<a href="#l1348" class="line" id="l1348">   1348</a>     &quot;&quot;&quot;
+<a href="#l1349" class="line" id="l1349">   1349</a>     # pylint: disable=bad-whitespace
+<a href="#l1350" class="line" id="l1350">   1350</a>     AUTO_OPEN     = &#39;a&#39;
+<a href="#l1351" class="line" id="l1351">   1351</a>     OPEN_ON_ENTER = &#39;e&#39;
+<a href="#l1352" class="line" id="l1352">   1352</a>     FILTER        = &#39;f&#39;
+<a href="#l1353" class="line" id="l1353">   1353</a>     SM_GLOB       = &#39;g&#39;
+<a href="#l1354" class="line" id="l1354">   1354</a>     IGNORE_CASE   = &#39;i&#39;
+<a href="#l1355" class="line" id="l1355">   1355</a>     KEEP_OPEN     = &#39;k&#39;
+<a href="#l1356" class="line" id="l1356">   1356</a>     SM_LETTERSKIP = &#39;l&#39;
+<a href="#l1357" class="line" id="l1357">   1357</a>     MARK          = &#39;m&#39;
+<a href="#l1358" class="line" id="l1358">   1358</a>     UNMARK        = &#39;M&#39;
+<a href="#l1359" class="line" id="l1359">   1359</a>     PERM_FILTER   = &#39;p&#39;
+<a href="#l1360" class="line" id="l1360">   1360</a>     SM_REGEX      = &#39;r&#39;
+<a href="#l1361" class="line" id="l1361">   1361</a>     SMART_CASE    = &#39;s&#39;
+<a href="#l1362" class="line" id="l1362">   1362</a>     AS_YOU_TYPE   = &#39;t&#39;
+<a href="#l1363" class="line" id="l1363">   1363</a>     INVERT        = &#39;v&#39;
+<a href="#l1364" class="line" id="l1364">   1364</a>     # pylint: enable=bad-whitespace
+<a href="#l1365" class="line" id="l1365">   1365</a> 
+<a href="#l1366" class="line" id="l1366">   1366</a>     def __init__(self, *args, **kwargs):
+<a href="#l1367" class="line" id="l1367">   1367</a>         super(scout, self).__init__(*args, **kwargs)
+<a href="#l1368" class="line" id="l1368">   1368</a>         self._regex = None
+<a href="#l1369" class="line" id="l1369">   1369</a>         self.flags, self.pattern = self.parse_flags()
+<a href="#l1370" class="line" id="l1370">   1370</a> 
+<a href="#l1371" class="line" id="l1371">   1371</a>     def execute(self):  # pylint: disable=too-many-branches
+<a href="#l1372" class="line" id="l1372">   1372</a>         thisdir = self.fm.thisdir
+<a href="#l1373" class="line" id="l1373">   1373</a>         flags = self.flags
+<a href="#l1374" class="line" id="l1374">   1374</a>         pattern = self.pattern
+<a href="#l1375" class="line" id="l1375">   1375</a>         regex = self._build_regex()
+<a href="#l1376" class="line" id="l1376">   1376</a>         count = self._count(move=True)
+<a href="#l1377" class="line" id="l1377">   1377</a> 
+<a href="#l1378" class="line" id="l1378">   1378</a>         self.fm.thistab.last_search = regex
+<a href="#l1379" class="line" id="l1379">   1379</a>         self.fm.set_search_method(order=&quot;search&quot;)
+<a href="#l1380" class="line" id="l1380">   1380</a> 
+<a href="#l1381" class="line" id="l1381">   1381</a>         if (self.MARK in flags or self.UNMARK in flags) and thisdir.files:
+<a href="#l1382" class="line" id="l1382">   1382</a>             value = flags.find(self.MARK) &gt; flags.find(self.UNMARK)
+<a href="#l1383" class="line" id="l1383">   1383</a>             if self.FILTER in flags:
+<a href="#l1384" class="line" id="l1384">   1384</a>                 for fobj in thisdir.files:
+<a href="#l1385" class="line" id="l1385">   1385</a>                     thisdir.mark_item(fobj, value)
+<a href="#l1386" class="line" id="l1386">   1386</a>             else:
+<a href="#l1387" class="line" id="l1387">   1387</a>                 for fobj in thisdir.files:
+<a href="#l1388" class="line" id="l1388">   1388</a>                     if regex.search(fobj.relative_path):
+<a href="#l1389" class="line" id="l1389">   1389</a>                         thisdir.mark_item(fobj, value)
+<a href="#l1390" class="line" id="l1390">   1390</a> 
+<a href="#l1391" class="line" id="l1391">   1391</a>         if self.PERM_FILTER in flags:
+<a href="#l1392" class="line" id="l1392">   1392</a>             thisdir.filter = regex if pattern else None
+<a href="#l1393" class="line" id="l1393">   1393</a> 
+<a href="#l1394" class="line" id="l1394">   1394</a>         # clean up:
+<a href="#l1395" class="line" id="l1395">   1395</a>         self.cancel()
+<a href="#l1396" class="line" id="l1396">   1396</a> 
+<a href="#l1397" class="line" id="l1397">   1397</a>         if self.OPEN_ON_ENTER in flags or \
+<a href="#l1398" class="line" id="l1398">   1398</a>                 (self.AUTO_OPEN in flags and count == 1):
+<a href="#l1399" class="line" id="l1399">   1399</a>             if pattern == &#39;..&#39;:
+<a href="#l1400" class="line" id="l1400">   1400</a>                 self.fm.cd(pattern)
+<a href="#l1401" class="line" id="l1401">   1401</a>             else:
+<a href="#l1402" class="line" id="l1402">   1402</a>                 self.fm.move(right=1)
+<a href="#l1403" class="line" id="l1403">   1403</a>                 if self.quickly_executed:
+<a href="#l1404" class="line" id="l1404">   1404</a>                     self.fm.block_input(0.5)
+<a href="#l1405" class="line" id="l1405">   1405</a> 
+<a href="#l1406" class="line" id="l1406">   1406</a>         if self.KEEP_OPEN in flags and thisdir != self.fm.thisdir:
+<a href="#l1407" class="line" id="l1407">   1407</a>             # reopen the console:
+<a href="#l1408" class="line" id="l1408">   1408</a>             if not pattern:
+<a href="#l1409" class="line" id="l1409">   1409</a>                 self.fm.open_console(self.line)
+<a href="#l1410" class="line" id="l1410">   1410</a>             else:
+<a href="#l1411" class="line" id="l1411">   1411</a>                 self.fm.open_console(self.line[0:-len(pattern)])
+<a href="#l1412" class="line" id="l1412">   1412</a> 
+<a href="#l1413" class="line" id="l1413">   1413</a>         if self.quickly_executed and thisdir != self.fm.thisdir and pattern != &quot;..&quot;:
+<a href="#l1414" class="line" id="l1414">   1414</a>             self.fm.block_input(0.5)
+<a href="#l1415" class="line" id="l1415">   1415</a> 
+<a href="#l1416" class="line" id="l1416">   1416</a>     def cancel(self):
+<a href="#l1417" class="line" id="l1417">   1417</a>         self.fm.thisdir.temporary_filter = None
+<a href="#l1418" class="line" id="l1418">   1418</a>         self.fm.thisdir.refilter()
+<a href="#l1419" class="line" id="l1419">   1419</a> 
+<a href="#l1420" class="line" id="l1420">   1420</a>     def quick(self):
+<a href="#l1421" class="line" id="l1421">   1421</a>         asyoutype = self.AS_YOU_TYPE in self.flags
+<a href="#l1422" class="line" id="l1422">   1422</a>         if self.FILTER in self.flags:
+<a href="#l1423" class="line" id="l1423">   1423</a>             self.fm.thisdir.temporary_filter = self._build_regex()
+<a href="#l1424" class="line" id="l1424">   1424</a>         if self.PERM_FILTER in self.flags and asyoutype:
+<a href="#l1425" class="line" id="l1425">   1425</a>             self.fm.thisdir.filter = self._build_regex()
+<a href="#l1426" class="line" id="l1426">   1426</a>         if self.FILTER in self.flags or self.PERM_FILTER in self.flags:
+<a href="#l1427" class="line" id="l1427">   1427</a>             self.fm.thisdir.refilter()
+<a href="#l1428" class="line" id="l1428">   1428</a>         if self._count(move=asyoutype) == 1 and self.AUTO_OPEN in self.flags:
+<a href="#l1429" class="line" id="l1429">   1429</a>             return True
+<a href="#l1430" class="line" id="l1430">   1430</a>         return False
+<a href="#l1431" class="line" id="l1431">   1431</a> 
+<a href="#l1432" class="line" id="l1432">   1432</a>     def tab(self, tabnum):
+<a href="#l1433" class="line" id="l1433">   1433</a>         self._count(move=True, offset=tabnum)
+<a href="#l1434" class="line" id="l1434">   1434</a> 
+<a href="#l1435" class="line" id="l1435">   1435</a>     def _build_regex(self):
+<a href="#l1436" class="line" id="l1436">   1436</a>         if self._regex is not None:
+<a href="#l1437" class="line" id="l1437">   1437</a>             return self._regex
+<a href="#l1438" class="line" id="l1438">   1438</a> 
+<a href="#l1439" class="line" id="l1439">   1439</a>         frmat = &quot;%s&quot;
+<a href="#l1440" class="line" id="l1440">   1440</a>         flags = self.flags
+<a href="#l1441" class="line" id="l1441">   1441</a>         pattern = self.pattern
+<a href="#l1442" class="line" id="l1442">   1442</a> 
+<a href="#l1443" class="line" id="l1443">   1443</a>         if pattern == &quot;.&quot;:
+<a href="#l1444" class="line" id="l1444">   1444</a>             return re.compile(&quot;&quot;)
+<a href="#l1445" class="line" id="l1445">   1445</a> 
+<a href="#l1446" class="line" id="l1446">   1446</a>         # Handle carets at start and dollar signs at end separately
+<a href="#l1447" class="line" id="l1447">   1447</a>         if pattern.startswith(&#39;^&#39;):
+<a href="#l1448" class="line" id="l1448">   1448</a>             pattern = pattern[1:]
+<a href="#l1449" class="line" id="l1449">   1449</a>             frmat = &quot;^&quot; + frmat
+<a href="#l1450" class="line" id="l1450">   1450</a>         if pattern.endswith(&#39;$&#39;):
+<a href="#l1451" class="line" id="l1451">   1451</a>             pattern = pattern[:-1]
+<a href="#l1452" class="line" id="l1452">   1452</a>             frmat += &quot;$&quot;
+<a href="#l1453" class="line" id="l1453">   1453</a> 
+<a href="#l1454" class="line" id="l1454">   1454</a>         # Apply one of the search methods
+<a href="#l1455" class="line" id="l1455">   1455</a>         if self.SM_REGEX in flags:
+<a href="#l1456" class="line" id="l1456">   1456</a>             regex = pattern
+<a href="#l1457" class="line" id="l1457">   1457</a>         elif self.SM_GLOB in flags:
+<a href="#l1458" class="line" id="l1458">   1458</a>             regex = re.escape(pattern).replace(&quot;\\*&quot;, &quot;.*&quot;).replace(&quot;\\?&quot;, &quot;.&quot;)
+<a href="#l1459" class="line" id="l1459">   1459</a>         elif self.SM_LETTERSKIP in flags:
+<a href="#l1460" class="line" id="l1460">   1460</a>             regex = &quot;.*&quot;.join(re.escape(c) for c in pattern)
+<a href="#l1461" class="line" id="l1461">   1461</a>         else:
+<a href="#l1462" class="line" id="l1462">   1462</a>             regex = re.escape(pattern)
+<a href="#l1463" class="line" id="l1463">   1463</a> 
+<a href="#l1464" class="line" id="l1464">   1464</a>         regex = frmat % regex
+<a href="#l1465" class="line" id="l1465">   1465</a> 
+<a href="#l1466" class="line" id="l1466">   1466</a>         # Invert regular expression if necessary
+<a href="#l1467" class="line" id="l1467">   1467</a>         if self.INVERT in flags:
+<a href="#l1468" class="line" id="l1468">   1468</a>             regex = &quot;^(?:(?!%s).)*$&quot; % regex
+<a href="#l1469" class="line" id="l1469">   1469</a> 
+<a href="#l1470" class="line" id="l1470">   1470</a>         # Compile Regular Expression
+<a href="#l1471" class="line" id="l1471">   1471</a>         # pylint: disable=no-member
+<a href="#l1472" class="line" id="l1472">   1472</a>         options = re.UNICODE
+<a href="#l1473" class="line" id="l1473">   1473</a>         if self.IGNORE_CASE in flags or self.SMART_CASE in flags and \
+<a href="#l1474" class="line" id="l1474">   1474</a>                 pattern.islower():
+<a href="#l1475" class="line" id="l1475">   1475</a>             options |= re.IGNORECASE
+<a href="#l1476" class="line" id="l1476">   1476</a>         # pylint: enable=no-member
+<a href="#l1477" class="line" id="l1477">   1477</a>         try:
+<a href="#l1478" class="line" id="l1478">   1478</a>             self._regex = re.compile(regex, options)
+<a href="#l1479" class="line" id="l1479">   1479</a>         except re.error:
+<a href="#l1480" class="line" id="l1480">   1480</a>             self._regex = re.compile(&quot;&quot;)
+<a href="#l1481" class="line" id="l1481">   1481</a>         return self._regex
+<a href="#l1482" class="line" id="l1482">   1482</a> 
+<a href="#l1483" class="line" id="l1483">   1483</a>     def _count(self, move=False, offset=0):
+<a href="#l1484" class="line" id="l1484">   1484</a>         count = 0
+<a href="#l1485" class="line" id="l1485">   1485</a>         cwd = self.fm.thisdir
+<a href="#l1486" class="line" id="l1486">   1486</a>         pattern = self.pattern
+<a href="#l1487" class="line" id="l1487">   1487</a> 
+<a href="#l1488" class="line" id="l1488">   1488</a>         if not pattern or not cwd.files:
+<a href="#l1489" class="line" id="l1489">   1489</a>             return 0
+<a href="#l1490" class="line" id="l1490">   1490</a>         if pattern == &#39;.&#39;:
+<a href="#l1491" class="line" id="l1491">   1491</a>             return 0
+<a href="#l1492" class="line" id="l1492">   1492</a>         if pattern == &#39;..&#39;:
+<a href="#l1493" class="line" id="l1493">   1493</a>             return 1
+<a href="#l1494" class="line" id="l1494">   1494</a> 
+<a href="#l1495" class="line" id="l1495">   1495</a>         deq = deque(cwd.files)
+<a href="#l1496" class="line" id="l1496">   1496</a>         deq.rotate(-cwd.pointer - offset)
+<a href="#l1497" class="line" id="l1497">   1497</a>         i = offset
+<a href="#l1498" class="line" id="l1498">   1498</a>         regex = self._build_regex()
+<a href="#l1499" class="line" id="l1499">   1499</a>         for fsobj in deq:
+<a href="#l1500" class="line" id="l1500">   1500</a>             if regex.search(fsobj.relative_path):
+<a href="#l1501" class="line" id="l1501">   1501</a>                 count += 1
+<a href="#l1502" class="line" id="l1502">   1502</a>                 if move and count == 1:
+<a href="#l1503" class="line" id="l1503">   1503</a>                     cwd.move(to=(cwd.pointer + i) % len(cwd.files))
+<a href="#l1504" class="line" id="l1504">   1504</a>                     self.fm.thisfile = cwd.pointed_obj
+<a href="#l1505" class="line" id="l1505">   1505</a>             if count &gt; 1:
+<a href="#l1506" class="line" id="l1506">   1506</a>                 return count
+<a href="#l1507" class="line" id="l1507">   1507</a>             i += 1
+<a href="#l1508" class="line" id="l1508">   1508</a> 
+<a href="#l1509" class="line" id="l1509">   1509</a>         return count == 1
+<a href="#l1510" class="line" id="l1510">   1510</a> 
+<a href="#l1511" class="line" id="l1511">   1511</a> 
+<a href="#l1512" class="line" id="l1512">   1512</a> class narrow(Command):
+<a href="#l1513" class="line" id="l1513">   1513</a>     &quot;&quot;&quot;
+<a href="#l1514" class="line" id="l1514">   1514</a>     :narrow
+<a href="#l1515" class="line" id="l1515">   1515</a> 
+<a href="#l1516" class="line" id="l1516">   1516</a>     Show only the files selected right now. If no files are selected,
+<a href="#l1517" class="line" id="l1517">   1517</a>     disable narrowing.
+<a href="#l1518" class="line" id="l1518">   1518</a>     &quot;&quot;&quot;
+<a href="#l1519" class="line" id="l1519">   1519</a>     def execute(self):
+<a href="#l1520" class="line" id="l1520">   1520</a>         if self.fm.thisdir.marked_items:
+<a href="#l1521" class="line" id="l1521">   1521</a>             selection = [f.basename for f in self.fm.thistab.get_selection()]
+<a href="#l1522" class="line" id="l1522">   1522</a>             self.fm.thisdir.narrow_filter = selection
+<a href="#l1523" class="line" id="l1523">   1523</a>         else:
+<a href="#l1524" class="line" id="l1524">   1524</a>             self.fm.thisdir.narrow_filter = None
+<a href="#l1525" class="line" id="l1525">   1525</a>         self.fm.thisdir.refilter()
+<a href="#l1526" class="line" id="l1526">   1526</a> 
+<a href="#l1527" class="line" id="l1527">   1527</a> 
+<a href="#l1528" class="line" id="l1528">   1528</a> class filter_inode_type(Command):
+<a href="#l1529" class="line" id="l1529">   1529</a>     &quot;&quot;&quot;
+<a href="#l1530" class="line" id="l1530">   1530</a>     :filter_inode_type [dfl]
+<a href="#l1531" class="line" id="l1531">   1531</a> 
+<a href="#l1532" class="line" id="l1532">   1532</a>     Displays only the files of specified inode type. Parameters
+<a href="#l1533" class="line" id="l1533">   1533</a>     can be combined.
+<a href="#l1534" class="line" id="l1534">   1534</a> 
+<a href="#l1535" class="line" id="l1535">   1535</a>         d display directories
+<a href="#l1536" class="line" id="l1536">   1536</a>         f display files
+<a href="#l1537" class="line" id="l1537">   1537</a>         l display links
+<a href="#l1538" class="line" id="l1538">   1538</a>     &quot;&quot;&quot;
+<a href="#l1539" class="line" id="l1539">   1539</a> 
+<a href="#l1540" class="line" id="l1540">   1540</a>     def execute(self):
+<a href="#l1541" class="line" id="l1541">   1541</a>         if not self.arg(1):
+<a href="#l1542" class="line" id="l1542">   1542</a>             self.fm.thisdir.inode_type_filter = &quot;&quot;
+<a href="#l1543" class="line" id="l1543">   1543</a>         else:
+<a href="#l1544" class="line" id="l1544">   1544</a>             self.fm.thisdir.inode_type_filter = self.arg(1)
+<a href="#l1545" class="line" id="l1545">   1545</a>         self.fm.thisdir.refilter()
+<a href="#l1546" class="line" id="l1546">   1546</a> 
+<a href="#l1547" class="line" id="l1547">   1547</a> 
+<a href="#l1548" class="line" id="l1548">   1548</a> class filter_stack(Command):
+<a href="#l1549" class="line" id="l1549">   1549</a>     &quot;&quot;&quot;
+<a href="#l1550" class="line" id="l1550">   1550</a>     :filter_stack ...
+<a href="#l1551" class="line" id="l1551">   1551</a> 
+<a href="#l1552" class="line" id="l1552">   1552</a>     Manages the filter stack.
+<a href="#l1553" class="line" id="l1553">   1553</a> 
+<a href="#l1554" class="line" id="l1554">   1554</a>         filter_stack add FILTER_TYPE ARGS...
+<a href="#l1555" class="line" id="l1555">   1555</a>         filter_stack pop
+<a href="#l1556" class="line" id="l1556">   1556</a>         filter_stack decompose
+<a href="#l1557" class="line" id="l1557">   1557</a>         filter_stack rotate [N=1]
+<a href="#l1558" class="line" id="l1558">   1558</a>         filter_stack clear
+<a href="#l1559" class="line" id="l1559">   1559</a>         filter_stack show
+<a href="#l1560" class="line" id="l1560">   1560</a>     &quot;&quot;&quot;
+<a href="#l1561" class="line" id="l1561">   1561</a>     def execute(self):
+<a href="#l1562" class="line" id="l1562">   1562</a>         from ranger.core.filter_stack import SIMPLE_FILTERS, FILTER_COMBINATORS
+<a href="#l1563" class="line" id="l1563">   1563</a> 
+<a href="#l1564" class="line" id="l1564">   1564</a>         subcommand = self.arg(1)
+<a href="#l1565" class="line" id="l1565">   1565</a> 
+<a href="#l1566" class="line" id="l1566">   1566</a>         if subcommand == &quot;add&quot;:
+<a href="#l1567" class="line" id="l1567">   1567</a>             try:
+<a href="#l1568" class="line" id="l1568">   1568</a>                 self.fm.thisdir.filter_stack.append(
+<a href="#l1569" class="line" id="l1569">   1569</a>                     SIMPLE_FILTERS[self.arg(2)](self.rest(3))
+<a href="#l1570" class="line" id="l1570">   1570</a>                 )
+<a href="#l1571" class="line" id="l1571">   1571</a>             except KeyError:
+<a href="#l1572" class="line" id="l1572">   1572</a>                 FILTER_COMBINATORS[self.arg(2)](self.fm.thisdir.filter_stack)
+<a href="#l1573" class="line" id="l1573">   1573</a>         elif subcommand == &quot;pop&quot;:
+<a href="#l1574" class="line" id="l1574">   1574</a>             self.fm.thisdir.filter_stack.pop()
+<a href="#l1575" class="line" id="l1575">   1575</a>         elif subcommand == &quot;decompose&quot;:
+<a href="#l1576" class="line" id="l1576">   1576</a>             inner_filters = self.fm.thisdir.filter_stack.pop().decompose()
+<a href="#l1577" class="line" id="l1577">   1577</a>             if inner_filters:
+<a href="#l1578" class="line" id="l1578">   1578</a>                 self.fm.thisdir.filter_stack.extend(inner_filters)
+<a href="#l1579" class="line" id="l1579">   1579</a>         elif subcommand == &quot;clear&quot;:
+<a href="#l1580" class="line" id="l1580">   1580</a>             self.fm.thisdir.filter_stack = []
+<a href="#l1581" class="line" id="l1581">   1581</a>         elif subcommand == &quot;rotate&quot;:
+<a href="#l1582" class="line" id="l1582">   1582</a>             rotate_by = int(self.arg(2) or 1)
+<a href="#l1583" class="line" id="l1583">   1583</a>             self.fm.thisdir.filter_stack = (
+<a href="#l1584" class="line" id="l1584">   1584</a>                 self.fm.thisdir.filter_stack[-rotate_by:]
+<a href="#l1585" class="line" id="l1585">   1585</a>                 + self.fm.thisdir.filter_stack[:-rotate_by]
+<a href="#l1586" class="line" id="l1586">   1586</a>             )
+<a href="#l1587" class="line" id="l1587">   1587</a>         elif subcommand == &quot;show&quot;:
+<a href="#l1588" class="line" id="l1588">   1588</a>             stack = list(map(str, self.fm.thisdir.filter_stack))
+<a href="#l1589" class="line" id="l1589">   1589</a>             pager = self.fm.ui.open_pager()
+<a href="#l1590" class="line" id="l1590">   1590</a>             pager.set_source([&quot;Filter stack: &quot;] + stack)
+<a href="#l1591" class="line" id="l1591">   1591</a>             pager.move(to=100, percentage=True)
+<a href="#l1592" class="line" id="l1592">   1592</a>             return
+<a href="#l1593" class="line" id="l1593">   1593</a>         else:
+<a href="#l1594" class="line" id="l1594">   1594</a>             self.fm.notify(
+<a href="#l1595" class="line" id="l1595">   1595</a>                 &quot;Unknown subcommand: {}&quot;.format(subcommand),
+<a href="#l1596" class="line" id="l1596">   1596</a>                 bad=True
+<a href="#l1597" class="line" id="l1597">   1597</a>             )
+<a href="#l1598" class="line" id="l1598">   1598</a>             return
+<a href="#l1599" class="line" id="l1599">   1599</a> 
+<a href="#l1600" class="line" id="l1600">   1600</a>         self.fm.thisdir.refilter()
+<a href="#l1601" class="line" id="l1601">   1601</a> 
+<a href="#l1602" class="line" id="l1602">   1602</a> 
+<a href="#l1603" class="line" id="l1603">   1603</a> class grep(Command):
+<a href="#l1604" class="line" id="l1604">   1604</a>     &quot;&quot;&quot;:grep &lt;string&gt;
+<a href="#l1605" class="line" id="l1605">   1605</a> 
+<a href="#l1606" class="line" id="l1606">   1606</a>     Looks for a string in all marked files or directories
+<a href="#l1607" class="line" id="l1607">   1607</a>     &quot;&quot;&quot;
+<a href="#l1608" class="line" id="l1608">   1608</a> 
+<a href="#l1609" class="line" id="l1609">   1609</a>     def execute(self):
+<a href="#l1610" class="line" id="l1610">   1610</a>         if self.rest(1):
+<a href="#l1611" class="line" id="l1611">   1611</a>             action = [&#39;grep&#39;, &#39;--line-number&#39;]
+<a href="#l1612" class="line" id="l1612">   1612</a>             action.extend([&#39;-e&#39;, self.rest(1), &#39;-r&#39;])
+<a href="#l1613" class="line" id="l1613">   1613</a>             action.extend(f.path for f in self.fm.thistab.get_selection())
+<a href="#l1614" class="line" id="l1614">   1614</a>             self.fm.execute_command(action, flags=&#39;p&#39;)
+<a href="#l1615" class="line" id="l1615">   1615</a> 
+<a href="#l1616" class="line" id="l1616">   1616</a> 
+<a href="#l1617" class="line" id="l1617">   1617</a> class flat(Command):
+<a href="#l1618" class="line" id="l1618">   1618</a>     &quot;&quot;&quot;
+<a href="#l1619" class="line" id="l1619">   1619</a>     :flat &lt;level&gt;
+<a href="#l1620" class="line" id="l1620">   1620</a> 
+<a href="#l1621" class="line" id="l1621">   1621</a>     Flattens the directory view up to the specified level.
+<a href="#l1622" class="line" id="l1622">   1622</a> 
+<a href="#l1623" class="line" id="l1623">   1623</a>         -1 fully flattened
+<a href="#l1624" class="line" id="l1624">   1624</a>          0 remove flattened view
+<a href="#l1625" class="line" id="l1625">   1625</a>     &quot;&quot;&quot;
+<a href="#l1626" class="line" id="l1626">   1626</a> 
+<a href="#l1627" class="line" id="l1627">   1627</a>     def execute(self):
+<a href="#l1628" class="line" id="l1628">   1628</a>         try:
+<a href="#l1629" class="line" id="l1629">   1629</a>             level_str = self.rest(1)
+<a href="#l1630" class="line" id="l1630">   1630</a>             level = int(level_str)
+<a href="#l1631" class="line" id="l1631">   1631</a>         except ValueError:
+<a href="#l1632" class="line" id="l1632">   1632</a>             level = self.quantifier
+<a href="#l1633" class="line" id="l1633">   1633</a>         if level is None:
+<a href="#l1634" class="line" id="l1634">   1634</a>             self.fm.notify(&quot;Syntax: flat &lt;level&gt;&quot;, bad=True)
+<a href="#l1635" class="line" id="l1635">   1635</a>             return
+<a href="#l1636" class="line" id="l1636">   1636</a>         if level &lt; -1:
+<a href="#l1637" class="line" id="l1637">   1637</a>             self.fm.notify(&quot;Need an integer number (-1, 0, 1, ...)&quot;, bad=True)
+<a href="#l1638" class="line" id="l1638">   1638</a>         self.fm.thisdir.unload()
+<a href="#l1639" class="line" id="l1639">   1639</a>         self.fm.thisdir.flat = level
+<a href="#l1640" class="line" id="l1640">   1640</a>         self.fm.thisdir.load_content()
+<a href="#l1641" class="line" id="l1641">   1641</a> 
+<a href="#l1642" class="line" id="l1642">   1642</a> # Version control commands
+<a href="#l1643" class="line" id="l1643">   1643</a> # --------------------------------
+<a href="#l1644" class="line" id="l1644">   1644</a> 
+<a href="#l1645" class="line" id="l1645">   1645</a> 
+<a href="#l1646" class="line" id="l1646">   1646</a> class stage(Command):
+<a href="#l1647" class="line" id="l1647">   1647</a>     &quot;&quot;&quot;
+<a href="#l1648" class="line" id="l1648">   1648</a>     :stage
+<a href="#l1649" class="line" id="l1649">   1649</a> 
+<a href="#l1650" class="line" id="l1650">   1650</a>     Stage selected files for the corresponding version control system
+<a href="#l1651" class="line" id="l1651">   1651</a>     &quot;&quot;&quot;
+<a href="#l1652" class="line" id="l1652">   1652</a> 
+<a href="#l1653" class="line" id="l1653">   1653</a>     def execute(self):
+<a href="#l1654" class="line" id="l1654">   1654</a>         from ranger.ext.vcs import VcsError
+<a href="#l1655" class="line" id="l1655">   1655</a> 
+<a href="#l1656" class="line" id="l1656">   1656</a>         if self.fm.thisdir.vcs and self.fm.thisdir.vcs.track:
+<a href="#l1657" class="line" id="l1657">   1657</a>             filelist = [f.path for f in self.fm.thistab.get_selection()]
+<a href="#l1658" class="line" id="l1658">   1658</a>             try:
+<a href="#l1659" class="line" id="l1659">   1659</a>                 self.fm.thisdir.vcs.action_add(filelist)
+<a href="#l1660" class="line" id="l1660">   1660</a>             except VcsError as ex:
+<a href="#l1661" class="line" id="l1661">   1661</a>                 self.fm.notify(&#39;Unable to stage files: {0}&#39;.format(ex))
+<a href="#l1662" class="line" id="l1662">   1662</a>             self.fm.ui.vcsthread.process(self.fm.thisdir)
+<a href="#l1663" class="line" id="l1663">   1663</a>         else:
+<a href="#l1664" class="line" id="l1664">   1664</a>             self.fm.notify(&#39;Unable to stage files: Not in repository&#39;)
+<a href="#l1665" class="line" id="l1665">   1665</a> 
+<a href="#l1666" class="line" id="l1666">   1666</a> 
+<a href="#l1667" class="line" id="l1667">   1667</a> class unstage(Command):
+<a href="#l1668" class="line" id="l1668">   1668</a>     &quot;&quot;&quot;
+<a href="#l1669" class="line" id="l1669">   1669</a>     :unstage
+<a href="#l1670" class="line" id="l1670">   1670</a> 
+<a href="#l1671" class="line" id="l1671">   1671</a>     Unstage selected files for the corresponding version control system
+<a href="#l1672" class="line" id="l1672">   1672</a>     &quot;&quot;&quot;
+<a href="#l1673" class="line" id="l1673">   1673</a> 
+<a href="#l1674" class="line" id="l1674">   1674</a>     def execute(self):
+<a href="#l1675" class="line" id="l1675">   1675</a>         from ranger.ext.vcs import VcsError
+<a href="#l1676" class="line" id="l1676">   1676</a> 
+<a href="#l1677" class="line" id="l1677">   1677</a>         if self.fm.thisdir.vcs and self.fm.thisdir.vcs.track:
+<a href="#l1678" class="line" id="l1678">   1678</a>             filelist = [f.path for f in self.fm.thistab.get_selection()]
+<a href="#l1679" class="line" id="l1679">   1679</a>             try:
+<a href="#l1680" class="line" id="l1680">   1680</a>                 self.fm.thisdir.vcs.action_reset(filelist)
+<a href="#l1681" class="line" id="l1681">   1681</a>             except VcsError as ex:
+<a href="#l1682" class="line" id="l1682">   1682</a>                 self.fm.notify(&#39;Unable to unstage files: {0}&#39;.format(ex))
+<a href="#l1683" class="line" id="l1683">   1683</a>             self.fm.ui.vcsthread.process(self.fm.thisdir)
+<a href="#l1684" class="line" id="l1684">   1684</a>         else:
+<a href="#l1685" class="line" id="l1685">   1685</a>             self.fm.notify(&#39;Unable to unstage files: Not in repository&#39;)
+<a href="#l1686" class="line" id="l1686">   1686</a> 
+<a href="#l1687" class="line" id="l1687">   1687</a> # Metadata commands
+<a href="#l1688" class="line" id="l1688">   1688</a> # --------------------------------
+<a href="#l1689" class="line" id="l1689">   1689</a> 
+<a href="#l1690" class="line" id="l1690">   1690</a> 
+<a href="#l1691" class="line" id="l1691">   1691</a> class prompt_metadata(Command):
+<a href="#l1692" class="line" id="l1692">   1692</a>     &quot;&quot;&quot;
+<a href="#l1693" class="line" id="l1693">   1693</a>     :prompt_metadata &lt;key1&gt; [&lt;key2&gt; [&lt;key3&gt; ...]]
+<a href="#l1694" class="line" id="l1694">   1694</a> 
+<a href="#l1695" class="line" id="l1695">   1695</a>     Prompt the user to input metadata for multiple keys in a row.
+<a href="#l1696" class="line" id="l1696">   1696</a>     &quot;&quot;&quot;
+<a href="#l1697" class="line" id="l1697">   1697</a> 
+<a href="#l1698" class="line" id="l1698">   1698</a>     _command_name = &quot;meta&quot;
+<a href="#l1699" class="line" id="l1699">   1699</a>     _console_chain = None
+<a href="#l1700" class="line" id="l1700">   1700</a> 
+<a href="#l1701" class="line" id="l1701">   1701</a>     def execute(self):
+<a href="#l1702" class="line" id="l1702">   1702</a>         prompt_metadata._console_chain = self.args[1:]
+<a href="#l1703" class="line" id="l1703">   1703</a>         self._process_command_stack()
+<a href="#l1704" class="line" id="l1704">   1704</a> 
+<a href="#l1705" class="line" id="l1705">   1705</a>     def _process_command_stack(self):
+<a href="#l1706" class="line" id="l1706">   1706</a>         if prompt_metadata._console_chain:
+<a href="#l1707" class="line" id="l1707">   1707</a>             key = prompt_metadata._console_chain.pop()
+<a href="#l1708" class="line" id="l1708">   1708</a>             self._fill_console(key)
+<a href="#l1709" class="line" id="l1709">   1709</a>         else:
+<a href="#l1710" class="line" id="l1710">   1710</a>             for col in self.fm.ui.browser.columns:
+<a href="#l1711" class="line" id="l1711">   1711</a>                 col.need_redraw = True
+<a href="#l1712" class="line" id="l1712">   1712</a> 
+<a href="#l1713" class="line" id="l1713">   1713</a>     def _fill_console(self, key):
+<a href="#l1714" class="line" id="l1714">   1714</a>         metadata = self.fm.metadata.get_metadata(self.fm.thisfile.path)
+<a href="#l1715" class="line" id="l1715">   1715</a>         if key in metadata and metadata[key]:
+<a href="#l1716" class="line" id="l1716">   1716</a>             existing_value = metadata[key]
+<a href="#l1717" class="line" id="l1717">   1717</a>         else:
+<a href="#l1718" class="line" id="l1718">   1718</a>             existing_value = &quot;&quot;
+<a href="#l1719" class="line" id="l1719">   1719</a>         text = &quot;%s %s %s&quot; % (self._command_name, key, existing_value)
+<a href="#l1720" class="line" id="l1720">   1720</a>         self.fm.open_console(text, position=len(text))
+<a href="#l1721" class="line" id="l1721">   1721</a> 
+<a href="#l1722" class="line" id="l1722">   1722</a> 
+<a href="#l1723" class="line" id="l1723">   1723</a> class meta(prompt_metadata):
+<a href="#l1724" class="line" id="l1724">   1724</a>     &quot;&quot;&quot;
+<a href="#l1725" class="line" id="l1725">   1725</a>     :meta &lt;key&gt; [&lt;value&gt;]
+<a href="#l1726" class="line" id="l1726">   1726</a> 
+<a href="#l1727" class="line" id="l1727">   1727</a>     Change metadata of a file.  Deletes the key if value is empty.
+<a href="#l1728" class="line" id="l1728">   1728</a>     &quot;&quot;&quot;
+<a href="#l1729" class="line" id="l1729">   1729</a> 
+<a href="#l1730" class="line" id="l1730">   1730</a>     def execute(self):
+<a href="#l1731" class="line" id="l1731">   1731</a>         key = self.arg(1)
+<a href="#l1732" class="line" id="l1732">   1732</a>         update_dict = dict()
+<a href="#l1733" class="line" id="l1733">   1733</a>         update_dict[key] = self.rest(2)
+<a href="#l1734" class="line" id="l1734">   1734</a>         selection = self.fm.thistab.get_selection()
+<a href="#l1735" class="line" id="l1735">   1735</a>         for fobj in selection:
+<a href="#l1736" class="line" id="l1736">   1736</a>             self.fm.metadata.set_metadata(fobj.path, update_dict)
+<a href="#l1737" class="line" id="l1737">   1737</a>         self._process_command_stack()
+<a href="#l1738" class="line" id="l1738">   1738</a> 
+<a href="#l1739" class="line" id="l1739">   1739</a>     def tab(self, tabnum):
+<a href="#l1740" class="line" id="l1740">   1740</a>         key = self.arg(1)
+<a href="#l1741" class="line" id="l1741">   1741</a>         metadata = self.fm.metadata.get_metadata(self.fm.thisfile.path)
+<a href="#l1742" class="line" id="l1742">   1742</a>         if key in metadata and metadata[key]:
+<a href="#l1743" class="line" id="l1743">   1743</a>             return [&quot; &quot;.join([self.arg(0), self.arg(1), metadata[key]])]
+<a href="#l1744" class="line" id="l1744">   1744</a>         return [self.arg(0) + &quot; &quot; + k for k in sorted(metadata)
+<a href="#l1745" class="line" id="l1745">   1745</a>                 if k.startswith(self.arg(1))]
+<a href="#l1746" class="line" id="l1746">   1746</a> 
+<a href="#l1747" class="line" id="l1747">   1747</a> 
+<a href="#l1748" class="line" id="l1748">   1748</a> class linemode(default_linemode):
+<a href="#l1749" class="line" id="l1749">   1749</a>     &quot;&quot;&quot;
+<a href="#l1750" class="line" id="l1750">   1750</a>     :linemode &lt;mode&gt;
+<a href="#l1751" class="line" id="l1751">   1751</a> 
+<a href="#l1752" class="line" id="l1752">   1752</a>     Change what is displayed as a filename.
+<a href="#l1753" class="line" id="l1753">   1753</a> 
+<a href="#l1754" class="line" id="l1754">   1754</a>     - &quot;mode&quot; may be any of the defined linemodes (see: ranger.core.linemode).
+<a href="#l1755" class="line" id="l1755">   1755</a>       &quot;normal&quot; is mapped to &quot;filename&quot;.
+<a href="#l1756" class="line" id="l1756">   1756</a>     &quot;&quot;&quot;
+<a href="#l1757" class="line" id="l1757">   1757</a> 
+<a href="#l1758" class="line" id="l1758">   1758</a>     def execute(self):
+<a href="#l1759" class="line" id="l1759">   1759</a>         mode = self.arg(1)
+<a href="#l1760" class="line" id="l1760">   1760</a> 
+<a href="#l1761" class="line" id="l1761">   1761</a>         if mode == &quot;normal&quot;:
+<a href="#l1762" class="line" id="l1762">   1762</a>             from ranger.core.linemode import DEFAULT_LINEMODE
+<a href="#l1763" class="line" id="l1763">   1763</a>             mode = DEFAULT_LINEMODE
+<a href="#l1764" class="line" id="l1764">   1764</a> 
+<a href="#l1765" class="line" id="l1765">   1765</a>         if mode not in self.fm.thisfile.linemode_dict:
+<a href="#l1766" class="line" id="l1766">   1766</a>             self.fm.notify(&quot;Unhandled linemode: `%s&#39;&quot; % mode, bad=True)
+<a href="#l1767" class="line" id="l1767">   1767</a>             return
+<a href="#l1768" class="line" id="l1768">   1768</a> 
+<a href="#l1769" class="line" id="l1769">   1769</a>         self.fm.thisdir.set_linemode_of_children(mode)
+<a href="#l1770" class="line" id="l1770">   1770</a> 
+<a href="#l1771" class="line" id="l1771">   1771</a>         # Ask the browsercolumns to redraw
+<a href="#l1772" class="line" id="l1772">   1772</a>         for col in self.fm.ui.browser.columns:
+<a href="#l1773" class="line" id="l1773">   1773</a>             col.need_redraw = True
+<a href="#l1774" class="line" id="l1774">   1774</a> 
+<a href="#l1775" class="line" id="l1775">   1775</a> 
+<a href="#l1776" class="line" id="l1776">   1776</a> class yank(Command):
+<a href="#l1777" class="line" id="l1777">   1777</a>     &quot;&quot;&quot;:yank [name|dir|path]
+<a href="#l1778" class="line" id="l1778">   1778</a> 
+<a href="#l1779" class="line" id="l1779">   1779</a>     Copies the file&#39;s name (default), directory or path into both the primary X
+<a href="#l1780" class="line" id="l1780">   1780</a>     selection and the clipboard.
+<a href="#l1781" class="line" id="l1781">   1781</a>     &quot;&quot;&quot;
+<a href="#l1782" class="line" id="l1782">   1782</a> 
+<a href="#l1783" class="line" id="l1783">   1783</a>     modes = {
+<a href="#l1784" class="line" id="l1784">   1784</a>         &#39;&#39;: &#39;basename&#39;,
+<a href="#l1785" class="line" id="l1785">   1785</a>         &#39;name_without_extension&#39;: &#39;basename_without_extension&#39;,
+<a href="#l1786" class="line" id="l1786">   1786</a>         &#39;name&#39;: &#39;basename&#39;,
+<a href="#l1787" class="line" id="l1787">   1787</a>         &#39;dir&#39;: &#39;dirname&#39;,
+<a href="#l1788" class="line" id="l1788">   1788</a>         &#39;path&#39;: &#39;path&#39;,
+<a href="#l1789" class="line" id="l1789">   1789</a>     }
+<a href="#l1790" class="line" id="l1790">   1790</a> 
+<a href="#l1791" class="line" id="l1791">   1791</a>     def execute(self):
+<a href="#l1792" class="line" id="l1792">   1792</a>         import subprocess
+<a href="#l1793" class="line" id="l1793">   1793</a> 
+<a href="#l1794" class="line" id="l1794">   1794</a>         def clipboards():
+<a href="#l1795" class="line" id="l1795">   1795</a>             from ranger.ext.get_executables import get_executables
+<a href="#l1796" class="line" id="l1796">   1796</a>             clipboard_managers = {
+<a href="#l1797" class="line" id="l1797">   1797</a>                 &#39;xclip&#39;: [
+<a href="#l1798" class="line" id="l1798">   1798</a>                     [&#39;xclip&#39;],
+<a href="#l1799" class="line" id="l1799">   1799</a>                     [&#39;xclip&#39;, &#39;-selection&#39;, &#39;clipboard&#39;],
+<a href="#l1800" class="line" id="l1800">   1800</a>                 ],
+<a href="#l1801" class="line" id="l1801">   1801</a>                 &#39;xsel&#39;: [
+<a href="#l1802" class="line" id="l1802">   1802</a>                     [&#39;xsel&#39;],
+<a href="#l1803" class="line" id="l1803">   1803</a>                     [&#39;xsel&#39;, &#39;-b&#39;],
+<a href="#l1804" class="line" id="l1804">   1804</a>                 ],
+<a href="#l1805" class="line" id="l1805">   1805</a>                 &#39;pbcopy&#39;: [
+<a href="#l1806" class="line" id="l1806">   1806</a>                     [&#39;pbcopy&#39;],
+<a href="#l1807" class="line" id="l1807">   1807</a>                 ],
+<a href="#l1808" class="line" id="l1808">   1808</a>             }
+<a href="#l1809" class="line" id="l1809">   1809</a>             ordered_managers = [&#39;pbcopy&#39;, &#39;xclip&#39;, &#39;xsel&#39;]
+<a href="#l1810" class="line" id="l1810">   1810</a>             executables = get_executables()
+<a href="#l1811" class="line" id="l1811">   1811</a>             for manager in ordered_managers:
+<a href="#l1812" class="line" id="l1812">   1812</a>                 if manager in executables:
+<a href="#l1813" class="line" id="l1813">   1813</a>                     return clipboard_managers[manager]
+<a href="#l1814" class="line" id="l1814">   1814</a>             return []
+<a href="#l1815" class="line" id="l1815">   1815</a> 
+<a href="#l1816" class="line" id="l1816">   1816</a>         clipboard_commands = clipboards()
+<a href="#l1817" class="line" id="l1817">   1817</a> 
+<a href="#l1818" class="line" id="l1818">   1818</a>         mode = self.modes[self.arg(1)]
+<a href="#l1819" class="line" id="l1819">   1819</a>         selection = self.get_selection_attr(mode)
+<a href="#l1820" class="line" id="l1820">   1820</a> 
+<a href="#l1821" class="line" id="l1821">   1821</a>         new_clipboard_contents = &quot;\n&quot;.join(selection)
+<a href="#l1822" class="line" id="l1822">   1822</a>         for command in clipboard_commands:
+<a href="#l1823" class="line" id="l1823">   1823</a>             process = subprocess.Popen(command, universal_newlines=True,
+<a href="#l1824" class="line" id="l1824">   1824</a>                                        stdin=subprocess.PIPE)
+<a href="#l1825" class="line" id="l1825">   1825</a>             process.communicate(input=new_clipboard_contents)
+<a href="#l1826" class="line" id="l1826">   1826</a> 
+<a href="#l1827" class="line" id="l1827">   1827</a>     def get_selection_attr(self, attr):
+<a href="#l1828" class="line" id="l1828">   1828</a>         return [getattr(item, attr) for item in
+<a href="#l1829" class="line" id="l1829">   1829</a>                 self.fm.thistab.get_selection()]
+<a href="#l1830" class="line" id="l1830">   1830</a> 
+<a href="#l1831" class="line" id="l1831">   1831</a>     def tab(self, tabnum):
+<a href="#l1832" class="line" id="l1832">   1832</a>         return (
+<a href="#l1833" class="line" id="l1833">   1833</a>             self.start(1) + mode for mode
+<a href="#l1834" class="line" id="l1834">   1834</a>             in sorted(self.modes.keys())
+<a href="#l1835" class="line" id="l1835">   1835</a>             if mode
+<a href="#l1836" class="line" id="l1836">   1836</a>         )
+</pre>
+</div>
+</body>
+</html>

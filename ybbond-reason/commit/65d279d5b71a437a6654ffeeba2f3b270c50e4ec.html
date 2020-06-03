@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Stylings) =&gt; added footer style - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/65d279d5b71a437a6654ffeeba2f3b270c50e4ec.html">65d279d5b71a437a6654ffeeba2f3b270c50e4ec</a>
+<b>parent</b> <a href="../commit/15d62c278580b57c4ba0640f21626bd4e34cb63b.html">15d62c278580b57c4ba0640f21626bd4e34cb63b</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sat, 24 Aug 2019 01:43:40 +0700
+
+refactor(Stylings) =&gt; added footer style
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/components/Footer.re</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">src/favicon.ico</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/index.html</a></td><td> | </td><td class="num">6</td><td><span class="i">++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">src/manifest.json</a></td><td> | </td><td class="num">15</td><td><span class="i">+++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>4 files changed, 23 insertions(<span id="plus">+</span>), 2 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/components/Footer.re.html">src/components/Footer.re</a> b/<a href="../file/src/components/Footer.re.html">src/components/Footer.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -3,13 +3,13 @@ module Styles = {
+</a> 
+   let footer =
+     style([
+<a href="#h0-0-3" id="h0-0-3" class="d">-      width(`ch(100.0)),
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+      width(`percent(100.0)),
+</a>       paddingTop(`px(30)),
+       marginTop(`px(0)),
+       marginLeft(`auto),
+       marginRight(`auto),
+       marginBottom(`em(1.0)),
+<a href="#h0-0-10" id="h0-0-10" class="d">-      maxWidth(em(50.0)),
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+      maxWidth(`em(50.0)),
+</a>     ]);
+ };
+ 
+<b>diff --git a/<a id="h1" href="../file/src/favicon.ico.html">src/favicon.ico</a> b/<a href="../file/src/favicon.ico.html">src/favicon.ico</a></b>
+Binary files differ.
+<b>diff --git a/<a id="h2" href="../file/src/index.html.html">src/index.html</a> b/<a href="../file/src/index.html.html">src/index.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -3,6 +3,12 @@
+</a> &lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;title&gt;YBBond&lt;/title&gt;
+<a href="#h2-0-3" id="h2-0-3" class="i">+  &lt;meta
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+    name=&quot;viewport&quot;
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+    content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+  /&gt;
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+  &lt;meta name=&quot;theme-color&quot; content=&quot;#000000&quot; /&gt;
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+  &lt;link rel=&quot;manifest&quot; href=&quot;%PUBLIC_URL%/manifest.json&quot; /&gt;
+</a> &lt;/head&gt;
+ &lt;body&gt;
+ 
+<b>diff --git a/<a id="h3" href="../file/src/manifest.json.html">src/manifest.json</a> b/<a href="../file/src/manifest.json.html">src/manifest.json</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,15 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+{
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+  &quot;short_name&quot;: &quot;YBBond&quot;,
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+  &quot;name&quot;: &quot;Yohanes Bandung Bondowoso&quot;,
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+  &quot;icons&quot;: [
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+    {
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+      &quot;src&quot;: &quot;./favicon.ico&quot;,
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+      &quot;sizes&quot;: &quot;64x64 32x32 24x24 16x16&quot;,
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+      &quot;type&quot;: &quot;image/x-icon&quot;
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+    }
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+  ],
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+  &quot;start_url&quot;: &quot;.&quot;,
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+  &quot;display&quot;: &quot;standalone&quot;,
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+  &quot;theme_color&quot;: &quot;#000000&quot;,
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+  &quot;background_color&quot;: &quot;#ffffff&quot;
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+}
+</a></pre>
+</div>
+</div>
+</body>
+</html>

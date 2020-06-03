@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(Link) =&gt; enhance &lt;Link /&gt; - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/1da01ba68a4993bfe033f6482d7bd27a630d99c2.html">1da01ba68a4993bfe033f6482d7bd27a630d99c2</a>
+<b>parent</b> <a href="../commit/2d2babe7f657ba9529debfde4b55fc323767071e.html">2d2babe7f657ba9529debfde4b55fc323767071e</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon, 19 Aug 2019 19:29:56 +0700
+
+feature(Link) =&gt; enhance &lt;Link /&gt;
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/components/Link.re</a></td><td> | </td><td class="num">18</td><td><span class="i">++++++++++++++++</span><span class="d">--</span></td></tr>
+</table></pre></div><p>1 file changed, 16 insertions(<span id="plus">+</span>), 2 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/components/Link.re.html">src/components/Link.re</a> b/<a href="../file/src/components/Link.re.html">src/components/Link.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,3 +1,17 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+let handleClick = (internal, event) =&gt;
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+  if (!ReactEvent.Mouse.defaultPrevented(event) &amp;&amp; internal !== &quot;&quot;) {
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+    ReactEvent.Mouse.preventDefault(event);
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+    ReasonReact.Router.push(internal);
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  };
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+
+</a> [@react.component]
+<a href="#h0-0-7" id="h0-0-7" class="d">-let make = (~href: string, ~text: string) =&gt;
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-  &lt;mark&gt; &lt;a href&gt; {ReasonReact.string(text)} &lt;/a&gt; &lt;/mark&gt;;
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+let make = (~href=&quot;&quot;, ~text: string, ~internal=&quot;&quot;) =&gt;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+  &lt;mark&gt;
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+    &lt;a
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+      href
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+      target=&quot;_blank&quot;
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+      rel=&quot;noopener noreferrer&quot;
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+      onClick={event =&gt; handleClick(internal, event)}&gt;
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+      {ReasonReact.string(text)}
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+    &lt;/a&gt;
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+  &lt;/mark&gt;;
+</a></pre>
+</div>
+</div>
+</body>
+</html>

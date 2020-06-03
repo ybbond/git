@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(theme): use createGlobalStyle - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/b2a03949155242a792da348df8b1637c5c55687f.html">b2a03949155242a792da348df8b1637c5c55687f</a>
+<b>parent</b> <a href="../commit/cf1b70202e2e81c144e386ac70dd73bd9344fb5c.html">cf1b70202e2e81c144e386ac70dd73bd9344fb5c</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon,  9 Mar 2020 03:55:03 +0700
+
+refactor(theme): use createGlobalStyle
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">package.json</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/Theme/Style.js</a></td><td> | </td><td class="num">26</td><td><span class="i">++++++++++</span><span class="d">----------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">yarn.lock</a></td><td> | </td><td class="num">95</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">----</span></td></tr>
+</table></pre></div><p>3 files changed, 102 insertions(<span id="plus">+</span>), 20 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/package.json.html">package.json</a> b/<a href="../file/package.json.html">package.json</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -13,6 +13,7 @@
+</a>   &quot;dependencies&quot;: {
+     &quot;react&quot;: &quot;^16.13.0&quot;,
+     &quot;react-dom&quot;: &quot;^16.13.0&quot;,
+<a href="#h0-0-3" id="h0-0-3" class="i">+    &quot;react-router-dom&quot;: &quot;^5.1.2&quot;,
+</a>     &quot;styled-components&quot;: &quot;^5.0.1&quot;,
+     &quot;styled-theming&quot;: &quot;^2.2.0&quot;
+   },
+<b>diff --git a/<a id="h1" href="../file/src/Theme/Style.js.html">src/Theme/Style.js</a> b/<a href="../file/src/Theme/Style.js.html">src/Theme/Style.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,26 +1,20 @@
+</a> // @flow
+ import React from &#39;react&#39;;
+<a href="#h1-0-2" id="h1-0-2" class="i">+import {createGlobalStyle} from &#39;styled-components&#39;;
+</a> import {colors} from &#39;./colors&#39;;
+ 
+ type Props = {
+   dark: boolean,
+ };
+ 
+<a href="#h1-0-9" id="h1-0-9" class="d">-const Style = (props: Props) =&gt; (
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-  &lt;style
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-    dangerouslySetInnerHTML={{
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-      __html: `
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-html {
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-  background-color: ${props.dark ? colors.dark : colors.light};
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-}
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-::selection {
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-  background-color: ${
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-    props.dark ? colors.darkSelection : colors.lightSelection
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-  };
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-}
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-      `,
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-    }}
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-  /&gt;
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-);
+</a><a href="#h1-0-25" id="h1-0-25" class="i">+const Style = createGlobalStyle`
+</a><a href="#h1-0-26" id="h1-0-26" class="i">+  html {
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+      background-color: ${props =&gt; (props.dark ? colors.dark : colors.light)};
+</a><a href="#h1-0-28" id="h1-0-28" class="i">+  }
+</a><a href="#h1-0-29" id="h1-0-29" class="i">+  &amp;::selection {
+</a><a href="#h1-0-30" id="h1-0-30" class="i">+    background-color: ${props =&gt;
+</a><a href="#h1-0-31" id="h1-0-31" class="i">+      props.dark ? colors.darkSelection : colors.lightSelection};
+</a><a href="#h1-0-32" id="h1-0-32" class="i">+  }
+</a><a href="#h1-0-33" id="h1-0-33" class="i">+`;
+</a> 
+ export default React.memo&lt;Props&gt;(Style);
+<b>diff --git a/<a id="h2" href="../file/yarn.lock.html">yarn.lock</a> b/<a href="../file/yarn.lock.html">yarn.lock</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -782,7 +782,7 @@
+</a>     core-js-pure &quot;^3.0.0&quot;
+     regenerator-runtime &quot;^0.13.4&quot;
+ 
+<a href="#h2-0-3" id="h2-0-3" class="d">-&quot;@babel/runtime@^7.8.4&quot;:
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+&quot;@babel/runtime@^7.1.2&quot;, &quot;@babel/runtime@^7.4.0&quot;, &quot;@babel/runtime@^7.8.4&quot;:
+</a>   version &quot;7.8.7&quot;
+   resolved &quot;https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.7.tgz#8fefce9802db54881ba59f90bb28719b4996324d&quot;
+   integrity sha512-+AATMUFppJDw6aiR5NVPHqIQBlV/Pj8wY/EZH+lmvRdUo9xBaz/rF3alAwFJQavvKfeOlPE7oaaDHVbcySbCsg==
+<a href="#h2-1" id="h2-1" class="h">@@ -2938,6 +2938,11 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
+</a>   resolved &quot;https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423&quot;
+   integrity sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
+ 
+<a href="#h2-1-3" id="h2-1-3" class="i">+gud@^1.0.0:
+</a><a href="#h2-1-4" id="h2-1-4" class="i">+  version &quot;1.0.0&quot;
+</a><a href="#h2-1-5" id="h2-1-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/gud/-/gud-1.0.0.tgz#a489581b17e6a70beca9abe3ae57de7a499852c0&quot;
+</a><a href="#h2-1-6" id="h2-1-6" class="i">+  integrity sha512-zGEOVKFM5sVPPrYs7J5/hYEw2Pof8KCyOwyhG8sAF26mCAeUFAcYPu1mwB7hhpIP29zOIBaDqwuHdLp0jvZXjw==
+</a><a href="#h2-1-7" id="h2-1-7" class="i">+
+</a> handle-thing@^2.0.0:
+   version &quot;2.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/handle-thing/-/handle-thing-2.0.0.tgz#0e039695ff50c93fc288557d696f3c1dc6776754&quot;
+<a href="#h2-2" id="h2-2" class="h">@@ -3017,6 +3022,18 @@ he@1.2.x:
+</a>   resolved &quot;https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f&quot;
+   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
+ 
+<a href="#h2-2-3" id="h2-2-3" class="i">+history@^4.9.0:
+</a><a href="#h2-2-4" id="h2-2-4" class="i">+  version &quot;4.10.1&quot;
+</a><a href="#h2-2-5" id="h2-2-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/history/-/history-4.10.1.tgz#33371a65e3a83b267434e2b3f3b1b4c58aad4cf3&quot;
+</a><a href="#h2-2-6" id="h2-2-6" class="i">+  integrity sha512-36nwAD620w12kuzPAsyINPWJqlNbij+hpK1k9XRloDtym8mxzGYl2c17LnV6IAGB2Dmg4tEa7G7DlawS0+qjew==
+</a><a href="#h2-2-7" id="h2-2-7" class="i">+  dependencies:
+</a><a href="#h2-2-8" id="h2-2-8" class="i">+    &quot;@babel/runtime&quot; &quot;^7.1.2&quot;
+</a><a href="#h2-2-9" id="h2-2-9" class="i">+    loose-envify &quot;^1.2.0&quot;
+</a><a href="#h2-2-10" id="h2-2-10" class="i">+    resolve-pathname &quot;^3.0.0&quot;
+</a><a href="#h2-2-11" id="h2-2-11" class="i">+    tiny-invariant &quot;^1.0.2&quot;
+</a><a href="#h2-2-12" id="h2-2-12" class="i">+    tiny-warning &quot;^1.0.0&quot;
+</a><a href="#h2-2-13" id="h2-2-13" class="i">+    value-equal &quot;^1.0.1&quot;
+</a><a href="#h2-2-14" id="h2-2-14" class="i">+
+</a> hmac-drbg@^1.0.0:
+   version &quot;1.0.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1&quot;
+<a href="#h2-3" id="h2-3" class="h">@@ -3026,7 +3043,7 @@ hmac-drbg@^1.0.0:
+</a>     minimalistic-assert &quot;^1.0.0&quot;
+     minimalistic-crypto-utils &quot;^1.0.1&quot;
+ 
+<a href="#h2-3-3" id="h2-3-3" class="d">-hoist-non-react-statics@^3.0.0:
+</a><a href="#h2-3-4" id="h2-3-4" class="i">+hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.1.0:
+</a>   version &quot;3.3.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45&quot;
+   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
+<a href="#h2-4" id="h2-4" class="h">@@ -3501,6 +3518,11 @@ is-wsl@^1.1.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/is-wsl/-/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d&quot;
+   integrity sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
+ 
+<a href="#h2-4-3" id="h2-4-3" class="i">+isarray@0.0.1:
+</a><a href="#h2-4-4" id="h2-4-4" class="i">+  version &quot;0.0.1&quot;
+</a><a href="#h2-4-5" id="h2-4-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf&quot;
+</a><a href="#h2-4-6" id="h2-4-6" class="i">+  integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
+</a><a href="#h2-4-7" id="h2-4-7" class="i">+
+</a> isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
+   version &quot;1.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11&quot;
+<a href="#h2-5" id="h2-5" class="h">@@ -3700,7 +3722,7 @@ loglevel@^1.6.6:
+</a>   resolved &quot;https://registry.yarnpkg.com/loglevel/-/loglevel-1.6.7.tgz#b3e034233188c68b889f5b862415306f565e2c56&quot;
+   integrity sha512-cY2eLFrQSAfVPhCgH1s7JI73tMbg9YC3v3+ZHVW67sBS7UxWzNEk/ZBbSfLykBWHp33dqqtOv82gjhKEi81T/A==
+ 
+<a href="#h2-5-3" id="h2-5-3" class="d">-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
+</a><a href="#h2-5-4" id="h2-5-4" class="i">+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
+</a>   version &quot;1.4.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf&quot;
+   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
+<a href="#h2-6" id="h2-6" class="h">@@ -3854,6 +3876,15 @@ mimic-fn@^2.0.0, mimic-fn@^2.1.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b&quot;
+   integrity sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==
+ 
+<a href="#h2-6-3" id="h2-6-3" class="i">+mini-create-react-context@^0.3.0:
+</a><a href="#h2-6-4" id="h2-6-4" class="i">+  version &quot;0.3.2&quot;
+</a><a href="#h2-6-5" id="h2-6-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/mini-create-react-context/-/mini-create-react-context-0.3.2.tgz#79fc598f283dd623da8e088b05db8cddab250189&quot;
+</a><a href="#h2-6-6" id="h2-6-6" class="i">+  integrity sha512-2v+OeetEyliMt5VHMXsBhABoJ0/M4RCe7fatd/fBy6SMiKazUSEt3gxxypfnk2SHMkdBYvorHRoQxuGoiwbzAw==
+</a><a href="#h2-6-7" id="h2-6-7" class="i">+  dependencies:
+</a><a href="#h2-6-8" id="h2-6-8" class="i">+    &quot;@babel/runtime&quot; &quot;^7.4.0&quot;
+</a><a href="#h2-6-9" id="h2-6-9" class="i">+    gud &quot;^1.0.0&quot;
+</a><a href="#h2-6-10" id="h2-6-10" class="i">+    tiny-warning &quot;^1.0.2&quot;
+</a><a href="#h2-6-11" id="h2-6-11" class="i">+
+</a> minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
+   version &quot;1.0.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz#2e194de044626d4a10e7f7fbc00ce73e83e4d5c7&quot;
+<a href="#h2-7" id="h2-7" class="h">@@ -4386,6 +4417,13 @@ path-to-regexp@0.1.7:
+</a>   resolved &quot;https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c&quot;
+   integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
+ 
+<a href="#h2-7-3" id="h2-7-3" class="i">+path-to-regexp@^1.7.0:
+</a><a href="#h2-7-4" id="h2-7-4" class="i">+  version &quot;1.8.0&quot;
+</a><a href="#h2-7-5" id="h2-7-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-1.8.0.tgz#887b3ba9d84393e87a0a0b9f4cb756198b53548a&quot;
+</a><a href="#h2-7-6" id="h2-7-6" class="i">+  integrity sha512-n43JRhlUKUAlibEJhPeir1ncUID16QnEjNpwzNdO3Lm4ywrBpBZ5oLD0I6br9evr1Y9JTqwRtAh7JLoOzAQdVA==
+</a><a href="#h2-7-7" id="h2-7-7" class="i">+  dependencies:
+</a><a href="#h2-7-8" id="h2-7-8" class="i">+    isarray &quot;0.0.1&quot;
+</a><a href="#h2-7-9" id="h2-7-9" class="i">+
+</a> pbkdf2@^3.0.3:
+   version &quot;3.0.17&quot;
+   resolved &quot;https://registry.yarnpkg.com/pbkdf2/-/pbkdf2-3.0.17.tgz#976c206530617b14ebb32114239f7b09336e93a6&quot;
+<a href="#h2-8" id="h2-8" class="h">@@ -4629,11 +4667,40 @@ react-dom@^16.13.0:
+</a>     prop-types &quot;^15.6.2&quot;
+     scheduler &quot;^0.19.0&quot;
+ 
+<a href="#h2-8-3" id="h2-8-3" class="d">-react-is@^16.7.0, react-is@^16.8.1:
+</a><a href="#h2-8-4" id="h2-8-4" class="i">+react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
+</a>   version &quot;16.13.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527&quot;
+   integrity sha512-GFMtL0vHkiBv9HluwNZTggSn/sCyEt9n02aM0dSAjGGyqyNlAyftYm4phPxdvCigG15JreC5biwxCgTAJZ7yAA==
+ 
+<a href="#h2-8-9" id="h2-8-9" class="i">+react-router-dom@^5.1.2:
+</a><a href="#h2-8-10" id="h2-8-10" class="i">+  version &quot;5.1.2&quot;
+</a><a href="#h2-8-11" id="h2-8-11" class="i">+  resolved &quot;https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.1.2.tgz#06701b834352f44d37fbb6311f870f84c76b9c18&quot;
+</a><a href="#h2-8-12" id="h2-8-12" class="i">+  integrity sha512-7BPHAaIwWpZS074UKaw1FjVdZBSVWEk8IuDXdB+OkLb8vd/WRQIpA4ag9WQk61aEfQs47wHyjWUoUGGZxpQXew==
+</a><a href="#h2-8-13" id="h2-8-13" class="i">+  dependencies:
+</a><a href="#h2-8-14" id="h2-8-14" class="i">+    &quot;@babel/runtime&quot; &quot;^7.1.2&quot;
+</a><a href="#h2-8-15" id="h2-8-15" class="i">+    history &quot;^4.9.0&quot;
+</a><a href="#h2-8-16" id="h2-8-16" class="i">+    loose-envify &quot;^1.3.1&quot;
+</a><a href="#h2-8-17" id="h2-8-17" class="i">+    prop-types &quot;^15.6.2&quot;
+</a><a href="#h2-8-18" id="h2-8-18" class="i">+    react-router &quot;5.1.2&quot;
+</a><a href="#h2-8-19" id="h2-8-19" class="i">+    tiny-invariant &quot;^1.0.2&quot;
+</a><a href="#h2-8-20" id="h2-8-20" class="i">+    tiny-warning &quot;^1.0.0&quot;
+</a><a href="#h2-8-21" id="h2-8-21" class="i">+
+</a><a href="#h2-8-22" id="h2-8-22" class="i">+react-router@5.1.2:
+</a><a href="#h2-8-23" id="h2-8-23" class="i">+  version &quot;5.1.2&quot;
+</a><a href="#h2-8-24" id="h2-8-24" class="i">+  resolved &quot;https://registry.yarnpkg.com/react-router/-/react-router-5.1.2.tgz#6ea51d789cb36a6be1ba5f7c0d48dd9e817d3418&quot;
+</a><a href="#h2-8-25" id="h2-8-25" class="i">+  integrity sha512-yjEuMFy1ONK246B+rsa0cUam5OeAQ8pyclRDgpxuSCrAlJ1qN9uZ5IgyKC7gQg0w8OM50NXHEegPh/ks9YuR2A==
+</a><a href="#h2-8-26" id="h2-8-26" class="i">+  dependencies:
+</a><a href="#h2-8-27" id="h2-8-27" class="i">+    &quot;@babel/runtime&quot; &quot;^7.1.2&quot;
+</a><a href="#h2-8-28" id="h2-8-28" class="i">+    history &quot;^4.9.0&quot;
+</a><a href="#h2-8-29" id="h2-8-29" class="i">+    hoist-non-react-statics &quot;^3.1.0&quot;
+</a><a href="#h2-8-30" id="h2-8-30" class="i">+    loose-envify &quot;^1.3.1&quot;
+</a><a href="#h2-8-31" id="h2-8-31" class="i">+    mini-create-react-context &quot;^0.3.0&quot;
+</a><a href="#h2-8-32" id="h2-8-32" class="i">+    path-to-regexp &quot;^1.7.0&quot;
+</a><a href="#h2-8-33" id="h2-8-33" class="i">+    prop-types &quot;^15.6.2&quot;
+</a><a href="#h2-8-34" id="h2-8-34" class="i">+    react-is &quot;^16.6.0&quot;
+</a><a href="#h2-8-35" id="h2-8-35" class="i">+    tiny-invariant &quot;^1.0.2&quot;
+</a><a href="#h2-8-36" id="h2-8-36" class="i">+    tiny-warning &quot;^1.0.0&quot;
+</a><a href="#h2-8-37" id="h2-8-37" class="i">+
+</a> react@^16.13.0:
+   version &quot;16.13.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/react/-/react-16.13.0.tgz#d046eabcdf64e457bbeed1e792e235e1b9934cf7&quot;
+<a href="#h2-9" id="h2-9" class="h">@@ -4820,6 +4887,11 @@ resolve-from@^4.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/resolve-from/-/resolve-from-4.0.0.tgz#4abcd852ad32dd7baabfe9b40e00a36db5f392e6&quot;
+   integrity sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==
+ 
+<a href="#h2-9-3" id="h2-9-3" class="i">+resolve-pathname@^3.0.0:
+</a><a href="#h2-9-4" id="h2-9-4" class="i">+  version &quot;3.0.0&quot;
+</a><a href="#h2-9-5" id="h2-9-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/resolve-pathname/-/resolve-pathname-3.0.0.tgz#99d02224d3cf263689becbb393bc560313025dcd&quot;
+</a><a href="#h2-9-6" id="h2-9-6" class="i">+  integrity sha512-C7rARubxI8bXFNB/hqcp/4iUeIXJhJZvFPFPiSPRnhU5UPxzMFIl+2E6yY6c4k9giDJAhtV+enfA+G89N6Csng==
+</a><a href="#h2-9-7" id="h2-9-7" class="i">+
+</a> resolve-url@^0.2.1:
+   version &quot;0.2.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a&quot;
+<a href="#h2-10" id="h2-10" class="h">@@ -5490,6 +5562,16 @@ timers-browserify@^2.0.4:
+</a>   dependencies:
+     setimmediate &quot;^1.0.4&quot;
+ 
+<a href="#h2-10-3" id="h2-10-3" class="i">+tiny-invariant@^1.0.2:
+</a><a href="#h2-10-4" id="h2-10-4" class="i">+  version &quot;1.1.0&quot;
+</a><a href="#h2-10-5" id="h2-10-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.1.0.tgz#634c5f8efdc27714b7f386c35e6760991d230875&quot;
+</a><a href="#h2-10-6" id="h2-10-6" class="i">+  integrity sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw==
+</a><a href="#h2-10-7" id="h2-10-7" class="i">+
+</a><a href="#h2-10-8" id="h2-10-8" class="i">+tiny-warning@^1.0.0, tiny-warning@^1.0.2:
+</a><a href="#h2-10-9" id="h2-10-9" class="i">+  version &quot;1.0.3&quot;
+</a><a href="#h2-10-10" id="h2-10-10" class="i">+  resolved &quot;https://registry.yarnpkg.com/tiny-warning/-/tiny-warning-1.0.3.tgz#94a30db453df4c643d0fd566060d60a875d84754&quot;
+</a><a href="#h2-10-11" id="h2-10-11" class="i">+  integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
+</a><a href="#h2-10-12" id="h2-10-12" class="i">+
+</a> tmp@^0.0.33:
+   version &quot;0.0.33&quot;
+   resolved &quot;https://registry.yarnpkg.com/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9&quot;
+<a href="#h2-11" id="h2-11" class="h">@@ -5745,6 +5827,11 @@ v8-compile-cache@^2.0.3:
+</a>   resolved &quot;https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.1.0.tgz#e14de37b31a6d194f5690d67efc4e7f6fc6ab30e&quot;
+   integrity sha512-usZBT3PW+LOjM25wbqIlZwPeJV+3OSz3M1k1Ws8snlW39dZyYL9lOGC5FgPVHfk0jKmjiDV8Z0mIbVQPiwFs7g==
+ 
+<a href="#h2-11-3" id="h2-11-3" class="i">+value-equal@^1.0.1:
+</a><a href="#h2-11-4" id="h2-11-4" class="i">+  version &quot;1.0.1&quot;
+</a><a href="#h2-11-5" id="h2-11-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/value-equal/-/value-equal-1.0.1.tgz#1e0b794c734c5c0cade179c437d356d931a34d6c&quot;
+</a><a href="#h2-11-6" id="h2-11-6" class="i">+  integrity sha512-NOJ6JZCAWr0zlxZt+xqCHNTEKOsrks2HQd4MqhP1qy4z1SkbEP467eNx6TgDKXMvUOb+OENfJCZwM+16n7fRfw==
+</a><a href="#h2-11-7" id="h2-11-7" class="i">+
+</a> vary@~1.1.2:
+   version &quot;1.1.2&quot;
+   resolved &quot;https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc&quot;
+</pre>
+</div>
+</div>
+</body>
+</html>

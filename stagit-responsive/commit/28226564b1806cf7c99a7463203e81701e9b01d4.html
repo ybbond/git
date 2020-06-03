@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature: link main site on image - stagit-responsive - My mobile friendly fork of stagit
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="stagit-responsive Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>stagit-responsive</h1><span class="desc">My mobile friendly fork of stagit
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/28226564b1806cf7c99a7463203e81701e9b01d4.html">28226564b1806cf7c99a7463203e81701e9b01d4</a>
+<b>parent</b> <a href="../commit/888e72b9705792259d0551a4b626c31ab3011539.html">888e72b9705792259d0551a4b626c31ab3011539</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sun, 17 May 2020 04:55:18 +0700
+
+feature: link main site on image
+
+favicon
+
+favicon
+
+favicon
+
+logo
+
+hehe
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">Makefile</a></td><td> | </td><td class="num">4</td><td><span class="i">+++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">favicon.png</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">stagit-index.c</a></td><td> | </td><td class="num">3</td><td><span class="i">++</span><span class="d">-</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">ybbond.png</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+</table></pre></div><p>4 files changed, 5 insertions(<span id="plus">+</span>), 2 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/Makefile.html">Makefile</a> b/<a href="../file/Makefile.html">Makefile</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -53,7 +53,7 @@ dist:
+</a> 	rm -rf ${NAME}-${VERSION}
+ 	mkdir -p ${NAME}-${VERSION}
+ 	cp -f ${MAN1} ${HDR} ${SRC} ${COMPATSRC} ${DOC} \
+<a href="#h0-0-3" id="h0-0-3" class="d">-		Makefile favicon.png logo.png style.css \
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+		Makefile favicon.png logo.png style.css ybbond.png \
+</a> 		example_create.sh example_post-receive.sh \
+ 		${NAME}-${VERSION}
+ 	# make tarball
+<a href="#h0-1" id="h0-1" class="h">@@ -82,6 +82,7 @@ install: all
+</a> 	cp -f style.css\
+ 		favicon.png\
+ 		logo.png\
+<a href="#h0-1-3" id="h0-1-3" class="i">+		ybbond.png\
+</a> 		example_create.sh\
+ 		example_post-receive.sh\
+ 		README\
+<a href="#h0-2" id="h0-2" class="h">@@ -99,6 +100,7 @@ uninstall:
+</a> 		${DESTDIR}${DOCPREFIX}/style.css\
+ 		${DESTDIR}${DOCPREFIX}/favicon.png\
+ 		${DESTDIR}${DOCPREFIX}/logo.png\
+<a href="#h0-2-3" id="h0-2-3" class="i">+		${DESTDIR}${DOCPREFIX}/ybbond.png\
+</a> 		${DESTDIR}${DOCPREFIX}/example_create.sh\
+ 		${DESTDIR}${DOCPREFIX}/example_post-receive.sh\
+ 		${DESTDIR}${DOCPREFIX}/README
+<b>diff --git a/<a id="h1" href="../file/favicon.png.html">favicon.png</a> b/<a href="../file/favicon.png.html">favicon.png</a></b>
+Binary files differ.
+<b>diff --git a/<a id="h2" href="../file/stagit-index.c.html">stagit-index.c</a> b/<a href="../file/stagit-index.c.html">stagit-index.c</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -72,7 +72,8 @@ writeheader(FILE *fp)
+</a> 	fprintf(fp, &quot;&lt;/title&gt;\n&lt;link rel=\&quot;icon\&quot; type=\&quot;image/png\&quot; href=\&quot;/favicon.png\&quot; /&gt;\n&quot;);
+ 	fprintf(fp, &quot;&lt;link rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot; href=\&quot;/style.css\&quot; /&gt;\n&quot;);
+ 	fputs(&quot;&lt;/head&gt;\n&lt;body&gt;\n&quot;, fp);
+<a href="#h2-0-3" id="h2-0-3" class="d">-	fprintf(fp, &quot;&lt;table&gt;\n&lt;tr&gt;&lt;td&gt;&lt;img src=\&quot;/logo.png\&quot; alt=\&quot;\&quot; width=\&quot;32\&quot; height=\&quot;32\&quot; /&gt;&lt;/td&gt;\n&quot;
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+	fprintf(fp, &quot;&lt;table&gt;\n&lt;tr&gt;&lt;td&gt;&lt;a href=\&quot;https://ybbond.dev\&quot;&gt;&quot;
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+					&quot;&lt;img src=\&quot;/ybbond.png\&quot; alt=\&quot;\&quot; width=\&quot;32\&quot; height=\&quot;32\&quot; /&gt;&lt;/a&gt;&lt;/td&gt;\n&quot;
+</a> 	        &quot;&lt;td&gt;&lt;span class=\&quot;desc\&quot;&gt;&quot;);
+ 	xmlencode(fp, description, strlen(description));
+ 	fputs(&quot;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;\n&quot;
+<b>diff --git a/<a id="h3" href="../file/ybbond.png.html">ybbond.png</a> b/<a href="../file/ybbond.png.html">ybbond.png</a></b>
+Binary files differ.
+</pre>
+</div>
+</div>
+</body>
+</html>

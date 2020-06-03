@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(Header) =&gt; added header navigator - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/1f4ac34bbc9448e95303ecc3ee87af57f734e3b7.html">1f4ac34bbc9448e95303ecc3ee87af57f734e3b7</a>
+<b>parent</b> <a href="../commit/0449d891f85846418a43e09dfe6a8cafb019e5ed.html">0449d891f85846418a43e09dfe6a8cafb019e5ed</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon, 19 Aug 2019 20:13:14 +0700
+
+feature(Header) =&gt; added header navigator
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/App.re</a></td><td> | </td><td class="num">14</td><td><span class="i">+++++++++++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/CurViScene.re</a></td><td> | </td><td class="num">18</td><td><span class="i">+++++++++++++</span><span class="d">-----</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h2">src/PoemsScene.re</a></td><td> | </td><td class="num">4</td><td><span class="i">++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">src/UsesScene.re</a></td><td> | </td><td class="num">6</td><td><span class="i">++</span><span class="d">----</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h4">src/components/Header.re</a></td><td> | </td><td class="num">50</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>5 files changed, 80 insertions(<span id="plus">+</span>), 12 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/App.re.html">src/App.re</a> b/<a href="../file/src/App.re.html">src/App.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -34,14 +34,22 @@ let make = () =&gt; {
+</a> 
+   let content = () =&gt;
+     switch (url.path) {
+<a href="#h0-0-3" id="h0-0-3" class="i">+    | [] =&gt; &lt;CurViScene /&gt;
+</a>     | [&quot;uses&quot;] =&gt; &lt;UsesScene /&gt;
+<a href="#h0-0-5" id="h0-0-5" class="d">-    | [&quot;&quot;] =&gt; &lt;CurViScene /&gt;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+    | [&quot;poem&quot;] =&gt;
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+      ReasonReact.Router.replace(&quot;poems&quot;);
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+      &lt;PoemsScene /&gt;;
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+    | [&quot;poems&quot;] =&gt; &lt;PoemsScene /&gt;
+</a>     | _ =&gt;
+<a href="#h0-0-11" id="h0-0-11" class="d">-      ReasonReact.Router.push(&quot;&quot;);
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+      ReasonReact.Router.replace(&quot;/&quot;);
+</a>       &lt;CurViScene /&gt;;
+     };
+ 
+   &lt;div className=Styles.container&gt;
+<a href="#h0-0-17" id="h0-0-17" class="d">-    &lt;div className=Styles.main&gt; &lt;Styled /&gt; {content()} &lt;/div&gt;
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+    &lt;div className=Styles.main&gt;
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+      &lt;Styled /&gt;
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+      &lt;Header current={url.path !== [] ? List.hd(url.path) : &quot;/&quot;} /&gt;
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+      {content()}
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+    &lt;/div&gt;
+</a>   &lt;/div&gt;;
+ };
+<b>diff --git a/<a id="h1" href="../file/src/CurViScene.re.html">src/CurViScene.re</a> b/<a href="../file/src/CurViScene.re.html">src/CurViScene.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -37,28 +37,36 @@ let make = () =&gt; {
+</a>           variant: Done,
+           text:
+             &lt;span&gt;
+<a href="#h1-0-3" id="h1-0-3" class="d">-              {ReasonReact.string(&quot;Design apprentice at X-Graphic.&quot;)}
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+              {ReasonReact.string(&quot;Design apprentice at &quot;)}
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+              &lt;Link href=&quot;https://www.xg.co.id&quot; text=&quot;X-Graphic&quot; /&gt;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+              {ReasonReact.string(&quot;.&quot;)}
+</a>             &lt;/span&gt;,
+         },
+         {
+           variant: Done,
+           text:
+             &lt;span&gt;
+<a href="#h1-0-13" id="h1-0-13" class="d">-              {ReasonReact.string(&quot;Field inspector at Touchten Games.&quot;)}
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+              {ReasonReact.string(&quot;Quality Assurance at &quot;)}
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+              &lt;Link href=&quot;https://www.touchten.com&quot; text=&quot;Touchten Games&quot; /&gt;
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+              {ReasonReact.string(&quot;.&quot;)}
+</a>             &lt;/span&gt;,
+         },
+         {
+           variant: Done,
+           text:
+             &lt;span&gt;
+<a href="#h1-0-23" id="h1-0-23" class="d">-              {ReasonReact.string(&quot;Reactive engineer at Vospay.&quot;)}
+</a><a href="#h1-0-24" id="h1-0-24" class="i">+              {ReasonReact.string(&quot;Reactive Engineer at &quot;)}
+</a><a href="#h1-0-25" id="h1-0-25" class="i">+              &lt;Link href=&quot;https://vospay.id&quot; text=&quot;Vospay&quot; /&gt;
+</a><a href="#h1-0-26" id="h1-0-26" class="i">+              {ReasonReact.string(&quot;.&quot;)}
+</a>             &lt;/span&gt;,
+         },
+         {
+           variant: Progress,
+           text:
+             &lt;span&gt;
+<a href="#h1-0-33" id="h1-0-33" class="d">-              {ReasonReact.string(&quot;Frontend Engineer at Kumparan.&quot;)}
+</a><a href="#h1-0-34" id="h1-0-34" class="i">+              {ReasonReact.string(&quot;Frontend Engineer at &quot;)}
+</a><a href="#h1-0-35" id="h1-0-35" class="i">+              &lt;Link href=&quot;https://kumparan.com&quot; text=&quot;kumparan&quot; /&gt;
+</a><a href="#h1-0-36" id="h1-0-36" class="i">+              {ReasonReact.string(&quot;.&quot;)}
+</a>             &lt;/span&gt;,
+         },
+       |]
+<a href="#h1-1" id="h1-1" class="h">@@ -118,7 +126,7 @@ let make = () =&gt; {
+</a>           text:
+             &lt;span&gt;
+               &lt;Link
+<a href="#h1-1-3" id="h1-1-3" class="d">-                href=&quot;mailto:bandungpenting@gmail.com&quot;
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+                href=&quot;mailto:bandungpenting@gmail.com?subject=From%20ybbond.dev&quot;
+</a>                 text=&quot;bandungpenting@gmail.com&quot;
+               /&gt;
+             &lt;/span&gt;,
+<b>diff --git a/<a id="h2" href="../file/src/PoemsScene.re.html">src/PoemsScene.re</a> b/<a href="../file/src/PoemsScene.re.html">src/PoemsScene.re</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -0,0 +1,4 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="i">+[@react.component]
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+let make = () =&gt; {
+</a><a href="#h2-0-2" id="h2-0-2" class="i">+  &lt;React.Fragment&gt; &lt;p&gt; {ReasonReact.string(&quot;Poems&quot;)} &lt;/p&gt; &lt;/React.Fragment&gt;;
+</a><a href="#h2-0-3" id="h2-0-3" class="i">+};
+</a><b>diff --git a/<a id="h3" href="../file/src/UsesScene.re.html">src/UsesScene.re</a> b/<a href="../file/src/UsesScene.re.html">src/UsesScene.re</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -1,6 +1,4 @@
+</a> [@react.component]
+ let make = () =&gt; {
+<a href="#h3-0-2" id="h3-0-2" class="d">-  &lt;React.Fragment&gt;
+</a><a href="#h3-0-3" id="h3-0-3" class="d">-    &lt;span&gt;{ReasonReact.string(&quot;Hi&quot;)}&lt;/span&gt;
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-  &lt;/React.Fragment&gt;
+</a><a href="#h3-0-5" id="h3-0-5" class="d">-}
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+  &lt;React.Fragment&gt; &lt;p&gt; {ReasonReact.string(&quot;Uses&quot;)} &lt;/p&gt; &lt;/React.Fragment&gt;;
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+};
+</a><b>diff --git a/<a id="h4" href="../file/src/components/Header.re.html">src/components/Header.re</a> b/<a href="../file/src/components/Header.re.html">src/components/Header.re</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -0,0 +1,50 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="i">+module Styles = {
+</a><a href="#h4-0-1" id="h4-0-1" class="i">+  open Css;
+</a><a href="#h4-0-2" id="h4-0-2" class="i">+
+</a><a href="#h4-0-3" id="h4-0-3" class="i">+  let strikethrough = style([textDecoration(`lineThrough)]);
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+  let underline = style([textDecoration(`underline)]);
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+  let h1 = style([fontWeight(`num(400)), fontSize(`em(1.4))]);
+</a><a href="#h4-0-6" id="h4-0-6" class="i">+};
+</a><a href="#h4-0-7" id="h4-0-7" class="i">+
+</a><a href="#h4-0-8" id="h4-0-8" class="i">+type contentType = {
+</a><a href="#h4-0-9" id="h4-0-9" class="i">+  title: string,
+</a><a href="#h4-0-10" id="h4-0-10" class="i">+  path: string,
+</a><a href="#h4-0-11" id="h4-0-11" class="i">+};
+</a><a href="#h4-0-12" id="h4-0-12" class="i">+
+</a><a href="#h4-0-13" id="h4-0-13" class="i">+let content: array(contentType) = [|
+</a><a href="#h4-0-14" id="h4-0-14" class="i">+  {title: &quot;CV&quot;, path: &quot;/&quot;},
+</a><a href="#h4-0-15" id="h4-0-15" class="i">+  {title: &quot;Poems-Verses&quot;, path: &quot;poems&quot;},
+</a><a href="#h4-0-16" id="h4-0-16" class="i">+  {title: &quot;Uses&quot;, path: &quot;uses&quot;},
+</a><a href="#h4-0-17" id="h4-0-17" class="i">+|];
+</a><a href="#h4-0-18" id="h4-0-18" class="i">+
+</a><a href="#h4-0-19" id="h4-0-19" class="i">+[@react.component]
+</a><a href="#h4-0-20" id="h4-0-20" class="i">+let make = (~current: string) =&gt; {
+</a><a href="#h4-0-21" id="h4-0-21" class="i">+  let contentElements =
+</a><a href="#h4-0-22" id="h4-0-22" class="i">+    Array.mapi(
+</a><a href="#h4-0-23" id="h4-0-23" class="i">+      (index, item) =&gt; {
+</a><a href="#h4-0-24" id="h4-0-24" class="i">+        let separator = index !== Array.length(content) - 1 ? &quot; / &quot; : &quot;&quot;;
+</a><a href="#h4-0-25" id="h4-0-25" class="i">+        let res =
+</a><a href="#h4-0-26" id="h4-0-26" class="i">+          item.path === current
+</a><a href="#h4-0-27" id="h4-0-27" class="i">+            ? &lt;React.Fragment key=index&gt;
+</a><a href="#h4-0-28" id="h4-0-28" class="i">+                &lt;span className=Styles.strikethrough&gt;
+</a><a href="#h4-0-29" id="h4-0-29" class="i">+                  {ReasonReact.string(item.title)}
+</a><a href="#h4-0-30" id="h4-0-30" class="i">+                &lt;/span&gt;
+</a><a href="#h4-0-31" id="h4-0-31" class="i">+                &lt;span&gt; {ReasonReact.string(separator)} &lt;/span&gt;
+</a><a href="#h4-0-32" id="h4-0-32" class="i">+              &lt;/React.Fragment&gt;
+</a><a href="#h4-0-33" id="h4-0-33" class="i">+            : &lt;React.Fragment key=index&gt;
+</a><a href="#h4-0-34" id="h4-0-34" class="i">+                &lt;Link internal={item.path} text={item.title} /&gt;
+</a><a href="#h4-0-35" id="h4-0-35" class="i">+                &lt;span&gt; {ReasonReact.string(separator)} &lt;/span&gt;
+</a><a href="#h4-0-36" id="h4-0-36" class="i">+              &lt;/React.Fragment&gt;;
+</a><a href="#h4-0-37" id="h4-0-37" class="i">+
+</a><a href="#h4-0-38" id="h4-0-38" class="i">+        res;
+</a><a href="#h4-0-39" id="h4-0-39" class="i">+      },
+</a><a href="#h4-0-40" id="h4-0-40" class="i">+      content,
+</a><a href="#h4-0-41" id="h4-0-41" class="i">+    );
+</a><a href="#h4-0-42" id="h4-0-42" class="i">+
+</a><a href="#h4-0-43" id="h4-0-43" class="i">+  &lt;React.Fragment&gt;
+</a><a href="#h4-0-44" id="h4-0-44" class="i">+    &lt;h1 className=Styles.h1&gt;
+</a><a href="#h4-0-45" id="h4-0-45" class="i">+      {ReasonReact.string(&quot;Yohanes Bandung Bondowoso&quot;)}
+</a><a href="#h4-0-46" id="h4-0-46" class="i">+    &lt;/h1&gt;
+</a><a href="#h4-0-47" id="h4-0-47" class="i">+    {React.array(contentElements)}
+</a><a href="#h4-0-48" id="h4-0-48" class="i">+  &lt;/React.Fragment&gt;;
+</a><a href="#h4-0-49" id="h4-0-49" class="i">+};
+</a></pre>
+</div>
+</div>
+</body>
+</html>

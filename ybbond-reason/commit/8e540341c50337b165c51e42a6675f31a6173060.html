@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Stylings) =&gt; added global focus color - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/8e540341c50337b165c51e42a6675f31a6173060.html">8e540341c50337b165c51e42a6675f31a6173060</a>
+<b>parent</b> <a href="../commit/65d279d5b71a437a6654ffeeba2f3b270c50e4ec.html">65d279d5b71a437a6654ffeeba2f3b270c50e4ec</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sat, 24 Aug 2019 16:35:52 +0700
+
+refactor(Stylings) =&gt; added global focus color
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/Styled.re</a></td><td> | </td><td class="num">3</td><td><span class="i">+++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/components/Spoiler.re</a></td><td> | </td><td class="num">1</td><td><span class="i"></span><span class="d">-</span></td></tr>
+</table></pre></div><p>2 files changed, 3 insertions(<span id="plus">+</span>), 1 deletion(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/Styled.re.html">src/Styled.re</a> b/<a href="../file/src/Styled.re.html">src/Styled.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -63,6 +63,9 @@ body {
+</a>   |j};
+ 
+   let miscStyle = {j|
+<a href="#h0-0-3" id="h0-0-3" class="i">+*:focus {
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  outline-color: #79d688;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+}
+</a> ::selection {
+   background-color: #79d688;
+ }
+<b>diff --git a/<a id="h1" href="../file/src/components/Spoiler.re.html">src/components/Spoiler.re</a> b/<a href="../file/src/components/Spoiler.re.html">src/components/Spoiler.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -10,7 +10,6 @@ module Styles = {
+</a>       marginRight(`px(0)),
+       flex(`num(1.0)),
+       textAlign(`left),
+<a href="#h1-0-3" id="h1-0-3" class="d">-      outlineStyle(`none),
+</a>       cursor(`pointer),
+       userSelect(`none),
+     ]);
+</pre>
+</div>
+</div>
+</body>
+</html>

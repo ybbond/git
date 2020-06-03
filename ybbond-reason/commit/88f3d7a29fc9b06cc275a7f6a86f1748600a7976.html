@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Package) =&gt; upgrade dependencies - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/88f3d7a29fc9b06cc275a7f6a86f1748600a7976.html">88f3d7a29fc9b06cc275a7f6a86f1748600a7976</a>
+<b>parent</b> <a href="../commit/559324eb0cdf91970d33a221b45a8bb383c1f544.html">559324eb0cdf91970d33a221b45a8bb383c1f544</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon,  4 Nov 2019 10:54:24 +0700
+
+refactor(Package) =&gt; upgrade dependencies
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">bsconfig.json</a></td><td> | </td><td class="num">4</td><td><span class="i">+++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">package.json</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">yarn.lock</a></td><td> | </td><td class="num">10</td><td><span class="i">+++++</span><span class="d">-----</span></td></tr>
+</table></pre></div><p>3 files changed, 10 insertions(<span id="plus">+</span>), 8 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/bsconfig.json.html">bsconfig.json</a> b/<a href="../file/bsconfig.json.html">bsconfig.json</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -3,18 +3,20 @@
+</a>   &quot;reason&quot;: {
+     &quot;react-jsx&quot;: 3
+   },
+<a href="#h0-0-3" id="h0-0-3" class="i">+  &quot;bsc-flags&quot;: [&quot;-bs-super-errors&quot;],
+</a>   &quot;sources&quot;: {
+     &quot;dir&quot;: &quot;src&quot;,
+     &quot;subdirs&quot;: true
+   },
+   &quot;package-specs&quot;: [
+     {
+<a href="#h0-0-10" id="h0-0-10" class="d">-      &quot;module&quot;: &quot;commonjs&quot;,
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+      &quot;module&quot;: &quot;es6&quot;,
+</a>       &quot;in-source&quot;: true
+     }
+   ],
+   &quot;suffix&quot;: &quot;.bs.js&quot;,
+   &quot;namespace&quot;: true,
+   &quot;bs-dependencies&quot;: [&quot;bs-css&quot;, &quot;bs-webapi&quot;, &quot;reason-react&quot;],
+<a href="#h0-0-18" id="h0-0-18" class="i">+  &quot;ppx-flags&quot;: [],
+</a>   &quot;refmt&quot;: 3
+ }
+<b>diff --git a/<a id="h1" href="../file/package.json.html">package.json</a> b/<a href="../file/package.json.html">package.json</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -20,10 +20,10 @@
+</a>     &quot;bs-webapi&quot;: &quot;^0.15.2&quot;,
+     &quot;react&quot;: &quot;^16.8.1&quot;,
+     &quot;react-dom&quot;: &quot;^16.8.1&quot;,
+<a href="#h1-0-3" id="h1-0-3" class="d">-    &quot;reason-react&quot;: &quot;&gt;=0.7.0&quot;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+    &quot;reason-react&quot;: &quot;0.7.0&quot;
+</a>   },
+   &quot;devDependencies&quot;: {
+<a href="#h1-0-7" id="h1-0-7" class="d">-    &quot;bs-platform&quot;: &quot;^5.0.6&quot;,
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+    &quot;bs-platform&quot;: &quot;6.2.1&quot;,
+</a>     &quot;html-webpack-plugin&quot;: &quot;^3.2.0&quot;,
+     &quot;webpack&quot;: &quot;^4.0.1&quot;,
+     &quot;webpack-cli&quot;: &quot;^3.1.1&quot;,
+<b>diff --git a/<a id="h2" href="../file/yarn.lock.html">yarn.lock</a> b/<a href="../file/yarn.lock.html">yarn.lock</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -649,10 +649,10 @@ bs-css@^9.0.1:
+</a>   dependencies:
+     emotion &quot;^10.0.7&quot;
+ 
+<a href="#h2-0-3" id="h2-0-3" class="d">-bs-platform@^5.0.6:
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-  version &quot;5.0.6&quot;
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-  resolved &quot;https://registry.yarnpkg.com/bs-platform/-/bs-platform-5.0.6.tgz#88c13041fb020479800de3d82c680bf971091425&quot;
+</a><a href="#h2-0-6" id="h2-0-6" class="d">-  integrity sha512-6Boa2VEcWJp2WJr38L7bp3J929nYha7gDarjxb070jWzgfPJ/WbzjipmSfnu2eqqk1MfjEIpBipbPz6n1NISwA==
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+bs-platform@6.2.1:
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+  version &quot;6.2.1&quot;
+</a><a href="#h2-0-9" id="h2-0-9" class="i">+  resolved &quot;https://registry.yarnpkg.com/bs-platform/-/bs-platform-6.2.1.tgz#30266c7f23a3b323e1fc9596a9a6eb9f053981b4&quot;
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+  integrity sha512-FmQ8kYV52A0Y302qh6o0/J9TO+kHzsjGQnsjrg/ONUYIY/jWzBnt9dCBO6EBnaEKfFJLqk5JrUDCxuihqtTcnw==
+</a> 
+ bs-webapi@^0.15.2:
+   version &quot;0.15.2&quot;
+<a href="#h2-1" id="h2-1" class="h">@@ -3474,7 +3474,7 @@ readdirp@^2.2.1:
+</a>     micromatch &quot;^3.1.10&quot;
+     readable-stream &quot;^2.0.2&quot;
+ 
+<a href="#h2-1-3" id="h2-1-3" class="d">-reason-react@&gt;=0.7.0:
+</a><a href="#h2-1-4" id="h2-1-4" class="i">+reason-react@0.7.0:
+</a>   version &quot;0.7.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/reason-react/-/reason-react-0.7.0.tgz#46a975c321e81cd51310d7b1a02418ca7667b0d6&quot;
+   integrity sha512-czR/f0lY5iyLCki9gwftOFF5Zs40l7ZSFmpGK/Z6hx2jBVeFDmIiXB8bAQW/cO6IvtuEt97OmsYueiuOYG9XjQ==
+</pre>
+</div>
+</div>
+</body>
+</html>

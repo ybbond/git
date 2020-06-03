@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(theme): install styled-components and styled-theming - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/00876f77caad9dde7e55509b6f122f60baba8873.html">00876f77caad9dde7e55509b6f122f60baba8873</a>
+<b>parent</b> <a href="../commit/107eab1b82988495e835bc73f03a4715c503437b.html">107eab1b82988495e835bc73f03a4715c503437b</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sat,  7 Mar 2020 12:38:35 +0700
+
+feature(theme): install styled-components and styled-theming
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">babel.config.js</a></td><td> | </td><td class="num">6</td><td><span class="i">+++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">package.json</a></td><td> | </td><td class="num">5</td><td><span class="i">++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">public/index.html</a></td><td> | </td><td class="num">5</td><td><span class="i">++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">src/App.js</a></td><td> | </td><td class="num">111</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">---------------------------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h4">src/Theme/Style.js</a></td><td> | </td><td class="num">15</td><td><span class="i">+++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">yarn.lock</a></td><td> | </td><td class="num">104</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">----</span></td></tr>
+</table></pre></div><p>6 files changed, 197 insertions(<span id="plus">+</span>), 49 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/babel.config.js.html">babel.config.js</a> b/<a href="../file/babel.config.js.html">babel.config.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -2,10 +2,10 @@ module.exports = function(api) {
+</a>   api.cache(true);
+ 
+   const presets = [&quot;@babel/preset-env&quot;, &quot;@babel/preset-react&quot;];
+<a href="#h0-0-3" id="h0-0-3" class="d">-  // const plugins = [ ... ];
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  const plugins = [[&quot;babel-plugin-styled-components&quot;, { ssr: true }]];
+</a> 
+   return {
+<a href="#h0-0-7" id="h0-0-7" class="d">-    presets
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-    // plugins
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+    presets,
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+    plugins
+</a>   };
+ };
+<b>diff --git a/<a id="h1" href="../file/package.json.html">package.json</a> b/<a href="../file/package.json.html">package.json</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -12,7 +12,9 @@
+</a>   },
+   &quot;dependencies&quot;: {
+     &quot;react&quot;: &quot;^16.13.0&quot;,
+<a href="#h1-0-3" id="h1-0-3" class="d">-    &quot;react-dom&quot;: &quot;^16.13.0&quot;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+    &quot;react-dom&quot;: &quot;^16.13.0&quot;,
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+    &quot;styled-components&quot;: &quot;^5.0.1&quot;,
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+    &quot;styled-theming&quot;: &quot;^2.2.0&quot;
+</a>   },
+   &quot;devDependencies&quot;: {
+     &quot;@babel/cli&quot;: &quot;^7.8.4&quot;,
+<a href="#h1-1" id="h1-1" class="h">@@ -20,6 +22,7 @@
+</a>     &quot;@babel/preset-env&quot;: &quot;^7.8.7&quot;,
+     &quot;@babel/preset-react&quot;: &quot;^7.8.3&quot;,
+     &quot;babel-loader&quot;: &quot;^8.0.6&quot;,
+<a href="#h1-1-3" id="h1-1-3" class="i">+    &quot;babel-plugin-styled-components&quot;: &quot;^1.10.7&quot;,
+</a>     &quot;html-webpack-plugin&quot;: &quot;^3.2.0&quot;,
+     &quot;webpack&quot;: &quot;^4.42.0&quot;,
+     &quot;webpack-cli&quot;: &quot;^3.3.11&quot;,
+<b>diff --git a/<a id="h2" href="../file/public/index.html.html">public/index.html</a> b/<a href="../file/public/index.html.html">public/index.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,6 +1,5 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">-&lt;!-- sourced from https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html --&gt;
+</a> &lt;!DOCTYPE html&gt;
+<a href="#h2-0-2" id="h2-0-2" class="d">-&lt;html&gt;
+</a><a href="#h2-0-3" id="h2-0-3" class="i">+&lt;html style=&quot;min-width: 100vw;min-height: 100vh;&quot;&gt;
+</a>   &lt;head&gt;
+     &lt;title&gt;Yohanes Bandung Bond - Frontend Developer&lt;/title&gt;
+     &lt;meta charset=&quot;UTF-8&quot; /&gt;
+<a href="#h2-1" id="h2-1" class="h">@@ -24,7 +23,7 @@
+</a>     &lt;meta property=&quot;og:site_name&quot; content=&quot;ybbond.dev&quot; /&gt;
+     &lt;!-- OG Tags --&gt;
+   &lt;/head&gt;
+<a href="#h2-1-3" id="h2-1-3" class="d">-  &lt;body&gt;
+</a><a href="#h2-1-4" id="h2-1-4" class="i">+  &lt;body style=&quot;min-width: 100vw;min-height: 100vh;margin:0;padding:0;&quot;&gt;
+</a>     &lt;div id=&quot;react-app&quot;&gt;&lt;/div&gt;
+     &lt;noscript&gt;
+       &lt;div&gt;
+<b>diff --git a/<a id="h3" href="../file/src/App.js.html">src/App.js</a> b/<a href="../file/src/App.js.html">src/App.js</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -1,45 +1,82 @@
+</a> import React, { Component } from &quot;react&quot;;
+<a href="#h3-0-1" id="h3-0-1" class="i">+import styled, { ThemeProvider } from &quot;styled-components&quot;;
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+import theme from &quot;styled-theming&quot;;
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+import Style from &quot;./Theme/Style&quot;;
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+const backgroundColor = theme(&quot;mode&quot;, {
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+  light: &quot;#fdfdfd&quot;,
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+  dark: &quot;#1b1b1b&quot;
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+});
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+const color = theme(&quot;mode&quot;, {
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+  light: &quot;#1b1b1b&quot;,
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+  dark: &quot;#fdfdfd&quot;
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+});
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+const linkColor = theme(&quot;mode&quot;, {
+</a><a href="#h3-0-17" id="h3-0-17" class="i">+  light: &quot;#2d2d2d&quot;,
+</a><a href="#h3-0-18" id="h3-0-18" class="i">+  dark: &quot;#d8dcd5&quot;
+</a><a href="#h3-0-19" id="h3-0-19" class="i">+});
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+
+</a><a href="#h3-0-21" id="h3-0-21" class="i">+const Text = styled.p`
+</a><a href="#h3-0-22" id="h3-0-22" class="i">+  font-family: Trebuchet MS, Helvetica, sans-serif;
+</a><a href="#h3-0-23" id="h3-0-23" class="i">+`;
+</a><a href="#h3-0-24" id="h3-0-24" class="i">+
+</a><a href="#h3-0-25" id="h3-0-25" class="i">+const Wrapper = styled.div`
+</a><a href="#h3-0-26" id="h3-0-26" class="i">+  min-height: calc(100vh - 2px);
+</a><a href="#h3-0-27" id="h3-0-27" class="i">+  background-color: ${backgroundColor};
+</a><a href="#h3-0-28" id="h3-0-28" class="i">+  color: ${color};
+</a><a href="#h3-0-29" id="h3-0-29" class="i">+  padding: 1px;
+</a><a href="#h3-0-30" id="h3-0-30" class="i">+`;
+</a><a href="#h3-0-31" id="h3-0-31" class="i">+
+</a><a href="#h3-0-32" id="h3-0-32" class="i">+const Link = styled.a`
+</a><a href="#h3-0-33" id="h3-0-33" class="i">+  color: ${linkColor};
+</a><a href="#h3-0-34" id="h3-0-34" class="i">+`;
+</a><a href="#h3-0-35" id="h3-0-35" class="i">+
+</a><a href="#h3-0-36" id="h3-0-36" class="i">+const darkmode = true;
+</a> 
+ class App extends Component {
+   render() {
+     return (
+<a href="#h3-0-41" id="h3-0-41" class="d">-      &lt;div&gt;
+</a><a href="#h3-0-42" id="h3-0-42" class="d">-        &lt;center&gt;
+</a><a href="#h3-0-43" id="h3-0-43" class="d">-          &lt;div style={{ maxWidth: 600, textAlign: &quot;left&quot; }}&gt;
+</a><a href="#h3-0-44" id="h3-0-44" class="d">-            &lt;h1 style={{ fontFamily: &quot;Trebuchet MS, Helvetica, sans-serif&quot; }}&gt;
+</a><a href="#h3-0-45" id="h3-0-45" class="d">-              Yohanes Bandung Bondowoso
+</a><a href="#h3-0-46" id="h3-0-46" class="d">-            &lt;/h1&gt;
+</a><a href="#h3-0-47" id="h3-0-47" class="d">-            &lt;p style={{ fontFamily: &quot;Trebuchet MS, Helvetica, sans-serif&quot; }}&gt;
+</a><a href="#h3-0-48" id="h3-0-48" class="d">-              Currently work as Frontend Engineer of kumparan.com in Jakarta,
+</a><a href="#h3-0-49" id="h3-0-49" class="d">-              Indonesia. Building it with React, React Native for Android and
+</a><a href="#h3-0-50" id="h3-0-50" class="d">-              iOS.
+</a><a href="#h3-0-51" id="h3-0-51" class="d">-              &lt;br /&gt;
+</a><a href="#h3-0-52" id="h3-0-52" class="d">-              &lt;br /&gt;
+</a><a href="#h3-0-53" id="h3-0-53" class="d">-              Eager to learn.
+</a><a href="#h3-0-54" id="h3-0-54" class="d">-              &lt;br /&gt;
+</a><a href="#h3-0-55" id="h3-0-55" class="d">-              Hardships.
+</a><a href="#h3-0-56" id="h3-0-56" class="d">-              &lt;br /&gt;
+</a><a href="#h3-0-57" id="h3-0-57" class="d">-              I cannot say that I am humble, but I learn from experience that
+</a><a href="#h3-0-58" id="h3-0-58" class="d">-              each individuals, their own excellences.
+</a><a href="#h3-0-59" id="h3-0-59" class="d">-              &lt;br /&gt;
+</a><a href="#h3-0-60" id="h3-0-60" class="d">-              I try to learn from everyone, and everything.
+</a><a href="#h3-0-61" id="h3-0-61" class="d">-              &lt;br /&gt;
+</a><a href="#h3-0-62" id="h3-0-62" class="d">-              &lt;br /&gt;
+</a><a href="#h3-0-63" id="h3-0-63" class="d">-              Contact:{&quot; &quot;}
+</a><a href="#h3-0-64" id="h3-0-64" class="d">-              &lt;a
+</a><a href="#h3-0-65" id="h3-0-65" class="d">-                href=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;
+</a><a href="#h3-0-66" id="h3-0-66" class="d">-                target=&quot;_top&quot;
+</a><a href="#h3-0-67" id="h3-0-67" class="d">-              &gt;
+</a><a href="#h3-0-68" id="h3-0-68" class="d">-                bandungpenting@gmail.com
+</a><a href="#h3-0-69" id="h3-0-69" class="d">-              &lt;/a&gt;
+</a><a href="#h3-0-70" id="h3-0-70" class="d">-            &lt;/p&gt;
+</a><a href="#h3-0-71" id="h3-0-71" class="d">-            &lt;p style={{ fontFamily: &quot;Trebuchet MS, Helvetica, sans-serif&quot; }}&gt;
+</a><a href="#h3-0-72" id="h3-0-72" class="d">-              Other site:{&quot; &quot;}
+</a><a href="#h3-0-73" id="h3-0-73" class="d">-              &lt;a href=&quot;https://reason.ybbond.dev&quot;&gt;reason.ybbond.dev&lt;/a&gt;
+</a><a href="#h3-0-74" id="h3-0-74" class="d">-            &lt;/p&gt;
+</a><a href="#h3-0-75" id="h3-0-75" class="d">-          &lt;/div&gt;
+</a><a href="#h3-0-76" id="h3-0-76" class="d">-        &lt;/center&gt;
+</a><a href="#h3-0-77" id="h3-0-77" class="d">-      &lt;/div&gt;
+</a><a href="#h3-0-78" id="h3-0-78" class="i">+      &lt;ThemeProvider theme={{ mode: darkmode ? &quot;dark&quot; : &quot;light&quot; }}&gt;
+</a><a href="#h3-0-79" id="h3-0-79" class="i">+        &lt;Wrapper&gt;
+</a><a href="#h3-0-80" id="h3-0-80" class="i">+          &lt;Style dark={darkmode ? &quot;dark&quot; : light} /&gt;
+</a><a href="#h3-0-81" id="h3-0-81" class="i">+          &lt;center&gt;
+</a><a href="#h3-0-82" id="h3-0-82" class="i">+            &lt;div style={{ maxWidth: 600, textAlign: &quot;left&quot; }}&gt;
+</a><a href="#h3-0-83" id="h3-0-83" class="i">+              &lt;Text as=&quot;h1&quot;&gt;Yohanes Bandung Bondowoso&lt;/Text&gt;
+</a><a href="#h3-0-84" id="h3-0-84" class="i">+              &lt;Text&gt;
+</a><a href="#h3-0-85" id="h3-0-85" class="i">+                Currently work as Frontend Engineer of kumparan.com in Jakarta,
+</a><a href="#h3-0-86" id="h3-0-86" class="i">+                Indonesia. Building it with React, React Native for Android and
+</a><a href="#h3-0-87" id="h3-0-87" class="i">+                iOS.
+</a><a href="#h3-0-88" id="h3-0-88" class="i">+                &lt;br /&gt;
+</a><a href="#h3-0-89" id="h3-0-89" class="i">+                &lt;br /&gt;
+</a><a href="#h3-0-90" id="h3-0-90" class="i">+                Eager to learn.
+</a><a href="#h3-0-91" id="h3-0-91" class="i">+                &lt;br /&gt;
+</a><a href="#h3-0-92" id="h3-0-92" class="i">+                Hardships.
+</a><a href="#h3-0-93" id="h3-0-93" class="i">+                &lt;br /&gt;
+</a><a href="#h3-0-94" id="h3-0-94" class="i">+                I cannot say that I am humble, but I learn from experience that
+</a><a href="#h3-0-95" id="h3-0-95" class="i">+                each individuals, their own excellences.
+</a><a href="#h3-0-96" id="h3-0-96" class="i">+                &lt;br /&gt;
+</a><a href="#h3-0-97" id="h3-0-97" class="i">+                I try to learn from everyone, and everything.
+</a><a href="#h3-0-98" id="h3-0-98" class="i">+                &lt;br /&gt;
+</a><a href="#h3-0-99" id="h3-0-99" class="i">+                &lt;br /&gt;
+</a><a href="#h3-0-100" id="h3-0-100" class="i">+                Contact:{&quot; &quot;}
+</a><a href="#h3-0-101" id="h3-0-101" class="i">+                &lt;Link
+</a><a href="#h3-0-102" id="h3-0-102" class="i">+                  href=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;
+</a><a href="#h3-0-103" id="h3-0-103" class="i">+                  target=&quot;_top&quot;
+</a><a href="#h3-0-104" id="h3-0-104" class="i">+                &gt;
+</a><a href="#h3-0-105" id="h3-0-105" class="i">+                  bandungpenting@gmail.com
+</a><a href="#h3-0-106" id="h3-0-106" class="i">+                &lt;/Link&gt;
+</a><a href="#h3-0-107" id="h3-0-107" class="i">+              &lt;/Text&gt;
+</a><a href="#h3-0-108" id="h3-0-108" class="i">+              &lt;Text&gt;
+</a><a href="#h3-0-109" id="h3-0-109" class="i">+                Other site:{&quot; &quot;}
+</a><a href="#h3-0-110" id="h3-0-110" class="i">+                &lt;Link href=&quot;https://reason.ybbond.dev&quot;&gt;reason.ybbond.dev&lt;/Link&gt;
+</a><a href="#h3-0-111" id="h3-0-111" class="i">+              &lt;/Text&gt;
+</a><a href="#h3-0-112" id="h3-0-112" class="i">+            &lt;/div&gt;
+</a><a href="#h3-0-113" id="h3-0-113" class="i">+          &lt;/center&gt;
+</a><a href="#h3-0-114" id="h3-0-114" class="i">+        &lt;/Wrapper&gt;
+</a><a href="#h3-0-115" id="h3-0-115" class="i">+      &lt;/ThemeProvider&gt;
+</a>     );
+   }
+ }
+<b>diff --git a/<a id="h4" href="../file/src/Theme/Style.js.html">src/Theme/Style.js</a> b/<a href="../file/src/Theme/Style.js.html">src/Theme/Style.js</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -0,0 +1,15 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="i">+import React from &quot;react&quot;;
+</a><a href="#h4-0-1" id="h4-0-1" class="i">+
+</a><a href="#h4-0-2" id="h4-0-2" class="i">+const Style = props =&gt; (
+</a><a href="#h4-0-3" id="h4-0-3" class="i">+  &lt;style
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+    dangerouslySetInnerHTML={{
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+      __html: `
+</a><a href="#h4-0-6" id="h4-0-6" class="i">+html {
+</a><a href="#h4-0-7" id="h4-0-7" class="i">+  background-color: ${props.dark ? &quot;#1b1b1b&quot; : &quot;#fdfdfd&quot;};
+</a><a href="#h4-0-8" id="h4-0-8" class="i">+}
+</a><a href="#h4-0-9" id="h4-0-9" class="i">+      `
+</a><a href="#h4-0-10" id="h4-0-10" class="i">+    }}
+</a><a href="#h4-0-11" id="h4-0-11" class="i">+  /&gt;
+</a><a href="#h4-0-12" id="h4-0-12" class="i">+);
+</a><a href="#h4-0-13" id="h4-0-13" class="i">+
+</a><a href="#h4-0-14" id="h4-0-14" class="i">+export default React.memo(Style);
+</a><b>diff --git a/<a id="h5" href="../file/yarn.lock.html">yarn.lock</a> b/<a href="../file/yarn.lock.html">yarn.lock</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -65,7 +65,7 @@
+</a>     lodash &quot;^4.17.13&quot;
+     source-map &quot;^0.5.0&quot;
+ 
+<a href="#h5-0-3" id="h5-0-3" class="d">-&quot;@babel/helper-annotate-as-pure@^7.8.3&quot;:
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+&quot;@babel/helper-annotate-as-pure@^7.0.0&quot;, &quot;@babel/helper-annotate-as-pure@^7.8.3&quot;:
+</a>   version &quot;7.8.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.8.3.tgz#60bc0bc657f63a0924ff9a4b4a0b24a13cf4deee&quot;
+   integrity sha512-6o+mJrZBxOoEX77Ezv9zwW7WV8DdluouRKNY/IR5u/YTMuKHgugHOzYWlYvYLpLA9nPsQCAAASpCIbjI9Mv+Uw==
+<a href="#h5-1" id="h5-1" class="h">@@ -164,7 +164,7 @@
+</a>   dependencies:
+     &quot;@babel/types&quot; &quot;^7.8.3&quot;
+ 
+<a href="#h5-1-3" id="h5-1-3" class="d">-&quot;@babel/helper-module-imports@^7.8.3&quot;:
+</a><a href="#h5-1-4" id="h5-1-4" class="i">+&quot;@babel/helper-module-imports@^7.0.0&quot;, &quot;@babel/helper-module-imports@^7.8.3&quot;:
+</a>   version &quot;7.8.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/@babel/helper-module-imports/-/helper-module-imports-7.8.3.tgz#7fe39589b39c016331b6b8c3f441e8f0b1419498&quot;
+   integrity sha512-R0Bx3jippsbAEtzkpZ/6FIiuzOURPcMjHp+Z6xPe6DtApDJx+w7UYyOLanZqO8+wKR9G10s/FmHXvxaMd9s6Kg==
+<a href="#h5-2" id="h5-2" class="h">@@ -767,7 +767,7 @@
+</a>     &quot;@babel/parser&quot; &quot;^7.8.6&quot;
+     &quot;@babel/types&quot; &quot;^7.8.6&quot;
+ 
+<a href="#h5-2-3" id="h5-2-3" class="d">-&quot;@babel/traverse@^7.8.3&quot;, &quot;@babel/traverse@^7.8.4&quot;, &quot;@babel/traverse@^7.8.6&quot;:
+</a><a href="#h5-2-4" id="h5-2-4" class="i">+&quot;@babel/traverse@^7.4.5&quot;, &quot;@babel/traverse@^7.8.3&quot;, &quot;@babel/traverse@^7.8.4&quot;, &quot;@babel/traverse@^7.8.6&quot;:
+</a>   version &quot;7.8.6&quot;
+   resolved &quot;https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.8.6.tgz#acfe0c64e1cd991b3e32eae813a6eb564954b5ff&quot;
+   integrity sha512-2B8l0db/DPi8iinITKuo7cbPznLCEk0kCxDoB9/N6gGNg/gxOXiR/IcymAFPiBwk5w6TtQ27w4wpElgp9btR9A==
+<a href="#h5-3" id="h5-3" class="h">@@ -791,6 +791,28 @@
+</a>     lodash &quot;^4.17.13&quot;
+     to-fast-properties &quot;^2.0.0&quot;
+ 
+<a href="#h5-3-3" id="h5-3-3" class="i">+&quot;@emotion/is-prop-valid@^0.8.3&quot;:
+</a><a href="#h5-3-4" id="h5-3-4" class="i">+  version &quot;0.8.7&quot;
+</a><a href="#h5-3-5" id="h5-3-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.7.tgz#803449993f436f9a6c67752251ea3fc492a1044c&quot;
+</a><a href="#h5-3-6" id="h5-3-6" class="i">+  integrity sha512-OPkKzUeiid0vEKjZqnGcy2mzxjIlCffin+L2C02pdz/bVlt5zZZE2VzO0D3XOPnH0NEeF21QNKSXiZphjr4xiQ==
+</a><a href="#h5-3-7" id="h5-3-7" class="i">+  dependencies:
+</a><a href="#h5-3-8" id="h5-3-8" class="i">+    &quot;@emotion/memoize&quot; &quot;0.7.4&quot;
+</a><a href="#h5-3-9" id="h5-3-9" class="i">+
+</a><a href="#h5-3-10" id="h5-3-10" class="i">+&quot;@emotion/memoize@0.7.4&quot;:
+</a><a href="#h5-3-11" id="h5-3-11" class="i">+  version &quot;0.7.4&quot;
+</a><a href="#h5-3-12" id="h5-3-12" class="i">+  resolved &quot;https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.7.4.tgz#19bf0f5af19149111c40d98bb0cf82119f5d9eeb&quot;
+</a><a href="#h5-3-13" id="h5-3-13" class="i">+  integrity sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==
+</a><a href="#h5-3-14" id="h5-3-14" class="i">+
+</a><a href="#h5-3-15" id="h5-3-15" class="i">+&quot;@emotion/stylis@^0.8.4&quot;:
+</a><a href="#h5-3-16" id="h5-3-16" class="i">+  version &quot;0.8.5&quot;
+</a><a href="#h5-3-17" id="h5-3-17" class="i">+  resolved &quot;https://registry.yarnpkg.com/@emotion/stylis/-/stylis-0.8.5.tgz#deacb389bd6ee77d1e7fcaccce9e16c5c7e78e04&quot;
+</a><a href="#h5-3-18" id="h5-3-18" class="i">+  integrity sha512-h6KtPihKFn3T9fuIrwvXXUOwlx3rfUvfZIcP5a6rh8Y7zjE3O06hT5Ss4S/YI1AYhuZ1kjaE/5EaOOI2NqSylQ==
+</a><a href="#h5-3-19" id="h5-3-19" class="i">+
+</a><a href="#h5-3-20" id="h5-3-20" class="i">+&quot;@emotion/unitless@^0.7.4&quot;:
+</a><a href="#h5-3-21" id="h5-3-21" class="i">+  version &quot;0.7.5&quot;
+</a><a href="#h5-3-22" id="h5-3-22" class="i">+  resolved &quot;https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed&quot;
+</a><a href="#h5-3-23" id="h5-3-23" class="i">+  integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
+</a><a href="#h5-3-24" id="h5-3-24" class="i">+
+</a> &quot;@types/events@*&quot;:
+   version &quot;3.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7&quot;
+<a href="#h5-4" id="h5-4" class="h">@@ -1152,6 +1174,21 @@ babel-plugin-dynamic-import-node@^2.3.0:
+</a>   dependencies:
+     object.assign &quot;^4.1.0&quot;
+ 
+<a href="#h5-4-3" id="h5-4-3" class="i">+&quot;babel-plugin-styled-components@&gt;= 1&quot;, babel-plugin-styled-components@^1.10.7:
+</a><a href="#h5-4-4" id="h5-4-4" class="i">+  version &quot;1.10.7&quot;
+</a><a href="#h5-4-5" id="h5-4-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.10.7.tgz#3494e77914e9989b33cc2d7b3b29527a949d635c&quot;
+</a><a href="#h5-4-6" id="h5-4-6" class="i">+  integrity sha512-MBMHGcIA22996n9hZRf/UJLVVgkEOITuR2SvjHLb5dSTUyR4ZRGn+ngITapes36FI3WLxZHfRhkA1ffHxihOrg==
+</a><a href="#h5-4-7" id="h5-4-7" class="i">+  dependencies:
+</a><a href="#h5-4-8" id="h5-4-8" class="i">+    &quot;@babel/helper-annotate-as-pure&quot; &quot;^7.0.0&quot;
+</a><a href="#h5-4-9" id="h5-4-9" class="i">+    &quot;@babel/helper-module-imports&quot; &quot;^7.0.0&quot;
+</a><a href="#h5-4-10" id="h5-4-10" class="i">+    babel-plugin-syntax-jsx &quot;^6.18.0&quot;
+</a><a href="#h5-4-11" id="h5-4-11" class="i">+    lodash &quot;^4.17.11&quot;
+</a><a href="#h5-4-12" id="h5-4-12" class="i">+
+</a><a href="#h5-4-13" id="h5-4-13" class="i">+babel-plugin-syntax-jsx@^6.18.0:
+</a><a href="#h5-4-14" id="h5-4-14" class="i">+  version &quot;6.18.0&quot;
+</a><a href="#h5-4-15" id="h5-4-15" class="i">+  resolved &quot;https://registry.yarnpkg.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946&quot;
+</a><a href="#h5-4-16" id="h5-4-16" class="i">+  integrity sha1-CvMqmm4Tyno/1QaeYtew9Y0NiUY=
+</a><a href="#h5-4-17" id="h5-4-17" class="i">+
+</a> balanced-match@^1.0.0:
+   version &quot;1.0.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767&quot;
+<a href="#h5-5" id="h5-5" class="h">@@ -1430,6 +1467,11 @@ camelcase@^5.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320&quot;
+   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
+ 
+<a href="#h5-5-3" id="h5-5-3" class="i">+camelize@^1.0.0:
+</a><a href="#h5-5-4" id="h5-5-4" class="i">+  version &quot;1.0.0&quot;
+</a><a href="#h5-5-5" id="h5-5-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/camelize/-/camelize-1.0.0.tgz#164a5483e630fa4321e5af07020e531831b2609b&quot;
+</a><a href="#h5-5-6" id="h5-5-6" class="i">+  integrity sha1-FkpUg+Yw+kMh5a8HAg5TGDGyYJs=
+</a><a href="#h5-5-7" id="h5-5-7" class="i">+
+</a> caniuse-lite@^1.0.30001030:
+   version &quot;1.0.30001032&quot;
+   resolved &quot;https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001032.tgz#b8d224914e2cd7f507085583d4e38144c652bce4&quot;
+<a href="#h5-6" id="h5-6" class="h">@@ -1741,6 +1783,11 @@ crypto-browserify@^3.11.0:
+</a>     randombytes &quot;^2.0.0&quot;
+     randomfill &quot;^1.0.3&quot;
+ 
+<a href="#h5-6-3" id="h5-6-3" class="i">+css-color-keywords@^1.0.0:
+</a><a href="#h5-6-4" id="h5-6-4" class="i">+  version &quot;1.0.0&quot;
+</a><a href="#h5-6-5" id="h5-6-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05&quot;
+</a><a href="#h5-6-6" id="h5-6-6" class="i">+  integrity sha1-/qJhbcZ2spYmhrOvjb2+GAskTgU=
+</a><a href="#h5-6-7" id="h5-6-7" class="i">+
+</a> css-select@^1.1.0:
+   version &quot;1.2.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/css-select/-/css-select-1.2.0.tgz#2b3a110539c5355f1cd8d314623e870b121ec858&quot;
+<a href="#h5-7" id="h5-7" class="h">@@ -1751,6 +1798,15 @@ css-select@^1.1.0:
+</a>     domutils &quot;1.5.1&quot;
+     nth-check &quot;~1.0.1&quot;
+ 
+<a href="#h5-7-3" id="h5-7-3" class="i">+css-to-react-native@^3.0.0:
+</a><a href="#h5-7-4" id="h5-7-4" class="i">+  version &quot;3.0.0&quot;
+</a><a href="#h5-7-5" id="h5-7-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/css-to-react-native/-/css-to-react-native-3.0.0.tgz#62dbe678072a824a689bcfee011fc96e02a7d756&quot;
+</a><a href="#h5-7-6" id="h5-7-6" class="i">+  integrity sha512-Ro1yETZA813eoyUp2GDBhG2j+YggidUmzO1/v9eYBKR2EHVEniE2MI/NqpTQ954BMpTPZFsGNPm46qFB9dpaPQ==
+</a><a href="#h5-7-7" id="h5-7-7" class="i">+  dependencies:
+</a><a href="#h5-7-8" id="h5-7-8" class="i">+    camelize &quot;^1.0.0&quot;
+</a><a href="#h5-7-9" id="h5-7-9" class="i">+    css-color-keywords &quot;^1.0.0&quot;
+</a><a href="#h5-7-10" id="h5-7-10" class="i">+    postcss-value-parser &quot;^4.0.2&quot;
+</a><a href="#h5-7-11" id="h5-7-11" class="i">+
+</a> css-what@2.1:
+   version &quot;2.1.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/css-what/-/css-what-2.1.3.tgz#a6d7604573365fe74686c3f311c56513d88285f2&quot;
+<a href="#h5-8" id="h5-8" class="h">@@ -2596,6 +2652,13 @@ hmac-drbg@^1.0.0:
+</a>     minimalistic-assert &quot;^1.0.0&quot;
+     minimalistic-crypto-utils &quot;^1.0.1&quot;
+ 
+<a href="#h5-8-3" id="h5-8-3" class="i">+hoist-non-react-statics@^3.0.0:
+</a><a href="#h5-8-4" id="h5-8-4" class="i">+  version &quot;3.3.2&quot;
+</a><a href="#h5-8-5" id="h5-8-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45&quot;
+</a><a href="#h5-8-6" id="h5-8-6" class="i">+  integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
+</a><a href="#h5-8-7" id="h5-8-7" class="i">+  dependencies:
+</a><a href="#h5-8-8" id="h5-8-8" class="i">+    react-is &quot;^16.7.0&quot;
+</a><a href="#h5-8-9" id="h5-8-9" class="i">+
+</a> homedir-polyfill@^1.0.1:
+   version &quot;1.0.3&quot;
+   resolved &quot;https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.3.tgz#743298cef4e5af3e194161fbadcc2151d3a058e8&quot;
+<a href="#h5-9" id="h5-9" class="h">@@ -3847,6 +3910,11 @@ posix-character-classes@^0.1.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab&quot;
+   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
+ 
+<a href="#h5-9-3" id="h5-9-3" class="i">+postcss-value-parser@^4.0.2:
+</a><a href="#h5-9-4" id="h5-9-4" class="i">+  version &quot;4.0.3&quot;
+</a><a href="#h5-9-5" id="h5-9-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.0.3.tgz#651ff4593aa9eda8d5d0d66593a2417aeaeb325d&quot;
+</a><a href="#h5-9-6" id="h5-9-6" class="i">+  integrity sha512-N7h4pG+Nnu5BEIzyeaaIYWs0LI5XC40OrRh5L60z0QjFsqGWcHcbkBvpe1WYpcIS9yQ8sOi/vIPt1ejQCrMVrg==
+</a><a href="#h5-9-7" id="h5-9-7" class="i">+
+</a> pretty-error@^2.0.2:
+   version &quot;2.1.1&quot;
+   resolved &quot;https://registry.yarnpkg.com/pretty-error/-/pretty-error-2.1.1.tgz#5f4f87c8f91e5ae3f3ba87ab4cf5e03b1a17f1a3&quot;
+<a href="#h5-10" id="h5-10" class="h">@@ -4009,7 +4077,7 @@ react-dom@^16.13.0:
+</a>     prop-types &quot;^15.6.2&quot;
+     scheduler &quot;^0.19.0&quot;
+ 
+<a href="#h5-10-3" id="h5-10-3" class="d">-react-is@^16.8.1:
+</a><a href="#h5-10-4" id="h5-10-4" class="i">+react-is@^16.7.0, react-is@^16.8.1:
+</a>   version &quot;16.13.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527&quot;
+   integrity sha512-GFMtL0vHkiBv9HluwNZTggSn/sCyEt9n02aM0dSAjGGyqyNlAyftYm4phPxdvCigG15JreC5biwxCgTAJZ7yAA==
+<a href="#h5-11" id="h5-11" class="h">@@ -4385,6 +4453,11 @@ sha.js@^2.4.0, sha.js@^2.4.8:
+</a>     inherits &quot;^2.0.1&quot;
+     safe-buffer &quot;^5.0.1&quot;
+ 
+<a href="#h5-11-3" id="h5-11-3" class="i">+shallowequal@^1.1.0:
+</a><a href="#h5-11-4" id="h5-11-4" class="i">+  version &quot;1.1.0&quot;
+</a><a href="#h5-11-5" id="h5-11-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8&quot;
+</a><a href="#h5-11-6" id="h5-11-6" class="i">+  integrity sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==
+</a><a href="#h5-11-7" id="h5-11-7" class="i">+
+</a> shebang-command@^1.2.0:
+   version &quot;1.2.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/shebang-command/-/shebang-command-1.2.0.tgz#44aac65b695b03398968c39f363fee5deafdf1ea&quot;
+<a href="#h5-12" id="h5-12" class="h">@@ -4660,6 +4733,27 @@ strip-eof@^1.0.0:
+</a>   resolved &quot;https://registry.yarnpkg.com/strip-eof/-/strip-eof-1.0.0.tgz#bb43ff5598a6eb05d89b59fcd129c983313606bf&quot;
+   integrity sha1-u0P/VZim6wXYm1n80SnJgzE2Br8=
+ 
+<a href="#h5-12-3" id="h5-12-3" class="i">+styled-components@^5.0.1:
+</a><a href="#h5-12-4" id="h5-12-4" class="i">+  version &quot;5.0.1&quot;
+</a><a href="#h5-12-5" id="h5-12-5" class="i">+  resolved &quot;https://registry.yarnpkg.com/styled-components/-/styled-components-5.0.1.tgz#57782a6471031abefb2db5820a1876ae853bc619&quot;
+</a><a href="#h5-12-6" id="h5-12-6" class="i">+  integrity sha512-E0xKTRIjTs4DyvC1MHu/EcCXIj6+ENCP8hP01koyoADF++WdBUOrSGwU1scJRw7/YaYOhDvvoad6VlMG+0j53A==
+</a><a href="#h5-12-7" id="h5-12-7" class="i">+  dependencies:
+</a><a href="#h5-12-8" id="h5-12-8" class="i">+    &quot;@babel/helper-module-imports&quot; &quot;^7.0.0&quot;
+</a><a href="#h5-12-9" id="h5-12-9" class="i">+    &quot;@babel/traverse&quot; &quot;^7.4.5&quot;
+</a><a href="#h5-12-10" id="h5-12-10" class="i">+    &quot;@emotion/is-prop-valid&quot; &quot;^0.8.3&quot;
+</a><a href="#h5-12-11" id="h5-12-11" class="i">+    &quot;@emotion/stylis&quot; &quot;^0.8.4&quot;
+</a><a href="#h5-12-12" id="h5-12-12" class="i">+    &quot;@emotion/unitless&quot; &quot;^0.7.4&quot;
+</a><a href="#h5-12-13" id="h5-12-13" class="i">+    babel-plugin-styled-components &quot;&gt;= 1&quot;
+</a><a href="#h5-12-14" id="h5-12-14" class="i">+    css-to-react-native &quot;^3.0.0&quot;
+</a><a href="#h5-12-15" id="h5-12-15" class="i">+    hoist-non-react-statics &quot;^3.0.0&quot;
+</a><a href="#h5-12-16" id="h5-12-16" class="i">+    shallowequal &quot;^1.1.0&quot;
+</a><a href="#h5-12-17" id="h5-12-17" class="i">+    supports-color &quot;^5.5.0&quot;
+</a><a href="#h5-12-18" id="h5-12-18" class="i">+
+</a><a href="#h5-12-19" id="h5-12-19" class="i">+styled-theming@^2.2.0:
+</a><a href="#h5-12-20" id="h5-12-20" class="i">+  version &quot;2.2.0&quot;
+</a><a href="#h5-12-21" id="h5-12-21" class="i">+  resolved &quot;https://registry.yarnpkg.com/styled-theming/-/styled-theming-2.2.0.tgz#3084e43d40eaab4bc11ebafd3de04e3622fee37e&quot;
+</a><a href="#h5-12-22" id="h5-12-22" class="i">+  integrity sha1-MITkPUDqq0vBHrr9PeBONiL+434=
+</a><a href="#h5-12-23" id="h5-12-23" class="i">+
+</a> supports-color@6.1.0, supports-color@^6.1.0:
+   version &quot;6.1.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/supports-color/-/supports-color-6.1.0.tgz#0764abc69c63d5ac842dd4867e8d025e880df8f3&quot;
+<a href="#h5-13" id="h5-13" class="h">@@ -4667,7 +4761,7 @@ supports-color@6.1.0, supports-color@^6.1.0:
+</a>   dependencies:
+     has-flag &quot;^3.0.0&quot;
+ 
+<a href="#h5-13-3" id="h5-13-3" class="d">-supports-color@^5.3.0:
+</a><a href="#h5-13-4" id="h5-13-4" class="i">+supports-color@^5.3.0, supports-color@^5.5.0:
+</a>   version &quot;5.5.0&quot;
+   resolved &quot;https://registry.yarnpkg.com/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f&quot;
+   integrity sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==
+</pre>
+</div>
+</div>
+</body>
+</html>

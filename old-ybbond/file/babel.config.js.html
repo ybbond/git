@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>babel.config.js - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> babel.config.js (271B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> module.exports = function(api) {
+<a href="#l2" class="line" id="l2">      2</a>   api.cache(true);
+<a href="#l3" class="line" id="l3">      3</a> 
+<a href="#l4" class="line" id="l4">      4</a>   const presets = [
+<a href="#l5" class="line" id="l5">      5</a>     &quot;@babel/preset-env&quot;,
+<a href="#l6" class="line" id="l6">      6</a>     &quot;@babel/preset-react&quot;,
+<a href="#l7" class="line" id="l7">      7</a>     &quot;@babel/preset-flow&quot;
+<a href="#l8" class="line" id="l8">      8</a>   ];
+<a href="#l9" class="line" id="l9">      9</a>   const plugins = [[&quot;babel-plugin-styled-components&quot;, { ssr: true }]];
+<a href="#l10" class="line" id="l10">     10</a> 
+<a href="#l11" class="line" id="l11">     11</a>   return {
+<a href="#l12" class="line" id="l12">     12</a>     presets,
+<a href="#l13" class="line" id="l13">     13</a>     plugins
+<a href="#l14" class="line" id="l14">     14</a>   };
+<a href="#l15" class="line" id="l15">     15</a> };
+</pre>
+</div>
+</body>
+</html>

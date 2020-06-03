@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(Scene) =&gt; added CurVi scene - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/6f5d7287bb56531c0bc9dac925c118acd3e0c768.html">6f5d7287bb56531c0bc9dac925c118acd3e0c768</a>
+<b>parent</b> <a href="../commit/9dd53309109abc2a7298f8bdb63aeb0ce0914fce.html">9dd53309109abc2a7298f8bdb63aeb0ce0914fce</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Fri,  9 Aug 2019 22:19:59 +0700
+
+feature(Scene) =&gt; added CurVi scene
+
+<b>Diffstat:</b>
+<table><tr><td class="A">A</td><td><a href="#h0">src/App.re</a></td><td> | </td><td class="num">9</td><td><span class="i">+++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">src/CurVi.re</a></td><td> | </td><td class="num">35</td><td><span class="i">+++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/Index.re</a></td><td> | </td><td class="num">8</td><td><span class="i">++++++</span><span class="d">--</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">src/Utils.re</a></td><td> | </td><td class="num">34</td><td><span class="i">++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">src/index.html</a></td><td> | </td><td class="num">6</td><td><span class="i">++</span><span class="d">----</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h5">src/registerServiceWorker.js</a></td><td> | </td><td class="num">51</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>6 files changed, 137 insertions(<span id="plus">+</span>), 6 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/App.re.html">src/App.re</a> b/<a href="../file/src/App.re.html">src/App.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -0,0 +1,9 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+[@react.component]
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+let make = () =&gt; {
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+  let url = ReasonReact.Router.useUrl();
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  switch (url.path) {
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+    | [] =&gt; &lt;CurVi /&gt;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+    | _ =&gt; &lt;CurVi /&gt;
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+  }
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+}
+</a><b>diff --git a/<a id="h1" href="../file/src/CurVi.re.html">src/CurVi.re</a> b/<a href="../file/src/CurVi.re.html">src/CurVi.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -0,0 +1,35 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+type state = {
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+  opened: string,
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+  dark: bool,
+</a><a href="#h1-0-3" id="h1-0-3" class="i">+};
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+type section = Quest | Info | Contact;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+let convert = (s: section) =&gt;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+switch s {
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+  | Quest =&gt; &quot;quest&quot;
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+  | Info =&gt; &quot;info&quot;
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+  | Contact =&gt; &quot;contact&quot;
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+};
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+type action =
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+  | ToggleDark
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+  | Open((section));
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+
+</a><a href="#h1-0-17" id="h1-0-17" class="i">+let initialState = {opened: &quot;quest&quot;, dark: false};
+</a><a href="#h1-0-18" id="h1-0-18" class="i">+
+</a><a href="#h1-0-19" id="h1-0-19" class="i">+[@react.component]
+</a><a href="#h1-0-20" id="h1-0-20" class="i">+let make = () =&gt; {
+</a><a href="#h1-0-21" id="h1-0-21" class="i">+  let (state, _) =
+</a><a href="#h1-0-22" id="h1-0-22" class="i">+    React.useReducer (
+</a><a href="#h1-0-23" id="h1-0-23" class="i">+      (state, action) =&gt;
+</a><a href="#h1-0-24" id="h1-0-24" class="i">+        switch (action) {
+</a><a href="#h1-0-25" id="h1-0-25" class="i">+          | ToggleDark =&gt; {...state, dark: !state.dark}
+</a><a href="#h1-0-26" id="h1-0-26" class="i">+          | Open((toOpen)) =&gt; {...state, opened: convert( toOpen )};
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+        },
+</a><a href="#h1-0-28" id="h1-0-28" class="i">+      initialState,
+</a><a href="#h1-0-29" id="h1-0-29" class="i">+    );
+</a><a href="#h1-0-30" id="h1-0-30" class="i">+
+</a><a href="#h1-0-31" id="h1-0-31" class="i">+  &lt;div&gt;
+</a><a href="#h1-0-32" id="h1-0-32" class="i">+    {ReasonReact.createElement(span, _, state.opened)}
+</a><a href="#h1-0-33" id="h1-0-33" class="i">+  &lt;/div&gt;
+</a><a href="#h1-0-34" id="h1-0-34" class="i">+}
+</a><b>diff --git a/<a id="h2" href="../file/src/Index.re.html">src/Index.re</a> b/<a href="../file/src/Index.re.html">src/Index.re</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,3 +1,7 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">-ReactDOMRe.renderToElementWithId(&lt;Component1 message=&quot;Hello! Click this text.&quot; /&gt;, &quot;index1&quot;);
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+open Utils;
+</a> 
+<a href="#h2-0-3" id="h2-0-3" class="d">-ReactDOMRe.renderToElementWithId(&lt;Component2 greeting=&quot;Hello!&quot; /&gt;, &quot;index2&quot;);
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+registerServiceWorker();
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+ReactDOMRe.renderToElementWithId(&lt;App /&gt;, &quot;root&quot;);
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+ReasonReact.Router.push(&quot;&quot;);
+</a><b>diff --git a/<a id="h3" href="../file/src/Utils.re.html">src/Utils.re</a> b/<a href="../file/src/Utils.re.html">src/Utils.re</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,34 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+/* to enable require css file */
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+[@bs.val] external requireCSS: string =&gt; unit = &quot;require&quot;;
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+/* to get Date.now */
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+[@bs.val] external currentTime: unit =&gt; int = &quot;Date.now&quot;;
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+/* format a timestamp in seconds as relative humanised time sentence */
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+let fromNow = unixtime =&gt; {
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+  let delta = currentTime() / 1000 - unixtime;
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+  if (delta &lt; 3600) {
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+    string_of_int(delta / 60) ++ &quot; minutes ago&quot;;
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+  } else if (delta &lt; 86400) {
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+    string_of_int(delta / 3600) ++ &quot; hours ago&quot;;
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+  } else {
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+    string_of_int(delta / 86400) ++ &quot; days ago&quot;;
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+  };
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+};
+</a><a href="#h3-0-17" id="h3-0-17" class="i">+
+</a><a href="#h3-0-18" id="h3-0-18" class="i">+/* extras JS function */
+</a><a href="#h3-0-19" id="h3-0-19" class="i">+[@bs.send] [@bs.return nullable]
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+external getAttribute: (Js.t(&#39;a), string) =&gt; option(string) = &quot;getAttribute&quot;;
+</a><a href="#h3-0-21" id="h3-0-21" class="i">+
+</a><a href="#h3-0-22" id="h3-0-22" class="i">+let dangerousHtml: string =&gt; Js.t(&#39;a) = html =&gt; {&quot;__html&quot;: html};
+</a><a href="#h3-0-23" id="h3-0-23" class="i">+
+</a><a href="#h3-0-24" id="h3-0-24" class="i">+let distanceFromBottom: unit =&gt; int =
+</a><a href="#h3-0-25" id="h3-0-25" class="i">+  () =&gt; {
+</a><a href="#h3-0-26" id="h3-0-26" class="i">+    let bodyClientHeight = [%raw &quot;document.body.clientHeight&quot;];
+</a><a href="#h3-0-27" id="h3-0-27" class="i">+    let windowScrollY = [%raw &quot;window.scrollY&quot;];
+</a><a href="#h3-0-28" id="h3-0-28" class="i">+    let windowInnerHeight = [%raw &quot;window.innerHeight&quot;];
+</a><a href="#h3-0-29" id="h3-0-29" class="i">+    bodyClientHeight - (windowScrollY + windowInnerHeight);
+</a><a href="#h3-0-30" id="h3-0-30" class="i">+  };
+</a><a href="#h3-0-31" id="h3-0-31" class="i">+
+</a><a href="#h3-0-32" id="h3-0-32" class="i">+/* registerServiceWorker */
+</a><a href="#h3-0-33" id="h3-0-33" class="i">+[@bs.module] external registerServiceWorker: unit =&gt; unit = &quot;src/registerServiceWorker&quot;;
+</a><b>diff --git a/<a id="h4" href="../file/src/index.html.html">src/index.html</a> b/<a href="../file/src/index.html.html">src/index.html</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -5,11 +5,9 @@
+</a>   &lt;title&gt;ReasonReact Examples&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+<a href="#h4-0-3" id="h4-0-3" class="d">-  Component 1:
+</a><a href="#h4-0-4" id="h4-0-4" class="d">-  &lt;div id=&quot;index1&quot;&gt;&lt;/div&gt;
+</a> 
+<a href="#h4-0-6" id="h4-0-6" class="d">-  Component 2:
+</a><a href="#h4-0-7" id="h4-0-7" class="d">-  &lt;div id=&quot;index2&quot;&gt;&lt;/div&gt;
+</a><a href="#h4-0-8" id="h4-0-8" class="i">+  &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+</a><a href="#h4-0-9" id="h4-0-9" class="i">+  &lt;noscript&gt;Please enable Javascript to use this app.&lt;/noscript&gt;
+</a> 
+   &lt;script src=&quot;Index.js&quot;&gt;&lt;/script&gt;
+ &lt;/body&gt;
+<b>diff --git a/<a id="h5" href="../file/src/registerServiceWorker.js.html">src/registerServiceWorker.js</a> b/<a href="../file/src/registerServiceWorker.js.html">src/registerServiceWorker.js</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -0,0 +1,51 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="i">+// In production, we register a service worker to serve assets from local cache.
+</a><a href="#h5-0-1" id="h5-0-1" class="i">+
+</a><a href="#h5-0-2" id="h5-0-2" class="i">+// This lets the app load faster on subsequent visits in production, and gives
+</a><a href="#h5-0-3" id="h5-0-3" class="i">+// it offline capabilities. However, it also means that developers (and users)
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+// will only see deployed updates on the &quot;N+1&quot; visit to a page, since previously
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+// cached resources are updated in the background.
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+// To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+// This link also includes instructions on opting out of this behavior.
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+module.exports = function register() {
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+  if (process.env.NODE_ENV === &quot;production&quot; &amp;&amp; &quot;serviceWorker&quot; in navigator) {
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+    window.addEventListener(&quot;load&quot;, function() {
+</a><a href="#h5-0-13" id="h5-0-13" class="i">+      var swUrl = process.env.PUBLIC_URL + &quot;/service-worker.js&quot;;
+</a><a href="#h5-0-14" id="h5-0-14" class="i">+      navigator.serviceWorker
+</a><a href="#h5-0-15" id="h5-0-15" class="i">+        .register(swUrl)
+</a><a href="#h5-0-16" id="h5-0-16" class="i">+        .then(function(registration) {
+</a><a href="#h5-0-17" id="h5-0-17" class="i">+          registration.onupdatefound = function() {
+</a><a href="#h5-0-18" id="h5-0-18" class="i">+            var installingWorker = registration.installing;
+</a><a href="#h5-0-19" id="h5-0-19" class="i">+            installingWorker.onstatechange = function() {
+</a><a href="#h5-0-20" id="h5-0-20" class="i">+              if (installingWorker.state === &quot;installed&quot;) {
+</a><a href="#h5-0-21" id="h5-0-21" class="i">+                if (navigator.serviceWorker.controller) {
+</a><a href="#h5-0-22" id="h5-0-22" class="i">+                  // At this point, the old content will have been purged and
+</a><a href="#h5-0-23" id="h5-0-23" class="i">+                  // the fresh content will have been added to the cache.
+</a><a href="#h5-0-24" id="h5-0-24" class="i">+                  // It&#39;s the perfect time to display a &quot;New content is
+</a><a href="#h5-0-25" id="h5-0-25" class="i">+                  // available; please refresh.&quot; message in your web app.
+</a><a href="#h5-0-26" id="h5-0-26" class="i">+                  console.log(&quot;New content is available; please refresh.&quot;);
+</a><a href="#h5-0-27" id="h5-0-27" class="i">+                } else {
+</a><a href="#h5-0-28" id="h5-0-28" class="i">+                  // At this point, everything has been precached.
+</a><a href="#h5-0-29" id="h5-0-29" class="i">+                  // It&#39;s the perfect time to display a
+</a><a href="#h5-0-30" id="h5-0-30" class="i">+                  // &quot;Content is cached for offline use.&quot; message.
+</a><a href="#h5-0-31" id="h5-0-31" class="i">+                  console.log(&quot;Content is cached for offline use.&quot;);
+</a><a href="#h5-0-32" id="h5-0-32" class="i">+                }
+</a><a href="#h5-0-33" id="h5-0-33" class="i">+              }
+</a><a href="#h5-0-34" id="h5-0-34" class="i">+            };
+</a><a href="#h5-0-35" id="h5-0-35" class="i">+          };
+</a><a href="#h5-0-36" id="h5-0-36" class="i">+        })
+</a><a href="#h5-0-37" id="h5-0-37" class="i">+        .catch(function(error) {
+</a><a href="#h5-0-38" id="h5-0-38" class="i">+          console.error(&quot;Error during service worker registration:&quot;, error);
+</a><a href="#h5-0-39" id="h5-0-39" class="i">+        });
+</a><a href="#h5-0-40" id="h5-0-40" class="i">+    });
+</a><a href="#h5-0-41" id="h5-0-41" class="i">+  }
+</a><a href="#h5-0-42" id="h5-0-42" class="i">+};
+</a><a href="#h5-0-43" id="h5-0-43" class="i">+
+</a><a href="#h5-0-44" id="h5-0-44" class="i">+module.exports.unregister = function unregister() {
+</a><a href="#h5-0-45" id="h5-0-45" class="i">+  if (&quot;serviceWorker&quot; in navigator) {
+</a><a href="#h5-0-46" id="h5-0-46" class="i">+    navigator.serviceWorker.ready.then(function(registration) {
+</a><a href="#h5-0-47" id="h5-0-47" class="i">+      registration.unregister();
+</a><a href="#h5-0-48" id="h5-0-48" class="i">+    });
+</a><a href="#h5-0-49" id="h5-0-49" class="i">+  }
+</a><a href="#h5-0-50" id="h5-0-50" class="i">+};
+</a></pre>
+</div>
+</div>
+</body>
+</html>

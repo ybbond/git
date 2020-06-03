@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(indie): Indie Web Sign In - old-ybbond - My old site that was written with ReactJS
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="old-ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>old-ybbond</h1><span class="desc">My old site that was written with ReactJS
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/2aed1803891d83424f651c5d4b81805d08808404.html">2aed1803891d83424f651c5d4b81805d08808404</a>
+<b>parent</b> <a href="../commit/304e1e712f8bbbd5f08653f21d570b4a24260442.html">304e1e712f8bbbd5f08653f21d570b4a24260442</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sat, 18 Apr 2020 15:22:44 +0700
+
+feature(indie): Indie Web Sign In
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">public/index.html</a></td><td> | </td><td class="num">32</td><td><span class="i">+++++++++++++++++++</span><span class="d">-------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/Components/HeaderFooter.js</a></td><td> | </td><td class="num">13</td><td><span class="i">+++++++++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/Components/Link.js</a></td><td> | </td><td class="num">15</td><td><span class="i">++++++++++++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">src/Pages/CVPage.js</a></td><td> | </td><td class="num">14</td><td><span class="i">+++++++++++</span><span class="d">---</span></td></tr>
+</table></pre></div><p>4 files changed, 53 insertions(<span id="plus">+</span>), 21 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/public/index.html.html">public/index.html</a> b/<a href="../file/public/index.html.html">public/index.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -15,19 +15,25 @@
+</a>       name=&quot;description&quot;
+       content=&quot;Yohanes Bandung Bondowoso currently work as Frontend Engineer of kumparan.com in Jakarta, Indonesia. Building it with React, React Native for Android and iOS. Eager to have new insight from everyone, and everything. I learn, sometimes after I broke stuff. But still, I learn. Contact: bandungpenting@gmail.com&quot;
+     /&gt;
+<a href="#h0-0-3" id="h0-0-3" class="d">-    &lt;!-- OG Tags --&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-    &lt;!-- required og for every web [&#39;title&#39;, &#39;type&#39;, &#39;image&#39;, &#39;url&#39;] https://ogp.me/ --&gt;
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-    &lt;meta property=&quot;og:title&quot; content=&quot;Yohanes Bandung Bondowoso - Frontend Developer&quot; /&gt;
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-    &lt;meta property=&quot;og:type&quot; content=&quot;website&quot; /&gt;
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-    &lt;meta property=&quot;og:image&quot; content=&quot;https://scontent-cgk1-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/84658821_215857272932579_1110014877533899232_n.jpg?_nc_ht=scontent-cgk1-1.cdninstagram.com&amp;_nc_cat=111&amp;_nc_ohc=qj8xVO-6qsoAX8FNA1J&amp;oh=79d8fd42bd97a05ba76c7c296305ff08&amp;oe=5E93D412&quot; /&gt;
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-    &lt;meta property=&quot;og:url&quot; content=&quot;https://ybbond.dev&quot; /&gt;
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-    &lt;meta
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-      property=&quot;og:description&quot;
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-      content=&quot;Yohanes Bandung Bondowoso currently work as Frontend Engineer of kumparan.com in Jakarta, Indonesia. Building it with React, React Native for Android and iOS. Eager to have new insight from everyone, and everything. I learn, sometimes after I broke stuff. But still, I learn. Contact: bandungpenting@gmail.com&quot;
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-    /&gt;
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-    &lt;meta property=&quot;og:determiner&quot; content=&quot;the&quot; /&gt;
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-    &lt;meta property=&quot;og:site_name&quot; content=&quot;ybbond.dev&quot; /&gt;
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-    &lt;!-- OG Tags --&gt;
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+    &lt;!-- IndieWebify START --&gt;
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+      &lt;link data-hint=&quot;Blog&quot; rel=&quot;me&quot; href=&quot;https://blog.ybbond.dev&quot;&gt;
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+      &lt;link data-hint=&quot;Email&quot; rel=&quot;me&quot; href=&quot;mailto:bandungpenting@gmail.com&quot;&gt;
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+      &lt;link data-hint=&quot;Twitter&quot; rel=&quot;me&quot; href=&quot;https://twitter.com/bandungpenting&quot; /&gt;
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+      &lt;link data-hint=&quot;GitHub&quot; rel=&quot;me&quot; href=&quot;https://github.com/ybbond&quot;&gt;
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+    &lt;!-- IndieWebify END --&gt;
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+    &lt;!-- OG Tags START --&gt;
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+      &lt;!-- required og for every web [&#39;title&#39;, &#39;type&#39;, &#39;image&#39;, &#39;url&#39;] https://ogp.me/ --&gt;
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+      &lt;meta property=&quot;og:title&quot; content=&quot;Yohanes Bandung Bondowoso - Frontend Developer&quot; /&gt;
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+      &lt;meta property=&quot;og:type&quot; content=&quot;website&quot; /&gt;
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+      &lt;meta property=&quot;og:image&quot; content=&quot;https://scontent-cgk1-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/84658821_215857272932579_1110014877533899232_n.jpg?_nc_ht=scontent-cgk1-1.cdninstagram.com&amp;_nc_cat=111&amp;_nc_ohc=qj8xVO-6qsoAX8FNA1J&amp;oh=79d8fd42bd97a05ba76c7c296305ff08&amp;oe=5E93D412&quot; /&gt;
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+      &lt;meta property=&quot;og:url&quot; content=&quot;https://ybbond.dev&quot; /&gt;
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+      &lt;meta
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+        property=&quot;og:description&quot;
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+        content=&quot;Yohanes Bandung Bondowoso currently work as Frontend Engineer of kumparan.com in Jakarta, Indonesia. Building it with React, React Native for Android and iOS. Eager to have new insight from everyone, and everything. I learn, sometimes after I broke stuff. But still, I learn. Contact: bandungpenting@gmail.com&quot;
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+      /&gt;
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+      &lt;meta property=&quot;og:determiner&quot; content=&quot;the&quot; /&gt;
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+      &lt;meta property=&quot;og:site_name&quot; content=&quot;ybbond.dev&quot; /&gt;
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+    &lt;!-- OG Tags END --&gt;
+</a>   &lt;/head&gt;
+   &lt;body style=&quot;min-width: 100vw;min-height: 100vh;margin:0;padding:0;&quot;&gt;
+     &lt;div id=&quot;react-app&quot;&gt;&lt;/div&gt;
+<b>diff --git a/<a id="h1" href="../file/src/Components/HeaderFooter.js.html">src/Components/HeaderFooter.js</a> b/<a href="../file/src/Components/HeaderFooter.js.html">src/Components/HeaderFooter.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -54,7 +54,12 @@ const HeaderFooter = ({children, dark, toggleDark}: HeaderFooterProps) =&gt; (
+</a>           About
+         &lt;/Link&gt;{&#39; &#39;}
+         ::{&#39; &#39;}
+<a href="#h1-0-3" id="h1-0-3" class="d">-        &lt;Link aria-label=&quot;Go to my Blog!&quot; to=&quot;https://blog.ybbond.dev&quot;&gt;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+        &lt;Link
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+          aria-label=&quot;Go to my Blog!&quot;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+          to=&quot;https://blog.ybbond.dev&quot;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+          data-hint=&quot;Blog&quot;
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+          rel=&quot;me&quot;
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+        &gt;
+</a>           Blog 🌐
+         &lt;/Link&gt;{&#39; &#39;}
+       &lt;/Text&gt;
+<a href="#h1-1" id="h1-1" class="h">@@ -64,7 +69,11 @@ const HeaderFooter = ({children, dark, toggleDark}: HeaderFooterProps) =&gt; (
+</a>       &lt;Text&gt;See you sooner :)&lt;/Text&gt;
+       &lt;Text&gt;
+         Contact:{&#39; &#39;}
+<a href="#h1-1-3" id="h1-1-3" class="d">-        &lt;Link to=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;&gt;
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+        &lt;Link
+</a><a href="#h1-1-5" id="h1-1-5" class="i">+          to=&quot;mailto:bandungpenting@gmail.com?Subject=From%20ybbond.dev&quot;
+</a><a href="#h1-1-6" id="h1-1-6" class="i">+          data-hint=&quot;Email&quot;
+</a><a href="#h1-1-7" id="h1-1-7" class="i">+          rel=&quot;me&quot;
+</a><a href="#h1-1-8" id="h1-1-8" class="i">+        &gt;
+</a>           bandungpenting@gmail.com
+         &lt;/Link&gt;
+       &lt;/Text&gt;
+<b>diff --git a/<a id="h2" href="../file/src/Components/Link.js.html">src/Components/Link.js</a> b/<a href="../file/src/Components/Link.js.html">src/Components/Link.js</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -16,7 +16,11 @@ const linkHoverColor = theme(&#39;mode&#39;, {
+</a>   dark: colors.orange,
+ });
+ 
+<a href="#h2-0-3" id="h2-0-3" class="d">-type LinkProps = {to: string, children: React$Node};
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+type LinkProps = {
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+  to: string,
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+  children: React$Node,
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+  rel?: string,
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+};
+</a> 
+ const LinkBase: StyledComponent&lt;{isCurrentRoute?: boolean}, {}, {}&gt; = styled.a`
+   color: ${({isCurrentRoute}) =&gt; (isCurrentRoute ? linkHoverColor : linkColor)};
+<a href="#h2-1" id="h2-1" class="h">@@ -30,7 +34,7 @@ const LinkBase: StyledComponent&lt;{isCurrentRoute?: boolean}, {}, {}&gt; = styled.a`
+</a>   }
+ `;
+ 
+<a href="#h2-1-3" id="h2-1-3" class="d">-const Link = ({children, to, ...props}: LinkProps) =&gt; {
+</a><a href="#h2-1-4" id="h2-1-4" class="i">+const Link = ({children, to, rel, ...props}: LinkProps) =&gt; {
+</a>   const history = useHistory();
+ 
+   Link.goTo = (to: string) =&gt; {
+<a href="#h2-2" id="h2-2" class="h">@@ -40,7 +44,12 @@ const Link = ({children, to, ...props}: LinkProps) =&gt; {
+</a>   const isExternal = to[0] !== &#39;/&#39;;
+   if (isExternal) {
+     return (
+<a href="#h2-2-3" id="h2-2-3" class="d">-      &lt;LinkBase {...props} target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; href={to}&gt;
+</a><a href="#h2-2-4" id="h2-2-4" class="i">+      &lt;LinkBase
+</a><a href="#h2-2-5" id="h2-2-5" class="i">+        {...props}
+</a><a href="#h2-2-6" id="h2-2-6" class="i">+        target=&quot;_blank&quot;
+</a><a href="#h2-2-7" id="h2-2-7" class="i">+        rel={rel ? rel : &#39;noopener noreferrer&#39;}
+</a><a href="#h2-2-8" id="h2-2-8" class="i">+        href={to}
+</a><a href="#h2-2-9" id="h2-2-9" class="i">+      &gt;
+</a>         {children}
+       &lt;/LinkBase&gt;
+     );
+<b>diff --git a/<a id="h3" href="../file/src/Pages/CVPage.js.html">src/Pages/CVPage.js</a> b/<a href="../file/src/Pages/CVPage.js.html">src/Pages/CVPage.js</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -57,9 +57,17 @@ const CVPage = () =&gt; {
+</a>           &lt;/Link&gt;
+         &lt;/List&gt;
+         &lt;List as=&quot;li&quot;&gt;
+<a href="#h3-0-3" id="h3-0-3" class="d">-          &lt;Link to=&quot;https://github.com/ybbond&quot;&gt;Github&lt;/Link&gt;,{&#39; &#39;}
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-          &lt;Link to=&quot;https://www.instagram.com/ybbond&quot;&gt;Instagram&lt;/Link&gt;,{&#39; &#39;}
+</a><a href="#h3-0-5" id="h3-0-5" class="d">-          &lt;Link to=&quot;https://twitter.com/bandungpenting&quot;&gt;Twitter&lt;/Link&gt;
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+          &lt;Link to=&quot;https://github.com/ybbond&quot; data-hint=&quot;GitHub&quot; rel=&quot;me&quot;&gt;
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+            Github
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+          &lt;/Link&gt;
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+          , &lt;Link to=&quot;https://www.instagram.com/ybbond&quot;&gt;Instagram&lt;/Link&gt;,{&#39; &#39;}
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+          &lt;Link
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+            to=&quot;https://twitter.com/bandungpenting&quot;
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+            data-hint=&quot;Twitter&quot;
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+            rel=&quot;me&quot;
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+          &gt;
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+            Twitter
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+          &lt;/Link&gt;
+</a>         &lt;/List&gt;
+       &lt;/List&gt;
+     &lt;/React.Fragment&gt;
+</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Font) =&gt; use Cousine for Powerline - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/0449d891f85846418a43e09dfe6a8cafb019e5ed.html">0449d891f85846418a43e09dfe6a8cafb019e5ed</a>
+<b>parent</b> <a href="../commit/1da01ba68a4993bfe033f6482d7bd27a630d99c2.html">1da01ba68a4993bfe033f6482d7bd27a630d99c2</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon, 19 Aug 2019 20:12:31 +0700
+
+refactor(Font) =&gt; use Cousine for Powerline
+
+<b>Diffstat:</b>
+<table><tr><td class="A">A</td><td><a href="#h0">assets/fonts/Cousine for Powerline.ttf</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/Styled.re</a></td><td> | </td><td class="num">15</td><td><span class="i">++++++++++++</span><span class="d">---</span></td></tr>
+</table></pre></div><p>2 files changed, 12 insertions(<span id="plus">+</span>), 3 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/fonts/Cousine for Powerline.ttf.html">assets/fonts/Cousine for Powerline.ttf</a> b/<a href="../file/assets/fonts/Cousine for Powerline.ttf.html">assets/fonts/Cousine for Powerline.ttf</a></b>
+Binary files differ.
+<b>diff --git a/<a id="h1" href="../file/src/Styled.re.html">src/Styled.re</a> b/<a href="../file/src/Styled.re.html">src/Styled.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -2,7 +2,8 @@ open Utils;
+</a> 
+ module Styles = {
+   open Css;
+<a href="#h1-0-3" id="h1-0-3" class="d">-  let toggler = style([cursor(`pointer), userSelect(`none)]);
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  let toggler =
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+    style([cursor(`pointer), userSelect(`none), marginTop(`em(2.0))]);
+</a> };
+ 
+ type state = {dark: bool};
+<a href="#h1-1" id="h1-1" class="h">@@ -29,12 +30,20 @@ let make = () =&gt; {
+</a>   let anchorHover = state.dark ? &quot;#2d2d2d&quot; : &quot;#d8dcd5&quot;;
+ 
+   let htmlStyle =
+<a href="#h1-1-3" id="h1-1-3" class="d">-    &quot;html { height: 100vh; font-family: &#39;Cousine&#39;, monospace; background-color:&quot;
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+    &quot;html { height: 100vh; font-family: &#39;Cousine for Powerline&#39;, monospace; background-color:&quot;
+</a>     ++ backgroundColor
+     ++ &quot;; color:&quot;
+     ++ textColor
+     ++ &quot;; }&quot;;
+<a href="#h1-1-9" id="h1-1-9" class="d">-  let fontFace = &quot;@import url(&#39;https://fonts.googleapis.com/css?family=Cousine:400,700&amp;display=swap&#39;);&quot;;
+</a><a href="#h1-1-10" id="h1-1-10" class="i">+  /* let fontFace = &quot;@import url(&#39;https://fonts.googleapis.com/css?family=Cousine:400,700&amp;display=swap&#39;);&quot;; */
+</a><a href="#h1-1-11" id="h1-1-11" class="i">+  let fontFace = {j|
+</a><a href="#h1-1-12" id="h1-1-12" class="i">+@font-face {
+</a><a href="#h1-1-13" id="h1-1-13" class="i">+  font-family: &#39;Cousine for Powerline&#39;;
+</a><a href="#h1-1-14" id="h1-1-14" class="i">+  font-style: normal;
+</a><a href="#h1-1-15" id="h1-1-15" class="i">+  font-weight: 400;
+</a><a href="#h1-1-16" id="h1-1-16" class="i">+  src: url(&#39;../assets/fonts/Cousine for Powerline.ttf&#39;); /* IE9 Compat Modes */
+</a><a href="#h1-1-17" id="h1-1-17" class="i">+}
+</a><a href="#h1-1-18" id="h1-1-18" class="i">+  |j};
+</a>   let bodyStyle = {j|
+ body {
+   display: flex;
+</pre>
+</div>
+</div>
+</body>
+</html>

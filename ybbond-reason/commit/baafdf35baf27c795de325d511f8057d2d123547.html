@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature(Theme) =&gt; theme toggler - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/baafdf35baf27c795de325d511f8057d2d123547.html">baafdf35baf27c795de325d511f8057d2d123547</a>
+<b>parent</b> <a href="../commit/f12181eb118d3ea4abea8db380bdcc360f809f11.html">f12181eb118d3ea4abea8db380bdcc360f809f11</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Thu, 15 Aug 2019 20:13:40 +0700
+
+feature(Theme) =&gt; theme toggler
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/App.re</a></td><td> | </td><td class="num">12</td><td><span class="i">++++++</span><span class="d">------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/CurViScene.re</a></td><td> | </td><td class="num">22</td><td><span class="i">+++++++++</span><span class="d">-------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">src/Styled.re</a></td><td> | </td><td class="num">60</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">-------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">src/components/ContentList.re</a></td><td> | </td><td class="num">5</td><td><span class="i">++++</span><span class="d">-</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h4">src/components/Link.re</a></td><td> | </td><td class="num">3</td><td><span class="i">+++</span><span class="d"></span></td></tr>
+</table></pre></div><p>5 files changed, 75 insertions(<span id="plus">+</span>), 27 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/App.re.html">src/App.re</a> b/<a href="../file/src/App.re.html">src/App.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -34,14 +34,14 @@ let make = () =&gt; {
+</a> 
+   let content = () =&gt;
+     switch (url.path) {
+<a href="#h0-0-3" id="h0-0-3" class="d">-    | [&quot;/uses&quot;] =&gt; &lt;CurViScene /&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-    | _ =&gt; &lt;CurViScene /&gt;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+    | [&quot;/uses&quot;] =&gt; &lt;UsesScene /&gt;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+    | [&quot;/&quot;] =&gt; &lt;CurViScene /&gt;
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+    | _ =&gt;
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+      ReasonReact.Router.push(&quot;&quot;);
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+      &lt;CurViScene /&gt;;
+</a>     };
+ 
+   &lt;div className=Styles.container&gt;
+<a href="#h0-0-13" id="h0-0-13" class="d">-    &lt;main className=Styles.main&gt;
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-      &lt;Styled dark=true /&gt;
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-      {content()}
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-    &lt;/main&gt;
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+    &lt;main className=Styles.main&gt; &lt;Styled /&gt; {content()} &lt;/main&gt;
+</a>   &lt;/div&gt;;
+ };
+<b>diff --git a/<a id="h1" href="../file/src/CurViScene.re.html">src/CurViScene.re</a> b/<a href="../file/src/CurViScene.re.html">src/CurViScene.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -76,10 +76,7 @@ let make = () =&gt; {
+</a>         },
+         {
+           variant: Default,
+<a href="#h1-0-3" id="h1-0-3" class="d">-          text:
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-            &lt;span&gt;
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-              {ReasonReact.string(&quot;Drinks coffee.&quot;)}
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-            &lt;/span&gt;,
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+          text: &lt;span&gt; {ReasonReact.string(&quot;Drinks coffee.&quot;)} &lt;/span&gt;,
+</a>         },
+         {
+           variant: Default,
+<a href="#h1-1" id="h1-1" class="h">@@ -90,17 +87,11 @@ let make = () =&gt; {
+</a>         },
+         {
+           variant: Default,
+<a href="#h1-1-3" id="h1-1-3" class="d">-          text:
+</a><a href="#h1-1-4" id="h1-1-4" class="d">-            &lt;span&gt;
+</a><a href="#h1-1-5" id="h1-1-5" class="d">-              {ReasonReact.string(&quot;Vim user.&quot;)}
+</a><a href="#h1-1-6" id="h1-1-6" class="d">-            &lt;/span&gt;,
+</a><a href="#h1-1-7" id="h1-1-7" class="i">+          text: &lt;span&gt; {ReasonReact.string(&quot;Vim user.&quot;)} &lt;/span&gt;,
+</a>         },
+         {
+           variant: Default,
+<a href="#h1-1-11" id="h1-1-11" class="d">-          text:
+</a><a href="#h1-1-12" id="h1-1-12" class="d">-            &lt;span&gt;
+</a><a href="#h1-1-13" id="h1-1-13" class="d">-              {ReasonReact.string(&quot;Jakarta, Indonesia&quot;)}
+</a><a href="#h1-1-14" id="h1-1-14" class="d">-            &lt;/span&gt;,
+</a><a href="#h1-1-15" id="h1-1-15" class="i">+          text: &lt;span&gt; {ReasonReact.string(&quot;Jakarta, Indonesia&quot;)} &lt;/span&gt;,
+</a>         },
+       |]
+     /&gt;;
+<a href="#h1-2" id="h1-2" class="h">@@ -124,7 +115,12 @@ let make = () =&gt; {
+</a>           variant: Default,
+           text:
+             &lt;span&gt;
+<a href="#h1-2-3" id="h1-2-3" class="d">-              {ReasonReact.string(&quot;Instagram, Github, Twitter.&quot;)}
+</a><a href="#h1-2-4" id="h1-2-4" class="i">+              &lt;Link href=&quot;https://www.instagram.com/ybbond&quot; text=&quot;Instagram&quot; /&gt;
+</a><a href="#h1-2-5" id="h1-2-5" class="i">+              {ReasonReact.string(&quot;, &quot;)}
+</a><a href="#h1-2-6" id="h1-2-6" class="i">+              &lt;Link href=&quot;https://github.com/ybbond&quot; text=&quot;Github&quot; /&gt;
+</a><a href="#h1-2-7" id="h1-2-7" class="i">+              {ReasonReact.string(&quot;, &quot;)}
+</a><a href="#h1-2-8" id="h1-2-8" class="i">+              &lt;Link href=&quot;https://twitter.com/bandungpenting&quot; text=&quot;Twitter&quot; /&gt;
+</a><a href="#h1-2-9" id="h1-2-9" class="i">+              {ReasonReact.string(&quot;.&quot;)}
+</a>             &lt;/span&gt;,
+         },
+       |]
+<b>diff --git a/<a id="h2" href="../file/src/Styled.re.html">src/Styled.re</a> b/<a href="../file/src/Styled.re.html">src/Styled.re</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,10 +1,35 @@
+</a> open Utils;
+ 
+<a href="#h2-0-2" id="h2-0-2" class="i">+type state = {dark: bool};
+</a><a href="#h2-0-3" id="h2-0-3" class="i">+type action =
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  | ToggleDark;
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+let initialState = {dark: false};
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+
+</a> [@react.component]
+<a href="#h2-0-9" id="h2-0-9" class="d">-let make = (~dark: bool) =&gt; {
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-  let backgroundColor = dark ? &quot;#1b1b1b&quot; : &quot;#fdfdfd&quot;;
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-  let textColor = dark ? &quot;#fdfdfd&quot; : &quot;#1b1b1b&quot;;
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-  let htmlStyle = &quot;html { height: 100vh; background-color:&quot; ++ backgroundColor ++ &quot;; color:&quot; ++ textColor  ++ &quot;; }&quot;;
+</a><a href="#h2-0-13" id="h2-0-13" class="i">+let make = () =&gt; {
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+  let (state, dispatch) =
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+    React.useReducer(
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+      (state, action) =&gt;
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+        switch (action) {
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+        | ToggleDark =&gt; {dark: !state.dark}
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+        },
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+      initialState,
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+    );
+</a><a href="#h2-0-22" id="h2-0-22" class="i">+  let backgroundColor = state.dark ? &quot;#1b1b1b&quot; : &quot;#fdfdfd&quot;;
+</a><a href="#h2-0-23" id="h2-0-23" class="i">+  let textColor = state.dark ? &quot;#fdfdfd&quot; : &quot;#1b1b1b&quot;;
+</a><a href="#h2-0-24" id="h2-0-24" class="i">+  let markColor = state.dark ? &quot;#3e3e3e&quot; : &quot;#d8dcd5&quot;;
+</a><a href="#h2-0-25" id="h2-0-25" class="i">+  let markHover = state.dark ? &quot;#d8dcd6&quot; : &quot;#2d2d2d&quot;;
+</a><a href="#h2-0-26" id="h2-0-26" class="i">+  let anchorColor = state.dark ? &quot;#d8dcd5&quot; : &quot;#2d2d2d&quot;;
+</a><a href="#h2-0-27" id="h2-0-27" class="i">+  let anchorHover = state.dark ? &quot;#2d2d2d&quot; : &quot;#d8dcd5&quot;;
+</a><a href="#h2-0-28" id="h2-0-28" class="i">+
+</a><a href="#h2-0-29" id="h2-0-29" class="i">+  let htmlStyle =
+</a><a href="#h2-0-30" id="h2-0-30" class="i">+    &quot;html { height: 100vh; font-family: &#39;Cousine&#39;, monospace; background-color:&quot;
+</a><a href="#h2-0-31" id="h2-0-31" class="i">+    ++ backgroundColor
+</a><a href="#h2-0-32" id="h2-0-32" class="i">+    ++ &quot;; color:&quot;
+</a><a href="#h2-0-33" id="h2-0-33" class="i">+    ++ textColor
+</a><a href="#h2-0-34" id="h2-0-34" class="i">+    ++ &quot;; }&quot;;
+</a><a href="#h2-0-35" id="h2-0-35" class="i">+  let fontFace = &quot;@import url(&#39;https://fonts.googleapis.com/css?family=Cousine:400,700&amp;display=swap&#39;);&quot;;
+</a>   let bodyStyle = {j|
+ body {
+   display: flex;
+<a href="#h2-1" id="h2-1" class="h">@@ -17,14 +42,35 @@ body {
+</a>   word-wrap: break-word;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+<a href="#h2-1-3" id="h2-1-3" class="d">-}    
+</a><a href="#h2-1-4" id="h2-1-4" class="i">+}
+</a>   |j};
+   let miscStyle = {j|
+ ::selection {
+   background-color: #79d688;
+ }
+   |j};
+<a href="#h2-1-11" id="h2-1-11" class="d">-  let setStyle = htmlStyle ++ bodyStyle ++ miscStyle;
+</a><a href="#h2-1-12" id="h2-1-12" class="i">+  let markStyle =
+</a><a href="#h2-1-13" id="h2-1-13" class="i">+    &quot;mark{background-color:&quot;
+</a><a href="#h2-1-14" id="h2-1-14" class="i">+    ++ markColor
+</a><a href="#h2-1-15" id="h2-1-15" class="i">+    ++ &quot;;}&quot;
+</a><a href="#h2-1-16" id="h2-1-16" class="i">+    ++ &quot;mark:hover{background-color:&quot;
+</a><a href="#h2-1-17" id="h2-1-17" class="i">+    ++ markHover
+</a><a href="#h2-1-18" id="h2-1-18" class="i">+    ++ &quot;;}&quot;;
+</a><a href="#h2-1-19" id="h2-1-19" class="i">+  let anchorStyle =
+</a><a href="#h2-1-20" id="h2-1-20" class="i">+    &quot;a{text-decoration: none;cursor: pointer;color:&quot;
+</a><a href="#h2-1-21" id="h2-1-21" class="i">+    ++ anchorColor
+</a><a href="#h2-1-22" id="h2-1-22" class="i">+    ++ &quot;;}&quot;
+</a><a href="#h2-1-23" id="h2-1-23" class="i">+    ++ &quot;a:hover{color:&quot;
+</a><a href="#h2-1-24" id="h2-1-24" class="i">+    ++ anchorHover
+</a><a href="#h2-1-25" id="h2-1-25" class="i">+    ++ &quot;;}&quot;;
+</a><a href="#h2-1-26" id="h2-1-26" class="i">+
+</a><a href="#h2-1-27" id="h2-1-27" class="i">+  let setStyle =
+</a><a href="#h2-1-28" id="h2-1-28" class="i">+    htmlStyle ++ fontFace ++ bodyStyle ++ miscStyle ++ markStyle ++ anchorStyle;
+</a> 
+<a href="#h2-1-30" id="h2-1-30" class="d">-  &lt;style dangerouslySetInnerHTML={dangerousHtml(setStyle)} /&gt;
+</a><a href="#h2-1-31" id="h2-1-31" class="i">+  &lt;React.Fragment&gt;
+</a><a href="#h2-1-32" id="h2-1-32" class="i">+    &lt;style dangerouslySetInnerHTML={dangerousHtml(setStyle)} /&gt;
+</a><a href="#h2-1-33" id="h2-1-33" class="i">+    &lt;button onClick={_ =&gt; dispatch(ToggleDark)}&gt;
+</a><a href="#h2-1-34" id="h2-1-34" class="i">+      {ReasonReact.string(&quot;hai&quot;)}
+</a><a href="#h2-1-35" id="h2-1-35" class="i">+    &lt;/button&gt;
+</a><a href="#h2-1-36" id="h2-1-36" class="i">+  &lt;/React.Fragment&gt;;
+</a> };
+<b>diff --git a/<a id="h3" href="../file/src/components/ContentList.re.html">src/components/ContentList.re</a> b/<a href="../file/src/components/ContentList.re.html">src/components/ContentList.re</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -1,5 +1,6 @@
+</a> module Styles = {
+   open Css;
+<a href="#h3-0-2" id="h3-0-2" class="i">+
+</a>   let ul =
+     style([
+       marginLeft(em(2.5)),
+<a href="#h3-1" id="h3-1" class="h">@@ -56,7 +57,9 @@ let make = (~content: array(listContent)) =&gt; {
+</a>           | Done =&gt; Styles.pDone
+           | Default =&gt; Styles.pDefault
+           };
+<a href="#h3-1-3" id="h3-1-3" class="d">-        &lt;li key=string_of_int(key)&gt; &lt;p className=listPointType&gt; {item.text} &lt;/p&gt; &lt;/li&gt;;
+</a><a href="#h3-1-4" id="h3-1-4" class="i">+        &lt;li key={string_of_int(key)}&gt;
+</a><a href="#h3-1-5" id="h3-1-5" class="i">+          &lt;p className=listPointType&gt; {item.text} &lt;/p&gt;
+</a><a href="#h3-1-6" id="h3-1-6" class="i">+        &lt;/li&gt;;
+</a>       },
+       content,
+     );
+<b>diff --git a/<a id="h4" href="../file/src/components/Link.re.html">src/components/Link.re</a> b/<a href="../file/src/components/Link.re.html">src/components/Link.re</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -0,0 +1,3 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="i">+[@react.component]
+</a><a href="#h4-0-1" id="h4-0-1" class="i">+let make = (~href: string, ~text: string) =&gt;
+</a><a href="#h4-0-2" id="h4-0-2" class="i">+  &lt;mark&gt; &lt;a href&gt; {ReasonReact.string(text)} &lt;/a&gt; &lt;/mark&gt;;
+</a></pre>
+</div>
+</div>
+</body>
+</html>

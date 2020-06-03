@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(Blog) =&gt; make blog content summary - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/309cd507b98fcbe901255e4afd5a142c48014a7c.html">309cd507b98fcbe901255e4afd5a142c48014a7c</a>
+<b>parent</b> <a href="../commit/19170154e45a567d615fbb3b6c959d866cd25307.html">19170154e45a567d615fbb3b6c959d866cd25307</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue,  3 Mar 2020 04:38:17 +0700
+
+refactor(Blog) =&gt; make blog content summary
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">src/BlogContent.re</a></td><td> | </td><td class="num">33</td><td><span class="i">+++++++++++++++++++++++++++++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">src/BlogScene.re</a></td><td> | </td><td class="num">18</td><td><span class="i">++++++++++++++</span><span class="d">----</span></td></tr>
+</table></pre></div><p>2 files changed, 45 insertions(<span id="plus">+</span>), 6 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/src/BlogContent.re.html">src/BlogContent.re</a> b/<a href="../file/src/BlogContent.re.html">src/BlogContent.re</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,10 +1,28 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+module Styles = {
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+  open Css;
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+  let h1 = style([fontWeight(`num(600)), fontSize(`em(1.2))]);
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+  let summary =
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    style([
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+      fontSize(`em(1.0)),
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+      marginTop(`em(1.0)),
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+      marginBottom(`em(1.0)),
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+      marginLeft(`px(0)),
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+      marginRight(`px(0)),
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+      flex(`num(1.0)),
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+      textAlign(`left),
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+      cursor(`pointer),
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+      userSelect(`none),
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+    ]);
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+};
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+
+</a> type state = {blog_content: string};
+ 
+ type action =
+   | Loaded(string);
+ 
+ [@react.component]
+<a href="#h0-0-23" id="h0-0-23" class="d">-let make = (~link: string) =&gt; {
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+let make =
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+    (~link: string, ~source: string, ~title: string, ~createdAt: string) =&gt; {
+</a>   let (state, dispatch) =
+     React.useReducer(
+       (_state, action) =&gt;
+<a href="#h0-1" id="h0-1" class="h">@@ -19,5 +37,16 @@ let make = (~link: string) =&gt; {
+</a>     None;
+   });
+ 
+<a href="#h0-1-3" id="h0-1-3" class="d">-  &lt;pre&gt; {ReasonReact.string(state.blog_content)} &lt;/pre&gt;;
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+  &lt;details&gt;
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+    &lt;summary className=Styles.summary&gt; {ReasonReact.string(title)} &lt;/summary&gt;
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+    &lt;h1 className=Styles.h1&gt;
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+      {ReasonReact.string(&quot;# &quot; ++ title ++ &quot; [&quot;)}
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+      &lt;Link href=source text=&quot;link&quot; /&gt;
+</a><a href="#h0-1-9" id="h0-1-9" class="i">+      {ReasonReact.string(&quot;]&quot;)}
+</a><a href="#h0-1-10" id="h0-1-10" class="i">+    &lt;/h1&gt;
+</a><a href="#h0-1-11" id="h0-1-11" class="i">+    &lt;date&gt;
+</a><a href="#h0-1-12" id="h0-1-12" class="i">+      {ReasonReact.string(createdAt |&gt; Js.Date.fromString |&gt; Js.Date.toString)}
+</a><a href="#h0-1-13" id="h0-1-13" class="i">+    &lt;/date&gt;
+</a><a href="#h0-1-14" id="h0-1-14" class="i">+    &lt;pre&gt; {ReasonReact.string(state.blog_content)} &lt;/pre&gt;
+</a><a href="#h0-1-15" id="h0-1-15" class="i">+  &lt;/details&gt;;
+</a> };
+<b>diff --git a/<a id="h1" href="../file/src/BlogScene.re.html">src/BlogScene.re</a> b/<a href="../file/src/BlogScene.re.html">src/BlogScene.re</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,5 +1,13 @@
+</a> open BlogGistData;
+ 
+<a href="#h1-0-2" id="h1-0-2" class="i">+module Styles = {
+</a><a href="#h1-0-3" id="h1-0-3" class="i">+  open Css;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+  let strikethrough = style([textDecoration(`lineThrough)]);
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+  let underline = style([textDecoration(`underline)]);
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+  let h1 = style([fontWeight(`num(600)), fontSize(`em(1.4))]);
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+};
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+
+</a> type state = {gist_content: option(BlogGistData.gist_return)};
+ 
+ type action =
+<a href="#h1-1" id="h1-1" class="h">@@ -22,7 +30,6 @@ let make = () =&gt; {
+</a>   });
+ 
+   &lt;React.Fragment&gt;
+<a href="#h1-1-3" id="h1-1-3" class="d">-    &lt;h3&gt; {ReasonReact.string(&quot;Blog&quot;)} &lt;/h3&gt;
+</a>     {switch (state.gist_content) {
+      | Some(story) =&gt;
+        let comp =
+<a href="#h1-2" id="h1-2" class="h">@@ -33,9 +40,12 @@ let make = () =&gt; {
+</a>              switch (blogContent) {
+              | Some(value) =&gt;
+                &lt;div key={string_of_int(key)}&gt;
+<a href="#h1-2-3" id="h1-2-3" class="d">-                 &lt;h1&gt; {ReasonReact.string(&quot;# &quot; ++ item.description)} &lt;/h1&gt;
+</a><a href="#h1-2-4" id="h1-2-4" class="d">-                 &lt;date&gt; {ReasonReact.string(item.created_at)} &lt;/date&gt;
+</a><a href="#h1-2-5" id="h1-2-5" class="d">-                 &lt;BlogContent link={value.raw_url} /&gt;
+</a><a href="#h1-2-6" id="h1-2-6" class="i">+                 &lt;BlogContent
+</a><a href="#h1-2-7" id="h1-2-7" class="i">+                   source={item.html_url}
+</a><a href="#h1-2-8" id="h1-2-8" class="i">+                   link={value.raw_url}
+</a><a href="#h1-2-9" id="h1-2-9" class="i">+                   title={item.description}
+</a><a href="#h1-2-10" id="h1-2-10" class="i">+                   createdAt={item.created_at}
+</a><a href="#h1-2-11" id="h1-2-11" class="i">+                 /&gt;
+</a>                &lt;/div&gt;
+              | None =&gt; &lt;div /&gt;
+              };
+</pre>
+</div>
+</div>
+</body>
+</html>
