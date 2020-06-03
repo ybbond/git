@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 <title>dotfiles, branch HEAD</title>
-<subtitle>Unnamed repository; edit this file &#39;description&#39; to name the repository.
+<subtitle>feels like ${HOME}
 </subtitle>
 <entry>
 <id>b7c982e4d184e08975ed1b5036979479be5b0321</id>
