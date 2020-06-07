@@ -4,6 +4,25 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>7c5e34711c0ec6ff821dad2b73922a34cee1d217</id>
+<published>2020-06-07T07:19:42Z</published>
+<updated>2020-06-07T07:44:10Z</updated>
+<title type="text">refactor: add indieauth, svgs and refactor style</title>
+<link rel="alternate" type="text/html" href="commit/7c5e34711c0ec6ff821dad2b73922a34cee1d217.html" />
+<author>
+<name>Yohanes Bandung</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 7c5e34711c0ec6ff821dad2b73922a34cee1d217
+parent 72f152e144362c8830c0f8bffc9093984fd1c808
+Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
+Date:   Sun,  7 Jun 2020 14:19:42 +0700
+
+refactor: add indieauth, svgs and refactor style
+
+</content>
+</entry>
+<entry>
 <id>72f152e144362c8830c0f8bffc9093984fd1c808</id>
 <published>2020-06-03T17:24:22Z</published>
 <updated>2020-06-03T18:13:39Z</updated>
