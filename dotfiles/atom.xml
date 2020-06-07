@@ -4,6 +4,25 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>0d8d1accadd90c4f83d6f9be63d3057ccf4aab5a</id>
+<published>2020-06-07T11:56:30Z</published>
+<updated>2020-06-07T11:56:30Z</updated>
+<title type="text">mailmate config change tab to spaces</title>
+<link rel="alternate" type="text/html" href="commit/0d8d1accadd90c4f83d6f9be63d3057ccf4aab5a.html" />
+<author>
+<name>Yohanes Bandung</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 0d8d1accadd90c4f83d6f9be63d3057ccf4aab5a
+parent b7c982e4d184e08975ed1b5036979479be5b0321
+Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
+Date:   Sun,  7 Jun 2020 18:56:30 +0700
+
+mailmate config change tab to spaces
+
+</content>
+</entry>
+<entry>
 <id>b7c982e4d184e08975ed1b5036979479be5b0321</id>
 <published>2020-06-03T18:21:33Z</published>
 <updated>2020-06-03T18:21:33Z</updated>
