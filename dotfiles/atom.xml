@@ -4,6 +4,25 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>a5e4c1bc070d962411e7c090dbaa1fa267771037</id>
+<published>2020-06-08T10:49:33Z</published>
+<updated>2020-06-08T10:49:33Z</updated>
+<title type="text">update init.vim</title>
+<link rel="alternate" type="text/html" href="commit/a5e4c1bc070d962411e7c090dbaa1fa267771037.html" />
+<author>
+<name>Yohanes Bandung</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit a5e4c1bc070d962411e7c090dbaa1fa267771037
+parent 0d8d1accadd90c4f83d6f9be63d3057ccf4aab5a
+Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
+Date:   Mon,  8 Jun 2020 17:49:33 +0700
+
+update init.vim
+
+</content>
+</entry>
+<entry>
 <id>0d8d1accadd90c4f83d6f9be63d3057ccf4aab5a</id>
 <published>2020-06-07T11:56:30Z</published>
 <updated>2020-06-07T11:56:30Z</updated>

@@ -4,6 +4,25 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>5794fb78fd10f85ed77f41d66b37cb0a6d2549c4</id>
+<published>2020-06-08T10:29:15Z</published>
+<updated>2020-06-08T10:29:15Z</updated>
+<title type="text">feature: update PGP</title>
+<link rel="alternate" type="text/html" href="commit/5794fb78fd10f85ed77f41d66b37cb0a6d2549c4.html" />
+<author>
+<name>Yohanes Bandung</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 5794fb78fd10f85ed77f41d66b37cb0a6d2549c4
+parent 7c5e34711c0ec6ff821dad2b73922a34cee1d217
+Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
+Date:   Mon,  8 Jun 2020 17:29:15 +0700
+
+feature: update PGP
+
+</content>
+</entry>
+<entry>
 <id>7c5e34711c0ec6ff821dad2b73922a34cee1d217</id>
 <published>2020-06-07T07:19:42Z</published>
 <updated>2020-06-07T07:44:10Z</updated>
