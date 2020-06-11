@@ -4,6 +4,44 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>339ab83d5bfcdcade0d75b074f03d15882359f49</id>
+<published>2020-06-11T23:49:43Z</published>
+<updated>2020-06-11T23:49:43Z</updated>
+<title type="text">update .tmux.conf init.vim</title>
+<link rel="alternate" type="text/html" href="commit/339ab83d5bfcdcade0d75b074f03d15882359f49.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 339ab83d5bfcdcade0d75b074f03d15882359f49
+parent 57a031d8ab58c013dea67dc57a7e4f7fb03cb9f3
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Fri, 12 Jun 2020 06:49:43 +0700
+
+update .tmux.conf init.vim
+
+</content>
+</entry>
+<entry>
+<id>57a031d8ab58c013dea67dc57a7e4f7fb03cb9f3</id>
+<published>2020-06-11T14:13:16Z</published>
+<updated>2020-06-11T14:13:16Z</updated>
+<title type="text">update .tmux.conf</title>
+<link rel="alternate" type="text/html" href="commit/57a031d8ab58c013dea67dc57a7e4f7fb03cb9f3.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 57a031d8ab58c013dea67dc57a7e4f7fb03cb9f3
+parent a5e4c1bc070d962411e7c090dbaa1fa267771037
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Thu, 11 Jun 2020 21:13:16 +0700
+
+update .tmux.conf
+
+</content>
+</entry>
+<entry>
 <id>a5e4c1bc070d962411e7c090dbaa1fa267771037</id>
 <published>2020-06-08T10:49:33Z</published>
 <updated>2020-06-08T10:49:33Z</updated>

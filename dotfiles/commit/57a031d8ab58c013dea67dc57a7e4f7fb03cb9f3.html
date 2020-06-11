@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>update .tmux.conf - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/57a031d8ab58c013dea67dc57a7e4f7fb03cb9f3.html">57a031d8ab58c013dea67dc57a7e4f7fb03cb9f3</a>
+<b>parent</b> <a href="../commit/a5e4c1bc070d962411e7c090dbaa1fa267771037.html">a5e4c1bc070d962411e7c090dbaa1fa267771037</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Thu, 11 Jun 2020 21:13:16 +0700
+
+update .tmux.conf
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.tmux.conf</a></td><td> | </td><td class="num">13</td><td><span class="i">++++++++++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.zshrc</a></td><td> | </td><td class="num">5</td><td><span class="i">++++</span><span class="d">-</span></td></tr>
+</table></pre></div><p>2 files changed, 16 insertions(<span id="plus">+</span>), 2 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.tmux.conf.html">.tmux.conf</a> b/<a href="../file/.tmux.conf.html">.tmux.conf</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -47,7 +47,18 @@ bind h select-pane -L
+</a> bind l select-pane -R
+ bind k select-pane -U
+ bind j select-pane -D
+<a href="#h0-0-3" id="h0-0-3" class="d">-bind -n M-s command-prompt -p &quot;send pane to:&quot;  &quot;join-pane -t &#39;%%&#39;&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+# [J]oin or [S]eparate current pane
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+# bind -n M-J command-prompt -p &quot;send pane to:&quot;  &quot;join-pane -t &#39;%%&#39;&quot;
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+# bind -n M-S break-pane
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+bind J command-prompt -p &quot;send pane to:&quot;  &quot;join-pane -t &#39;%%&#39;&quot;
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+bind S break-pane
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+# reposition current active pane to be of
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+# [H]orizontal or [V]ertical position relative to other pane
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+bind V move-pane -t &#39;.-&#39;
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+bind H move-pane -h -t &#39;.-&#39;
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+
+</a> # bind -n Ó resize-pane -L
+ # bind -n Ò resize-pane -R
+ # bind -n  resize-pane -U
+<b>diff --git a/<a id="h1" href="../file/.zshrc.html">.zshrc</a> b/<a href="../file/.zshrc.html">.zshrc</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -17,10 +17,11 @@ export PATH=$PATH:$HOME/.cargo/bin
+</a> export PATH=/.config/yarn/global/node_modules/.bin:$PATH./node_modules/.bin:$HOME/.yarn/bin:$HOME
+ export PATH=/usr/local/opt/openssl/bin:$PATH
+ export PATH=$HOME/Library/Frameworks/Python.framework/Versions/3.6/bin:$PATH
+<a href="#h1-0-3" id="h1-0-3" class="i">+export PATH=$HOME/Library/Python/3.7/bin:$PATH
+</a> export PATH=$PATH:$KUMPATH/yowez-cli/bin
+ export GOPATH=$HOME/go
+ export PATH=$GOPATH/bin:$PATH
+<a href="#h1-0-7" id="h1-0-7" class="d">-export PATH=/Users/yohanesbandung/.nimble/bin:$PATH
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+export PATH=$HOME/.nimble/bin:$PATH
+</a> export PATH=&quot;/Applications/Emacs.app/Contents/MacOS:$PATH&quot;
+ export PATH=&quot;$HOME/.emacs.d/bin:$PATH&quot;
+ # export INITVIM=$HOME/.config/nvim/init.vim
+<a href="#h1-1" id="h1-1" class="h">@@ -32,6 +33,8 @@ export PATH=${PATH}:${ANDROID_HOME}/emulator
+</a> export PATH=${PATH}:${ANDROID_HOME}/tool
+ export PATH=&quot;${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools&quot;
+ 
+<a href="#h1-1-3" id="h1-1-3" class="i">+export NVIM_HOME=&quot;$YBPATH/notes&quot;
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+
+</a> ########################################################################
+ #                     FUNCTIONS
+ ########################################################################
+</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>style &amp; refactor: dark 🌛 or light 🌞 - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/eaeaef00f6875ddff49ec11c9337ee8ceffb436f.html">eaeaef00f6875ddff49ec11c9337ee8ceffb436f</a>
+<b>parent</b> <a href="../commit/f6ec4c2a2433f08c6f79bc6a2db5c69b3a5c5219.html">f6ec4c2a2433f08c6f79bc6a2db5c69b3a5c5219</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 28 Apr 2020 23:46:05 +0700
+
+style &amp; refactor: dark 🌛 or light 🌞
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.scss</a></td><td> | </td><td class="num">137</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">---------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">assets/styles.scss</a></td><td> | </td><td class="num">88</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">assets/variables.scss</a></td><td> | </td><td class="num">23</td><td><span class="i">++++++++++++++++++</span><span class="d">-----</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">layouts/_default/baseof.html</a></td><td> | </td><td class="num">6</td><td><span class="i">+++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">layouts/partials/header/header.html</a></td><td> | </td><td class="num">37</td><td><span class="i">++++++++++++++++++++++</span><span class="d">---------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">static/darkToggler.js</a></td><td> | </td><td class="num">21</td><td><span class="i">+++++++++++++++++++</span><span class="d">--</span></td></tr>
+</table></pre></div><p>6 files changed, 219 insertions(<span id="plus">+</span>), 93 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,72 +1,95 @@
+</a> @import &quot;fonts&quot;;
+ @import &quot;variables&quot;;
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-.content {
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-  font-family: $font-text;
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-  width: 100%;
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-  pre {
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-    overflow: auto;
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-    padding: 0.5em;
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-  }
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-  code {
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-    padding: 0.1em;
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-    font-family: $font-mono;
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-    font-size: 0.9em;
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-  }
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-  table {
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-    display: block;
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-    overflow-x: auto;
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-    border-collapse: collapse;
+</a><a href="#h0-0-19" id="h0-0-19" class="d">-    td, th {
+</a><a href="#h0-0-20" id="h0-0-20" class="d">-      border: 1px solid #ddd;
+</a><a href="#h0-0-21" id="h0-0-21" class="d">-    }
+</a><a href="#h0-0-22" id="h0-0-22" class="d">-    td {
+</a><a href="#h0-0-23" id="h0-0-23" class="d">-      padding: 0.5em 1em;
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+@mixin themify($themes: $themes) {
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+  @each $theme, $map in $themes {
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+    .theme-#{$theme} &amp; {
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+      $theme-map: () !global;
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+      @each $key, $submap in $map {
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+        $value: map-get(map-get($themes, $theme), &#39;#{$key}&#39;);
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+      }
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+      @content;
+</a><a href="#h0-0-35" id="h0-0-35" class="i">+      $theme-map: null !global;
+</a>     }
+<a href="#h0-0-37" id="h0-0-37" class="d">-    th {
+</a><a href="#h0-0-38" id="h0-0-38" class="d">-      padding: 1em 2em;
+</a><a href="#h0-0-39" id="h0-0-39" class="d">-      background-color: #333;
+</a><a href="#h0-0-40" id="h0-0-40" class="d">-      color: $color-text;
+</a><a href="#h0-0-41" id="h0-0-41" class="i">+
+</a><a href="#h0-0-42" id="h0-0-42" class="i">+  }
+</a><a href="#h0-0-43" id="h0-0-43" class="i">+}
+</a><a href="#h0-0-44" id="h0-0-44" class="i">+
+</a><a href="#h0-0-45" id="h0-0-45" class="i">+@function themed($key) {
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+  @return map-get($theme-map, $key);
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+}
+</a><a href="#h0-0-48" id="h0-0-48" class="i">+
+</a><a href="#h0-0-49" id="h0-0-49" class="i">+.content {
+</a><a href="#h0-0-50" id="h0-0-50" class="i">+  @include themify($themes) {
+</a><a href="#h0-0-51" id="h0-0-51" class="i">+    font-family: $font-text;
+</a><a href="#h0-0-52" id="h0-0-52" class="i">+    width: 100%;
+</a><a href="#h0-0-53" id="h0-0-53" class="i">+    pre {
+</a><a href="#h0-0-54" id="h0-0-54" class="i">+      overflow: auto;
+</a><a href="#h0-0-55" id="h0-0-55" class="i">+      padding: 0.5em;
+</a>     }
+<a href="#h0-0-57" id="h0-0-57" class="d">-    tr:nth-child(even) {
+</a><a href="#h0-0-58" id="h0-0-58" class="d">-      background-color: #333;
+</a><a href="#h0-0-59" id="h0-0-59" class="i">+    code {
+</a><a href="#h0-0-60" id="h0-0-60" class="i">+      padding: 0.1em;
+</a><a href="#h0-0-61" id="h0-0-61" class="i">+      font-family: $font-mono;
+</a><a href="#h0-0-62" id="h0-0-62" class="i">+      font-size: 0.9em;
+</a>     }
+<a href="#h0-0-64" id="h0-0-64" class="d">-    tr:hover {
+</a><a href="#h0-0-65" id="h0-0-65" class="d">-      background-color: #303030;
+</a><a href="#h0-0-66" id="h0-0-66" class="i">+    table {
+</a><a href="#h0-0-67" id="h0-0-67" class="i">+      display: block;
+</a><a href="#h0-0-68" id="h0-0-68" class="i">+      overflow-x: auto;
+</a><a href="#h0-0-69" id="h0-0-69" class="i">+      border-collapse: collapse;
+</a><a href="#h0-0-70" id="h0-0-70" class="i">+      td, th {
+</a><a href="#h0-0-71" id="h0-0-71" class="i">+        border: 1px solid #ddd;
+</a><a href="#h0-0-72" id="h0-0-72" class="i">+      }
+</a><a href="#h0-0-73" id="h0-0-73" class="i">+      td {
+</a><a href="#h0-0-74" id="h0-0-74" class="i">+        padding: 0.5em 1em;
+</a><a href="#h0-0-75" id="h0-0-75" class="i">+      }
+</a><a href="#h0-0-76" id="h0-0-76" class="i">+      th {
+</a><a href="#h0-0-77" id="h0-0-77" class="i">+        padding: 1em 2em;
+</a><a href="#h0-0-78" id="h0-0-78" class="i">+        background-color: #333;
+</a><a href="#h0-0-79" id="h0-0-79" class="i">+        color: themed(&#39;color-text&#39;);
+</a><a href="#h0-0-80" id="h0-0-80" class="i">+      }
+</a><a href="#h0-0-81" id="h0-0-81" class="i">+      tr:nth-child(even) {
+</a><a href="#h0-0-82" id="h0-0-82" class="i">+        background-color: #333;
+</a><a href="#h0-0-83" id="h0-0-83" class="i">+      }
+</a><a href="#h0-0-84" id="h0-0-84" class="i">+      tr:hover {
+</a><a href="#h0-0-85" id="h0-0-85" class="i">+        background-color: #303030;
+</a><a href="#h0-0-86" id="h0-0-86" class="i">+      }
+</a>     }
+<a href="#h0-0-88" id="h0-0-88" class="d">-  }
+</a><a href="#h0-0-89" id="h0-0-89" class="d">-  ul {
+</a><a href="#h0-0-90" id="h0-0-90" class="d">-    padding: 0;
+</a><a href="#h0-0-91" id="h0-0-91" class="d">-    li {
+</a><a href="#h0-0-92" id="h0-0-92" class="d">-      position: relative;
+</a><a href="#h0-0-93" id="h0-0-93" class="d">-      list-style: none;
+</a><a href="#h0-0-94" id="h0-0-94" class="d">-      padding-left: 20px;
+</a><a href="#h0-0-95" id="h0-0-95" class="d">-      margin-bottom: 10px;
+</a><a href="#h0-0-96" id="h0-0-96" class="d">-      &amp;:before {
+</a><a href="#h0-0-97" id="h0-0-97" class="d">-        display: inline-block;
+</a><a href="#h0-0-98" id="h0-0-98" class="d">-        content: &quot;- &quot;;
+</a><a href="#h0-0-99" id="h0-0-99" class="d">-        position: absolute;
+</a><a href="#h0-0-100" id="h0-0-100" class="d">-        width: 20px;
+</a><a href="#h0-0-101" id="h0-0-101" class="d">-        color: $color-red;
+</a><a href="#h0-0-102" id="h0-0-102" class="d">-        left: 0;
+</a><a href="#h0-0-103" id="h0-0-103" class="i">+    ul {
+</a><a href="#h0-0-104" id="h0-0-104" class="i">+      padding: 0;
+</a><a href="#h0-0-105" id="h0-0-105" class="i">+      li {
+</a><a href="#h0-0-106" id="h0-0-106" class="i">+        position: relative;
+</a><a href="#h0-0-107" id="h0-0-107" class="i">+        list-style: none;
+</a><a href="#h0-0-108" id="h0-0-108" class="i">+        padding-left: 20px;
+</a><a href="#h0-0-109" id="h0-0-109" class="i">+        margin-bottom: 10px;
+</a><a href="#h0-0-110" id="h0-0-110" class="i">+        &amp;:before {
+</a><a href="#h0-0-111" id="h0-0-111" class="i">+          display: inline-block;
+</a><a href="#h0-0-112" id="h0-0-112" class="i">+          content: &quot;- &quot;;
+</a><a href="#h0-0-113" id="h0-0-113" class="i">+          position: absolute;
+</a><a href="#h0-0-114" id="h0-0-114" class="i">+          width: 20px;
+</a><a href="#h0-0-115" id="h0-0-115" class="i">+          color: themed(&#39;color-red&#39;);
+</a><a href="#h0-0-116" id="h0-0-116" class="i">+          left: 0;
+</a><a href="#h0-0-117" id="h0-0-117" class="i">+        }
+</a>       }
+     }
+   }
+<a href="#h0-0-121" id="h0-0-121" class="d">-}
+</a> 
+<a href="#h0-0-123" id="h0-0-123" class="d">-.notes {
+</a><a href="#h0-0-124" id="h0-0-124" class="d">-  &amp; &gt; p {
+</a><a href="#h0-0-125" id="h0-0-125" class="d">-    margin-top: 5px;
+</a><a href="#h0-0-126" id="h0-0-126" class="d">-  }
+</a><a href="#h0-0-127" id="h0-0-127" class="d">-  margin-bottom: 2em;
+</a><a href="#h0-0-128" id="h0-0-128" class="d">-  @media (max-width: 599px) {
+</a><a href="#h0-0-129" id="h0-0-129" class="d">-    &amp;__title {
+</a><a href="#h0-0-130" id="h0-0-130" class="d">-      margin: 10px 0 0;
+</a><a href="#h0-0-131" id="h0-0-131" class="d">-      &amp;__separator {
+</a><a href="#h0-0-132" id="h0-0-132" class="d">-        display: none;
+</a><a href="#h0-0-133" id="h0-0-133" class="i">+  .notes {
+</a><a href="#h0-0-134" id="h0-0-134" class="i">+    &amp; &gt; p {
+</a><a href="#h0-0-135" id="h0-0-135" class="i">+      margin-top: 5px;
+</a><a href="#h0-0-136" id="h0-0-136" class="i">+    }
+</a><a href="#h0-0-137" id="h0-0-137" class="i">+    margin-bottom: 2em;
+</a><a href="#h0-0-138" id="h0-0-138" class="i">+    @media (max-width: 599px) {
+</a><a href="#h0-0-139" id="h0-0-139" class="i">+      &amp;__title {
+</a><a href="#h0-0-140" id="h0-0-140" class="i">+        margin: 10px 0 0;
+</a><a href="#h0-0-141" id="h0-0-141" class="i">+        &amp;__separator {
+</a><a href="#h0-0-142" id="h0-0-142" class="i">+          display: none;
+</a><a href="#h0-0-143" id="h0-0-143" class="i">+        }
+</a><a href="#h0-0-144" id="h0-0-144" class="i">+        display: flex;
+</a><a href="#h0-0-145" id="h0-0-145" class="i">+        flex-direction: column;
+</a>       }
+<a href="#h0-0-147" id="h0-0-147" class="d">-      display: flex;
+</a><a href="#h0-0-148" id="h0-0-148" class="d">-      flex-direction: column;
+</a>     }
+   }
+ } 
+\ No newline at end of file
+<b>diff --git a/<a id="h1" href="../file/assets/styles.scss.html">assets/styles.scss</a> b/<a href="../file/assets/styles.scss.html">assets/styles.scss</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -2,15 +2,42 @@
+</a> @import &quot;fonts&quot;;
+ @import &quot;content&quot;;
+ 
+<a href="#h1-0-3" id="h1-0-3" class="i">+@mixin themify($themes: $themes) {
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  @each $theme, $map in $themes {
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+    .theme-#{$theme} &amp; {
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+      $theme-map: () !global;
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+      @each $key, $submap in $map {
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+        $value: map-get(map-get($themes, $theme), &#39;#{$key}&#39;);
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+      }
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+      @content;
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+      $theme-map: null !global;
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+    }
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+
+</a><a href="#h1-0-17" id="h1-0-17" class="i">+  }
+</a><a href="#h1-0-18" id="h1-0-18" class="i">+}
+</a><a href="#h1-0-19" id="h1-0-19" class="i">+
+</a><a href="#h1-0-20" id="h1-0-20" class="i">+@function themed($key) {
+</a><a href="#h1-0-21" id="h1-0-21" class="i">+  @return map-get($theme-map, $key);
+</a><a href="#h1-0-22" id="h1-0-22" class="i">+}
+</a><a href="#h1-0-23" id="h1-0-23" class="i">+
+</a> html {
+<a href="#h1-0-25" id="h1-0-25" class="d">-  background-color: $color-background;
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-  color: $color-text;
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+  @include themify($themes) {
+</a><a href="#h1-0-28" id="h1-0-28" class="i">+    background-color: themed(&#39;color-background&#39;);
+</a><a href="#h1-0-29" id="h1-0-29" class="i">+    color: themed(&#39;color-text&#39;);
+</a><a href="#h1-0-30" id="h1-0-30" class="i">+  }
+</a>   font-family: $font-text;
+   line-height: 1.6;
+   font-size: 16px;
+ }
+ 
+ body {
+<a href="#h1-0-37" id="h1-0-37" class="i">+  @include themify($themes) {
+</a><a href="#h1-0-38" id="h1-0-38" class="i">+    background-color: themed(&#39;color-background&#39;);
+</a><a href="#h1-0-39" id="h1-0-39" class="i">+    color: themed(&#39;color-text&#39;);
+</a><a href="#h1-0-40" id="h1-0-40" class="i">+  }
+</a>   max-width: 600px;
+   margin: 0 auto;
+ }
+<a href="#h1-1" id="h1-1" class="h">@@ -29,7 +56,9 @@ body {
+</a> }
+ 
+ h1, h2, h3, h4, h5, h6 {
+<a href="#h1-1-3" id="h1-1-3" class="d">-  color: $color-green;
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+  @include themify($themes) {
+</a><a href="#h1-1-5" id="h1-1-5" class="i">+    color: themed(&#39;color-green&#39;);
+</a><a href="#h1-1-6" id="h1-1-6" class="i">+  }
+</a>   font-family: $font-mono;
+ }
+ 
+<a href="#h1-2" id="h1-2" class="h">@@ -43,12 +72,14 @@ h1, h2, h3 {
+</a> 
+ a {
+   text-decoration: none;
+<a href="#h1-2-3" id="h1-2-3" class="d">-  color: $color-blue;
+</a><a href="#h1-2-4" id="h1-2-4" class="d">-  &amp;:hover {
+</a><a href="#h1-2-5" id="h1-2-5" class="d">-    color: $color-red;
+</a><a href="#h1-2-6" id="h1-2-6" class="d">-  }
+</a><a href="#h1-2-7" id="h1-2-7" class="d">-  .link-white {
+</a><a href="#h1-2-8" id="h1-2-8" class="d">-    color: $color-text;
+</a><a href="#h1-2-9" id="h1-2-9" class="i">+  @include themify($themes) {
+</a><a href="#h1-2-10" id="h1-2-10" class="i">+    color: themed(&#39;color-blue&#39;);
+</a><a href="#h1-2-11" id="h1-2-11" class="i">+    &amp;:hover {
+</a><a href="#h1-2-12" id="h1-2-12" class="i">+      color: themed(&#39;color-red&#39;);
+</a><a href="#h1-2-13" id="h1-2-13" class="i">+    }
+</a><a href="#h1-2-14" id="h1-2-14" class="i">+    .link-white {
+</a><a href="#h1-2-15" id="h1-2-15" class="i">+      color: themed(&#39;color-text&#39;);
+</a><a href="#h1-2-16" id="h1-2-16" class="i">+    }
+</a>   }
+   &amp;.button {
+     display: inline-block;     
+<a href="#h1-3" id="h1-3" class="h">@@ -56,7 +87,9 @@ a {
+</a>     z-index: 1;     
+     padding: 0.3em 0.7em;
+     &amp;:hover {
+<a href="#h1-3-3" id="h1-3-3" class="d">-      background-color: #303030;
+</a><a href="#h1-3-4" id="h1-3-4" class="i">+      @include themify($themes) {
+</a><a href="#h1-3-5" id="h1-3-5" class="i">+        background-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h1-3-6" id="h1-3-6" class="i">+      }
+</a>     }
+     &amp;:first-child:not(.header__menu__list__item) {
+       margin-left: -0.5em;
+<a href="#h1-4" id="h1-4" class="h">@@ -73,14 +106,19 @@ blockquote {
+</a>   margin: inherit auto;
+   margin-left: 0;
+   padding: 0 1em;
+<a href="#h1-4-3" id="h1-4-3" class="d">-  border-left: 2px solid $color-red;
+</a><a href="#h1-4-4" id="h1-4-4" class="i">+  border-left: 2px solid;
+</a><a href="#h1-4-5" id="h1-4-5" class="i">+  @include themify($themes) {
+</a><a href="#h1-4-6" id="h1-4-6" class="i">+    border-color: themed(&#39;color-red&#39;);
+</a><a href="#h1-4-7" id="h1-4-7" class="i">+  }
+</a>   p {
+     font-size: 0.9em;
+   }
+ }
+ 
+ time {
+<a href="#h1-4-14" id="h1-4-14" class="d">-  color: $color-red;
+</a><a href="#h1-4-15" id="h1-4-15" class="i">+  @include themify($themes) {
+</a><a href="#h1-4-16" id="h1-4-16" class="i">+    color: themed(&#39;color-red&#39;);
+</a><a href="#h1-4-17" id="h1-4-17" class="i">+  }
+</a>   font-family: $font-mono;
+ }
+ 
+<a href="#h1-5" id="h1-5" class="h">@@ -106,14 +144,38 @@ time {
+</a>       display: flex;
+       flex-grow: 1;
+       flex-wrap: nowrap;
+<a href="#h1-5-3" id="h1-5-3" class="i">+      @media (max-width: 599px) {
+</a><a href="#h1-5-4" id="h1-5-4" class="i">+        justify-content: space-between;
+</a><a href="#h1-5-5" id="h1-5-5" class="i">+      }
+</a>       &amp;__item {
+         &amp;:first-child {
+           margin-left: 0;
+         }
+<a href="#h1-5-10" id="h1-5-10" class="d">-        margin: 0 10px;
+</a><a href="#h1-5-11" id="h1-5-11" class="i">+        margin: 0 5px;
+</a>         border-style: solid;
+         border-width: 1px;
+       }
+<a href="#h1-5-15" id="h1-5-15" class="i">+      &amp;__toggler {
+</a><a href="#h1-5-16" id="h1-5-16" class="i">+        &amp;__off {
+</a><a href="#h1-5-17" id="h1-5-17" class="i">+          display: none;
+</a><a href="#h1-5-18" id="h1-5-18" class="i">+        }
+</a><a href="#h1-5-19" id="h1-5-19" class="i">+        font-size: 1.75em;
+</a><a href="#h1-5-20" id="h1-5-20" class="i">+        padding: 0 0.3em;
+</a><a href="#h1-5-21" id="h1-5-21" class="i">+        background-color: transparent;
+</a><a href="#h1-5-22" id="h1-5-22" class="i">+        background-repeat: no-repeat;
+</a><a href="#h1-5-23" id="h1-5-23" class="i">+        border: none;
+</a><a href="#h1-5-24" id="h1-5-24" class="i">+        cursor: pointer;
+</a><a href="#h1-5-25" id="h1-5-25" class="i">+        overflow: hidden;
+</a><a href="#h1-5-26" id="h1-5-26" class="i">+        outline: none;
+</a><a href="#h1-5-27" id="h1-5-27" class="i">+        @media (min-width: 600px) {
+</a><a href="#h1-5-28" id="h1-5-28" class="i">+          margin-left: 20px;
+</a><a href="#h1-5-29" id="h1-5-29" class="i">+        }
+</a><a href="#h1-5-30" id="h1-5-30" class="i">+        &amp;:hover {
+</a><a href="#h1-5-31" id="h1-5-31" class="i">+          @include themify($themes) {
+</a><a href="#h1-5-32" id="h1-5-32" class="i">+            background-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h1-5-33" id="h1-5-33" class="i">+          }
+</a><a href="#h1-5-34" id="h1-5-34" class="i">+        }
+</a><a href="#h1-5-35" id="h1-5-35" class="i">+      }
+</a>     }
+   }
+ }
+<b>diff --git a/<a id="h2" href="../file/assets/variables.scss.html">assets/variables.scss</a> b/<a href="../file/assets/variables.scss.html">assets/variables.scss</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,8 +1,21 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">-$color-text: #E3E0D7;
+</a><a href="#h2-0-1" id="h2-0-1" class="d">-$color-background: #242424;
+</a><a href="#h2-0-2" id="h2-0-2" class="d">-$color-red: #F9690E;
+</a><a href="#h2-0-3" id="h2-0-3" class="d">-$color-blue: #8DBFFF;
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-$color-green: #79D688;
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+$themes: (
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+  light: (
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+    color-text: #242424,
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+    color-background: #E3E0D7,
+</a><a href="#h2-0-9" id="h2-0-9" class="i">+    color-background-hover: #D4D1C7,
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+    color-red: #C31B00,
+</a><a href="#h2-0-11" id="h2-0-11" class="i">+    color-blue: #2585FF,
+</a><a href="#h2-0-12" id="h2-0-12" class="i">+    color-green: #257933,
+</a><a href="#h2-0-13" id="h2-0-13" class="i">+  ),
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+  dark: (
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+    color-text: #E3E0D7,
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+    color-background: #242424,
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+    color-background-hover: #303030,
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+    color-red: #F9690E,
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+    color-blue: #8DBFFF,
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+    color-green: #79D688,
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+  ),
+</a><a href="#h2-0-22" id="h2-0-22" class="i">+);
+</a> 
+ $font-mono: &#39;iA Writer Duospace&#39;, monospace;
+ $font-text: &#39;iA Writer Quattro S&#39;, Arial, Helvetica, sans-serif;
+<b>diff --git a/<a id="h3" href="../file/layouts/_default/baseof.html.html">layouts/_default/baseof.html</a> b/<a href="../file/layouts/_default/baseof.html.html">layouts/_default/baseof.html</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -1,5 +1,9 @@
+</a> &lt;!DOCTYPE html&gt;
+<a href="#h3-0-1" id="h3-0-1" class="d">-&lt;html ⚡ lang=&quot;{{ .Site.LanguageCode | default &quot;en-us&quot; }}&quot;&gt;
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+&lt;html ⚡
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+  lang=&quot;{{ .Site.LanguageCode | default &quot;en-us&quot; }}&quot;
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+  class=&quot;theme-dark&quot;
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+  id=&quot;main-theme&quot;
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+&gt;
+</a>   &lt;head&gt;
+     {{ partial &quot;head/head.html&quot; . }}
+   &lt;/head&gt;
+<b>diff --git a/<a id="h4" href="../file/layouts/partials/header/header.html.html">layouts/partials/header/header.html</a> b/<a href="../file/layouts/partials/header/header.html.html">layouts/partials/header/header.html</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -1,21 +1,29 @@
+</a> {{ if .IsHome }}
+<a href="#h4-0-1" id="h4-0-1" class="d">-  &lt;h1 class=&quot;header__title&quot;&gt;Yohanes Bandung Bondowoso&lt;span class=&quot;dark-toggler&quot;&gt;&lt;/span&gt;&lt;/h1&gt;
+</a><a href="#h4-0-2" id="h4-0-2" class="i">+  &lt;h1 class=&quot;header__title&quot;&gt;Yohanes Bandung Bondowoso&lt;/h1&gt;
+</a> {{ else }}
+   &lt;h2 class=&quot;header__title&quot;&gt;Yohanes Bandung Bondowoso&lt;/h2&gt;
+ {{ end }}
+ &lt;nav class=&quot;header__menu&quot;&gt;
+   &lt;div class=&quot;header__menu__list&quot;&gt;
+<a href="#h4-0-8" id="h4-0-8" class="d">-    {{ $baseURL := .Site.BaseURL }}
+</a><a href="#h4-0-9" id="h4-0-9" class="d">-    {{ range .Site.Menus.main }}
+</a><a href="#h4-0-10" id="h4-0-10" class="d">-      {{ $url := trim .URL &quot;/&quot; | absURL }}
+</a><a href="#h4-0-11" id="h4-0-11" class="d">-        &lt;a
+</a><a href="#h4-0-12" id="h4-0-12" class="d">-          href={{ $url }}
+</a><a href="#h4-0-13" id="h4-0-13" class="d">-          data-rel=&quot;prefetch&quot;
+</a><a href="#h4-0-14" id="h4-0-14" class="d">-          role=&quot;button&quot;
+</a><a href="#h4-0-15" id="h4-0-15" class="d">-          class=&quot;header__menu__list__item button&quot;
+</a><a href="#h4-0-16" id="h4-0-16" class="d">-        &gt;
+</a><a href="#h4-0-17" id="h4-0-17" class="d">-          {{ .Pre }}&lt;span&gt;{{ .Name }}&lt;/span&gt;
+</a><a href="#h4-0-18" id="h4-0-18" class="d">-        &lt;/a&gt;
+</a><a href="#h4-0-19" id="h4-0-19" class="d">-    {{ end }}
+</a><a href="#h4-0-20" id="h4-0-20" class="i">+    &lt;span&gt;
+</a><a href="#h4-0-21" id="h4-0-21" class="i">+      {{ $baseURL := .Site.BaseURL }}
+</a><a href="#h4-0-22" id="h4-0-22" class="i">+      {{ range .Site.Menus.main }}
+</a><a href="#h4-0-23" id="h4-0-23" class="i">+        {{ $url := trim .URL &quot;/&quot; | absURL }}
+</a><a href="#h4-0-24" id="h4-0-24" class="i">+          &lt;a
+</a><a href="#h4-0-25" id="h4-0-25" class="i">+            href={{ $url }}
+</a><a href="#h4-0-26" id="h4-0-26" class="i">+            data-rel=&quot;prefetch&quot;
+</a><a href="#h4-0-27" id="h4-0-27" class="i">+            role=&quot;button&quot;
+</a><a href="#h4-0-28" id="h4-0-28" class="i">+            class=&quot;header__menu__list__item button&quot;
+</a><a href="#h4-0-29" id="h4-0-29" class="i">+          &gt;
+</a><a href="#h4-0-30" id="h4-0-30" class="i">+            {{ .Pre }}&lt;span&gt;{{ .Name }}&lt;/span&gt;
+</a><a href="#h4-0-31" id="h4-0-31" class="i">+          &lt;/a&gt;
+</a><a href="#h4-0-32" id="h4-0-32" class="i">+      {{ end }}
+</a><a href="#h4-0-33" id="h4-0-33" class="i">+    &lt;/span&gt;
+</a><a href="#h4-0-34" id="h4-0-34" class="i">+    &lt;button
+</a><a href="#h4-0-35" id="h4-0-35" class="i">+      class=&quot;header__menu__list__toggler__off&quot;
+</a><a href="#h4-0-36" id="h4-0-36" class="i">+      id=&quot;dark-toggler&quot;
+</a><a href="#h4-0-37" id="h4-0-37" class="i">+    &gt;
+</a><a href="#h4-0-38" id="h4-0-38" class="i">+      🌛
+</a><a href="#h4-0-39" id="h4-0-39" class="i">+    &lt;/button&gt;
+</a>   &lt;/div&gt;
+<a href="#h4-0-41" id="h4-0-41" class="d">-&lt;/nav&gt;</a><a href="#h4-0-42" id="h4-0-42" class="d">-
+\ No newline at end of file
+</a><a href="#h4-0-43" id="h4-0-43" class="i">+&lt;/nav&gt;
+</a><b>diff --git a/<a id="h5" href="../file/static/darkToggler.js.html">static/darkToggler.js</a> b/<a href="../file/static/darkToggler.js.html">static/darkToggler.js</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -1,4 +1,21 @@
+</a> (function() {
+<a href="#h5-0-1" id="h5-0-1" class="d">-  let toggler = document.getElementsByClassName(&quot;dark-toggler&quot;);
+</a><a href="#h5-0-2" id="h5-0-2" class="d">-  toggler.innerHTML = &quot;🌛&quot;;
+</a><a href="#h5-0-3" id="h5-0-3" class="i">+  window.onload = function() {
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+    console.log(&quot;Nice! You have the privilege of toggling the dark mode :D&quot;);
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+    console.log(&quot;Just press the 🌞 or 🌛 logo on the top of page!&quot;);
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+    const toggler = document.getElementById(&quot;dark-toggler&quot;);
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+    const mainWrapper = document.getElementById(&quot;main-theme&quot;);
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+    if (toggler &amp;&amp; mainWrapper) {
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+      toggler.className = &quot;header__menu__list__toggler&quot;;
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+      toggler.onclick = function() {
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+        if (mainWrapper.className === &quot;theme-light&quot;) {
+</a><a href="#h5-0-13" id="h5-0-13" class="i">+          mainWrapper.className = &quot;theme-dark&quot;;
+</a><a href="#h5-0-14" id="h5-0-14" class="i">+          toggler.innerText = &quot;🌛&quot;;
+</a><a href="#h5-0-15" id="h5-0-15" class="i">+        } else if (mainWrapper.className === &quot;theme-dark&quot;) {
+</a><a href="#h5-0-16" id="h5-0-16" class="i">+          mainWrapper.className = &quot;theme-light&quot;;
+</a><a href="#h5-0-17" id="h5-0-17" class="i">+          toggler.innerText = &quot;🌞&quot;;
+</a><a href="#h5-0-18" id="h5-0-18" class="i">+        }
+</a><a href="#h5-0-19" id="h5-0-19" class="i">+      };
+</a><a href="#h5-0-20" id="h5-0-20" class="i">+    }
+</a><a href="#h5-0-21" id="h5-0-21" class="i">+  }
+</a> })() 
+\ No newline at end of file
+</pre>
+</div>
+</div>
+</body>
+</html>

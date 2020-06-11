@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: performance on first load fix - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/a1f8eeaa2d36bcf60e27e9bd384421f371e432be.html">a1f8eeaa2d36bcf60e27e9bd384421f371e432be</a>
+<b>parent</b> <a href="../commit/80f4e2aa02366f1c0ce8959a3bbc13f74bccbd5f.html">80f4e2aa02366f1c0ce8959a3bbc13f74bccbd5f</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon,  4 May 2020 02:05:41 +0700
+
+refactor: performance on first load fix
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/partials/head/head.html</a></td><td> | </td><td class="num">12</td><td><span class="i">++++++</span><span class="d">------</span></td></tr>
+</table></pre></div><p>1 file changed, 6 insertions(<span id="plus">+</span>), 6 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a> b/<a href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -16,18 +16,18 @@
+</a>     {{ printf `&lt;link rel=&quot;%s&quot; type=&quot;%s&quot; href=&quot;%s&quot; title=&quot;%s&quot; /&gt;` .Rel .MediaType.Type .Permalink $rssTitle | safeHTML }}
+ {{ end }}
+ 
+<a href="#h0-0-3" id="h0-0-3" class="i">+&lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}darkToggler.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+&lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}lazyImage.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+
+</a> &lt;style amp-custom&gt;
+   {{ with resources.Get &quot;styles.scss&quot; | resources.ToCSS | resources.Minify }}
+       {{ .Content | safeCSS }}
+   {{ end }}
+ &lt;/style&gt;
+ 
+<a href="#h0-0-12" id="h0-0-12" class="d">-&lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}darkToggler.js&quot;&gt;&lt;/script&gt;
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-&lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}lazyImage.js&quot;&gt;&lt;/script&gt;
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-
+</a> &lt;link rel=&quot;canonical&quot; href=&quot;{{ .Permalink }}&quot; /&gt;
+ &lt;link rel=&quot;sitemap&quot; href=&quot;{{ &quot;sitemap.xml&quot; | absURL }}&quot; type=&quot;application/xml&quot; /&gt;
+ 
+<a href="#h0-0-18" id="h0-0-18" class="i">+{{ partial &quot;head/auth-links.html&quot; . }}
+</a> {{ partial &quot;head/og-metas.html&quot; . }}
+<a href="#h0-0-20" id="h0-0-20" class="d">-{{ partial &quot;head/twitter-card-metas.html&quot; . }}
+</a><a href="#h0-0-21" id="h0-0-21" class="d">-{{ partial &quot;head/auth-links.html&quot; . }}</a><a href="#h0-0-22" id="h0-0-22" class="d">-
+\ No newline at end of file
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+{{ partial &quot;head/twitter-card-metas.html&quot; . }}</a><a href="#h0-0-24" id="h0-0-24" class="i">+
+\ No newline at end of file
+</a></pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>hotfix: FOR REAL! fixes note guid. i am dumb - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/27c7264c68949bee0665c077427dd30eda18ce8a.html">27c7264c68949bee0665c077427dd30eda18ce8a</a>
+<b>parent</b> <a href="../commit/1fa92210188004eee51648c6a3c65fc54e2823c2.html">1fa92210188004eee51648c6a3c65fc54e2823c2</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon,  4 May 2020 03:34:52 +0700
+
+hotfix: FOR REAL! fixes note guid. i am dumb
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/notes/rss.xml</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+</table></pre></div><p>1 file changed, 2 insertions(<span id="plus">+</span>), 2 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/notes/rss.xml.html">layouts/notes/rss.xml</a> b/<a href="../file/layouts/notes/rss.xml.html">layouts/notes/rss.xml</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -27,15 +27,15 @@
+</a>     {{ with .OutputFormats.Get &quot;RSS&quot; }}
+   {{ printf &quot;&lt;atom:link href=%q rel=\&quot;self\&quot; type=%q /&gt;&quot; .Permalink .MediaType | safeHTML }}
+     {{ end }}
+<a href="#h0-0-3" id="h0-0-3" class="i">+    {{ range $pages }}
+</a>     {{ $dateformat := .Date.Format &quot;2006-01-02 15:04&quot; }}
+     {{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
+<a href="#h0-0-6" id="h0-0-6" class="d">-    {{ range $pages }}
+</a>     &lt;item&gt;
+       &lt;title&gt;{{ .Title }}&lt;/title&gt;
+       &lt;link&gt;{{ .Site.BaseURL }}notes#{{ $idslug }}&lt;/link&gt;
+       &lt;pubDate&gt;{{ .Date.Format &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; | safeHTML }}&lt;/pubDate&gt;
+       {{ with .Site.Author.email }}&lt;author&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/author&gt;{{end}}
+<a href="#h0-0-12" id="h0-0-12" class="d">-      &lt;guid isPermaLink=&quot;false&quot;&gt;{{ .Site.BaseURL }}notes#{{ $idslug }}&lt;/guid&gt;
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+      &lt;guid isPermaLink=&quot;true&quot;&gt;{{ .Site.BaseURL }}notes#{{ $idslug }}&lt;/guid&gt;
+</a>       &lt;description&gt;{{ .Content | html }}&lt;/description&gt;
+     &lt;/item&gt;
+     {{ end }}
+</pre>
+</div>
+</div>
+</body>
+</html>

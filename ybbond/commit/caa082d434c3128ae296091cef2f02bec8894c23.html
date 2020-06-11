@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature: update PGP - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/caa082d434c3128ae296091cef2f02bec8894c23.html">caa082d434c3128ae296091cef2f02bec8894c23</a>
+<b>parent</b> <a href="../commit/037d63f6b65170e6822900a462cf9b4eaa98d015.html">037d63f6b65170e6822900a462cf9b4eaa98d015</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Mon,  8 Jun 2020 17:29:15 +0700
+
+feature: update PGP
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">static/ybbond-public.asc</a></td><td> | </td><td class="num">103</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">-----------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">static/ybbond-public.txt</a></td><td> | </td><td class="num">103</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">-----------------------------</span></td></tr>
+</table></pre></div><p>2 files changed, 130 insertions(<span id="plus">+</span>), 76 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/static/ybbond-public.asc.html">static/ybbond-public.asc</a> b/<a href="../file/static/ybbond-public.asc.html">static/ybbond-public.asc</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -11,42 +11,69 @@ AsLHajUxdTIH46N89XZtdEEFfrJmXhQHkL/i8NpaTIIDdHeXeUaAF2tf8v6DoBLe
+</a> 0FFRkX82mcMIZr6HQv5byHhGO8jn98cHGEV7SpQlZS/Eagwm5ivpn9TFunsVhXTi
+ SYZdxQWNCWUoSBFaZY4nFL+DxpKgflkFG+ZY97RZp7AwyGMs4T7kn4XEO3H2hBWa
+ EcUcHkVuqCY7ppgmlzVhb8si6xGXeeeAdHyVD6Y765e5KeWn6bD4oo25/QARAQAB
+<a href="#h0-0-3" id="h0-0-3" class="d">-tClZb2hhbmVzIEJhbmR1bmcgQm9uZG93b3NvIDxoaUB5YmJvbmQuZGV2PokCTgQT
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-AQoAOBYhBFbarbFSRhyAZ5Lbq4R3O5OYhoGgBQJeuqK7AhsDBQsJCAcCBhUKCQgL
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-AgQWAgMBAh4BAheAAAoJEIR3O5OYhoGglEcQAIBhMAXGepxjVghMMbahKa0btGph
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-D2X3FJf6+K3E+XjOqqHOmhP31VpaGrj4xj8IeQpEXMWLa+GMFcGsGx8MG7qB4eRo
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-IHaJ7Yb/Mv5MhotZsmATQPHSY2715VVhd3hK1eT0vLKXHkKeP/pq4oKDqnfGzcaR
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-GQ5vDiBTtOVIIuFGXhaOJ1x6PqurqKtLXg5PVeCmqWK/yDgN0ukZTxtcod5Pnwr2
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-U1jEXyFklLU2tP3PQB51LRUP/siomBj38Ymukr4hoUj7rwjce0ZJ64MjxRODGArG
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-Y4gAY/9oXuz8MjSwvT0QDtvAqX3VoctDxQ4gIzIb+Sgayn/r/co0BY0In4tgfuAc
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-uhJQ2aEXgjEdK22ulfWqowcYX6bzCB/J1oxKEJd6zh8GYRF146K6dSohWG21RENe
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-9nyVnpGIFsCZPJqkjX1J3zQJEA3NrixSt30rjsIHyc0cXWwKG5CoueN/nWOJQMVm
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-CPm42gbw4HyOrn4FXWG/5DhirBE8hw0gOT7mW4pzZgeIHa7DykB2XtqIGM4H68cT
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-yYcLqwUbF0DMRZkVTOH2uKz6/sYTNHDwGmEidbq9LW9xKjdQKK2hNccrHYzbHobt
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-EARncmzKupazSJWk+FvPEE1vEyMCLFW0QfTks8sehwcfA+5qxWKkNnAq+TXYX/2A
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-hbM/jfyH2I44FnoYuQINBF66orsBEACdIc+boLmYUaY3P4jDenKK/VFA4wrYoFVw
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-WB/UnXw//PT5wh5+R0dK97us1Cd/4xSeYOIlLSsV1w0XyhDiuonzu12CRkXOcFcV
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-ep3m5Gz4OFk2tU3T6tWCMk+xk6VvcJon2V+ecyhg3AuBPlkLeWOxOB/fkR4PiARd
+</a><a href="#h0-0-19" id="h0-0-19" class="d">-jhttwC9rdmZMmylP7rsmonFK3+xarWPVlR1m+CadjXKBKxTGPmvXO+E27XUIrmaH
+</a><a href="#h0-0-20" id="h0-0-20" class="d">-pP8eZhqZ30WlQD+iAvlo5ObDEn1PXWlGNNxO8pzoybhteqeN2OWKoqpnKDzz81zj
+</a><a href="#h0-0-21" id="h0-0-21" class="d">-66DxXWDltNr9Jrb0VVmyM06ZnPDxF6VbukCztl4youqJ7qgi1HxGtphUtG91+Zn3
+</a><a href="#h0-0-22" id="h0-0-22" class="d">-JH+/6+EAXYgrMc/svZdcb1S7ZVEa/nA5L6cWTGFcdTAN33wWsdFUVhLehpKCuTuj
+</a><a href="#h0-0-23" id="h0-0-23" class="d">-c/oxIL8UdqfV7xaIHWQ3G09ad/KafL5UggiX5WwaUYLP8knNqpVUksX/JJpKKxyz
+</a><a href="#h0-0-24" id="h0-0-24" class="d">-SXcKTTYCoGt8Cz/FhYlNlsyYIMGgBe8XlF6SooVWie21C1Gx7Tep56iIJArUnsMe
+</a><a href="#h0-0-25" id="h0-0-25" class="d">-LRJ1HdE1dNkQPQmQx/u1QnlZk6hoNEwxmsTKv3zEaAqMhbzYWJtmRy5fVv2mBbX7
+</a><a href="#h0-0-26" id="h0-0-26" class="d">-BtipzuT0FIKO1iHfiJV2HDsAyCxentyhdeEOsY056atUG06d5u/tKVxQhL2nPNEs
+</a><a href="#h0-0-27" id="h0-0-27" class="d">-gMy+BVuA5wARAQABiQI2BBgBCgAgFiEEVtqtsVJGHIBnkturhHc7k5iGgaAFAl66
+</a><a href="#h0-0-28" id="h0-0-28" class="d">-orsCGwwACgkQhHc7k5iGgaDwahAA2ThngEuIiHfsVsqtFMZOSfqqx16PeVUWnLeH
+</a><a href="#h0-0-29" id="h0-0-29" class="d">-hxzs8m56C2ZvosDLonE1Ac4V5YTPcP2wfSuFJhxG1WMH8H72/D42RiGlQRXHgStK
+</a><a href="#h0-0-30" id="h0-0-30" class="d">-xwu953i2OzHgdbWTDb7lWw/+vo11VSpkX4hvYgwnYCl4rlmZuE2YsDc7ZpB0KPJ5
+</a><a href="#h0-0-31" id="h0-0-31" class="d">-RKb+5sv2Jog+JYNrWM6SHjj43VEpV7eadnbiprpTdFxej/kh1Q+4uPknKhG0u4U8
+</a><a href="#h0-0-32" id="h0-0-32" class="d">-XS8YUoa9P5JxYeEyyRBdc18pAUgYvq+3Pev+YBJNrXWP1/TUNvpCSyRCUgutAucO
+</a><a href="#h0-0-33" id="h0-0-33" class="d">-Pu5Jgo7fj2U1VyrlKsYZyQAAicUzoi47XwE4WnrbyVfySSZd9Iq6apROi+9b2iaX
+</a><a href="#h0-0-34" id="h0-0-34" class="d">-PcEZUwKwMDjfpudTA2IM5lHjGXch+bgkcznpNHVGP+V20VmAwIZeNpPHI/E7soko
+</a><a href="#h0-0-35" id="h0-0-35" class="d">-JMbfbzdbvVmOwdlFSwg8GkkuZ5Us8l9mQKmtfw+fmxMn2XX9Nl1oIfE6NAFHxFvP
+</a><a href="#h0-0-36" id="h0-0-36" class="d">-UOwPiFnQfRUET4asqR6p5+rmangKvuEcgwvs4Gb+UCeUIh7shypDIEbB+Cev4crl
+</a><a href="#h0-0-37" id="h0-0-37" class="d">-ToS8FBiouFlJO6pPhoKK+mPUBw1IkyMa/2e4zX2xHw4GCmSHaegyJQOYQPOtEdAc
+</a><a href="#h0-0-38" id="h0-0-38" class="d">-qON0RaM1y0sxu6w7A0nPzOJNEUxYsJhdDyPbs08V1lKjhKMN9ThEqzxcKZ0TysMJ
+</a><a href="#h0-0-39" id="h0-0-39" class="d">-Xpesvxo=
+</a><a href="#h0-0-40" id="h0-0-40" class="d">-=H2ch
+</a><a href="#h0-0-41" id="h0-0-41" class="i">+tClZb2hhbmVzIEJhbmR1bmcgQm9uZG93b3NvIDxoaUB5YmJvbmQuZGV2PokCUQQT
+</a><a href="#h0-0-42" id="h0-0-42" class="i">+AQoAOwIbAwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBFbarbFSRhyAZ5Lbq4R3
+</a><a href="#h0-0-43" id="h0-0-43" class="i">+O5OYhoGgBQJe3hApAhkBAAoJEIR3O5OYhoGgmfIP/jvBB9laVigAbgAdXptPPEp1
+</a><a href="#h0-0-44" id="h0-0-44" class="i">+XNNuzbgDOjTmnC7DQsyqsQLZRA6Ys57oW2kyGHwEXhosWCEDY8hrVPwSnshzfylC
+</a><a href="#h0-0-45" id="h0-0-45" class="i">+BtYceG1QJlot2ylrR1Jukx+uPM3498L7ZkO5tbbPRl7nvasol4ygMvnqbG0FCEk4
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+5f8llUJcJ5H9nATIMF3Uaoxcm+LSwH4x1RbX38JYDzSe9mJh4o7KgXSUWSEe6Urx
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+8H7wIMRkv2fkNvqmqb4/iseGH6bl9HPzUtz18iHG6vcfiSFQFsnKvjaRbkkkFhsx
+</a><a href="#h0-0-48" id="h0-0-48" class="i">+jqm3jmMR37Hd8iCA80rEDJkoVMFqgP+fV1vrzbCs6uPCcrXcgGPwcbIJz1FXonDu
+</a><a href="#h0-0-49" id="h0-0-49" class="i">+QVnENj3Wuk1kRICfIOUr/FBMUw/TXCfa3JeeCaMG6OuDfitThsVKT551ZRbUtj6l
+</a><a href="#h0-0-50" id="h0-0-50" class="i">+ZfVkoyLfuk4t4Sixlcad99xV0FBDRjxkZGFpCtPsdgkr5nW3G0Ir/uXAovNoEWA+
+</a><a href="#h0-0-51" id="h0-0-51" class="i">+KxjJ6yUIO27huBP6oQc8X46V7KAqywXGNWDWnJxpAKxaJsgA+9wf/nEH3Hq7uTx1
+</a><a href="#h0-0-52" id="h0-0-52" class="i">+kxp77TtsEAF6Cq+4yzPZz0De6p/5XCMyMbCsOuFEHWfFXcDT7+vTnurqxO+zA4oq
+</a><a href="#h0-0-53" id="h0-0-53" class="i">+pS+8vCInhoSYsYgdgxaQLLoaIoFGnCpxph0SgXuUNLqjHPuzHqKS6cKLWXdpjgkh
+</a><a href="#h0-0-54" id="h0-0-54" class="i">+tg2Si7RpcqD3bbfU6zeQtDRZb2hhbmVzIEJhbmR1bmcgQm9uZG93b3NvIDxiYW5k
+</a><a href="#h0-0-55" id="h0-0-55" class="i">+dW5ncGVudGluZ0BnbWFpbC5jb20+iQJOBBMBCAA4FiEEVtqtsVJGHIBnkturhHc7
+</a><a href="#h0-0-56" id="h0-0-56" class="i">+k5iGgaAFAl7eECkCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQhHc7k5iG
+</a><a href="#h0-0-57" id="h0-0-57" class="i">+gaCYexAA1HB1PLW0H9E930eZWFQuH1lM3LbaAR7y+hf17uRl+0ilZeEyH/r/aJnX
+</a><a href="#h0-0-58" id="h0-0-58" class="i">+RTrGOVqJX7p39QckwzmiN04sdHqH8X+nIVl2+/PVKnVFKveeUyu3Dcma+Oq4n576
+</a><a href="#h0-0-59" id="h0-0-59" class="i">+xjkDUg6VD4AN7mSm/ZGw/nbOzfnBS5anXiL6b/Po/1liLWBJmMPv39ckC7IIR0MJ
+</a><a href="#h0-0-60" id="h0-0-60" class="i">+hEL2TTel9tRo0/e2+39NXi7xH5UlK2IhecrbCTjnEIc/bciijCq352VV4K0bYWI4
+</a><a href="#h0-0-61" id="h0-0-61" class="i">+6NcSRWPsCI8/plvWbXhZoxwjQQU6EA3Wc/N2O6Lpqf1eO1xO1fynNNK0XlZaeHNE
+</a><a href="#h0-0-62" id="h0-0-62" class="i">+sFM4u2H+mMp4wnAKRAjJVxdR9uBuqi17MpnQNGe63svJTAtGSZh66rYcQHg2cSDa
+</a><a href="#h0-0-63" id="h0-0-63" class="i">+F2ubvWpzAUTkxeWnmCQuKCZEKKMHI7mfxR27BmQ6u+0UCTmMkPJihy1E08F9vdbH
+</a><a href="#h0-0-64" id="h0-0-64" class="i">+YbKCk4/+t6sxedSbo1KsdssyctZxeGMY2ks72fsNpF5H6Em75qAmjIXH+FXMxMGR
+</a><a href="#h0-0-65" id="h0-0-65" class="i">+vuyJKqakGe3UAoFOeJq3bJSVjNwIeSYetS4aRKX6xRRlHPd49sLSc0DdRYWb8f7c
+</a><a href="#h0-0-66" id="h0-0-66" class="i">+1iX6WqlNq8LKAjBHj1vacfjy5Fpo4a8JLI6IDs2PtGcbGhB4LFaOVtVHDPzsJZE0
+</a><a href="#h0-0-67" id="h0-0-67" class="i">+Y8UbjsVx8c6MiHPr2/K/Uyst5dXet7FKhuCjoifXjIBwW4xi1PG0L1lvaGFuZXMg
+</a><a href="#h0-0-68" id="h0-0-68" class="i">+QmFuZHVuZyBCb25kb3dvc28gPHlvaGFuZXppb0BnbWFpbC5jb20+iQJOBBMBCAA4
+</a><a href="#h0-0-69" id="h0-0-69" class="i">+FiEEVtqtsVJGHIBnkturhHc7k5iGgaAFAl7eEE4CGwMFCwkIBwIGFQoJCAsCBBYC
+</a><a href="#h0-0-70" id="h0-0-70" class="i">+AwECHgECF4AACgkQhHc7k5iGgaDuCRAAikrxy78m2VPsFPSsT6Fb2zEeTXpceonq
+</a><a href="#h0-0-71" id="h0-0-71" class="i">+giicwoX4JAlLpUgN/c1eE00eK0RdaBNwLoEiZWyAcI6ZQpvDjcXD+nV5jUWWAF7W
+</a><a href="#h0-0-72" id="h0-0-72" class="i">+dbL+VHsiheygOqo+boyp7y7UJuknAVz4O0Bxuq8sSHyhOHzC4HundjLdoVkfD3Wc
+</a><a href="#h0-0-73" id="h0-0-73" class="i">+9mR4pyCpGXKSXuNpHfmU/VvNYGps8PrVGc1pAN7IQK3qrY3TDIlDcmujjqCfDQE6
+</a><a href="#h0-0-74" id="h0-0-74" class="i">++Ui6doIOCTzEd4ygyAI8YjICNQzXLHf8WFtx5zH2tBMy7ID2ltDTCz3VkrYsetzE
+</a><a href="#h0-0-75" id="h0-0-75" class="i">+xpT3t90bPXQZugkC7CLUeaeKr41qL0z60r5rDWQowhjX2XhsGPUG1MF2iYqezFc3
+</a><a href="#h0-0-76" id="h0-0-76" class="i">+WiOwl6WQaEng6VwBBiJpDhTvYnnOaoDpH9Kq4hTYxt182kn09rmKS5YxyDxVmmgy
+</a><a href="#h0-0-77" id="h0-0-77" class="i">+tyQDJbv2mRkhnxUsgZh6+2WZtN7cn6QWjBOMSrGtsem6bcDrNSqA6mSeDilond03
+</a><a href="#h0-0-78" id="h0-0-78" class="i">+JsoJ3OZbX0rUQBq1Nxw30f1EflD3ePXhF0h7zBlr65N2xvgvI975lKsG/uQjfT1d
+</a><a href="#h0-0-79" id="h0-0-79" class="i">+RjJSxAL7BXuxTTh2MfYrFxD0zXJfyeHprCBASfVyT48eNSX5xQspocD715CWfxqX
+</a><a href="#h0-0-80" id="h0-0-80" class="i">+/og3Oj8UVBJiV3+BS99zNw+m60T9KNRw9XzF9lbU+/xNhTHBSQ8Ix9C+mD4JV78R
+</a><a href="#h0-0-81" id="h0-0-81" class="i">+PC+7F1ZDuSK5Ag0EXrqiuwEQAJ0hz5uguZhRpjc/iMN6cor9UUDjCtigVXBYH9Sd
+</a><a href="#h0-0-82" id="h0-0-82" class="i">+fD/89PnCHn5HR0r3u6zUJ3/jFJ5g4iUtKxXXDRfKEOK6ifO7XYJGRc5wVxV6nebk
+</a><a href="#h0-0-83" id="h0-0-83" class="i">+bPg4WTa1TdPq1YIyT7GTpW9wmifZX55zKGDcC4E+WQt5Y7E4H9+RHg+IBF2OG23A
+</a><a href="#h0-0-84" id="h0-0-84" class="i">+L2t2ZkybKU/uuyaicUrf7FqtY9WVHWb4Jp2NcoErFMY+a9c74TbtdQiuZoek/x5m
+</a><a href="#h0-0-85" id="h0-0-85" class="i">+GpnfRaVAP6IC+Wjk5sMSfU9daUY03E7ynOjJuG16p43Y5YqiqmcoPPPzXOProPFd
+</a><a href="#h0-0-86" id="h0-0-86" class="i">+YOW02v0mtvRVWbIzTpmc8PEXpVu6QLO2XjKi6onuqCLUfEa2mFS0b3X5mfckf7/r
+</a><a href="#h0-0-87" id="h0-0-87" class="i">+4QBdiCsxz+y9l1xvVLtlURr+cDkvpxZMYVx1MA3ffBax0VRWEt6GkoK5O6Nz+jEg
+</a><a href="#h0-0-88" id="h0-0-88" class="i">+vxR2p9XvFogdZDcbT1p38pp8vlSCCJflbBpRgs/ySc2qlVSSxf8kmkorHLNJdwpN
+</a><a href="#h0-0-89" id="h0-0-89" class="i">+NgKga3wLP8WFiU2WzJggwaAF7xeUXpKihVaJ7bULUbHtN6nnqIgkCtSewx4tEnUd
+</a><a href="#h0-0-90" id="h0-0-90" class="i">+0TV02RA9CZDH+7VCeVmTqGg0TDGaxMq/fMRoCoyFvNhYm2ZHLl9W/aYFtfsG2KnO
+</a><a href="#h0-0-91" id="h0-0-91" class="i">+5PQUgo7WId+IlXYcOwDILF6e3KF14Q6xjTnpq1QbTp3m7+0pXFCEvac80SyAzL4F
+</a><a href="#h0-0-92" id="h0-0-92" class="i">+W4DnABEBAAGJAjYEGAEKACAWIQRW2q2xUkYcgGeS26uEdzuTmIaBoAUCXrqiuwIb
+</a><a href="#h0-0-93" id="h0-0-93" class="i">+DAAKCRCEdzuTmIaBoPBqEADZOGeAS4iId+xWyq0Uxk5J+qrHXo95VRact4eHHOzy
+</a><a href="#h0-0-94" id="h0-0-94" class="i">+bnoLZm+iwMuicTUBzhXlhM9w/bB9K4UmHEbVYwfwfvb8PjZGIaVBFceBK0rHC73n
+</a><a href="#h0-0-95" id="h0-0-95" class="i">+eLY7MeB1tZMNvuVbD/6+jXVVKmRfiG9iDCdgKXiuWZm4TZiwNztmkHQo8nlEpv7m
+</a><a href="#h0-0-96" id="h0-0-96" class="i">+y/YmiD4lg2tYzpIeOPjdUSlXt5p2duKmulN0XF6P+SHVD7i4+ScqEbS7hTxdLxhS
+</a><a href="#h0-0-97" id="h0-0-97" class="i">+hr0/knFh4TLJEF1zXykBSBi+r7c96/5gEk2tdY/X9NQ2+kJLJEJSC60C5w4+7kmC
+</a><a href="#h0-0-98" id="h0-0-98" class="i">+jt+PZTVXKuUqxhnJAACJxTOiLjtfAThaetvJV/JJJl30irpqlE6L71vaJpc9wRlT
+</a><a href="#h0-0-99" id="h0-0-99" class="i">+ArAwON+m51MDYgzmUeMZdyH5uCRzOek0dUY/5XbRWYDAhl42k8cj8TuyiSgkxt9v
+</a><a href="#h0-0-100" id="h0-0-100" class="i">+N1u9WY7B2UVLCDwaSS5nlSzyX2ZAqa1/D5+bEyfZdf02XWgh8To0AUfEW89Q7A+I
+</a><a href="#h0-0-101" id="h0-0-101" class="i">+WdB9FQRPhqypHqnn6uZqeAq+4RyDC+zgZv5QJ5QiHuyHKkMgRsH4J6/hyuVOhLwU
+</a><a href="#h0-0-102" id="h0-0-102" class="i">+GKi4WUk7qk+Ggor6Y9QHDUiTIxr/Z7jNfbEfDgYKZIdp6DIlA5hA860R0Byo43RF
+</a><a href="#h0-0-103" id="h0-0-103" class="i">+ozXLSzG7rDsDSc/M4k0RTFiwmF0PI9uzTxXWUqOEow31OESrPFwpnRPKwwlel6y/
+</a><a href="#h0-0-104" id="h0-0-104" class="i">+Gg==
+</a><a href="#h0-0-105" id="h0-0-105" class="i">+=k1Jy
+</a> -----END PGP PUBLIC KEY BLOCK-----
+<b>diff --git a/<a id="h1" href="../file/static/ybbond-public.txt.html">static/ybbond-public.txt</a> b/<a href="../file/static/ybbond-public.txt.html">static/ybbond-public.txt</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -11,42 +11,69 @@ AsLHajUxdTIH46N89XZtdEEFfrJmXhQHkL/i8NpaTIIDdHeXeUaAF2tf8v6DoBLe
+</a> 0FFRkX82mcMIZr6HQv5byHhGO8jn98cHGEV7SpQlZS/Eagwm5ivpn9TFunsVhXTi
+ SYZdxQWNCWUoSBFaZY4nFL+DxpKgflkFG+ZY97RZp7AwyGMs4T7kn4XEO3H2hBWa
+ EcUcHkVuqCY7ppgmlzVhb8si6xGXeeeAdHyVD6Y765e5KeWn6bD4oo25/QARAQAB
+<a href="#h1-0-3" id="h1-0-3" class="d">-tClZb2hhbmVzIEJhbmR1bmcgQm9uZG93b3NvIDxoaUB5YmJvbmQuZGV2PokCTgQT
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-AQoAOBYhBFbarbFSRhyAZ5Lbq4R3O5OYhoGgBQJeuqK7AhsDBQsJCAcCBhUKCQgL
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-AgQWAgMBAh4BAheAAAoJEIR3O5OYhoGglEcQAIBhMAXGepxjVghMMbahKa0btGph
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-D2X3FJf6+K3E+XjOqqHOmhP31VpaGrj4xj8IeQpEXMWLa+GMFcGsGx8MG7qB4eRo
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-IHaJ7Yb/Mv5MhotZsmATQPHSY2715VVhd3hK1eT0vLKXHkKeP/pq4oKDqnfGzcaR
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-GQ5vDiBTtOVIIuFGXhaOJ1x6PqurqKtLXg5PVeCmqWK/yDgN0ukZTxtcod5Pnwr2
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-U1jEXyFklLU2tP3PQB51LRUP/siomBj38Ymukr4hoUj7rwjce0ZJ64MjxRODGArG
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-Y4gAY/9oXuz8MjSwvT0QDtvAqX3VoctDxQ4gIzIb+Sgayn/r/co0BY0In4tgfuAc
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-uhJQ2aEXgjEdK22ulfWqowcYX6bzCB/J1oxKEJd6zh8GYRF146K6dSohWG21RENe
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-9nyVnpGIFsCZPJqkjX1J3zQJEA3NrixSt30rjsIHyc0cXWwKG5CoueN/nWOJQMVm
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-CPm42gbw4HyOrn4FXWG/5DhirBE8hw0gOT7mW4pzZgeIHa7DykB2XtqIGM4H68cT
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-yYcLqwUbF0DMRZkVTOH2uKz6/sYTNHDwGmEidbq9LW9xKjdQKK2hNccrHYzbHobt
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-EARncmzKupazSJWk+FvPEE1vEyMCLFW0QfTks8sehwcfA+5qxWKkNnAq+TXYX/2A
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-hbM/jfyH2I44FnoYuQINBF66orsBEACdIc+boLmYUaY3P4jDenKK/VFA4wrYoFVw
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-WB/UnXw//PT5wh5+R0dK97us1Cd/4xSeYOIlLSsV1w0XyhDiuonzu12CRkXOcFcV
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-ep3m5Gz4OFk2tU3T6tWCMk+xk6VvcJon2V+ecyhg3AuBPlkLeWOxOB/fkR4PiARd
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-jhttwC9rdmZMmylP7rsmonFK3+xarWPVlR1m+CadjXKBKxTGPmvXO+E27XUIrmaH
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-pP8eZhqZ30WlQD+iAvlo5ObDEn1PXWlGNNxO8pzoybhteqeN2OWKoqpnKDzz81zj
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-66DxXWDltNr9Jrb0VVmyM06ZnPDxF6VbukCztl4youqJ7qgi1HxGtphUtG91+Zn3
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-JH+/6+EAXYgrMc/svZdcb1S7ZVEa/nA5L6cWTGFcdTAN33wWsdFUVhLehpKCuTuj
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-c/oxIL8UdqfV7xaIHWQ3G09ad/KafL5UggiX5WwaUYLP8knNqpVUksX/JJpKKxyz
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-SXcKTTYCoGt8Cz/FhYlNlsyYIMGgBe8XlF6SooVWie21C1Gx7Tep56iIJArUnsMe
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-LRJ1HdE1dNkQPQmQx/u1QnlZk6hoNEwxmsTKv3zEaAqMhbzYWJtmRy5fVv2mBbX7
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-BtipzuT0FIKO1iHfiJV2HDsAyCxentyhdeEOsY056atUG06d5u/tKVxQhL2nPNEs
+</a><a href="#h1-0-27" id="h1-0-27" class="d">-gMy+BVuA5wARAQABiQI2BBgBCgAgFiEEVtqtsVJGHIBnkturhHc7k5iGgaAFAl66
+</a><a href="#h1-0-28" id="h1-0-28" class="d">-orsCGwwACgkQhHc7k5iGgaDwahAA2ThngEuIiHfsVsqtFMZOSfqqx16PeVUWnLeH
+</a><a href="#h1-0-29" id="h1-0-29" class="d">-hxzs8m56C2ZvosDLonE1Ac4V5YTPcP2wfSuFJhxG1WMH8H72/D42RiGlQRXHgStK
+</a><a href="#h1-0-30" id="h1-0-30" class="d">-xwu953i2OzHgdbWTDb7lWw/+vo11VSpkX4hvYgwnYCl4rlmZuE2YsDc7ZpB0KPJ5
+</a><a href="#h1-0-31" id="h1-0-31" class="d">-RKb+5sv2Jog+JYNrWM6SHjj43VEpV7eadnbiprpTdFxej/kh1Q+4uPknKhG0u4U8
+</a><a href="#h1-0-32" id="h1-0-32" class="d">-XS8YUoa9P5JxYeEyyRBdc18pAUgYvq+3Pev+YBJNrXWP1/TUNvpCSyRCUgutAucO
+</a><a href="#h1-0-33" id="h1-0-33" class="d">-Pu5Jgo7fj2U1VyrlKsYZyQAAicUzoi47XwE4WnrbyVfySSZd9Iq6apROi+9b2iaX
+</a><a href="#h1-0-34" id="h1-0-34" class="d">-PcEZUwKwMDjfpudTA2IM5lHjGXch+bgkcznpNHVGP+V20VmAwIZeNpPHI/E7soko
+</a><a href="#h1-0-35" id="h1-0-35" class="d">-JMbfbzdbvVmOwdlFSwg8GkkuZ5Us8l9mQKmtfw+fmxMn2XX9Nl1oIfE6NAFHxFvP
+</a><a href="#h1-0-36" id="h1-0-36" class="d">-UOwPiFnQfRUET4asqR6p5+rmangKvuEcgwvs4Gb+UCeUIh7shypDIEbB+Cev4crl
+</a><a href="#h1-0-37" id="h1-0-37" class="d">-ToS8FBiouFlJO6pPhoKK+mPUBw1IkyMa/2e4zX2xHw4GCmSHaegyJQOYQPOtEdAc
+</a><a href="#h1-0-38" id="h1-0-38" class="d">-qON0RaM1y0sxu6w7A0nPzOJNEUxYsJhdDyPbs08V1lKjhKMN9ThEqzxcKZ0TysMJ
+</a><a href="#h1-0-39" id="h1-0-39" class="d">-Xpesvxo=
+</a><a href="#h1-0-40" id="h1-0-40" class="d">-=H2ch
+</a><a href="#h1-0-41" id="h1-0-41" class="i">+tClZb2hhbmVzIEJhbmR1bmcgQm9uZG93b3NvIDxoaUB5YmJvbmQuZGV2PokCUQQT
+</a><a href="#h1-0-42" id="h1-0-42" class="i">+AQoAOwIbAwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBFbarbFSRhyAZ5Lbq4R3
+</a><a href="#h1-0-43" id="h1-0-43" class="i">+O5OYhoGgBQJe3hApAhkBAAoJEIR3O5OYhoGgmfIP/jvBB9laVigAbgAdXptPPEp1
+</a><a href="#h1-0-44" id="h1-0-44" class="i">+XNNuzbgDOjTmnC7DQsyqsQLZRA6Ys57oW2kyGHwEXhosWCEDY8hrVPwSnshzfylC
+</a><a href="#h1-0-45" id="h1-0-45" class="i">+BtYceG1QJlot2ylrR1Jukx+uPM3498L7ZkO5tbbPRl7nvasol4ygMvnqbG0FCEk4
+</a><a href="#h1-0-46" id="h1-0-46" class="i">+5f8llUJcJ5H9nATIMF3Uaoxcm+LSwH4x1RbX38JYDzSe9mJh4o7KgXSUWSEe6Urx
+</a><a href="#h1-0-47" id="h1-0-47" class="i">+8H7wIMRkv2fkNvqmqb4/iseGH6bl9HPzUtz18iHG6vcfiSFQFsnKvjaRbkkkFhsx
+</a><a href="#h1-0-48" id="h1-0-48" class="i">+jqm3jmMR37Hd8iCA80rEDJkoVMFqgP+fV1vrzbCs6uPCcrXcgGPwcbIJz1FXonDu
+</a><a href="#h1-0-49" id="h1-0-49" class="i">+QVnENj3Wuk1kRICfIOUr/FBMUw/TXCfa3JeeCaMG6OuDfitThsVKT551ZRbUtj6l
+</a><a href="#h1-0-50" id="h1-0-50" class="i">+ZfVkoyLfuk4t4Sixlcad99xV0FBDRjxkZGFpCtPsdgkr5nW3G0Ir/uXAovNoEWA+
+</a><a href="#h1-0-51" id="h1-0-51" class="i">+KxjJ6yUIO27huBP6oQc8X46V7KAqywXGNWDWnJxpAKxaJsgA+9wf/nEH3Hq7uTx1
+</a><a href="#h1-0-52" id="h1-0-52" class="i">+kxp77TtsEAF6Cq+4yzPZz0De6p/5XCMyMbCsOuFEHWfFXcDT7+vTnurqxO+zA4oq
+</a><a href="#h1-0-53" id="h1-0-53" class="i">+pS+8vCInhoSYsYgdgxaQLLoaIoFGnCpxph0SgXuUNLqjHPuzHqKS6cKLWXdpjgkh
+</a><a href="#h1-0-54" id="h1-0-54" class="i">+tg2Si7RpcqD3bbfU6zeQtDRZb2hhbmVzIEJhbmR1bmcgQm9uZG93b3NvIDxiYW5k
+</a><a href="#h1-0-55" id="h1-0-55" class="i">+dW5ncGVudGluZ0BnbWFpbC5jb20+iQJOBBMBCAA4FiEEVtqtsVJGHIBnkturhHc7
+</a><a href="#h1-0-56" id="h1-0-56" class="i">+k5iGgaAFAl7eECkCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQhHc7k5iG
+</a><a href="#h1-0-57" id="h1-0-57" class="i">+gaCYexAA1HB1PLW0H9E930eZWFQuH1lM3LbaAR7y+hf17uRl+0ilZeEyH/r/aJnX
+</a><a href="#h1-0-58" id="h1-0-58" class="i">+RTrGOVqJX7p39QckwzmiN04sdHqH8X+nIVl2+/PVKnVFKveeUyu3Dcma+Oq4n576
+</a><a href="#h1-0-59" id="h1-0-59" class="i">+xjkDUg6VD4AN7mSm/ZGw/nbOzfnBS5anXiL6b/Po/1liLWBJmMPv39ckC7IIR0MJ
+</a><a href="#h1-0-60" id="h1-0-60" class="i">+hEL2TTel9tRo0/e2+39NXi7xH5UlK2IhecrbCTjnEIc/bciijCq352VV4K0bYWI4
+</a><a href="#h1-0-61" id="h1-0-61" class="i">+6NcSRWPsCI8/plvWbXhZoxwjQQU6EA3Wc/N2O6Lpqf1eO1xO1fynNNK0XlZaeHNE
+</a><a href="#h1-0-62" id="h1-0-62" class="i">+sFM4u2H+mMp4wnAKRAjJVxdR9uBuqi17MpnQNGe63svJTAtGSZh66rYcQHg2cSDa
+</a><a href="#h1-0-63" id="h1-0-63" class="i">+F2ubvWpzAUTkxeWnmCQuKCZEKKMHI7mfxR27BmQ6u+0UCTmMkPJihy1E08F9vdbH
+</a><a href="#h1-0-64" id="h1-0-64" class="i">+YbKCk4/+t6sxedSbo1KsdssyctZxeGMY2ks72fsNpF5H6Em75qAmjIXH+FXMxMGR
+</a><a href="#h1-0-65" id="h1-0-65" class="i">+vuyJKqakGe3UAoFOeJq3bJSVjNwIeSYetS4aRKX6xRRlHPd49sLSc0DdRYWb8f7c
+</a><a href="#h1-0-66" id="h1-0-66" class="i">+1iX6WqlNq8LKAjBHj1vacfjy5Fpo4a8JLI6IDs2PtGcbGhB4LFaOVtVHDPzsJZE0
+</a><a href="#h1-0-67" id="h1-0-67" class="i">+Y8UbjsVx8c6MiHPr2/K/Uyst5dXet7FKhuCjoifXjIBwW4xi1PG0L1lvaGFuZXMg
+</a><a href="#h1-0-68" id="h1-0-68" class="i">+QmFuZHVuZyBCb25kb3dvc28gPHlvaGFuZXppb0BnbWFpbC5jb20+iQJOBBMBCAA4
+</a><a href="#h1-0-69" id="h1-0-69" class="i">+FiEEVtqtsVJGHIBnkturhHc7k5iGgaAFAl7eEE4CGwMFCwkIBwIGFQoJCAsCBBYC
+</a><a href="#h1-0-70" id="h1-0-70" class="i">+AwECHgECF4AACgkQhHc7k5iGgaDuCRAAikrxy78m2VPsFPSsT6Fb2zEeTXpceonq
+</a><a href="#h1-0-71" id="h1-0-71" class="i">+giicwoX4JAlLpUgN/c1eE00eK0RdaBNwLoEiZWyAcI6ZQpvDjcXD+nV5jUWWAF7W
+</a><a href="#h1-0-72" id="h1-0-72" class="i">+dbL+VHsiheygOqo+boyp7y7UJuknAVz4O0Bxuq8sSHyhOHzC4HundjLdoVkfD3Wc
+</a><a href="#h1-0-73" id="h1-0-73" class="i">+9mR4pyCpGXKSXuNpHfmU/VvNYGps8PrVGc1pAN7IQK3qrY3TDIlDcmujjqCfDQE6
+</a><a href="#h1-0-74" id="h1-0-74" class="i">++Ui6doIOCTzEd4ygyAI8YjICNQzXLHf8WFtx5zH2tBMy7ID2ltDTCz3VkrYsetzE
+</a><a href="#h1-0-75" id="h1-0-75" class="i">+xpT3t90bPXQZugkC7CLUeaeKr41qL0z60r5rDWQowhjX2XhsGPUG1MF2iYqezFc3
+</a><a href="#h1-0-76" id="h1-0-76" class="i">+WiOwl6WQaEng6VwBBiJpDhTvYnnOaoDpH9Kq4hTYxt182kn09rmKS5YxyDxVmmgy
+</a><a href="#h1-0-77" id="h1-0-77" class="i">+tyQDJbv2mRkhnxUsgZh6+2WZtN7cn6QWjBOMSrGtsem6bcDrNSqA6mSeDilond03
+</a><a href="#h1-0-78" id="h1-0-78" class="i">+JsoJ3OZbX0rUQBq1Nxw30f1EflD3ePXhF0h7zBlr65N2xvgvI975lKsG/uQjfT1d
+</a><a href="#h1-0-79" id="h1-0-79" class="i">+RjJSxAL7BXuxTTh2MfYrFxD0zXJfyeHprCBASfVyT48eNSX5xQspocD715CWfxqX
+</a><a href="#h1-0-80" id="h1-0-80" class="i">+/og3Oj8UVBJiV3+BS99zNw+m60T9KNRw9XzF9lbU+/xNhTHBSQ8Ix9C+mD4JV78R
+</a><a href="#h1-0-81" id="h1-0-81" class="i">+PC+7F1ZDuSK5Ag0EXrqiuwEQAJ0hz5uguZhRpjc/iMN6cor9UUDjCtigVXBYH9Sd
+</a><a href="#h1-0-82" id="h1-0-82" class="i">+fD/89PnCHn5HR0r3u6zUJ3/jFJ5g4iUtKxXXDRfKEOK6ifO7XYJGRc5wVxV6nebk
+</a><a href="#h1-0-83" id="h1-0-83" class="i">+bPg4WTa1TdPq1YIyT7GTpW9wmifZX55zKGDcC4E+WQt5Y7E4H9+RHg+IBF2OG23A
+</a><a href="#h1-0-84" id="h1-0-84" class="i">+L2t2ZkybKU/uuyaicUrf7FqtY9WVHWb4Jp2NcoErFMY+a9c74TbtdQiuZoek/x5m
+</a><a href="#h1-0-85" id="h1-0-85" class="i">+GpnfRaVAP6IC+Wjk5sMSfU9daUY03E7ynOjJuG16p43Y5YqiqmcoPPPzXOProPFd
+</a><a href="#h1-0-86" id="h1-0-86" class="i">+YOW02v0mtvRVWbIzTpmc8PEXpVu6QLO2XjKi6onuqCLUfEa2mFS0b3X5mfckf7/r
+</a><a href="#h1-0-87" id="h1-0-87" class="i">+4QBdiCsxz+y9l1xvVLtlURr+cDkvpxZMYVx1MA3ffBax0VRWEt6GkoK5O6Nz+jEg
+</a><a href="#h1-0-88" id="h1-0-88" class="i">+vxR2p9XvFogdZDcbT1p38pp8vlSCCJflbBpRgs/ySc2qlVSSxf8kmkorHLNJdwpN
+</a><a href="#h1-0-89" id="h1-0-89" class="i">+NgKga3wLP8WFiU2WzJggwaAF7xeUXpKihVaJ7bULUbHtN6nnqIgkCtSewx4tEnUd
+</a><a href="#h1-0-90" id="h1-0-90" class="i">+0TV02RA9CZDH+7VCeVmTqGg0TDGaxMq/fMRoCoyFvNhYm2ZHLl9W/aYFtfsG2KnO
+</a><a href="#h1-0-91" id="h1-0-91" class="i">+5PQUgo7WId+IlXYcOwDILF6e3KF14Q6xjTnpq1QbTp3m7+0pXFCEvac80SyAzL4F
+</a><a href="#h1-0-92" id="h1-0-92" class="i">+W4DnABEBAAGJAjYEGAEKACAWIQRW2q2xUkYcgGeS26uEdzuTmIaBoAUCXrqiuwIb
+</a><a href="#h1-0-93" id="h1-0-93" class="i">+DAAKCRCEdzuTmIaBoPBqEADZOGeAS4iId+xWyq0Uxk5J+qrHXo95VRact4eHHOzy
+</a><a href="#h1-0-94" id="h1-0-94" class="i">+bnoLZm+iwMuicTUBzhXlhM9w/bB9K4UmHEbVYwfwfvb8PjZGIaVBFceBK0rHC73n
+</a><a href="#h1-0-95" id="h1-0-95" class="i">+eLY7MeB1tZMNvuVbD/6+jXVVKmRfiG9iDCdgKXiuWZm4TZiwNztmkHQo8nlEpv7m
+</a><a href="#h1-0-96" id="h1-0-96" class="i">+y/YmiD4lg2tYzpIeOPjdUSlXt5p2duKmulN0XF6P+SHVD7i4+ScqEbS7hTxdLxhS
+</a><a href="#h1-0-97" id="h1-0-97" class="i">+hr0/knFh4TLJEF1zXykBSBi+r7c96/5gEk2tdY/X9NQ2+kJLJEJSC60C5w4+7kmC
+</a><a href="#h1-0-98" id="h1-0-98" class="i">+jt+PZTVXKuUqxhnJAACJxTOiLjtfAThaetvJV/JJJl30irpqlE6L71vaJpc9wRlT
+</a><a href="#h1-0-99" id="h1-0-99" class="i">+ArAwON+m51MDYgzmUeMZdyH5uCRzOek0dUY/5XbRWYDAhl42k8cj8TuyiSgkxt9v
+</a><a href="#h1-0-100" id="h1-0-100" class="i">+N1u9WY7B2UVLCDwaSS5nlSzyX2ZAqa1/D5+bEyfZdf02XWgh8To0AUfEW89Q7A+I
+</a><a href="#h1-0-101" id="h1-0-101" class="i">+WdB9FQRPhqypHqnn6uZqeAq+4RyDC+zgZv5QJ5QiHuyHKkMgRsH4J6/hyuVOhLwU
+</a><a href="#h1-0-102" id="h1-0-102" class="i">+GKi4WUk7qk+Ggor6Y9QHDUiTIxr/Z7jNfbEfDgYKZIdp6DIlA5hA860R0Byo43RF
+</a><a href="#h1-0-103" id="h1-0-103" class="i">+ozXLSzG7rDsDSc/M4k0RTFiwmF0PI9uzTxXWUqOEow31OESrPFwpnRPKwwlel6y/
+</a><a href="#h1-0-104" id="h1-0-104" class="i">+Gg==
+</a><a href="#h1-0-105" id="h1-0-105" class="i">+=k1Jy
+</a> -----END PGP PUBLIC KEY BLOCK-----
+</pre>
+</div>
+</div>
+</body>
+</html>

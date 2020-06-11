@@ -12,10 +12,10 @@
 <body>
 <table><tr><td><a href="../../../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
 </span></td></tr><tr><td></td><td>
-<a href="../../../../index.html">Log</a> | <a href="../../../../files.html">Files</a> | <a href="../../../../refs.html">Refs</a></td></tr></table>
+<a href="../../../../index.html">Log</a> | <a href="../../../../files.html">Files</a> | <a href="../../../../refs.html">Refs</a> | <a href="../../../../file/README.md.html">README</a> | <a href="../../../../file/LICENSE.md.html">LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> summary.html (1278B)</p><hr/><pre id="blob">
+<p> summary.html (1256B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> &lt;article class=&quot;summary h-entry&quot;&gt;
 <a href="#l2" class="line" id="l2">      2</a>   {{ $permalink := .Permalink }}
 <a href="#l3" class="line" id="l3">      3</a>   {{ $slug := .Slug }}
@@ -46,18 +46,17 @@
 <a href="#l28" class="line" id="l28">     28</a>           alt=&quot;{{ $.Title }}&quot;&gt;&lt;/amp-img&gt;
 <a href="#l29" class="line" id="l29">     29</a>   {{ end }}
 <a href="#l30" class="line" id="l30">     30</a>  --&gt;
-<a href="#l31" class="line" id="l31">     31</a>  {{ $hell := .Type }}
-<a href="#l32" class="line" id="l32">     32</a>   {{ if .Params.Description }}
-<a href="#l33" class="line" id="l33">     33</a>     &lt;p&gt; {{ .Params.Description | safeHTML }} &lt;/p&gt;
-<a href="#l34" class="line" id="l34">     34</a>     &lt;a data-goatcounter-click=&quot;rmore-{{ $slug }}&quot; href=&quot;{{ $permalink }}&quot; class=&quot;no-outline&quot;&gt;
-<a href="#l35" class="line" id="l35">     35</a>       &lt;p&gt;Read More »&lt;/p&gt;
-<a href="#l36" class="line" id="l36">     36</a>     &lt;/a&gt;
-<a href="#l37" class="line" id="l37">     37</a>   {{ else }}
-<a href="#l38" class="line" id="l38">     38</a>     &lt;div class=&quot;content&quot;&gt;
-<a href="#l39" class="line" id="l39">     39</a>       {{ partial &quot;components/summary-seo.html&quot; .Content }}
-<a href="#l40" class="line" id="l40">     40</a>     &lt;/div&gt;
-<a href="#l41" class="line" id="l41">     41</a>   {{ end }}
-<a href="#l42" class="line" id="l42">     42</a> &lt;/article&gt;
+<a href="#l31" class="line" id="l31">     31</a>   {{ if .Params.Description }}
+<a href="#l32" class="line" id="l32">     32</a>     &lt;p&gt; {{ .Params.Description | safeHTML }} &lt;/p&gt;
+<a href="#l33" class="line" id="l33">     33</a>     &lt;a data-goatcounter-click=&quot;rmore-{{ $slug }}&quot; href=&quot;{{ $permalink }}&quot; class=&quot;no-outline&quot;&gt;
+<a href="#l34" class="line" id="l34">     34</a>       &lt;p&gt;Read More »&lt;/p&gt;
+<a href="#l35" class="line" id="l35">     35</a>     &lt;/a&gt;
+<a href="#l36" class="line" id="l36">     36</a>   {{ else }}
+<a href="#l37" class="line" id="l37">     37</a>     &lt;div class=&quot;content&quot;&gt;
+<a href="#l38" class="line" id="l38">     38</a>       {{ partial &quot;components/summary-seo.html&quot; .Content }}
+<a href="#l39" class="line" id="l39">     39</a>     &lt;/div&gt;
+<a href="#l40" class="line" id="l40">     40</a>   {{ end }}
+<a href="#l41" class="line" id="l41">     41</a> &lt;/article&gt;
 </pre>
 </div>
 </body>

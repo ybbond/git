@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>hotfix: feedback text on cv and about - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/e64ca49a8139048c8307cec52acb35a0747fee50.html">e64ca49a8139048c8307cec52acb35a0747fee50</a>
+<b>parent</b> <a href="../commit/406dc471c7061628f470d22f2ffb151412383745.html">406dc471c7061628f470d22f2ffb151412383745</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Sat, 23 May 2020 01:54:43 +0700
+
+hotfix: feedback text on cv and about
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/_default/single.html</a></td><td> | </td><td class="num">11</td><td><span class="i">+++++++++</span><span class="d">--</span></td></tr>
+</table></pre></div><p>1 file changed, 9 insertions(<span id="plus">+</span>), 2 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -21,7 +21,12 @@
+</a>       &lt;div class=&quot;e-content&quot;&gt;
+         {{ partial &quot;components/content.html&quot; .Content }}
+       &lt;/div&gt;
+<a href="#h0-0-3" id="h0-0-3" class="d">-      &lt;hr class=&quot;content__hr&quot;&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+      {{- if ne .Type &quot;page&quot; }}
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+        &lt;hr class=&quot;content__hr&quot;&gt;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+      {{- else }}
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+        &lt;br&gt;
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+        &lt;br&gt;
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+      {{- end }}
+</a>       &lt;p {{ if eq .Type &quot;page&quot; }}class=&quot;hcard&quot; hidden=&quot;&quot;{{ end }}&gt;
+         &lt;a class=&quot;u-url link-white&quot; href={{ .Permalink }}&gt;Published&lt;/a&gt; on
+         &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot; class=&quot;dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;
+<a href="#h0-1" id="h0-1" class="h">@@ -34,7 +39,9 @@
+</a>           {{ end }}
+         &lt;/p&gt;
+       {{ end }}
+<a href="#h0-1-3" id="h0-1-3" class="d">-      &lt;p&gt;If you have any feedback, please contact me at &lt;a href=&quot;mailto:hi@ybbond.dev&quot;&gt;hi@ybbond.dev&lt;/a&gt;&lt;/p&gt;
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+      {{ if ne .Type &quot;page&quot; -}}
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+        &lt;p&gt;If you have any feedback, please contact me at &lt;a href=&quot;mailto:hi@ybbond.dev&quot;&gt;hi@ybbond.dev&lt;/a&gt;&lt;/p&gt;
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+      {{ end -}}
+</a>     &lt;/article&gt;
+   {{ end }}
+ {{ end }} 
+\ No newline at end of file
+</pre>
+</div>
+</div>
+</body>
+</html>

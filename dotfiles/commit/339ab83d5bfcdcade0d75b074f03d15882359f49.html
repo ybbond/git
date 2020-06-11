@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>update .tmux.conf init.vim - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/339ab83d5bfcdcade0d75b074f03d15882359f49.html">339ab83d5bfcdcade0d75b074f03d15882359f49</a>
+<b>parent</b> <a href="../commit/57a031d8ab58c013dea67dc57a7e4f7fb03cb9f3.html">57a031d8ab58c013dea67dc57a7e4f7fb03cb9f3</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Fri, 12 Jun 2020 06:49:43 +0700
+
+update .tmux.conf init.vim
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.config/nvim/init.vim</a></td><td> | </td><td class="num">18</td><td><span class="i">+++++++++++</span><span class="d">-------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.tmux.conf</a></td><td> | </td><td class="num">4</td><td><span class="i">++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>2 files changed, 15 insertions(<span id="plus">+</span>), 7 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a> b/<a href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -121,6 +121,7 @@ call plug#begin(s:plugin_location)
+</a>     let g:vim_markdown_frontmatter = 1  &quot; for YAML format
+     let g:vim_markdown_toml_frontmatter = 1  &quot; for TOML format
+     let g:vim_markdown_json_frontmatter = 1  &quot; for JSON format
+<a href="#h0-0-3" id="h0-0-3" class="i">+  Plug &#39;itspriddle/vim-marked&#39;
+</a>   Plug &#39;godlygeek/tabular&#39;
+ 
+   Plug &#39;cespare/vim-toml&#39;
+<a href="#h0-1" id="h0-1" class="h">@@ -138,7 +139,7 @@ call plug#begin(s:plugin_location)
+</a> 
+   &quot; Reason
+   Plug &#39;reasonml-editor/vim-reason-plus&#39;
+<a href="#h0-1-3" id="h0-1-3" class="d">-    autocmd BufNewFile,BufRead *.re nnoremap &lt;leader&gt;w :!refmt --in-place %&lt;CR&gt;
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+    autocmd BufNewFile,BufRead *.re nnoremap &lt;leader&gt;w :!refmt --in-place %&lt;cr&gt;
+</a> 
+   &quot; vlang
+   Plug &#39;cheap-glitch/vim-v&#39;
+<a href="#h0-2" id="h0-2" class="h">@@ -242,10 +243,13 @@ map &lt;leader&gt;ac :%w !pbcopy&lt;cr&gt;&lt;cr&gt;
+</a> map &lt;leader&gt;w :set wrap!&lt;cr&gt;
+ 
+ &quot; Unhighlight search
+<a href="#h0-2-3" id="h0-2-3" class="d">-nnoremap &lt;silent&gt; &lt;LEADER&gt;&lt;SPACE&gt; :nohlsearch&lt;CR&gt;
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+nnoremap &lt;silent&gt; &lt;LEADER&gt;&lt;SPACE&gt; :nohlsearch&lt;cr&gt;
+</a> 
+ &quot; Toggle check spelling
+<a href="#h0-2-7" id="h0-2-7" class="d">-nnoremap &lt;leader&gt;s :set spell! spelllang=en_us&lt;CR&gt;
+</a><a href="#h0-2-8" id="h0-2-8" class="i">+nnoremap &lt;leader&gt;s :set spell! spelllang=en_us&lt;cr&gt;
+</a><a href="#h0-2-9" id="h0-2-9" class="i">+
+</a><a href="#h0-2-10" id="h0-2-10" class="i">+&quot; Marked toggle
+</a><a href="#h0-2-11" id="h0-2-11" class="i">+nnoremap &lt;leader&gt;m :MarkedToggle!&lt;cr&gt;
+</a> 
+ map &lt;silent&gt; &lt;A-h&gt; &lt;C-w&gt;&lt;
+ map &lt;silent&gt; &lt;A-k&gt; &lt;C-W&gt;-
+<a href="#h0-3" id="h0-3" class="h">@@ -309,10 +313,10 @@ nnoremap gB :bprevious&lt;cr&gt;
+</a>   &quot; nnoremap &lt;C-i&gt; :Files&lt;cr&gt;
+ 
+ &quot; |vim-clap|
+<a href="#h0-3-3" id="h0-3-3" class="d">-  nnoremap &lt;C-i&gt; :Clap grep ++opt=--hidden ++opt=-g=!.git&lt;CR&gt;
+</a><a href="#h0-3-4" id="h0-3-4" class="d">-  nnoremap &lt;C-p&gt; :Clap files --hidden&lt;CR&gt;
+</a><a href="#h0-3-5" id="h0-3-5" class="d">-  nnoremap &lt;leader&gt;* :Clap grep ++query=&lt;cword&gt; ++opt=--hidden ++opt=-g=!.git&lt;CR&gt;
+</a><a href="#h0-3-6" id="h0-3-6" class="d">-  nnoremap &lt;C-b&gt; :Clap buffers&lt;CR&gt;
+</a><a href="#h0-3-7" id="h0-3-7" class="i">+  nnoremap &lt;C-i&gt; :Clap grep ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+</a><a href="#h0-3-8" id="h0-3-8" class="i">+  nnoremap &lt;C-p&gt; :Clap files --hidden&lt;cr&gt;
+</a><a href="#h0-3-9" id="h0-3-9" class="i">+  nnoremap &lt;leader&gt;* :Clap grep ++query=&lt;cword&gt; ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+</a><a href="#h0-3-10" id="h0-3-10" class="i">+  nnoremap &lt;C-b&gt; :Clap buffers&lt;cr&gt;
+</a> 
+ &quot; |nerdtree|
+   map &lt;leader&gt;e :NERDTreeToggle&lt;cr&gt;
+<b>diff --git a/<a id="h1" href="../file/.tmux.conf.html">.tmux.conf</a> b/<a href="../file/.tmux.conf.html">.tmux.conf</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -63,6 +63,10 @@ bind H move-pane -h -t &#39;.-&#39;
+</a> # bind -n Ò resize-pane -R
+ # bind -n  resize-pane -U
+ # bind -n Ô resize-pane -D
+<a href="#h1-0-3" id="h1-0-3" class="i">+bind C-h resize-pane -L
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+bind C-l resize-pane -R
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+bind C-k resize-pane -U
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+bind C-j resize-pane -D
+</a> 
+ #  modes
+ setw -g clock-mode-colour colour5
+</pre>
+</div>
+</div>
+</body>
+</html>

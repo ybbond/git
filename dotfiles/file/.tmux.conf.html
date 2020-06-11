@@ -15,7 +15,7 @@
 <a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> .tmux.conf (3076B)</p><hr/><pre id="blob">
+<p> .tmux.conf (3474B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> unbind C-b
 <a href="#l2" class="line" id="l2">      2</a> set -g prefix C-space
 <a href="#l3" class="line" id="l3">      3</a> 
@@ -65,47 +65,62 @@
 <a href="#l47" class="line" id="l47">     47</a> bind l select-pane -R
 <a href="#l48" class="line" id="l48">     48</a> bind k select-pane -U
 <a href="#l49" class="line" id="l49">     49</a> bind j select-pane -D
-<a href="#l50" class="line" id="l50">     50</a> bind -n M-s command-prompt -p &quot;send pane to:&quot;  &quot;join-pane -t &#39;%%&#39;&quot;
-<a href="#l51" class="line" id="l51">     51</a> # bind -n Ó resize-pane -L
-<a href="#l52" class="line" id="l52">     52</a> # bind -n Ò resize-pane -R
-<a href="#l53" class="line" id="l53">     53</a> # bind -n  resize-pane -U
-<a href="#l54" class="line" id="l54">     54</a> # bind -n Ô resize-pane -D
-<a href="#l55" class="line" id="l55">     55</a> 
-<a href="#l56" class="line" id="l56">     56</a> #  modes
-<a href="#l57" class="line" id="l57">     57</a> setw -g clock-mode-colour colour5
-<a href="#l58" class="line" id="l58">     58</a> setw -g mode-style &#39;fg=colour1 bg=colour18 bold&#39;
-<a href="#l59" class="line" id="l59">     59</a> 
-<a href="#l60" class="line" id="l60">     60</a> # panes
-<a href="#l61" class="line" id="l61">     61</a> set -g pane-border-style &#39;fg=colour22 bg=colour0&#39;
-<a href="#l62" class="line" id="l62">     62</a> set -g pane-active-border-style &#39;bg=colour0 fg=colour46&#39;
-<a href="#l63" class="line" id="l63">     63</a> 
-<a href="#l64" class="line" id="l64">     64</a> # statusbar
-<a href="#l65" class="line" id="l65">     65</a> set -g base-index 1
-<a href="#l66" class="line" id="l66">     66</a> setw -g pane-base-index 1
-<a href="#l67" class="line" id="l67">     67</a> set-option -g status-interval 1
-<a href="#l68" class="line" id="l68">     68</a> 
-<a href="#l69" class="line" id="l69">     69</a> set -g status-position bottom
-<a href="#l70" class="line" id="l70">     70</a> set -g status-justify left
-<a href="#l71" class="line" id="l71">     71</a> # set -g status-style &#39;bg=colour236 fg=colour255 dim&#39;
-<a href="#l72" class="line" id="l72">     72</a> set -g status-style &#39;bg=#32302f fg=#282828 dim&#39;
-<a href="#l73" class="line" id="l73">     73</a> set -g status-left &#39;&#39;
-<a href="#l74" class="line" id="l74">     74</a> # set -g status-right &#39;#[fg=colour247,bg=colour239] %d/%m/%y #[fg=colour233,bg=colour245] %H:%M:%S &#39;
-<a href="#l75" class="line" id="l75">     75</a> # set -g status-right &#39;#[fg=colour250 bg=colour238] #{pane_current_path} &#39;
-<a href="#l76" class="line" id="l76">     76</a> set -g status-right &#39;#[bg=#5a524c] #[bg=colour236] #(sh ~/.config/pane-border-format.sh --pane-current-path=#{pane_current_path} --pane-active=#{pane_active}) #[fg=#282828 bg=#a89984 bold] :D &#39;
-<a href="#l77" class="line" id="l77">     77</a> set -g status-right-length 150
-<a href="#l78" class="line" id="l78">     78</a> set -g status-left-length 20
-<a href="#l79" class="line" id="l79">     79</a> 
-<a href="#l80" class="line" id="l80">     80</a> setw -g window-status-current-style &#39;fg=colour40 bg=#5a5254 bold&#39;
-<a href="#l81" class="line" id="l81">     81</a> setw -g window-status-current-format &#39; #I#[fg=#d1bc99]:#[fg=#d1bc99]#W#[fg=#d6c19c]#F &#39;
-<a href="#l82" class="line" id="l82">     82</a> 
-<a href="#l83" class="line" id="l83">     83</a> setw -g window-status-style &#39;fg=colour28 bg=#32302f&#39;
-<a href="#l84" class="line" id="l84">     84</a> setw -g window-status-format &#39; #I#[fg=#d4be98]:#[fg=#d4be98]#W#[fg=#cab591]#F &#39;
-<a href="#l85" class="line" id="l85">     85</a> 
-<a href="#l86" class="line" id="l86">     86</a> set-option -g bell-action other
-<a href="#l87" class="line" id="l87">     87</a> setw -g window-status-bell-style &#39;fg=colour255 bg=colour1 bold&#39;
-<a href="#l88" class="line" id="l88">     88</a> 
-<a href="#l89" class="line" id="l89">     89</a> # messages
-<a href="#l90" class="line" id="l90">     90</a> set -g message-style &#39;fg=colour226 bg=colour235 bold&#39;
+<a href="#l50" class="line" id="l50">     50</a> 
+<a href="#l51" class="line" id="l51">     51</a> # [J]oin or [S]eparate current pane
+<a href="#l52" class="line" id="l52">     52</a> # bind -n M-J command-prompt -p &quot;send pane to:&quot;  &quot;join-pane -t &#39;%%&#39;&quot;
+<a href="#l53" class="line" id="l53">     53</a> # bind -n M-S break-pane
+<a href="#l54" class="line" id="l54">     54</a> bind J command-prompt -p &quot;send pane to:&quot;  &quot;join-pane -t &#39;%%&#39;&quot;
+<a href="#l55" class="line" id="l55">     55</a> bind S break-pane
+<a href="#l56" class="line" id="l56">     56</a> 
+<a href="#l57" class="line" id="l57">     57</a> # reposition current active pane to be of
+<a href="#l58" class="line" id="l58">     58</a> # [H]orizontal or [V]ertical position relative to other pane
+<a href="#l59" class="line" id="l59">     59</a> bind V move-pane -t &#39;.-&#39;
+<a href="#l60" class="line" id="l60">     60</a> bind H move-pane -h -t &#39;.-&#39;
+<a href="#l61" class="line" id="l61">     61</a> 
+<a href="#l62" class="line" id="l62">     62</a> # bind -n Ó resize-pane -L
+<a href="#l63" class="line" id="l63">     63</a> # bind -n Ò resize-pane -R
+<a href="#l64" class="line" id="l64">     64</a> # bind -n  resize-pane -U
+<a href="#l65" class="line" id="l65">     65</a> # bind -n Ô resize-pane -D
+<a href="#l66" class="line" id="l66">     66</a> bind C-h resize-pane -L
+<a href="#l67" class="line" id="l67">     67</a> bind C-l resize-pane -R
+<a href="#l68" class="line" id="l68">     68</a> bind C-k resize-pane -U
+<a href="#l69" class="line" id="l69">     69</a> bind C-j resize-pane -D
+<a href="#l70" class="line" id="l70">     70</a> 
+<a href="#l71" class="line" id="l71">     71</a> #  modes
+<a href="#l72" class="line" id="l72">     72</a> setw -g clock-mode-colour colour5
+<a href="#l73" class="line" id="l73">     73</a> setw -g mode-style &#39;fg=colour1 bg=colour18 bold&#39;
+<a href="#l74" class="line" id="l74">     74</a> 
+<a href="#l75" class="line" id="l75">     75</a> # panes
+<a href="#l76" class="line" id="l76">     76</a> set -g pane-border-style &#39;fg=colour22 bg=colour0&#39;
+<a href="#l77" class="line" id="l77">     77</a> set -g pane-active-border-style &#39;bg=colour0 fg=colour46&#39;
+<a href="#l78" class="line" id="l78">     78</a> 
+<a href="#l79" class="line" id="l79">     79</a> # statusbar
+<a href="#l80" class="line" id="l80">     80</a> set -g base-index 1
+<a href="#l81" class="line" id="l81">     81</a> setw -g pane-base-index 1
+<a href="#l82" class="line" id="l82">     82</a> set-option -g status-interval 1
+<a href="#l83" class="line" id="l83">     83</a> 
+<a href="#l84" class="line" id="l84">     84</a> set -g status-position bottom
+<a href="#l85" class="line" id="l85">     85</a> set -g status-justify left
+<a href="#l86" class="line" id="l86">     86</a> # set -g status-style &#39;bg=colour236 fg=colour255 dim&#39;
+<a href="#l87" class="line" id="l87">     87</a> set -g status-style &#39;bg=#32302f fg=#282828 dim&#39;
+<a href="#l88" class="line" id="l88">     88</a> set -g status-left &#39;&#39;
+<a href="#l89" class="line" id="l89">     89</a> # set -g status-right &#39;#[fg=colour247,bg=colour239] %d/%m/%y #[fg=colour233,bg=colour245] %H:%M:%S &#39;
+<a href="#l90" class="line" id="l90">     90</a> # set -g status-right &#39;#[fg=colour250 bg=colour238] #{pane_current_path} &#39;
+<a href="#l91" class="line" id="l91">     91</a> set -g status-right &#39;#[bg=#5a524c] #[bg=colour236] #(sh ~/.config/pane-border-format.sh --pane-current-path=#{pane_current_path} --pane-active=#{pane_active}) #[fg=#282828 bg=#a89984 bold] :D &#39;
+<a href="#l92" class="line" id="l92">     92</a> set -g status-right-length 150
+<a href="#l93" class="line" id="l93">     93</a> set -g status-left-length 20
+<a href="#l94" class="line" id="l94">     94</a> 
+<a href="#l95" class="line" id="l95">     95</a> setw -g window-status-current-style &#39;fg=colour40 bg=#5a5254 bold&#39;
+<a href="#l96" class="line" id="l96">     96</a> setw -g window-status-current-format &#39; #I#[fg=#d1bc99]:#[fg=#d1bc99]#W#[fg=#d6c19c]#F &#39;
+<a href="#l97" class="line" id="l97">     97</a> 
+<a href="#l98" class="line" id="l98">     98</a> setw -g window-status-style &#39;fg=colour28 bg=#32302f&#39;
+<a href="#l99" class="line" id="l99">     99</a> setw -g window-status-format &#39; #I#[fg=#d4be98]:#[fg=#d4be98]#W#[fg=#cab591]#F &#39;
+<a href="#l100" class="line" id="l100">    100</a> 
+<a href="#l101" class="line" id="l101">    101</a> set-option -g bell-action other
+<a href="#l102" class="line" id="l102">    102</a> setw -g window-status-bell-style &#39;fg=colour255 bg=colour1 bold&#39;
+<a href="#l103" class="line" id="l103">    103</a> 
+<a href="#l104" class="line" id="l104">    104</a> # messages
+<a href="#l105" class="line" id="l105">    105</a> set -g message-style &#39;fg=colour226 bg=colour235 bold&#39;
 </pre>
 </div>
 </body>
