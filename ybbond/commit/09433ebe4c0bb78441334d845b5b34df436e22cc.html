@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>content: add checklist capability and style tweak - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/09433ebe4c0bb78441334d845b5b34df436e22cc.html">09433ebe4c0bb78441334d845b5b34df436e22cc</a>
+<b>parent</b> <a href="../commit/db830d631bb2034c0b6e240c00e4139e2745cde2.html">db830d631bb2034c0b6e240c00e4139e2745cde2</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sun,  3 May 2020 15:50:19 +0700
+
+content: add checklist capability and style tweak
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.scss</a></td><td> | </td><td class="num">16</td><td><span class="i">++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">content/posts/Migrating My Blog to Hugo.md</a></td><td> | </td><td class="num">39</td><td><span class="i">+++++++++++++++++++++++++++++</span><span class="d">----------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">layouts/partials/components/headline-hash.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre></div><p>3 files changed, 46 insertions(<span id="plus">+</span>), 11 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -8,10 +8,12 @@
+</a> .content, .notes  {
+   font-family: $font-text;
+   width: 100%;
+<a href="#h0-0-3" id="h0-0-3" class="i">+
+</a>   pre {
+     overflow: auto;
+     padding: 0.5em;
+   }
+<a href="#h0-0-8" id="h0-0-8" class="i">+
+</a>   a {
+     &amp;:hover {
+       @include themify($themes) {
+<a href="#h0-1" id="h0-1" class="h">@@ -19,16 +21,19 @@
+</a>       }
+     }
+   }
+<a href="#h0-1-3" id="h0-1-3" class="i">+
+</a>   code {
+     padding: 0.1em;
+     font-family: $font-mono;
+     font-size: 0.9em;
+   }
+<a href="#h0-1-9" id="h0-1-9" class="i">+
+</a>   :not(pre) &gt; code {
+     @include themify($themes) {
+       background-color: themed(&#39;color-background-hover&#39;);
+     }
+   }
+<a href="#h0-1-15" id="h0-1-15" class="i">+
+</a>   table {
+     display: block;
+     overflow-x: auto;
+<a href="#h0-2" id="h0-2" class="h">@@ -56,6 +61,7 @@
+</a>       }
+     }
+   }
+<a href="#h0-2-3" id="h0-2-3" class="i">+
+</a>   ul {
+     padding: 0;
+     li {
+<a href="#h0-3" id="h0-3" class="h">@@ -67,17 +73,27 @@
+</a>         display: inline-block;
+         content: &quot;- &quot;;
+         position: absolute;
+<a href="#h0-3-3" id="h0-3-3" class="i">+        z-index: 1;
+</a>         width: 20px;
+         @include themify($themes) {
+           color: themed(&#39;color-red&#39;);
+         }
+         left: 0;
+       }
+<a href="#h0-3-10" id="h0-3-10" class="i">+      input {
+</a><a href="#h0-3-11" id="h0-3-11" class="i">+        margin-left: -20px;
+</a><a href="#h0-3-12" id="h0-3-12" class="i">+        position: absolute;
+</a><a href="#h0-3-13" id="h0-3-13" class="i">+        z-index: 2;
+</a><a href="#h0-3-14" id="h0-3-14" class="i">+        top: 3.9px;
+</a><a href="#h0-3-15" id="h0-3-15" class="i">+        margin-right: 0;
+</a><a href="#h0-3-16" id="h0-3-16" class="i">+      }
+</a>     }
+   }
+<a href="#h0-3-19" id="h0-3-19" class="i">+
+</a>   figcaption {
+     font-size: 0.8em;
+   }
+<a href="#h0-3-23" id="h0-3-23" class="i">+
+</a>   twitter-widget {
+     margin-left: auto;
+     margin-right: auto;
+<b>diff --git a/<a id="h1" href="../file/content/posts/Migrating My Blog to Hugo.md.html">content/posts/Migrating My Blog to Hugo.md</a> b/<a href="../file/content/posts/Migrating My Blog to Hugo.md.html">content/posts/Migrating My Blog to Hugo.md</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,38 +1,41 @@
+</a> ---
+ title: Migrating My Blog to Hugo
+ author: Yohanes Bandung Bondowoso
+<a href="#h1-0-3" id="h1-0-3" class="d">-description: I originally planned to make my own MarkDown parser and use gist as my blog CMS. After researched a bit between static site generator, I choose Hugo.
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+description: I originally planned to make my own Markdown parser and use gist as my blog CMS. After researched a bit between static site generator, I choose Hugo.
+</a> tags:
+   - Web Development #web_development
+ date: 2020-04-15T01:59:34
+ ---
+ 
+<a href="#h1-0-10" id="h1-0-10" class="d">-In the start of 2020, I planned to expand my [personal page](https://old.ybbond.dev/) to not only contain my &quot;CV&quot;, but also use it as my blog. That webpage is created with ReactJS, and my original idea was to make a new page that fetch data from GitHub Gist, then parse the MarkDown file to HTML file[^1]. I also planned (and I will not drop this one, for the sake of learning) to make that webpage server rendered.
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+In the start of 2020, I planned to expand my [personal page](https://old.ybbond.dev/) to not only contain my &quot;CV&quot;, but also use it as my blog. That webpage is created with ReactJS, and my original idea was to make a new page that fetch data from GitHub Gist, then parse the Markdown file to HTML file[^1]. I also planned (and I will not drop this one, for the sake of learning) to make that webpage server rendered.
+</a> 
+ [^1]: The more original idea was to create this with ReasonReact, as written in my other [post](/posts/2020-03-trying-bs-json-and-bs-fetch-to-publish-my-gist-as-blog/).
+ 
+<a href="#h1-0-15" id="h1-0-15" class="d">-After 20% progress of making MarkDown to HTML parser, I got tired. Instead of reinventing the wheel, I thought that my time can be used to write my blog. So I researched for a static site generator. My primary writing tool, iA Writer boasts that it supports **Ghost**, **Wordpress** and **Medium**. I omitted Medium because I want to self-host the site. I omitted Wordpress too, because I am not too good at PHP Language. Then I try searching for Ghost, turns out it&#39;s a paid service.
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+After 20% progress of making Markdown to HTML parser, I got tired. Instead of reinventing the wheel, I thought that my time can be used to write my blog. So I researched for a static site generator. My primary writing tool, iA Writer boasts that it supports **Ghost**, **Wordpress** and **Medium**. I omitted Medium because I want to self-host the site. I omitted Wordpress too, because I am not too good at PHP Language. Then I try searching for Ghost, turns out it&#39;s a paid service.
+</a> 
+ Other options I found was **Jekyll**, **Hugo**, **nanoc** and **Gatsby**. I tried Gatsby for work and side projects, and the two others just doesn&#39;t fit my needs.
+ 
+ ## So I tried Hugo!
+ 
+<a href="#h1-0-22" id="h1-0-22" class="d">-The main feature I like is that it parses MarkDown automatically. It also generates [RSS](https://ybbond.dev/index.xml) for each page.
+</a><a href="#h1-0-23" id="h1-0-23" class="i">+&gt; &quot;Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).&quot;
+</a><a href="#h1-0-24" id="h1-0-24" class="i">+&gt;
+</a><a href="#h1-0-25" id="h1-0-25" class="i">+&gt; _John Gruber, Creator of Markdown_
+</a> 
+<a href="#h1-0-27" id="h1-0-27" class="d">-It supports the flavor of MarkDown that parses footnotes! I **love footnotes**[^2]!
+</a><a href="#h1-0-28" id="h1-0-28" class="i">+The main feature I like is that it parses [Markdown](https://daringfireball.net/projects/markdown/) automatically. This allow me to make post with iA Writer, my currently favorite writing tool for iPad. It supports the flavor of Markdown that parses footnotes! I **love footnotes**[^2]!
+</a><a href="#h1-0-29" id="h1-0-29" class="i">+
+</a><a href="#h1-0-30" id="h1-0-30" class="i">+It also generates [RSS](https://ybbond.dev/index.xml) for each page.
+</a> 
+ It has native support for tables:
+ 
+ [^2]: Like the one you probably noticed already. This is one.
+ 
+<a href="#h1-0-36" id="h1-0-36" class="d">-This | is
+</a><a href="#h1-0-37" id="h1-0-37" class="d">------|------
+</a><a href="#h1-0-38" id="h1-0-38" class="d">-  an | example
+</a><a href="#h1-0-39" id="h1-0-39" class="d">-  of | table.
+</a><a href="#h1-0-40" id="h1-0-40" class="i">+ This     | is    | an    |
+</a><a href="#h1-0-41" id="h1-0-41" class="i">+ -------- | :---: | ----: |
+</a><a href="#h1-0-42" id="h1-0-42" class="i">+ example  | of    | table |
+</a><a href="#h1-0-43" id="h1-0-43" class="i">+ **cool** | isn&#39;t | it?   |
+</a> 
+ I can also insert code snippets! Yeay!
+ 
+<a href="#h1-0-47" id="h1-0-47" class="d">-
+</a> ```html
+ &lt;!DOCTYPE html&gt;
+ &lt;html lang=&quot;en&quot;&gt;
+<a href="#h1-1" id="h1-1" class="h">@@ -46,6 +49,22 @@ I can also insert code snippets! Yeay!
+</a> &lt;/html&gt;
+ ```
+ 
+<a href="#h1-1-3" id="h1-1-3" class="i">+## Current Features
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+
+</a><a href="#h1-1-5" id="h1-1-5" class="i">+The default features from hugo itself already awesome, but my goal for this site is very opinionated. There are some features that I&#39;d like to be implemented:
+</a><a href="#h1-1-6" id="h1-1-6" class="i">+
+</a><a href="#h1-1-7" id="h1-1-7" class="i">+- [x] **Basic** _text_ ~~formats~~
+</a><a href="#h1-1-8" id="h1-1-8" class="i">+- [x] This unordered task list (ordered version is available too!). I omit the `disabled` property on purpose, because of a bug.
+</a><a href="#h1-1-9" id="h1-1-9" class="i">+- [x] `Code`, block code and block quote
+</a><a href="#h1-1-10" id="h1-1-10" class="i">+- [x] Footnotes!
+</a><a href="#h1-1-11" id="h1-1-11" class="i">+- [x] Responsiveness
+</a><a href="#h1-1-12" id="h1-1-12" class="i">+- [x] Dark mode toggler (if JavaScript enabled on browser)
+</a><a href="#h1-1-13" id="h1-1-13" class="i">+- [x] Replace default image to lazyloaded image
+</a><a href="#h1-1-14" id="h1-1-14" class="i">+- [ ] Simple script to view footnotes on hover
+</a><a href="#h1-1-15" id="h1-1-15" class="i">+- [ ] Anonymous tracker (I always wonder whether anybody read my blog or not 🧐)
+</a><a href="#h1-1-16" id="h1-1-16" class="i">+
+</a><a href="#h1-1-17" id="h1-1-17" class="i">+
+</a><a href="#h1-1-18" id="h1-1-18" class="i">+
+</a> I am genuinely happy for using Hugo. I might keep using this for a while, before I&#39;ll have an itch to try other static site  generators 😄
+ 
+ Cheers!
+<b>diff --git a/<a id="h2" href="../file/layouts/partials/components/headline-hash.html.html">layouts/partials/components/headline-hash.html</a> b/<a href="../file/layouts/partials/components/headline-hash.html.html">layouts/partials/components/headline-hash.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1 +1 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">-{{ . | replaceRE &quot;(&lt;h[1-9] id=\&quot;([^\&quot;]+)\&quot;.+)(&lt;/h[1-9]+&gt;)&quot; &quot;${1} &lt;a class=\&quot;headline-hash\&quot; href=\&quot;#${2}\&quot;&gt;#&lt;/a&gt; ${3}&quot; | safeHTML }}
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+{{ . | replaceRE &quot;(&lt;h[1-9] id=\&quot;([^\&quot;]+)\&quot;.+)(&lt;/h[1-9]+&gt;)&quot; &quot;${1} &lt;a class=\&quot;headline-hash\&quot; href=\&quot;#${2}\&quot;&gt;#&lt;/a&gt; ${3}&quot; | replaceRE &quot;disabled=\&quot;\&quot; type=\&quot;checkbox&quot; &quot;type=\&quot;checkbox&quot; | safeHTML }}
+</a></pre>
+</div>
+</div>
+</body>
+</html>

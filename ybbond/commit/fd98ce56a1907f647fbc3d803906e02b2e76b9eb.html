@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature: h-entry for indieweb - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/fd98ce56a1907f647fbc3d803906e02b2e76b9eb.html">fd98ce56a1907f647fbc3d803906e02b2e76b9eb</a>
+<b>parent</b> <a href="../commit/f9ea3e7e6bd0f4c3c6a9c8b92622ccdbb3df4e64.html">f9ea3e7e6bd0f4c3c6a9c8b92622ccdbb3df4e64</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Mon,  4 May 2020 00:46:58 +0700
+
+feature: h-entry for indieweb
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/styles.scss</a></td><td> | </td><td class="num">6</td><td><span class="i">+++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">layouts/_default/single.html</a></td><td> | </td><td class="num">15</td><td><span class="i">++++++++</span><span class="d">-------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">layouts/partials/footer/footer.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre></div><p>3 files changed, 12 insertions(<span id="plus">+</span>), 11 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/styles.scss.html">assets/styles.scss</a> b/<a href="../file/assets/styles.scss.html">assets/styles.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -63,7 +63,7 @@ a {
+</a>     &amp;:hover {
+       color: themed(&#39;color-red&#39;);
+     }
+<a href="#h0-0-3" id="h0-0-3" class="d">-    .link-white {
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    &amp;.link-white {
+</a>       color: themed(&#39;color-text&#39;);
+     }
+   }
+<a href="#h0-1" id="h0-1" class="h">@@ -304,10 +304,10 @@ time {
+</a>         height: 5em;
+       }
+       &amp; &gt; a {
+<a href="#h0-1-3" id="h0-1-3" class="d">-        padding-left: 6.5em;
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+        margin-left: 6.5em;
+</a>       }
+       &amp; &gt; .p-locality {
+<a href="#h0-1-7" id="h0-1-7" class="d">-        padding-left: 6.5em;
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+        margin-left: 6.5em;
+</a>       }
+     }
+   }
+<b>diff --git a/<a id="h1" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,12 +1,13 @@
+</a> {{ define &quot;main&quot; }}
+<a href="#h1-0-1" id="h1-0-1" class="d">-  &lt;article class=&quot;content&quot;&gt;
+</a><a href="#h1-0-2" id="h1-0-2" class="d">-    &lt;h1&gt;{{ .Title }}&lt;/h1&gt;
+</a><a href="#h1-0-3" id="h1-0-3" class="d">-    {{ partial &quot;components/headline-hash.html&quot; .Content }}
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-    {{ $date := .Date.Format &quot;02 January 2006&quot; }}
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+  &lt;article class=&quot;content h-entry&quot;&gt;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+    &lt;h1 class=&quot;p-name&quot;&gt;{{ .Title }}&lt;/h1&gt;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+    &lt;div class=&quot;e-content&quot;&gt;
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+      {{ partial &quot;components/headline-hash.html&quot; .Content }}
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+    &lt;/div&gt;
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+    &lt;br&gt;
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+    &lt;br&gt;
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+    &lt;p&gt;&lt;a class=&quot;u-url link-white&quot; href={{ .Permalink }}&gt;Published&lt;/a&gt; on &lt;time class=&quot;dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;{{ .Date.Format &quot;02 January 2006&quot; }}&lt;/time&gt;, for stories like this:&lt;/p&gt;
+</a>     {{ with .Params.tags }}
+<a href="#h1-0-14" id="h1-0-14" class="d">-      &lt;br&gt;
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-      &lt;br&gt;
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-      &lt;p&gt;Published on &lt;time&gt;{{ $date }}&lt;/time&gt;, for stories like this:&lt;/p&gt;
+</a>       &lt;p class=&quot;taglist&quot;&gt;
+         {{ range . }}
+           {{- partial &quot;components/tagitem.html&quot; . -}}
+<b>diff --git a/<a id="h2" href="../file/layouts/partials/footer/footer.html.html">layouts/partials/footer/footer.html</a> b/<a href="../file/layouts/partials/footer/footer.html.html">layouts/partials/footer/footer.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -26,7 +26,7 @@
+</a>   &lt;div class=&quot;hcard__description&quot;&gt;&lt;p&gt;My &lt;a&gt;h-card&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+ &lt;div id=&quot;h-card&quot; class=&quot;h-card&quot;&gt;
+   &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} alt=&quot;Weird photo of yohanes bandung&quot; /&gt;
+<a href="#h2-0-3" id="h2-0-3" class="d">-  &lt;a class=&quot;p-name u-url u-uid&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;me&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  &lt;a class=&quot;p-name u-url u-uid p-author&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;me&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+</a>   &lt;br&gt;
+   &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+   &lt;br&gt;
+</pre>
+</div>
+</div>
+</body>
+</html>

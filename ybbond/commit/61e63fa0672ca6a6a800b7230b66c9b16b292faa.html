@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: listings for h-feed add correct image - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/61e63fa0672ca6a6a800b7230b66c9b16b292faa.html">61e63fa0672ca6a6a800b7230b66c9b16b292faa</a>
+<b>parent</b> <a href="../commit/d73683401a69e5cad06c8239463fced4a430190e.html">d73683401a69e5cad06c8239463fced4a430190e</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sat,  9 May 2020 20:01:53 +0700
+
+refactor: listings for h-feed add correct image
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.scss</a></td><td> | </td><td class="num">8</td><td><span class="i">++++</span><span class="d">----</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">assets/styles.scss</a></td><td> | </td><td class="num">10</td><td><span class="i">++++</span><span class="d">------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h2">content/notes/_index.md</a></td><td> | </td><td class="num">7</td><td><span class="i">+++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">content/posts/April Links.md</a></td><td> | </td><td class="num">14</td><td><span class="i">++++++++++</span><span class="d">----</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h4">content/posts/_index.md</a></td><td> | </td><td class="num">6</td><td><span class="i">++++++</span><span class="d"></span></td></tr>
+<tr><td class="D">D</td><td><a href="#h5">layouts/_default/_markup/render-link.html</a></td><td> | </td><td class="num">1</td><td><span class="i"></span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">layouts/_default/list.html</a></td><td> | </td><td class="num">5</td><td><span class="i">+++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h7">layouts/_default/single.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h8">layouts/partials/post/notes-item.html</a></td><td> | </td><td class="num">10</td><td><span class="i">++++++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h9">layouts/partials/post/summary.html</a></td><td> | </td><td class="num">17</td><td><span class="i">+++++++++++++</span><span class="d">----</span></td></tr>
+</table></pre></div><p>10 files changed, 56 insertions(<span id="plus">+</span>), 24 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -5,7 +5,7 @@
+</a>   @return map-get($theme-map, $key);
+ }
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-.content, .notes, .summary {
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+.content, .notes, .summary__content {
+</a>   font-family: $font-text;
+   width: 100%;
+ 
+<a href="#h0-1" id="h0-1" class="h">@@ -122,15 +122,15 @@
+</a>       span {
+         position: relative;
+         &amp;:before {
+<a href="#h0-1-3" id="h0-1-3" class="i">+          right: 0.6em;
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+          top: -0.2em;
+</a>           display: inline-block;
+<a href="#h0-1-6" id="h0-1-6" class="d">-          content: &quot;– &quot;;
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+          content: &quot;–&quot;;
+</a>           position: absolute;
+           z-index: 1;
+<a href="#h0-1-10" id="h0-1-10" class="d">-          width: 20px;
+</a>           @include themify($themes) {
+             color: themed(&#39;color-red&#39;);
+           }
+<a href="#h0-1-14" id="h0-1-14" class="d">-          left: -1.2em;
+</a>         }
+       }
+       input {
+<b>diff --git a/<a id="h1" href="../file/assets/styles.scss.html">assets/styles.scss</a> b/<a href="../file/assets/styles.scss.html">assets/styles.scss</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -21,6 +21,10 @@ body {
+</a>   margin: 0 auto;
+ }
+ 
+<a href="#h1-0-3" id="h1-0-3" class="i">+[hidden] {
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  display: none;
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+}
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+
+</a> hr {
+   margin: 40px auto;
+   @include themify($themes) {
+<a href="#h1-1" id="h1-1" class="h">@@ -38,12 +42,6 @@ hr {
+</a>   }
+ }
+ 
+<a href="#h1-1-3" id="h1-1-3" class="d">-.h-entry, .h-feed {
+</a><a href="#h1-1-4" id="h1-1-4" class="d">-  .hcard {
+</a><a href="#h1-1-5" id="h1-1-5" class="d">-    display: none;
+</a><a href="#h1-1-6" id="h1-1-6" class="d">-  }
+</a><a href="#h1-1-7" id="h1-1-7" class="d">-}
+</a><a href="#h1-1-8" id="h1-1-8" class="d">-
+</a> h1, h2, h3, h4, h5 {
+   @include themify($themes) {
+     color: themed(&#39;color-green&#39;);
+<b>diff --git a/<a id="h2" href="../file/content/notes/_index.md.html">content/notes/_index.md</a> b/<a href="../file/content/notes/_index.md.html">content/notes/_index.md</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -0,0 +1,6 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="i">+---
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+title: My Notes
+</a><a href="#h2-0-2" id="h2-0-2" class="i">+---
+</a><a href="#h2-0-3" id="h2-0-3" class="i">+
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+Listed are short thoughts, brags, and unimportant stuffs of my life.
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+Synced with this [RSS](/notes/index.xml) and my [Micro.Blog](https://micro.blog/ybbond) page.</a><a href="#h2-0-6" id="h2-0-6" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h3" href="../file/content/posts/April Links.md.html">content/posts/April Links.md</a> b/<a href="../file/content/posts/April Links.md.html">content/posts/April Links.md</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -7,12 +7,12 @@ date: 2020-05-01T00:00:01
+</a> type: bookmarks
+ ---
+ 
+<a href="#h3-0-3" id="h3-0-3" class="d">-An interesting [posts](https://yihui.org/en/2018/02/career-crisis/) by Yihui Xie, maintainer of TinyTex, and its [follow-up](https://yihui.org/en/2018/02/procrastination-techniques/) that leads me to this naughty website:
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-
+</a><a href="#h3-0-5" id="h3-0-5" class="d">-🐒 [Corrupt a file - Corrupt file online, deliver on time!](https://corrupt-a-file.net/)
+</a> 
+ ## Tech
+ 
+<a href="#h3-0-9" id="h3-0-9" class="i">+🌏 [IndieWeb](https://indieweb.org/)
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+Led me to `IndieWebify` this site.
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+
+</a> 👠 [vime/README.md at master · vime-js/vime · GitHub](https://github.com/vime-js/vime/blob/master/README.md)
+ 
+ 🛂 [Password Strengh - xkcd #936](https://xkcd.com/936/)
+<a href="#h3-1" id="h3-1" class="h">@@ -23,4 +23,9 @@ An interesting [posts](https://yihui.org/en/2018/02/career-crisis/) by Yihui Xie
+</a> 
+ 🧮 [Analyzing HN Reader&#39;s Personal Blogs Part 1 - Danny Salzman, by Danny Salzman](https://www.dannysalzman.com/2020/04/08/analyzing-hn-readers-personal-blogs)
+ 
+<a href="#h3-1-3" id="h3-1-3" class="d">-🌑 [RIP John Conway - XKCD](https://xkcd.com/2293/)
+</a><a href="#h3-1-4" id="h3-1-4" class="i">+🌑 [RIP John Conway - xkcd #2293](https://xkcd.com/2293/)
+</a><a href="#h3-1-5" id="h3-1-5" class="i">+
+</a><a href="#h3-1-6" id="h3-1-6" class="i">+## Knowledge
+</a><a href="#h3-1-7" id="h3-1-7" class="i">+
+</a><a href="#h3-1-8" id="h3-1-8" class="i">+An interesting [post](https://yihui.org/en/2018/02/career-crisis/) by Yihui Xie, maintainer of TinyTex, and its [follow-up](https://yihui.org/en/2018/02/procrastination-techniques/) that leads me to this naughty website:
+</a><a href="#h3-1-9" id="h3-1-9" class="i">+🐒 [Corrupt a file - Corrupt file online, deliver on time!](https://corrupt-a-file.net/)</a><a href="#h3-1-10" id="h3-1-10" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h4" href="../file/content/posts/_index.md.html">content/posts/_index.md</a> b/<a href="../file/content/posts/_index.md.html">content/posts/_index.md</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -0,0 +1,6 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="i">+---
+</a><a href="#h4-0-1" id="h4-0-1" class="i">+title: Posts
+</a><a href="#h4-0-2" id="h4-0-2" class="i">+---
+</a><a href="#h4-0-3" id="h4-0-3" class="i">+
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+Weblog, articles, bookmarks, reviews and thoughts.
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+Synced with this [RSS](/index.xml) and my [Micro.Blog](https://micro.blog/ybbond) page.
+</a><b>diff --git a/<a id="h5" href="../file/layouts/_default/_markup/render-link.html.html">layouts/_default/_markup/render-link.html</a> b/<a href="../file/layouts/_default/_markup/render-link.html.html">layouts/_default/_markup/render-link.html</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -1 +0,0 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="d">-&lt;a href={{ .Destination | safeURL }}&gt;{{ .Text | safeHTML }}&lt;/a&gt;
+</a><b>diff --git a/<a id="h6" href="../file/layouts/_default/list.html.html">layouts/_default/list.html</a> b/<a href="../file/layouts/_default/list.html.html">layouts/_default/list.html</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -1,6 +1,6 @@
+</a> {{ define &quot;main&quot; }}
+   &lt;div class=&quot;h-feed&quot;&gt;
+<a href="#h6-0-2" id="h6-0-2" class="d">-    &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot;&gt;
+</a><a href="#h6-0-3" id="h6-0-3" class="i">+    &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+</a>     &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} alt=&quot;Weird photo of yohanes bandung&quot; /&gt;
+     &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+     &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+<a href="#h6-1" id="h6-1" class="h">@@ -15,10 +15,11 @@
+</a>   {{ $selflink := .Permalink }}
+   {{ if or .Title .Content }}
+     &lt;div class=&quot;list__header&quot;&gt;
+<a href="#h6-1-3" id="h6-1-3" class="i">+      {{ $isTag := eq .Type &quot;tags&quot; }}
+</a>       {{ with .Title }}
+         &lt;a href={{ $selflink }} class=&quot;u-url&quot;&gt;
+           &lt;h1 class=&quot;p-name&quot;&gt;
+<a href="#h6-1-7" id="h6-1-7" class="d">-              {{ . }}
+</a><a href="#h6-1-8" id="h6-1-8" class="i">+              {{ cond $isTag &quot;Tag «&quot; nil}}{{ . }}{{ cond $isTag &quot;»&quot; nil}}
+</a>           &lt;/h1&gt;
+         &lt;/a&gt;
+       {{ end }}
+<b>diff --git a/<a id="h7" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -6,7 +6,7 @@
+</a>   {{ else }}
+     &lt;article class=&quot;content h-entry&quot;&gt;
+       &lt;h1 class=&quot;p-name&quot;&gt;{{ .Title }}&lt;/h1&gt;
+<a href="#h7-0-3" id="h7-0-3" class="d">-      &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot;&gt;
+</a><a href="#h7-0-4" id="h7-0-4" class="i">+      &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+</a>         &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} alt=&quot;Weird photo of yohanes bandung&quot; /&gt;
+         &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+         &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+<b>diff --git a/<a id="h8" href="../file/layouts/partials/post/notes-item.html.html">layouts/partials/post/notes-item.html</a> b/<a href="../file/layouts/partials/post/notes-item.html.html">layouts/partials/post/notes-item.html</a></b>
+<a href="#h8-0" id="h8-0" class="h">@@ -1,8 +1,14 @@
+</a> {{ $dateformat := .Date.Format &quot;2006-01-02 15:04&quot; }}
+ {{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
+ &lt;div class=&quot;notes h-entry&quot; id={{ $idslug }}&gt;
+<a href="#h8-0-3" id="h8-0-3" class="d">-  &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot;&gt;
+</a><a href="#h8-0-4" id="h8-0-4" class="d">-    &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} alt=&quot;Weird photo of yohanes bandung&quot; /&gt;
+</a><a href="#h8-0-5" id="h8-0-5" class="i">+  &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+</a><a href="#h8-0-6" id="h8-0-6" class="i">+    {{ $permalink := .Permalink }}
+</a><a href="#h8-0-7" id="h8-0-7" class="i">+    {{ $title := .Title }}
+</a><a href="#h8-0-8" id="h8-0-8" class="i">+    {{ with .Params.Image.Src }}
+</a><a href="#h8-0-9" id="h8-0-9" class="i">+      {{ $filename := . | safeURL }}
+</a><a href="#h8-0-10" id="h8-0-10" class="i">+      {{ $original := printf &quot;%s/%s&quot; $permalink $filename }}
+</a><a href="#h8-0-11" id="h8-0-11" class="i">+      &lt;img class=&quot;u-photo&quot; hidden=&quot;&quot; src={{ $original }} alt=&quot;Illustration of {{ $title }}&quot; /&gt;
+</a><a href="#h8-0-12" id="h8-0-12" class="i">+    {{ end }}
+</a>     &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+     &lt;br&gt;
+     &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+<b>diff --git a/<a id="h9" href="../file/layouts/partials/post/summary.html.html">layouts/partials/post/summary.html</a> b/<a href="../file/layouts/partials/post/summary.html.html">layouts/partials/post/summary.html</a></b>
+<a href="#h9-0" id="h9-0" class="h">@@ -1,7 +1,14 @@
+</a> &lt;article class=&quot;summary h-entry&quot;&gt;
+<a href="#h9-0-1" id="h9-0-1" class="d">-  &lt;a href=&quot;{{ .Permalink }}&quot; class=&quot;u-url&quot;&gt;
+</a><a href="#h9-0-2" id="h9-0-2" class="i">+  {{ $permalink := .Permalink }}
+</a><a href="#h9-0-3" id="h9-0-3" class="i">+  {{ $title := .Title }}
+</a><a href="#h9-0-4" id="h9-0-4" class="i">+  {{ with .Params.Image.Src }}
+</a><a href="#h9-0-5" id="h9-0-5" class="i">+    {{ $filename := . | safeURL }}
+</a><a href="#h9-0-6" id="h9-0-6" class="i">+    {{ $original := printf &quot;%s/%s&quot; $permalink $filename }}
+</a><a href="#h9-0-7" id="h9-0-7" class="i">+    &lt;img class=&quot;u-photo&quot; hidden=&quot;&quot; src={{ $original }} alt=&quot;Illustration of {{ $title }}&quot; /&gt;
+</a><a href="#h9-0-8" id="h9-0-8" class="i">+  {{ end }}
+</a><a href="#h9-0-9" id="h9-0-9" class="i">+  &lt;a href=&quot;{{ $permalink }}&quot; class=&quot;u-url&quot;&gt;
+</a>     &lt;h2 class=&quot;summary__title p-name&quot;&gt;
+<a href="#h9-0-11" id="h9-0-11" class="d">-      {{ .Title }}
+</a><a href="#h9-0-12" id="h9-0-12" class="i">+      {{ $title }}
+</a>     &lt;/h2&gt;
+   &lt;/a&gt;
+   &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot;&gt;
+<a href="#h9-1" id="h9-1" class="h">@@ -24,10 +31,12 @@
+</a>  {{ $hell := .Type }}
+   {{ if .Params.Description }}
+     &lt;p&gt; {{ .Params.Description }} &lt;/p&gt;
+<a href="#h9-1-3" id="h9-1-3" class="d">-    &lt;a href=&quot;{{ .Permalink }}&quot;&gt;
+</a><a href="#h9-1-4" id="h9-1-4" class="i">+    &lt;a href=&quot;{{ $permalink }}&quot;&gt;
+</a>       &lt;p&gt;Read More »&lt;/p&gt;
+     &lt;/a&gt;
+   {{ else }}
+<a href="#h9-1-8" id="h9-1-8" class="d">-    {{ partial &quot;components/summary-seo.html&quot; .Content }}
+</a><a href="#h9-1-9" id="h9-1-9" class="i">+    &lt;div class=&quot;summary__content&quot;&gt;
+</a><a href="#h9-1-10" id="h9-1-10" class="i">+      {{ partial &quot;components/summary-seo.html&quot; .Content }}
+</a><a href="#h9-1-11" id="h9-1-11" class="i">+    &lt;/div&gt;
+</a>   {{ end }}
+ &lt;/article&gt;
+</pre>
+</div>
+</div>
+</body>
+</html>

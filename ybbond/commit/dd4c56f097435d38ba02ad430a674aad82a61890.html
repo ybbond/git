@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: edit menu, and add uses page - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/dd4c56f097435d38ba02ad430a674aad82a61890.html">dd4c56f097435d38ba02ad430a674aad82a61890</a>
+<b>parent</b> <a href="../commit/3507561d82205fb1988202857985383ec2acfb9d.html">3507561d82205fb1988202857985383ec2acfb9d</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 28 Apr 2020 16:13:07 +0700
+
+refactor: edit menu, and add uses page
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.dev.toml</a></td><td> | </td><td class="num">6</td><td><span class="i">+++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.toml</a></td><td> | </td><td class="num">6</td><td><span class="i">+++</span><span class="d">---</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h2">content/uses.md</a></td><td> | </td><td class="num">23</td><td><span class="i">+++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">layouts/partials/header/menu.html</a></td><td> | </td><td class="num">7</td><td><span class="i">+</span><span class="d">------</span></td></tr>
+</table></pre></div><p>4 files changed, 30 insertions(<span id="plus">+</span>), 12 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/config.dev.toml.html">config.dev.toml</a> b/<a href="../file/config.dev.toml.html">config.dev.toml</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -29,9 +29,9 @@ title = &quot;YBBond&quot;
+</a>     url = &quot;/cv&quot;
+     weight = 9
+ [[menu.main]]
+<a href="#h0-0-3" id="h0-0-3" class="d">-    identifier = &quot;author&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-    name = &quot;My Site&quot;
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-    url = &quot;https://ybbond.dev/&quot;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+    identifier = &quot;uses&quot;
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+    name = &quot;Uses&quot;
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+    url = &quot;/uses&quot;
+</a>     weight = 10
+ 
+ [caches.images]
+<b>diff --git a/<a id="h1" href="../file/config.toml.html">config.toml</a> b/<a href="../file/config.toml.html">config.toml</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -29,7 +29,7 @@ title = &quot;YBBond&quot;
+</a>     url = &quot;/cv&quot;
+     weight = 9
+ [[menu.main]]
+<a href="#h1-0-3" id="h1-0-3" class="d">-    identifier = &quot;author&quot;
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-    name = &quot;My Site&quot;
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-    url = &quot;https://ybbond.dev/&quot;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+    identifier = &quot;uses&quot;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+    name = &quot;Uses&quot;
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+    url = &quot;/uses&quot;
+</a>     weight = 10
+<b>diff --git a/<a id="h2" href="../file/content/uses.md.html">content/uses.md</a> b/<a href="../file/content/uses.md.html">content/uses.md</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -0,0 +1,22 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="i">+---
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+menu: cv
+</a><a href="#h2-0-2" id="h2-0-2" class="i">+description: CV
+</a><a href="#h2-0-3" id="h2-0-3" class="i">+---
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+## Platform
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+- Macbook Pro 2018 13&quot; (Office)
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+- Low End PC with Manjaro Linux XFCE (Home)
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+- iPad Mini 5
+</a><a href="#h2-0-9" id="h2-0-9" class="i">+
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+## Hardware
+</a><a href="#h2-0-11" id="h2-0-11" class="i">+
+</a><a href="#h2-0-12" id="h2-0-12" class="i">+- Ducky One 2 Mini Keyboard [image](https://twitter.com/bandungpenting/status/1146845120618090497)
+</a><a href="#h2-0-13" id="h2-0-13" class="i">+- NuPhy NuType F1 Keyboard [review](/posts/202004nuphy-nutype-f1-keyboard-review/)
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+- Roland FP-30 Digital Piano
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+## Software
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+- NeoVim [image](https://twitter.com/bandungpenting/status/1162210601340305409) [settings](https://gist.github.com/ybbond/16ee5000eeca727899eac43a4c20291c) 
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+- tmux on kitty [settings](https://gist.github.com/ybbond/26165e50f36a439b6b930607976a1e82)
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+- ZShell (zsh) [settings](https://gist.github.com/ybbond/e6f827f977248b5d9eda8e1c49da82e9)
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+- [Ranger](https://github.com/ranger/ranger) File Manager
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+- [lazygit](https://github.com/jesseduffield/lazygit)</a><a href="#h2-0-22" id="h2-0-22" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h3" href="../file/layouts/partials/header/menu.html.html">layouts/partials/header/menu.html</a> b/<a href="../file/layouts/partials/header/menu.html.html">layouts/partials/header/menu.html</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -4,12 +4,7 @@
+</a>     {{ $url := trim .URL &quot;/&quot; | absURL }}
+       &lt;a
+         href={{ $url }}
+<a href="#h3-0-3" id="h3-0-3" class="d">-        {{ with .Page }}
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-          data-rel=&quot;prefetch&quot;
+</a><a href="#h3-0-5" id="h3-0-5" class="d">-        {{ else }}
+</a><a href="#h3-0-6" id="h3-0-6" class="d">-          target=&quot;_blank&quot;
+</a><a href="#h3-0-7" id="h3-0-7" class="d">-          rel=&quot;nofollow noopener noreferrer&quot;
+</a><a href="#h3-0-8" id="h3-0-8" class="d">-        {{ end }}
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+        data-rel=&quot;prefetch&quot;
+</a>         role=&quot;button&quot;
+         class=&quot;header__menu__list__item button&quot;
+       &gt;
+</pre>
+</div>
+</div>
+</body>
+</html>

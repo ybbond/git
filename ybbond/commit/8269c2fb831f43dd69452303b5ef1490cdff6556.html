@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>style: make header slimmer - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/8269c2fb831f43dd69452303b5ef1490cdff6556.html">8269c2fb831f43dd69452303b5ef1490cdff6556</a>
+<b>parent</b> <a href="../commit/6bf0f87369fb9992df3798cc75c915b28e4fd81b.html">6bf0f87369fb9992df3798cc75c915b28e4fd81b</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Fri,  8 May 2020 00:04:00 +0700
+
+style: make header slimmer
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.scss</a></td><td> | </td><td class="num">5</td><td><span class="i">++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">assets/styles.scss</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+</table></pre></div><p>2 files changed, 5 insertions(<span id="plus">+</span>), 1 deletion(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -136,9 +136,12 @@
+</a>   &amp;:target {
+     outline: solid 0.2em;
+     outline-offset: 0.6em;
+<a href="#h0-0-3" id="h0-0-3" class="d">-    transition: outline-offset 0.6s ease-out;
+</a>     @include themify($themes) {
+       outline-color: themed(&#39;color-background-hover&#39;);
+     }
+<a href="#h0-0-7" id="h0-0-7" class="i">+    @media (max-width: 599px) {
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+      outline: solid 0.3em;
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+      outline-offset: 0.5em;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+    }
+</a>   }
+ }
+<b>diff --git a/<a id="h1" href="../file/assets/styles.scss.html">assets/styles.scss</a> b/<a href="../file/assets/styles.scss.html">assets/styles.scss</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -42,6 +42,7 @@ h1, h2, h3, h4, h5, h6 {
+</a>   @include themify($themes) {
+     color: themed(&#39;color-green&#39;);
+   }
+<a href="#h1-0-3" id="h1-0-3" class="i">+  font-weight: unset;
+</a>   font-family: $font-text;
+   a {
+     font-family: $font-mono;
+</pre>
+</div>
+</div>
+</body>
+</html>

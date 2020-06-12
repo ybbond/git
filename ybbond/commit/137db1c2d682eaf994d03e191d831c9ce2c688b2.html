@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: cv and render-link hook - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/137db1c2d682eaf994d03e191d831c9ce2c688b2.html">137db1c2d682eaf994d03e191d831c9ce2c688b2</a>
+<b>parent</b> <a href="../commit/041e22ce19a324b2352bb87021fd8d30069f3696.html">041e22ce19a324b2352bb87021fd8d30069f3696</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Thu, 14 May 2020 02:20:41 +0700
+
+refactor: cv and render-link hook
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">content/cv.md</a></td><td> | </td><td class="num">5</td><td><span class="i">+++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">content/posts/NuPhy NuType F1 Keyboard Review/index.md</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h2">layouts/_default/_markup/render-link.html</a></td><td> | </td><td class="num">5</td><td><span class="i">+++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>3 files changed, 9 insertions(<span id="plus">+</span>), 3 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/content/cv.md.html">content/cv.md</a> b/<a href="../file/content/cv.md.html">content/cv.md</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -6,9 +6,10 @@ description: CV
+</a> 
+ You can contact me through hi@ybbond.dev,&lt;br&gt;or through any of my social medias in my [keybase](https://keybase.io/ybbond) or listed in the [footer down below](#down).
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-Here is a PGP Key if you prefer encrypted communication.
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-You can also get it in [txt format](/ybbond-public.txt) or [asc format](/ybbond-public.asc).
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+If you prefer encrypted communication, you can get
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+my PGP key in [txt format](/ybbond-public.txt) or [asc format](/ybbond-public.asc).
+</a> 
+<a href="#h0-0-8" id="h0-0-8" class="i">+The fingerprint is:
+</a> ```html
+ 56DA ADB1 5246 1C80 6792 DBAB 8477 3B93 9886 81A0
+ ```
+<b>diff --git a/<a id="h1" href="../file/content/posts/NuPhy NuType F1 Keyboard Review/index.md.html">content/posts/NuPhy NuType F1 Keyboard Review/index.md</a> b/<a href="../file/content/posts/NuPhy NuType F1 Keyboard Review/index.md.html">content/posts/NuPhy NuType F1 Keyboard Review/index.md</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -11,7 +11,7 @@ date: 2020-04-05T18:23:12
+</a> 
+ I backed a project in [Kickstarter](https://www.kickstarter.com/projects/nuphy/nutype-revolutionizing-the-laptop-typing-experience) in January 2020. The project planned to create Bluetooth Mechanical keyboard that can be placed on top of Macbook&#39;s keyboard. I backed as an **Early Bird** backer, it costs me $89 and _Jenius_ charged me Rp980263. The waiting was interesting and then became worrying when the Covid-19 outbreak happened. I received the keyboard in late March, the DHL guy delivered it to my house and my father sprayed the package with disinfectant immediately.
+  
+<a href="#h1-0-3" id="h1-0-3" class="d">-I enjoyed and genuinely happy that I have my first bluetooth mechanical keyboard. If you read my [previous](https://ybbond.dev/blog/in-search-of-good-writing-app) blog [posts](https://ybbond.dev/blog/in-search-of-good-writing-app), you&#39;d know that I have utilized this keyboard to write blog posts and journal on my iPad.
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+I enjoyed and genuinely happy that I have my first bluetooth mechanical keyboard. If you read my [previous](/posts/2020-03-in-search-of-good-writing-app-bear-vs-ulysses/) blog [posts](/posts/2020-04-in-search-of-good-writing-app-part-2-ia-writer-vs-ivim/), you&#39;d know that I have utilized this keyboard to write blog posts and journal on my iPad.
+</a> 
+ ## Aesthetic and Build
+ 
+<b>diff --git a/<a id="h2" href="../file/layouts/_default/_markup/render-link.html.html">layouts/_default/_markup/render-link.html</a> b/<a href="../file/layouts/_default/_markup/render-link.html.html">layouts/_default/_markup/render-link.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -0,0 +1,4 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="i">+&lt;a href=&quot;{{ .Destination | safeURL }}&quot;
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+    {{ with .Title}} title=&quot;{{ . }}&quot;{{ end }}
+</a><a href="#h2-0-2" id="h2-0-2" class="i">+    {{ if strings.HasPrefix .Destination &quot;http&quot; }} target=&quot;_blank&quot;{{ end }}
+</a><a href="#h2-0-3" id="h2-0-3" class="i">+    &gt;{{ .Text | safeHTML }}&lt;/a&gt;</a><a href="#h2-0-4" id="h2-0-4" class="i">+
+\ No newline at end of file
+</a></pre>
+</div>
+</div>
+</body>
+</html>

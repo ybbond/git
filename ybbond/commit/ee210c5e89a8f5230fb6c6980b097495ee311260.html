@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>hotfix: theme toggler absolute path - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/ee210c5e89a8f5230fb6c6980b097495ee311260.html">ee210c5e89a8f5230fb6c6980b097495ee311260</a>
+<b>parent</b> <a href="../commit/6ef996f41218321958973060c3601082924bfec6.html">6ef996f41218321958973060c3601082924bfec6</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Wed, 29 Apr 2020 00:24:46 +0700
+
+hotfix: theme toggler absolute path
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/partials/head/head.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">static/darkToggler.js</a></td><td> | </td><td class="num">13</td><td><span class="i">+++++++++++</span><span class="d">--</span></td></tr>
+</table></pre></div><p>2 files changed, 12 insertions(<span id="plus">+</span>), 3 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a> b/<a href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -24,7 +24,7 @@
+</a>   {{ end }}
+ &lt;/style&gt;
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-&lt;script type=&quot;application/javascript&quot; src=&quot;../darkToggler.js&quot;&gt;&lt;/script&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+&lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}darkToggler.js&quot;&gt;&lt;/script&gt;
+</a> 
+ &lt;link rel=&quot;canonical&quot; href=&quot;{{ .Permalink }}&quot; &gt;
+ &lt;link rel=&quot;sitemap&quot; href=&quot;{{ &quot;sitemap.xml&quot; | absURL }}&quot; type=&quot;application/xml&quot; /&gt;
+<b>diff --git a/<a id="h1" href="../file/static/darkToggler.js.html">static/darkToggler.js</a> b/<a href="../file/static/darkToggler.js.html">static/darkToggler.js</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,21 +1,30 @@
+</a> (function() {
+   window.onload = function() {
+<a href="#h1-0-2" id="h1-0-2" class="d">-    console.log(&quot;Nice! You have the privilege of toggling the dark mode :D&quot;);
+</a><a href="#h1-0-3" id="h1-0-3" class="d">-    console.log(&quot;Just press the 🌞 or 🌛 logo on the top of page!&quot;);
+</a>     const toggler = document.getElementById(&quot;dark-toggler&quot;);
+     const mainWrapper = document.getElementById(&quot;main-theme&quot;);
+<a href="#h1-0-6" id="h1-0-6" class="i">+    const currentTheme = localStorage.getItem(&quot;theme&quot;);
+</a> 
+     if (toggler &amp;&amp; mainWrapper) {
+       toggler.className = &quot;header__menu__list__toggler&quot;;
+       toggler.onclick = function() {
+         if (mainWrapper.className === &quot;theme-light&quot;) {
+           mainWrapper.className = &quot;theme-dark&quot;;
+<a href="#h1-0-13" id="h1-0-13" class="i">+          localStorage.setItem(&quot;theme&quot;, &quot;dark&quot;);
+</a>           toggler.innerText = &quot;🌛&quot;;
+         } else if (mainWrapper.className === &quot;theme-dark&quot;) {
+           mainWrapper.className = &quot;theme-light&quot;;
+<a href="#h1-0-17" id="h1-0-17" class="i">+          localStorage.setItem(&quot;theme&quot;, &quot;light&quot;);
+</a>           toggler.innerText = &quot;🌞&quot;;
+         }
+       };
+     }
+<a href="#h1-0-22" id="h1-0-22" class="i">+
+</a><a href="#h1-0-23" id="h1-0-23" class="i">+    if (currentTheme &amp;&amp; currentTheme === &quot;light&quot;) {
+</a><a href="#h1-0-24" id="h1-0-24" class="i">+      mainWrapper.className = &quot;theme-light&quot;;
+</a><a href="#h1-0-25" id="h1-0-25" class="i">+      toggler.innerText = &quot;🌞&quot;;
+</a><a href="#h1-0-26" id="h1-0-26" class="i">+    }
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+
+</a><a href="#h1-0-28" id="h1-0-28" class="i">+    console.log(&quot;Nice! You have the privilege of toggling the dark mode :D&quot;);
+</a><a href="#h1-0-29" id="h1-0-29" class="i">+    console.log(&quot;Just press the 🌞 or 🌛 logo on the top of page!&quot;);
+</a>   }
+ })() 
+\ No newline at end of file
+</pre>
+</div>
+</div>
+</body>
+</html>

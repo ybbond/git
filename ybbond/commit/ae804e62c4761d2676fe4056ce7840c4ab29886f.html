@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>content: remove specific file from git commit - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/ae804e62c4761d2676fe4056ce7840c4ab29886f.html">ae804e62c4761d2676fe4056ce7840c4ab29886f</a>
+<b>parent</b> <a href="../commit/137db1c2d682eaf994d03e191d831c9ce2c688b2.html">137db1c2d682eaf994d03e191d831c9ce2c688b2</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sat, 16 May 2020 17:17:43 +0700
+
+content: remove specific file from git commit
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.scss</a></td><td> | </td><td class="num">18</td><td><span class="i">++++++++++++++</span><span class="d">----</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">content/posts/Remove Specific Files from Old Git Commit/1.png</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h2">content/posts/Remove Specific Files from Old Git Commit/2.png</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">content/posts/Remove Specific Files from Old Git Commit/3.png</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h4">content/posts/Remove Specific Files from Old Git Commit/4.png</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h5">content/posts/Remove Specific Files from Old Git Commit/index.md</a></td><td> | </td><td class="num">79</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">layouts/_default/_markup/render-image.html</a></td><td> | </td><td class="num">5</td><td><span class="i">++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h7">layouts/_default/single.html</a></td><td> | </td><td class="num">6</td><td><span class="i">+++++</span><span class="d">-</span></td></tr>
+</table></pre></div><p>8 files changed, 100 insertions(<span id="plus">+</span>), 8 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -51,6 +51,11 @@
+</a>     padding: 0.1em;
+     font-family: $font-mono;
+     font-size: 0.9em;
+<a href="#h0-0-3" id="h0-0-3" class="i">+    &amp;.language-bash {
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+      &amp;:before {
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+        content: &quot;$ &quot;;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+      }
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+    }
+</a>   }
+ 
+   :not(pre) &gt; code {
+<a href="#h0-1" id="h0-1" class="h">@@ -90,9 +95,11 @@
+</a>   ol {
+     margin: 1.5em 0;
+     padding: 0;
+<a href="#h0-1-3" id="h0-1-3" class="d">-    list-style: none;
+</a><a href="#h0-1-4" id="h0-1-4" class="d">-    counter-reset: my-awesome-counter;
+</a><a href="#h0-1-5" id="h0-1-5" class="d">-    li {
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+    counter-reset: my-awesome-counter, foot-note-counter;
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+    :not([role=&quot;doc-endnote&quot;]) {
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+      list-style: none;
+</a><a href="#h0-1-9" id="h0-1-9" class="i">+    }
+</a><a href="#h0-1-10" id="h0-1-10" class="i">+    li:not([role=&quot;doc-endnote&quot;]) {
+</a>       counter-increment: my-awesome-counter;
+       list-style-position: outside;
+       margin-bottom: 0.2em;
+<a href="#h0-2" id="h0-2" class="h">@@ -101,7 +108,7 @@
+</a>         &amp;:before {
+           position: absolute;
+           right: 0.5em;
+<a href="#h0-2-3" id="h0-2-3" class="d">-          top: 0.25em;
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+          top: 0.1em;
+</a>           content: counter(my-awesome-counter)&#39;.&#39;;
+           font-size: 0.8em;
+           @include themify($themes) {
+<a href="#h0-3" id="h0-3" class="h">@@ -110,6 +117,9 @@
+</a>         }
+       }
+     }
+<a href="#h0-3-3" id="h0-3-3" class="i">+    li[role=&quot;doc-endnote&quot;] {
+</a><a href="#h0-3-4" id="h0-3-4" class="i">+      counter-increment: foot-note-counter;
+</a><a href="#h0-3-5" id="h0-3-5" class="i">+    }
+</a>   }
+ 
+   ul {
+<b>diff --git a/<a id="h1" href="../file/content/posts/Remove Specific Files from Old Git Commit/1.png.html">content/posts/Remove Specific Files from Old Git Commit/1.png</a> b/<a href="../file/content/posts/Remove Specific Files from Old Git Commit/1.png.html">content/posts/Remove Specific Files from Old Git Commit/1.png</a></b>
+Binary files differ.
+<b>diff --git a/<a id="h2" href="../file/content/posts/Remove Specific Files from Old Git Commit/2.png.html">content/posts/Remove Specific Files from Old Git Commit/2.png</a> b/<a href="../file/content/posts/Remove Specific Files from Old Git Commit/2.png.html">content/posts/Remove Specific Files from Old Git Commit/2.png</a></b>
+Binary files differ.
+<b>diff --git a/<a id="h3" href="../file/content/posts/Remove Specific Files from Old Git Commit/3.png.html">content/posts/Remove Specific Files from Old Git Commit/3.png</a> b/<a href="../file/content/posts/Remove Specific Files from Old Git Commit/3.png.html">content/posts/Remove Specific Files from Old Git Commit/3.png</a></b>
+Binary files differ.
+<b>diff --git a/<a id="h4" href="../file/content/posts/Remove Specific Files from Old Git Commit/4.png.html">content/posts/Remove Specific Files from Old Git Commit/4.png</a> b/<a href="../file/content/posts/Remove Specific Files from Old Git Commit/4.png.html">content/posts/Remove Specific Files from Old Git Commit/4.png</a></b>
+Binary files differ.
+<b>diff --git a/<a id="h5" href="../file/content/posts/Remove Specific Files from Old Git Commit/index.md.html">content/posts/Remove Specific Files from Old Git Commit/index.md</a> b/<a href="../file/content/posts/Remove Specific Files from Old Git Commit/index.md.html">content/posts/Remove Specific Files from Old Git Commit/index.md</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -0,0 +1,79 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="i">+---
+</a><a href="#h5-0-1" id="h5-0-1" class="i">+title: Remove Specific Files from Old Git Commit
+</a><a href="#h5-0-2" id="h5-0-2" class="i">+author: Yohanes Bandung Bondowoso
+</a><a href="#h5-0-3" id="h5-0-3" class="i">+description: &quot;Ever accidentally committed &lt;code&gt;node_modules&lt;/code&gt;?
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+Or want to remove files from a commit 15 before &lt;code&gt;HEAD&lt;/code&gt;?
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+I did. I&#39;d like to share the solution for you.&quot;
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+tags:
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+  - git #git
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+  - tutorial #tutorial
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+date: 2020-05-16T13:01:19+0700
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+image:
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+  src: 1.png
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+ID: 1589608880
+</a><a href="#h5-0-13" id="h5-0-13" class="i">+---
+</a><a href="#h5-0-14" id="h5-0-14" class="i">+
+</a><a href="#h5-0-15" id="h5-0-15" class="i">+tldr; [Skip to solution »](#how-tos)
+</a><a href="#h5-0-16" id="h5-0-16" class="i">+
+</a><a href="#h5-0-17" id="h5-0-17" class="i">+Last week, I encountered a merge conflict while trying to sync my git working branch to latest remote `master`. Merge conflicts is not a serious problem to me, I am used to resolving conflicts. But the conflict that I encountered is from an auto generated typings file from `Apollo Codegen`[^1].
+</a><a href="#h5-0-18" id="h5-0-18" class="i">+
+</a><a href="#h5-0-19" id="h5-0-19" class="i">+`Apollo Codegen` file is `Flow` or `TypeScript` typings for the schema and queries in project that uses GraphQL. The generated file often has &gt;10k lines of code. Trying to resolve conflict in that file will make the text editor unresponsive (even with Vim!).
+</a><a href="#h5-0-20" id="h5-0-20" class="i">+
+</a><a href="#h5-0-21" id="h5-0-21" class="i">+So I aborted the sync master (`git rebase --abort`), then attempt to remove the changes for the auto-generated codegen file [using lazygit](#lazygit-way). Afterwards, I do sync remote `master` branch and the conflict don&#39;t happen. Last thing I do is regenerate the codegen file before posting a Pull Request.
+</a><a href="#h5-0-22" id="h5-0-22" class="i">+
+</a><a href="#h5-0-23" id="h5-0-23" class="i">+## How-Tos
+</a><a href="#h5-0-24" id="h5-0-24" class="i">+
+</a><a href="#h5-0-25" id="h5-0-25" class="i">+Back to the post&#39;s main topic, to remove specific file using plain old shell command.
+</a><a href="#h5-0-26" id="h5-0-26" class="i">+
+</a><a href="#h5-0-27" id="h5-0-27" class="i">+First, checkout to **temporary branch** with the afore mentioned commit as `HEAD` using the commit&#39;s hash:
+</a><a href="#h5-0-28" id="h5-0-28" class="i">+
+</a><a href="#h5-0-29" id="h5-0-29" class="i">+```bash
+</a><a href="#h5-0-30" id="h5-0-30" class="i">+git checkout &lt;commit-hash&gt;
+</a><a href="#h5-0-31" id="h5-0-31" class="i">+```
+</a><a href="#h5-0-32" id="h5-0-32" class="i">+
+</a><a href="#h5-0-33" id="h5-0-33" class="i">+Then do a **soft reset** to uncommit with all files in staged status:
+</a><a href="#h5-0-34" id="h5-0-34" class="i">+
+</a><a href="#h5-0-35" id="h5-0-35" class="i">+```bash
+</a><a href="#h5-0-36" id="h5-0-36" class="i">+git reset --soft HEAD^
+</a><a href="#h5-0-37" id="h5-0-37" class="i">+```
+</a><a href="#h5-0-38" id="h5-0-38" class="i">+
+</a><a href="#h5-0-39" id="h5-0-39" class="i">+Make the desired file(s) unstaged using **reset** command, and then commit with `-c ORIG_HEAD` flag to use the previous commit message. The `--no-edit` flag is optional.
+</a><a href="#h5-0-40" id="h5-0-40" class="i">+
+</a><a href="#h5-0-41" id="h5-0-41" class="i">+```bash
+</a><a href="#h5-0-42" id="h5-0-42" class="i">+git reset &lt;path/to/file&gt;
+</a><a href="#h5-0-43" id="h5-0-43" class="i">+```
+</a><a href="#h5-0-44" id="h5-0-44" class="i">+```bash
+</a><a href="#h5-0-45" id="h5-0-45" class="i">+git commit -c ORIG_HEAD --no-edit
+</a><a href="#h5-0-46" id="h5-0-46" class="i">+```
+</a><a href="#h5-0-47" id="h5-0-47" class="i">+
+</a><a href="#h5-0-48" id="h5-0-48" class="i">+Discard the changes of the file you want to remove from unstaged area:
+</a><a href="#h5-0-49" id="h5-0-49" class="i">+
+</a><a href="#h5-0-50" id="h5-0-50" class="i">+```bash
+</a><a href="#h5-0-51" id="h5-0-51" class="i">+git checkout -- .
+</a><a href="#h5-0-52" id="h5-0-52" class="i">+```
+</a><a href="#h5-0-53" id="h5-0-53" class="i">+
+</a><a href="#h5-0-54" id="h5-0-54" class="i">+Last, `rebase` this **temporary branch** to your branch, from the commit of `&lt;commit-hash&gt;`.
+</a><a href="#h5-0-55" id="h5-0-55" class="i">+
+</a><a href="#h5-0-56" id="h5-0-56" class="i">+```bash
+</a><a href="#h5-0-57" id="h5-0-57" class="i">+git rebase --onto HEAD &lt;commit-hash&gt; &lt;destination-branch-name&gt;
+</a><a href="#h5-0-58" id="h5-0-58" class="i">+```
+</a><a href="#h5-0-59" id="h5-0-59" class="i">+
+</a><a href="#h5-0-60" id="h5-0-60" class="i">+If you do this for already merged Pull Request, you need to `push &lt;remote&gt; &lt;branch&gt; --force`. Mind you, doing this will be inconvenient for other people working on same project.
+</a><a href="#h5-0-61" id="h5-0-61" class="i">+
+</a><a href="#h5-0-62" id="h5-0-62" class="i">+## Lazygit Way
+</a><a href="#h5-0-63" id="h5-0-63" class="i">+
+</a><a href="#h5-0-64" id="h5-0-64" class="i">+As I mentioned above, I use [lazygit](https://github.com/jesseduffield/lazygit). The process is more straight forward. For the following example, I accidentally committed build file, far before I `.gitignore`d `build/` folder. What I do is:
+</a><a href="#h5-0-65" id="h5-0-65" class="i">+
+</a><a href="#h5-0-66" id="h5-0-66" class="i">+![Navigate to desired commit](1.png)
+</a><a href="#h5-0-67" id="h5-0-67" class="i">+
+</a><a href="#h5-0-68" id="h5-0-68" class="i">+![Press return key, and navigate to file to be removed](2.png)
+</a><a href="#h5-0-69" id="h5-0-69" class="i">+
+</a><a href="#h5-0-70" id="h5-0-70" class="i">+![Press `x` will prompt command list. Turns out `d` will discard the file](3.png)
+</a><a href="#h5-0-71" id="h5-0-71" class="i">+
+</a><a href="#h5-0-72" id="h5-0-72" class="i">+![After pressing `d`, the `Index.js` file is now removed!](4.png)
+</a><a href="#h5-0-73" id="h5-0-73" class="i">+
+</a><a href="#h5-0-74" id="h5-0-74" class="i">+Do this way if you want to install lazygit before doing your intention.
+</a><a href="#h5-0-75" id="h5-0-75" class="i">+
+</a><a href="#h5-0-76" id="h5-0-76" class="i">+`lazygit` way is easier. I also use [tig](https://github.com/jonas/tig) as a TUI for `git`, but I don&#39;t know the command to do the steps wit `tig`.
+</a><a href="#h5-0-77" id="h5-0-77" class="i">+
+</a><a href="#h5-0-78" id="h5-0-78" class="i">+[^1]: Here is `Apollo Codegen` [Github](https://github.com/apollographql/apollo-tooling#apollo-clientcodegen-output) page. As a frontend engineer, I consider `codegen` as breakthrough because I can easily type the endpoint&#39;s return value.
+</a><b>diff --git a/<a id="h6" href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a> b/<a href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -60,7 +60,7 @@
+</a>         data-srcset=&quot;{{ $src_set }}&quot; width=&quot;{{ $image.Width }}&quot; height=&quot;{{ $image.Height }}&quot; alt=&quot;{{ $alt }}&quot; /&gt;
+     &lt;/a&gt;
+     &lt;figcaption&gt;
+<a href="#h6-0-3" id="h6-0-3" class="d">-      &lt;em&gt;{{ .Text }}&lt;/em&gt;
+</a><a href="#h6-0-4" id="h6-0-4" class="i">+      &lt;em&gt;{{ .Text | safeHTML }}&lt;/em&gt;
+</a>     &lt;/figcaption&gt;
+   &lt;/center&gt;
+<a href="#h6-0-7" id="h6-0-7" class="d">-&lt;/figure&gt;</a><a href="#h6-0-8" id="h6-0-8" class="d">-
+\ No newline at end of file
+</a><a href="#h6-0-9" id="h6-0-9" class="i">+&lt;/figure&gt;
+</a><b>diff --git a/<a id="h7" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -23,7 +23,11 @@
+</a>       &lt;/div&gt;
+       &lt;br&gt;
+       &lt;br&gt;
+<a href="#h7-0-3" id="h7-0-3" class="d">-      &lt;p {{ if eq .Type &quot;page&quot; }}class=&quot;hcard&quot;{{ end }}&gt;&lt;a class=&quot;u-url link-white&quot; href={{ .Permalink }}&gt;Published&lt;/a&gt; on &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot; class=&quot;dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;{{ .Date.Format &quot;02 January 2006&quot; }}&lt;/time&gt;, for stories like this:&lt;/p&gt;
+</a><a href="#h7-0-4" id="h7-0-4" class="i">+      &lt;p {{ if eq .Type &quot;page&quot; }}class=&quot;hcard&quot; hidden=&quot;&quot;{{ end }}&gt;
+</a><a href="#h7-0-5" id="h7-0-5" class="i">+        &lt;a class=&quot;u-url link-white&quot; href={{ .Permalink }}&gt;Published&lt;/a&gt; on
+</a><a href="#h7-0-6" id="h7-0-6" class="i">+        &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot; class=&quot;dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;
+</a><a href="#h7-0-7" id="h7-0-7" class="i">+        	{{ .Date.Format &quot;02 January 2006&quot; }}&lt;/time&gt;,
+</a><a href="#h7-0-8" id="h7-0-8" class="i">+      	for stories like this:&lt;/p&gt;
+</a>       {{ with .Params.tags }}
+         &lt;p class=&quot;taglist&quot;&gt;
+           {{ range . }}
+</pre>
+</div>
+</div>
+</body>
+</html>
