@@ -15,7 +15,7 @@
 <a href="../../../index.html">Log</a> | <a href="../../../files.html">Files</a> | <a href="../../../refs.html">Refs</a> | <a href="../../../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> kitty.conf (37977B)</p><hr/><pre id="blob">
+<p> kitty.conf (37910B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> # vim:fileencoding=utf-8:ft=conf:foldmethod=marker
 <a href="#l2" class="line" id="l2">      2</a> 
 <a href="#l3" class="line" id="l3">      3</a> #: Fonts {{{
@@ -912,236 +912,234 @@
 <a href="#l894" class="line" id="l894">    894</a> 
 <a href="#l895" class="line" id="l895">    895</a> map kitty_mod+w close_window
 <a href="#l896" class="line" id="l896">    896</a> map kitty_mod+] next_window
-<a href="#l897" class="line" id="l897">    897</a> map cmd+] next_window
-<a href="#l898" class="line" id="l898">    898</a> map kitty_mod+[ previous_window
-<a href="#l899" class="line" id="l899">    899</a> map cmd+[ previous_window
-<a href="#l900" class="line" id="l900">    900</a> map kitty_mod+f move_window_forward
-<a href="#l901" class="line" id="l901">    901</a> map kitty_mod+b move_window_backward
-<a href="#l902" class="line" id="l902">    902</a> map kitty_mod+` move_window_to_top
-<a href="#l903" class="line" id="l903">    903</a> map kitty_mod+r start_resizing_window
-<a href="#l904" class="line" id="l904">    904</a> map kitty_mod+1 first_window
-<a href="#l905" class="line" id="l905">    905</a> map kitty_mod+2 second_window
-<a href="#l906" class="line" id="l906">    906</a> map kitty_mod+3 third_window
-<a href="#l907" class="line" id="l907">    907</a> map kitty_mod+4 fourth_window
-<a href="#l908" class="line" id="l908">    908</a> map kitty_mod+5 fifth_window
-<a href="#l909" class="line" id="l909">    909</a> map kitty_mod+6 sixth_window
-<a href="#l910" class="line" id="l910">    910</a> map kitty_mod+7 seventh_window
-<a href="#l911" class="line" id="l911">    911</a> map kitty_mod+8 eighth_window
-<a href="#l912" class="line" id="l912">    912</a> map kitty_mod+9 ninth_window
-<a href="#l913" class="line" id="l913">    913</a> #: }}}
+<a href="#l897" class="line" id="l897">    897</a> map kitty_mod+[ previous_window
+<a href="#l898" class="line" id="l898">    898</a> map kitty_mod+f move_window_forward
+<a href="#l899" class="line" id="l899">    899</a> map kitty_mod+b move_window_backward
+<a href="#l900" class="line" id="l900">    900</a> map kitty_mod+` move_window_to_top
+<a href="#l901" class="line" id="l901">    901</a> map kitty_mod+r start_resizing_window
+<a href="#l902" class="line" id="l902">    902</a> map kitty_mod+1 first_window
+<a href="#l903" class="line" id="l903">    903</a> map kitty_mod+2 second_window
+<a href="#l904" class="line" id="l904">    904</a> map kitty_mod+3 third_window
+<a href="#l905" class="line" id="l905">    905</a> map kitty_mod+4 fourth_window
+<a href="#l906" class="line" id="l906">    906</a> map kitty_mod+5 fifth_window
+<a href="#l907" class="line" id="l907">    907</a> map kitty_mod+6 sixth_window
+<a href="#l908" class="line" id="l908">    908</a> map kitty_mod+7 seventh_window
+<a href="#l909" class="line" id="l909">    909</a> map kitty_mod+8 eighth_window
+<a href="#l910" class="line" id="l910">    910</a> map kitty_mod+9 ninth_window
+<a href="#l911" class="line" id="l911">    911</a> #: }}}
+<a href="#l912" class="line" id="l912">    912</a> 
+<a href="#l913" class="line" id="l913">    913</a> #: Tab management {{{
 <a href="#l914" class="line" id="l914">    914</a> 
-<a href="#l915" class="line" id="l915">    915</a> #: Tab management {{{
-<a href="#l916" class="line" id="l916">    916</a> 
-<a href="#l917" class="line" id="l917">    917</a> map kitty_mod+right next_tab
-<a href="#l918" class="line" id="l918">    918</a> map kitty_mod+left  previous_tab
-<a href="#l919" class="line" id="l919">    919</a> map kitty_mod+t     new_tab
-<a href="#l920" class="line" id="l920">    920</a> map kitty_mod+q     close_tab
-<a href="#l921" class="line" id="l921">    921</a> map kitty_mod+.     move_tab_forward
-<a href="#l922" class="line" id="l922">    922</a> map kitty_mod+,     move_tab_backward
-<a href="#l923" class="line" id="l923">    923</a> map kitty_mod+alt+t set_tab_title
-<a href="#l924" class="line" id="l924">    924</a> 
-<a href="#l925" class="line" id="l925">    925</a> map kitty_mod+right next_tab
-<a href="#l926" class="line" id="l926">    926</a> map kitty_mod+left  previous_tab
-<a href="#l927" class="line" id="l927">    927</a> map kitty_mod+t     new_tab
-<a href="#l928" class="line" id="l928">    928</a> map kitty_mod+q     close_tab
-<a href="#l929" class="line" id="l929">    929</a> map kitty_mod+.     move_tab_forward
-<a href="#l930" class="line" id="l930">    930</a> map kitty_mod+,     move_tab_backward
-<a href="#l931" class="line" id="l931">    931</a> map kitty_mod+alt+t set_tab_title
-<a href="#l932" class="line" id="l932">    932</a> 
-<a href="#l933" class="line" id="l933">    933</a> #: You can also create shortcuts to go to specific tabs, with 1 being
-<a href="#l934" class="line" id="l934">    934</a> #: the first tab, 2 the second tab and -1 being the previously active
-<a href="#l935" class="line" id="l935">    935</a> #: tab::
-<a href="#l936" class="line" id="l936">    936</a> 
-<a href="#l937" class="line" id="l937">    937</a> #:     map ctrl+alt+1 goto_tab 1
-<a href="#l938" class="line" id="l938">    938</a> #:     map ctrl+alt+2 goto_tab 2
-<a href="#l939" class="line" id="l939">    939</a> 
-<a href="#l940" class="line" id="l940">    940</a> #: Just as with new_window above, you can also pass the name of
-<a href="#l941" class="line" id="l941">    941</a> #: arbitrary commands to run when using new_tab and use
-<a href="#l942" class="line" id="l942">    942</a> #: new_tab_with_cwd. Finally, if you want the new tab to open next to
-<a href="#l943" class="line" id="l943">    943</a> #: the current tab rather than at the end of the tabs list, use::
-<a href="#l944" class="line" id="l944">    944</a> 
-<a href="#l945" class="line" id="l945">    945</a> #:     map ctrl+t new_tab !neighbor [optional cmd to run]
-<a href="#l946" class="line" id="l946">    946</a> #: }}}
+<a href="#l915" class="line" id="l915">    915</a> map cmd+] next_tab
+<a href="#l916" class="line" id="l916">    916</a> map cmd+[  previous_tab
+<a href="#l917" class="line" id="l917">    917</a> map kitty_mod+t     new_tab
+<a href="#l918" class="line" id="l918">    918</a> map kitty_mod+q     close_tab
+<a href="#l919" class="line" id="l919">    919</a> map kitty_mod+.     move_tab_forward
+<a href="#l920" class="line" id="l920">    920</a> map kitty_mod+,     move_tab_backward
+<a href="#l921" class="line" id="l921">    921</a> map kitty_mod+alt+t set_tab_title
+<a href="#l922" class="line" id="l922">    922</a> 
+<a href="#l923" class="line" id="l923">    923</a> map kitty_mod+right next_tab
+<a href="#l924" class="line" id="l924">    924</a> map kitty_mod+left  previous_tab
+<a href="#l925" class="line" id="l925">    925</a> map kitty_mod+t     new_tab
+<a href="#l926" class="line" id="l926">    926</a> map kitty_mod+q     close_tab
+<a href="#l927" class="line" id="l927">    927</a> map kitty_mod+.     move_tab_forward
+<a href="#l928" class="line" id="l928">    928</a> map kitty_mod+,     move_tab_backward
+<a href="#l929" class="line" id="l929">    929</a> map kitty_mod+alt+t set_tab_title
+<a href="#l930" class="line" id="l930">    930</a> 
+<a href="#l931" class="line" id="l931">    931</a> #: You can also create shortcuts to go to specific tabs, with 1 being
+<a href="#l932" class="line" id="l932">    932</a> #: the first tab, 2 the second tab and -1 being the previously active
+<a href="#l933" class="line" id="l933">    933</a> #: tab::
+<a href="#l934" class="line" id="l934">    934</a> 
+<a href="#l935" class="line" id="l935">    935</a> #:     map ctrl+alt+1 goto_tab 1
+<a href="#l936" class="line" id="l936">    936</a> #:     map ctrl+alt+2 goto_tab 2
+<a href="#l937" class="line" id="l937">    937</a> 
+<a href="#l938" class="line" id="l938">    938</a> #: Just as with new_window above, you can also pass the name of
+<a href="#l939" class="line" id="l939">    939</a> #: arbitrary commands to run when using new_tab and use
+<a href="#l940" class="line" id="l940">    940</a> #: new_tab_with_cwd. Finally, if you want the new tab to open next to
+<a href="#l941" class="line" id="l941">    941</a> #: the current tab rather than at the end of the tabs list, use::
+<a href="#l942" class="line" id="l942">    942</a> 
+<a href="#l943" class="line" id="l943">    943</a> #:     map ctrl+t new_tab !neighbor [optional cmd to run]
+<a href="#l944" class="line" id="l944">    944</a> #: }}}
+<a href="#l945" class="line" id="l945">    945</a> 
+<a href="#l946" class="line" id="l946">    946</a> #: Layout management {{{
 <a href="#l947" class="line" id="l947">    947</a> 
-<a href="#l948" class="line" id="l948">    948</a> #: Layout management {{{
-<a href="#l949" class="line" id="l949">    949</a> 
-<a href="#l950" class="line" id="l950">    950</a> map kitty_mod+l next_layout
-<a href="#l951" class="line" id="l951">    951</a> map cmd+l next_layout
+<a href="#l948" class="line" id="l948">    948</a> map kitty_mod+l next_layout
+<a href="#l949" class="line" id="l949">    949</a> map cmd+l next_layout
+<a href="#l950" class="line" id="l950">    950</a> 
+<a href="#l951" class="line" id="l951">    951</a> #: You can also create shortcuts to switch to specific layouts::
 <a href="#l952" class="line" id="l952">    952</a> 
-<a href="#l953" class="line" id="l953">    953</a> #: You can also create shortcuts to switch to specific layouts::
-<a href="#l954" class="line" id="l954">    954</a> 
-<a href="#l955" class="line" id="l955">    955</a> #:     map ctrl+alt+t goto_layout tall
-<a href="#l956" class="line" id="l956">    956</a> #:     map ctrl+alt+s goto_layout stack
+<a href="#l953" class="line" id="l953">    953</a> #:     map ctrl+alt+t goto_layout tall
+<a href="#l954" class="line" id="l954">    954</a> #:     map ctrl+alt+s goto_layout stack
+<a href="#l955" class="line" id="l955">    955</a> 
+<a href="#l956" class="line" id="l956">    956</a> #: Similarly, to switch back to the previous layout::
 <a href="#l957" class="line" id="l957">    957</a> 
-<a href="#l958" class="line" id="l958">    958</a> #: Similarly, to switch back to the previous layout::
-<a href="#l959" class="line" id="l959">    959</a> 
-<a href="#l960" class="line" id="l960">    960</a> #:    map ctrl+alt+p last_used_layout
-<a href="#l961" class="line" id="l961">    961</a> #: }}}
+<a href="#l958" class="line" id="l958">    958</a> #:    map ctrl+alt+p last_used_layout
+<a href="#l959" class="line" id="l959">    959</a> #: }}}
+<a href="#l960" class="line" id="l960">    960</a> 
+<a href="#l961" class="line" id="l961">    961</a> #: Font sizes {{{
 <a href="#l962" class="line" id="l962">    962</a> 
-<a href="#l963" class="line" id="l963">    963</a> #: Font sizes {{{
-<a href="#l964" class="line" id="l964">    964</a> 
-<a href="#l965" class="line" id="l965">    965</a> #: You can change the font size for all top-level kitty OS windows at
-<a href="#l966" class="line" id="l966">    966</a> #: a time or only the current one.
-<a href="#l967" class="line" id="l967">    967</a> 
-<a href="#l968" class="line" id="l968">    968</a> map kitty_mod+equal     change_font_size all +1.0
-<a href="#l969" class="line" id="l969">    969</a> map kitty_mod+minus     change_font_size all -1.0
-<a href="#l970" class="line" id="l970">    970</a> map kitty_mod+0 change_font_size all 0
+<a href="#l963" class="line" id="l963">    963</a> #: You can change the font size for all top-level kitty OS windows at
+<a href="#l964" class="line" id="l964">    964</a> #: a time or only the current one.
+<a href="#l965" class="line" id="l965">    965</a> 
+<a href="#l966" class="line" id="l966">    966</a> map kitty_mod+equal     change_font_size all +1.0
+<a href="#l967" class="line" id="l967">    967</a> map kitty_mod+minus     change_font_size all -1.0
+<a href="#l968" class="line" id="l968">    968</a> map kitty_mod+0 change_font_size all 0
+<a href="#l969" class="line" id="l969">    969</a> 
+<a href="#l970" class="line" id="l970">    970</a> #: To setup shortcuts for specific font sizes::
 <a href="#l971" class="line" id="l971">    971</a> 
-<a href="#l972" class="line" id="l972">    972</a> #: To setup shortcuts for specific font sizes::
+<a href="#l972" class="line" id="l972">    972</a> #:     map kitty_mod+f6 change_font_size all 10.0
 <a href="#l973" class="line" id="l973">    973</a> 
-<a href="#l974" class="line" id="l974">    974</a> #:     map kitty_mod+f6 change_font_size all 10.0
-<a href="#l975" class="line" id="l975">    975</a> 
-<a href="#l976" class="line" id="l976">    976</a> #: To setup shortcuts to change only the current OS window&#39;s font
-<a href="#l977" class="line" id="l977">    977</a> #: size::
-<a href="#l978" class="line" id="l978">    978</a> 
-<a href="#l979" class="line" id="l979">    979</a> #:     map kitty_mod+f6 change_font_size current 10.0
-<a href="#l980" class="line" id="l980">    980</a> #: }}}
+<a href="#l974" class="line" id="l974">    974</a> #: To setup shortcuts to change only the current OS window&#39;s font
+<a href="#l975" class="line" id="l975">    975</a> #: size::
+<a href="#l976" class="line" id="l976">    976</a> 
+<a href="#l977" class="line" id="l977">    977</a> #:     map kitty_mod+f6 change_font_size current 10.0
+<a href="#l978" class="line" id="l978">    978</a> #: }}}
+<a href="#l979" class="line" id="l979">    979</a> 
+<a href="#l980" class="line" id="l980">    980</a> #: Select and act on visible text {{{
 <a href="#l981" class="line" id="l981">    981</a> 
-<a href="#l982" class="line" id="l982">    982</a> #: Select and act on visible text {{{
-<a href="#l983" class="line" id="l983">    983</a> 
-<a href="#l984" class="line" id="l984">    984</a> #: Use the hints kitten to select text and either pass it to an
-<a href="#l985" class="line" id="l985">    985</a> #: external program or insert it into the terminal or copy it to the
-<a href="#l986" class="line" id="l986">    986</a> #: clipboard.
+<a href="#l982" class="line" id="l982">    982</a> #: Use the hints kitten to select text and either pass it to an
+<a href="#l983" class="line" id="l983">    983</a> #: external program or insert it into the terminal or copy it to the
+<a href="#l984" class="line" id="l984">    984</a> #: clipboard.
+<a href="#l985" class="line" id="l985">    985</a> 
+<a href="#l986" class="line" id="l986">    986</a> map kitty_mod+e kitten hints
 <a href="#l987" class="line" id="l987">    987</a> 
-<a href="#l988" class="line" id="l988">    988</a> map kitty_mod+e kitten hints
-<a href="#l989" class="line" id="l989">    989</a> 
-<a href="#l990" class="line" id="l990">    990</a> #: Open a currently visible URL using the keyboard. The program used
-<a href="#l991" class="line" id="l991">    991</a> #: to open the URL is specified in open_url_with.
+<a href="#l988" class="line" id="l988">    988</a> #: Open a currently visible URL using the keyboard. The program used
+<a href="#l989" class="line" id="l989">    989</a> #: to open the URL is specified in open_url_with.
+<a href="#l990" class="line" id="l990">    990</a> 
+<a href="#l991" class="line" id="l991">    991</a> map kitty_mod+p&gt;f kitten hints --type path --program -
 <a href="#l992" class="line" id="l992">    992</a> 
-<a href="#l993" class="line" id="l993">    993</a> map kitty_mod+p&gt;f kitten hints --type path --program -
-<a href="#l994" class="line" id="l994">    994</a> 
-<a href="#l995" class="line" id="l995">    995</a> #: Select a path/filename and insert it into the terminal. Useful, for
-<a href="#l996" class="line" id="l996">    996</a> #: instance to run git commands on a filename output from a previous
-<a href="#l997" class="line" id="l997">    997</a> #: git command.
+<a href="#l993" class="line" id="l993">    993</a> #: Select a path/filename and insert it into the terminal. Useful, for
+<a href="#l994" class="line" id="l994">    994</a> #: instance to run git commands on a filename output from a previous
+<a href="#l995" class="line" id="l995">    995</a> #: git command.
+<a href="#l996" class="line" id="l996">    996</a> 
+<a href="#l997" class="line" id="l997">    997</a> map kitty_mod+p&gt;shift+f kitten hints --type path
 <a href="#l998" class="line" id="l998">    998</a> 
-<a href="#l999" class="line" id="l999">    999</a> map kitty_mod+p&gt;shift+f kitten hints --type path
+<a href="#l999" class="line" id="l999">    999</a> #: Select a path/filename and open it with the default open program.
 <a href="#l1000" class="line" id="l1000">   1000</a> 
-<a href="#l1001" class="line" id="l1001">   1001</a> #: Select a path/filename and open it with the default open program.
+<a href="#l1001" class="line" id="l1001">   1001</a> map kitty_mod+p&gt;l kitten hints --type line --program -
 <a href="#l1002" class="line" id="l1002">   1002</a> 
-<a href="#l1003" class="line" id="l1003">   1003</a> map kitty_mod+p&gt;l kitten hints --type line --program -
-<a href="#l1004" class="line" id="l1004">   1004</a> 
-<a href="#l1005" class="line" id="l1005">   1005</a> #: Select a line of text and insert it into the terminal. Use for the
-<a href="#l1006" class="line" id="l1006">   1006</a> #: output of things like: ls -1
+<a href="#l1003" class="line" id="l1003">   1003</a> #: Select a line of text and insert it into the terminal. Use for the
+<a href="#l1004" class="line" id="l1004">   1004</a> #: output of things like: ls -1
+<a href="#l1005" class="line" id="l1005">   1005</a> 
+<a href="#l1006" class="line" id="l1006">   1006</a> map kitty_mod+p&gt;w kitten hints --type word --program -
 <a href="#l1007" class="line" id="l1007">   1007</a> 
-<a href="#l1008" class="line" id="l1008">   1008</a> map kitty_mod+p&gt;w kitten hints --type word --program -
+<a href="#l1008" class="line" id="l1008">   1008</a> #: Select words and insert into terminal.
 <a href="#l1009" class="line" id="l1009">   1009</a> 
-<a href="#l1010" class="line" id="l1010">   1010</a> #: Select words and insert into terminal.
+<a href="#l1010" class="line" id="l1010">   1010</a> map kitty_mod+p&gt;h kitten hints --type hash --program -
 <a href="#l1011" class="line" id="l1011">   1011</a> 
-<a href="#l1012" class="line" id="l1012">   1012</a> map kitty_mod+p&gt;h kitten hints --type hash --program -
-<a href="#l1013" class="line" id="l1013">   1013</a> 
-<a href="#l1014" class="line" id="l1014">   1014</a> #: Select something that looks like a hash and insert it into the
-<a href="#l1015" class="line" id="l1015">   1015</a> #: terminal. Useful with git, which uses sha1 hashes to identify
-<a href="#l1016" class="line" id="l1016">   1016</a> #: commits
-<a href="#l1017" class="line" id="l1017">   1017</a> 
-<a href="#l1018" class="line" id="l1018">   1018</a> 
-<a href="#l1019" class="line" id="l1019">   1019</a> #: The hints kitten has many more modes of operation that you can map
-<a href="#l1020" class="line" id="l1020">   1020</a> #: to different shortcuts. For a full description see kittens/hints.
-<a href="#l1021" class="line" id="l1021">   1021</a> #: }}}
+<a href="#l1012" class="line" id="l1012">   1012</a> #: Select something that looks like a hash and insert it into the
+<a href="#l1013" class="line" id="l1013">   1013</a> #: terminal. Useful with git, which uses sha1 hashes to identify
+<a href="#l1014" class="line" id="l1014">   1014</a> #: commits
+<a href="#l1015" class="line" id="l1015">   1015</a> 
+<a href="#l1016" class="line" id="l1016">   1016</a> 
+<a href="#l1017" class="line" id="l1017">   1017</a> #: The hints kitten has many more modes of operation that you can map
+<a href="#l1018" class="line" id="l1018">   1018</a> #: to different shortcuts. For a full description see kittens/hints.
+<a href="#l1019" class="line" id="l1019">   1019</a> #: }}}
+<a href="#l1020" class="line" id="l1020">   1020</a> 
+<a href="#l1021" class="line" id="l1021">   1021</a> #: Miscellaneous {{{
 <a href="#l1022" class="line" id="l1022">   1022</a> 
-<a href="#l1023" class="line" id="l1023">   1023</a> #: Miscellaneous {{{
-<a href="#l1024" class="line" id="l1024">   1024</a> 
-<a href="#l1025" class="line" id="l1025">   1025</a> # map kitty_mod+f11    toggle_fullscreen
-<a href="#l1026" class="line" id="l1026">   1026</a> # map kitty_mod+f10    toggle_maximized
-<a href="#l1027" class="line" id="l1027">   1027</a> # map kitty_mod+u      kitten unicode_input
-<a href="#l1028" class="line" id="l1028">   1028</a> # map kitty_mod+f2     edit_config_file
-<a href="#l1029" class="line" id="l1029">   1029</a> # map kitty_mod+escape kitty_shell window
-<a href="#l1030" class="line" id="l1030">   1030</a> 
-<a href="#l1031" class="line" id="l1031">   1031</a> #: Open the kitty shell in a new window/tab/overlay/os_window to
-<a href="#l1032" class="line" id="l1032">   1032</a> #: control kitty using commands.
-<a href="#l1033" class="line" id="l1033">   1033</a> 
-<a href="#l1034" class="line" id="l1034">   1034</a> # map kitty_mod+a&gt;m    set_background_opacity +0.1
-<a href="#l1035" class="line" id="l1035">   1035</a> # map kitty_mod+a&gt;l    set_background_opacity -0.1
-<a href="#l1036" class="line" id="l1036">   1036</a> # map kitty_mod+a&gt;1    set_background_opacity 1
-<a href="#l1037" class="line" id="l1037">   1037</a> # map kitty_mod+a&gt;d    set_background_opacity default
-<a href="#l1038" class="line" id="l1038">   1038</a> # map kitty_mod+delete clear_terminal reset active
+<a href="#l1023" class="line" id="l1023">   1023</a> # map kitty_mod+f11    toggle_fullscreen
+<a href="#l1024" class="line" id="l1024">   1024</a> # map kitty_mod+f10    toggle_maximized
+<a href="#l1025" class="line" id="l1025">   1025</a> # map kitty_mod+u      kitten unicode_input
+<a href="#l1026" class="line" id="l1026">   1026</a> # map kitty_mod+f2     edit_config_file
+<a href="#l1027" class="line" id="l1027">   1027</a> # map kitty_mod+escape kitty_shell window
+<a href="#l1028" class="line" id="l1028">   1028</a> 
+<a href="#l1029" class="line" id="l1029">   1029</a> #: Open the kitty shell in a new window/tab/overlay/os_window to
+<a href="#l1030" class="line" id="l1030">   1030</a> #: control kitty using commands.
+<a href="#l1031" class="line" id="l1031">   1031</a> 
+<a href="#l1032" class="line" id="l1032">   1032</a> # map kitty_mod+a&gt;m    set_background_opacity +0.1
+<a href="#l1033" class="line" id="l1033">   1033</a> # map kitty_mod+a&gt;l    set_background_opacity -0.1
+<a href="#l1034" class="line" id="l1034">   1034</a> # map kitty_mod+a&gt;1    set_background_opacity 1
+<a href="#l1035" class="line" id="l1035">   1035</a> # map kitty_mod+a&gt;d    set_background_opacity default
+<a href="#l1036" class="line" id="l1036">   1036</a> # map kitty_mod+delete clear_terminal reset active
+<a href="#l1037" class="line" id="l1037">   1037</a> 
+<a href="#l1038" class="line" id="l1038">   1038</a> #: You can create shortcuts to clear/reset the terminal. For example::
 <a href="#l1039" class="line" id="l1039">   1039</a> 
-<a href="#l1040" class="line" id="l1040">   1040</a> #: You can create shortcuts to clear/reset the terminal. For example::
-<a href="#l1041" class="line" id="l1041">   1041</a> 
-<a href="#l1042" class="line" id="l1042">   1042</a> map super+w no_op
-<a href="#l1043" class="line" id="l1043">   1043</a> map super+r no_op
-<a href="#l1044" class="line" id="l1044">   1044</a> map super+t no_op
-<a href="#l1045" class="line" id="l1045">   1045</a> map super+1 no_op
-<a href="#l1046" class="line" id="l1046">   1046</a> map super+2 no_op
-<a href="#l1047" class="line" id="l1047">   1047</a> map super+3 no_op
-<a href="#l1048" class="line" id="l1048">   1048</a> map super+4 no_op
-<a href="#l1049" class="line" id="l1049">   1049</a> map super+5 no_op
-<a href="#l1050" class="line" id="l1050">   1050</a> map super+6 no_op
-<a href="#l1051" class="line" id="l1051">   1051</a> map super+7 no_op
-<a href="#l1052" class="line" id="l1052">   1052</a> map super+8 no_op
-<a href="#l1053" class="line" id="l1053">   1053</a> map super+9 no_op
-<a href="#l1054" class="line" id="l1054">   1054</a> map ctrl+shift+tab no_op
-<a href="#l1055" class="line" id="l1055">   1055</a> map ctrl+tab no_op
-<a href="#l1056" class="line" id="l1056">   1056</a> map super+shift+left no_op
-<a href="#l1057" class="line" id="l1057">   1057</a> map super+shift+right no_op
-<a href="#l1058" class="line" id="l1058">   1058</a> map super+shift+; no_op
-<a href="#l1059" class="line" id="l1059">   1059</a> 
-<a href="#l1060" class="line" id="l1060">   1060</a> #: tmux close
-<a href="#l1061" class="line" id="l1061">   1061</a> map super+w send_text all \x00x
-<a href="#l1062" class="line" id="l1062">   1062</a> #: tmux rename tab
-<a href="#l1063" class="line" id="l1063">   1063</a> map super+r send_text all \x00,
-<a href="#l1064" class="line" id="l1064">   1064</a> #: tmux new tab
-<a href="#l1065" class="line" id="l1065">   1065</a> map super+t send_text all \x00c
-<a href="#l1066" class="line" id="l1066">   1066</a> map super+1 send_text all \x001
-<a href="#l1067" class="line" id="l1067">   1067</a> map super+2 send_text all \x002
-<a href="#l1068" class="line" id="l1068">   1068</a> map super+3 send_text all \x003
-<a href="#l1069" class="line" id="l1069">   1069</a> map super+4 send_text all \x004
-<a href="#l1070" class="line" id="l1070">   1070</a> map super+5 send_text all \x005
-<a href="#l1071" class="line" id="l1071">   1071</a> map super+6 send_text all \x006
-<a href="#l1072" class="line" id="l1072">   1072</a> map super+7 send_text all \x007
-<a href="#l1073" class="line" id="l1073">   1073</a> map super+8 send_text all \x008
-<a href="#l1074" class="line" id="l1074">   1074</a> map super+9 send_text all \x009
-<a href="#l1075" class="line" id="l1075">   1075</a> map ctrl+shift+tab send_text all \x00_
-<a href="#l1076" class="line" id="l1076">   1076</a> map ctrl+tab send_text all \x00+
-<a href="#l1077" class="line" id="l1077">   1077</a> map super+shift+left send_text all \x00p
-<a href="#l1078" class="line" id="l1078">   1078</a> map super+shift+right send_text all \x00n
-<a href="#l1079" class="line" id="l1079">   1079</a> map super+shift+; send_text all \x00:
-<a href="#l1080" class="line" id="l1080">   1080</a> 
-<a href="#l1081" class="line" id="l1081">   1081</a> 
-<a href="#l1082" class="line" id="l1082">   1082</a> #:     # Reset the terminal
-<a href="#l1083" class="line" id="l1083">   1083</a> #:     map kitty_mod+f9 clear_terminal reset active
-<a href="#l1084" class="line" id="l1084">   1084</a> #:     # Clear the terminal screen by erasing all contents
-<a href="#l1085" class="line" id="l1085">   1085</a> #:     map kitty_mod+f10 clear_terminal clear active
-<a href="#l1086" class="line" id="l1086">   1086</a> #:     # Clear the terminal scrollback by erasing it
-<a href="#l1087" class="line" id="l1087">   1087</a> #:     map kitty_mod+f11 clear_terminal scrollback active
-<a href="#l1088" class="line" id="l1088">   1088</a> #:     # Scroll the contents of the screen into the scrollback
-<a href="#l1089" class="line" id="l1089">   1089</a> #:     map kitty_mod+f12 clear_terminal scroll active
-<a href="#l1090" class="line" id="l1090">   1090</a> 
-<a href="#l1091" class="line" id="l1091">   1091</a> #: If you want to operate on all windows instead of just the current
-<a href="#l1092" class="line" id="l1092">   1092</a> #: one, use all instead of active.
-<a href="#l1093" class="line" id="l1093">   1093</a> 
-<a href="#l1094" class="line" id="l1094">   1094</a> #: It is also possible to remap Ctrl+L to both scroll the current
-<a href="#l1095" class="line" id="l1095">   1095</a> #: screen contents into the scrollback buffer and clear the screen,
-<a href="#l1096" class="line" id="l1096">   1096</a> #: instead of just clearing the screen::
+<a href="#l1040" class="line" id="l1040">   1040</a> map super+w no_op
+<a href="#l1041" class="line" id="l1041">   1041</a> map super+r no_op
+<a href="#l1042" class="line" id="l1042">   1042</a> map super+t no_op
+<a href="#l1043" class="line" id="l1043">   1043</a> map super+1 no_op
+<a href="#l1044" class="line" id="l1044">   1044</a> map super+2 no_op
+<a href="#l1045" class="line" id="l1045">   1045</a> map super+3 no_op
+<a href="#l1046" class="line" id="l1046">   1046</a> map super+4 no_op
+<a href="#l1047" class="line" id="l1047">   1047</a> map super+5 no_op
+<a href="#l1048" class="line" id="l1048">   1048</a> map super+6 no_op
+<a href="#l1049" class="line" id="l1049">   1049</a> map super+7 no_op
+<a href="#l1050" class="line" id="l1050">   1050</a> map super+8 no_op
+<a href="#l1051" class="line" id="l1051">   1051</a> map super+9 no_op
+<a href="#l1052" class="line" id="l1052">   1052</a> map ctrl+shift+tab no_op
+<a href="#l1053" class="line" id="l1053">   1053</a> map ctrl+tab no_op
+<a href="#l1054" class="line" id="l1054">   1054</a> map super+shift+left no_op
+<a href="#l1055" class="line" id="l1055">   1055</a> map super+shift+right no_op
+<a href="#l1056" class="line" id="l1056">   1056</a> map super+shift+; no_op
+<a href="#l1057" class="line" id="l1057">   1057</a> 
+<a href="#l1058" class="line" id="l1058">   1058</a> #: tmux close
+<a href="#l1059" class="line" id="l1059">   1059</a> map super+w send_text all \x00x
+<a href="#l1060" class="line" id="l1060">   1060</a> #: tmux rename tab
+<a href="#l1061" class="line" id="l1061">   1061</a> map super+r send_text all \x00,
+<a href="#l1062" class="line" id="l1062">   1062</a> #: tmux new tab
+<a href="#l1063" class="line" id="l1063">   1063</a> map super+t send_text all \x00c
+<a href="#l1064" class="line" id="l1064">   1064</a> map super+1 send_text all \x001
+<a href="#l1065" class="line" id="l1065">   1065</a> map super+2 send_text all \x002
+<a href="#l1066" class="line" id="l1066">   1066</a> map super+3 send_text all \x003
+<a href="#l1067" class="line" id="l1067">   1067</a> map super+4 send_text all \x004
+<a href="#l1068" class="line" id="l1068">   1068</a> map super+5 send_text all \x005
+<a href="#l1069" class="line" id="l1069">   1069</a> map super+6 send_text all \x006
+<a href="#l1070" class="line" id="l1070">   1070</a> map super+7 send_text all \x007
+<a href="#l1071" class="line" id="l1071">   1071</a> map super+8 send_text all \x008
+<a href="#l1072" class="line" id="l1072">   1072</a> map super+9 send_text all \x009
+<a href="#l1073" class="line" id="l1073">   1073</a> map ctrl+shift+tab send_text all \x00_
+<a href="#l1074" class="line" id="l1074">   1074</a> map ctrl+tab send_text all \x00+
+<a href="#l1075" class="line" id="l1075">   1075</a> map super+shift+left send_text all \x00p
+<a href="#l1076" class="line" id="l1076">   1076</a> map super+shift+right send_text all \x00n
+<a href="#l1077" class="line" id="l1077">   1077</a> map super+shift+; send_text all \x00:
+<a href="#l1078" class="line" id="l1078">   1078</a> 
+<a href="#l1079" class="line" id="l1079">   1079</a> 
+<a href="#l1080" class="line" id="l1080">   1080</a> #:     # Reset the terminal
+<a href="#l1081" class="line" id="l1081">   1081</a> #:     map kitty_mod+f9 clear_terminal reset active
+<a href="#l1082" class="line" id="l1082">   1082</a> #:     # Clear the terminal screen by erasing all contents
+<a href="#l1083" class="line" id="l1083">   1083</a> #:     map kitty_mod+f10 clear_terminal clear active
+<a href="#l1084" class="line" id="l1084">   1084</a> #:     # Clear the terminal scrollback by erasing it
+<a href="#l1085" class="line" id="l1085">   1085</a> #:     map kitty_mod+f11 clear_terminal scrollback active
+<a href="#l1086" class="line" id="l1086">   1086</a> #:     # Scroll the contents of the screen into the scrollback
+<a href="#l1087" class="line" id="l1087">   1087</a> #:     map kitty_mod+f12 clear_terminal scroll active
+<a href="#l1088" class="line" id="l1088">   1088</a> 
+<a href="#l1089" class="line" id="l1089">   1089</a> #: If you want to operate on all windows instead of just the current
+<a href="#l1090" class="line" id="l1090">   1090</a> #: one, use all instead of active.
+<a href="#l1091" class="line" id="l1091">   1091</a> 
+<a href="#l1092" class="line" id="l1092">   1092</a> #: It is also possible to remap Ctrl+L to both scroll the current
+<a href="#l1093" class="line" id="l1093">   1093</a> #: screen contents into the scrollback buffer and clear the screen,
+<a href="#l1094" class="line" id="l1094">   1094</a> #: instead of just clearing the screen::
+<a href="#l1095" class="line" id="l1095">   1095</a> 
+<a href="#l1096" class="line" id="l1096">   1096</a> #:     map ctrl+l combine : clear_terminal scroll active : send_text normal,application \x0c
 <a href="#l1097" class="line" id="l1097">   1097</a> 
-<a href="#l1098" class="line" id="l1098">   1098</a> #:     map ctrl+l combine : clear_terminal scroll active : send_text normal,application \x0c
-<a href="#l1099" class="line" id="l1099">   1099</a> 
-<a href="#l1100" class="line" id="l1100">   1100</a> 
-<a href="#l1101" class="line" id="l1101">   1101</a> #: You can tell kitty to send arbitrary (UTF-8) encoded text to the
-<a href="#l1102" class="line" id="l1102">   1102</a> #: client program when pressing specified shortcut keys. For example::
+<a href="#l1098" class="line" id="l1098">   1098</a> 
+<a href="#l1099" class="line" id="l1099">   1099</a> #: You can tell kitty to send arbitrary (UTF-8) encoded text to the
+<a href="#l1100" class="line" id="l1100">   1100</a> #: client program when pressing specified shortcut keys. For example::
+<a href="#l1101" class="line" id="l1101">   1101</a> 
+<a href="#l1102" class="line" id="l1102">   1102</a> #:     map ctrl+alt+a send_text all Special text
 <a href="#l1103" class="line" id="l1103">   1103</a> 
-<a href="#l1104" class="line" id="l1104">   1104</a> #:     map ctrl+alt+a send_text all Special text
-<a href="#l1105" class="line" id="l1105">   1105</a> 
-<a href="#l1106" class="line" id="l1106">   1106</a> #: This will send &quot;Special text&quot; when you press the ctrl+alt+a key
-<a href="#l1107" class="line" id="l1107">   1107</a> #: combination.  The text to be sent is a python string literal so you
-<a href="#l1108" class="line" id="l1108">   1108</a> #: can use escapes like \x1b to send control codes or \u21fb to send
-<a href="#l1109" class="line" id="l1109">   1109</a> #: unicode characters (or you can just input the unicode characters
-<a href="#l1110" class="line" id="l1110">   1110</a> #: directly as UTF-8 text). The first argument to send_text is the
-<a href="#l1111" class="line" id="l1111">   1111</a> #: keyboard modes in which to activate the shortcut. The possible
-<a href="#l1112" class="line" id="l1112">   1112</a> #: values are normal or application or kitty or a comma separated
-<a href="#l1113" class="line" id="l1113">   1113</a> #: combination of them.  The special keyword all means all modes. The
-<a href="#l1114" class="line" id="l1114">   1114</a> #: modes normal and application refer to the DECCKM cursor key mode
-<a href="#l1115" class="line" id="l1115">   1115</a> #: for terminals, and kitty refers to the special kitty extended
-<a href="#l1116" class="line" id="l1116">   1116</a> #: keyboard protocol.
-<a href="#l1117" class="line" id="l1117">   1117</a> 
-<a href="#l1118" class="line" id="l1118">   1118</a> #: Another example, that outputs a word and then moves the cursor to
-<a href="#l1119" class="line" id="l1119">   1119</a> #: the start of the line (same as pressing the Home key)::
-<a href="#l1120" class="line" id="l1120">   1120</a> 
-<a href="#l1121" class="line" id="l1121">   1121</a> #:     map ctrl+alt+a send_text normal Word\x1b[H
-<a href="#l1122" class="line" id="l1122">   1122</a> #:     map ctrl+alt+a send_text application Word\x1bOH
+<a href="#l1104" class="line" id="l1104">   1104</a> #: This will send &quot;Special text&quot; when you press the ctrl+alt+a key
+<a href="#l1105" class="line" id="l1105">   1105</a> #: combination.  The text to be sent is a python string literal so you
+<a href="#l1106" class="line" id="l1106">   1106</a> #: can use escapes like \x1b to send control codes or \u21fb to send
+<a href="#l1107" class="line" id="l1107">   1107</a> #: unicode characters (or you can just input the unicode characters
+<a href="#l1108" class="line" id="l1108">   1108</a> #: directly as UTF-8 text). The first argument to send_text is the
+<a href="#l1109" class="line" id="l1109">   1109</a> #: keyboard modes in which to activate the shortcut. The possible
+<a href="#l1110" class="line" id="l1110">   1110</a> #: values are normal or application or kitty or a comma separated
+<a href="#l1111" class="line" id="l1111">   1111</a> #: combination of them.  The special keyword all means all modes. The
+<a href="#l1112" class="line" id="l1112">   1112</a> #: modes normal and application refer to the DECCKM cursor key mode
+<a href="#l1113" class="line" id="l1113">   1113</a> #: for terminals, and kitty refers to the special kitty extended
+<a href="#l1114" class="line" id="l1114">   1114</a> #: keyboard protocol.
+<a href="#l1115" class="line" id="l1115">   1115</a> 
+<a href="#l1116" class="line" id="l1116">   1116</a> #: Another example, that outputs a word and then moves the cursor to
+<a href="#l1117" class="line" id="l1117">   1117</a> #: the start of the line (same as pressing the Home key)::
+<a href="#l1118" class="line" id="l1118">   1118</a> 
+<a href="#l1119" class="line" id="l1119">   1119</a> #:     map ctrl+alt+a send_text normal Word\x1b[H
+<a href="#l1120" class="line" id="l1120">   1120</a> #:     map ctrl+alt+a send_text application Word\x1bOH
+<a href="#l1121" class="line" id="l1121">   1121</a> 
+<a href="#l1122" class="line" id="l1122">   1122</a> #: }}}
 <a href="#l1123" class="line" id="l1123">   1123</a> 
-<a href="#l1124" class="line" id="l1124">   1124</a> #: }}}
-<a href="#l1125" class="line" id="l1125">   1125</a> 
-<a href="#l1126" class="line" id="l1126">   1126</a> # }}}
+<a href="#l1124" class="line" id="l1124">   1124</a> # }}}
 </pre>
 </div>
 </body>

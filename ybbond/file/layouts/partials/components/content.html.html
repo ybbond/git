@@ -15,9 +15,9 @@
 <a href="../../../../index.html">Log</a> | <a href="../../../../files.html">Files</a> | <a href="../../../../refs.html">Refs</a> | <a href="../../../../file/README.md.html">README</a> | <a href="../../../../file/LICENSE.md.html">LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> content.html (416B)</p><hr/><pre id="blob">
+<p> content.html (418B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> {{ $list_span := . | replaceRE &quot;&lt;li( id=\&quot;fn:[\\d]+\&quot; role=\&quot;doc-endnote\&quot;)?&gt;(\\n&lt;p&gt;)?&quot; &quot;&lt;li${1}&gt;${2}&lt;span&gt;&lt;/span&gt;&quot; }}
-<a href="#l2" class="line" id="l2">      2</a> {{ $footnote := $list_span | replaceRE &quot;(&lt;div class=\&quot;footnotes\&quot; role=\&quot;doc-endnotes\&quot;&gt;\\n&lt;hr /&gt;)&quot; &quot;${1}&lt;p class=\&quot;footnotes__text\&quot;&gt;Footnotes:&lt;/p&gt;&quot; }}
+<a href="#l2" class="line" id="l2">      2</a> {{ $footnote := $list_span | replaceRE &quot;(&lt;div class=\&quot;footnotes\&quot; role=\&quot;doc-endnotes\&quot;&gt;\\n&lt;hr /&gt;)&quot; &quot;${1}&lt;h4 class=\&quot;footnotes__text\&quot;&gt;Footnotes:&lt;/h4&gt;&quot; }}
 <a href="#l3" class="line" id="l3">      3</a> {{ $checkbox_non_disabled := $footnote | replaceRE &quot;disabled=\&quot;\&quot; type=\&quot;checkbox&quot; &quot;type=\&quot;checkbox&quot; }}
 <a href="#l4" class="line" id="l4">      4</a> {{ $checkbox_non_disabled | safeHTML }}
 </pre>

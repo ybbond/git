@@ -4,6 +4,104 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>25bf4a9b94f96c0730207317b8e2b30ceed114d2</id>
+<published>2020-06-13T18:00:21Z</published>
+<updated>2020-06-13T18:07:37Z</updated>
+<title type="text">content: add new note about webmention, and add ID for all notes</title>
+<link rel="alternate" type="text/html" href="commit/25bf4a9b94f96c0730207317b8e2b30ceed114d2.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 25bf4a9b94f96c0730207317b8e2b30ceed114d2
+parent 5e4ba7a9c3ebcb7842d53fbfdc06d5b72185f8d3
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun, 14 Jun 2020 01:00:21 +0700
+
+content: add new note about webmention, and add ID for all notes
+
+</content>
+</entry>
+<entry>
+<id>5e4ba7a9c3ebcb7842d53fbfdc06d5b72185f8d3</id>
+<published>2020-06-13T18:05:14Z</published>
+<updated>2020-06-13T18:05:14Z</updated>
+<title type="text">Fetch webmentions skip-checks: true</title>
+<link rel="alternate" type="text/html" href="commit/5e4ba7a9c3ebcb7842d53fbfdc06d5b72185f8d3.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 5e4ba7a9c3ebcb7842d53fbfdc06d5b72185f8d3
+parent 70b6fdeb50a306265ddf111aec4b5e5a2be939ff
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 13 Jun 2020 18:05:14 +0000
+
+Fetch webmentions
+skip-checks: true
+
+</content>
+</entry>
+<entry>
+<id>70b6fdeb50a306265ddf111aec4b5e5a2be939ff</id>
+<published>2020-06-13T17:25:40Z</published>
+<updated>2020-06-13T17:25:40Z</updated>
+<title type="text">refactor: use ventura as main font, use rem, add 404 for netlify</title>
+<link rel="alternate" type="text/html" href="commit/70b6fdeb50a306265ddf111aec4b5e5a2be939ff.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 70b6fdeb50a306265ddf111aec4b5e5a2be939ff
+parent fa291821cb672c0ecce3059868b4cec5385cbad0
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun, 14 Jun 2020 00:25:40 +0700
+
+refactor: use ventura as main font, use rem, add 404 for netlify
+
+</content>
+</entry>
+<entry>
+<id>fa291821cb672c0ecce3059868b4cec5385cbad0</id>
+<published>2020-06-12T18:12:22Z</published>
+<updated>2020-06-12T18:12:22Z</updated>
+<title type="text">Fetch webmentions skip-checks: true</title>
+<link rel="alternate" type="text/html" href="commit/fa291821cb672c0ecce3059868b4cec5385cbad0.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit fa291821cb672c0ecce3059868b4cec5385cbad0
+parent 1e80d4024e4926d22c3d0b92a5e539df3f3575f1
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Fri, 12 Jun 2020 18:12:22 +0000
+
+Fetch webmentions
+skip-checks: true
+
+</content>
+</entry>
+<entry>
+<id>1e80d4024e4926d22c3d0b92a5e539df3f3575f1</id>
+<published>2020-06-12T06:06:41Z</published>
+<updated>2020-06-12T06:06:41Z</updated>
+<title type="text">Fetch webmentions skip-checks: true</title>
+<link rel="alternate" type="text/html" href="commit/1e80d4024e4926d22c3d0b92a5e539df3f3575f1.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 1e80d4024e4926d22c3d0b92a5e539df3f3575f1
+parent 1f23479f201b3d1f9f8d97666e6d1dfece990b78
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Fri, 12 Jun 2020 06:06:41 +0000
+
+Fetch webmentions
+skip-checks: true
+
+</content>
+</entry>
+<entry>
 <id>1f23479f201b3d1f9f8d97666e6d1dfece990b78</id>
 <published>2020-06-12T00:20:39Z</published>
 <updated>2020-06-12T00:20:39Z</updated>
@@ -1807,101 +1905,6 @@ Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Tue, 28 Apr 2020 18:07:43 +0700
 
 style: general responsiveness
-
-</content>
-</entry>
-<entry>
-<id>163d8d61d5b90d0fc544886e7f5b1f74f03322f8</id>
-<published>2020-04-28T11:07:16Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
-<title type="text">style: notes responsive</title>
-<link rel="alternate" type="text/html" href="commit/163d8d61d5b90d0fc544886e7f5b1f74f03322f8.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 163d8d61d5b90d0fc544886e7f5b1f74f03322f8
-parent 19bd5552b407b92b0ca9d0dafa6a1ce054f6658c
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Tue, 28 Apr 2020 18:07:16 +0700
-
-style: notes responsive
-
-</content>
-</entry>
-<entry>
-<id>19bd5552b407b92b0ca9d0dafa6a1ce054f6658c</id>
-<published>2020-04-28T09:45:33Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
-<title type="text">refactor: indieauth email and SEO title</title>
-<link rel="alternate" type="text/html" href="commit/19bd5552b407b92b0ca9d0dafa6a1ce054f6658c.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 19bd5552b407b92b0ca9d0dafa6a1ce054f6658c
-parent ff9a3092a504c6465d2b932470b12b8da1f4e10e
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Tue, 28 Apr 2020 16:45:33 +0700
-
-refactor: indieauth email and SEO title
-
-</content>
-</entry>
-<entry>
-<id>ff9a3092a504c6465d2b932470b12b8da1f4e10e</id>
-<published>2020-04-28T09:25:50Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
-<title type="text">refactor: indie auth remove own site</title>
-<link rel="alternate" type="text/html" href="commit/ff9a3092a504c6465d2b932470b12b8da1f4e10e.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit ff9a3092a504c6465d2b932470b12b8da1f4e10e
-parent 5f32b320cb28c07875f85e55f7bdf42d16f5bd02
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Tue, 28 Apr 2020 16:25:50 +0700
-
-refactor: indie auth remove own site
-
-</content>
-</entry>
-<entry>
-<id>5f32b320cb28c07875f85e55f7bdf42d16f5bd02</id>
-<published>2020-04-28T09:22:40Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
-<title type="text">feature: add robots.txt</title>
-<link rel="alternate" type="text/html" href="commit/5f32b320cb28c07875f85e55f7bdf42d16f5bd02.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 5f32b320cb28c07875f85e55f7bdf42d16f5bd02
-parent dd4c56f097435d38ba02ad430a674aad82a61890
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Tue, 28 Apr 2020 16:22:40 +0700
-
-feature: add robots.txt
-
-</content>
-</entry>
-<entry>
-<id>dd4c56f097435d38ba02ad430a674aad82a61890</id>
-<published>2020-04-28T09:13:07Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
-<title type="text">refactor: edit menu, and add uses page</title>
-<link rel="alternate" type="text/html" href="commit/dd4c56f097435d38ba02ad430a674aad82a61890.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit dd4c56f097435d38ba02ad430a674aad82a61890
-parent 3507561d82205fb1988202857985383ec2acfb9d
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Tue, 28 Apr 2020 16:13:07 +0700
-
-refactor: edit menu, and add uses page
 
 </content>
 </entry>

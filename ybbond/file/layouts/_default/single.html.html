@@ -15,7 +15,7 @@
 <a href="../../../index.html">Log</a> | <a href="../../../files.html">Files</a> | <a href="../../../refs.html">Refs</a> | <a href="../../../file/README.md.html">README</a> | <a href="../../../file/LICENSE.md.html">LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> single.html (2016B)</p><hr/><pre id="blob">
+<p> single.html (2200B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> {{ define &quot;main&quot; }}
 <a href="#l2" class="line" id="l2">      2</a>   {{ if eq .Type &quot;notes&quot; }}
 <a href="#l3" class="line" id="l3">      3</a>     &lt;article&gt;
@@ -39,33 +39,35 @@
 <a href="#l21" class="line" id="l21">     21</a>       &lt;div class=&quot;e-content&quot;&gt;
 <a href="#l22" class="line" id="l22">     22</a>         {{ partial &quot;components/content.html&quot; .Content }}
 <a href="#l23" class="line" id="l23">     23</a>       &lt;/div&gt;
-<a href="#l24" class="line" id="l24">     24</a>       {{- if ne .Type &quot;page&quot; }}
-<a href="#l25" class="line" id="l25">     25</a>         &lt;hr class=&quot;wm-hr&quot;&gt;
-<a href="#l26" class="line" id="l26">     26</a>         {{ partial &quot;post/webmentions-handler.html&quot; . }}
-<a href="#l27" class="line" id="l27">     27</a>       {{- else }}
-<a href="#l28" class="line" id="l28">     28</a>         &lt;br&gt;
-<a href="#l29" class="line" id="l29">     29</a>         &lt;br&gt;
-<a href="#l30" class="line" id="l30">     30</a>       {{- end }}
-<a href="#l31" class="line" id="l31">     31</a> 
-<a href="#l32" class="line" id="l32">     32</a> 
-<a href="#l33" class="line" id="l33">     33</a>       &lt;p {{ if eq .Type &quot;page&quot; }}class=&quot;hcard&quot; hidden=&quot;&quot;{{ end }}&gt;
-<a href="#l34" class="line" id="l34">     34</a>         &lt;a class=&quot;u-url link-white&quot; href={{ .Permalink }}&gt;Published&lt;/a&gt; on
-<a href="#l35" class="line" id="l35">     35</a>         &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot; class=&quot;dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;
-<a href="#l36" class="line" id="l36">     36</a>         	{{ .Date.Format &quot;02 January 2006&quot; }}&lt;/time&gt;,
-<a href="#l37" class="line" id="l37">     37</a>       	for stories like this:&lt;/p&gt;
-<a href="#l38" class="line" id="l38">     38</a>       {{ with .Params.tags }}
-<a href="#l39" class="line" id="l39">     39</a>         &lt;p&gt;
-<a href="#l40" class="line" id="l40">     40</a>           {{ range . }}
-<a href="#l41" class="line" id="l41">     41</a>             {{- partial &quot;components/tagitem.html&quot; . -}}
-<a href="#l42" class="line" id="l42">     42</a>           {{ end }}
-<a href="#l43" class="line" id="l43">     43</a>         &lt;/p&gt;
-<a href="#l44" class="line" id="l44">     44</a>       {{ end }}
-<a href="#l45" class="line" id="l45">     45</a>       {{ if ne .Type &quot;page&quot; -}}
-<a href="#l46" class="line" id="l46">     46</a>         &lt;p&gt;If you have any feedback, please contact me at &lt;a href=&quot;mailto:hi@ybbond.dev&quot;&gt;hi@ybbond.dev&lt;/a&gt;&lt;/p&gt;
-<a href="#l47" class="line" id="l47">     47</a>       {{ end -}}
-<a href="#l48" class="line" id="l48">     48</a>     &lt;/article&gt;
-<a href="#l49" class="line" id="l49">     49</a>   {{ end }}
-<a href="#l50" class="line" id="l50">     50</a> {{ end }}</pre>
+<a href="#l24" class="line" id="l24">     24</a> 
+<a href="#l25" class="line" id="l25">     25</a>       &lt;div class=&quot;bottom-hcard-container&quot; {{ if eq .Type &quot;page&quot; }} hidden=&quot;&quot;{{ end }}&gt;
+<a href="#l26" class="line" id="l26">     26</a>         &lt;p class=&quot;hcard-top hcard&quot;&gt;
+<a href="#l27" class="line" id="l27">     27</a>           &lt;a class=&quot;u-url link-white&quot; href={{ .Permalink }}&gt;Published&lt;/a&gt; on
+<a href="#l28" class="line" id="l28">     28</a>           &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot; class=&quot;dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;
+<a href="#l29" class="line" id="l29">     29</a>             {{ .Date.Format &quot;02 January 2006&quot; }}&lt;/time&gt;,
+<a href="#l30" class="line" id="l30">     30</a>           for stories like this:
+<a href="#l31" class="line" id="l31">     31</a>         &lt;/p&gt;
+<a href="#l32" class="line" id="l32">     32</a>         {{ with .Params.tags }}
+<a href="#l33" class="line" id="l33">     33</a>           &lt;p class=&quot;hcard-tags&quot;&gt;
+<a href="#l34" class="line" id="l34">     34</a>             {{ range . }}
+<a href="#l35" class="line" id="l35">     35</a>               {{- partial &quot;components/tagitem.html&quot; . -}}
+<a href="#l36" class="line" id="l36">     36</a>             {{ end }}
+<a href="#l37" class="line" id="l37">     37</a>           &lt;/p&gt;
+<a href="#l38" class="line" id="l38">     38</a>         {{ end }}
+<a href="#l39" class="line" id="l39">     39</a>         {{ if ne .Type &quot;page&quot; -}}
+<a href="#l40" class="line" id="l40">     40</a>           &lt;p class=&quot;hcard-bottom&quot;&gt;If you have any feedback, please contact me at &lt;a title=&quot;Open default mail client and add my email as recipient&quot; href=&quot;mailto:hi@ybbond.dev&quot;&gt;hi@ybbond.dev&lt;/a&gt;&lt;/p&gt;
+<a href="#l41" class="line" id="l41">     41</a>         {{ end -}}
+<a href="#l42" class="line" id="l42">     42</a>       &lt;/div&gt;
+<a href="#l43" class="line" id="l43">     43</a> 
+<a href="#l44" class="line" id="l44">     44</a>       {{- if ne .Type &quot;page&quot; }}
+<a href="#l45" class="line" id="l45">     45</a>         {{ partial &quot;post/webmentions-handler.html&quot; . }}
+<a href="#l46" class="line" id="l46">     46</a>       {{- else }}
+<a href="#l47" class="line" id="l47">     47</a>         &lt;br&gt;
+<a href="#l48" class="line" id="l48">     48</a>         &lt;br&gt;
+<a href="#l49" class="line" id="l49">     49</a>       {{- end }}
+<a href="#l50" class="line" id="l50">     50</a>     &lt;/article&gt;
+<a href="#l51" class="line" id="l51">     51</a>   {{ end }}
+<a href="#l52" class="line" id="l52">     52</a> {{ end }}</pre>
 </div>
 </body>
 </html>
