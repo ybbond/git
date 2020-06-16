@@ -4,6 +4,25 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>c71360fb5546c51f318cfdfe3175fb3edcada499</id>
+<published>2020-06-16T13:04:07Z</published>
+<updated>2020-06-16T13:04:07Z</updated>
+<title type="text">content: add notes 14 June 2020</title>
+<link rel="alternate" type="text/html" href="commit/c71360fb5546c51f318cfdfe3175fb3edcada499.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit c71360fb5546c51f318cfdfe3175fb3edcada499
+parent ec056226bc438716a59d44d9047ad0ab7b2d44be
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Tue, 16 Jun 2020 20:04:07 +0700
+
+content: add notes 14 June 2020
+
+</content>
+</entry>
+<entry>
 <id>ec056226bc438716a59d44d9047ad0ab7b2d44be</id>
 <published>2020-06-14T00:15:15Z</published>
 <updated>2020-06-14T00:15:15Z</updated>
@@ -1887,25 +1906,6 @@ Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Tue, 28 Apr 2020 23:46:05 +0700
 
 style &amp; refactor: dark 🌛 or light 🌞
-
-</content>
-</entry>
-<entry>
-<id>ced1c2aeb0f8c35f4fae54e2dc11d2ce9c3ebe08</id>
-<published>2020-04-28T16:45:04Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
-<title type="text">style: make the footer text button class</title>
-<link rel="alternate" type="text/html" href="commit/ced1c2aeb0f8c35f4fae54e2dc11d2ce9c3ebe08.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit ced1c2aeb0f8c35f4fae54e2dc11d2ce9c3ebe08
-parent c7883661eaaf29052cfd748da015d3eb36c996fb
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Tue, 28 Apr 2020 23:45:04 +0700
-
-style: make the footer text button class
 
 </content>
 </entry>
