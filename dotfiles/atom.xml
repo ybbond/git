@@ -4,6 +4,25 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>d51d11ac32d69d6b4b712d43202127aad4d1d82e</id>
+<published>2020-06-16T12:44:43Z</published>
+<updated>2020-06-16T12:44:43Z</updated>
+<title type="text">update kitty config and add vscode settings</title>
+<link rel="alternate" type="text/html" href="commit/d51d11ac32d69d6b4b712d43202127aad4d1d82e.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit d51d11ac32d69d6b4b712d43202127aad4d1d82e
+parent b8bc9a0ff488325b4c9446fe7d17678bf4f824ea
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Tue, 16 Jun 2020 19:44:43 +0700
+
+update kitty config and add vscode settings
+
+</content>
+</entry>
+<entry>
 <id>b8bc9a0ff488325b4c9446fe7d17678bf4f824ea</id>
 <published>2020-06-13T18:08:29Z</published>
 <updated>2020-06-13T18:08:29Z</updated>
