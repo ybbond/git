@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>responses-item.html - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../../../../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../../../../index.html">Log</a> | <a href="../../../../files.html">Files</a> | <a href="../../../../refs.html">Refs</a> | <a href="../../../../file/README.md.html">README</a> | <a href="../../../../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> responses-item.html (2040B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> {{ $dateformat := .Date.Format &quot;2006-01-02 15:04&quot; }}
+<a href="#l2" class="line" id="l2">      2</a> {{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
+<a href="#l3" class="line" id="l3">      3</a> {{ $author := &quot;&quot;}}
+<a href="#l4" class="line" id="l4">      4</a> {{ if isset .Params.Destination &quot;author&quot; }}
+<a href="#l5" class="line" id="l5">      5</a>   {{ $author = print &quot; by «&quot; .Params.Destination.Author &quot;»&quot; }}
+<a href="#l6" class="line" id="l6">      6</a> {{ end }}
+<a href="#l7" class="line" id="l7">      7</a> {{ $title := print &quot;In response to &quot; &quot;«&quot; .Params.Destination.Title &quot;»&quot; $author }}
+<a href="#l8" class="line" id="l8">      8</a> &lt;div class=&quot;content responses h-entry&quot; id={{ $idslug }}&gt;
+<a href="#l9" class="line" id="l9">      9</a>   &lt;h1 class=&quot;p-name&quot;&gt;{{ $title }}&lt;/h1&gt;
+<a href="#l10" class="line" id="l10">     10</a>   &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+<a href="#l11" class="line" id="l11">     11</a>     {{ $permalink := .Permalink }}
+<a href="#l12" class="line" id="l12">     12</a>     {{ $title := .Title }}
+<a href="#l13" class="line" id="l13">     13</a>     {{ with .Params.Image.Src }}
+<a href="#l14" class="line" id="l14">     14</a>       {{ $filename := . | safeURL }}
+<a href="#l15" class="line" id="l15">     15</a>       {{ $original := printf &quot;%s%s&quot; $permalink $filename }}
+<a href="#l16" class="line" id="l16">     16</a>       &lt;img class=&quot;u-photo&quot; hidden=&quot;&quot; src={{ $original }} alt=&quot;Illustration of {{ $title }}&quot; /&gt;
+<a href="#l17" class="line" id="l17">     17</a>     {{ end }}
+<a href="#l18" class="line" id="l18">     18</a>     &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+<a href="#l19" class="line" id="l19">     19</a>     &lt;br&gt;
+<a href="#l20" class="line" id="l20">     20</a>     &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+<a href="#l21" class="line" id="l21">     21</a>     &lt;br&gt;
+<a href="#l22" class="line" id="l22">     22</a>     &lt;a rel=&quot;syndication&quot; class=&quot;u-syndication&quot; href={{ .Permalink }}&gt;{{ .Title }}&lt;/a&gt;
+<a href="#l23" class="line" id="l23">     23</a>     &lt;br&gt;
+<a href="#l24" class="line" id="l24">     24</a>     &lt;span class=&quot;p-locality&quot;&gt;Jakarta&lt;/span&gt;, &lt;span class=&quot;p-country-name&quot;&gt;Indonesia&lt;/span&gt;
+<a href="#l25" class="line" id="l25">     25</a>     &lt;br&gt;
+<a href="#l26" class="line" id="l26">     26</a>     &lt;a class=&quot;p-category&quot; href={{ &quot;responses/&quot; | absURL }}&gt;responses&lt;/a&gt;
+<a href="#l27" class="line" id="l27">     27</a>   &lt;/div&gt;
+<a href="#l28" class="line" id="l28">     28</a>   &lt;p class=&quot;responses__subtitle&quot;&gt;
+<a href="#l29" class="line" id="l29">     29</a>     &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot; class=&quot;responses__subtitle__date dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;
+<a href="#l30" class="line" id="l30">     30</a>       {{ .Date.Format &quot;02 Jan 2006&quot; }}
+<a href="#l31" class="line" id="l31">     31</a>     &lt;/time&gt;
+<a href="#l32" class="line" id="l32">     32</a>     {{ if .Title }}
+<a href="#l33" class="line" id="l33">     33</a>     {{ else }}
+<a href="#l34" class="line" id="l34">     34</a>       &lt;a data-goatcounter-click=&quot;cl-response-hash&quot; class=&quot;u-url&quot; href=&quot;/responses/#{{ $idslug }}&quot;&gt;#&lt;/a&gt; &lt;a data-goatcounter-click=&quot;cl-response-full&quot; href={{ .Permalink }}&gt;»&lt;/a&gt;
+<a href="#l35" class="line" id="l35">     35</a>     {{ end }}
+<a href="#l36" class="line" id="l36">     36</a>   &lt;/p&gt;
+<a href="#l37" class="line" id="l37">     37</a>   &lt;p class=&quot;responses__original&quot;&gt;&lt;a class=&quot;u-in-reply-to&quot; href={{ .Params.Destination.Url }}&gt;»Link to responded post«&lt;/a&gt;&lt;/p&gt;
+<a href="#l38" class="line" id="l38">     38</a>   &lt;div class=&quot;responses__content e-content p-content&quot;&gt;
+<a href="#l39" class="line" id="l39">     39</a>     {{ partial &quot;components/content.html&quot; .Content }}
+<a href="#l40" class="line" id="l40">     40</a>   &lt;/div&gt;
+<a href="#l41" class="line" id="l41">     41</a> &lt;/div&gt;</pre>
+</div>
+</body>
+</html>

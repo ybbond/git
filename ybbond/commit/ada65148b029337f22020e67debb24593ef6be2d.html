@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature: image and lazyloading - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/ada65148b029337f22020e67debb24593ef6be2d.html">ada65148b029337f22020e67debb24593ef6be2d</a>
+<b>parent</b> <a href="../commit/d9f67e5e1d5253d4acacefc0993aecea5ccb89a5.html">d9f67e5e1d5253d4acacefc0993aecea5ccb89a5</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sat,  2 May 2020 03:05:39 +0700
+
+feature: image and lazyloading
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.dev.toml</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.toml</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h2">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim.md</a></td><td> | </td><td class="num">68</td><td><span class="i"></span><span class="d">--------------------------------------------------------------------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ia-writer-headline.jpg</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h4">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ia-writer-portrait.jpg</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h5">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/index.md</a></td><td> | </td><td class="num">69</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h6">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ivim.jpg</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h7">layouts/_default/_markup/render-image.html</a></td><td> | </td><td class="num">31</td><td><span class="i">+++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h8">layouts/partials/head/head.html</a></td><td> | </td><td class="num">3</td><td><span class="i">+</span><span class="d">--</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h9">static/lazyImage.js</a></td><td> | </td><td class="num">18</td><td><span class="i">++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>10 files changed, 121 insertions(<span id="plus">+</span>), 72 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/config.dev.toml.html">config.dev.toml</a> b/<a href="../file/config.dev.toml.html">config.dev.toml</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -3,7 +3,7 @@ languageCode = &quot;en-us&quot;
+</a> title = &quot;YBBond&quot;
+ 
+ [permalinks]
+<a href="#h0-0-3" id="h0-0-3" class="d">-  posts = &quot;/posts/:year/:month/:title/&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  posts = &quot;/posts/:year-:month-:title/&quot;
+</a> 
+ [params]
+   author = &quot;Yohanes Bandung Bondowoso&quot;
+<b>diff --git a/<a id="h1" href="../file/config.toml.html">config.toml</a> b/<a href="../file/config.toml.html">config.toml</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -3,7 +3,7 @@ languageCode = &quot;en-us&quot;
+</a> title = &quot;YBBond&quot;
+ 
+ [permalinks]
+<a href="#h1-0-3" id="h1-0-3" class="d">-  posts = &quot;/posts/:year/:month/:title/&quot;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  posts = &quot;/posts/:year-:month-:title/&quot;
+</a> 
+ [params]
+   author = &quot;Yohanes Bandung Bondowoso&quot;
+<b>diff --git a/<a id="h2" href="../file/content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim.md.html">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim.md</a> b/<a href="../file/content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim.md.html">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim.md</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,68 +0,0 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">----
+</a><a href="#h2-0-1" id="h2-0-1" class="d">-title: In Search of Good Writing App - Part 2, iA Writer vs iVim
+</a><a href="#h2-0-2" id="h2-0-2" class="d">-author: Yohanes Bandung Bondowoso
+</a><a href="#h2-0-3" id="h2-0-3" class="d">-description: A week with Bear, I tried other writing tool for my iPad.
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-tags:
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-  - Apps #apps
+</a><a href="#h2-0-6" id="h2-0-6" class="d">-  - Apple Apps #apple_apps
+</a><a href="#h2-0-7" id="h2-0-7" class="d">-date: 2020-04-01T18:22:31
+</a><a href="#h2-0-8" id="h2-0-8" class="d">-image:
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-  src: https://cdn.ybbond.dev/pictures/blog/2020-04-01-in-search-of-good-writing-app-part-2/ia-writer-headline.jpg
+</a><a href="#h2-0-10" id="h2-0-10" class="d">----
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-&gt; “Orang emang gak pernah puas!” - Indonesian colloquial sayings
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-&gt;
+</a><a href="#h2-0-14" id="h2-0-14" class="d">-&gt; “People are never satisfied” - Paulo Coelho’s almost literal translation
+</a><a href="#h2-0-15" id="h2-0-15" class="d">-
+</a><a href="#h2-0-16" id="h2-0-16" class="d">-Part 2 of my previous post: [In Search of Good Writing App - Bear vs Ulysses](/posts/2020/03/in-search-of-good-writing-app-bear-vs-ulysses/)
+</a><a href="#h2-0-17" id="h2-0-17" class="d">-
+</a><a href="#h2-0-18" id="h2-0-18" class="d">----
+</a><a href="#h2-0-19" id="h2-0-19" class="d">-
+</a><a href="#h2-0-20" id="h2-0-20" class="d">-In the previous post, I compared [Ulysses](https://ulysses.app/) and [Bear](https://bear.app). I ended up subscribing to Bear. Bear itself is a good writing app, with nice clean interface design, great synchronization between MacOS and iOS (or iPadOS) platform, with a _just right_ MarkDown implementation.
+</a><a href="#h2-0-21" id="h2-0-21" class="d">-
+</a><a href="#h2-0-22" id="h2-0-22" class="d">-I feel satisfied with my three days of Bear usage. The subscription model does not bother me, but I found several aspect to reconsider:
+</a><a href="#h2-0-23" id="h2-0-23" class="d">-
+</a><a href="#h2-0-24" id="h2-0-24" class="d">-### Backup
+</a><a href="#h2-0-25" id="h2-0-25" class="d">-One thing I like from Ulysses is file versioning similar to MacOS&#39;s _Time Machine_. Bear lacks that feature, changes I made will replace the previous version of the file in iCloud. The only way to access file history in Bear is through undo. Yep, plain old undo.
+</a><a href="#h2-0-26" id="h2-0-26" class="d">-
+</a><a href="#h2-0-27" id="h2-0-27" class="d">-### File Storage
+</a><a href="#h2-0-28" id="h2-0-28" class="d">-Bear store my notes in its own enclosed library. I have no option to store my notes in external folder. This issue makes me think about the continuity of this subscription. Other writer also stated [this issue](https://joseperez.fm/2019/goodbye-bear-hello-ia-writer/), and his post gave me the idea to check **iA Writer**.
+</a><a href="#h2-0-29" id="h2-0-29" class="d">-
+</a><a href="#h2-0-30" id="h2-0-30" class="d">-### Modal Editing
+</a><a href="#h2-0-31" id="h2-0-31" class="d">-I came from modal editing world. The lack of **Vim** keybinding annoys me. This aspect is of my very own opinion.
+</a><a href="#h2-0-32" id="h2-0-32" class="d">-
+</a><a href="#h2-0-33" id="h2-0-33" class="d">-Thus came other candidates
+</a><a href="#h2-0-34" id="h2-0-34" class="d">-
+</a><a href="#h2-0-35" id="h2-0-35" class="d">-## iA Writer
+</a><a href="#h2-0-36" id="h2-0-36" class="d">-
+</a><a href="#h2-0-37" id="h2-0-37" class="d">-I installed the trial version on Mac. The main takeaway is iA Writer give the writer full control of its edited file. It uses iCloud to sync between devices. Mac version also has file versioning similar to _Time Machine_. iA Writer also supports opening external folder, enabling me to edit markdown file from my GitHub Gist.
+</a><a href="#h2-0-38" id="h2-0-38" class="d">-
+</a><a href="#h2-0-39" id="h2-0-39" class="d">-![iA Writer with its unique syntax highlighting](https://cdn.ybbond.dev/pictures/blog/2020-04-01-in-search-of-good-writing-app-part-2/ia-writer-headline.jpg)
+</a><a href="#h2-0-40" id="h2-0-40" class="d">-
+</a><a href="#h2-0-41" id="h2-0-41" class="d">-The app supports _focus mode_, which consists of _typewriter mode_ similar to Ulysses&#39; and [syntax highlighting](https://ia.net/topics/ia5_writer_features/syntax-highlight) that unique to iA Writer. The latter feature sounds unnecessary to me, because I thought highlighting non-code text will distracts me more than it helps me. I tried writing with _syntax highlighting_ on, and I realized it helps choosing good words and/or &#39;refactoring&#39; the written text. The app&#39;s website has good [blog posts](https://ia.net/writer/support/writing-tips/parts-of-speech) that give tips to write well.
+</a><a href="#h2-0-42" id="h2-0-42" class="d">-
+</a><a href="#h2-0-43" id="h2-0-43" class="d">-iA Writer also has side-by-side preview feature. Plus point is this app has good shortcut to access its main features.
+</a><a href="#h2-0-44" id="h2-0-44" class="d">-
+</a><a href="#h2-0-45" id="h2-0-45" class="d">-I consider this app pricey. It uses single payment approach, the Mac version costs Rp450000 while the iOS (iPadOS included) version costs Rp120000. I use the iA Writer trial on Mac for a while, kinda like it, but it reminds me to one &#39;writing app&#39; that I consider home.
+</a><a href="#h2-0-46" id="h2-0-46" class="d">-
+</a><a href="#h2-0-47" id="h2-0-47" class="d">-That is Goyo plugin on Vim. Then I searched for Vim in iPadOS. I found it.
+</a><a href="#h2-0-48" id="h2-0-48" class="d">-
+</a><a href="#h2-0-49" id="h2-0-49" class="d">-## iVim
+</a><a href="#h2-0-50" id="h2-0-50" class="d">-
+</a><a href="#h2-0-51" id="h2-0-51" class="d">-![Image of the keyboard](https://cdn.ybbond.dev/pictures/blog/2020-04-01-in-search-of-good-writing-app-part-2/ivim.jpg)
+</a><a href="#h2-0-52" id="h2-0-52" class="d">-
+</a><a href="#h2-0-53" id="h2-0-53" class="d">-I thought Vim app in iOS will be limiting and can only edit the files in the app&#39;s bundle file. I found iVim can edit file from other source. It also supports vimrc and plugins too! [This posts](https://www.reddit.com/r/vim/comments/9ki5g8/ivim_ios_howtos/) helps me a lot.
+</a><a href="#h2-0-54" id="h2-0-54" class="d">-
+</a><a href="#h2-0-55" id="h2-0-55" class="d">-I configured my iVim as a Zen Writing Tool_. I installed `Goyo`, `vim-markdown`, and Tim Pope&#39;s essential shortcut plugins that have been accompanying my typing journey for 2 years. The result is satisfying:
+</a><a href="#h2-0-56" id="h2-0-56" class="d">-
+</a><a href="#h2-0-57" id="h2-0-57" class="d">-I use all of Bear, iA Writer (on Mac) and iVim for a while, eliminated Bear because of its low I mentioned above, and feel that the lack of preview makes iVim lacky. I read from reddit and other &quot;this app vs. that app&quot; posts that iA Writer for iOS is a worth buy. I decided to try purchasing iA Writer for iOS. 
+</a><a href="#h2-0-58" id="h2-0-58" class="d">-
+</a><a href="#h2-0-59" id="h2-0-59" class="d">-The iOS version of iA Writer has all the great features of its Mac version. It has some quirks though. It  doesn&#39;t have built in support to bookmark or scrape website contents (Bear has it), the keyboard shortcut for iPadOS lacks feature to focus on editor. The solution for the first problem is to use Apple&#39;s Shortcut. For the second problem, I have to tap the iPad screen each time I opened the menu, inconvenient for keyboard person like me.
+</a><a href="#h2-0-60" id="h2-0-60" class="d">-
+</a><a href="#h2-0-61" id="h2-0-61" class="d">-## Conclusion
+</a><a href="#h2-0-62" id="h2-0-62" class="d">-
+</a><a href="#h2-0-63" id="h2-0-63" class="d">-![iA writer for iPadOS, portrait mode](https://cdn.ybbond.dev/pictures/blog/2020-04-01-in-search-of-good-writing-app-part-2/ia-writer-portrait.jpg)
+</a><a href="#h2-0-64" id="h2-0-64" class="d">-
+</a><a href="#h2-0-65" id="h2-0-65" class="d">-In the end, I prefer iA Writer to iVim and Bear. I like the preview mode, I like the syntax highlighting, I like when I succeed scripting the shortcut to bookmark or scrape website.
+</a><a href="#h2-0-66" id="h2-0-66" class="d">-
+</a><a href="#h2-0-67" id="h2-0-67" class="d">-I don&#39;t like the lack of good keyboard shortcut and no modal editing, but the good side overcome the bad side easily.
+</a><b>diff --git a/<a id="h3" href="../file/content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ia-writer-headline.jpg.html">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ia-writer-headline.jpg</a> b/<a href="../file/content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ia-writer-headline.jpg.html">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ia-writer-headline.jpg</a></b>
+Binary files differ.
+<b>diff --git a/<a id="h4" href="../file/content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ia-writer-portrait.jpg.html">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ia-writer-portrait.jpg</a> b/<a href="../file/content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ia-writer-portrait.jpg.html">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ia-writer-portrait.jpg</a></b>
+Binary files differ.
+<b>diff --git a/<a id="h5" href="../file/content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/index.md.html">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/index.md</a> b/<a href="../file/content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/index.md.html">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/index.md</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -0,0 +1,69 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="i">+---
+</a><a href="#h5-0-1" id="h5-0-1" class="i">+title: In Search of Good Writing App - Part 2, iA Writer vs iVim
+</a><a href="#h5-0-2" id="h5-0-2" class="i">+author: Yohanes Bandung Bondowoso
+</a><a href="#h5-0-3" id="h5-0-3" class="i">+description: A week with Bear, I tried other writing tool for my iPad.
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+tags:
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+  - Apps #apps
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+  - Apple Apps #apple_apps
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+date: 2020-04-01T18:22:31
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+image:
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+  src: https://cdn.ybbond.dev/pictures/blog/2020-04-01-in-search-of-good-writing-app-part-2/ia-writer-headline.jpg
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+---
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+&gt; “Orang emang gak pernah puas!” - Indonesian colloquial sayings
+</a><a href="#h5-0-13" id="h5-0-13" class="i">+&gt;
+</a><a href="#h5-0-14" id="h5-0-14" class="i">+&gt; “People are never satisfied” - Paulo Coelho’s almost literal translation
+</a><a href="#h5-0-15" id="h5-0-15" class="i">+
+</a><a href="#h5-0-16" id="h5-0-16" class="i">+Part 2 of my previous post: [In Search of Good Writing App - Bear vs Ulysses](/posts/2020/03/in-search-of-good-writing-app-bear-vs-ulysses/)
+</a><a href="#h5-0-17" id="h5-0-17" class="i">+
+</a><a href="#h5-0-18" id="h5-0-18" class="i">+---
+</a><a href="#h5-0-19" id="h5-0-19" class="i">+
+</a><a href="#h5-0-20" id="h5-0-20" class="i">+In the previous post, I compared [Ulysses](https://ulysses.app/) and [Bear](https://bear.app). I ended up subscribing to Bear. Bear itself is a good writing app, with nice clean interface design, great synchronization between MacOS and iOS (or iPadOS) platform, with a _just right_ MarkDown implementation.
+</a><a href="#h5-0-21" id="h5-0-21" class="i">+
+</a><a href="#h5-0-22" id="h5-0-22" class="i">+I feel satisfied with my three days of Bear usage. The subscription model does not bother me, but I found several aspect to reconsider:
+</a><a href="#h5-0-23" id="h5-0-23" class="i">+
+</a><a href="#h5-0-24" id="h5-0-24" class="i">+### Backup
+</a><a href="#h5-0-25" id="h5-0-25" class="i">+One thing I like from Ulysses is file versioning similar to MacOS&#39;s _Time Machine_. Bear lacks that feature, changes I made will replace the previous version of the file in iCloud. The only way to access file history in Bear is through undo. Yep, plain old undo.
+</a><a href="#h5-0-26" id="h5-0-26" class="i">+
+</a><a href="#h5-0-27" id="h5-0-27" class="i">+### File Storage
+</a><a href="#h5-0-28" id="h5-0-28" class="i">+Bear store my notes in its own enclosed library. I have no option to store my notes in external folder. This issue makes me think about the continuity of this subscription. Other writer also stated [this issue](https://joseperez.fm/2019/goodbye-bear-hello-ia-writer/), and his post gave me the idea to check **iA Writer**.
+</a><a href="#h5-0-29" id="h5-0-29" class="i">+
+</a><a href="#h5-0-30" id="h5-0-30" class="i">+### Modal Editing
+</a><a href="#h5-0-31" id="h5-0-31" class="i">+I came from modal editing world. The lack of **Vim** keybinding annoys me. This aspect is of my very own opinion.
+</a><a href="#h5-0-32" id="h5-0-32" class="i">+
+</a><a href="#h5-0-33" id="h5-0-33" class="i">+Thus came other candidates
+</a><a href="#h5-0-34" id="h5-0-34" class="i">+
+</a><a href="#h5-0-35" id="h5-0-35" class="i">+## iA Writer
+</a><a href="#h5-0-36" id="h5-0-36" class="i">+
+</a><a href="#h5-0-37" id="h5-0-37" class="i">+I installed the trial version on Mac. The main takeaway is iA Writer give the writer full control of its edited file. It uses iCloud to sync between devices. Mac version also has file versioning similar to _Time Machine_. iA Writer also supports opening external folder, enabling me to edit markdown file from my GitHub Gist.
+</a><a href="#h5-0-38" id="h5-0-38" class="i">+
+</a><a href="#h5-0-39" id="h5-0-39" class="i">+![iA Writer with its unique syntax highlighting](ia-writer-headline.jpg)
+</a><a href="#h5-0-40" id="h5-0-40" class="i">+
+</a><a href="#h5-0-41" id="h5-0-41" class="i">+The app supports _focus mode_, which consists of _typewriter mode_ similar to Ulysses&#39; and [syntax highlighting](https://ia.net/topics/ia5_writer_features/syntax-highlight) that unique to iA Writer. The latter feature sounds unnecessary to me, because I thought highlighting non-code text will distracts me more than it helps me. I tried writing with _syntax highlighting_ on, and I realized it helps choosing good words and/or &#39;refactoring&#39; the written text. The app&#39;s website has good [blog posts](https://ia.net/writer/support/writing-tips/parts-of-speech) that give tips to write well.
+</a><a href="#h5-0-42" id="h5-0-42" class="i">+
+</a><a href="#h5-0-43" id="h5-0-43" class="i">+iA Writer also has side-by-side preview feature. Plus point is this app has good shortcut to access its main features.
+</a><a href="#h5-0-44" id="h5-0-44" class="i">+
+</a><a href="#h5-0-45" id="h5-0-45" class="i">+I consider this app pricey. It uses single payment approach, the Mac version costs Rp450000 while the iOS (iPadOS included) version costs Rp120000. I use the iA Writer trial on Mac for a while, kinda like it, but it reminds me to one &#39;writing app&#39; that I consider home.
+</a><a href="#h5-0-46" id="h5-0-46" class="i">+
+</a><a href="#h5-0-47" id="h5-0-47" class="i">+That is Goyo plugin on Vim. Then I searched for Vim in iPadOS. I found it.
+</a><a href="#h5-0-48" id="h5-0-48" class="i">+
+</a><a href="#h5-0-49" id="h5-0-49" class="i">+## iVim
+</a><a href="#h5-0-50" id="h5-0-50" class="i">+
+</a><a href="#h5-0-51" id="h5-0-51" class="i">+
+</a><a href="#h5-0-52" id="h5-0-52" class="i">+![Image of the keyboard](ivim.jpg)
+</a><a href="#h5-0-53" id="h5-0-53" class="i">+
+</a><a href="#h5-0-54" id="h5-0-54" class="i">+I thought Vim app in iOS will be limiting and can only edit the files in the app&#39;s bundle file. I found iVim can edit file from other source. It also supports vimrc and plugins too! [This posts](https://www.reddit.com/r/vim/comments/9ki5g8/ivim_ios_howtos/) helps me a lot.
+</a><a href="#h5-0-55" id="h5-0-55" class="i">+
+</a><a href="#h5-0-56" id="h5-0-56" class="i">+I configured my iVim as a Zen Writing Tool_. I installed `Goyo`, `vim-markdown`, and Tim Pope&#39;s essential shortcut plugins that have been accompanying my typing journey for 2 years. The result is satisfying:
+</a><a href="#h5-0-57" id="h5-0-57" class="i">+
+</a><a href="#h5-0-58" id="h5-0-58" class="i">+I use all of Bear, iA Writer (on Mac) and iVim for a while, eliminated Bear because of its low I mentioned above, and feel that the lack of preview makes iVim lacky. I read from reddit and other &quot;this app vs. that app&quot; posts that iA Writer for iOS is a worth buy. I decided to try purchasing iA Writer for iOS. 
+</a><a href="#h5-0-59" id="h5-0-59" class="i">+
+</a><a href="#h5-0-60" id="h5-0-60" class="i">+The iOS version of iA Writer has all the great features of its Mac version. It has some quirks though. It  doesn&#39;t have built in support to bookmark or scrape website contents (Bear has it), the keyboard shortcut for iPadOS lacks feature to focus on editor. The solution for the first problem is to use Apple&#39;s Shortcut. For the second problem, I have to tap the iPad screen each time I opened the menu, inconvenient for keyboard person like me.
+</a><a href="#h5-0-61" id="h5-0-61" class="i">+
+</a><a href="#h5-0-62" id="h5-0-62" class="i">+## Conclusion
+</a><a href="#h5-0-63" id="h5-0-63" class="i">+
+</a><a href="#h5-0-64" id="h5-0-64" class="i">+![iA writer for iPadOS, portrait mode](ia-writer-portrait.jpg)
+</a><a href="#h5-0-65" id="h5-0-65" class="i">+
+</a><a href="#h5-0-66" id="h5-0-66" class="i">+In the end, I prefer iA Writer to iVim and Bear. I like the preview mode, I like the syntax highlighting, I like when I succeed scripting the shortcut to bookmark or scrape website.
+</a><a href="#h5-0-67" id="h5-0-67" class="i">+
+</a><a href="#h5-0-68" id="h5-0-68" class="i">+I don&#39;t like the lack of good keyboard shortcut and no modal editing, but the good side overcome the bad side easily.
+</a><b>diff --git a/<a id="h6" href="../file/content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ivim.jpg.html">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ivim.jpg</a> b/<a href="../file/content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ivim.jpg.html">content/posts/In Search of Good Writing App - Part 2, iA Writer vs iVim/ivim.jpg</a></b>
+Binary files differ.
+<b>diff --git a/<a id="h7" href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a> b/<a href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -0,0 +1,30 @@
+</a><a href="#h7-0-0" id="h7-0-0" class="i">+{{ $filename := .Destination | safeURL }}
+</a><a href="#h7-0-1" id="h7-0-1" class="i">+{{ $original := .Page.Resources.GetMatch (printf &quot;*%s&quot; $filename) }}
+</a><a href="#h7-0-2" id="h7-0-2" class="i">+{{ $text := .Text }}
+</a><a href="#h7-0-3" id="h7-0-3" class="i">+
+</a><a href="#h7-0-4" id="h7-0-4" class="i">+{{ if eq $original nil }}
+</a><a href="#h7-0-5" id="h7-0-5" class="i">+    {{ errorf &quot;cannot find file: %s&quot; $filename }}
+</a><a href="#h7-0-6" id="h7-0-6" class="i">+{{ end}}
+</a><a href="#h7-0-7" id="h7-0-7" class="i">+
+</a><a href="#h7-0-8" id="h7-0-8" class="i">+{{ if ne $original.ResourceType &quot;image&quot; }}
+</a><a href="#h7-0-9" id="h7-0-9" class="i">+   {{ errorf &quot;file %s is not an image&quot; $filename }}
+</a><a href="#h7-0-10" id="h7-0-10" class="i">+{{ end }}
+</a><a href="#h7-0-11" id="h7-0-11" class="i">+
+</a><a href="#h7-0-12" id="h7-0-12" class="i">+{{ $thumb := ($original.Resize (printf &quot;%dx %s&quot; $original.Width &quot;q3&quot;)).RelPermalink }}
+</a><a href="#h7-0-13" id="h7-0-13" class="i">+
+</a><a href="#h7-0-14" id="h7-0-14" class="i">+&lt;figure&gt;
+</a><a href="#h7-0-15" id="h7-0-15" class="i">+    &lt;center&gt;
+</a><a href="#h7-0-16" id="h7-0-16" class="i">+    &lt;img
+</a><a href="#h7-0-17" id="h7-0-17" class="i">+        style=&quot;max-width: 100%; height: auto;&quot;
+</a><a href="#h7-0-18" id="h7-0-18" class="i">+        src=&quot;{{ $thumb }}&quot;
+</a><a href="#h7-0-19" id="h7-0-19" class="i">+        width=&quot;{{ $original.Width }}&quot;
+</a><a href="#h7-0-20" id="h7-0-20" class="i">+        height=&quot;{{ $original.Height }}&quot;
+</a><a href="#h7-0-21" id="h7-0-21" class="i">+        alt=&quot;{{ default $text &quot;image&quot; }}&quot;
+</a><a href="#h7-0-22" id="h7-0-22" class="i">+        data-src=&quot;{{$original.RelPermalink}}&quot;
+</a><a href="#h7-0-23" id="h7-0-23" class="i">+        class=&quot;lazy&quot;
+</a><a href="#h7-0-24" id="h7-0-24" class="i">+    /&gt;
+</a><a href="#h7-0-25" id="h7-0-25" class="i">+    {{with $text }}
+</a><a href="#h7-0-26" id="h7-0-26" class="i">+    &lt;figcaption&gt;{{ . }}&lt;/figcaption&gt;
+</a><a href="#h7-0-27" id="h7-0-27" class="i">+    {{end}}
+</a><a href="#h7-0-28" id="h7-0-28" class="i">+    &lt;/center&gt;
+</a><a href="#h7-0-29" id="h7-0-29" class="i">+&lt;/figure&gt;</a><a href="#h7-0-30" id="h7-0-30" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h8" href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a> b/<a href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a></b>
+<a href="#h8-0" id="h8-0" class="h">@@ -2,8 +2,6 @@
+</a> &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+ &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+ 
+<a href="#h8-0-3" id="h8-0-3" class="d">-&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//cdn.ybbond.dev&quot; /&gt;
+</a><a href="#h8-0-4" id="h8-0-4" class="d">-
+</a> &lt;link data-hint=&quot;Twitter&quot; title=&quot;Twitter&quot; href=&quot;https://twitter.com/{{ .Site.Params.Twitter }}&quot; rel=&quot;me&quot; /&gt;
+ &lt;link data-hint=&quot;GitHub&quot; title=&quot;GitHub&quot; href=&quot;https://github.com/{{ .Site.Params.Github }}&quot; rel=&quot;me&quot; /&gt;
+ &lt;link data-hint=&quot;Micro.Blog&quot; title=&quot;Micro.Blog&quot; href=&quot;https://micro.blog/ybbond&quot; rel=&quot;me&quot; /&gt;
+<a href="#h8-1" id="h8-1" class="h">@@ -36,6 +34,7 @@
+</a> &lt;/style&gt;
+ 
+ &lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}darkToggler.js&quot;&gt;&lt;/script&gt;
+<a href="#h8-1-3" id="h8-1-3" class="i">+&lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}lazyImage.js&quot;&gt;&lt;/script&gt;
+</a> 
+ &lt;link rel=&quot;canonical&quot; href=&quot;{{ .Permalink }}&quot; /&gt;
+ &lt;link rel=&quot;sitemap&quot; href=&quot;{{ &quot;sitemap.xml&quot; | absURL }}&quot; type=&quot;application/xml&quot; /&gt;
+<b>diff --git a/<a id="h9" href="../file/static/lazyImage.js.html">static/lazyImage.js</a> b/<a href="../file/static/lazyImage.js.html">static/lazyImage.js</a></b>
+<a href="#h9-0" id="h9-0" class="h">@@ -0,0 +1,17 @@
+</a><a href="#h9-0-0" id="h9-0-0" class="i">+window.addEventListener(&#39;load&#39;, function () {
+</a><a href="#h9-0-1" id="h9-0-1" class="i">+    document.querySelectorAll(&#39;img.lazy&#39;).forEach( image =&gt; {
+</a><a href="#h9-0-2" id="h9-0-2" class="i">+        if ( ! image.hasAttribute(&quot;data-src&quot;)) {
+</a><a href="#h9-0-3" id="h9-0-3" class="i">+            return;
+</a><a href="#h9-0-4" id="h9-0-4" class="i">+        }
+</a><a href="#h9-0-5" id="h9-0-5" class="i">+        const original = image.getAttribute(&quot;data-src&quot;);
+</a><a href="#h9-0-6" id="h9-0-6" class="i">+        fetch(original)
+</a><a href="#h9-0-7" id="h9-0-7" class="i">+            .then(function (response) {
+</a><a href="#h9-0-8" id="h9-0-8" class="i">+                if (response &amp;&amp; response.status == 200){
+</a><a href="#h9-0-9" id="h9-0-9" class="i">+                    image.setAttribute(&quot;src&quot;, original)
+</a><a href="#h9-0-10" id="h9-0-10" class="i">+                }
+</a><a href="#h9-0-11" id="h9-0-11" class="i">+            })
+</a><a href="#h9-0-12" id="h9-0-12" class="i">+            .catch(function(err) {
+</a><a href="#h9-0-13" id="h9-0-13" class="i">+                console.error(&#39;lazy error: &#39;, err);
+</a><a href="#h9-0-14" id="h9-0-14" class="i">+            });
+</a><a href="#h9-0-15" id="h9-0-15" class="i">+    }); //image
+</a><a href="#h9-0-16" id="h9-0-16" class="i">+}); //query</a><a href="#h9-0-17" id="h9-0-17" class="i">+
+\ No newline at end of file
+</a></pre>
+</div>
+</div>
+</body>
+</html>

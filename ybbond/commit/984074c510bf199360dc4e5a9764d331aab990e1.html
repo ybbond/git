@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>hotfix: try fix notes rss again - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/984074c510bf199360dc4e5a9764d331aab990e1.html">984074c510bf199360dc4e5a9764d331aab990e1</a>
+<b>parent</b> <a href="../commit/ada65148b029337f22020e67debb24593ef6be2d.html">ada65148b029337f22020e67debb24593ef6be2d</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Sat,  2 May 2020 03:16:02 +0700
+
+hotfix: try fix notes rss again
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/notes/rss.xml</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">layouts/partials/post/notes-item.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre></div><p>2 files changed, 2 insertions(<span id="plus">+</span>), 2 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/notes/rss.xml.html">layouts/notes/rss.xml</a> b/<a href="../file/layouts/notes/rss.xml.html">layouts/notes/rss.xml</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -28,7 +28,7 @@
+</a>   {{ printf &quot;&lt;atom:link href=%q rel=\&quot;self\&quot; type=%q /&gt;&quot; .Permalink .MediaType | safeHTML }}
+     {{ end }}
+     {{ $dateformat := .Date.Format &quot;2006-01-02 15:04&quot; }}
+<a href="#h0-0-3" id="h0-0-3" class="d">-    {{ $idslug := (print $dateformat &quot;-&quot;) | urlize }}
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    {{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
+</a>     {{ range $pages }}
+     &lt;item&gt;
+       &lt;title&gt;{{ .Title }}&lt;/title&gt;
+<b>diff --git a/<a id="h1" href="../file/layouts/partials/post/notes-item.html.html">layouts/partials/post/notes-item.html</a> b/<a href="../file/layouts/partials/post/notes-item.html.html">layouts/partials/post/notes-item.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,5 +1,5 @@
+</a> {{ $dateformat := .Date.Format &quot;2006-01-02 15:04&quot; }}
+<a href="#h1-0-1" id="h1-0-1" class="d">-{{ $idslug := (print $dateformat &quot;-&quot;) | urlize }}
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+{{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
+</a> &lt;div class=&quot;notes&quot;&gt;
+   &lt;p class=&quot;notes__title&quot; id={{ $idslug }}&gt;
+     &lt;span&gt;
+</pre>
+</div>
+</div>
+</body>
+</html>

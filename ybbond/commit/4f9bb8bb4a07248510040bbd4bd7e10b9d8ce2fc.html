@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>content: modify uses, and rename cv -&gt; about - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/4f9bb8bb4a07248510040bbd4bd7e10b9d8ce2fc.html">4f9bb8bb4a07248510040bbd4bd7e10b9d8ce2fc</a>
+<b>parent</b> <a href="../commit/a690f79e74a1792c2db12d2e8392cbae00bcc6b8.html">a690f79e74a1792c2db12d2e8392cbae00bcc6b8</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 19 May 2020 04:40:05 +0700
+
+content: modify uses, and rename cv -&gt; about
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.dev.toml</a></td><td> | </td><td class="num">6</td><td><span class="i">+++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.toml</a></td><td> | </td><td class="num">6</td><td><span class="i">+++</span><span class="d">---</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h2">content/about/bandung-mosh-on-tarintih.jpg</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">content/about/index.md</a></td><td> | </td><td class="num">49</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="D">D</td><td><a href="#h4">content/cv.md</a></td><td> | </td><td class="num">45</td><td><span class="i"></span><span class="d">---------------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">content/uses.md</a></td><td> | </td><td class="num">76</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">-----------------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h6">static/zettelkasten-atext-template.atext</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+</table></pre></div><p>7 files changed, 114 insertions(<span id="plus">+</span>), 68 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/config.dev.toml.html">config.dev.toml</a> b/<a href="../file/config.dev.toml.html">config.dev.toml</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -25,9 +25,9 @@ title = &quot;YBBond&quot;
+</a>     url = &quot;/&quot;
+     weight = 8
+ [[menu.main]]
+<a href="#h0-0-3" id="h0-0-3" class="d">-    identifier = &quot;cv&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-    name = &quot;CV&quot;
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-    url = &quot;/cv&quot;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+    identifier = &quot;about&quot;
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+    name = &quot;About&quot;
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+    url = &quot;/about&quot;
+</a>     weight = 9
+ [[menu.main]]
+     identifier = &quot;uses&quot;
+<b>diff --git a/<a id="h1" href="../file/config.toml.html">config.toml</a> b/<a href="../file/config.toml.html">config.toml</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -25,9 +25,9 @@ title = &quot;YBBond&quot;
+</a>     url = &quot;/&quot;
+     weight = 8
+ [[menu.main]]
+<a href="#h1-0-3" id="h1-0-3" class="d">-    identifier = &quot;cv&quot;
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-    name = &quot;CV&quot;
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-    url = &quot;/cv&quot;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+    identifier = &quot;about&quot;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+    name = &quot;About&quot;
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+    url = &quot;/about&quot;
+</a>     weight = 9
+ [[menu.main]]
+     identifier = &quot;uses&quot;
+<b>diff --git a/<a id="h2" href="../file/content/about/bandung-mosh-on-tarintih.jpg.html">content/about/bandung-mosh-on-tarintih.jpg</a> b/<a href="../file/content/about/bandung-mosh-on-tarintih.jpg.html">content/about/bandung-mosh-on-tarintih.jpg</a></b>
+Binary files differ.
+<b>diff --git a/<a id="h3" href="../file/content/about/index.md.html">content/about/index.md</a> b/<a href="../file/content/about/index.md.html">content/about/index.md</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,49 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+---
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+title: About
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+menu: about
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+description: &quot;Hi, my name is Yohanes Bandung Bondowoso&quot;
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+---
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+People call me **Bandung**.
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+![photo by Soraya Azizah](bandung-mosh-on-tarintih.jpg)
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+You can contact me through hi@ybbond.dev,&lt;br&gt;or through any of my social medias in my [keybase](https://keybase.io/ybbond) or listed in the [footer down below](#down).
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+If you prefer encrypted communication, you can get
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+my PGP key in [txt format](/ybbond-public.txt) or [asc format](/ybbond-public.asc).
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+The fingerprint is:
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+```html
+</a><a href="#h3-0-17" id="h3-0-17" class="i">+56DA ADB1 5246 1C80 6792 DBAB 8477 3B93 9886 81A0
+</a><a href="#h3-0-18" id="h3-0-18" class="i">+```
+</a><a href="#h3-0-19" id="h3-0-19" class="i">+
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+## Quests
+</a><a href="#h3-0-21" id="h3-0-21" class="i">+
+</a><a href="#h3-0-22" id="h3-0-22" class="i">+- &lt;time&gt;2014&lt;/time&gt;&lt;br&gt;**Design Intern** [@X-Graphic](https://www.xg.co.id/)
+</a><a href="#h3-0-23" id="h3-0-23" class="i">+Design operator interacting directly with customer,
+</a><a href="#h3-0-24" id="h3-0-24" class="i">+translating their abstract ideas to ready-to-print material.
+</a><a href="#h3-0-25" id="h3-0-25" class="i">+`Adobe Illustrator` &amp; `Photoshop`, `Sketch`.
+</a><a href="#h3-0-26" id="h3-0-26" class="i">+- &lt;time&gt;2016 - 2018&lt;/time&gt;&lt;br&gt;**Quality Assurance** [@Touchten Games](https://www.touchten.com/)
+</a><a href="#h3-0-27" id="h3-0-27" class="i">+Testing games manually or with automation.
+</a><a href="#h3-0-28" id="h3-0-28" class="i">+I check the performance, fun factor, and framework reliability.
+</a><a href="#h3-0-29" id="h3-0-29" class="i">+- &lt;time&gt;2018 - 2019&lt;/time&gt;&lt;br&gt;**Frontend Engineer** [@Vospay](https://vospay.id/)
+</a><a href="#h3-0-30" id="h3-0-30" class="i">+Created the landing page and maintaining the dashboard.
+</a><a href="#h3-0-31" id="h3-0-31" class="i">+I single-handedly created the native app with `Expo`.
+</a><a href="#h3-0-32" id="h3-0-32" class="i">+I do a lil bit of design too.
+</a><a href="#h3-0-33" id="h3-0-33" class="i">+`React Native Web`, `TypeScript`.
+</a><a href="#h3-0-34" id="h3-0-34" class="i">+- &lt;time&gt;2019 -&lt;/time&gt;&lt;br&gt;**Frontend Engineer** [@kumparan](https://kumparan.com/)
+</a><a href="#h3-0-35" id="h3-0-35" class="i">+My current job. I like it here.
+</a><a href="#h3-0-36" id="h3-0-36" class="i">+`React`, `React Native`, `JavaScript`, `Apollo GraphQL`.
+</a><a href="#h3-0-37" id="h3-0-37" class="i">+
+</a><a href="#h3-0-38" id="h3-0-38" class="i">+## Trivial
+</a><a href="#h3-0-39" id="h3-0-39" class="i">+
+</a><a href="#h3-0-40" id="h3-0-40" class="i">+- Studied CS in Binus, never finish
+</a><a href="#h3-0-41" id="h3-0-41" class="i">+- Drinks coffee
+</a><a href="#h3-0-42" id="h3-0-42" class="i">+- (Neo)Vim user
+</a><a href="#h3-0-43" id="h3-0-43" class="i">+- Loves moshing at indie band gigs
+</a><a href="#h3-0-44" id="h3-0-44" class="i">+- from [Jakarta, Indonesia](https://www.openstreetmap.org/relation/6362934#map=11/-6.1767/106.8290)
+</a><a href="#h3-0-45" id="h3-0-45" class="i">+
+</a><a href="#h3-0-46" id="h3-0-46" class="i">+&lt;br&gt;
+</a><a href="#h3-0-47" id="h3-0-47" class="i">+&lt;br&gt;
+</a><a href="#h3-0-48" id="h3-0-48" class="i">+&lt;span id=&quot;down&quot;&gt;See you sooner :D&lt;/span&gt;
+</a><b>diff --git a/<a id="h4" href="../file/content/cv.md.html">content/cv.md</a> b/<a href="../file/content/cv.md.html">content/cv.md</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -1,45 +0,0 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="d">----
+</a><a href="#h4-0-1" id="h4-0-1" class="d">-title: 
+</a><a href="#h4-0-2" id="h4-0-2" class="d">-menu: cv
+</a><a href="#h4-0-3" id="h4-0-3" class="d">-description: CV
+</a><a href="#h4-0-4" id="h4-0-4" class="d">----
+</a><a href="#h4-0-5" id="h4-0-5" class="d">-
+</a><a href="#h4-0-6" id="h4-0-6" class="d">-You can contact me through hi@ybbond.dev,&lt;br&gt;or through any of my social medias in my [keybase](https://keybase.io/ybbond) or listed in the [footer down below](#down).
+</a><a href="#h4-0-7" id="h4-0-7" class="d">-
+</a><a href="#h4-0-8" id="h4-0-8" class="d">-If you prefer encrypted communication, you can get
+</a><a href="#h4-0-9" id="h4-0-9" class="d">-my PGP key in [txt format](/ybbond-public.txt) or [asc format](/ybbond-public.asc).
+</a><a href="#h4-0-10" id="h4-0-10" class="d">-
+</a><a href="#h4-0-11" id="h4-0-11" class="d">-The fingerprint is:
+</a><a href="#h4-0-12" id="h4-0-12" class="d">-```html
+</a><a href="#h4-0-13" id="h4-0-13" class="d">-56DA ADB1 5246 1C80 6792 DBAB 8477 3B93 9886 81A0
+</a><a href="#h4-0-14" id="h4-0-14" class="d">-```
+</a><a href="#h4-0-15" id="h4-0-15" class="d">-
+</a><a href="#h4-0-16" id="h4-0-16" class="d">-## Quests
+</a><a href="#h4-0-17" id="h4-0-17" class="d">-
+</a><a href="#h4-0-18" id="h4-0-18" class="d">-- &lt;time&gt;2014&lt;/time&gt;&lt;br&gt;**Design Intern** [@X-Graphic](https://www.xg.co.id/)
+</a><a href="#h4-0-19" id="h4-0-19" class="d">-Design operator interacting directly with customer,
+</a><a href="#h4-0-20" id="h4-0-20" class="d">-translating their abstract ideas to ready-to-print material.
+</a><a href="#h4-0-21" id="h4-0-21" class="d">-`Adobe Illustrator` &amp; `Photoshop`, `Sketch`.
+</a><a href="#h4-0-22" id="h4-0-22" class="d">-- &lt;time&gt;2016 - 2018&lt;/time&gt;&lt;br&gt;**Quality Assurance** [@Touchten Games](https://www.touchten.com/)
+</a><a href="#h4-0-23" id="h4-0-23" class="d">-Testing games manually or with automation.
+</a><a href="#h4-0-24" id="h4-0-24" class="d">-I check the performance, fun factor, and framework reliability.
+</a><a href="#h4-0-25" id="h4-0-25" class="d">-- &lt;time&gt;2018 - 2019&lt;/time&gt;&lt;br&gt;**Frontend Engineer** [@Vospay](https://vospay.id/)
+</a><a href="#h4-0-26" id="h4-0-26" class="d">-Created the landing page and maintaining the dashboard.
+</a><a href="#h4-0-27" id="h4-0-27" class="d">-I single-handedly created the native app with `Expo`.
+</a><a href="#h4-0-28" id="h4-0-28" class="d">-I do a lil bit of design too.
+</a><a href="#h4-0-29" id="h4-0-29" class="d">-`React Native Web`, `TypeScript`.
+</a><a href="#h4-0-30" id="h4-0-30" class="d">-- &lt;time&gt;2019 -&lt;/time&gt;&lt;br&gt;**Frontend Engineer** [@kumparan](https://kumparan.com/)
+</a><a href="#h4-0-31" id="h4-0-31" class="d">-My current job. I like it here.
+</a><a href="#h4-0-32" id="h4-0-32" class="d">-`React`, `React Native`, `JavaScript`, `Apollo GraphQL`.
+</a><a href="#h4-0-33" id="h4-0-33" class="d">-
+</a><a href="#h4-0-34" id="h4-0-34" class="d">-## Good to Know
+</a><a href="#h4-0-35" id="h4-0-35" class="d">-
+</a><a href="#h4-0-36" id="h4-0-36" class="d">-- Studied CS in Binus, never finish
+</a><a href="#h4-0-37" id="h4-0-37" class="d">-- Drinks coffee
+</a><a href="#h4-0-38" id="h4-0-38" class="d">-- Vim user
+</a><a href="#h4-0-39" id="h4-0-39" class="d">-- Loves moshing at indie band gigs
+</a><a href="#h4-0-40" id="h4-0-40" class="d">-- from Jakarta, Indonesia
+</a><a href="#h4-0-41" id="h4-0-41" class="d">-
+</a><a href="#h4-0-42" id="h4-0-42" class="d">-&lt;br&gt;
+</a><a href="#h4-0-43" id="h4-0-43" class="d">-&lt;br&gt;
+</a><a href="#h4-0-44" id="h4-0-44" class="d">-&lt;span id=&quot;down&quot;&gt;See you sooner :D&lt;/span&gt;
+</a><b>diff --git a/<a id="h5" href="../file/content/uses.md.html">content/uses.md</a> b/<a href="../file/content/uses.md.html">content/uses.md</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -1,33 +1,74 @@
+</a> ---
+<a href="#h5-0-1" id="h5-0-1" class="d">-title: Hardware and Software I Use
+</a><a href="#h5-0-2" id="h5-0-2" class="d">-menu: cv
+</a><a href="#h5-0-3" id="h5-0-3" class="d">-description: CV
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+title: Uses Page
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+menu: uses
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+description: Hardware and Softaware I Use
+</a> ---
+<a href="#h5-0-8" id="h5-0-8" class="d">-## Platform
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+The stuffs I often use in my life.
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+Some of them accompany my coding life.
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+Some others satisfy my hobbies.
+</a><a href="#h5-0-13" id="h5-0-13" class="i">+
+</a><a href="#h5-0-14" id="h5-0-14" class="i">+## Hardware
+</a><a href="#h5-0-15" id="h5-0-15" class="i">+
+</a><a href="#h5-0-16" id="h5-0-16" class="i">+### Platform
+</a> 
+ - Macbook Pro 2018 13&quot; (Office)
+<a href="#h5-0-19" id="h5-0-19" class="d">-- Macbook White Unibody mid 2010 (Experiments) [notes](/notes/#date-2020-05-08-0412)
+</a><a href="#h5-0-20" id="h5-0-20" class="i">+- Macbook White Unibody mid 2010 (Experiments) [my note][mbwhite]
+</a> - Low End PC with Manjaro Linux XFCE (Home)
+ - iPad Mini 5
+ 
+<a href="#h5-0-24" id="h5-0-24" class="d">-## Hardware
+</a><a href="#h5-0-25" id="h5-0-25" class="i">+### Peripheral
+</a><a href="#h5-0-26" id="h5-0-26" class="i">+
+</a><a href="#h5-0-27" id="h5-0-27" class="i">+- Ducky One 2 Mini Keyboard [gif image][ducky]
+</a><a href="#h5-0-28" id="h5-0-28" class="i">+- NuPhy NuType F1 Keyboard [my review post][nuphy]
+</a><a href="#h5-0-29" id="h5-0-29" class="i">+- Roland FP-30
+</a><a href="#h5-0-30" id="h5-0-30" class="i">+- Guitars. Many of them.
+</a> 
+<a href="#h5-0-32" id="h5-0-32" class="d">-- Ducky One 2 Mini Keyboard [image](https://twitter.com/ybbond_/status/1146845120618090497)
+</a><a href="#h5-0-33" id="h5-0-33" class="d">-- NuPhy NuType F1 Keyboard [review](/posts/2020-04-nuphy-nutype-f1-keyboard-review/)
+</a><a href="#h5-0-34" id="h5-0-34" class="i">+---
+</a> 
+ ## Software
+ 
+ ### Development
+ 
+<a href="#h5-0-40" id="h5-0-40" class="d">-- NeoVim [image](https://twitter.com/ybbond_/status/1162210601340305409) [settings](https://gist.github.com/ybbond/16ee5000eeca727899eac43a4c20291c) 
+</a><a href="#h5-0-41" id="h5-0-41" class="d">-- tmux on kitty [settings](https://gist.github.com/ybbond/26165e50f36a439b6b930607976a1e82)
+</a><a href="#h5-0-42" id="h5-0-42" class="d">-- ZShell (zsh) [settings](https://gist.github.com/ybbond/e6f827f977248b5d9eda8e1c49da82e9)
+</a><a href="#h5-0-43" id="h5-0-43" class="d">-- [Ranger](https://github.com/ranger/ranger) File Manager
+</a><a href="#h5-0-44" id="h5-0-44" class="d">-- [lazygit](https://github.com/jesseduffield/lazygit)
+</a><a href="#h5-0-45" id="h5-0-45" class="i">+- **Neovim** [init.vim][nvim] 
+</a><a href="#h5-0-46" id="h5-0-46" class="i">+- **Z Shell** (zsh) [.zshrc][zshrc]
+</a><a href="#h5-0-47" id="h5-0-47" class="i">+  &lt;small&gt;now macOS use this as default shell.&lt;/small&gt;
+</a><a href="#h5-0-48" id="h5-0-48" class="i">+- **tmux** on **kitty** [tmux.conf][tmux], [kitty.conf][kitty]
+</a><a href="#h5-0-49" id="h5-0-49" class="i">+- **nnn**, n³ The missing terminal file manager for X.
+</a><a href="#h5-0-50" id="h5-0-50" class="i">+- **lazygit** [my post][lazygit]
+</a> 
+ ### Daily
+ 
+<a href="#h5-0-54" id="h5-0-54" class="d">-- Canary mail
+</a><a href="#h5-0-55" id="h5-0-55" class="d">-- [BusyCal](https://www.busymac.com/busycal/)
+</a><a href="#h5-0-56" id="h5-0-56" class="d">-- iA Writer [post](/posts/2020-04-in-search-of-good-writing-app-part-2-ia-writer-vs-ivim/)
+</a><a href="#h5-0-57" id="h5-0-57" class="d">-- [Reeder 4](https://reederapp.com/)
+</a><a href="#h5-0-58" id="h5-0-58" class="i">+- ~~Canary mail~~ Apple&#39;s **Mail.app** with 
+</a><a href="#h5-0-59" id="h5-0-59" class="i">+  » **iPGMail** (iOS)
+</a><a href="#h5-0-60" id="h5-0-60" class="i">+  » **GPG Mail** extension (Mac)
+</a><a href="#h5-0-61" id="h5-0-61" class="i">+- **2Do App**
+</a><a href="#h5-0-62" id="h5-0-62" class="i">+- **Reeder 4**
+</a><a href="#h5-0-63" id="h5-0-63" class="i">+  &lt;small&gt;beautiful and gesture-based RSS Reader.&lt;/small&gt;
+</a><a href="#h5-0-64" id="h5-0-64" class="i">+- **BusyCal**
+</a><a href="#h5-0-65" id="h5-0-65" class="i">+
+</a><a href="#h5-0-66" id="h5-0-66" class="i">+### Zettelkasten
+</a><a href="#h5-0-67" id="h5-0-67" class="i">+
+</a><a href="#h5-0-68" id="h5-0-68" class="i">+I use [zettelkasten](https://zettelkasten.de/) paradigm for my knowledge base and note-taking.
+</a><a href="#h5-0-69" id="h5-0-69" class="i">+
+</a><a href="#h5-0-70" id="h5-0-70" class="i">+- **FSNotes** [screencast][video]
+</a><a href="#h5-0-71" id="h5-0-71" class="i">+  &lt;small&gt;a very good note taking app.
+</a><a href="#h5-0-72" id="h5-0-72" class="i">+  if you are familiar with nvALT, FSNotes feels much better.&lt;/small&gt;
+</a><a href="#h5-0-73" id="h5-0-73" class="i">+- **aText**
+</a><a href="#h5-0-74" id="h5-0-74" class="i">+  &lt;small&gt;alternative to TextExpander that is single purchase.
+</a><a href="#h5-0-75" id="h5-0-75" class="i">+  my template to make Zettelkasten [is here](/zettelkasten-atext-template.atext).&lt;/small&gt;
+</a><a href="#h5-0-76" id="h5-0-76" class="i">+- **iA Writer** [my post about it][iawriter]
+</a><a href="#h5-0-77" id="h5-0-77" class="i">+  I write my Hugo post mostly with this app.
+</a><a href="#h5-0-78" id="h5-0-78" class="i">+
+</a><a href="#h5-0-79" id="h5-0-79" class="i">+[mbwhite]: /notes/#date-2020-05-08-0412
+</a><a href="#h5-0-80" id="h5-0-80" class="i">+[iawriter]: /posts/2020-04-in-search-of-good-writing-app-part-2-ia-writer-vs-ivim/
+</a><a href="#h5-0-81" id="h5-0-81" class="i">+[lazygit]: /posts/2020-05-remove-specific-files-from-old-git-commit/#lazygit-way
+</a><a href="#h5-0-82" id="h5-0-82" class="i">+[nuphy]: /posts/2020-04-nuphy-nutype-f1-keyboard-review/
+</a><a href="#h5-0-83" id="h5-0-83" class="i">+
+</a><a href="#h5-0-84" id="h5-0-84" class="i">+[ducky]: https://twitter.com/ybbond_/status/1146845120618090497
+</a><a href="#h5-0-85" id="h5-0-85" class="i">+[video]: https://twitter.com/ybbond_/status/1262066984763527168
+</a><a href="#h5-0-86" id="h5-0-86" class="i">+
+</a><a href="#h5-0-87" id="h5-0-87" class="i">+[kitty]: https://git.ybbond.dev/dotfiles/file/.config/kitty/kitty.conf.html
+</a><a href="#h5-0-88" id="h5-0-88" class="i">+[nvim]: https://git.ybbond.dev/dotfiles/file/.config/nvim/init.vim.html
+</a><a href="#h5-0-89" id="h5-0-89" class="i">+[tmux]: https://git.ybbond.dev/dotfiles/file/.tmux.conf.html
+</a><a href="#h5-0-90" id="h5-0-90" class="i">+[zshrc]: https://git.ybbond.dev/dotfiles/file/.zshrc.html </a><a href="#h5-0-91" id="h5-0-91" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h6" href="../file/static/zettelkasten-atext-template.atext.html">static/zettelkasten-atext-template.atext</a> b/<a href="../file/static/zettelkasten-atext-template.atext.html">static/zettelkasten-atext-template.atext</a></b>
+Binary files differ.
+</pre>
+</div>
+</div>
+</body>
+</html>

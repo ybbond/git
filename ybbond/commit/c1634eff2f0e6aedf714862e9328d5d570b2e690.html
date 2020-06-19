@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>style: improved code and codeblock color - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/c1634eff2f0e6aedf714862e9328d5d570b2e690.html">c1634eff2f0e6aedf714862e9328d5d570b2e690</a>
+<b>parent</b> <a href="../commit/974d019e8eec46e70bf3f69680759a7150de3c8c.html">974d019e8eec46e70bf3f69680759a7150de3c8c</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Fri,  1 May 2020 20:52:05 +0700
+
+style: improved code and codeblock color
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.scss</a></td><td> | </td><td class="num">19</td><td><span class="i">++++++++++++</span><span class="d">-------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">content/posts/Why I Positioned Sidebar to the Right.md</a></td><td> | </td><td class="num">6</td><td><span class="i">++++</span><span class="d">--</span></td></tr>
+</table></pre></div><p>2 files changed, 16 insertions(<span id="plus">+</span>), 9 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -23,8 +23,10 @@
+</a>     padding: 0.1em;
+     font-family: $font-mono;
+     font-size: 0.9em;
+<a href="#h0-0-3" id="h0-0-3" class="i">+  }
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  :not(pre) &gt; code {
+</a>     @include themify($themes) {
+<a href="#h0-0-6" id="h0-0-6" class="d">-     background-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+      background-color: themed(&#39;color-background-hover&#39;);
+</a>     }
+   }
+   table {
+<a href="#h0-1" id="h0-1" class="h">@@ -32,23 +34,26 @@
+</a>     overflow-x: auto;
+     border-collapse: collapse;
+     td, th {
+<a href="#h0-1-3" id="h0-1-3" class="d">-      border: 1px solid #ddd;
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+      border: 1px solid;
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+      @include themify($themes) {
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+        border-color: themed(&#39;color-text&#39;);
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+      }
+</a>     }
+     td {
+       padding: 0.5em 1em;
+     }
+     th {
+       padding: 1em 2em;
+<a href="#h0-1-14" id="h0-1-14" class="d">-      background-color: #333;
+</a>       @include themify($themes) {
+<a href="#h0-1-16" id="h0-1-16" class="i">+        background-color: themed(&#39;color-background-hover&#39;);
+</a>         color: themed(&#39;color-text&#39;);
+       }
+     }
+     tr:nth-child(even) {
+<a href="#h0-1-21" id="h0-1-21" class="d">-      background-color: #333;
+</a><a href="#h0-1-22" id="h0-1-22" class="d">-    }
+</a><a href="#h0-1-23" id="h0-1-23" class="d">-    tr:hover {
+</a><a href="#h0-1-24" id="h0-1-24" class="d">-      background-color: #303030;
+</a><a href="#h0-1-25" id="h0-1-25" class="i">+      @include themify($themes) {
+</a><a href="#h0-1-26" id="h0-1-26" class="i">+        background-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h0-1-27" id="h0-1-27" class="i">+        color: themed(&#39;color-text&#39;);
+</a><a href="#h0-1-28" id="h0-1-28" class="i">+      }
+</a>     }
+   }
+   ul {
+<b>diff --git a/<a id="h1" href="../file/content/posts/Why I Positioned Sidebar to the Right.md.html">content/posts/Why I Positioned Sidebar to the Right.md</a> b/<a href="../file/content/posts/Why I Positioned Sidebar to the Right.md.html">content/posts/Why I Positioned Sidebar to the Right.md</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -9,9 +9,11 @@ tags:
+</a> 
+ A few minutes ago, I opened twitter and scrolled the timeline. 
+ 
+<a href="#h1-0-3" id="h1-0-3" class="d">-[[twitter link/ image]]
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+{{&lt; tweet 1254492579275526145 &gt;}}
+</a> 
+<a href="#h1-0-6" id="h1-0-6" class="d">-I `laughed when I read that tweet`. It brings back so much memories of my previous workplace.
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+I laughed when I read that tweet. It brings back so much memories of my previous workplace. He mentioned the wrong account tho[^1].
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+[^1]: My current twitter is [@bandungpenting](https://twitter.com/bandungpenting). I created that because my former account got banned because I made it when I was in junior high school 🤪
+</a> 
+ Positioning the sidebar to the right reduces distraction when I toggle it. If the sidebar is on the left, the text shifts around whenever the sidebar is toggled on or off. Readjusting my eyes for the moved text creates disturbance to my logical thinking. &quot;Why are you not just leave the sidebar open?&quot;, you might be asking. I want to keep the screen real estate wide.
+ 
+</pre>
+</div>
+</div>
+</body>
+</html>

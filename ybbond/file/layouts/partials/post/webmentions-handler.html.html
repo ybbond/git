@@ -20,14 +20,14 @@
 <a href="#l2" class="line" id="l2">      2</a>   &lt;hr class=&quot;wm-hr&quot;&gt;
 <a href="#l3" class="line" id="l3">      3</a>   &lt;div class=&quot;wm-div&quot;&gt;
 <a href="#l4" class="line" id="l4">      4</a>     {{- with where . &quot;wm-property&quot; &quot;in&quot; (slice &quot;like-of&quot; &quot;repost-of&quot; &quot;bookmark-of&quot; &quot;rsvp&quot; &quot;in-reply-to&quot; &quot;mention-of&quot;) }}
-<a href="#l5" class="line" id="l5">      5</a>       &lt;h4 class=&quot;wm-title&quot;&gt;
+<a href="#l5" class="line" id="l5">      5</a>       &lt;h3 class=&quot;wm-title&quot;&gt;
 <a href="#l6" class="line" id="l6">      6</a>         Webmentions &lt;a
 <a href="#l7" class="line" id="l7">      7</a>           href=&quot;https://indieweb.org/Webmention&quot;
 <a href="#l8" class="line" id="l8">      8</a>           rel=&quot;noopenner noreferrer&quot;
 <a href="#l9" class="line" id="l9">      9</a>           target=&quot;_blank&quot;
 <a href="#l10" class="line" id="l10">     10</a>           class=&quot;no-outline&quot;
 <a href="#l11" class="line" id="l11">     11</a>         &gt;?&lt;/a&gt;:
-<a href="#l12" class="line" id="l12">     12</a>       &lt;/h4&gt;
+<a href="#l12" class="line" id="l12">     12</a>       &lt;/h3&gt;
 <a href="#l13" class="line" id="l13">     13</a>     {{- end }}
 <a href="#l14" class="line" id="l14">     14</a> 
 <a href="#l15" class="line" id="l15">     15</a>     {{ with where . &quot;wm-property&quot; &quot;in&quot; (slice &quot;repost-of&quot; &quot;bookmark-of&quot; &quot;rsvp&quot;) -}}

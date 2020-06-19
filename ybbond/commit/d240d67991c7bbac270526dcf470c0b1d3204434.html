@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>content: add responses section - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/d240d67991c7bbac270526dcf470c0b1d3204434.html">d240d67991c7bbac270526dcf470c0b1d3204434</a>
+<b>parent</b> <a href="../commit/0b4b75e688cad287e5e3ca8149494bba56ccb5c8.html">0b4b75e688cad287e5e3ca8149494bba56ccb5c8</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Fri, 19 Jun 2020 23:23:18 +0700
+
+content: add responses section
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.scss</a></td><td> | </td><td class="num">51</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++</span><span class="d">------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">assets/styles.scss</a></td><td> | </td><td class="num">3</td><td><span class="i">+++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">content/contact.md</a></td><td> | </td><td class="num">9</td><td><span class="i">+++++</span><span class="d">----</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">content/responses/_index.md</a></td><td> | </td><td class="num">6</td><td><span class="i">++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h4">content/responses/response-20200619212819.md</a></td><td> | </td><td class="num">21</td><td><span class="i">+++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">layouts/_default/list.html</a></td><td> | </td><td class="num">6</td><td><span class="i">+++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">layouts/_default/single.html</a></td><td> | </td><td class="num">7</td><td><span class="i">++++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h7">layouts/partials/post/notes-item.html</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h8">layouts/partials/post/responses-item.html</a></td><td> | </td><td class="num">42</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h9">layouts/responses/rss.xml</a></td><td> | </td><td class="num">43</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>10 files changed, 172 insertions(<span id="plus">+</span>), 20 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -5,10 +5,14 @@
+</a>   @return map-get($theme-map, $key);
+ }
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-.content, .notes {
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+.content {
+</a>   font-family: $font-text;
+   width: 100%;
+ 
+<a href="#h0-0-8" id="h0-0-8" class="i">+  &amp;__hr {
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+    margin: 4em 0 0;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+  }
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+
+</a>   .headline-hash {
+     padding: 0 0.2em;
+     @media(min-width: 600px) {
+<a href="#h0-1" id="h0-1" class="h">@@ -134,14 +138,14 @@
+</a> }
+ 
+ .notes {
+<a href="#h0-1-3" id="h0-1-3" class="d">-  margin-bottom: 2em;
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+  margin-bottom: 2rem;
+</a> 
+   &amp; &gt; div, &amp; &gt; p {
+     margin: 0;
+<a href="#h0-1-8" id="h0-1-8" class="d">-    margin-top: 0.7em;
+</a><a href="#h0-1-9" id="h0-1-9" class="i">+    margin-top: 0.7rem;
+</a>     &amp; &gt; p {
+       margin: 0;
+<a href="#h0-1-12" id="h0-1-12" class="d">-      margin-top: 0.7em;
+</a><a href="#h0-1-13" id="h0-1-13" class="i">+      margin-top: 0.7rem;
+</a>     }
+   }
+ 
+<a href="#h0-2" id="h0-2" class="h">@@ -159,6 +163,18 @@
+</a>     }
+   }
+ 
+<a href="#h0-2-3" id="h0-2-3" class="i">+  &amp;:target {
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+    outline: solid 0.2em;
+</a><a href="#h0-2-5" id="h0-2-5" class="i">+    outline-offset: 0.6em;
+</a><a href="#h0-2-6" id="h0-2-6" class="i">+    @include themify($themes) {
+</a><a href="#h0-2-7" id="h0-2-7" class="i">+      outline-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h0-2-8" id="h0-2-8" class="i">+    }
+</a><a href="#h0-2-9" id="h0-2-9" class="i">+    @media (max-width: 599px) {
+</a><a href="#h0-2-10" id="h0-2-10" class="i">+      outline: solid 0.3em;
+</a><a href="#h0-2-11" id="h0-2-11" class="i">+      outline-offset: 0.5em;
+</a><a href="#h0-2-12" id="h0-2-12" class="i">+    }
+</a><a href="#h0-2-13" id="h0-2-13" class="i">+  }
+</a><a href="#h0-2-14" id="h0-2-14" class="i">+
+</a>   @media (max-width: 599px) {
+     &amp;__title {
+       margin: 10px 0 0;
+<a href="#h0-3" id="h0-3" class="h">@@ -169,24 +185,35 @@
+</a>       flex-direction: column;
+     }
+   }
+<a href="#h0-3-3" id="h0-3-3" class="i">+}
+</a><a href="#h0-3-4" id="h0-3-4" class="i">+
+</a><a href="#h0-3-5" id="h0-3-5" class="i">+.responses {
+</a><a href="#h0-3-6" id="h0-3-6" class="i">+  margin-bottom: 3rem;
+</a><a href="#h0-3-7" id="h0-3-7" class="i">+
+</a><a href="#h0-3-8" id="h0-3-8" class="i">+  h1 {
+</a><a href="#h0-3-9" id="h0-3-9" class="i">+    margin-bottom: 0;
+</a><a href="#h0-3-10" id="h0-3-10" class="i">+  }
+</a><a href="#h0-3-11" id="h0-3-11" class="i">+
+</a><a href="#h0-3-12" id="h0-3-12" class="i">+  &amp;__subtitle {
+</a><a href="#h0-3-13" id="h0-3-13" class="i">+    margin: 0;
+</a><a href="#h0-3-14" id="h0-3-14" class="i">+    a {
+</a><a href="#h0-3-15" id="h0-3-15" class="i">+      font-family: $font-mono;
+</a><a href="#h0-3-16" id="h0-3-16" class="i">+    }
+</a><a href="#h0-3-17" id="h0-3-17" class="i">+  }
+</a> 
+   &amp;:target {
+<a href="#h0-3-20" id="h0-3-20" class="d">-    outline: solid 0.2em;
+</a><a href="#h0-3-21" id="h0-3-21" class="d">-    outline-offset: 0.6em;
+</a><a href="#h0-3-22" id="h0-3-22" class="i">+    outline: solid 0.2rem;
+</a><a href="#h0-3-23" id="h0-3-23" class="i">+    outline-offset: 1.3rem;
+</a>     @include themify($themes) {
+       outline-color: themed(&#39;color-background-hover&#39;);
+     }
+     @media (max-width: 599px) {
+<a href="#h0-3-28" id="h0-3-28" class="d">-      outline: solid 0.3em;
+</a><a href="#h0-3-29" id="h0-3-29" class="d">-      outline-offset: 0.5em;
+</a><a href="#h0-3-30" id="h0-3-30" class="i">+      outline: solid 0.3rem;
+</a><a href="#h0-3-31" id="h0-3-31" class="i">+      outline-offset: 1.2rem 0.8rem;
+</a>     }
+   }
+ }
+ 
+<a href="#h0-3-36" id="h0-3-36" class="d">-.content__hr {
+</a><a href="#h0-3-37" id="h0-3-37" class="d">-  margin: 4em 0 0;
+</a><a href="#h0-3-38" id="h0-3-38" class="d">-}
+</a><a href="#h0-3-39" id="h0-3-39" class="d">-
+</a> .image-figure {
+   margin-top: 1.5rem;
+   margin-bottom: 1.5rem;
+<b>diff --git a/<a id="h1" href="../file/assets/styles.scss.html">assets/styles.scss</a> b/<a href="../file/assets/styles.scss.html">assets/styles.scss</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -59,6 +59,9 @@ hr {
+</a>   @include themify($themes) {
+     border-top: 1px solid themed(&#39;color-text&#39;);
+   }
+<a href="#h1-0-3" id="h1-0-3" class="i">+  &amp;.list__subtitle {
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+    margin-bottom: 2rem;
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+  }
+</a> }
+ 
+ code {
+<b>diff --git a/<a id="h2" href="../file/content/contact.md.html">content/contact.md</a> b/<a href="../file/content/contact.md.html">content/contact.md</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -4,13 +4,15 @@ menu: contact
+</a> description: Ways to get in touch with me
+ ---
+ 
+<a href="#h2-0-3" id="h2-0-3" class="d">-You can through any of my social medias on my [keybase](https://keybase.io/ybbond) or listed in the footer down below.
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+You can contact me through any of my social medias on my [keybase](https://keybase.io/ybbond) or listed in the footer down below ↓.
+</a> 
+ I check my email on hi@ybbond.dev regularly, and set custom notification sound for it.
+ 
+<a href="#h2-0-8" id="h2-0-8" class="d">-If you prefer encrypted communication, you can get my PGP key in [txt format](/ybbond-public.txt) or [asc format](/ybbond-public.asc). The fingerprint is:
+</a><a href="#h2-0-9" id="h2-0-9" class="i">+If you prefer encrypted email, you can get my PGP key in [txt format](/ybbond-public.txt) or [asc format](/ybbond-public.asc). The fingerprint is:
+</a> ```html
+ 56DA ADB1 5246 1C80 6792 DBAB 8477 3B93 9886 81A0
+ ```
+ 
+<a href="#h2-0-14" id="h2-0-14" class="d">-If you&#39;d rather XMPP than other alternatives, please chat [ybbond@404.city](xmpp:ybbond@404.city).</a><a href="#h2-0-15" id="h2-0-15" class="d">-
+\ No newline at end of file
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+If you&#39;d rather use encrypted chat than encrypted email:
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+- XMPP [ybbond@tchncs.de](xmpp:ybbond@tchncs.de)
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+- Matrix **@ybbond:tchncs.de**
+</a><b>diff --git a/<a id="h3" href="../file/content/responses/_index.md.html">content/responses/_index.md</a> b/<a href="../file/content/responses/_index.md.html">content/responses/_index.md</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,6 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+---
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+title: My Responses to...
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+---
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+Listed are my responses for posts made by others.
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+Synced with this [RSS](/responses/index.xml).
+</a><b>diff --git a/<a id="h4" href="../file/content/responses/response-20200619212819.md.html">content/responses/response-20200619212819.md</a> b/<a href="../file/content/responses/response-20200619212819.md.html">content/responses/response-20200619212819.md</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -0,0 +1,20 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="i">+---
+</a><a href="#h4-0-1" id="h4-0-1" class="i">+tags:
+</a><a href="#h4-0-2" id="h4-0-2" class="i">+  - responses #responses
+</a><a href="#h4-0-3" id="h4-0-3" class="i">+date: 2020-06-19T21:28:19+0700
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+ID: 20200619212819
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+type: responses
+</a><a href="#h4-0-6" id="h4-0-6" class="i">+destination:
+</a><a href="#h4-0-7" id="h4-0-7" class="i">+  title: About Password
+</a><a href="#h4-0-8" id="h4-0-8" class="i">+  author: Ali Reza Hayati
+</a><a href="#h4-0-9" id="h4-0-9" class="i">+  url: https://alirezahayati.com/2020/06/about-passwords/
+</a><a href="#h4-0-10" id="h4-0-10" class="i">+---
+</a><a href="#h4-0-11" id="h4-0-11" class="i">+
+</a><a href="#h4-0-12" id="h4-0-12" class="i">+Nice article!
+</a><a href="#h4-0-13" id="h4-0-13" class="i">+
+</a><a href="#h4-0-14" id="h4-0-14" class="i">+Ever since Tokopedia&#39;s user credentials got acquired by actor, I use password manager[^1], store a bit longer password than I usually use, and make them all different with a formatting that is different by many factors. I also use 2FA app[^2] if possible.
+</a><a href="#h4-0-15" id="h4-0-15" class="i">+
+</a><a href="#h4-0-16" id="h4-0-16" class="i">+The next step I use is quitting Google step-by-step. First mail provider, then I try to find other alternatives
+</a><a href="#h4-0-17" id="h4-0-17" class="i">+
+</a><a href="#h4-0-18" id="h4-0-18" class="i">+[^1]: Bitwarden
+</a><a href="#h4-0-19" id="h4-0-19" class="i">+[^2]: Authy</a><a href="#h4-0-20" id="h4-0-20" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h5" href="../file/layouts/_default/list.html.html">layouts/_default/list.html</a> b/<a href="../file/layouts/_default/list.html.html">layouts/_default/list.html</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -25,13 +25,17 @@
+</a>       {{ end }}
+       {{ with .Content }}&lt;div&gt;{{ . }}&lt;/div&gt;{{ end }}
+     &lt;/div&gt;
+<a href="#h5-0-3" id="h5-0-3" class="d">-    &lt;hr&gt;
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+    &lt;hr class=&quot;list__subtitle&quot;&gt;
+</a>   {{ end }}
+ 
+   {{ if  eq .Type &quot;notes&quot; }}
+     {{ range (where .Site.RegularPages &quot;Type&quot; &quot;notes&quot;) }}
+       {{ partial &quot;post/notes-item.html&quot; . }}
+     {{ end }}
+<a href="#h5-0-11" id="h5-0-11" class="i">+  {{ else if  eq .Type &quot;responses&quot; }}
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+    {{ range (where .Site.RegularPages &quot;Type&quot; &quot;responses&quot;) }}
+</a><a href="#h5-0-13" id="h5-0-13" class="i">+      {{ partial &quot;post/responses-item.html&quot; . }}
+</a><a href="#h5-0-14" id="h5-0-14" class="i">+    {{ end }}
+</a>   {{ else }}
+     {{ range .Paginator.Pages }}
+       {{ partial &quot;post/summary.html&quot; . }}
+<b>diff --git a/<a id="h6" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -4,6 +4,11 @@
+</a>       {{- partial &quot;post/notes-item.html&quot; . -}}
+       {{ partial &quot;post/webmentions-handler.html&quot; . }}
+     &lt;/article&gt;
+<a href="#h6-0-3" id="h6-0-3" class="i">+  {{ else if eq .Type &quot;responses&quot; }}
+</a><a href="#h6-0-4" id="h6-0-4" class="i">+    &lt;article&gt;
+</a><a href="#h6-0-5" id="h6-0-5" class="i">+      {{- partial &quot;post/responses-item.html&quot; . -}}
+</a><a href="#h6-0-6" id="h6-0-6" class="i">+      {{ partial &quot;post/webmentions-handler.html&quot; . }}
+</a><a href="#h6-0-7" id="h6-0-7" class="i">+    &lt;/article&gt;
+</a>   {{ else }}
+     &lt;article class=&quot;content h-entry&quot;&gt;
+       &lt;h1 class=&quot;p-name&quot;&gt;{{ .Title }}&lt;/h1&gt;
+<a href="#h6-1" id="h6-1" class="h">@@ -19,7 +24,7 @@
+</a>           {{ end }}
+         {{ end }}
+       &lt;/div&gt;
+<a href="#h6-1-3" id="h6-1-3" class="d">-      &lt;div class=&quot;e-content&quot;&gt;
+</a><a href="#h6-1-4" id="h6-1-4" class="i">+      &lt;div class=&quot;p-content e-content&quot;&gt;
+</a>         {{ partial &quot;components/content.html&quot; .Content }}
+       &lt;/div&gt;
+ 
+<b>diff --git a/<a id="h7" href="../file/layouts/partials/post/notes-item.html.html">layouts/partials/post/notes-item.html</a> b/<a href="../file/layouts/partials/post/notes-item.html.html">layouts/partials/post/notes-item.html</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -1,6 +1,6 @@
+</a> {{ $dateformat := .Date.Format &quot;2006-01-02 15:04&quot; }}
+ {{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
+<a href="#h7-0-2" id="h7-0-2" class="d">-&lt;div class=&quot;notes h-entry&quot; id={{ $idslug }}&gt;
+</a><a href="#h7-0-3" id="h7-0-3" class="i">+&lt;div class=&quot;content notes h-entry&quot; id={{ $idslug }}&gt;
+</a>   &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+     {{ $permalink := .Permalink }}
+     {{ $title := .Title }}
+<a href="#h7-1" id="h7-1" class="h">@@ -30,7 +30,7 @@
+</a>         {{ end }}
+     &lt;/span&gt;
+   &lt;/p&gt;
+<a href="#h7-1-3" id="h7-1-3" class="d">-  &lt;div class=&quot;notes__content e-content p-name&quot;&gt;
+</a><a href="#h7-1-4" id="h7-1-4" class="i">+  &lt;div class=&quot;notes__content e-content p-content p-name&quot;&gt;
+</a>     {{ .Content }}
+   &lt;/div&gt;
+ &lt;/div&gt; 
+\ No newline at end of file
+<b>diff --git a/<a id="h8" href="../file/layouts/partials/post/responses-item.html.html">layouts/partials/post/responses-item.html</a> b/<a href="../file/layouts/partials/post/responses-item.html.html">layouts/partials/post/responses-item.html</a></b>
+<a href="#h8-0" id="h8-0" class="h">@@ -0,0 +1,41 @@
+</a><a href="#h8-0-0" id="h8-0-0" class="i">+{{ $dateformat := .Date.Format &quot;2006-01-02 15:04&quot; }}
+</a><a href="#h8-0-1" id="h8-0-1" class="i">+{{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
+</a><a href="#h8-0-2" id="h8-0-2" class="i">+{{ $author := &quot;&quot;}}
+</a><a href="#h8-0-3" id="h8-0-3" class="i">+{{ if isset .Params.Destination &quot;author&quot; }}
+</a><a href="#h8-0-4" id="h8-0-4" class="i">+  {{ $author = print &quot; by «&quot; .Params.Destination.Author &quot;»&quot; }}
+</a><a href="#h8-0-5" id="h8-0-5" class="i">+{{ end }}
+</a><a href="#h8-0-6" id="h8-0-6" class="i">+{{ $title := print &quot;In response to &quot; &quot;«&quot; .Params.Destination.Title &quot;»&quot; $author }}
+</a><a href="#h8-0-7" id="h8-0-7" class="i">+&lt;div class=&quot;content responses h-entry&quot; id={{ $idslug }}&gt;
+</a><a href="#h8-0-8" id="h8-0-8" class="i">+  &lt;h1 class=&quot;p-name&quot;&gt;{{ $title }}&lt;/h1&gt;
+</a><a href="#h8-0-9" id="h8-0-9" class="i">+  &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+</a><a href="#h8-0-10" id="h8-0-10" class="i">+    {{ $permalink := .Permalink }}
+</a><a href="#h8-0-11" id="h8-0-11" class="i">+    {{ $title := .Title }}
+</a><a href="#h8-0-12" id="h8-0-12" class="i">+    {{ with .Params.Image.Src }}
+</a><a href="#h8-0-13" id="h8-0-13" class="i">+      {{ $filename := . | safeURL }}
+</a><a href="#h8-0-14" id="h8-0-14" class="i">+      {{ $original := printf &quot;%s%s&quot; $permalink $filename }}
+</a><a href="#h8-0-15" id="h8-0-15" class="i">+      &lt;img class=&quot;u-photo&quot; hidden=&quot;&quot; src={{ $original }} alt=&quot;Illustration of {{ $title }}&quot; /&gt;
+</a><a href="#h8-0-16" id="h8-0-16" class="i">+    {{ end }}
+</a><a href="#h8-0-17" id="h8-0-17" class="i">+    &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+</a><a href="#h8-0-18" id="h8-0-18" class="i">+    &lt;br&gt;
+</a><a href="#h8-0-19" id="h8-0-19" class="i">+    &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+</a><a href="#h8-0-20" id="h8-0-20" class="i">+    &lt;br&gt;
+</a><a href="#h8-0-21" id="h8-0-21" class="i">+    &lt;a rel=&quot;syndication&quot; class=&quot;u-syndication&quot; href={{ .Permalink }}&gt;{{ .Title }}&lt;/a&gt;
+</a><a href="#h8-0-22" id="h8-0-22" class="i">+    &lt;br&gt;
+</a><a href="#h8-0-23" id="h8-0-23" class="i">+    &lt;span class=&quot;p-locality&quot;&gt;Jakarta&lt;/span&gt;, &lt;span class=&quot;p-country-name&quot;&gt;Indonesia&lt;/span&gt;
+</a><a href="#h8-0-24" id="h8-0-24" class="i">+    &lt;br&gt;
+</a><a href="#h8-0-25" id="h8-0-25" class="i">+    &lt;a class=&quot;p-category&quot; href={{ &quot;responses/&quot; | absURL }}&gt;responses&lt;/a&gt;
+</a><a href="#h8-0-26" id="h8-0-26" class="i">+  &lt;/div&gt;
+</a><a href="#h8-0-27" id="h8-0-27" class="i">+  &lt;p class=&quot;responses__subtitle&quot;&gt;
+</a><a href="#h8-0-28" id="h8-0-28" class="i">+    &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot; class=&quot;responses__subtitle__date dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;
+</a><a href="#h8-0-29" id="h8-0-29" class="i">+      {{ .Date.Format &quot;02 Jan 2006&quot; }}
+</a><a href="#h8-0-30" id="h8-0-30" class="i">+    &lt;/time&gt;
+</a><a href="#h8-0-31" id="h8-0-31" class="i">+    {{ if .Title }}
+</a><a href="#h8-0-32" id="h8-0-32" class="i">+    {{ else }}
+</a><a href="#h8-0-33" id="h8-0-33" class="i">+      &lt;a data-goatcounter-click=&quot;cl-response-hash&quot; class=&quot;u-url&quot; href=&quot;/responses/#{{ $idslug }}&quot;&gt;#&lt;/a&gt; &lt;a data-goatcounter-click=&quot;cl-response-full&quot; href={{ .Permalink }}&gt;»&lt;/a&gt;
+</a><a href="#h8-0-34" id="h8-0-34" class="i">+    {{ end }}
+</a><a href="#h8-0-35" id="h8-0-35" class="i">+  &lt;/p&gt;
+</a><a href="#h8-0-36" id="h8-0-36" class="i">+  &lt;p class=&quot;responses__original&quot;&gt;&lt;a class=&quot;u-in-reply-to&quot; href={{ .Params.Destination.Url }}&gt;»Link to responded post«&lt;/a&gt;&lt;/p&gt;
+</a><a href="#h8-0-37" id="h8-0-37" class="i">+  &lt;div class=&quot;responses__content e-content p-content&quot;&gt;
+</a><a href="#h8-0-38" id="h8-0-38" class="i">+    {{ partial &quot;components/content.html&quot; .Content }}
+</a><a href="#h8-0-39" id="h8-0-39" class="i">+  &lt;/div&gt;
+</a><a href="#h8-0-40" id="h8-0-40" class="i">+&lt;/div&gt;</a><a href="#h8-0-41" id="h8-0-41" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h9" href="../file/layouts/responses/rss.xml.html">layouts/responses/rss.xml</a> b/<a href="../file/layouts/responses/rss.xml.html">layouts/responses/rss.xml</a></b>
+<a href="#h9-0" id="h9-0" class="h">@@ -0,0 +1,43 @@
+</a><a href="#h9-0-0" id="h9-0-0" class="i">+{{- $pctx := . -}}
+</a><a href="#h9-0-1" id="h9-0-1" class="i">+{{- if .IsHome -}}
+</a><a href="#h9-0-2" id="h9-0-2" class="i">+  {{ $pctx = .Site }}
+</a><a href="#h9-0-3" id="h9-0-3" class="i">+{{- end -}}
+</a><a href="#h9-0-4" id="h9-0-4" class="i">+{{- $pages := slice -}}
+</a><a href="#h9-0-5" id="h9-0-5" class="i">+{{- if or $.IsHome $.IsSection -}}
+</a><a href="#h9-0-6" id="h9-0-6" class="i">+  {{- $pages = $pctx.RegularPages -}}
+</a><a href="#h9-0-7" id="h9-0-7" class="i">+{{- else -}}
+</a><a href="#h9-0-8" id="h9-0-8" class="i">+  {{- $pages = $pctx.Pages -}}
+</a><a href="#h9-0-9" id="h9-0-9" class="i">+{{- end -}}
+</a><a href="#h9-0-10" id="h9-0-10" class="i">+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+</a><a href="#h9-0-11" id="h9-0-11" class="i">+{{- if ge $limit 1 -}}
+</a><a href="#h9-0-12" id="h9-0-12" class="i">+  {{- $pages = $pages | first $limit -}}
+</a><a href="#h9-0-13" id="h9-0-13" class="i">+{{- end -}}
+</a><a href="#h9-0-14" id="h9-0-14" class="i">+{{- printf &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot; standalone=\&quot;yes\&quot;?&gt;&quot; | safeHTML }}
+</a><a href="#h9-0-15" id="h9-0-15" class="i">+&lt;rss version=&quot;2.0&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot;&gt;
+</a><a href="#h9-0-16" id="h9-0-16" class="i">+  &lt;channel&gt;
+</a><a href="#h9-0-17" id="h9-0-17" class="i">+    &lt;title&gt;YBBond&#39;s Responses&lt;/title&gt;
+</a><a href="#h9-0-18" id="h9-0-18" class="i">+    &lt;link&gt;{{ .Permalink }}&lt;/link&gt;
+</a><a href="#h9-0-19" id="h9-0-19" class="i">+    &lt;description&gt;Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}&lt;/description&gt;
+</a><a href="#h9-0-20" id="h9-0-20" class="i">+    &lt;generator&gt;Hugo -- gohugo.io&lt;/generator&gt;{{ with .Site.LanguageCode }}
+</a><a href="#h9-0-21" id="h9-0-21" class="i">+    &lt;language&gt;{{.}}&lt;/language&gt;{{end}}{{ with .Site.Author.email }}
+</a><a href="#h9-0-22" id="h9-0-22" class="i">+    &lt;managingEditor&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/managingEditor&gt;{{end}}{{ with .Site.Author.email }}
+</a><a href="#h9-0-23" id="h9-0-23" class="i">+    &lt;webMaster&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/webMaster&gt;{{end}}{{ with .Site.Copyright }}
+</a><a href="#h9-0-24" id="h9-0-24" class="i">+    &lt;copyright&gt;{{.}}&lt;/copyright&gt;{{end}}{{ if not .Date.IsZero }}
+</a><a href="#h9-0-25" id="h9-0-25" class="i">+    &lt;lastBuildDate&gt;{{ .Date.Format &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; | safeHTML }}&lt;/lastBuildDate&gt;{{ end }}
+</a><a href="#h9-0-26" id="h9-0-26" class="i">+    {{ with .OutputFormats.Get &quot;RSS&quot; }}
+</a><a href="#h9-0-27" id="h9-0-27" class="i">+  {{ printf &quot;&lt;atom:link href=%q rel=\&quot;self\&quot; type=%q /&gt;&quot; .Permalink .MediaType | safeHTML }}
+</a><a href="#h9-0-28" id="h9-0-28" class="i">+    {{ end }}
+</a><a href="#h9-0-29" id="h9-0-29" class="i">+    {{ range $pages }}
+</a><a href="#h9-0-30" id="h9-0-30" class="i">+    {{ $dateformat := .Date.Format &quot;2006-01-02 15:04&quot; }}
+</a><a href="#h9-0-31" id="h9-0-31" class="i">+    {{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
+</a><a href="#h9-0-32" id="h9-0-32" class="i">+    &lt;item&gt;
+</a><a href="#h9-0-33" id="h9-0-33" class="i">+      &lt;title&gt;{{ .Title }}&lt;/title&gt;
+</a><a href="#h9-0-34" id="h9-0-34" class="i">+      &lt;link&gt;{{ .Site.BaseURL }}responses#{{ $idslug }}&lt;/link&gt;
+</a><a href="#h9-0-35" id="h9-0-35" class="i">+      &lt;pubDate&gt;{{ .Date.Format &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; | safeHTML }}&lt;/pubDate&gt;
+</a><a href="#h9-0-36" id="h9-0-36" class="i">+      {{ with .Site.Author.email }}&lt;author&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/author&gt;{{end}}
+</a><a href="#h9-0-37" id="h9-0-37" class="i">+      &lt;guid isPermaLink=&quot;true&quot;&gt;{{ .Site.BaseURL }}responses#{{ $idslug }}&lt;/guid&gt;
+</a><a href="#h9-0-38" id="h9-0-38" class="i">+      &lt;description&gt;{{ .Content | html }}&lt;/description&gt;
+</a><a href="#h9-0-39" id="h9-0-39" class="i">+    &lt;/item&gt;
+</a><a href="#h9-0-40" id="h9-0-40" class="i">+    {{ end }}
+</a><a href="#h9-0-41" id="h9-0-41" class="i">+  &lt;/channel&gt;
+</a><a href="#h9-0-42" id="h9-0-42" class="i">+&lt;/rss&gt;
+</a></pre>
+</div>
+</div>
+</body>
+</html>

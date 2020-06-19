@@ -15,18 +15,18 @@
 <a href="../../../../index.html">Log</a> | <a href="../../../../files.html">Files</a> | <a href="../../../../refs.html">Refs</a> | <a href="../../../../file/README.md.html">README</a> | <a href="../../../../file/LICENSE.md.html">LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> twitter-card-metas.html (1509B)</p><hr/><pre id="blob">
+<p> twitter-card-metas.html (1471B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> &lt;meta name=&quot;twitter:card&quot; content=&quot;{{ cond (or (isset .Params.Twitter &quot;image&quot;) (isset .Params.Image &quot;src&quot;)) &quot;summary_large_image&quot; &quot;summary&quot;}}&quot;&gt;
 <a href="#l2" class="line" id="l2">      2</a> {{ $titleHome := (printf &quot;%s :: %s&quot; .Site.Title .Site.Params.Author) }}
 <a href="#l3" class="line" id="l3">      3</a> {{ $titleRest := (printf &quot;%s %s %s&quot; (cond (eq .Type &quot;notes&quot;) .Site.Title .Title) (cond (eq .Type &quot;notes&quot;) &quot;wrote&quot; &quot;::&quot;) (cond (eq .Type &quot;notes&quot;) &quot;a note:&quot; .Site.Title) ) }}
-<a href="#l4" class="line" id="l4">      4</a> {{ $defaultDesc := cond (isset .Site &quot;description&quot;) .Description (printf &quot;%s by %s&quot; .Site.Params.Description .Site.Params.Author) }}
+<a href="#l4" class="line" id="l4">      4</a> {{ $defaultDesc := cond (isset .Params &quot;description&quot;) .Description (printf &quot;%s by %s&quot; .Site.Params.Description .Site.Params.Author) }}
 <a href="#l5" class="line" id="l5">      5</a> {{ $dateformat := .Params.Date.Format &quot;2006-01-02 15:04&quot; }}
 <a href="#l6" class="line" id="l6">      6</a> {{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
 <a href="#l7" class="line" id="l7">      7</a> {{ $lastUrlElement := index (last 1 (split (delimit (split .RelPermalink &quot;/&quot;) &quot;,&quot; &quot;&quot;) &quot;,&quot;)) 0 }}
 <a href="#l8" class="line" id="l8">      8</a> 
 <a href="#l9" class="line" id="l9">      9</a> &lt;meta name=&quot;twitter:title&quot; content=&quot;{{ cond .IsHome $titleHome $titleRest }}&quot;&gt;
 <a href="#l10" class="line" id="l10">     10</a> &lt;meta name=&quot;twitter:url&quot; content=&quot;{{ cond (eq .Type &quot;notes&quot;) ( (print .Site.BaseURL &quot;notes#&quot; $idslug)) .Permalink }}&quot;&gt;
-<a href="#l11" class="line" id="l11">     11</a> &lt;meta name=&quot;twitter:description&quot; content=&quot;{{ cond .IsHome .Site.Params.Description (cond (and (eq .Type &quot;notes&quot;) (ne .Summary &quot;&quot;)) .Summary (.Params.Twitter.Description | default $defaultDesc)) }}&quot;&gt;
+<a href="#l11" class="line" id="l11">     11</a> &lt;meta name=&quot;twitter:description&quot; content=&quot;{{ cond .IsHome .Site.Params.Description (cond (and (eq .Type &quot;notes&quot;) (ne .Summary &quot;&quot;)) .Summary $defaultDesc) }}&quot;&gt;
 <a href="#l12" class="line" id="l12">     12</a> &lt;meta name=&quot;twitter:image&quot; content=&quot;{{ (cond (isset .Params.Image &quot;src&quot;) (printf &quot;%s%s&quot; .Permalink .Params.Image.Src) nil) | default &quot;logo.png&quot; | absURL }}&quot;&gt;
 <a href="#l13" class="line" id="l13">     13</a> &lt;meta name=&quot;twitter:image:alt&quot; content=&quot;{{ cond .IsHome $titleHome $titleRest }}&quot;&gt;
 <a href="#l14" class="line" id="l14">     14</a> &lt;meta name=&quot;twitter:site&quot; content=&quot;@{{ .Site.Params.twitter }}&quot;&gt;

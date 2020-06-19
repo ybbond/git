@@ -4,17 +4,132 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
-<id>c71360fb5546c51f318cfdfe3175fb3edcada499</id>
-<published>2020-06-16T13:04:07Z</published>
-<updated>2020-06-16T13:04:07Z</updated>
-<title type="text">content: add notes 14 June 2020</title>
-<link rel="alternate" type="text/html" href="commit/c71360fb5546c51f318cfdfe3175fb3edcada499.html" />
+<id>bbfd118b73ede020db3de1c014be90c66641e44e</id>
+<published>2020-06-19T16:43:37Z</published>
+<updated>2020-06-19T16:45:24Z</updated>
+<title type="text">content: get the license right</title>
+<link rel="alternate" type="text/html" href="commit/bbfd118b73ede020db3de1c014be90c66641e44e.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit c71360fb5546c51f318cfdfe3175fb3edcada499
-parent ec056226bc438716a59d44d9047ad0ab7b2d44be
+<content type="text">commit bbfd118b73ede020db3de1c014be90c66641e44e
+parent d240d67991c7bbac270526dcf470c0b1d3204434
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Fri, 19 Jun 2020 23:43:37 +0700
+
+content: get the license right
+
+</content>
+</entry>
+<entry>
+<id>d240d67991c7bbac270526dcf470c0b1d3204434</id>
+<published>2020-06-19T16:23:18Z</published>
+<updated>2020-06-19T16:35:11Z</updated>
+<title type="text">content: add responses section</title>
+<link rel="alternate" type="text/html" href="commit/d240d67991c7bbac270526dcf470c0b1d3204434.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit d240d67991c7bbac270526dcf470c0b1d3204434
+parent 0b4b75e688cad287e5e3ca8149494bba56ccb5c8
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Fri, 19 Jun 2020 23:23:18 +0700
+
+content: add responses section
+
+</content>
+</entry>
+<entry>
+<id>0b4b75e688cad287e5e3ca8149494bba56ccb5c8</id>
+<published>2020-06-19T02:16:15Z</published>
+<updated>2020-06-19T16:35:11Z</updated>
+<title type="text">refactor: added goatcounter without javascript</title>
+<link rel="alternate" type="text/html" href="commit/0b4b75e688cad287e5e3ca8149494bba56ccb5c8.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 0b4b75e688cad287e5e3ca8149494bba56ccb5c8
+parent 288f0e06383b92143fc3c29e978acd1d1e391164
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Fri, 19 Jun 2020 09:16:15 +0700
+
+refactor: added goatcounter without javascript
+
+</content>
+</entry>
+<entry>
+<id>288f0e06383b92143fc3c29e978acd1d1e391164</id>
+<published>2020-06-18T14:39:46Z</published>
+<updated>2020-06-19T16:35:11Z</updated>
+<title type="text">content: update on free trial and refund post</title>
+<link rel="alternate" type="text/html" href="commit/288f0e06383b92143fc3c29e978acd1d1e391164.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 288f0e06383b92143fc3c29e978acd1d1e391164
+parent 3203cd1d69b3d6f8c22a3cafd82ed385b5603e70
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Thu, 18 Jun 2020 21:39:46 +0700
+
+content: update on free trial and refund post
+
+</content>
+</entry>
+<entry>
+<id>3203cd1d69b3d6f8c22a3cafd82ed385b5603e70</id>
+<published>2020-06-17T11:05:11Z</published>
+<updated>2020-06-19T16:35:11Z</updated>
+<title type="text">content: new post, and add webmentions handler for notes</title>
+<link rel="alternate" type="text/html" href="commit/3203cd1d69b3d6f8c22a3cafd82ed385b5603e70.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 3203cd1d69b3d6f8c22a3cafd82ed385b5603e70
+parent 7b210a1374eb28110ff1eb835a955a8b423fc741
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Wed, 17 Jun 2020 18:05:11 +0700
+
+content: new post, and add webmentions handler for notes
+
+</content>
+</entry>
+<entry>
+<id>7b210a1374eb28110ff1eb835a955a8b423fc741</id>
+<published>2020-06-17T06:05:11Z</published>
+<updated>2020-06-19T16:35:11Z</updated>
+<title type="text">Fetch webmentions skip-checks: true</title>
+<link rel="alternate" type="text/html" href="commit/7b210a1374eb28110ff1eb835a955a8b423fc741.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 7b210a1374eb28110ff1eb835a955a8b423fc741
+parent 5f04fcdf50ccffe96bb010fd32dae7f019829590
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Wed, 17 Jun 2020 06:05:11 +0000
+
+Fetch webmentions
+skip-checks: true
+
+</content>
+</entry>
+<entry>
+<id>5f04fcdf50ccffe96bb010fd32dae7f019829590</id>
+<published>2020-06-16T13:04:07Z</published>
+<updated>2020-06-19T16:35:11Z</updated>
+<title type="text">content: add notes 14 June 2020</title>
+<link rel="alternate" type="text/html" href="commit/5f04fcdf50ccffe96bb010fd32dae7f019829590.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 5f04fcdf50ccffe96bb010fd32dae7f019829590
+parent b5a9d9452736b57d9397c905391baf4fe26cdae8
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Tue, 16 Jun 2020 20:04:07 +0700
 
@@ -23,17 +138,17 @@ content: add notes 14 June 2020
 </content>
 </entry>
 <entry>
-<id>ec056226bc438716a59d44d9047ad0ab7b2d44be</id>
+<id>b5a9d9452736b57d9397c905391baf4fe26cdae8</id>
 <published>2020-06-14T00:15:15Z</published>
-<updated>2020-06-14T00:15:15Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">Fetch webmentions skip-checks: true</title>
-<link rel="alternate" type="text/html" href="commit/ec056226bc438716a59d44d9047ad0ab7b2d44be.html" />
+<link rel="alternate" type="text/html" href="commit/b5a9d9452736b57d9397c905391baf4fe26cdae8.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit ec056226bc438716a59d44d9047ad0ab7b2d44be
-parent 25bf4a9b94f96c0730207317b8e2b30ceed114d2
+<content type="text">commit b5a9d9452736b57d9397c905391baf4fe26cdae8
+parent d5da34ee273cc7b0f950385803ad243db8f028bb
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Sun, 14 Jun 2020 00:15:15 +0000
 
@@ -43,17 +158,17 @@ skip-checks: true
 </content>
 </entry>
 <entry>
-<id>25bf4a9b94f96c0730207317b8e2b30ceed114d2</id>
+<id>d5da34ee273cc7b0f950385803ad243db8f028bb</id>
 <published>2020-06-13T18:00:21Z</published>
-<updated>2020-06-13T18:07:37Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">content: add new note about webmention, and add ID for all notes</title>
-<link rel="alternate" type="text/html" href="commit/25bf4a9b94f96c0730207317b8e2b30ceed114d2.html" />
+<link rel="alternate" type="text/html" href="commit/d5da34ee273cc7b0f950385803ad243db8f028bb.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 25bf4a9b94f96c0730207317b8e2b30ceed114d2
-parent 5e4ba7a9c3ebcb7842d53fbfdc06d5b72185f8d3
+<content type="text">commit d5da34ee273cc7b0f950385803ad243db8f028bb
+parent 2e2ddb57e388e6181fcaf375efe706e612be798c
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Sun, 14 Jun 2020 01:00:21 +0700
 
@@ -62,17 +177,17 @@ content: add new note about webmention, and add ID for all notes
 </content>
 </entry>
 <entry>
-<id>5e4ba7a9c3ebcb7842d53fbfdc06d5b72185f8d3</id>
+<id>2e2ddb57e388e6181fcaf375efe706e612be798c</id>
 <published>2020-06-13T18:05:14Z</published>
-<updated>2020-06-13T18:05:14Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">Fetch webmentions skip-checks: true</title>
-<link rel="alternate" type="text/html" href="commit/5e4ba7a9c3ebcb7842d53fbfdc06d5b72185f8d3.html" />
+<link rel="alternate" type="text/html" href="commit/2e2ddb57e388e6181fcaf375efe706e612be798c.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 5e4ba7a9c3ebcb7842d53fbfdc06d5b72185f8d3
-parent 70b6fdeb50a306265ddf111aec4b5e5a2be939ff
+<content type="text">commit 2e2ddb57e388e6181fcaf375efe706e612be798c
+parent 28ec4397cc8079ef2873b6cb4b2dd9a84f73804d
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Sat, 13 Jun 2020 18:05:14 +0000
 
@@ -82,17 +197,17 @@ skip-checks: true
 </content>
 </entry>
 <entry>
-<id>70b6fdeb50a306265ddf111aec4b5e5a2be939ff</id>
+<id>28ec4397cc8079ef2873b6cb4b2dd9a84f73804d</id>
 <published>2020-06-13T17:25:40Z</published>
-<updated>2020-06-13T17:25:40Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">refactor: use ventura as main font, use rem, add 404 for netlify</title>
-<link rel="alternate" type="text/html" href="commit/70b6fdeb50a306265ddf111aec4b5e5a2be939ff.html" />
+<link rel="alternate" type="text/html" href="commit/28ec4397cc8079ef2873b6cb4b2dd9a84f73804d.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 70b6fdeb50a306265ddf111aec4b5e5a2be939ff
-parent fa291821cb672c0ecce3059868b4cec5385cbad0
+<content type="text">commit 28ec4397cc8079ef2873b6cb4b2dd9a84f73804d
+parent fb697468c1f99770a1c8c6c0f72d29abbff6f0a6
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Sun, 14 Jun 2020 00:25:40 +0700
 
@@ -101,17 +216,17 @@ refactor: use ventura as main font, use rem, add 404 for netlify
 </content>
 </entry>
 <entry>
-<id>fa291821cb672c0ecce3059868b4cec5385cbad0</id>
+<id>fb697468c1f99770a1c8c6c0f72d29abbff6f0a6</id>
 <published>2020-06-12T18:12:22Z</published>
-<updated>2020-06-12T18:12:22Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">Fetch webmentions skip-checks: true</title>
-<link rel="alternate" type="text/html" href="commit/fa291821cb672c0ecce3059868b4cec5385cbad0.html" />
+<link rel="alternate" type="text/html" href="commit/fb697468c1f99770a1c8c6c0f72d29abbff6f0a6.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit fa291821cb672c0ecce3059868b4cec5385cbad0
-parent 1e80d4024e4926d22c3d0b92a5e539df3f3575f1
+<content type="text">commit fb697468c1f99770a1c8c6c0f72d29abbff6f0a6
+parent 3686186b8290901fc83e5f10723b6790dedc244c
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Fri, 12 Jun 2020 18:12:22 +0000
 
@@ -121,17 +236,17 @@ skip-checks: true
 </content>
 </entry>
 <entry>
-<id>1e80d4024e4926d22c3d0b92a5e539df3f3575f1</id>
+<id>3686186b8290901fc83e5f10723b6790dedc244c</id>
 <published>2020-06-12T06:06:41Z</published>
-<updated>2020-06-12T06:06:41Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">Fetch webmentions skip-checks: true</title>
-<link rel="alternate" type="text/html" href="commit/1e80d4024e4926d22c3d0b92a5e539df3f3575f1.html" />
+<link rel="alternate" type="text/html" href="commit/3686186b8290901fc83e5f10723b6790dedc244c.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 1e80d4024e4926d22c3d0b92a5e539df3f3575f1
-parent 1f23479f201b3d1f9f8d97666e6d1dfece990b78
+<content type="text">commit 3686186b8290901fc83e5f10723b6790dedc244c
+parent 8823832449db13bc3c48134e720a8a03ee895e59
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Fri, 12 Jun 2020 06:06:41 +0000
 
@@ -141,17 +256,17 @@ skip-checks: true
 </content>
 </entry>
 <entry>
-<id>1f23479f201b3d1f9f8d97666e6d1dfece990b78</id>
+<id>8823832449db13bc3c48134e720a8a03ee895e59</id>
 <published>2020-06-12T00:20:39Z</published>
-<updated>2020-06-12T00:20:39Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">content: get the license right</title>
-<link rel="alternate" type="text/html" href="commit/1f23479f201b3d1f9f8d97666e6d1dfece990b78.html" />
+<link rel="alternate" type="text/html" href="commit/8823832449db13bc3c48134e720a8a03ee895e59.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 1f23479f201b3d1f9f8d97666e6d1dfece990b78
-parent e1ab03a318df99614c6fcb8fb379d51fe2e87250
+<content type="text">commit 8823832449db13bc3c48134e720a8a03ee895e59
+parent 58c45b08b8a67f23c129036b994531d9d5638a89
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Fri, 12 Jun 2020 07:20:39 +0700
 
@@ -160,17 +275,17 @@ content: get the license right
 </content>
 </entry>
 <entry>
-<id>e1ab03a318df99614c6fcb8fb379d51fe2e87250</id>
+<id>58c45b08b8a67f23c129036b994531d9d5638a89</id>
 <published>2020-06-11T10:23:57Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">content: update webmentions of old posts</title>
-<link rel="alternate" type="text/html" href="commit/e1ab03a318df99614c6fcb8fb379d51fe2e87250.html" />
+<link rel="alternate" type="text/html" href="commit/58c45b08b8a67f23c129036b994531d9d5638a89.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit e1ab03a318df99614c6fcb8fb379d51fe2e87250
-parent d9ed7ca1899f02fb33550f11797c301aaeb57920
+<content type="text">commit 58c45b08b8a67f23c129036b994531d9d5638a89
+parent 8b181caa2ad0c2569f6f084120b68dd7b1e16593
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Thu, 11 Jun 2020 17:23:57 +0700
 
@@ -179,17 +294,17 @@ content: update webmentions of old posts
 </content>
 </entry>
 <entry>
-<id>d9ed7ca1899f02fb33550f11797c301aaeb57920</id>
+<id>8b181caa2ad0c2569f6f084120b68dd7b1e16593</id>
 <published>2020-06-11T09:59:28Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">content: part 2 of my old blog migration</title>
-<link rel="alternate" type="text/html" href="commit/d9ed7ca1899f02fb33550f11797c301aaeb57920.html" />
+<link rel="alternate" type="text/html" href="commit/8b181caa2ad0c2569f6f084120b68dd7b1e16593.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit d9ed7ca1899f02fb33550f11797c301aaeb57920
-parent d494f0dbd29db26d54dd93a6528a1dcf0842e185
+<content type="text">commit 8b181caa2ad0c2569f6f084120b68dd7b1e16593
+parent a1242234571c8957839eae228eb6df5d1b79a2c5
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Thu, 11 Jun 2020 16:59:28 +0700
 
@@ -198,17 +313,17 @@ content: part 2 of my old blog migration
 </content>
 </entry>
 <entry>
-<id>d494f0dbd29db26d54dd93a6528a1dcf0842e185</id>
+<id>a1242234571c8957839eae228eb6df5d1b79a2c5</id>
 <published>2020-06-11T06:08:34Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">Fetch webmentions skip-checks: true</title>
-<link rel="alternate" type="text/html" href="commit/d494f0dbd29db26d54dd93a6528a1dcf0842e185.html" />
+<link rel="alternate" type="text/html" href="commit/a1242234571c8957839eae228eb6df5d1b79a2c5.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit d494f0dbd29db26d54dd93a6528a1dcf0842e185
-parent da92adf5b7e7429a811d8f614d98610fe5d4686d
+<content type="text">commit a1242234571c8957839eae228eb6df5d1b79a2c5
+parent 75c1e1cf3f313873249fe640bb5960be5ab9dbd0
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Thu, 11 Jun 2020 06:08:34 +0000
 
@@ -218,17 +333,17 @@ skip-checks: true
 </content>
 </entry>
 <entry>
-<id>da92adf5b7e7429a811d8f614d98610fe5d4686d</id>
+<id>75c1e1cf3f313873249fe640bb5960be5ab9dbd0</id>
 <published>2020-06-11T00:12:13Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">Fetch webmentions skip-checks: true</title>
-<link rel="alternate" type="text/html" href="commit/da92adf5b7e7429a811d8f614d98610fe5d4686d.html" />
+<link rel="alternate" type="text/html" href="commit/75c1e1cf3f313873249fe640bb5960be5ab9dbd0.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit da92adf5b7e7429a811d8f614d98610fe5d4686d
-parent a48bce6952977960d7ed7cd3fa32fe65532e071d
+<content type="text">commit 75c1e1cf3f313873249fe640bb5960be5ab9dbd0
+parent 0c96c7c081c8504fabcb02700cc060661ca1c3ee
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Thu, 11 Jun 2020 00:12:13 +0000
 
@@ -238,17 +353,17 @@ skip-checks: true
 </content>
 </entry>
 <entry>
-<id>a48bce6952977960d7ed7cd3fa32fe65532e071d</id>
+<id>0c96c7c081c8504fabcb02700cc060661ca1c3ee</id>
 <published>2020-06-10T18:05:00Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">Fetch webmentions skip-checks: true</title>
-<link rel="alternate" type="text/html" href="commit/a48bce6952977960d7ed7cd3fa32fe65532e071d.html" />
+<link rel="alternate" type="text/html" href="commit/0c96c7c081c8504fabcb02700cc060661ca1c3ee.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit a48bce6952977960d7ed7cd3fa32fe65532e071d
-parent 8cc93d64a087e96e973155c273ef21ca42ae4f80
+<content type="text">commit 0c96c7c081c8504fabcb02700cc060661ca1c3ee
+parent 5b34e8e8cd779b5a48d189740e1b2fb6f51eb862
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Wed, 10 Jun 2020 18:05:00 +0000
 
@@ -258,17 +373,17 @@ skip-checks: true
 </content>
 </entry>
 <entry>
-<id>8cc93d64a087e96e973155c273ef21ca42ae4f80</id>
+<id>5b34e8e8cd779b5a48d189740e1b2fb6f51eb862</id>
 <published>2020-06-10T17:02:53Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">content: part 1 of my old blog migration</title>
-<link rel="alternate" type="text/html" href="commit/8cc93d64a087e96e973155c273ef21ca42ae4f80.html" />
+<link rel="alternate" type="text/html" href="commit/5b34e8e8cd779b5a48d189740e1b2fb6f51eb862.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 8cc93d64a087e96e973155c273ef21ca42ae4f80
-parent e036c350cfaea468cf6844b7841c3c99bdbce951
+<content type="text">commit 5b34e8e8cd779b5a48d189740e1b2fb6f51eb862
+parent f4e86424c43bba660e9313fc7dcc7ee835ab2de0
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Thu, 11 Jun 2020 00:02:53 +0700
 
@@ -277,17 +392,17 @@ content: part 1 of my old blog migration
 </content>
 </entry>
 <entry>
-<id>e036c350cfaea468cf6844b7841c3c99bdbce951</id>
+<id>f4e86424c43bba660e9313fc7dcc7ee835ab2de0</id>
 <published>2020-06-10T17:02:37Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">feature: add instagram indieauth</title>
-<link rel="alternate" type="text/html" href="commit/e036c350cfaea468cf6844b7841c3c99bdbce951.html" />
+<link rel="alternate" type="text/html" href="commit/f4e86424c43bba660e9313fc7dcc7ee835ab2de0.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit e036c350cfaea468cf6844b7841c3c99bdbce951
-parent 789957a76be8ae60a6173dde4ce33188f9aee1f7
+<content type="text">commit f4e86424c43bba660e9313fc7dcc7ee835ab2de0
+parent 22570d76a57f55f8b4e6e61f0f8c4e11e130e98f
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Thu, 11 Jun 2020 00:02:37 +0700
 
@@ -296,17 +411,17 @@ feature: add instagram indieauth
 </content>
 </entry>
 <entry>
-<id>789957a76be8ae60a6173dde4ce33188f9aee1f7</id>
+<id>22570d76a57f55f8b4e6e61f0f8c4e11e130e98f</id>
 <published>2020-06-08T10:29:15Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">feature: update PGP</title>
-<link rel="alternate" type="text/html" href="commit/789957a76be8ae60a6173dde4ce33188f9aee1f7.html" />
+<link rel="alternate" type="text/html" href="commit/22570d76a57f55f8b4e6e61f0f8c4e11e130e98f.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 789957a76be8ae60a6173dde4ce33188f9aee1f7
-parent 5680669bf7adcf96b7d5d38ec733ae188fce58e5
+<content type="text">commit 22570d76a57f55f8b4e6e61f0f8c4e11e130e98f
+parent 7c751aaf0890ebc9324bddf8a7348fd7f884c63a
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Mon,  8 Jun 2020 17:29:15 +0700
 
@@ -315,17 +430,17 @@ feature: update PGP
 </content>
 </entry>
 <entry>
-<id>5680669bf7adcf96b7d5d38ec733ae188fce58e5</id>
+<id>7c751aaf0890ebc9324bddf8a7348fd7f884c63a</id>
 <published>2020-06-07T07:19:42Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">refactor: add indieauth, svgs and refactor style</title>
-<link rel="alternate" type="text/html" href="commit/5680669bf7adcf96b7d5d38ec733ae188fce58e5.html" />
+<link rel="alternate" type="text/html" href="commit/7c751aaf0890ebc9324bddf8a7348fd7f884c63a.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 5680669bf7adcf96b7d5d38ec733ae188fce58e5
-parent 04835ea21198872c8e2229447b7a7b6b3ea39b23
+<content type="text">commit 7c751aaf0890ebc9324bddf8a7348fd7f884c63a
+parent 60e8b99d3bd6ec2ccf25944dd0118e4a53fe5ace
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Sun,  7 Jun 2020 14:19:42 +0700
 
@@ -334,17 +449,17 @@ refactor: add indieauth, svgs and refactor style
 </content>
 </entry>
 <entry>
-<id>04835ea21198872c8e2229447b7a7b6b3ea39b23</id>
+<id>60e8b99d3bd6ec2ccf25944dd0118e4a53fe5ace</id>
 <published>2020-06-03T17:24:22Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">feature: github actions for webmentions</title>
-<link rel="alternate" type="text/html" href="commit/04835ea21198872c8e2229447b7a7b6b3ea39b23.html" />
+<link rel="alternate" type="text/html" href="commit/60e8b99d3bd6ec2ccf25944dd0118e4a53fe5ace.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 04835ea21198872c8e2229447b7a7b6b3ea39b23
-parent 045fd2c693a4749bce1ed3d858eedc6c924ebae3
+<content type="text">commit 60e8b99d3bd6ec2ccf25944dd0118e4a53fe5ace
+parent 28f89f4546b15bad00e6441759e97687fe571453
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Thu,  4 Jun 2020 00:24:22 +0700
 
@@ -353,17 +468,17 @@ feature: github actions for webmentions
 </content>
 </entry>
 <entry>
-<id>045fd2c693a4749bce1ed3d858eedc6c924ebae3</id>
+<id>28f89f4546b15bad00e6441759e97687fe571453</id>
 <published>2020-06-03T17:20:24Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">feature: webmentions implementation part 1</title>
-<link rel="alternate" type="text/html" href="commit/045fd2c693a4749bce1ed3d858eedc6c924ebae3.html" />
+<link rel="alternate" type="text/html" href="commit/28f89f4546b15bad00e6441759e97687fe571453.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 045fd2c693a4749bce1ed3d858eedc6c924ebae3
-parent c2d93866aad4aa6acb3723579a2c146565af05db
+<content type="text">commit 28f89f4546b15bad00e6441759e97687fe571453
+parent 5966a4aa1ffa7269a60fb7d265f7e1c2402aec07
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Thu,  4 Jun 2020 00:20:24 +0700
 
@@ -372,17 +487,17 @@ feature: webmentions implementation part 1
 </content>
 </entry>
 <entry>
-<id>c2d93866aad4aa6acb3723579a2c146565af05db</id>
+<id>5966a4aa1ffa7269a60fb7d265f7e1c2402aec07</id>
 <published>2020-06-01T14:46:41Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">refactor: step 2. rework header, text formatting, remove duplicate css</title>
-<link rel="alternate" type="text/html" href="commit/c2d93866aad4aa6acb3723579a2c146565af05db.html" />
+<link rel="alternate" type="text/html" href="commit/5966a4aa1ffa7269a60fb7d265f7e1c2402aec07.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit c2d93866aad4aa6acb3723579a2c146565af05db
-parent c4e08bfb06944d069c81669f8cddcb9001dc1c1b
+<content type="text">commit 5966a4aa1ffa7269a60fb7d265f7e1c2402aec07
+parent 286d895c25abbe952ee462c5d7a1e77c773b20f4
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Mon,  1 Jun 2020 21:46:41 +0700
 
@@ -391,17 +506,17 @@ refactor: step 2. rework header, text formatting, remove duplicate css
 </content>
 </entry>
 <entry>
-<id>c4e08bfb06944d069c81669f8cddcb9001dc1c1b</id>
+<id>286d895c25abbe952ee462c5d7a1e77c773b20f4</id>
 <published>2020-06-01T07:56:03Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">refactor: step 1. more concise scss, readjust alignment</title>
-<link rel="alternate" type="text/html" href="commit/c4e08bfb06944d069c81669f8cddcb9001dc1c1b.html" />
+<link rel="alternate" type="text/html" href="commit/286d895c25abbe952ee462c5d7a1e77c773b20f4.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit c4e08bfb06944d069c81669f8cddcb9001dc1c1b
-parent 67f64c234447765a6e92bc7609fa91843aad16c9
+<content type="text">commit 286d895c25abbe952ee462c5d7a1e77c773b20f4
+parent 3c2d931e754d5783fcd0d9ecad94f020d0770dfb
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Mon,  1 Jun 2020 14:56:03 +0700
 
@@ -410,17 +525,17 @@ refactor: step 1. more concise scss, readjust alignment
 </content>
 </entry>
 <entry>
-<id>67f64c234447765a6e92bc7609fa91843aad16c9</id>
+<id>3c2d931e754d5783fcd0d9ecad94f020d0770dfb</id>
 <published>2020-06-01T07:53:41Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">content: reports 31 May 2020</title>
-<link rel="alternate" type="text/html" href="commit/67f64c234447765a6e92bc7609fa91843aad16c9.html" />
+<link rel="alternate" type="text/html" href="commit/3c2d931e754d5783fcd0d9ecad94f020d0770dfb.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 67f64c234447765a6e92bc7609fa91843aad16c9
-parent 0194e79bb7e3e50e31ffe60d8600b6bfd7cf5e3c
+<content type="text">commit 3c2d931e754d5783fcd0d9ecad94f020d0770dfb
+parent 103d6d01d31282b4a153fb6c4c7aafca0a3465c4
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Mon,  1 Jun 2020 14:53:41 +0700
 
@@ -429,17 +544,17 @@ content: reports 31 May 2020
 </content>
 </entry>
 <entry>
-<id>0194e79bb7e3e50e31ffe60d8600b6bfd7cf5e3c</id>
+<id>103d6d01d31282b4a153fb6c4c7aafca0a3465c4</id>
 <published>2020-05-31T19:11:23Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">content: May links and note about macbook right port overheat</title>
-<link rel="alternate" type="text/html" href="commit/0194e79bb7e3e50e31ffe60d8600b6bfd7cf5e3c.html" />
+<link rel="alternate" type="text/html" href="commit/103d6d01d31282b4a153fb6c4c7aafca0a3465c4.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 0194e79bb7e3e50e31ffe60d8600b6bfd7cf5e3c
-parent 25615044c50c03517b401e2044c0a8ad4659cbb8
+<content type="text">commit 103d6d01d31282b4a153fb6c4c7aafca0a3465c4
+parent b53fb22ea8a1b442948fab3e8d5c084ba42c903c
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Mon,  1 Jun 2020 02:11:23 +0700
 
@@ -448,17 +563,17 @@ content: May links and note about macbook right port overheat
 </content>
 </entry>
 <entry>
-<id>25615044c50c03517b401e2044c0a8ad4659cbb8</id>
+<id>b53fb22ea8a1b442948fab3e8d5c084ba42c903c</id>
 <published>2020-05-30T14:19:32Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">refactor: upgrade to gatsby 71, and improve darkToggler load</title>
-<link rel="alternate" type="text/html" href="commit/25615044c50c03517b401e2044c0a8ad4659cbb8.html" />
+<link rel="alternate" type="text/html" href="commit/b53fb22ea8a1b442948fab3e8d5c084ba42c903c.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 25615044c50c03517b401e2044c0a8ad4659cbb8
-parent 9bae7b0a9cb083d3a5b358e8e986c6baf6ba72de
+<content type="text">commit b53fb22ea8a1b442948fab3e8d5c084ba42c903c
+parent 5d96d15d80a49281d9fbe4c73de817fb2fad6f4e
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Sat, 30 May 2020 21:19:32 +0700
 
@@ -467,17 +582,17 @@ refactor: upgrade to gatsby 71, and improve darkToggler load
 </content>
 </entry>
 <entry>
-<id>9bae7b0a9cb083d3a5b358e8e986c6baf6ba72de</id>
+<id>5d96d15d80a49281d9fbe4c73de817fb2fad6f4e</id>
 <published>2020-05-23T08:20:47Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">content: goatcounter typo</title>
-<link rel="alternate" type="text/html" href="commit/9bae7b0a9cb083d3a5b358e8e986c6baf6ba72de.html" />
+<link rel="alternate" type="text/html" href="commit/5d96d15d80a49281d9fbe4c73de817fb2fad6f4e.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 9bae7b0a9cb083d3a5b358e8e986c6baf6ba72de
-parent 2be3eea28f9c94a06a2918b05dcd015a954c5fc0
+<content type="text">commit 5d96d15d80a49281d9fbe4c73de817fb2fad6f4e
+parent 68788088de38f6d4c752332980c0165c2df4c0b8
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Sat, 23 May 2020 15:20:47 +0700
 
@@ -486,17 +601,17 @@ content: goatcounter typo
 </content>
 </entry>
 <entry>
-<id>2be3eea28f9c94a06a2918b05dcd015a954c5fc0</id>
+<id>68788088de38f6d4c752332980c0165c2df4c0b8</id>
 <published>2020-05-22T18:54:43Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">hotfix: feedback text on cv and about</title>
-<link rel="alternate" type="text/html" href="commit/2be3eea28f9c94a06a2918b05dcd015a954c5fc0.html" />
+<link rel="alternate" type="text/html" href="commit/68788088de38f6d4c752332980c0165c2df4c0b8.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 2be3eea28f9c94a06a2918b05dcd015a954c5fc0
-parent f8026a8fef9d0f8b89f8791809f2b39cb4641688
+<content type="text">commit 68788088de38f6d4c752332980c0165c2df4c0b8
+parent 01c47e6a9c170c9f78785f6ebff45fe83156c96d
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Sat, 23 May 2020 01:54:43 +0700
 
@@ -505,17 +620,17 @@ hotfix: feedback text on cv and about
 </content>
 </entry>
 <entry>
-<id>f8026a8fef9d0f8b89f8791809f2b39cb4641688</id>
+<id>01c47e6a9c170c9f78785f6ebff45fe83156c96d</id>
 <published>2020-05-22T18:45:31Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">feature: more GoatCounter. disclaimer, post and note</title>
-<link rel="alternate" type="text/html" href="commit/f8026a8fef9d0f8b89f8791809f2b39cb4641688.html" />
+<link rel="alternate" type="text/html" href="commit/01c47e6a9c170c9f78785f6ebff45fe83156c96d.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit f8026a8fef9d0f8b89f8791809f2b39cb4641688
-parent 747b57447457068c0febe0c16127d5ad4be70ca0
+<content type="text">commit 01c47e6a9c170c9f78785f6ebff45fe83156c96d
+parent 7486010e0fcae2f92868d0160112bcd80a947024
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Sat, 23 May 2020 01:45:31 +0700
 
@@ -524,17 +639,17 @@ feature: more GoatCounter. disclaimer, post and note
 </content>
 </entry>
 <entry>
-<id>747b57447457068c0febe0c16127d5ad4be70ca0</id>
+<id>7486010e0fcae2f92868d0160112bcd80a947024</id>
 <published>2020-05-20T06:56:56Z</published>
-<updated>2020-06-12T00:00:45Z</updated>
+<updated>2020-06-19T16:35:11Z</updated>
 <title type="text">content: reports 2020-05-20</title>
-<link rel="alternate" type="text/html" href="commit/747b57447457068c0febe0c16127d5ad4be70ca0.html" />
+<link rel="alternate" type="text/html" href="commit/7486010e0fcae2f92868d0160112bcd80a947024.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 747b57447457068c0febe0c16127d5ad4be70ca0
-parent 0778cfcd1f0ae159500fa869134eb633df9287a7
+<content type="text">commit 7486010e0fcae2f92868d0160112bcd80a947024
+parent c0fe318f3f6b067713effb7b5495c72de57d7671
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Wed, 20 May 2020 13:56:56 +0700
 
@@ -543,17 +658,17 @@ content: reports 2020-05-20
 </content>
 </entry>
 <entry>
-<id>0778cfcd1f0ae159500fa869134eb633df9287a7</id>
+<id>c0fe318f3f6b067713effb7b5495c72de57d7671</id>
 <published>2020-05-19T14:05:26Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: added GoatCounter. init, only header script</title>
-<link rel="alternate" type="text/html" href="commit/0778cfcd1f0ae159500fa869134eb633df9287a7.html" />
+<link rel="alternate" type="text/html" href="commit/c0fe318f3f6b067713effb7b5495c72de57d7671.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 0778cfcd1f0ae159500fa869134eb633df9287a7
-parent 3be823759fa708bcf209823d701a0c05f6dd88b3
+<content type="text">commit c0fe318f3f6b067713effb7b5495c72de57d7671
+parent 657f3aa73c663e05f19b31c457f87c70b387caa4
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Tue, 19 May 2020 21:05:26 +0700
 
@@ -562,17 +677,17 @@ feature: added GoatCounter. init, only header script
 </content>
 </entry>
 <entry>
-<id>3be823759fa708bcf209823d701a0c05f6dd88b3</id>
+<id>657f3aa73c663e05f19b31c457f87c70b387caa4</id>
 <published>2020-05-19T13:09:52Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: init reports</title>
-<link rel="alternate" type="text/html" href="commit/3be823759fa708bcf209823d701a0c05f6dd88b3.html" />
+<link rel="alternate" type="text/html" href="commit/657f3aa73c663e05f19b31c457f87c70b387caa4.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 3be823759fa708bcf209823d701a0c05f6dd88b3
-parent 5f716d3878b24fb98fe56f95f8e1417b8eb6bfbf
+<content type="text">commit 657f3aa73c663e05f19b31c457f87c70b387caa4
+parent 0e7086bca053999eb7a0b845345b97d4d84ae5f9
 Author: Yohanes Bandung &lt;hi@ybbond.dev&gt;
 Date:   Tue, 19 May 2020 20:09:52 +0700
 
@@ -581,17 +696,17 @@ content: init reports
 </content>
 </entry>
 <entry>
-<id>5f716d3878b24fb98fe56f95f8e1417b8eb6bfbf</id>
+<id>0e7086bca053999eb7a0b845345b97d4d84ae5f9</id>
 <published>2020-05-19T07:32:06Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">style: change blue in light mode, and fix codeblock background</title>
-<link rel="alternate" type="text/html" href="commit/5f716d3878b24fb98fe56f95f8e1417b8eb6bfbf.html" />
+<link rel="alternate" type="text/html" href="commit/0e7086bca053999eb7a0b845345b97d4d84ae5f9.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 5f716d3878b24fb98fe56f95f8e1417b8eb6bfbf
-parent 8926fd441e8ee8daca7fe9117786f651f8202fac
+<content type="text">commit 0e7086bca053999eb7a0b845345b97d4d84ae5f9
+parent 4f9bb8bb4a07248510040bbd4bd7e10b9d8ce2fc
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Tue, 19 May 2020 14:32:06 +0700
 
@@ -600,17 +715,17 @@ style: change blue in light mode, and fix codeblock background
 </content>
 </entry>
 <entry>
-<id>8926fd441e8ee8daca7fe9117786f651f8202fac</id>
+<id>4f9bb8bb4a07248510040bbd4bd7e10b9d8ce2fc</id>
 <published>2020-05-18T21:40:05Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: modify uses, and rename cv -&gt; about</title>
-<link rel="alternate" type="text/html" href="commit/8926fd441e8ee8daca7fe9117786f651f8202fac.html" />
+<link rel="alternate" type="text/html" href="commit/4f9bb8bb4a07248510040bbd4bd7e10b9d8ce2fc.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 8926fd441e8ee8daca7fe9117786f651f8202fac
-parent 1ea6e9dfd46b6d3c799e896ffbff8162c11be7af
+<content type="text">commit 4f9bb8bb4a07248510040bbd4bd7e10b9d8ce2fc
+parent a690f79e74a1792c2db12d2e8392cbae00bcc6b8
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Tue, 19 May 2020 04:40:05 +0700
 
@@ -619,17 +734,17 @@ content: modify uses, and rename cv -&gt; about
 </content>
 </entry>
 <entry>
-<id>1ea6e9dfd46b6d3c799e896ffbff8162c11be7af</id>
+<id>a690f79e74a1792c2db12d2e8392cbae00bcc6b8</id>
 <published>2020-05-16T11:46:53Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">style: &lt;code&gt; style outside content</title>
-<link rel="alternate" type="text/html" href="commit/1ea6e9dfd46b6d3c799e896ffbff8162c11be7af.html" />
+<link rel="alternate" type="text/html" href="commit/a690f79e74a1792c2db12d2e8392cbae00bcc6b8.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 1ea6e9dfd46b6d3c799e896ffbff8162c11be7af
-parent ae804e62c4761d2676fe4056ce7840c4ab29886f
+<content type="text">commit a690f79e74a1792c2db12d2e8392cbae00bcc6b8
+parent 06b6b9d1f4ee9d50dc197a369a3933f48f533aee
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat, 16 May 2020 18:46:53 +0700
 
@@ -638,17 +753,17 @@ style: &lt;code&gt; style outside content
 </content>
 </entry>
 <entry>
-<id>ae804e62c4761d2676fe4056ce7840c4ab29886f</id>
+<id>06b6b9d1f4ee9d50dc197a369a3933f48f533aee</id>
 <published>2020-05-16T10:17:43Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: remove specific file from git commit</title>
-<link rel="alternate" type="text/html" href="commit/ae804e62c4761d2676fe4056ce7840c4ab29886f.html" />
+<link rel="alternate" type="text/html" href="commit/06b6b9d1f4ee9d50dc197a369a3933f48f533aee.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit ae804e62c4761d2676fe4056ce7840c4ab29886f
-parent 137db1c2d682eaf994d03e191d831c9ce2c688b2
+<content type="text">commit 06b6b9d1f4ee9d50dc197a369a3933f48f533aee
+parent 37089070e42e6065b63ed6d94b1bc3cf353a4522
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat, 16 May 2020 17:17:43 +0700
 
@@ -657,17 +772,17 @@ content: remove specific file from git commit
 </content>
 </entry>
 <entry>
-<id>137db1c2d682eaf994d03e191d831c9ce2c688b2</id>
+<id>37089070e42e6065b63ed6d94b1bc3cf353a4522</id>
 <published>2020-05-13T19:20:41Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: cv and render-link hook</title>
-<link rel="alternate" type="text/html" href="commit/137db1c2d682eaf994d03e191d831c9ce2c688b2.html" />
+<link rel="alternate" type="text/html" href="commit/37089070e42e6065b63ed6d94b1bc3cf353a4522.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 137db1c2d682eaf994d03e191d831c9ce2c688b2
-parent 041e22ce19a324b2352bb87021fd8d30069f3696
+<content type="text">commit 37089070e42e6065b63ed6d94b1bc3cf353a4522
+parent 6089a1760f1e906642e90d7099c0cbbd6adc1a9e
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Thu, 14 May 2020 02:20:41 +0700
 
@@ -676,17 +791,17 @@ refactor: cv and render-link hook
 </content>
 </entry>
 <entry>
-<id>041e22ce19a324b2352bb87021fd8d30069f3696</id>
+<id>6089a1760f1e906642e90d7099c0cbbd6adc1a9e</id>
 <published>2020-05-13T14:33:50Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: cv public and ia writer update notes</title>
-<link rel="alternate" type="text/html" href="commit/041e22ce19a324b2352bb87021fd8d30069f3696.html" />
+<link rel="alternate" type="text/html" href="commit/6089a1760f1e906642e90d7099c0cbbd6adc1a9e.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 041e22ce19a324b2352bb87021fd8d30069f3696
-parent 5b648c4977111a86a9c4eb76e22cb278dc7b38d7
+<content type="text">commit 6089a1760f1e906642e90d7099c0cbbd6adc1a9e
+parent 81dfe32441dc045a57a7ccf1d8e1aaaf07b0e495
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Wed, 13 May 2020 21:33:50 +0700
 
@@ -695,17 +810,17 @@ content: cv public and ia writer update notes
 </content>
 </entry>
 <entry>
-<id>5b648c4977111a86a9c4eb76e22cb278dc7b38d7</id>
+<id>81dfe32441dc045a57a7ccf1d8e1aaaf07b0e495</id>
 <published>2020-05-12T14:51:02Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: change PGP</title>
-<link rel="alternate" type="text/html" href="commit/5b648c4977111a86a9c4eb76e22cb278dc7b38d7.html" />
+<link rel="alternate" type="text/html" href="commit/81dfe32441dc045a57a7ccf1d8e1aaaf07b0e495.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 5b648c4977111a86a9c4eb76e22cb278dc7b38d7
-parent c68e897f164cbfeaf1dab4de714da656e0ab6caf
+<content type="text">commit 81dfe32441dc045a57a7ccf1d8e1aaaf07b0e495
+parent 728a4ee30cedb3dfbd0acc9551c48b224a01dbc5
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Tue, 12 May 2020 21:51:02 +0700
 
@@ -714,17 +829,17 @@ refactor: change PGP
 </content>
 </entry>
 <entry>
-<id>c68e897f164cbfeaf1dab4de714da656e0ab6caf</id>
+<id>728a4ee30cedb3dfbd0acc9551c48b224a01dbc5</id>
 <published>2020-05-11T15:06:33Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: lazyload image using lazysizes package</title>
-<link rel="alternate" type="text/html" href="commit/c68e897f164cbfeaf1dab4de714da656e0ab6caf.html" />
+<link rel="alternate" type="text/html" href="commit/728a4ee30cedb3dfbd0acc9551c48b224a01dbc5.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit c68e897f164cbfeaf1dab4de714da656e0ab6caf
-parent c5673051fde774a9cd5ad10d4fd55804dea75e50
+<content type="text">commit 728a4ee30cedb3dfbd0acc9551c48b224a01dbc5
+parent 5c32fba5b0dbaa9910d84d1344b564dbf3d9d559
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon, 11 May 2020 22:06:33 +0700
 
@@ -733,17 +848,17 @@ refactor: lazyload image using lazysizes package
 </content>
 </entry>
 <entry>
-<id>c5673051fde774a9cd5ad10d4fd55804dea75e50</id>
+<id>5c32fba5b0dbaa9910d84d1344b564dbf3d9d559</id>
 <published>2020-05-11T05:39:56Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">styles: make padding on mobile layout 1.5em</title>
-<link rel="alternate" type="text/html" href="commit/c5673051fde774a9cd5ad10d4fd55804dea75e50.html" />
+<link rel="alternate" type="text/html" href="commit/5c32fba5b0dbaa9910d84d1344b564dbf3d9d559.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit c5673051fde774a9cd5ad10d4fd55804dea75e50
-parent bf5466c212d2dd7a6502d6e421749261cfe5955a
+<content type="text">commit 5c32fba5b0dbaa9910d84d1344b564dbf3d9d559
+parent a67053887a9923dc4863571f4eeeb5f444178623
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon, 11 May 2020 12:39:56 +0700
 
@@ -752,17 +867,17 @@ styles: make padding on mobile layout 1.5em
 </content>
 </entry>
 <entry>
-<id>bf5466c212d2dd7a6502d6e421749261cfe5955a</id>
+<id>a67053887a9923dc4863571f4eeeb5f444178623</id>
 <published>2020-05-09T13:02:07Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: notes about macbook 7,1</title>
-<link rel="alternate" type="text/html" href="commit/bf5466c212d2dd7a6502d6e421749261cfe5955a.html" />
+<link rel="alternate" type="text/html" href="commit/a67053887a9923dc4863571f4eeeb5f444178623.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit bf5466c212d2dd7a6502d6e421749261cfe5955a
-parent 61e63fa0672ca6a6a800b7230b66c9b16b292faa
+<content type="text">commit a67053887a9923dc4863571f4eeeb5f444178623
+parent 38a0b90c9efce62fa431034d9a101f195811f527
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  9 May 2020 20:02:07 +0700
 
@@ -771,17 +886,17 @@ content: notes about macbook 7,1
 </content>
 </entry>
 <entry>
-<id>61e63fa0672ca6a6a800b7230b66c9b16b292faa</id>
+<id>38a0b90c9efce62fa431034d9a101f195811f527</id>
 <published>2020-05-09T13:01:53Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: listings for h-feed add correct image</title>
-<link rel="alternate" type="text/html" href="commit/61e63fa0672ca6a6a800b7230b66c9b16b292faa.html" />
+<link rel="alternate" type="text/html" href="commit/38a0b90c9efce62fa431034d9a101f195811f527.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 61e63fa0672ca6a6a800b7230b66c9b16b292faa
-parent d73683401a69e5cad06c8239463fced4a430190e
+<content type="text">commit 38a0b90c9efce62fa431034d9a101f195811f527
+parent 4f63ae1a00d568e8162cb6bf3e4ed370cba0c955
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  9 May 2020 20:01:53 +0700
 
@@ -790,17 +905,17 @@ refactor: listings for h-feed add correct image
 </content>
 </entry>
 <entry>
-<id>d73683401a69e5cad06c8239463fced4a430190e</id>
+<id>4f63ae1a00d568e8162cb6bf3e4ed370cba0c955</id>
 <published>2020-05-09T11:05:29Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: indieweb h-feed for listings</title>
-<link rel="alternate" type="text/html" href="commit/d73683401a69e5cad06c8239463fced4a430190e.html" />
+<link rel="alternate" type="text/html" href="commit/4f63ae1a00d568e8162cb6bf3e4ed370cba0c955.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit d73683401a69e5cad06c8239463fced4a430190e
-parent b1cf4fbe93882284c5d9e6688decb7b2e3cba89a
+<content type="text">commit 4f63ae1a00d568e8162cb6bf3e4ed370cba0c955
+parent 44a7bdcadf26e2a491c37905a6992ff5523d0c51
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  9 May 2020 18:05:29 +0700
 
@@ -809,17 +924,17 @@ feature: indieweb h-feed for listings
 </content>
 </entry>
 <entry>
-<id>b1cf4fbe93882284c5d9e6688decb7b2e3cba89a</id>
+<id>44a7bdcadf26e2a491c37905a6992ff5523d0c51</id>
 <published>2020-05-09T10:17:59Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: add type for bookmarks and links</title>
-<link rel="alternate" type="text/html" href="commit/b1cf4fbe93882284c5d9e6688decb7b2e3cba89a.html" />
+<link rel="alternate" type="text/html" href="commit/44a7bdcadf26e2a491c37905a6992ff5523d0c51.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit b1cf4fbe93882284c5d9e6688decb7b2e3cba89a
-parent ac1af1c6b79b5d4b13f1827906eaa779fa64fda5
+<content type="text">commit 44a7bdcadf26e2a491c37905a6992ff5523d0c51
+parent c0984d2f8f8729bb76416d312c4ef4abb1f403f0
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  9 May 2020 17:17:59 +0700
 
@@ -828,17 +943,17 @@ refactor: add type for bookmarks and links
 </content>
 </entry>
 <entry>
-<id>ac1af1c6b79b5d4b13f1827906eaa779fa64fda5</id>
+<id>c0984d2f8f8729bb76416d312c4ef4abb1f403f0</id>
 <published>2020-05-09T10:14:35Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">styles: unordered, ordered, checkbox list improvements</title>
-<link rel="alternate" type="text/html" href="commit/ac1af1c6b79b5d4b13f1827906eaa779fa64fda5.html" />
+<link rel="alternate" type="text/html" href="commit/c0984d2f8f8729bb76416d312c4ef4abb1f403f0.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit ac1af1c6b79b5d4b13f1827906eaa779fa64fda5
-parent c966a255074ed094306ef8f3ce20cb339e35006c
+<content type="text">commit c0984d2f8f8729bb76416d312c4ef4abb1f403f0
+parent 1021d61504ef7f11930989b03f6d32892b33e4a3
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  9 May 2020 17:14:35 +0700
 
@@ -847,17 +962,17 @@ styles: unordered, ordered, checkbox list improvements
 </content>
 </entry>
 <entry>
-<id>c966a255074ed094306ef8f3ce20cb339e35006c</id>
+<id>1021d61504ef7f11930989b03f6d32892b33e4a3</id>
 <published>2020-05-08T19:28:14Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">styles: refactor anchor tag hover and more tweaks</title>
-<link rel="alternate" type="text/html" href="commit/c966a255074ed094306ef8f3ce20cb339e35006c.html" />
+<link rel="alternate" type="text/html" href="commit/1021d61504ef7f11930989b03f6d32892b33e4a3.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit c966a255074ed094306ef8f3ce20cb339e35006c
-parent fcc9e516be39543aeb18a0554d976e95576cdc93
+<content type="text">commit 1021d61504ef7f11930989b03f6d32892b33e4a3
+parent f13216464eb93942eeabe683f646664b66d7c90f
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  9 May 2020 02:28:14 +0700
 
@@ -866,17 +981,17 @@ styles: refactor anchor tag hover and more tweaks
 </content>
 </entry>
 <entry>
-<id>fcc9e516be39543aeb18a0554d976e95576cdc93</id>
+<id>f13216464eb93942eeabe683f646664b66d7c90f</id>
 <published>2020-05-08T19:04:58Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: add dynamic headline hash</title>
-<link rel="alternate" type="text/html" href="commit/fcc9e516be39543aeb18a0554d976e95576cdc93.html" />
+<link rel="alternate" type="text/html" href="commit/f13216464eb93942eeabe683f646664b66d7c90f.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit fcc9e516be39543aeb18a0554d976e95576cdc93
-parent cc65bcec50bc32298dbe221ce37bdb3f0751a9f0
+<content type="text">commit f13216464eb93942eeabe683f646664b66d7c90f
+parent 29c5342bd58dd225ed944a3f53895bf0aff89535
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  9 May 2020 02:04:58 +0700
 
@@ -885,17 +1000,17 @@ feature: add dynamic headline hash
 </content>
 </entry>
 <entry>
-<id>cc65bcec50bc32298dbe221ce37bdb3f0751a9f0</id>
+<id>29c5342bd58dd225ed944a3f53895bf0aff89535</id>
 <published>2020-05-08T13:59:34Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: update tags</title>
-<link rel="alternate" type="text/html" href="commit/cc65bcec50bc32298dbe221ce37bdb3f0751a9f0.html" />
+<link rel="alternate" type="text/html" href="commit/29c5342bd58dd225ed944a3f53895bf0aff89535.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit cc65bcec50bc32298dbe221ce37bdb3f0751a9f0
-parent 94bd886af2392c4378252e04f95eef1be3d6456b
+<content type="text">commit 29c5342bd58dd225ed944a3f53895bf0aff89535
+parent 6fe0d0379ebf928d67d071519b22459a949cdb95
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  8 May 2020 20:59:34 +0700
 
@@ -904,17 +1019,17 @@ content: update tags
 </content>
 </entry>
 <entry>
-<id>94bd886af2392c4378252e04f95eef1be3d6456b</id>
+<id>6fe0d0379ebf928d67d071519b22459a949cdb95</id>
 <published>2020-05-07T17:38:38Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: add gpg on cv</title>
-<link rel="alternate" type="text/html" href="commit/94bd886af2392c4378252e04f95eef1be3d6456b.html" />
+<link rel="alternate" type="text/html" href="commit/6fe0d0379ebf928d67d071519b22459a949cdb95.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 94bd886af2392c4378252e04f95eef1be3d6456b
-parent 8269c2fb831f43dd69452303b5ef1490cdff6556
+<content type="text">commit 6fe0d0379ebf928d67d071519b22459a949cdb95
+parent f9392530b3664cd5d53c8536881296e2a0b20a2c
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  8 May 2020 00:38:38 +0700
 
@@ -923,17 +1038,17 @@ content: add gpg on cv
 </content>
 </entry>
 <entry>
-<id>8269c2fb831f43dd69452303b5ef1490cdff6556</id>
+<id>f9392530b3664cd5d53c8536881296e2a0b20a2c</id>
 <published>2020-05-07T17:04:00Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">style: make header slimmer</title>
-<link rel="alternate" type="text/html" href="commit/8269c2fb831f43dd69452303b5ef1490cdff6556.html" />
+<link rel="alternate" type="text/html" href="commit/f9392530b3664cd5d53c8536881296e2a0b20a2c.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 8269c2fb831f43dd69452303b5ef1490cdff6556
-parent 6bf0f87369fb9992df3798cc75c915b28e4fd81b
+<content type="text">commit f9392530b3664cd5d53c8536881296e2a0b20a2c
+parent f8c59df889c13dcfc058d906cec1c572d0f2f51f
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  8 May 2020 00:04:00 +0700
 
@@ -942,17 +1057,17 @@ style: make header slimmer
 </content>
 </entry>
 <entry>
-<id>6bf0f87369fb9992df3798cc75c915b28e4fd81b</id>
+<id>f8c59df889c13dcfc058d906cec1c572d0f2f51f</id>
 <published>2020-05-07T17:03:50Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: SEO make summaries use h3 instead of h2</title>
-<link rel="alternate" type="text/html" href="commit/6bf0f87369fb9992df3798cc75c915b28e4fd81b.html" />
+<link rel="alternate" type="text/html" href="commit/f8c59df889c13dcfc058d906cec1c572d0f2f51f.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 6bf0f87369fb9992df3798cc75c915b28e4fd81b
-parent e63e0da76dc9420efceb8d816c93b1e0da43f598
+<content type="text">commit f8c59df889c13dcfc058d906cec1c572d0f2f51f
+parent e73a5b1827cd324a7866957f29afae62fcb6dc45
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  8 May 2020 00:03:50 +0700
 
@@ -961,17 +1076,17 @@ refactor: SEO make summaries use h3 instead of h2
 </content>
 </entry>
 <entry>
-<id>e63e0da76dc9420efceb8d816c93b1e0da43f598</id>
+<id>e73a5b1827cd324a7866957f29afae62fcb6dc45</id>
 <published>2020-05-07T17:03:18Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">keybase txt</title>
-<link rel="alternate" type="text/html" href="commit/e63e0da76dc9420efceb8d816c93b1e0da43f598.html" />
+<link rel="alternate" type="text/html" href="commit/e73a5b1827cd324a7866957f29afae62fcb6dc45.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit e63e0da76dc9420efceb8d816c93b1e0da43f598
-parent c74149ef26450ebffa0b95705e51ca66fbf68aaf
+<content type="text">commit e73a5b1827cd324a7866957f29afae62fcb6dc45
+parent 5b34ab47663f75aa949f7a7d5681c29c881e18d1
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  8 May 2020 00:03:18 +0700
 
@@ -980,17 +1095,17 @@ keybase txt
 </content>
 </entry>
 <entry>
-<id>c74149ef26450ebffa0b95705e51ca66fbf68aaf</id>
+<id>5b34ab47663f75aa949f7a7d5681c29c881e18d1</id>
 <published>2020-05-07T17:03:11Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: change twitter handle to ybbond_</title>
-<link rel="alternate" type="text/html" href="commit/c74149ef26450ebffa0b95705e51ca66fbf68aaf.html" />
+<link rel="alternate" type="text/html" href="commit/5b34ab47663f75aa949f7a7d5681c29c881e18d1.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit c74149ef26450ebffa0b95705e51ca66fbf68aaf
-parent 9f064d47250eb2ff608a6f15243a42a20c142b7b
+<content type="text">commit 5b34ab47663f75aa949f7a7d5681c29c881e18d1
+parent b100b32b6fc67cd685d8a4bbe98650da2a9c14fc
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  8 May 2020 00:03:11 +0700
 
@@ -999,17 +1114,17 @@ refactor: change twitter handle to ybbond_
 </content>
 </entry>
 <entry>
-<id>9f064d47250eb2ff608a6f15243a42a20c142b7b</id>
+<id>b100b32b6fc67cd685d8a4bbe98650da2a9c14fc</id>
 <published>2020-05-07T08:44:14Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: change email</title>
-<link rel="alternate" type="text/html" href="commit/9f064d47250eb2ff608a6f15243a42a20c142b7b.html" />
+<link rel="alternate" type="text/html" href="commit/b100b32b6fc67cd685d8a4bbe98650da2a9c14fc.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 9f064d47250eb2ff608a6f15243a42a20c142b7b
-parent 8d77be0d0dbe0e4247d359b46a689b11fd07118f
+<content type="text">commit b100b32b6fc67cd685d8a4bbe98650da2a9c14fc
+parent 3ac97340033528e8101763bec95a4d1f1bc74988
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Thu,  7 May 2020 15:44:14 +0700
 
@@ -1018,17 +1133,17 @@ refactor: change email
 </content>
 </entry>
 <entry>
-<id>8d77be0d0dbe0e4247d359b46a689b11fd07118f</id>
+<id>3ac97340033528e8101763bec95a4d1f1bc74988</id>
 <published>2020-05-04T09:55:42Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: notes outline</title>
-<link rel="alternate" type="text/html" href="commit/8d77be0d0dbe0e4247d359b46a689b11fd07118f.html" />
+<link rel="alternate" type="text/html" href="commit/3ac97340033528e8101763bec95a4d1f1bc74988.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 8d77be0d0dbe0e4247d359b46a689b11fd07118f
-parent 1f7700f8c59c4d28188e67e7ae6ecbb4f4f65045
+<content type="text">commit 3ac97340033528e8101763bec95a4d1f1bc74988
+parent c670a7d6b394c3d7cd1836b9bf05e6b1643a2c5b
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 16:55:42 +0700
 
@@ -1037,17 +1152,17 @@ refactor: notes outline
 </content>
 </entry>
 <entry>
-<id>1f7700f8c59c4d28188e67e7ae6ecbb4f4f65045</id>
+<id>c670a7d6b394c3d7cd1836b9bf05e6b1643a2c5b</id>
 <published>2020-05-04T09:05:22Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: add new notes</title>
-<link rel="alternate" type="text/html" href="commit/1f7700f8c59c4d28188e67e7ae6ecbb4f4f65045.html" />
+<link rel="alternate" type="text/html" href="commit/c670a7d6b394c3d7cd1836b9bf05e6b1643a2c5b.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 1f7700f8c59c4d28188e67e7ae6ecbb4f4f65045
-parent 44bca78c904747d54c9afb173db42799d461ea55
+<content type="text">commit c670a7d6b394c3d7cd1836b9bf05e6b1643a2c5b
+parent 31233c77f203c5781e4d0fb08e2aa3d95c09147d
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 16:05:22 +0700
 
@@ -1056,17 +1171,17 @@ content: add new notes
 </content>
 </entry>
 <entry>
-<id>44bca78c904747d54c9afb173db42799d461ea55</id>
+<id>31233c77f203c5781e4d0fb08e2aa3d95c09147d</id>
 <published>2020-05-04T09:00:38Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: add time mouseover tooltip</title>
-<link rel="alternate" type="text/html" href="commit/44bca78c904747d54c9afb173db42799d461ea55.html" />
+<link rel="alternate" type="text/html" href="commit/31233c77f203c5781e4d0fb08e2aa3d95c09147d.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 44bca78c904747d54c9afb173db42799d461ea55
-parent ca0c2f3409720ef07b3b0e7f01a3f3eb7a95350c
+<content type="text">commit 31233c77f203c5781e4d0fb08e2aa3d95c09147d
+parent 4b467bcddae039c04dd9b9adadb95d1044d6e45e
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 16:00:38 +0700
 
@@ -1075,17 +1190,17 @@ feature: add time mouseover tooltip
 </content>
 </entry>
 <entry>
-<id>ca0c2f3409720ef07b3b0e7f01a3f3eb7a95350c</id>
+<id>4b467bcddae039c04dd9b9adadb95d1044d6e45e</id>
 <published>2020-05-03T22:05:35Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: modify notes single page</title>
-<link rel="alternate" type="text/html" href="commit/ca0c2f3409720ef07b3b0e7f01a3f3eb7a95350c.html" />
+<link rel="alternate" type="text/html" href="commit/4b467bcddae039c04dd9b9adadb95d1044d6e45e.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit ca0c2f3409720ef07b3b0e7f01a3f3eb7a95350c
-parent c6ebea1f7ac999f84e1c942c335838b2cb5497e6
+<content type="text">commit 4b467bcddae039c04dd9b9adadb95d1044d6e45e
+parent e83d4a43eb5763545d66a8c81ea3cb9fad4aaef5
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 05:05:35 +0700
 
@@ -1094,17 +1209,17 @@ refactor: modify notes single page
 </content>
 </entry>
 <entry>
-<id>c6ebea1f7ac999f84e1c942c335838b2cb5497e6</id>
+<id>e83d4a43eb5763545d66a8c81ea3cb9fad4aaef5</id>
 <published>2020-05-03T20:56:26Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: notes, redirect twitter og to listing</title>
-<link rel="alternate" type="text/html" href="commit/c6ebea1f7ac999f84e1c942c335838b2cb5497e6.html" />
+<link rel="alternate" type="text/html" href="commit/e83d4a43eb5763545d66a8c81ea3cb9fad4aaef5.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit c6ebea1f7ac999f84e1c942c335838b2cb5497e6
-parent 74cd95cb14f5c0f98ec37706be19c159793ef067
+<content type="text">commit e83d4a43eb5763545d66a8c81ea3cb9fad4aaef5
+parent a5fe8b21cca7b0079ad858f34ccc131af0ce66be
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 03:56:26 +0700
 
@@ -1113,17 +1228,17 @@ refactor: notes, redirect twitter og to listing
 </content>
 </entry>
 <entry>
-<id>74cd95cb14f5c0f98ec37706be19c159793ef067</id>
+<id>a5fe8b21cca7b0079ad858f34ccc131af0ce66be</id>
 <published>2020-05-03T20:34:52Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">hotfix: FOR REAL! fixes note guid. i am dumb</title>
-<link rel="alternate" type="text/html" href="commit/74cd95cb14f5c0f98ec37706be19c159793ef067.html" />
+<link rel="alternate" type="text/html" href="commit/a5fe8b21cca7b0079ad858f34ccc131af0ce66be.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 74cd95cb14f5c0f98ec37706be19c159793ef067
-parent db8730140e4d8140ddf4bb1b9e3e5222284db67e
+<content type="text">commit a5fe8b21cca7b0079ad858f34ccc131af0ce66be
+parent 95e037b5cdf298dea5ab45ee6c7dc8d229da6265
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 03:34:52 +0700
 
@@ -1132,17 +1247,17 @@ hotfix: FOR REAL! fixes note guid. i am dumb
 </content>
 </entry>
 <entry>
-<id>db8730140e4d8140ddf4bb1b9e3e5222284db67e</id>
+<id>95e037b5cdf298dea5ab45ee6c7dc8d229da6265</id>
 <published>2020-05-03T20:26:23Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: random, see content</title>
-<link rel="alternate" type="text/html" href="commit/db8730140e4d8140ddf4bb1b9e3e5222284db67e.html" />
+<link rel="alternate" type="text/html" href="commit/95e037b5cdf298dea5ab45ee6c7dc8d229da6265.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit db8730140e4d8140ddf4bb1b9e3e5222284db67e
-parent 47389a8d411cc6de1047dd981f845eb9fa6ab6a4
+<content type="text">commit 95e037b5cdf298dea5ab45ee6c7dc8d229da6265
+parent dd683d944f78d966e53626fbc30a731855764859
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 03:26:23 +0700
 
@@ -1151,17 +1266,17 @@ refactor: random, see content
 </content>
 </entry>
 <entry>
-<id>47389a8d411cc6de1047dd981f845eb9fa6ab6a4</id>
+<id>dd683d944f78d966e53626fbc30a731855764859</id>
 <published>2020-05-03T19:30:57Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: add h-entry category and syndicated</title>
-<link rel="alternate" type="text/html" href="commit/47389a8d411cc6de1047dd981f845eb9fa6ab6a4.html" />
+<link rel="alternate" type="text/html" href="commit/dd683d944f78d966e53626fbc30a731855764859.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 47389a8d411cc6de1047dd981f845eb9fa6ab6a4
-parent bbd1342326b12fedc52cb1c0f7b5bb4b8f94d883
+<content type="text">commit dd683d944f78d966e53626fbc30a731855764859
+parent 7d8c479ba2b8d623c9d5b73de6863c1b8821dd3b
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 02:30:57 +0700
 
@@ -1170,17 +1285,17 @@ feature: add h-entry category and syndicated
 </content>
 </entry>
 <entry>
-<id>bbd1342326b12fedc52cb1c0f7b5bb4b8f94d883</id>
+<id>7d8c479ba2b8d623c9d5b73de6863c1b8821dd3b</id>
 <published>2020-05-03T19:05:41Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: performance on first load fix</title>
-<link rel="alternate" type="text/html" href="commit/bbd1342326b12fedc52cb1c0f7b5bb4b8f94d883.html" />
+<link rel="alternate" type="text/html" href="commit/7d8c479ba2b8d623c9d5b73de6863c1b8821dd3b.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit bbd1342326b12fedc52cb1c0f7b5bb4b8f94d883
-parent 234c698e495aae2e984a6566427d1a91e6f864d1
+<content type="text">commit 7d8c479ba2b8d623c9d5b73de6863c1b8821dd3b
+parent 3f3c56432ec5515062238df20dba3bc0459555ba
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 02:05:41 +0700
 
@@ -1189,17 +1304,17 @@ refactor: performance on first load fix
 </content>
 </entry>
 <entry>
-<id>234c698e495aae2e984a6566427d1a91e6f864d1</id>
+<id>3f3c56432ec5515062238df20dba3bc0459555ba</id>
 <published>2020-05-03T18:54:14Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: make each post have h-card but hidden</title>
-<link rel="alternate" type="text/html" href="commit/234c698e495aae2e984a6566427d1a91e6f864d1.html" />
+<link rel="alternate" type="text/html" href="commit/3f3c56432ec5515062238df20dba3bc0459555ba.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 234c698e495aae2e984a6566427d1a91e6f864d1
-parent 2e42ad4491a3cced0e45a3d5c7dfcd6856603ad0
+<content type="text">commit 3f3c56432ec5515062238df20dba3bc0459555ba
+parent bdab5a891996e5d045a42407de0432e07631493b
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 01:54:14 +0700
 
@@ -1208,17 +1323,17 @@ refactor: make each post have h-card but hidden
 </content>
 </entry>
 <entry>
-<id>2e42ad4491a3cced0e45a3d5c7dfcd6856603ad0</id>
+<id>bdab5a891996e5d045a42407de0432e07631493b</id>
 <published>2020-05-03T18:51:50Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: make p-author also h-card</title>
-<link rel="alternate" type="text/html" href="commit/2e42ad4491a3cced0e45a3d5c7dfcd6856603ad0.html" />
+<link rel="alternate" type="text/html" href="commit/bdab5a891996e5d045a42407de0432e07631493b.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 2e42ad4491a3cced0e45a3d5c7dfcd6856603ad0
-parent e747d48dd2943b6f8e6bffb47161f2747cb3727e
+<content type="text">commit bdab5a891996e5d045a42407de0432e07631493b
+parent 4f31a93767fc39938e969b759a856e93b80c6a58
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 01:51:50 +0700
 
@@ -1227,17 +1342,17 @@ refactor: make p-author also h-card
 </content>
 </entry>
 <entry>
-<id>e747d48dd2943b6f8e6bffb47161f2747cb3727e</id>
+<id>4f31a93767fc39938e969b759a856e93b80c6a58</id>
 <published>2020-05-03T18:24:55Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: h-entry for notes</title>
-<link rel="alternate" type="text/html" href="commit/e747d48dd2943b6f8e6bffb47161f2747cb3727e.html" />
+<link rel="alternate" type="text/html" href="commit/4f31a93767fc39938e969b759a856e93b80c6a58.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit e747d48dd2943b6f8e6bffb47161f2747cb3727e
-parent fd98ce56a1907f647fbc3d803906e02b2e76b9eb
+<content type="text">commit 4f31a93767fc39938e969b759a856e93b80c6a58
+parent 076731f596b27331236f2ce3ca9d5d79eba0d2cf
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 01:24:55 +0700
 
@@ -1246,17 +1361,17 @@ feature: h-entry for notes
 </content>
 </entry>
 <entry>
-<id>fd98ce56a1907f647fbc3d803906e02b2e76b9eb</id>
+<id>076731f596b27331236f2ce3ca9d5d79eba0d2cf</id>
 <published>2020-05-03T17:46:58Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: h-entry for indieweb</title>
-<link rel="alternate" type="text/html" href="commit/fd98ce56a1907f647fbc3d803906e02b2e76b9eb.html" />
+<link rel="alternate" type="text/html" href="commit/076731f596b27331236f2ce3ca9d5d79eba0d2cf.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit fd98ce56a1907f647fbc3d803906e02b2e76b9eb
-parent f9ea3e7e6bd0f4c3c6a9c8b92622ccdbb3df4e64
+<content type="text">commit 076731f596b27331236f2ce3ca9d5d79eba0d2cf
+parent 3e129700eaadc782104f43a041ca7ea3362f92d6
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 00:46:58 +0700
 
@@ -1265,17 +1380,17 @@ feature: h-entry for indieweb
 </content>
 </entry>
 <entry>
-<id>f9ea3e7e6bd0f4c3c6a9c8b92622ccdbb3df4e64</id>
+<id>3e129700eaadc782104f43a041ca7ea3362f92d6</id>
 <published>2020-05-03T16:39:26Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">hotfix: h-card u-uid rel=me</title>
-<link rel="alternate" type="text/html" href="commit/f9ea3e7e6bd0f4c3c6a9c8b92622ccdbb3df4e64.html" />
+<link rel="alternate" type="text/html" href="commit/3e129700eaadc782104f43a041ca7ea3362f92d6.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit f9ea3e7e6bd0f4c3c6a9c8b92622ccdbb3df4e64
-parent cfe6e89cc7351fb929aaa0062a714e026a372e37
+<content type="text">commit 3e129700eaadc782104f43a041ca7ea3362f92d6
+parent b0b6e02a9d837a5d2c8b6dc0d5f97b71536fc6e7
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sun,  3 May 2020 23:39:26 +0700
 
@@ -1284,17 +1399,17 @@ hotfix: h-card u-uid rel=me
 </content>
 </entry>
 <entry>
-<id>cfe6e89cc7351fb929aaa0062a714e026a372e37</id>
+<id>b0b6e02a9d837a5d2c8b6dc0d5f97b71536fc6e7</id>
 <published>2020-05-03T16:35:11Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: add web-ring to footer</title>
-<link rel="alternate" type="text/html" href="commit/cfe6e89cc7351fb929aaa0062a714e026a372e37.html" />
+<link rel="alternate" type="text/html" href="commit/b0b6e02a9d837a5d2c8b6dc0d5f97b71536fc6e7.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit cfe6e89cc7351fb929aaa0062a714e026a372e37
-parent 7858f2a4e1d68445eb37f42e385274aaba053489
+<content type="text">commit b0b6e02a9d837a5d2c8b6dc0d5f97b71536fc6e7
+parent 80613f52680b20b819624753dfdb67925ba2683f
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sun,  3 May 2020 23:35:11 +0700
 
@@ -1303,17 +1418,17 @@ feature: add web-ring to footer
 </content>
 </entry>
 <entry>
-<id>7858f2a4e1d68445eb37f42e385274aaba053489</id>
+<id>80613f52680b20b819624753dfdb67925ba2683f</id>
 <published>2020-05-03T16:13:16Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: separate auth links header</title>
-<link rel="alternate" type="text/html" href="commit/7858f2a4e1d68445eb37f42e385274aaba053489.html" />
+<link rel="alternate" type="text/html" href="commit/80613f52680b20b819624753dfdb67925ba2683f.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 7858f2a4e1d68445eb37f42e385274aaba053489
-parent ebb73e169bde42f4cd2490e84523cf78cc855005
+<content type="text">commit 80613f52680b20b819624753dfdb67925ba2683f
+parent af2b0bae6c8ef5889d61f8893e4098c85841d0e4
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sun,  3 May 2020 23:13:16 +0700
 
@@ -1322,17 +1437,17 @@ refactor: separate auth links header
 </content>
 </entry>
 <entry>
-<id>ebb73e169bde42f4cd2490e84523cf78cc855005</id>
+<id>af2b0bae6c8ef5889d61f8893e4098c85841d0e4</id>
 <published>2020-05-03T16:13:05Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: add h-card</title>
-<link rel="alternate" type="text/html" href="commit/ebb73e169bde42f4cd2490e84523cf78cc855005.html" />
+<link rel="alternate" type="text/html" href="commit/af2b0bae6c8ef5889d61f8893e4098c85841d0e4.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit ebb73e169bde42f4cd2490e84523cf78cc855005
-parent 967665b00a89de28931067240d263804dd4e5f16
+<content type="text">commit af2b0bae6c8ef5889d61f8893e4098c85841d0e4
+parent a81d43878bba7be1e0a9d0c2aa75a06ec5ae23b5
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sun,  3 May 2020 23:13:05 +0700
 
@@ -1341,17 +1456,17 @@ feature: add h-card
 </content>
 </entry>
 <entry>
-<id>967665b00a89de28931067240d263804dd4e5f16</id>
+<id>a81d43878bba7be1e0a9d0c2aa75a06ec5ae23b5</id>
 <published>2020-05-03T14:10:29Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: use IndieAuth for indie authorization</title>
-<link rel="alternate" type="text/html" href="commit/967665b00a89de28931067240d263804dd4e5f16.html" />
+<link rel="alternate" type="text/html" href="commit/a81d43878bba7be1e0a9d0c2aa75a06ec5ae23b5.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 967665b00a89de28931067240d263804dd4e5f16
-parent 09433ebe4c0bb78441334d845b5b34df436e22cc
+<content type="text">commit a81d43878bba7be1e0a9d0c2aa75a06ec5ae23b5
+parent 95bcd236bacfb437bb809e8e1750557a1fe4d98c
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sun,  3 May 2020 21:10:29 +0700
 
@@ -1360,17 +1475,17 @@ refactor: use IndieAuth for indie authorization
 </content>
 </entry>
 <entry>
-<id>09433ebe4c0bb78441334d845b5b34df436e22cc</id>
+<id>95bcd236bacfb437bb809e8e1750557a1fe4d98c</id>
 <published>2020-05-03T08:50:19Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: add checklist capability and style tweak</title>
-<link rel="alternate" type="text/html" href="commit/09433ebe4c0bb78441334d845b5b34df436e22cc.html" />
+<link rel="alternate" type="text/html" href="commit/95bcd236bacfb437bb809e8e1750557a1fe4d98c.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 09433ebe4c0bb78441334d845b5b34df436e22cc
-parent db830d631bb2034c0b6e240c00e4139e2745cde2
+<content type="text">commit 95bcd236bacfb437bb809e8e1750557a1fe4d98c
+parent dd6aafaacbc8f96afb8b5d8e225afce07d2f0c1d
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sun,  3 May 2020 15:50:19 +0700
 
@@ -1379,17 +1494,17 @@ content: add checklist capability and style tweak
 </content>
 </entry>
 <entry>
-<id>db830d631bb2034c0b6e240c00e4139e2745cde2</id>
+<id>dd6aafaacbc8f96afb8b5d8e225afce07d2f0c1d</id>
 <published>2020-05-02T12:47:12Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: fixes grammatical error and a lil enhancement</title>
-<link rel="alternate" type="text/html" href="commit/db830d631bb2034c0b6e240c00e4139e2745cde2.html" />
+<link rel="alternate" type="text/html" href="commit/dd6aafaacbc8f96afb8b5d8e225afce07d2f0c1d.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit db830d631bb2034c0b6e240c00e4139e2745cde2
-parent 445611e22980826a6ac675f7e0bfd878e2410959
+<content type="text">commit dd6aafaacbc8f96afb8b5d8e225afce07d2f0c1d
+parent 420565db44716ce2595f453e387919caea854fd8
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  2 May 2020 19:47:12 +0700
 
@@ -1397,17 +1512,17 @@ content: fixes grammatical error and a lil enhancement
 </content>
 </entry>
 <entry>
-<id>445611e22980826a6ac675f7e0bfd878e2410959</id>
+<id>420565db44716ce2595f453e387919caea854fd8</id>
 <published>2020-05-02T10:33:25Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: indieweb notes</title>
-<link rel="alternate" type="text/html" href="commit/445611e22980826a6ac675f7e0bfd878e2410959.html" />
+<link rel="alternate" type="text/html" href="commit/420565db44716ce2595f453e387919caea854fd8.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 445611e22980826a6ac675f7e0bfd878e2410959
-parent c399248ae40ea44dddfa0723319a1c3644b5eba8
+<content type="text">commit 420565db44716ce2595f453e387919caea854fd8
+parent fd67d0073f5bec76a26d5679ad03f35689b3a5ee
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  2 May 2020 17:33:25 +0700
 
@@ -1416,17 +1531,17 @@ content: indieweb notes
 </content>
 </entry>
 <entry>
-<id>c399248ae40ea44dddfa0723319a1c3644b5eba8</id>
+<id>fd67d0073f5bec76a26d5679ad03f35689b3a5ee</id>
 <published>2020-05-02T10:23:18Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: modify Migrating to Hugo</title>
-<link rel="alternate" type="text/html" href="commit/c399248ae40ea44dddfa0723319a1c3644b5eba8.html" />
+<link rel="alternate" type="text/html" href="commit/fd67d0073f5bec76a26d5679ad03f35689b3a5ee.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit c399248ae40ea44dddfa0723319a1c3644b5eba8
-parent a33b6e05192d2a145594f6cea94f496db7616817
+<content type="text">commit fd67d0073f5bec76a26d5679ad03f35689b3a5ee
+parent aec217685daa604e4db62f3efc72825d49360bc5
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  2 May 2020 17:23:18 +0700
 
@@ -1435,17 +1550,17 @@ content: modify Migrating to Hugo
 </content>
 </entry>
 <entry>
-<id>a33b6e05192d2a145594f6cea94f496db7616817</id>
+<id>aec217685daa604e4db62f3efc72825d49360bc5</id>
 <published>2020-05-02T09:55:30Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: fix link to obsolete formats</title>
-<link rel="alternate" type="text/html" href="commit/a33b6e05192d2a145594f6cea94f496db7616817.html" />
+<link rel="alternate" type="text/html" href="commit/aec217685daa604e4db62f3efc72825d49360bc5.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit a33b6e05192d2a145594f6cea94f496db7616817
-parent 4b3f694d98b405dfb96120af8c40ca1fb3b80a0d
+<content type="text">commit aec217685daa604e4db62f3efc72825d49360bc5
+parent a31a0a58875fdbe81dafb9bd96ffa67560cbfefa
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  2 May 2020 16:55:30 +0700
 
@@ -1454,17 +1569,17 @@ content: fix link to obsolete formats
 </content>
 </entry>
 <entry>
-<id>4b3f694d98b405dfb96120af8c40ca1fb3b80a0d</id>
+<id>a31a0a58875fdbe81dafb9bd96ffa67560cbfefa</id>
 <published>2020-05-02T09:41:44Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: change NuType link</title>
-<link rel="alternate" type="text/html" href="commit/4b3f694d98b405dfb96120af8c40ca1fb3b80a0d.html" />
+<link rel="alternate" type="text/html" href="commit/a31a0a58875fdbe81dafb9bd96ffa67560cbfefa.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 4b3f694d98b405dfb96120af8c40ca1fb3b80a0d
-parent b7bbb4b3770d78ea08cc7d93e024d4947d224d80
+<content type="text">commit a31a0a58875fdbe81dafb9bd96ffa67560cbfefa
+parent 665a5cd18075d02292e9b585471d21dd5d4d45b9
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  2 May 2020 16:41:44 +0700
 
@@ -1473,17 +1588,17 @@ content: change NuType link
 </content>
 </entry>
 <entry>
-<id>b7bbb4b3770d78ea08cc7d93e024d4947d224d80</id>
+<id>665a5cd18075d02292e9b585471d21dd5d4d45b9</id>
 <published>2020-05-02T09:18:04Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">hotfix: twitter metas image not found</title>
-<link rel="alternate" type="text/html" href="commit/b7bbb4b3770d78ea08cc7d93e024d4947d224d80.html" />
+<link rel="alternate" type="text/html" href="commit/665a5cd18075d02292e9b585471d21dd5d4d45b9.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit b7bbb4b3770d78ea08cc7d93e024d4947d224d80
-parent 3bb49de454e18ae6dec08b72fad47535ece48d2a
+<content type="text">commit 665a5cd18075d02292e9b585471d21dd5d4d45b9
+parent e71edccf0c57758acddf3055d5f1673fd19ee64f
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  2 May 2020 16:18:04 +0700
 
@@ -1492,17 +1607,17 @@ hotfix: twitter metas image not found
 </content>
 </entry>
 <entry>
-<id>3bb49de454e18ae6dec08b72fad47535ece48d2a</id>
+<id>e71edccf0c57758acddf3055d5f1673fd19ee64f</id>
 <published>2020-05-02T09:01:05Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: twitter card metas</title>
-<link rel="alternate" type="text/html" href="commit/3bb49de454e18ae6dec08b72fad47535ece48d2a.html" />
+<link rel="alternate" type="text/html" href="commit/e71edccf0c57758acddf3055d5f1673fd19ee64f.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 3bb49de454e18ae6dec08b72fad47535ece48d2a
-parent 11ae91bf53c59d4ce865b5b5aa22e985174bf084
+<content type="text">commit e71edccf0c57758acddf3055d5f1673fd19ee64f
+parent 47776d31c8b5cd02ece4d5486bf71f4510aed988
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  2 May 2020 16:01:05 +0700
 
@@ -1511,17 +1626,17 @@ feature: twitter card metas
 </content>
 </entry>
 <entry>
-<id>11ae91bf53c59d4ce865b5b5aa22e985174bf084</id>
+<id>47776d31c8b5cd02ece4d5486bf71f4510aed988</id>
 <published>2020-05-02T07:35:52Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: modify iA Writer asset, and add NuType assets</title>
-<link rel="alternate" type="text/html" href="commit/11ae91bf53c59d4ce865b5b5aa22e985174bf084.html" />
+<link rel="alternate" type="text/html" href="commit/47776d31c8b5cd02ece4d5486bf71f4510aed988.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 11ae91bf53c59d4ce865b5b5aa22e985174bf084
-parent 1074ffdc7a7db95491733a58f65271368e39159f
+<content type="text">commit 47776d31c8b5cd02ece4d5486bf71f4510aed988
+parent 984074c510bf199360dc4e5a9764d331aab990e1
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  2 May 2020 14:35:52 +0700
 
@@ -1530,17 +1645,17 @@ content: modify iA Writer asset, and add NuType assets
 </content>
 </entry>
 <entry>
-<id>1074ffdc7a7db95491733a58f65271368e39159f</id>
+<id>984074c510bf199360dc4e5a9764d331aab990e1</id>
 <published>2020-05-01T20:16:02Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">hotfix: try fix notes rss again</title>
-<link rel="alternate" type="text/html" href="commit/1074ffdc7a7db95491733a58f65271368e39159f.html" />
+<link rel="alternate" type="text/html" href="commit/984074c510bf199360dc4e5a9764d331aab990e1.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 1074ffdc7a7db95491733a58f65271368e39159f
-parent e678bb11c0e8ed8230ebe1c45c539841b36223ec
+<content type="text">commit 984074c510bf199360dc4e5a9764d331aab990e1
+parent ada65148b029337f22020e67debb24593ef6be2d
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  2 May 2020 03:16:02 +0700
 
@@ -1549,17 +1664,17 @@ hotfix: try fix notes rss again
 </content>
 </entry>
 <entry>
-<id>e678bb11c0e8ed8230ebe1c45c539841b36223ec</id>
+<id>ada65148b029337f22020e67debb24593ef6be2d</id>
 <published>2020-05-01T20:05:39Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: image and lazyloading</title>
-<link rel="alternate" type="text/html" href="commit/e678bb11c0e8ed8230ebe1c45c539841b36223ec.html" />
+<link rel="alternate" type="text/html" href="commit/ada65148b029337f22020e67debb24593ef6be2d.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit e678bb11c0e8ed8230ebe1c45c539841b36223ec
-parent 48eb7bb350585f78fa1c1d30577af7f6b38ebb00
+<content type="text">commit ada65148b029337f22020e67debb24593ef6be2d
+parent d9f67e5e1d5253d4acacefc0993aecea5ccb89a5
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  2 May 2020 03:05:39 +0700
 
@@ -1568,17 +1683,17 @@ feature: image and lazyloading
 </content>
 </entry>
 <entry>
-<id>48eb7bb350585f78fa1c1d30577af7f6b38ebb00</id>
+<id>d9f67e5e1d5253d4acacefc0993aecea5ccb89a5</id>
 <published>2020-05-01T16:00:06Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">hotfix: notes rss</title>
-<link rel="alternate" type="text/html" href="commit/48eb7bb350585f78fa1c1d30577af7f6b38ebb00.html" />
+<link rel="alternate" type="text/html" href="commit/d9f67e5e1d5253d4acacefc0993aecea5ccb89a5.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 48eb7bb350585f78fa1c1d30577af7f6b38ebb00
-parent 1494f13b6ffecb8d28355f4dc7ffcde2216f9852
+<content type="text">commit d9f67e5e1d5253d4acacefc0993aecea5ccb89a5
+parent 514f73995908ab1849053e94576284b4758e200e
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  1 May 2020 23:00:06 +0700
 
@@ -1587,17 +1702,17 @@ hotfix: notes rss
 </content>
 </entry>
 <entry>
-<id>1494f13b6ffecb8d28355f4dc7ffcde2216f9852</id>
+<id>514f73995908ab1849053e94576284b4758e200e</id>
 <published>2020-05-01T15:50:02Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: summary enhancements</title>
-<link rel="alternate" type="text/html" href="commit/1494f13b6ffecb8d28355f4dc7ffcde2216f9852.html" />
+<link rel="alternate" type="text/html" href="commit/514f73995908ab1849053e94576284b4758e200e.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 1494f13b6ffecb8d28355f4dc7ffcde2216f9852
-parent c18b3f124e24f17bc88118b25da1a9606b0fd718
+<content type="text">commit 514f73995908ab1849053e94576284b4758e200e
+parent 34799dff4e6a88f139b9236cd8141d018640a9e1
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  1 May 2020 22:50:02 +0700
 
@@ -1606,17 +1721,17 @@ refactor: summary enhancements
 </content>
 </entry>
 <entry>
-<id>c18b3f124e24f17bc88118b25da1a9606b0fd718</id>
+<id>34799dff4e6a88f139b9236cd8141d018640a9e1</id>
 <published>2020-05-01T14:49:44Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: indentations of components</title>
-<link rel="alternate" type="text/html" href="commit/c18b3f124e24f17bc88118b25da1a9606b0fd718.html" />
+<link rel="alternate" type="text/html" href="commit/34799dff4e6a88f139b9236cd8141d018640a9e1.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit c18b3f124e24f17bc88118b25da1a9606b0fd718
-parent 59de5dc371bc6fd8ecdbc80794e05af1f5350fc2
+<content type="text">commit 34799dff4e6a88f139b9236cd8141d018640a9e1
+parent c1634eff2f0e6aedf714862e9328d5d570b2e690
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  1 May 2020 21:49:44 +0700
 
@@ -1625,17 +1740,17 @@ refactor: indentations of components
 </content>
 </entry>
 <entry>
-<id>59de5dc371bc6fd8ecdbc80794e05af1f5350fc2</id>
+<id>c1634eff2f0e6aedf714862e9328d5d570b2e690</id>
 <published>2020-05-01T13:52:05Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">style: improved code and codeblock color</title>
-<link rel="alternate" type="text/html" href="commit/59de5dc371bc6fd8ecdbc80794e05af1f5350fc2.html" />
+<link rel="alternate" type="text/html" href="commit/c1634eff2f0e6aedf714862e9328d5d570b2e690.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 59de5dc371bc6fd8ecdbc80794e05af1f5350fc2
-parent 92ba2ed8432ea39807689b16b1c55233efc017a6
+<content type="text">commit c1634eff2f0e6aedf714862e9328d5d570b2e690
+parent 974d019e8eec46e70bf3f69680759a7150de3c8c
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  1 May 2020 20:52:05 +0700
 
@@ -1644,17 +1759,17 @@ style: improved code and codeblock color
 </content>
 </entry>
 <entry>
-<id>92ba2ed8432ea39807689b16b1c55233efc017a6</id>
+<id>974d019e8eec46e70bf3f69680759a7150de3c8c</id>
 <published>2020-05-01T13:28:18Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: added description and improved notes stylings</title>
-<link rel="alternate" type="text/html" href="commit/92ba2ed8432ea39807689b16b1c55233efc017a6.html" />
+<link rel="alternate" type="text/html" href="commit/974d019e8eec46e70bf3f69680759a7150de3c8c.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 92ba2ed8432ea39807689b16b1c55233efc017a6
-parent fb243bc01b15952268c26fe5b0ecc937b918617c
+<content type="text">commit 974d019e8eec46e70bf3f69680759a7150de3c8c
+parent dfe815f9d256d4c8170a2d5899a89b78e79b7799
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  1 May 2020 20:28:18 +0700
 
@@ -1663,17 +1778,17 @@ content: added description and improved notes stylings
 </content>
 </entry>
 <entry>
-<id>fb243bc01b15952268c26fe5b0ecc937b918617c</id>
+<id>dfe815f9d256d4c8170a2d5899a89b78e79b7799</id>
 <published>2020-05-01T13:07:20Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">refactor: rss enhancements</title>
-<link rel="alternate" type="text/html" href="commit/fb243bc01b15952268c26fe5b0ecc937b918617c.html" />
+<link rel="alternate" type="text/html" href="commit/dfe815f9d256d4c8170a2d5899a89b78e79b7799.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit fb243bc01b15952268c26fe5b0ecc937b918617c
-parent c239334fb9219a4a9cec05307e7ba88922d31922
+<content type="text">commit dfe815f9d256d4c8170a2d5899a89b78e79b7799
+parent 81387d7b1f24e4b8301280b4197f08162e8dbaf8
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  1 May 2020 20:07:20 +0700
 
@@ -1682,17 +1797,17 @@ refactor: rss enhancements
 </content>
 </entry>
 <entry>
-<id>c239334fb9219a4a9cec05307e7ba88922d31922</id>
+<id>81387d7b1f24e4b8301280b4197f08162e8dbaf8</id>
 <published>2020-05-01T09:57:29Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: modify link to old.ybbond, and publish april links</title>
-<link rel="alternate" type="text/html" href="commit/c239334fb9219a4a9cec05307e7ba88922d31922.html" />
+<link rel="alternate" type="text/html" href="commit/81387d7b1f24e4b8301280b4197f08162e8dbaf8.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit c239334fb9219a4a9cec05307e7ba88922d31922
-parent 49264165f162d14de72910d2de24d790c7ecb934
+<content type="text">commit 81387d7b1f24e4b8301280b4197f08162e8dbaf8
+parent 281ec2a09fb6878596284cc00322eeffcd59fdae
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  1 May 2020 16:57:29 +0700
 
@@ -1701,17 +1816,17 @@ content: modify link to old.ybbond, and publish april links
 </content>
 </entry>
 <entry>
-<id>49264165f162d14de72910d2de24d790c7ecb934</id>
+<id>281ec2a09fb6878596284cc00322eeffcd59fdae</id>
 <published>2020-05-01T09:57:09Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">style: refactor notes and move scss mixins to variables.scss</title>
-<link rel="alternate" type="text/html" href="commit/49264165f162d14de72910d2de24d790c7ecb934.html" />
+<link rel="alternate" type="text/html" href="commit/281ec2a09fb6878596284cc00322eeffcd59fdae.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 49264165f162d14de72910d2de24d790c7ecb934
-parent 313701c19df46e07a1c806d97b44730dacf1dd19
+<content type="text">commit 281ec2a09fb6878596284cc00322eeffcd59fdae
+parent 60dc9245c15d21739d28f7b701942ff0fc27bce9
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  1 May 2020 16:57:09 +0700
 
@@ -1720,17 +1835,17 @@ style: refactor notes and move scss mixins to variables.scss
 </content>
 </entry>
 <entry>
-<id>313701c19df46e07a1c806d97b44730dacf1dd19</id>
+<id>60dc9245c15d21739d28f7b701942ff0fc27bce9</id>
 <published>2020-05-01T08:09:34Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">content: adjust tags, and notes title</title>
-<link rel="alternate" type="text/html" href="commit/313701c19df46e07a1c806d97b44730dacf1dd19.html" />
+<link rel="alternate" type="text/html" href="commit/60dc9245c15d21739d28f7b701942ff0fc27bce9.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 313701c19df46e07a1c806d97b44730dacf1dd19
-parent 598fe2a6cb7ba601cb4682dc141211b829f8b762
+<content type="text">commit 60dc9245c15d21739d28f7b701942ff0fc27bce9
+parent d14d08401b29bdea14c55beb82e30d555fa58143
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  1 May 2020 15:09:34 +0700
 
@@ -1739,17 +1854,17 @@ content: adjust tags, and notes title
 </content>
 </entry>
 <entry>
-<id>598fe2a6cb7ba601cb4682dc141211b829f8b762</id>
+<id>d14d08401b29bdea14c55beb82e30d555fa58143</id>
 <published>2020-04-29T11:18:01Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: add rss browser detection</title>
-<link rel="alternate" type="text/html" href="commit/598fe2a6cb7ba601cb4682dc141211b829f8b762.html" />
+<link rel="alternate" type="text/html" href="commit/d14d08401b29bdea14c55beb82e30d555fa58143.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 598fe2a6cb7ba601cb4682dc141211b829f8b762
-parent 9b68089d01aa2b0a82e558e5704e1ca8fd836bdc
+<content type="text">commit d14d08401b29bdea14c55beb82e30d555fa58143
+parent 854e755d3223c3e09d62194b4e6d93b6184cf381
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Wed, 29 Apr 2020 18:18:01 +0700
 
@@ -1758,17 +1873,17 @@ feature: add rss browser detection
 </content>
 </entry>
 <entry>
-<id>9b68089d01aa2b0a82e558e5704e1ca8fd836bdc</id>
+<id>854e755d3223c3e09d62194b4e6d93b6184cf381</id>
 <published>2020-04-29T00:13:07Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: add mastodon rel=me</title>
-<link rel="alternate" type="text/html" href="commit/9b68089d01aa2b0a82e558e5704e1ca8fd836bdc.html" />
+<link rel="alternate" type="text/html" href="commit/854e755d3223c3e09d62194b4e6d93b6184cf381.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 9b68089d01aa2b0a82e558e5704e1ca8fd836bdc
-parent 39adb41021b7413e636b84f290e70354b1cbde96
+<content type="text">commit 854e755d3223c3e09d62194b4e6d93b6184cf381
+parent 2bd2cfab2952d87f1a44863b7b2a3adae0c29850
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Wed, 29 Apr 2020 07:13:07 +0700
 
@@ -1777,135 +1892,21 @@ feature: add mastodon rel=me
 </content>
 </entry>
 <entry>
-<id>39adb41021b7413e636b84f290e70354b1cbde96</id>
+<id>2bd2cfab2952d87f1a44863b7b2a3adae0c29850</id>
 <published>2020-04-28T23:02:36Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
+<updated>2020-06-19T16:35:10Z</updated>
 <title type="text">feature: add micro.blog and indieauth</title>
-<link rel="alternate" type="text/html" href="commit/39adb41021b7413e636b84f290e70354b1cbde96.html" />
+<link rel="alternate" type="text/html" href="commit/2bd2cfab2952d87f1a44863b7b2a3adae0c29850.html" />
 <author>
 <name>Yohanes Bandung</name>
 <email>bandungpenting@gmail.com</email>
 </author>
-<content type="text">commit 39adb41021b7413e636b84f290e70354b1cbde96
-parent 434a53d1793dd9a8bd6c264530ec5673edb5d0b5
+<content type="text">commit 2bd2cfab2952d87f1a44863b7b2a3adae0c29850
+parent 9af3d0b3aedc0dca74c99d753703b398d5617dec
 Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Wed, 29 Apr 2020 06:02:36 +0700
 
 feature: add micro.blog and indieauth
-
-</content>
-</entry>
-<entry>
-<id>434a53d1793dd9a8bd6c264530ec5673edb5d0b5</id>
-<published>2020-04-28T22:43:44Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
-<title type="text">refactor: modify slug</title>
-<link rel="alternate" type="text/html" href="commit/434a53d1793dd9a8bd6c264530ec5673edb5d0b5.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 434a53d1793dd9a8bd6c264530ec5673edb5d0b5
-parent cb8cc7507dfdf86f4fc3bd062050ede45f01cc16
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Wed, 29 Apr 2020 05:43:44 +0700
-
-refactor: modify slug
-
-</content>
-</entry>
-<entry>
-<id>cb8cc7507dfdf86f4fc3bd062050ede45f01cc16</id>
-<published>2020-04-28T22:43:25Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
-<title type="text">hotfix: use absolute path font</title>
-<link rel="alternate" type="text/html" href="commit/cb8cc7507dfdf86f4fc3bd062050ede45f01cc16.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit cb8cc7507dfdf86f4fc3bd062050ede45f01cc16
-parent 5eb148ecc8c88d8e0e43581f45781965de757b7c
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Wed, 29 Apr 2020 05:43:25 +0700
-
-hotfix: use absolute path font
-
-</content>
-</entry>
-<entry>
-<id>5eb148ecc8c88d8e0e43581f45781965de757b7c</id>
-<published>2020-04-28T17:31:12Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
-<title type="text">hotfix: fix baseURL with slash</title>
-<link rel="alternate" type="text/html" href="commit/5eb148ecc8c88d8e0e43581f45781965de757b7c.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 5eb148ecc8c88d8e0e43581f45781965de757b7c
-parent 1da850135ff54f0d4be423ac55a051cc634a20ac
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Wed, 29 Apr 2020 00:31:12 +0700
-
-hotfix: fix baseURL with slash
-
-</content>
-</entry>
-<entry>
-<id>1da850135ff54f0d4be423ac55a051cc634a20ac</id>
-<published>2020-04-28T17:25:04Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
-<title type="text">refactor: hr separator realignment</title>
-<link rel="alternate" type="text/html" href="commit/1da850135ff54f0d4be423ac55a051cc634a20ac.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 1da850135ff54f0d4be423ac55a051cc634a20ac
-parent ee210c5e89a8f5230fb6c6980b097495ee311260
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Wed, 29 Apr 2020 00:25:04 +0700
-
-refactor: hr separator realignment
-
-</content>
-</entry>
-<entry>
-<id>ee210c5e89a8f5230fb6c6980b097495ee311260</id>
-<published>2020-04-28T17:24:46Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
-<title type="text">hotfix: theme toggler absolute path</title>
-<link rel="alternate" type="text/html" href="commit/ee210c5e89a8f5230fb6c6980b097495ee311260.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit ee210c5e89a8f5230fb6c6980b097495ee311260
-parent 6ef996f41218321958973060c3601082924bfec6
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Wed, 29 Apr 2020 00:24:46 +0700
-
-hotfix: theme toggler absolute path
-
-</content>
-</entry>
-<entry>
-<id>6ef996f41218321958973060c3601082924bfec6</id>
-<published>2020-04-28T16:46:05Z</published>
-<updated>2020-06-12T00:00:44Z</updated>
-<title type="text">style &amp; refactor: dark 🌛 or light 🌞</title>
-<link rel="alternate" type="text/html" href="commit/6ef996f41218321958973060c3601082924bfec6.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 6ef996f41218321958973060c3601082924bfec6
-parent ced1c2aeb0f8c35f4fae54e2dc11d2ce9c3ebe08
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Tue, 28 Apr 2020 23:46:05 +0700
-
-style &amp; refactor: dark 🌛 or light 🌞
 
 </content>
 </entry>

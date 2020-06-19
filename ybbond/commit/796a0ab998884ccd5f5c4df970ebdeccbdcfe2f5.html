@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>style: notes responsive - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/796a0ab998884ccd5f5c4df970ebdeccbdcfe2f5.html">796a0ab998884ccd5f5c4df970ebdeccbdcfe2f5</a>
+<b>parent</b> <a href="../commit/068afc804c8661a0a438a4dd119a85c1e5d3c7a2.html">068afc804c8661a0a438a4dd119a85c1e5d3c7a2</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:bandungpenting@gmail.com">bandungpenting@gmail.com</a>&gt;
+<b>Date:</b>   Tue, 28 Apr 2020 18:07:16 +0700
+
+style: notes responsive
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.scss</a></td><td> | </td><td class="num">17</td><td><span class="i">+++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">layouts/_default/list.html</a></td><td> | </td><td class="num">11</td><td><span class="i">+</span><span class="d">----------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">layouts/index.html</a></td><td> | </td><td class="num">17</td><td><span class="i">+++++</span><span class="d">------------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">layouts/partials/post/notes-item.html</a></td><td> | </td><td class="num">23</td><td><span class="i">+++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>4 files changed, 46 insertions(<span id="plus">+</span>), 22 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -52,4 +52,21 @@
+</a>       }
+     }
+   }
+<a href="#h0-0-3" id="h0-0-3" class="i">+}
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+.notes {
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+  &amp; &gt; p {
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+    margin-top: 5px;
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+  }
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+  margin-bottom: 2em;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+  @media (max-width: 599px) {
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+    &amp;__title {
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+      margin: 10px 0 0;
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+      &amp;__separator {
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+        display: none;
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+      }
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+      display: flex;
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+      flex-direction: column;
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+    }
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+  }
+</a> } 
+\ No newline at end of file
+<b>diff --git a/<a id="h1" href="../file/layouts/_default/list.html.html">layouts/_default/list.html</a> b/<a href="../file/layouts/_default/list.html.html">layouts/_default/list.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -8,16 +8,7 @@
+</a> 
+   {{ if  eq .Type &quot;notes&quot; }}
+     {{ range (where .Site.RegularPages &quot;Type&quot; &quot;notes&quot;) }}
+<a href="#h1-0-3" id="h1-0-3" class="d">-    {{ $dateformat := .Date.Format &quot;2006-01-02&quot; }}
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-    {{ $idslug := (print $dateformat &quot;-&quot; .Title) | urlize }}
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-    &lt;h4 id={{ $idslug }}&gt;
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-      &lt;time&gt;{{ .Date.Format &quot;02 Jan 2006&quot; }}&lt;/time&gt;
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-      {{ with .Title}}
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-        - {{ . }}
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-      {{ end }}
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-      &lt;a href=&quot;#{{ $idslug }}&quot;&gt;#&lt;/a&gt;
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-    &lt;/h4&gt;
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-    &lt;p&gt;{{ .Content }}&lt;/p&gt;
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+      {{ partial &quot;post/notes-item.html&quot; . }}
+</a>     {{ end }}
+   {{ else }}
+     {{ range .Paginator.Pages }}
+<b>diff --git a/<a id="h2" href="../file/layouts/index.html.html">layouts/index.html</a> b/<a href="../file/layouts/index.html.html">layouts/index.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -21,18 +21,11 @@
+</a>   &lt;hr&gt;
+ 
+   &lt;h2&gt;Notes:&lt;/h2&gt;
+<a href="#h2-0-3" id="h2-0-3" class="d">-  {{ range first 5 (where .Site.RegularPages &quot;Type&quot; &quot;notes&quot;) }}
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-    {{ $dateformat := .Date.Format &quot;2006-01-02&quot; }}
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-    {{ $idslug := (print $dateformat &quot;-&quot; .Title) | urlize }}
+</a><a href="#h2-0-6" id="h2-0-6" class="d">-    &lt;h4 id={{ $idslug }}&gt;
+</a><a href="#h2-0-7" id="h2-0-7" class="d">-      &lt;time&gt;{{ .Date.Format &quot;02 Jan 2006&quot; }}&lt;/time&gt;
+</a><a href="#h2-0-8" id="h2-0-8" class="d">-       {{ with .Title}}
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-         - {{ . }}
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-       {{ end }}
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-      &lt;a href=&quot;/notes/#{{ $idslug }}&quot;&gt;#&lt;/a&gt;
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-    &lt;/h4&gt;
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-    &lt;p&gt;{{ .Content }}&lt;/p&gt;
+</a><a href="#h2-0-14" id="h2-0-14" class="d">-  {{ end }}
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+  &lt;div class=&quot;listing&quot;&gt;
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+    {{ range first 5 (where .Site.RegularPages &quot;Type&quot; &quot;notes&quot;) }}
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+      {{ partial &quot;post/notes-item.html&quot; . }}
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+    {{ end }}
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+  &lt;/div&gt;
+</a>   {{ $notesURL := &quot;/notes&quot; | absURL }}
+   &lt;p class=&quot;main__more&quot;&gt;&lt;a href={{ $notesURL }} class=&quot;button&quot;&gt;More Notes ⤳&lt;/a&gt;&lt;/p&gt;
+ 
+<b>diff --git a/<a id="h3" href="../file/layouts/partials/post/notes-item.html.html">layouts/partials/post/notes-item.html</a> b/<a href="../file/layouts/partials/post/notes-item.html.html">layouts/partials/post/notes-item.html</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,22 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+{{ $dateformat := .Date.Format &quot;2006-01-02&quot; }}
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+{{ $idslug := (print $dateformat &quot;-&quot; .Title) | urlize }}
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+&lt;div class=&quot;notes&quot;&gt;
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+  &lt;h4 class=&quot;notes__title&quot; id={{ $idslug }}&gt;
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+    &lt;span&gt;
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+      &lt;time class=&quot;notes__title__date&quot;&gt;
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+        {{ .Date.Format &quot;02 Jan 2006&quot; }}
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+      &lt;/time&gt;
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+        {{ if .Title }}
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+        {{ else }}
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+          &lt;a href=&quot;#{{ $idslug }}&quot;&gt;#&lt;/a&gt;&lt;/span&gt;
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+        {{ end }}
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+    &lt;/span&gt;
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+    {{ with .Title}}
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+      &lt;span class=&quot;notes__title__separator&quot;&gt; - &lt;/span&gt;
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+    {{ end }}
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+    {{ with .Title}}
+</a><a href="#h3-0-17" id="h3-0-17" class="i">+      &lt;span class=&quot;notes__title__title&quot;&gt;{{ . }} &lt;a href=&quot;#{{ $idslug }}&quot;&gt;#&lt;/a&gt;&lt;/span&gt;
+</a><a href="#h3-0-18" id="h3-0-18" class="i">+    {{ end }}
+</a><a href="#h3-0-19" id="h3-0-19" class="i">+  &lt;/h4&gt;
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+  {{ .Content }}
+</a><a href="#h3-0-21" id="h3-0-21" class="i">+&lt;/div&gt;</a><a href="#h3-0-22" id="h3-0-22" class="i">+
+\ No newline at end of file
+</a></pre>
+</div>
+</div>
+</body>
+</html>

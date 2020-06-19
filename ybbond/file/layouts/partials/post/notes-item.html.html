@@ -15,10 +15,10 @@
 <a href="../../../../index.html">Log</a> | <a href="../../../../files.html">Files</a> | <a href="../../../../refs.html">Refs</a> | <a href="../../../../file/README.md.html">README</a> | <a href="../../../../file/LICENSE.md.html">LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> notes-item.html (1609B)</p><hr/><pre id="blob">
+<p> notes-item.html (1627B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> {{ $dateformat := .Date.Format &quot;2006-01-02 15:04&quot; }}
 <a href="#l2" class="line" id="l2">      2</a> {{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
-<a href="#l3" class="line" id="l3">      3</a> &lt;div class=&quot;notes h-entry&quot; id={{ $idslug }}&gt;
+<a href="#l3" class="line" id="l3">      3</a> &lt;div class=&quot;content notes h-entry&quot; id={{ $idslug }}&gt;
 <a href="#l4" class="line" id="l4">      4</a>   &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
 <a href="#l5" class="line" id="l5">      5</a>     {{ $permalink := .Permalink }}
 <a href="#l6" class="line" id="l6">      6</a>     {{ $title := .Title }}
@@ -48,7 +48,7 @@
 <a href="#l30" class="line" id="l30">     30</a>         {{ end }}
 <a href="#l31" class="line" id="l31">     31</a>     &lt;/span&gt;
 <a href="#l32" class="line" id="l32">     32</a>   &lt;/p&gt;
-<a href="#l33" class="line" id="l33">     33</a>   &lt;div class=&quot;notes__content e-content p-name&quot;&gt;
+<a href="#l33" class="line" id="l33">     33</a>   &lt;div class=&quot;notes__content e-content p-content p-name&quot;&gt;
 <a href="#l34" class="line" id="l34">     34</a>     {{ .Content }}
 <a href="#l35" class="line" id="l35">     35</a>   &lt;/div&gt;
 <a href="#l36" class="line" id="l36">     36</a> &lt;/div&gt;</pre>
