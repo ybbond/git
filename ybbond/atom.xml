@@ -4,16 +4,16 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
-<id>4d08f6b1ff3330ff3a4894e3a8ca8114144ba4ad</id>
+<id>52ea8c4c2bb3a15363d9f01ca53f7da1a500cc60</id>
 <published>2020-06-20T12:41:28Z</published>
-<updated>2020-06-20T12:41:28Z</updated>
+<updated>2020-06-21T08:37:06Z</updated>
 <title type="text">content: add notes</title>
-<link rel="alternate" type="text/html" href="commit/4d08f6b1ff3330ff3a4894e3a8ca8114144ba4ad.html" />
+<link rel="alternate" type="text/html" href="commit/52ea8c4c2bb3a15363d9f01ca53f7da1a500cc60.html" />
 <author>
 <name>Yohanes Bandung Bondowoso</name>
 <email>hi@ybbond.dev</email>
 </author>
-<content type="text">commit 4d08f6b1ff3330ff3a4894e3a8ca8114144ba4ad
+<content type="text">commit 52ea8c4c2bb3a15363d9f01ca53f7da1a500cc60
 parent bbfd118b73ede020db3de1c014be90c66641e44e
 Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
 Date:   Sat, 20 Jun 2020 19:41:28 +0700
