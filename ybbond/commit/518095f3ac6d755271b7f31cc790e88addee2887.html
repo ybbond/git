@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>content: add notes - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/518095f3ac6d755271b7f31cc790e88addee2887.html">518095f3ac6d755271b7f31cc790e88addee2887</a>
+<b>parent</b> <a href="../commit/bbfd118b73ede020db3de1c014be90c66641e44e.html">bbfd118b73ede020db3de1c014be90c66641e44e</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Sat, 20 Jun 2020 19:41:28 +0700
+
+content: add notes
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">content/about/index.md</a></td><td> | </td><td class="num">4</td><td><span class="i">+++</span><span class="d">-</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">content/notes/20 June 2020.md</a></td><td> | </td><td class="num">11</td><td><span class="i">+++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">content/uses.md</a></td><td> | </td><td class="num">57</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++</span><span class="d">--------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">layouts/_default/_markup/render-image.html</a></td><td> | </td><td class="num">12</td><td><span class="i">+++++++++</span><span class="d">---</span></td></tr>
+</table></pre></div><p>4 files changed, 66 insertions(<span id="plus">+</span>), 18 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/content/about/index.md.html">content/about/index.md</a> b/<a href="../file/content/about/index.md.html">content/about/index.md</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -6,7 +6,9 @@ description: &quot;Hi, my name is Yohanes Bandung Bondowoso&quot;
+</a> 
+ People call me **Bandung**. ૮ ・ﻌ・ა
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-![photo by Soraya Azizah](bandung-mosh-on-tarintih.jpg)
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+![photo by Soraya Azizah](bandung-mosh-on-tarintih.jpg &quot;Photo of Bandung a moment before crowd-surfing on a band performance&quot;)
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+I am a software engineer that value and strive for privacy, security and enjoyable services. I like to read the internet and try applications, gathering informations to further enhance my expertise at my job and inspirations to make my life easier.
+</a> 
+ Currently work as **Frontend Engineer** of [kumparan.com](https://kumparan.com) in Jakarta, Indonesia. Building it with `ReactJS` and `React Native` for Web, Android and iOS.
+ 
+<b>diff --git a/<a id="h1" href="../file/content/notes/20 June 2020.md.html">content/notes/20 June 2020.md</a> b/<a href="../file/content/notes/20 June 2020.md.html">content/notes/20 June 2020.md</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -0,0 +1,10 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+---
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+tags:
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+  - notes #notes
+</a><a href="#h1-0-3" id="h1-0-3" class="i">+date: 2020-06-20T19:38:20+0700
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+ID: 20200620193820
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+type: notes
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+---
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+Anyone using **Brave Browser** got redirected to GitHub site when trying to access [archive.is](https://archive.is) or any of web archive instance?
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+I just got this issue and commented on the GitHub post, and eventually many others experiencing the same also commented.</a><a href="#h1-0-10" id="h1-0-10" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h2" href="../file/content/uses.md.html">content/uses.md</a> b/<a href="../file/content/uses.md.html">content/uses.md</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,16 +1,26 @@
+</a> ---
+ title: Uses Page
+ menu: uses
+<a href="#h2-0-3" id="h2-0-3" class="d">-description: Hardware and Softaware I Use
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+description: Hardware and Softaware I often use in my life. These apps accompany my working and personal life.
+</a> ---
+ 
+ The stuffs I often use in my life.
+ Some of them accompany my coding life.
+ Some others satisfy my hobbies.
+ 
+<a href="#h2-0-11" id="h2-0-11" class="i">+§ [Hardware](#hardware)
+</a><a href="#h2-0-12" id="h2-0-12" class="i">+&amp;nbsp;&amp;nbsp; »  [Platforms](#platforms)
+</a><a href="#h2-0-13" id="h2-0-13" class="i">+&amp;nbsp;&amp;nbsp; »  [Peripherals](#peripherals)
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+§ [Software](#software)
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+&amp;nbsp;&amp;nbsp; »  [Development](#development)
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+&amp;nbsp;&amp;nbsp; »  [Daily Applications](#daily-applications)
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+&amp;nbsp;&amp;nbsp; »  [Working](#working)
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+&amp;nbsp;&amp;nbsp; »  [Services](#services)
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+&amp;nbsp;&amp;nbsp; »  [Zettelkasten](#zettelkasten)
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+
+</a> ## Hardware
+ 
+<a href="#h2-0-23" id="h2-0-23" class="d">-### Platform
+</a><a href="#h2-0-24" id="h2-0-24" class="i">+### Platforms
+</a> 
+ - Macbook Pro 2018 13&quot; (Office)
+ - Macbook White Unibody mid 2010 (Experiments) [my note][mbwhite]
+<a href="#h2-1" id="h2-1" class="h">@@ -18,9 +28,9 @@ Some others satisfy my hobbies.
+</a> - iPad Mini 5 WiFi 64GB
+ - iPhone SE (2016) 128GB
+ 
+<a href="#h2-1-3" id="h2-1-3" class="d">-### Peripheral
+</a><a href="#h2-1-4" id="h2-1-4" class="i">+### Peripherals
+</a> 
+<a href="#h2-1-6" id="h2-1-6" class="d">-- Ducky One 2 Mini Keyboard [gif image][ducky]
+</a><a href="#h2-1-7" id="h2-1-7" class="i">+- Ducky One 2 Mini Keyboard [gif image on Twitter][ducky]
+</a> - NuPhy NuType F1 Keyboard [my review post][nuphy]
+ - Roland Electric Piano FP-30
+ - Guitars. Many of them.
+<a href="#h2-2" id="h2-2" class="h">@@ -38,15 +48,9 @@ Some others satisfy my hobbies.
+</a> - **lazygit** [my post][lazygit]
+ - I also have license for **Sublime Text** and **Onivim 2** that I rarely use.
+ 
+<a href="#h2-2-3" id="h2-2-3" class="d">-### Services
+</a><a href="#h2-2-4" id="h2-2-4" class="d">-
+</a><a href="#h2-2-5" id="h2-2-5" class="d">-- **Fastmail**
+</a><a href="#h2-2-6" id="h2-2-6" class="d">-  &lt;small&gt;I try to use less Google, but I cannot find replacement for YouTube and Translate :(&lt;/small&gt;
+</a><a href="#h2-2-7" id="h2-2-7" class="d">-- **BitWarden**
+</a><a href="#h2-2-8" id="h2-2-8" class="d">-
+</a> ### Daily Applications
+ 
+<a href="#h2-2-11" id="h2-2-11" class="d">-I use these app on both macOS and iOS (or iPadOS).
+</a><a href="#h2-2-12" id="h2-2-12" class="i">+I use these app on both macOS and iOS (or iPadOS):
+</a> 
+ - **Canary mail**
+   &lt;small&gt;lightweight email client with configurable keyboard shortcuts, and PGP encryption&lt;/small&gt;
+<a href="#h2-3" id="h2-3" class="h">@@ -57,11 +61,34 @@ I use these app on both macOS and iOS (or iPadOS).
+</a> - **iA Writer** [my post about it][iawriter]
+   &lt;small&gt;I write my Hugo post mostly with this app.&lt;/small&gt;
+ 
+<a href="#h2-3-3" id="h2-3-3" class="i">+### Working
+</a><a href="#h2-3-4" id="h2-3-4" class="i">+
+</a><a href="#h2-3-5" id="h2-3-5" class="i">+To help on my working time, I use these apps:
+</a><a href="#h2-3-6" id="h2-3-6" class="i">+
+</a><a href="#h2-3-7" id="h2-3-7" class="i">+- **Xit** Git GUI for macOS
+</a><a href="#h2-3-8" id="h2-3-8" class="i">+  &lt;small&gt;When doing heavy refactor, I like to code while looking at the repository&#39;s history.
+</a><a href="#h2-3-9" id="h2-3-9" class="i">+  [Xit][xit] is a free and open source. I think it is comparable to the awesome **Sublime Merge**.&lt;/small&gt;
+</a><a href="#h2-3-10" id="h2-3-10" class="i">+- **Ripcord** chat client for Slack and Discord
+</a><a href="#h2-3-11" id="h2-3-11" class="i">+  &lt;small&gt;The official **Slack** and **Discord** desktop client uses **Electron**, I don&#39;t like that.
+</a><a href="#h2-3-12" id="h2-3-12" class="i">+  [Ripcord][ripcord] is a shareware that is based on, I don&#39;t know, it looks like **GTK+**.&lt;/small&gt;
+</a><a href="#h2-3-13" id="h2-3-13" class="i">+
+</a><a href="#h2-3-14" id="h2-3-14" class="i">+### Services
+</a><a href="#h2-3-15" id="h2-3-15" class="i">+
+</a><a href="#h2-3-16" id="h2-3-16" class="i">+- **Fastmail**
+</a><a href="#h2-3-17" id="h2-3-17" class="i">+  &lt;small&gt;I try to use less Google, but I cannot find replacement for YouTube and Translate :(&lt;/small&gt;
+</a><a href="#h2-3-18" id="h2-3-18" class="i">+- **BitWarden** password manager
+</a><a href="#h2-3-19" id="h2-3-19" class="i">+- **Worldbrain&#39;s Memex 2**
+</a><a href="#h2-3-20" id="h2-3-20" class="i">+  &lt;small&gt;Browser extension to bookmark, highlight and annotate any site.
+</a><a href="#h2-3-21" id="h2-3-21" class="i">+  With full text search and grouping, this is a good service for knowledge gathering.&lt;/small&gt;
+</a><a href="#h2-3-22" id="h2-3-22" class="i">+- **Historio.us**
+</a><a href="#h2-3-23" id="h2-3-23" class="i">+  &lt;small&gt;Web archiver. It supports full text search and tagging.
+</a><a href="#h2-3-24" id="h2-3-24" class="i">+  I use this side-by-side with **Memex 2**.&lt;/small&gt;
+</a><a href="#h2-3-25" id="h2-3-25" class="i">+
+</a> ### Zettelkasten
+ 
+ I use [zettelkasten](https://zettelkasten.de/) paradigm for my knowledge base and note-taking.
+ 
+<a href="#h2-3-30" id="h2-3-30" class="d">-- **FSNotes** [screencast][video]
+</a><a href="#h2-3-31" id="h2-3-31" class="i">+- **FSNotes** [screencast on Twitter][video]
+</a>   &lt;small&gt;a very good note taking app.
+   if you are familiar with nvALT, FSNotes feels much better.&lt;/small&gt;
+ - **aText**
+<a href="#h2-4" id="h2-4" class="h">@@ -79,4 +106,7 @@ I use [zettelkasten](https://zettelkasten.de/) paradigm for my knowledge base an
+</a> [kitty]: https://git.ybbond.dev/dotfiles/file/.config/kitty/kitty.conf.html
+ [nvim]: https://git.ybbond.dev/dotfiles/file/.config/nvim/init.vim.html
+ [tmux]: https://git.ybbond.dev/dotfiles/file/.tmux.conf.html
+<a href="#h2-4-3" id="h2-4-3" class="d">-[zshrc]: https://git.ybbond.dev/dotfiles/file/.zshrc.html </a><a href="#h2-4-4" id="h2-4-4" class="d">-
+\ No newline at end of file
+</a><a href="#h2-4-5" id="h2-4-5" class="i">+[zshrc]: https://git.ybbond.dev/dotfiles/file/.zshrc.html 
+</a><a href="#h2-4-6" id="h2-4-6" class="i">+
+</a><a href="#h2-4-7" id="h2-4-7" class="i">+[xit]: https://github.com/Uncommon/Xit
+</a><a href="#h2-4-8" id="h2-4-8" class="i">+[ripcord]: https://cancel.fm/ripcord/
+</a><b>diff --git a/<a id="h3" href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a> b/<a href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -1,5 +1,9 @@
+</a> {{ $image := (.Page.Resources.GetMatch  .Destination) }}
+ {{ $alt := .Text }}
+<a href="#h3-0-2" id="h3-0-2" class="i">+{{ $title := .Text }}
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+{{ if ne .Title &quot;&quot; }}
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+  {{ $title = .Title }}
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+{{ end }}
+</a> {{ $placeholder := ($image.Resize &quot;48x q20&quot;) | images.Filter (images.GaussianBlur 6) }}
+ {{ $src := $image }}
+ {{ $src_set := &quot;&quot;}}
+<a href="#h3-1" id="h3-1" class="h">@@ -38,10 +42,12 @@
+</a>   &lt;/style&gt;
+   &lt;figure class=&quot;{{ $figure_class }}&quot;&gt;
+     &lt;center&gt;
+<a href="#h3-1-3" id="h3-1-3" class="d">-      &lt;a class=&quot;no-outline&quot; href=&#39;{{ $image.RelPermalink }}&#39;&gt;
+</a><a href="#h3-1-4" id="h3-1-4" class="i">+      &lt;a title={{ $title }} class=&quot;no-outline&quot; href=&#39;{{ $image.RelPermalink }}&#39;&gt;
+</a>         &lt;img
+           src=&quot;{{ $src.RelPermalink }}&quot;
+           style=&quot;max-width: 100%; height: auto;&quot;
+<a href="#h3-1-8" id="h3-1-8" class="i">+          alt={{ $title }}
+</a><a href="#h3-1-9" id="h3-1-9" class="i">+          title={{ $title }}
+</a>         /&gt;
+       &lt;/a&gt;
+       &lt;figcaption&gt;
+<a href="#h3-2" id="h3-2" class="h">@@ -53,11 +59,11 @@
+</a> 
+ &lt;figure class=&quot;{{ $figure_class }} lazy&quot;&gt;
+   &lt;center&gt;
+<a href="#h3-2-3" id="h3-2-3" class="d">-    &lt;a class=&quot;no-outline no-hover&quot; href=&#39;{{ $image.RelPermalink }}&#39;&gt;
+</a><a href="#h3-2-4" id="h3-2-4" class="i">+    &lt;a title={{ $title }} class=&quot;no-outline no-hover&quot; href=&#39;{{ $image.RelPermalink }}&#39;&gt;
+</a>       &lt;img class=&quot;lazyload&quot; data-sizes=&quot;auto&quot; src=&quot;{{ $src.RelPermalink }}&quot;
+         style=&quot;max-width: 100%; height: auto;&quot;
+         srcset=&quot;data:image/jpeg;base64,{{ $placeholder.Content | base64Encode }}&quot; data-src=&quot;{{ $src.RelPermalink }}&quot;
+<a href="#h3-2-8" id="h3-2-8" class="d">-        data-srcset=&quot;{{ $src_set }}&quot; width=&quot;{{ $image.Width }}&quot; height=&quot;{{ $image.Height }}&quot; alt=&quot;{{ $alt }}&quot; /&gt;
+</a><a href="#h3-2-9" id="h3-2-9" class="i">+        data-srcset=&quot;{{ $src_set }}&quot; width=&quot;{{ $image.Width }}&quot; height=&quot;{{ $image.Height }}&quot; alt={{ $title }} title={{ $title }} /&gt;
+</a>     &lt;/a&gt;
+     &lt;figcaption&gt;
+       &lt;em&gt;{{ .Text | safeHTML }}&lt;/em&gt;
+</pre>
+</div>
+</div>
+</body>
+</html>
