@@ -4,6 +4,25 @@
 <subtitle>My mobile friendly fork of stagit
 </subtitle>
 <entry>
+<id>bc63b5d390a989f3d15ee42764cc4093a80f5b52</id>
+<published>2020-06-21T05:04:40Z</published>
+<updated>2020-06-21T05:04:40Z</updated>
+<title type="text">update LICENSE to include me</title>
+<link rel="alternate" type="text/html" href="commit/bc63b5d390a989f3d15ee42764cc4093a80f5b52.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit bc63b5d390a989f3d15ee42764cc4093a80f5b52
+parent 1bc04c027e39cbd2ae4b93c216eb34a5cefb3055
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun, 21 Jun 2020 12:04:40 +0700
+
+update LICENSE to include me
+
+</content>
+</entry>
+<entry>
 <id>1bc04c027e39cbd2ae4b93c216eb34a5cefb3055</id>
 <published>2020-05-20T06:29:09Z</published>
 <updated>2020-05-20T06:29:09Z</updated>
@@ -2027,25 +2046,6 @@ Author: Hiltjo Posthuma &lt;hiltjo@codemadness.org&gt;
 Date:   Thu,  5 Jan 2017 18:47:26 +0100
 
 bump version to 0.5
-
-</content>
-</entry>
-<entry>
-<id>92cee02f1217f19a19d872d857f6e617ed3e0eec</id>
-<published>2016-11-09T17:28:46Z</published>
-<updated>2016-11-09T17:28:46Z</updated>
-<title type="text">also remove language and text direction attribute from &lt;html&gt;</title>
-<link rel="alternate" type="text/html" href="commit/92cee02f1217f19a19d872d857f6e617ed3e0eec.html" />
-<author>
-<name>Hiltjo Posthuma</name>
-<email>hiltjo@codemadness.org</email>
-</author>
-<content type="text">commit 92cee02f1217f19a19d872d857f6e617ed3e0eec
-parent 9e96062b620088a42c7b345e07cc8c12e2b59ed2
-Author: Hiltjo Posthuma &lt;hiltjo@codemadness.org&gt;
-Date:   Wed,  9 Nov 2016 18:28:46 +0100
-
-also remove language and text direction attribute from &lt;html&gt;
 
 </content>
 </entry>

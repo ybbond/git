@@ -4,6 +4,52 @@
 <subtitle>My old site that was written with ReactJS
 </subtitle>
 <entry>
+<id>f240a25cb73e05413125062432dd3625c348a60e</id>
+<published>2020-06-21T04:52:26Z</published>
+<updated>2020-06-21T04:52:26Z</updated>
+<title type="text">build(deps): bump websocket-extensions from 0.1.3 to 0.1.4 (#1)</title>
+<link rel="alternate" type="text/html" href="commit/f240a25cb73e05413125062432dd3625c348a60e.html" />
+<author>
+<name>dependabot[bot]</name>
+<email>49699333+dependabot[bot]@users.noreply.github.com</email>
+</author>
+<content type="text">commit f240a25cb73e05413125062432dd3625c348a60e
+parent ca7e1881e0918dfbdb9215895a6eed87b9facbda
+Author: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt;
+Date:   Sun, 21 Jun 2020 11:52:26 +0700
+
+build(deps): bump websocket-extensions from 0.1.3 to 0.1.4 (#1)
+
+Bumps [websocket-extensions](https://github.com/faye/websocket-extensions-node) from 0.1.3 to 0.1.4.
+- [Release notes](https://github.com/faye/websocket-extensions-node/releases)
+- [Changelog](https://github.com/faye/websocket-extensions-node/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/faye/websocket-extensions-node/compare/0.1.3...0.1.4)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt;
+</content>
+</entry>
+<entry>
+<id>ca7e1881e0918dfbdb9215895a6eed87b9facbda</id>
+<published>2020-06-21T04:50:22Z</published>
+<updated>2020-06-21T04:50:22Z</updated>
+<title type="text">licensing</title>
+<link rel="alternate" type="text/html" href="commit/ca7e1881e0918dfbdb9215895a6eed87b9facbda.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit ca7e1881e0918dfbdb9215895a6eed87b9facbda
+parent f6779b31ac13d9a4c49312cbbf4955c9f3fd93f9
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun, 21 Jun 2020 11:50:22 +0700
+
+licensing
+
+</content>
+</entry>
+<entry>
 <id>f6779b31ac13d9a4c49312cbbf4955c9f3fd93f9</id>
 <published>2020-05-01T09:53:36Z</published>
 <updated>2020-05-01T09:53:36Z</updated>

@@ -4,6 +4,72 @@
 <subtitle>My old site written in ReasonReact
 </subtitle>
 <entry>
+<id>9d3af71da2cbbe6d6c235f29fc52e60f8f25eab1</id>
+<published>2020-06-21T05:00:35Z</published>
+<updated>2020-06-21T05:00:35Z</updated>
+<title type="text">package(bs-json) =&gt; added (#1)</title>
+<link rel="alternate" type="text/html" href="commit/9d3af71da2cbbe6d6c235f29fc52e60f8f25eab1.html" />
+<author>
+<name>dependabot[bot]</name>
+<email>49699333+dependabot[bot]@users.noreply.github.com</email>
+</author>
+<content type="text">commit 9d3af71da2cbbe6d6c235f29fc52e60f8f25eab1
+parent a5dbb891ba348d1f751e76226581db7114783401
+Author: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt;
+Date:   Sun, 21 Jun 2020 12:00:35 +0700
+
+package(bs-json) =&gt; added (#1)
+
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt;
+</content>
+</entry>
+<entry>
+<id>a5dbb891ba348d1f751e76226581db7114783401</id>
+<published>2020-06-21T04:57:42Z</published>
+<updated>2020-06-21T04:57:42Z</updated>
+<title type="text">build(deps): bump websocket-extensions from 0.1.3 to 0.1.4 (#2)</title>
+<link rel="alternate" type="text/html" href="commit/a5dbb891ba348d1f751e76226581db7114783401.html" />
+<author>
+<name>dependabot[bot]</name>
+<email>49699333+dependabot[bot]@users.noreply.github.com</email>
+</author>
+<content type="text">commit a5dbb891ba348d1f751e76226581db7114783401
+parent 50d9805becd8ee69a813a374c95086be12594ca8
+Author: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt;
+Date:   Sun, 21 Jun 2020 11:57:42 +0700
+
+build(deps): bump websocket-extensions from 0.1.3 to 0.1.4 (#2)
+
+Bumps [websocket-extensions](https://github.com/faye/websocket-extensions-node) from 0.1.3 to 0.1.4.
+- [Release notes](https://github.com/faye/websocket-extensions-node/releases)
+- [Changelog](https://github.com/faye/websocket-extensions-node/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/faye/websocket-extensions-node/compare/0.1.3...0.1.4)
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt;
+</content>
+</entry>
+<entry>
+<id>50d9805becd8ee69a813a374c95086be12594ca8</id>
+<published>2020-06-21T04:56:48Z</published>
+<updated>2020-06-21T04:56:48Z</updated>
+<title type="text">licensing</title>
+<link rel="alternate" type="text/html" href="commit/50d9805becd8ee69a813a374c95086be12594ca8.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 50d9805becd8ee69a813a374c95086be12594ca8
+parent 97583e0def8167b2e0e9fb51895801b1a5daed91
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun, 21 Jun 2020 11:56:48 +0700
+
+licensing
+
+</content>
+</entry>
+<entry>
 <id>97583e0def8167b2e0e9fb51895801b1a5daed91</id>
 <published>2020-05-10T11:23:18Z</published>
 <updated>2020-05-15T17:37:24Z</updated>

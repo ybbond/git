@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>licensing - ybbond-reason - My old site written in ReasonReact
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond-reason Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond-reason</h1><span class="desc">My old site written in ReasonReact
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/50d9805becd8ee69a813a374c95086be12594ca8.html">50d9805becd8ee69a813a374c95086be12594ca8</a>
+<b>parent</b> <a href="../commit/97583e0def8167b2e0e9fb51895801b1a5daed91.html">97583e0def8167b2e0e9fb51895801b1a5daed91</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Sun, 21 Jun 2020 11:56:48 +0700
+
+licensing
+
+<b>Diffstat:</b>
+<table><tr><td class="A">A</td><td><a href="#h0">CC-LICENSE.md</a></td><td> | </td><td class="num">427</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">LICENSE.md</a></td><td> | </td><td class="num">7</td><td><span class="i">+++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">README.md</a></td><td> | </td><td class="num">39</td><td><span class="i">++++++</span><span class="d">---------------------------------</span></td></tr>
+</table></pre></div><p>3 files changed, 440 insertions(<span id="plus">+</span>), 33 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/CC-LICENSE.md.html">CC-LICENSE.md</a> b/<a href="../file/CC-LICENSE.md.html">CC-LICENSE.md</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -0,0 +1,427 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+Attribution-ShareAlike 4.0 International
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+=======================================================================
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+Creative Commons Corporation (&quot;Creative Commons&quot;) is not a law firm and
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+does not provide legal services or legal advice. Distribution of
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+Creative Commons public licenses does not create a lawyer-client or
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+other relationship. Creative Commons makes its licenses and related
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+information available on an &quot;as-is&quot; basis. Creative Commons gives no
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+warranties regarding its licenses, any material licensed under their
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+terms and conditions, or any related information. Creative Commons
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+disclaims all liability for damages resulting from their use to the
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+fullest extent possible.
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+Using Creative Commons Public Licenses
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+Creative Commons public licenses provide a standard set of terms and
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+conditions that creators and other rights holders may use to share
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+original works of authorship and other material subject to copyright
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+and certain other rights specified in the public license below. The
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+following considerations are for informational purposes only, are not
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+exhaustive, and do not form part of our licenses.
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+     Considerations for licensors: Our public licenses are
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+     intended for use by those authorized to give the public
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+     permission to use material in ways otherwise restricted by
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+     copyright and certain other rights. Our licenses are
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+     irrevocable. Licensors should read and understand the terms
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+     and conditions of the license they choose before applying it.
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+     Licensors should also secure all rights necessary before
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+     applying our licenses so that the public can reuse the
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+     material as expected. Licensors should clearly mark any
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+     material not subject to the license. This includes other CC-
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+     licensed material, or material used under an exception or
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+     limitation to copyright. More considerations for licensors:
+</a><a href="#h0-0-35" id="h0-0-35" class="i">+    wiki.creativecommons.org/Considerations_for_licensors
+</a><a href="#h0-0-36" id="h0-0-36" class="i">+
+</a><a href="#h0-0-37" id="h0-0-37" class="i">+     Considerations for the public: By using one of our public
+</a><a href="#h0-0-38" id="h0-0-38" class="i">+     licenses, a licensor grants the public permission to use the
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+     licensed material under specified terms and conditions. If
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+     the licensor&#39;s permission is not necessary for any reason--for
+</a><a href="#h0-0-41" id="h0-0-41" class="i">+     example, because of any applicable exception or limitation to
+</a><a href="#h0-0-42" id="h0-0-42" class="i">+     copyright--then that use is not regulated by the license. Our
+</a><a href="#h0-0-43" id="h0-0-43" class="i">+     licenses grant only permissions under copyright and certain
+</a><a href="#h0-0-44" id="h0-0-44" class="i">+     other rights that a licensor has authority to grant. Use of
+</a><a href="#h0-0-45" id="h0-0-45" class="i">+     the licensed material may still be restricted for other
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+     reasons, including because others have copyright or other
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+     rights in the material. A licensor may make special requests,
+</a><a href="#h0-0-48" id="h0-0-48" class="i">+     such as asking that all changes be marked or described.
+</a><a href="#h0-0-49" id="h0-0-49" class="i">+     Although not required by our licenses, you are encouraged to
+</a><a href="#h0-0-50" id="h0-0-50" class="i">+     respect those requests where reasonable. More considerations
+</a><a href="#h0-0-51" id="h0-0-51" class="i">+     for the public:
+</a><a href="#h0-0-52" id="h0-0-52" class="i">+    wiki.creativecommons.org/Considerations_for_licensees
+</a><a href="#h0-0-53" id="h0-0-53" class="i">+
+</a><a href="#h0-0-54" id="h0-0-54" class="i">+=======================================================================
+</a><a href="#h0-0-55" id="h0-0-55" class="i">+
+</a><a href="#h0-0-56" id="h0-0-56" class="i">+Creative Commons Attribution-ShareAlike 4.0 International Public
+</a><a href="#h0-0-57" id="h0-0-57" class="i">+License
+</a><a href="#h0-0-58" id="h0-0-58" class="i">+
+</a><a href="#h0-0-59" id="h0-0-59" class="i">+By exercising the Licensed Rights (defined below), You accept and agree
+</a><a href="#h0-0-60" id="h0-0-60" class="i">+to be bound by the terms and conditions of this Creative Commons
+</a><a href="#h0-0-61" id="h0-0-61" class="i">+Attribution-ShareAlike 4.0 International Public License (&quot;Public
+</a><a href="#h0-0-62" id="h0-0-62" class="i">+License&quot;). To the extent this Public License may be interpreted as a
+</a><a href="#h0-0-63" id="h0-0-63" class="i">+contract, You are granted the Licensed Rights in consideration of Your
+</a><a href="#h0-0-64" id="h0-0-64" class="i">+acceptance of these terms and conditions, and the Licensor grants You
+</a><a href="#h0-0-65" id="h0-0-65" class="i">+such rights in consideration of benefits the Licensor receives from
+</a><a href="#h0-0-66" id="h0-0-66" class="i">+making the Licensed Material available under these terms and
+</a><a href="#h0-0-67" id="h0-0-67" class="i">+conditions.
+</a><a href="#h0-0-68" id="h0-0-68" class="i">+
+</a><a href="#h0-0-69" id="h0-0-69" class="i">+
+</a><a href="#h0-0-70" id="h0-0-70" class="i">+Section 1 -- Definitions.
+</a><a href="#h0-0-71" id="h0-0-71" class="i">+
+</a><a href="#h0-0-72" id="h0-0-72" class="i">+  a. Adapted Material means material subject to Copyright and Similar
+</a><a href="#h0-0-73" id="h0-0-73" class="i">+     Rights that is derived from or based upon the Licensed Material
+</a><a href="#h0-0-74" id="h0-0-74" class="i">+     and in which the Licensed Material is translated, altered,
+</a><a href="#h0-0-75" id="h0-0-75" class="i">+     arranged, transformed, or otherwise modified in a manner requiring
+</a><a href="#h0-0-76" id="h0-0-76" class="i">+     permission under the Copyright and Similar Rights held by the
+</a><a href="#h0-0-77" id="h0-0-77" class="i">+     Licensor. For purposes of this Public License, where the Licensed
+</a><a href="#h0-0-78" id="h0-0-78" class="i">+     Material is a musical work, performance, or sound recording,
+</a><a href="#h0-0-79" id="h0-0-79" class="i">+     Adapted Material is always produced where the Licensed Material is
+</a><a href="#h0-0-80" id="h0-0-80" class="i">+     synched in timed relation with a moving image.
+</a><a href="#h0-0-81" id="h0-0-81" class="i">+
+</a><a href="#h0-0-82" id="h0-0-82" class="i">+  b. Adapter&#39;s License means the license You apply to Your Copyright
+</a><a href="#h0-0-83" id="h0-0-83" class="i">+     and Similar Rights in Your contributions to Adapted Material in
+</a><a href="#h0-0-84" id="h0-0-84" class="i">+     accordance with the terms and conditions of this Public License.
+</a><a href="#h0-0-85" id="h0-0-85" class="i">+
+</a><a href="#h0-0-86" id="h0-0-86" class="i">+  c. BY-SA Compatible License means a license listed at
+</a><a href="#h0-0-87" id="h0-0-87" class="i">+     creativecommons.org/compatiblelicenses, approved by Creative
+</a><a href="#h0-0-88" id="h0-0-88" class="i">+     Commons as essentially the equivalent of this Public License.
+</a><a href="#h0-0-89" id="h0-0-89" class="i">+
+</a><a href="#h0-0-90" id="h0-0-90" class="i">+  d. Copyright and Similar Rights means copyright and/or similar rights
+</a><a href="#h0-0-91" id="h0-0-91" class="i">+     closely related to copyright including, without limitation,
+</a><a href="#h0-0-92" id="h0-0-92" class="i">+     performance, broadcast, sound recording, and Sui Generis Database
+</a><a href="#h0-0-93" id="h0-0-93" class="i">+     Rights, without regard to how the rights are labeled or
+</a><a href="#h0-0-94" id="h0-0-94" class="i">+     categorized. For purposes of this Public License, the rights
+</a><a href="#h0-0-95" id="h0-0-95" class="i">+     specified in Section 2(b)(1)-(2) are not Copyright and Similar
+</a><a href="#h0-0-96" id="h0-0-96" class="i">+     Rights.
+</a><a href="#h0-0-97" id="h0-0-97" class="i">+
+</a><a href="#h0-0-98" id="h0-0-98" class="i">+  e. Effective Technological Measures means those measures that, in the
+</a><a href="#h0-0-99" id="h0-0-99" class="i">+     absence of proper authority, may not be circumvented under laws
+</a><a href="#h0-0-100" id="h0-0-100" class="i">+     fulfilling obligations under Article 11 of the WIPO Copyright
+</a><a href="#h0-0-101" id="h0-0-101" class="i">+     Treaty adopted on December 20, 1996, and/or similar international
+</a><a href="#h0-0-102" id="h0-0-102" class="i">+     agreements.
+</a><a href="#h0-0-103" id="h0-0-103" class="i">+
+</a><a href="#h0-0-104" id="h0-0-104" class="i">+  f. Exceptions and Limitations means fair use, fair dealing, and/or
+</a><a href="#h0-0-105" id="h0-0-105" class="i">+     any other exception or limitation to Copyright and Similar Rights
+</a><a href="#h0-0-106" id="h0-0-106" class="i">+     that applies to Your use of the Licensed Material.
+</a><a href="#h0-0-107" id="h0-0-107" class="i">+
+</a><a href="#h0-0-108" id="h0-0-108" class="i">+  g. License Elements means the license attributes listed in the name
+</a><a href="#h0-0-109" id="h0-0-109" class="i">+     of a Creative Commons Public License. The License Elements of this
+</a><a href="#h0-0-110" id="h0-0-110" class="i">+     Public License are Attribution and ShareAlike.
+</a><a href="#h0-0-111" id="h0-0-111" class="i">+
+</a><a href="#h0-0-112" id="h0-0-112" class="i">+  h. Licensed Material means the artistic or literary work, database,
+</a><a href="#h0-0-113" id="h0-0-113" class="i">+     or other material to which the Licensor applied this Public
+</a><a href="#h0-0-114" id="h0-0-114" class="i">+     License.
+</a><a href="#h0-0-115" id="h0-0-115" class="i">+
+</a><a href="#h0-0-116" id="h0-0-116" class="i">+  i. Licensed Rights means the rights granted to You subject to the
+</a><a href="#h0-0-117" id="h0-0-117" class="i">+     terms and conditions of this Public License, which are limited to
+</a><a href="#h0-0-118" id="h0-0-118" class="i">+     all Copyright and Similar Rights that apply to Your use of the
+</a><a href="#h0-0-119" id="h0-0-119" class="i">+     Licensed Material and that the Licensor has authority to license.
+</a><a href="#h0-0-120" id="h0-0-120" class="i">+
+</a><a href="#h0-0-121" id="h0-0-121" class="i">+  j. Licensor means the individual(s) or entity(ies) granting rights
+</a><a href="#h0-0-122" id="h0-0-122" class="i">+     under this Public License.
+</a><a href="#h0-0-123" id="h0-0-123" class="i">+
+</a><a href="#h0-0-124" id="h0-0-124" class="i">+  k. Share means to provide material to the public by any means or
+</a><a href="#h0-0-125" id="h0-0-125" class="i">+     process that requires permission under the Licensed Rights, such
+</a><a href="#h0-0-126" id="h0-0-126" class="i">+     as reproduction, public display, public performance, distribution,
+</a><a href="#h0-0-127" id="h0-0-127" class="i">+     dissemination, communication, or importation, and to make material
+</a><a href="#h0-0-128" id="h0-0-128" class="i">+     available to the public including in ways that members of the
+</a><a href="#h0-0-129" id="h0-0-129" class="i">+     public may access the material from a place and at a time
+</a><a href="#h0-0-130" id="h0-0-130" class="i">+     individually chosen by them.
+</a><a href="#h0-0-131" id="h0-0-131" class="i">+
+</a><a href="#h0-0-132" id="h0-0-132" class="i">+  l. Sui Generis Database Rights means rights other than copyright
+</a><a href="#h0-0-133" id="h0-0-133" class="i">+     resulting from Directive 96/9/EC of the European Parliament and of
+</a><a href="#h0-0-134" id="h0-0-134" class="i">+     the Council of 11 March 1996 on the legal protection of databases,
+</a><a href="#h0-0-135" id="h0-0-135" class="i">+     as amended and/or succeeded, as well as other essentially
+</a><a href="#h0-0-136" id="h0-0-136" class="i">+     equivalent rights anywhere in the world.
+</a><a href="#h0-0-137" id="h0-0-137" class="i">+
+</a><a href="#h0-0-138" id="h0-0-138" class="i">+  m. You means the individual or entity exercising the Licensed Rights
+</a><a href="#h0-0-139" id="h0-0-139" class="i">+     under this Public License. Your has a corresponding meaning.
+</a><a href="#h0-0-140" id="h0-0-140" class="i">+
+</a><a href="#h0-0-141" id="h0-0-141" class="i">+
+</a><a href="#h0-0-142" id="h0-0-142" class="i">+Section 2 -- Scope.
+</a><a href="#h0-0-143" id="h0-0-143" class="i">+
+</a><a href="#h0-0-144" id="h0-0-144" class="i">+  a. License grant.
+</a><a href="#h0-0-145" id="h0-0-145" class="i">+
+</a><a href="#h0-0-146" id="h0-0-146" class="i">+       1. Subject to the terms and conditions of this Public License,
+</a><a href="#h0-0-147" id="h0-0-147" class="i">+          the Licensor hereby grants You a worldwide, royalty-free,
+</a><a href="#h0-0-148" id="h0-0-148" class="i">+          non-sublicensable, non-exclusive, irrevocable license to
+</a><a href="#h0-0-149" id="h0-0-149" class="i">+          exercise the Licensed Rights in the Licensed Material to:
+</a><a href="#h0-0-150" id="h0-0-150" class="i">+
+</a><a href="#h0-0-151" id="h0-0-151" class="i">+            a. reproduce and Share the Licensed Material, in whole or
+</a><a href="#h0-0-152" id="h0-0-152" class="i">+               in part; and
+</a><a href="#h0-0-153" id="h0-0-153" class="i">+
+</a><a href="#h0-0-154" id="h0-0-154" class="i">+            b. produce, reproduce, and Share Adapted Material.
+</a><a href="#h0-0-155" id="h0-0-155" class="i">+
+</a><a href="#h0-0-156" id="h0-0-156" class="i">+       2. Exceptions and Limitations. For the avoidance of doubt, where
+</a><a href="#h0-0-157" id="h0-0-157" class="i">+          Exceptions and Limitations apply to Your use, this Public
+</a><a href="#h0-0-158" id="h0-0-158" class="i">+          License does not apply, and You do not need to comply with
+</a><a href="#h0-0-159" id="h0-0-159" class="i">+          its terms and conditions.
+</a><a href="#h0-0-160" id="h0-0-160" class="i">+
+</a><a href="#h0-0-161" id="h0-0-161" class="i">+       3. Term. The term of this Public License is specified in Section
+</a><a href="#h0-0-162" id="h0-0-162" class="i">+          6(a).
+</a><a href="#h0-0-163" id="h0-0-163" class="i">+
+</a><a href="#h0-0-164" id="h0-0-164" class="i">+       4. Media and formats; technical modifications allowed. The
+</a><a href="#h0-0-165" id="h0-0-165" class="i">+          Licensor authorizes You to exercise the Licensed Rights in
+</a><a href="#h0-0-166" id="h0-0-166" class="i">+          all media and formats whether now known or hereafter created,
+</a><a href="#h0-0-167" id="h0-0-167" class="i">+          and to make technical modifications necessary to do so. The
+</a><a href="#h0-0-168" id="h0-0-168" class="i">+          Licensor waives and/or agrees not to assert any right or
+</a><a href="#h0-0-169" id="h0-0-169" class="i">+          authority to forbid You from making technical modifications
+</a><a href="#h0-0-170" id="h0-0-170" class="i">+          necessary to exercise the Licensed Rights, including
+</a><a href="#h0-0-171" id="h0-0-171" class="i">+          technical modifications necessary to circumvent Effective
+</a><a href="#h0-0-172" id="h0-0-172" class="i">+          Technological Measures. For purposes of this Public License,
+</a><a href="#h0-0-173" id="h0-0-173" class="i">+          simply making modifications authorized by this Section 2(a)
+</a><a href="#h0-0-174" id="h0-0-174" class="i">+          (4) never produces Adapted Material.
+</a><a href="#h0-0-175" id="h0-0-175" class="i">+
+</a><a href="#h0-0-176" id="h0-0-176" class="i">+       5. Downstream recipients.
+</a><a href="#h0-0-177" id="h0-0-177" class="i">+
+</a><a href="#h0-0-178" id="h0-0-178" class="i">+            a. Offer from the Licensor -- Licensed Material. Every
+</a><a href="#h0-0-179" id="h0-0-179" class="i">+               recipient of the Licensed Material automatically
+</a><a href="#h0-0-180" id="h0-0-180" class="i">+               receives an offer from the Licensor to exercise the
+</a><a href="#h0-0-181" id="h0-0-181" class="i">+               Licensed Rights under the terms and conditions of this
+</a><a href="#h0-0-182" id="h0-0-182" class="i">+               Public License.
+</a><a href="#h0-0-183" id="h0-0-183" class="i">+
+</a><a href="#h0-0-184" id="h0-0-184" class="i">+            b. Additional offer from the Licensor -- Adapted Material.
+</a><a href="#h0-0-185" id="h0-0-185" class="i">+               Every recipient of Adapted Material from You
+</a><a href="#h0-0-186" id="h0-0-186" class="i">+               automatically receives an offer from the Licensor to
+</a><a href="#h0-0-187" id="h0-0-187" class="i">+               exercise the Licensed Rights in the Adapted Material
+</a><a href="#h0-0-188" id="h0-0-188" class="i">+               under the conditions of the Adapter&#39;s License You apply.
+</a><a href="#h0-0-189" id="h0-0-189" class="i">+
+</a><a href="#h0-0-190" id="h0-0-190" class="i">+            c. No downstream restrictions. You may not offer or impose
+</a><a href="#h0-0-191" id="h0-0-191" class="i">+               any additional or different terms or conditions on, or
+</a><a href="#h0-0-192" id="h0-0-192" class="i">+               apply any Effective Technological Measures to, the
+</a><a href="#h0-0-193" id="h0-0-193" class="i">+               Licensed Material if doing so restricts exercise of the
+</a><a href="#h0-0-194" id="h0-0-194" class="i">+               Licensed Rights by any recipient of the Licensed
+</a><a href="#h0-0-195" id="h0-0-195" class="i">+               Material.
+</a><a href="#h0-0-196" id="h0-0-196" class="i">+
+</a><a href="#h0-0-197" id="h0-0-197" class="i">+       6. No endorsement. Nothing in this Public License constitutes or
+</a><a href="#h0-0-198" id="h0-0-198" class="i">+          may be construed as permission to assert or imply that You
+</a><a href="#h0-0-199" id="h0-0-199" class="i">+          are, or that Your use of the Licensed Material is, connected
+</a><a href="#h0-0-200" id="h0-0-200" class="i">+          with, or sponsored, endorsed, or granted official status by,
+</a><a href="#h0-0-201" id="h0-0-201" class="i">+          the Licensor or others designated to receive attribution as
+</a><a href="#h0-0-202" id="h0-0-202" class="i">+          provided in Section 3(a)(1)(A)(i).
+</a><a href="#h0-0-203" id="h0-0-203" class="i">+
+</a><a href="#h0-0-204" id="h0-0-204" class="i">+  b. Other rights.
+</a><a href="#h0-0-205" id="h0-0-205" class="i">+
+</a><a href="#h0-0-206" id="h0-0-206" class="i">+       1. Moral rights, such as the right of integrity, are not
+</a><a href="#h0-0-207" id="h0-0-207" class="i">+          licensed under this Public License, nor are publicity,
+</a><a href="#h0-0-208" id="h0-0-208" class="i">+          privacy, and/or other similar personality rights; however, to
+</a><a href="#h0-0-209" id="h0-0-209" class="i">+          the extent possible, the Licensor waives and/or agrees not to
+</a><a href="#h0-0-210" id="h0-0-210" class="i">+          assert any such rights held by the Licensor to the limited
+</a><a href="#h0-0-211" id="h0-0-211" class="i">+          extent necessary to allow You to exercise the Licensed
+</a><a href="#h0-0-212" id="h0-0-212" class="i">+          Rights, but not otherwise.
+</a><a href="#h0-0-213" id="h0-0-213" class="i">+
+</a><a href="#h0-0-214" id="h0-0-214" class="i">+       2. Patent and trademark rights are not licensed under this
+</a><a href="#h0-0-215" id="h0-0-215" class="i">+          Public License.
+</a><a href="#h0-0-216" id="h0-0-216" class="i">+
+</a><a href="#h0-0-217" id="h0-0-217" class="i">+       3. To the extent possible, the Licensor waives any right to
+</a><a href="#h0-0-218" id="h0-0-218" class="i">+          collect royalties from You for the exercise of the Licensed
+</a><a href="#h0-0-219" id="h0-0-219" class="i">+          Rights, whether directly or through a collecting society
+</a><a href="#h0-0-220" id="h0-0-220" class="i">+          under any voluntary or waivable statutory or compulsory
+</a><a href="#h0-0-221" id="h0-0-221" class="i">+          licensing scheme. In all other cases the Licensor expressly
+</a><a href="#h0-0-222" id="h0-0-222" class="i">+          reserves any right to collect such royalties.
+</a><a href="#h0-0-223" id="h0-0-223" class="i">+
+</a><a href="#h0-0-224" id="h0-0-224" class="i">+
+</a><a href="#h0-0-225" id="h0-0-225" class="i">+Section 3 -- License Conditions.
+</a><a href="#h0-0-226" id="h0-0-226" class="i">+
+</a><a href="#h0-0-227" id="h0-0-227" class="i">+Your exercise of the Licensed Rights is expressly made subject to the
+</a><a href="#h0-0-228" id="h0-0-228" class="i">+following conditions.
+</a><a href="#h0-0-229" id="h0-0-229" class="i">+
+</a><a href="#h0-0-230" id="h0-0-230" class="i">+  a. Attribution.
+</a><a href="#h0-0-231" id="h0-0-231" class="i">+
+</a><a href="#h0-0-232" id="h0-0-232" class="i">+       1. If You Share the Licensed Material (including in modified
+</a><a href="#h0-0-233" id="h0-0-233" class="i">+          form), You must:
+</a><a href="#h0-0-234" id="h0-0-234" class="i">+
+</a><a href="#h0-0-235" id="h0-0-235" class="i">+            a. retain the following if it is supplied by the Licensor
+</a><a href="#h0-0-236" id="h0-0-236" class="i">+               with the Licensed Material:
+</a><a href="#h0-0-237" id="h0-0-237" class="i">+
+</a><a href="#h0-0-238" id="h0-0-238" class="i">+                 i. identification of the creator(s) of the Licensed
+</a><a href="#h0-0-239" id="h0-0-239" class="i">+                    Material and any others designated to receive
+</a><a href="#h0-0-240" id="h0-0-240" class="i">+                    attribution, in any reasonable manner requested by
+</a><a href="#h0-0-241" id="h0-0-241" class="i">+                    the Licensor (including by pseudonym if
+</a><a href="#h0-0-242" id="h0-0-242" class="i">+                    designated);
+</a><a href="#h0-0-243" id="h0-0-243" class="i">+
+</a><a href="#h0-0-244" id="h0-0-244" class="i">+                ii. a copyright notice;
+</a><a href="#h0-0-245" id="h0-0-245" class="i">+
+</a><a href="#h0-0-246" id="h0-0-246" class="i">+               iii. a notice that refers to this Public License;
+</a><a href="#h0-0-247" id="h0-0-247" class="i">+
+</a><a href="#h0-0-248" id="h0-0-248" class="i">+                iv. a notice that refers to the disclaimer of
+</a><a href="#h0-0-249" id="h0-0-249" class="i">+                    warranties;
+</a><a href="#h0-0-250" id="h0-0-250" class="i">+
+</a><a href="#h0-0-251" id="h0-0-251" class="i">+                 v. a URI or hyperlink to the Licensed Material to the
+</a><a href="#h0-0-252" id="h0-0-252" class="i">+                    extent reasonably practicable;
+</a><a href="#h0-0-253" id="h0-0-253" class="i">+
+</a><a href="#h0-0-254" id="h0-0-254" class="i">+            b. indicate if You modified the Licensed Material and
+</a><a href="#h0-0-255" id="h0-0-255" class="i">+               retain an indication of any previous modifications; and
+</a><a href="#h0-0-256" id="h0-0-256" class="i">+
+</a><a href="#h0-0-257" id="h0-0-257" class="i">+            c. indicate the Licensed Material is licensed under this
+</a><a href="#h0-0-258" id="h0-0-258" class="i">+               Public License, and include the text of, or the URI or
+</a><a href="#h0-0-259" id="h0-0-259" class="i">+               hyperlink to, this Public License.
+</a><a href="#h0-0-260" id="h0-0-260" class="i">+
+</a><a href="#h0-0-261" id="h0-0-261" class="i">+       2. You may satisfy the conditions in Section 3(a)(1) in any
+</a><a href="#h0-0-262" id="h0-0-262" class="i">+          reasonable manner based on the medium, means, and context in
+</a><a href="#h0-0-263" id="h0-0-263" class="i">+          which You Share the Licensed Material. For example, it may be
+</a><a href="#h0-0-264" id="h0-0-264" class="i">+          reasonable to satisfy the conditions by providing a URI or
+</a><a href="#h0-0-265" id="h0-0-265" class="i">+          hyperlink to a resource that includes the required
+</a><a href="#h0-0-266" id="h0-0-266" class="i">+          information.
+</a><a href="#h0-0-267" id="h0-0-267" class="i">+
+</a><a href="#h0-0-268" id="h0-0-268" class="i">+       3. If requested by the Licensor, You must remove any of the
+</a><a href="#h0-0-269" id="h0-0-269" class="i">+          information required by Section 3(a)(1)(A) to the extent
+</a><a href="#h0-0-270" id="h0-0-270" class="i">+          reasonably practicable.
+</a><a href="#h0-0-271" id="h0-0-271" class="i">+
+</a><a href="#h0-0-272" id="h0-0-272" class="i">+  b. ShareAlike.
+</a><a href="#h0-0-273" id="h0-0-273" class="i">+
+</a><a href="#h0-0-274" id="h0-0-274" class="i">+     In addition to the conditions in Section 3(a), if You Share
+</a><a href="#h0-0-275" id="h0-0-275" class="i">+     Adapted Material You produce, the following conditions also apply.
+</a><a href="#h0-0-276" id="h0-0-276" class="i">+
+</a><a href="#h0-0-277" id="h0-0-277" class="i">+       1. The Adapter&#39;s License You apply must be a Creative Commons
+</a><a href="#h0-0-278" id="h0-0-278" class="i">+          license with the same License Elements, this version or
+</a><a href="#h0-0-279" id="h0-0-279" class="i">+          later, or a BY-SA Compatible License.
+</a><a href="#h0-0-280" id="h0-0-280" class="i">+
+</a><a href="#h0-0-281" id="h0-0-281" class="i">+       2. You must include the text of, or the URI or hyperlink to, the
+</a><a href="#h0-0-282" id="h0-0-282" class="i">+          Adapter&#39;s License You apply. You may satisfy this condition
+</a><a href="#h0-0-283" id="h0-0-283" class="i">+          in any reasonable manner based on the medium, means, and
+</a><a href="#h0-0-284" id="h0-0-284" class="i">+          context in which You Share Adapted Material.
+</a><a href="#h0-0-285" id="h0-0-285" class="i">+
+</a><a href="#h0-0-286" id="h0-0-286" class="i">+       3. You may not offer or impose any additional or different terms
+</a><a href="#h0-0-287" id="h0-0-287" class="i">+          or conditions on, or apply any Effective Technological
+</a><a href="#h0-0-288" id="h0-0-288" class="i">+          Measures to, Adapted Material that restrict exercise of the
+</a><a href="#h0-0-289" id="h0-0-289" class="i">+          rights granted under the Adapter&#39;s License You apply.
+</a><a href="#h0-0-290" id="h0-0-290" class="i">+
+</a><a href="#h0-0-291" id="h0-0-291" class="i">+
+</a><a href="#h0-0-292" id="h0-0-292" class="i">+Section 4 -- Sui Generis Database Rights.
+</a><a href="#h0-0-293" id="h0-0-293" class="i">+
+</a><a href="#h0-0-294" id="h0-0-294" class="i">+Where the Licensed Rights include Sui Generis Database Rights that
+</a><a href="#h0-0-295" id="h0-0-295" class="i">+apply to Your use of the Licensed Material:
+</a><a href="#h0-0-296" id="h0-0-296" class="i">+
+</a><a href="#h0-0-297" id="h0-0-297" class="i">+  a. for the avoidance of doubt, Section 2(a)(1) grants You the right
+</a><a href="#h0-0-298" id="h0-0-298" class="i">+     to extract, reuse, reproduce, and Share all or a substantial
+</a><a href="#h0-0-299" id="h0-0-299" class="i">+     portion of the contents of the database;
+</a><a href="#h0-0-300" id="h0-0-300" class="i">+
+</a><a href="#h0-0-301" id="h0-0-301" class="i">+  b. if You include all or a substantial portion of the database
+</a><a href="#h0-0-302" id="h0-0-302" class="i">+     contents in a database in which You have Sui Generis Database
+</a><a href="#h0-0-303" id="h0-0-303" class="i">+     Rights, then the database in which You have Sui Generis Database
+</a><a href="#h0-0-304" id="h0-0-304" class="i">+     Rights (but not its individual contents) is Adapted Material,
+</a><a href="#h0-0-305" id="h0-0-305" class="i">+
+</a><a href="#h0-0-306" id="h0-0-306" class="i">+     including for purposes of Section 3(b); and
+</a><a href="#h0-0-307" id="h0-0-307" class="i">+  c. You must comply with the conditions in Section 3(a) if You Share
+</a><a href="#h0-0-308" id="h0-0-308" class="i">+     all or a substantial portion of the contents of the database.
+</a><a href="#h0-0-309" id="h0-0-309" class="i">+
+</a><a href="#h0-0-310" id="h0-0-310" class="i">+For the avoidance of doubt, this Section 4 supplements and does not
+</a><a href="#h0-0-311" id="h0-0-311" class="i">+replace Your obligations under this Public License where the Licensed
+</a><a href="#h0-0-312" id="h0-0-312" class="i">+Rights include other Copyright and Similar Rights.
+</a><a href="#h0-0-313" id="h0-0-313" class="i">+
+</a><a href="#h0-0-314" id="h0-0-314" class="i">+
+</a><a href="#h0-0-315" id="h0-0-315" class="i">+Section 5 -- Disclaimer of Warranties and Limitation of Liability.
+</a><a href="#h0-0-316" id="h0-0-316" class="i">+
+</a><a href="#h0-0-317" id="h0-0-317" class="i">+  a. UNLESS OTHERWISE SEPARATELY UNDERTAKEN BY THE LICENSOR, TO THE
+</a><a href="#h0-0-318" id="h0-0-318" class="i">+     EXTENT POSSIBLE, THE LICENSOR OFFERS THE LICENSED MATERIAL AS-IS
+</a><a href="#h0-0-319" id="h0-0-319" class="i">+     AND AS-AVAILABLE, AND MAKES NO REPRESENTATIONS OR WARRANTIES OF
+</a><a href="#h0-0-320" id="h0-0-320" class="i">+     ANY KIND CONCERNING THE LICENSED MATERIAL, WHETHER EXPRESS,
+</a><a href="#h0-0-321" id="h0-0-321" class="i">+     IMPLIED, STATUTORY, OR OTHER. THIS INCLUDES, WITHOUT LIMITATION,
+</a><a href="#h0-0-322" id="h0-0-322" class="i">+     WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR
+</a><a href="#h0-0-323" id="h0-0-323" class="i">+     PURPOSE, NON-INFRINGEMENT, ABSENCE OF LATENT OR OTHER DEFECTS,
+</a><a href="#h0-0-324" id="h0-0-324" class="i">+     ACCURACY, OR THE PRESENCE OR ABSENCE OF ERRORS, WHETHER OR NOT
+</a><a href="#h0-0-325" id="h0-0-325" class="i">+     KNOWN OR DISCOVERABLE. WHERE DISCLAIMERS OF WARRANTIES ARE NOT
+</a><a href="#h0-0-326" id="h0-0-326" class="i">+     ALLOWED IN FULL OR IN PART, THIS DISCLAIMER MAY NOT APPLY TO YOU.
+</a><a href="#h0-0-327" id="h0-0-327" class="i">+
+</a><a href="#h0-0-328" id="h0-0-328" class="i">+  b. TO THE EXTENT POSSIBLE, IN NO EVENT WILL THE LICENSOR BE LIABLE
+</a><a href="#h0-0-329" id="h0-0-329" class="i">+     TO YOU ON ANY LEGAL THEORY (INCLUDING, WITHOUT LIMITATION,
+</a><a href="#h0-0-330" id="h0-0-330" class="i">+     NEGLIGENCE) OR OTHERWISE FOR ANY DIRECT, SPECIAL, INDIRECT,
+</a><a href="#h0-0-331" id="h0-0-331" class="i">+     INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR OTHER LOSSES,
+</a><a href="#h0-0-332" id="h0-0-332" class="i">+     COSTS, EXPENSES, OR DAMAGES ARISING OUT OF THIS PUBLIC LICENSE OR
+</a><a href="#h0-0-333" id="h0-0-333" class="i">+     USE OF THE LICENSED MATERIAL, EVEN IF THE LICENSOR HAS BEEN
+</a><a href="#h0-0-334" id="h0-0-334" class="i">+     ADVISED OF THE POSSIBILITY OF SUCH LOSSES, COSTS, EXPENSES, OR
+</a><a href="#h0-0-335" id="h0-0-335" class="i">+     DAMAGES. WHERE A LIMITATION OF LIABILITY IS NOT ALLOWED IN FULL OR
+</a><a href="#h0-0-336" id="h0-0-336" class="i">+     IN PART, THIS LIMITATION MAY NOT APPLY TO YOU.
+</a><a href="#h0-0-337" id="h0-0-337" class="i">+
+</a><a href="#h0-0-338" id="h0-0-338" class="i">+  c. The disclaimer of warranties and limitation of liability provided
+</a><a href="#h0-0-339" id="h0-0-339" class="i">+     above shall be interpreted in a manner that, to the extent
+</a><a href="#h0-0-340" id="h0-0-340" class="i">+     possible, most closely approximates an absolute disclaimer and
+</a><a href="#h0-0-341" id="h0-0-341" class="i">+     waiver of all liability.
+</a><a href="#h0-0-342" id="h0-0-342" class="i">+
+</a><a href="#h0-0-343" id="h0-0-343" class="i">+
+</a><a href="#h0-0-344" id="h0-0-344" class="i">+Section 6 -- Term and Termination.
+</a><a href="#h0-0-345" id="h0-0-345" class="i">+
+</a><a href="#h0-0-346" id="h0-0-346" class="i">+  a. This Public License applies for the term of the Copyright and
+</a><a href="#h0-0-347" id="h0-0-347" class="i">+     Similar Rights licensed here. However, if You fail to comply with
+</a><a href="#h0-0-348" id="h0-0-348" class="i">+     this Public License, then Your rights under this Public License
+</a><a href="#h0-0-349" id="h0-0-349" class="i">+     terminate automatically.
+</a><a href="#h0-0-350" id="h0-0-350" class="i">+
+</a><a href="#h0-0-351" id="h0-0-351" class="i">+  b. Where Your right to use the Licensed Material has terminated under
+</a><a href="#h0-0-352" id="h0-0-352" class="i">+     Section 6(a), it reinstates:
+</a><a href="#h0-0-353" id="h0-0-353" class="i">+
+</a><a href="#h0-0-354" id="h0-0-354" class="i">+       1. automatically as of the date the violation is cured, provided
+</a><a href="#h0-0-355" id="h0-0-355" class="i">+          it is cured within 30 days of Your discovery of the
+</a><a href="#h0-0-356" id="h0-0-356" class="i">+          violation; or
+</a><a href="#h0-0-357" id="h0-0-357" class="i">+
+</a><a href="#h0-0-358" id="h0-0-358" class="i">+       2. upon express reinstatement by the Licensor.
+</a><a href="#h0-0-359" id="h0-0-359" class="i">+
+</a><a href="#h0-0-360" id="h0-0-360" class="i">+     For the avoidance of doubt, this Section 6(b) does not affect any
+</a><a href="#h0-0-361" id="h0-0-361" class="i">+     right the Licensor may have to seek remedies for Your violations
+</a><a href="#h0-0-362" id="h0-0-362" class="i">+     of this Public License.
+</a><a href="#h0-0-363" id="h0-0-363" class="i">+
+</a><a href="#h0-0-364" id="h0-0-364" class="i">+  c. For the avoidance of doubt, the Licensor may also offer the
+</a><a href="#h0-0-365" id="h0-0-365" class="i">+     Licensed Material under separate terms or conditions or stop
+</a><a href="#h0-0-366" id="h0-0-366" class="i">+     distributing the Licensed Material at any time; however, doing so
+</a><a href="#h0-0-367" id="h0-0-367" class="i">+     will not terminate this Public License.
+</a><a href="#h0-0-368" id="h0-0-368" class="i">+
+</a><a href="#h0-0-369" id="h0-0-369" class="i">+  d. Sections 1, 5, 6, 7, and 8 survive termination of this Public
+</a><a href="#h0-0-370" id="h0-0-370" class="i">+     License.
+</a><a href="#h0-0-371" id="h0-0-371" class="i">+
+</a><a href="#h0-0-372" id="h0-0-372" class="i">+
+</a><a href="#h0-0-373" id="h0-0-373" class="i">+Section 7 -- Other Terms and Conditions.
+</a><a href="#h0-0-374" id="h0-0-374" class="i">+
+</a><a href="#h0-0-375" id="h0-0-375" class="i">+  a. The Licensor shall not be bound by any additional or different
+</a><a href="#h0-0-376" id="h0-0-376" class="i">+     terms or conditions communicated by You unless expressly agreed.
+</a><a href="#h0-0-377" id="h0-0-377" class="i">+
+</a><a href="#h0-0-378" id="h0-0-378" class="i">+  b. Any arrangements, understandings, or agreements regarding the
+</a><a href="#h0-0-379" id="h0-0-379" class="i">+     Licensed Material not stated herein are separate from and
+</a><a href="#h0-0-380" id="h0-0-380" class="i">+     independent of the terms and conditions of this Public License.
+</a><a href="#h0-0-381" id="h0-0-381" class="i">+
+</a><a href="#h0-0-382" id="h0-0-382" class="i">+
+</a><a href="#h0-0-383" id="h0-0-383" class="i">+Section 8 -- Interpretation.
+</a><a href="#h0-0-384" id="h0-0-384" class="i">+
+</a><a href="#h0-0-385" id="h0-0-385" class="i">+  a. For the avoidance of doubt, this Public License does not, and
+</a><a href="#h0-0-386" id="h0-0-386" class="i">+     shall not be interpreted to, reduce, limit, restrict, or impose
+</a><a href="#h0-0-387" id="h0-0-387" class="i">+     conditions on any use of the Licensed Material that could lawfully
+</a><a href="#h0-0-388" id="h0-0-388" class="i">+     be made without permission under this Public License.
+</a><a href="#h0-0-389" id="h0-0-389" class="i">+
+</a><a href="#h0-0-390" id="h0-0-390" class="i">+  b. To the extent possible, if any provision of this Public License is
+</a><a href="#h0-0-391" id="h0-0-391" class="i">+     deemed unenforceable, it shall be automatically reformed to the
+</a><a href="#h0-0-392" id="h0-0-392" class="i">+     minimum extent necessary to make it enforceable. If the provision
+</a><a href="#h0-0-393" id="h0-0-393" class="i">+     cannot be reformed, it shall be severed from this Public License
+</a><a href="#h0-0-394" id="h0-0-394" class="i">+     without affecting the enforceability of the remaining terms and
+</a><a href="#h0-0-395" id="h0-0-395" class="i">+     conditions.
+</a><a href="#h0-0-396" id="h0-0-396" class="i">+
+</a><a href="#h0-0-397" id="h0-0-397" class="i">+  c. No term or condition of this Public License will be waived and no
+</a><a href="#h0-0-398" id="h0-0-398" class="i">+     failure to comply consented to unless expressly agreed to by the
+</a><a href="#h0-0-399" id="h0-0-399" class="i">+     Licensor.
+</a><a href="#h0-0-400" id="h0-0-400" class="i">+
+</a><a href="#h0-0-401" id="h0-0-401" class="i">+  d. Nothing in this Public License constitutes or may be interpreted
+</a><a href="#h0-0-402" id="h0-0-402" class="i">+     as a limitation upon, or waiver of, any privileges and immunities
+</a><a href="#h0-0-403" id="h0-0-403" class="i">+     that apply to the Licensor or You, including from the legal
+</a><a href="#h0-0-404" id="h0-0-404" class="i">+     processes of any jurisdiction or authority.
+</a><a href="#h0-0-405" id="h0-0-405" class="i">+
+</a><a href="#h0-0-406" id="h0-0-406" class="i">+
+</a><a href="#h0-0-407" id="h0-0-407" class="i">+=======================================================================
+</a><a href="#h0-0-408" id="h0-0-408" class="i">+
+</a><a href="#h0-0-409" id="h0-0-409" class="i">+Creative Commons is not a party to its public
+</a><a href="#h0-0-410" id="h0-0-410" class="i">+licenses. Notwithstanding, Creative Commons may elect to apply one of
+</a><a href="#h0-0-411" id="h0-0-411" class="i">+its public licenses to material it publishes and in those instances
+</a><a href="#h0-0-412" id="h0-0-412" class="i">+will be considered the “Licensor.” The text of the Creative Commons
+</a><a href="#h0-0-413" id="h0-0-413" class="i">+public licenses is dedicated to the public domain under the CC0 Public
+</a><a href="#h0-0-414" id="h0-0-414" class="i">+Domain Dedication. Except for the limited purpose of indicating that
+</a><a href="#h0-0-415" id="h0-0-415" class="i">+material is shared under a Creative Commons public license or as
+</a><a href="#h0-0-416" id="h0-0-416" class="i">+otherwise permitted by the Creative Commons policies published at
+</a><a href="#h0-0-417" id="h0-0-417" class="i">+creativecommons.org/policies, Creative Commons does not authorize the
+</a><a href="#h0-0-418" id="h0-0-418" class="i">+use of the trademark &quot;Creative Commons&quot; or any other trademark or logo
+</a><a href="#h0-0-419" id="h0-0-419" class="i">+of Creative Commons without its prior written consent including,
+</a><a href="#h0-0-420" id="h0-0-420" class="i">+without limitation, in connection with any unauthorized modifications
+</a><a href="#h0-0-421" id="h0-0-421" class="i">+to any of its public licenses or any other arrangements,
+</a><a href="#h0-0-422" id="h0-0-422" class="i">+understandings, or agreements concerning use of licensed material. For
+</a><a href="#h0-0-423" id="h0-0-423" class="i">+the avoidance of doubt, this paragraph does not form part of the
+</a><a href="#h0-0-424" id="h0-0-424" class="i">+public licenses.
+</a><a href="#h0-0-425" id="h0-0-425" class="i">+
+</a><a href="#h0-0-426" id="h0-0-426" class="i">+Creative Commons may be contacted at creativecommons.org.
+</a><b>diff --git a/<a id="h1" href="../file/LICENSE.md.html">LICENSE.md</a> b/<a href="../file/LICENSE.md.html">LICENSE.md</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -0,0 +1,7 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+Copyright © 2020 &lt;hi@ybbond.dev&gt;
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+</a><a href="#h1-0-3" id="h1-0-3" class="i">+
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</a><b>diff --git a/<a id="h2" href="../file/README.md.html">README.md</a> b/<a href="../file/README.md.html">README.md</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -4,39 +4,12 @@ I tried remaking my personal website using [REasonREact](https://reasonml.github
+</a> 
+ previously, it is this website [ybbond.dev](https://ybbond.github.io)
+ 
+<a href="#h2-0-3" id="h2-0-3" class="i">+then I tried remaking with React, as seen here [old.ybbond.dev](https://old.ybbond.dev).
+</a> 
+<a href="#h2-0-5" id="h2-0-5" class="d">-## Contributing
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+finally I stick with Hugo, and now my main site is [ybbond.dev](https://ybbond.dev).
+</a> 
+<a href="#h2-0-8" id="h2-0-8" class="d">-```sh
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-git clone https://github.com/ybbond/ybbond-reason &amp;&amp; cd ybbond-reason
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-yarn install
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-yarn start
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-# in another tab
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-yarn run webpack
+</a><a href="#h2-0-14" id="h2-0-14" class="d">-```
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+---
+</a> 
+<a href="#h2-0-17" id="h2-0-17" class="d">-After you see the webpack compilation succeed (the `yarn run webpack` step), open up `build/index.html` (**no server needed!**). Then modify whichever `.re` file in `src` and refresh the page to see the changes.
+</a><a href="#h2-0-18" id="h2-0-18" class="d">-
+</a><a href="#h2-0-19" id="h2-0-19" class="d">-**For more elaborate ReasonReact examples**, please see https://github.com/reasonml-community/reason-react-example
+</a><a href="#h2-0-20" id="h2-0-20" class="d">-
+</a><a href="#h2-0-21" id="h2-0-21" class="d">-## Run Project with Server
+</a><a href="#h2-0-22" id="h2-0-22" class="d">-
+</a><a href="#h2-0-23" id="h2-0-23" class="d">-To run with the webpack development server run `yarn run server` and view in the browser at http://localhost:8000. Running in this environment provides hot reloading and support for routing; just edit and save the file and the browser will automatically refresh.
+</a><a href="#h2-0-24" id="h2-0-24" class="d">-
+</a><a href="#h2-0-25" id="h2-0-25" class="d">-Note that any hot reload on a route will fall back to the root (`/`), so `ReasonReact.Router.dangerouslyGetInitialUrl` will likely be needed alongside the `ReasonReact.Router.watchUrl` logic to handle routing correctly on hot reload refreshes or simply opening the app at a URL that is not the root.
+</a><a href="#h2-0-26" id="h2-0-26" class="d">-
+</a><a href="#h2-0-27" id="h2-0-27" class="d">-To use a port other than 8000 set the `PORT` environment variable (`PORT=8080 yarn run server`).
+</a><a href="#h2-0-28" id="h2-0-28" class="d">-
+</a><a href="#h2-0-29" id="h2-0-29" class="d">-## Build for Production
+</a><a href="#h2-0-30" id="h2-0-30" class="d">-
+</a><a href="#h2-0-31" id="h2-0-31" class="d">-```sh
+</a><a href="#h2-0-32" id="h2-0-32" class="d">-yarn run clean
+</a><a href="#h2-0-33" id="h2-0-33" class="d">-yarn run build
+</a><a href="#h2-0-34" id="h2-0-34" class="d">-yarn run webpack:production
+</a><a href="#h2-0-35" id="h2-0-35" class="d">-```
+</a><a href="#h2-0-36" id="h2-0-36" class="d">-
+</a><a href="#h2-0-37" id="h2-0-37" class="d">-This will replace the development artifact `build/Index.js` for an optimized version as well as copy `src/index.html` into `build/`. You can then deploy the contents of the `build` directory (`index.html` and `Index.js`).
+</a><a href="#h2-0-38" id="h2-0-38" class="d">-
+</a><a href="#h2-0-39" id="h2-0-39" class="d">-If you make use of routing (via `ReasonReact.Router` or similar logic) ensure that server-side routing handles your routes or that 404&#39;s are directed back to `index.html` (which is how the dev server is set up).
+</a><a href="#h2-0-40" id="h2-0-40" class="d">-
+</a><a href="#h2-0-41" id="h2-0-41" class="d">-**To enable dead code elimination**, change `bsconfig.json`&#39;s `package-specs` `module` from `&quot;commonjs&quot;` to `&quot;es6&quot;`. Then re-run the above 2 commands. This will allow Webpack to remove unused code.
+</a><a href="#h2-0-42" id="h2-0-42" class="i">+The code is licensed under [MIT LICENSE](LICENSE.md).
+</a><a href="#h2-0-43" id="h2-0-43" class="i">+The content is [licensed](CC-LICENSE.md) under [CC BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/).
+</a><a href="#h2-0-44" id="h2-0-44" class="i">+Everything else is copyrighted with © All Rights Reserved.
+</a></pre>
+</div>
+</div>
+</body>
+</html>

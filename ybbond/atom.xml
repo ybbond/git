@@ -4,6 +4,25 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>4d08f6b1ff3330ff3a4894e3a8ca8114144ba4ad</id>
+<published>2020-06-20T12:41:28Z</published>
+<updated>2020-06-20T12:41:28Z</updated>
+<title type="text">content: add notes</title>
+<link rel="alternate" type="text/html" href="commit/4d08f6b1ff3330ff3a4894e3a8ca8114144ba4ad.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 4d08f6b1ff3330ff3a4894e3a8ca8114144ba4ad
+parent bbfd118b73ede020db3de1c014be90c66641e44e
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 20 Jun 2020 19:41:28 +0700
+
+content: add notes
+
+</content>
+</entry>
+<entry>
 <id>bbfd118b73ede020db3de1c014be90c66641e44e</id>
 <published>2020-06-19T16:43:37Z</published>
 <updated>2020-06-19T16:45:24Z</updated>
@@ -1888,25 +1907,6 @@ Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Wed, 29 Apr 2020 07:13:07 +0700
 
 feature: add mastodon rel=me
-
-</content>
-</entry>
-<entry>
-<id>2bd2cfab2952d87f1a44863b7b2a3adae0c29850</id>
-<published>2020-04-28T23:02:36Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">feature: add micro.blog and indieauth</title>
-<link rel="alternate" type="text/html" href="commit/2bd2cfab2952d87f1a44863b7b2a3adae0c29850.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 2bd2cfab2952d87f1a44863b7b2a3adae0c29850
-parent 9af3d0b3aedc0dca74c99d753703b398d5617dec
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Wed, 29 Apr 2020 06:02:36 +0700
-
-feature: add micro.blog and indieauth
 
 </content>
 </entry>
