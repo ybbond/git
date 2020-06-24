@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>config.el - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> config.el (1672B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+<a href="#l2" class="line" id="l2">      2</a> 
+<a href="#l3" class="line" id="l3">      3</a> ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
+<a href="#l4" class="line" id="l4">      4</a> ;; are the three important ones:
+<a href="#l5" class="line" id="l5">      5</a> ;;
+<a href="#l6" class="line" id="l6">      6</a> ;; + `doom-font&#39;
+<a href="#l7" class="line" id="l7">      7</a> ;; + `doom-variable-pitch-font&#39;
+<a href="#l8" class="line" id="l8">      8</a> ;; + `doom-big-font&#39; -- used for `doom-big-font-mode&#39;; use this for
+<a href="#l9" class="line" id="l9">      9</a> ;;   presentations or streaming.
+<a href="#l10" class="line" id="l10">     10</a> ;;
+<a href="#l11" class="line" id="l11">     11</a> ;; They all accept either a font-spec, font string (&quot;Input Mono-12&quot;), or xlfd
+<a href="#l12" class="line" id="l12">     12</a> ;; font string. You generally only need these two:
+<a href="#l13" class="line" id="l13">     13</a> ;; (setq doom-font (font-spec :family &quot;monospace&quot; :size 12 :weight &#39;semi-light)
+<a href="#l14" class="line" id="l14">     14</a> ;;       doom-variable-pitch-font (font-spec :family &quot;sans&quot; :size 13))
+<a href="#l15" class="line" id="l15">     15</a> 
+<a href="#l16" class="line" id="l16">     16</a> (setq user-full-name &quot;Yohanes Bandung Bondowoso&quot;
+<a href="#l17" class="line" id="l17">     17</a>       user-mail-address &quot;hi@ybbond.dev&quot;
+<a href="#l18" class="line" id="l18">     18</a> 
+<a href="#l19" class="line" id="l19">     19</a>       display-line-numbers-type &#39;relative
+<a href="#l20" class="line" id="l20">     20</a>       select-enable-clipboard nil
+<a href="#l21" class="line" id="l21">     21</a>       doom-theme &#39;doom-one)
+<a href="#l22" class="line" id="l22">     22</a> 
+<a href="#l23" class="line" id="l23">     23</a> (setq org-directory &quot;~/org/&quot;
+<a href="#l24" class="line" id="l24">     24</a>       org-ellipsis &quot; ▼ &quot;)
+<a href="#l25" class="line" id="l25">     25</a> 
+<a href="#l26" class="line" id="l26">     26</a> 
+<a href="#l27" class="line" id="l27">     27</a> ;; Here are some additional functions/macros that could help you configure Doom:
+<a href="#l28" class="line" id="l28">     28</a> ;;
+<a href="#l29" class="line" id="l29">     29</a> ;; - `load!&#39; for loading external *.el files relative to this one
+<a href="#l30" class="line" id="l30">     30</a> ;; - `use-package!&#39; for configuring packages
+<a href="#l31" class="line" id="l31">     31</a> ;; - `after!&#39; for running code after a package has loaded
+<a href="#l32" class="line" id="l32">     32</a> ;; - `add-load-path!&#39; for adding directories to the `load-path&#39;, relative to
+<a href="#l33" class="line" id="l33">     33</a> ;;   this file. Emacs searches the `load-path&#39; when you load packages with
+<a href="#l34" class="line" id="l34">     34</a> ;;   `require&#39; or `use-package&#39;.
+<a href="#l35" class="line" id="l35">     35</a> ;; - `map!&#39; for binding new keys
+<a href="#l36" class="line" id="l36">     36</a> ;;
+<a href="#l37" class="line" id="l37">     37</a> ;; To get information about any of these functions/macros, move the cursor over
+<a href="#l38" class="line" id="l38">     38</a> ;; the highlighted symbol at press &#39;K&#39; (non-evil users must press &#39;C-c c k&#39;).
+<a href="#l39" class="line" id="l39">     39</a> ;; This will open documentation for it, including demos of how they are used.
+<a href="#l40" class="line" id="l40">     40</a> ;;
+<a href="#l41" class="line" id="l41">     41</a> ;; You can also try &#39;gd&#39; (or &#39;C-c c d&#39;) to jump to their definition and see how
+<a href="#l42" class="line" id="l42">     42</a> ;; they are implemented.
+</pre>
+</div>
+</body>
+</html>

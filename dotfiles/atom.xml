@@ -4,6 +4,25 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>c2e04333a6ef7fb456ff164159ffa2442935a000</id>
+<published>2020-06-24T08:58:19Z</published>
+<updated>2020-06-24T08:58:19Z</updated>
+<title type="text">update vscode, zsh, coc. add doom</title>
+<link rel="alternate" type="text/html" href="commit/c2e04333a6ef7fb456ff164159ffa2442935a000.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit c2e04333a6ef7fb456ff164159ffa2442935a000
+parent 46ed3b01397d898e5927f33fb0e799d9fe6c4b42
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Wed, 24 Jun 2020 15:58:19 +0700
+
+update vscode, zsh, coc. add doom
+
+</content>
+</entry>
+<entry>
 <id>46ed3b01397d898e5927f33fb0e799d9fe6c4b42</id>
 <published>2020-06-19T16:48:20Z</published>
 <updated>2020-06-19T16:48:20Z</updated>

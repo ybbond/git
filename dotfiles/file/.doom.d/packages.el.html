@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>packages.el - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> packages.el (2114B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> ;; -*- no-byte-compile: t; -*-
+<a href="#l2" class="line" id="l2">      2</a> ;;; $DOOMDIR/packages.el
+<a href="#l3" class="line" id="l3">      3</a> 
+<a href="#l4" class="line" id="l4">      4</a> ;; To install a package with Doom you must declare them here and run &#39;doom sync&#39;
+<a href="#l5" class="line" id="l5">      5</a> ;; on the command line, then restart Emacs for the changes to take effect -- or
+<a href="#l6" class="line" id="l6">      6</a> ;; use &#39;M-x doom/reload&#39;.
+<a href="#l7" class="line" id="l7">      7</a> 
+<a href="#l8" class="line" id="l8">      8</a> 
+<a href="#l9" class="line" id="l9">      9</a> ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
+<a href="#l10" class="line" id="l10">     10</a> ;(package! some-package)
+<a href="#l11" class="line" id="l11">     11</a> 
+<a href="#l12" class="line" id="l12">     12</a> ;; To install a package directly from a remote git repo, you must specify a
+<a href="#l13" class="line" id="l13">     13</a> ;; `:recipe&#39;. You&#39;ll find documentation on what `:recipe&#39; accepts here:
+<a href="#l14" class="line" id="l14">     14</a> ;; https://github.com/raxod502/straight.el#the-recipe-format
+<a href="#l15" class="line" id="l15">     15</a> ;(package! another-package
+<a href="#l16" class="line" id="l16">     16</a> ;  :recipe (:host github :repo &quot;username/repo&quot;))
+<a href="#l17" class="line" id="l17">     17</a> 
+<a href="#l18" class="line" id="l18">     18</a> ;; If the package you are trying to install does not contain a PACKAGENAME.el
+<a href="#l19" class="line" id="l19">     19</a> ;; file, or is located in a subdirectory of the repo, you&#39;ll need to specify
+<a href="#l20" class="line" id="l20">     20</a> ;; `:files&#39; in the `:recipe&#39;:
+<a href="#l21" class="line" id="l21">     21</a> ;(package! this-package
+<a href="#l22" class="line" id="l22">     22</a> ;  :recipe (:host github :repo &quot;username/repo&quot;
+<a href="#l23" class="line" id="l23">     23</a> ;           :files (&quot;some-file.el&quot; &quot;src/lisp/*.el&quot;)))
+<a href="#l24" class="line" id="l24">     24</a> 
+<a href="#l25" class="line" id="l25">     25</a> ;; If you&#39;d like to disable a package included with Doom, you can do so here
+<a href="#l26" class="line" id="l26">     26</a> ;; with the `:disable&#39; property:
+<a href="#l27" class="line" id="l27">     27</a> ;(package! builtin-package :disable t)
+<a href="#l28" class="line" id="l28">     28</a> 
+<a href="#l29" class="line" id="l29">     29</a> ;; You can override the recipe of a built in package without having to specify
+<a href="#l30" class="line" id="l30">     30</a> ;; all the properties for `:recipe&#39;. These will inherit the rest of its recipe
+<a href="#l31" class="line" id="l31">     31</a> ;; from Doom or MELPA/ELPA/Emacsmirror:
+<a href="#l32" class="line" id="l32">     32</a> ;(package! builtin-package :recipe (:nonrecursive t))
+<a href="#l33" class="line" id="l33">     33</a> ;(package! builtin-package-2 :recipe (:repo &quot;myfork/package&quot;))
+<a href="#l34" class="line" id="l34">     34</a> 
+<a href="#l35" class="line" id="l35">     35</a> ;; Specify a `:branch&#39; to install a package from a particular branch or tag.
+<a href="#l36" class="line" id="l36">     36</a> ;; This is required for some packages whose default branch isn&#39;t &#39;master&#39; (which
+<a href="#l37" class="line" id="l37">     37</a> ;; our package manager can&#39;t deal with; see raxod502/straight.el#279)
+<a href="#l38" class="line" id="l38">     38</a> ;(package! builtin-package :recipe (:branch &quot;develop&quot;))
+<a href="#l39" class="line" id="l39">     39</a> 
+<a href="#l40" class="line" id="l40">     40</a> ;; Use `:pin&#39; to specify a particular commit to install.
+<a href="#l41" class="line" id="l41">     41</a> ;(package! builtin-package :pin &quot;1a2b3c4d5e&quot;)
+<a href="#l42" class="line" id="l42">     42</a> 
+<a href="#l43" class="line" id="l43">     43</a> 
+<a href="#l44" class="line" id="l44">     44</a> ;; Doom&#39;s packages are pinned to a specific commit and updated from release to
+<a href="#l45" class="line" id="l45">     45</a> ;; release. The `unpin!&#39; macro allows you to unpin single packages...
+<a href="#l46" class="line" id="l46">     46</a> ;(unpin! pinned-package)
+<a href="#l47" class="line" id="l47">     47</a> ;; ...or multiple packages
+<a href="#l48" class="line" id="l48">     48</a> ;(unpin! pinned-package another-pinned-package)
+<a href="#l49" class="line" id="l49">     49</a> ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
+<a href="#l50" class="line" id="l50">     50</a> ;(unpin! t)
+</pre>
+</div>
+</body>
+</html>

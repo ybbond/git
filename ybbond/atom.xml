@@ -4,6 +4,25 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>35dcef9744edc4ce0a6f92d82c69114c4a0386e5</id>
+<published>2020-06-21T21:27:10Z</published>
+<updated>2020-06-21T21:27:31Z</updated>
+<title type="text">refactor: different font weight for light/dark</title>
+<link rel="alternate" type="text/html" href="commit/35dcef9744edc4ce0a6f92d82c69114c4a0386e5.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 35dcef9744edc4ce0a6f92d82c69114c4a0386e5
+parent 518095f3ac6d755271b7f31cc790e88addee2887
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Mon, 22 Jun 2020 04:27:10 +0700
+
+refactor: different font weight for light/dark
+
+</content>
+</entry>
+<entry>
 <id>518095f3ac6d755271b7f31cc790e88addee2887</id>
 <published>2020-06-20T12:41:28Z</published>
 <updated>2020-06-21T12:40:09Z</updated>
@@ -1888,25 +1907,6 @@ Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Wed, 29 Apr 2020 18:18:01 +0700
 
 feature: add rss browser detection
-
-</content>
-</entry>
-<entry>
-<id>854e755d3223c3e09d62194b4e6d93b6184cf381</id>
-<published>2020-04-29T00:13:07Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">feature: add mastodon rel=me</title>
-<link rel="alternate" type="text/html" href="commit/854e755d3223c3e09d62194b4e6d93b6184cf381.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 854e755d3223c3e09d62194b4e6d93b6184cf381
-parent 2bd2cfab2952d87f1a44863b7b2a3adae0c29850
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Wed, 29 Apr 2020 07:13:07 +0700
-
-feature: add mastodon rel=me
 
 </content>
 </entry>
