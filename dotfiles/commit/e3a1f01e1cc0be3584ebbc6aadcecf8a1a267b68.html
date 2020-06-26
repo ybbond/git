@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>update doom settings along with org-roam - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/e3a1f01e1cc0be3584ebbc6aadcecf8a1a267b68.html">e3a1f01e1cc0be3584ebbc6aadcecf8a1a267b68</a>
+<b>parent</b> <a href="../commit/424fb628530e0ce1c1b964496541fc580e682252.html">424fb628530e0ce1c1b964496541fc580e682252</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Thu, 25 Jun 2020 22:42:48 +0700
+
+update doom settings along with org-roam
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.doom.d/+org.el</a></td><td> | </td><td class="num">81</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">---------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.doom.d/+ui.el</a></td><td> | </td><td class="num">7</td><td><span class="i">+++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">.doom.d/init.el</a></td><td> | </td><td class="num">8</td><td><span class="i">++++++</span><span class="d">--</span></td></tr>
+</table></pre></div><p>3 files changed, 66 insertions(<span id="plus">+</span>), 30 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a> b/<a href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -5,8 +5,11 @@
+</a> ;; (setq org_notes &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes&quot;
+ (setq org_notes &quot;~/Notes&quot;
+       org-directory org_notes
+<a href="#h0-0-3" id="h0-0-3" class="d">-      org-ellipsis &quot; ▼ &quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-      deft-directory org_notes)
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+      deft-directory org_notes
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+      org-roam-directory org_notes
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+      org-roam-db-location &quot;~/Notes/org-roam.db&quot;
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+      org-id-link-to-org-use-id t
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+      org-ellipsis &quot; ▼ &quot;)
+</a> 
+ ;; I use C-c c to start capture mode
+ (global-set-key (kbd &quot;C-c c&quot;) &#39;org-capture)
+<a href="#h0-1" id="h0-1" class="h">@@ -20,48 +23,70 @@
+</a>               (&quot;NEXT&quot; (&quot;WAITING&quot;) (&quot;CANCELLED&quot;) (&quot;HOLD&quot;))
+               (&quot;DONE&quot; (&quot;WAITING&quot;) (&quot;CANCELLED&quot;) (&quot;HOLD&quot;)))))
+ 
+<a href="#h0-1-3" id="h0-1-3" class="d">-;; Org roam
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+(use-package! org-roam
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+  :hook
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+  (after-init . org-roam-mode))
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+
+</a> (after! org-roam
+<a href="#h0-1-10" id="h0-1-10" class="d">-  (setq org-roam-directory org_notes)
+</a>   (add-hook &#39;after-init-hook &#39;org-roam-mode)
+   (setq org-roam-graph-viewer &quot;/usr/bin/open&quot;)
+   (setq org-roam-capture-ref-templates
+         &#39;((&quot;r&quot; &quot;ref&quot; plain (function org-roam-capture--get-point)
+            &quot;%?&quot;
+            :file-name &quot;websites/${slug}&quot;
+<a href="#h0-1-17" id="h0-1-17" class="d">-           :head &quot;#+TITLE: ${title}\n#+ROAM_KEY: ${ref}\n- SOURCE :: ${ref}&quot;
+</a><a href="#h0-1-18" id="h0-1-18" class="i">+           :head &quot;#+title: ${title}\n#+author: ${author}\n#+roam_key: ${ref}\n#+roam_tags: websites\n- source :: ${ref}&quot;
+</a>            :unnarrowed t))))
+<a href="#h0-1-20" id="h0-1-20" class="i">+
+</a>   (setq org-roam-dailies-capture-templates
+     &#39;((&quot;d&quot; &quot;daily&quot; plain (function org-roam-capture--get-point)
+       &quot;%?&quot;
+       :immediate-finish t
+       :file-name &quot;journals/%&lt;%Y-%m-%d&gt;&quot;
+<a href="#h0-1-26" id="h0-1-26" class="d">-      :head &quot;#+TITLE: %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;&quot;
+</a><a href="#h0-1-27" id="h0-1-27" class="i">+      :head &quot;#+title: %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;\n#+roam_tags: journals\n&quot;
+</a>       :unnarrowed t)))
+<a href="#h0-1-29" id="h0-1-29" class="i">+
+</a>   (setq org-roam-capture-templates
+         &#39;((&quot;d&quot; &quot;default&quot; plain (function org-roam-capture--get-point)
+            &quot;%?&quot;
+            :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+<a href="#h0-1-34" id="h0-1-34" class="d">-           :head &quot;#+TITLE: ${title}\n&quot;
+</a><a href="#h0-1-35" id="h0-1-35" class="i">+           :head &quot;#+title: ${title}\n&quot;
+</a><a href="#h0-1-36" id="h0-1-36" class="i">+           :unnarrowed t)
+</a><a href="#h0-1-37" id="h0-1-37" class="i">+          (&quot;t&quot; &quot;tags&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h0-1-38" id="h0-1-38" class="i">+           &quot;%?&quot;
+</a><a href="#h0-1-39" id="h0-1-39" class="i">+           :file-name &quot;tags/%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h0-1-40" id="h0-1-40" class="i">+           :head &quot;#+title: ${title}\n#+roam_tags: tags&quot;
+</a><a href="#h0-1-41" id="h0-1-41" class="i">+           :unnarrowed t)
+</a><a href="#h0-1-42" id="h0-1-42" class="i">+          (&quot;p&quot; &quot;products&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h0-1-43" id="h0-1-43" class="i">+           &quot;%?&quot;
+</a><a href="#h0-1-44" id="h0-1-44" class="i">+           :file-name &quot;products/%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h0-1-45" id="h0-1-45" class="i">+           :head &quot;#+title: ${title}\n#+roam_tags: products\n&quot;
+</a><a href="#h0-1-46" id="h0-1-46" class="i">+           :unnarrowed t)
+</a><a href="#h0-1-47" id="h0-1-47" class="i">+          (&quot;i&quot; &quot;people&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h0-1-48" id="h0-1-48" class="i">+           &quot;%?&quot;
+</a><a href="#h0-1-49" id="h0-1-49" class="i">+           :file-name &quot;people/%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h0-1-50" id="h0-1-50" class="i">+           :head &quot;#+title: ${title}\n#+roam_tags: people\n&quot;
+</a>            :unnarrowed t)))
+ 
+<a href="#h0-1-53" id="h0-1-53" class="d">-(use-package deft
+</a><a href="#h0-1-54" id="h0-1-54" class="i">+(use-package! deft
+</a>   :after org
+<a href="#h0-1-56" id="h0-1-56" class="d">-  :bind
+</a><a href="#h0-1-57" id="h0-1-57" class="d">-  (&quot;C-c n d&quot; . deft)
+</a>   :config
+   (setq deft-recursive t)
+   (setq deft-use-filter-string-for-filename t)
+<a href="#h0-1-61" id="h0-1-61" class="d">-  (setq deft-incremental-search t))
+</a><a href="#h0-1-62" id="h0-1-62" class="i">+  (setq deft-default-extension &quot;org&quot;)
+</a><a href="#h0-1-63" id="h0-1-63" class="i">+  (setq deft-incremental-search t)
+</a><a href="#h0-1-64" id="h0-1-64" class="i">+  (add-hook &#39;after-init-hook &#39;org-roam-db-build-cache)
+</a><a href="#h0-1-65" id="h0-1-65" class="i">+  :bind
+</a><a href="#h0-1-66" id="h0-1-66" class="i">+  (&quot;C-c n d&quot; . deft))
+</a> 
+<a href="#h0-1-68" id="h0-1-68" class="d">-(use-package org-journal
+</a><a href="#h0-1-69" id="h0-1-69" class="i">+(use-package! org-journal
+</a>   :bind
+   (&quot;C-c n j&quot; . org-journal-new-entry)
+   :config
+   (setq org-journal-dir &quot;~/Notes/journals/&quot;)
+<a href="#h0-1-74" id="h0-1-74" class="d">-  (setq org-journal-date-prefix &quot;#+TITLE: &quot;)
+</a><a href="#h0-1-75" id="h0-1-75" class="i">+  (setq org-journal-date-prefix &quot;#+title: &quot;)
+</a>   (setq org-journal-file-format &quot;%Y-%m-%d.org&quot;)
+<a href="#h0-1-77" id="h0-1-77" class="d">-  (setq org-journal-date-format &quot;%A, %d %B %Y&quot;))
+</a><a href="#h0-1-78" id="h0-1-78" class="i">+  (setq org-journal-date-format &quot;%A, %d %B %Y\n#+roam_tags: journals\n&quot;))
+</a> (setq org-journal-enable-agenda-integration t)
+ 
+ (after! org
+<a href="#h0-2" id="h0-2" class="h">@@ -77,18 +102,18 @@
+</a> ;; Refile a heading to another buffer
+ ;; Allows you to refile into different files - specifically to
+ ;; create new &#39;parent&#39; headings
+<a href="#h0-2-3" id="h0-2-3" class="d">-(setq org-refile-use-outline-path &#39;file)
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+;; (setq org-refile-use-outline-path &#39;file)
+</a> ;; makes org-refile outline working with helm/ivy
+<a href="#h0-2-6" id="h0-2-6" class="d">-(setq org-outline-path-complete-in-steps nil)
+</a><a href="#h0-2-7" id="h0-2-7" class="d">-(setq org-refile-allow-creating-parent-nodes &#39;confirm)
+</a><a href="#h0-2-8" id="h0-2-8" class="d">-(defun +org/opened-buffer-files ()
+</a><a href="#h0-2-9" id="h0-2-9" class="d">-  &quot;Return the list of files currently opened in emacs&quot;
+</a><a href="#h0-2-10" id="h0-2-10" class="d">-  (delq nil
+</a><a href="#h0-2-11" id="h0-2-11" class="d">-        (mapcar (lambda (x)
+</a><a href="#h0-2-12" id="h0-2-12" class="d">-                  (if (and (buffer-file-name x)
+</a><a href="#h0-2-13" id="h0-2-13" class="d">-                           (string-match &quot;\\.org$&quot;
+</a><a href="#h0-2-14" id="h0-2-14" class="d">-                                         (buffer-file-name x)))
+</a><a href="#h0-2-15" id="h0-2-15" class="d">-                      (buffer-file-name x)))
+</a><a href="#h0-2-16" id="h0-2-16" class="d">-                (buffer-list))))
+</a><a href="#h0-2-17" id="h0-2-17" class="d">-
+</a><a href="#h0-2-18" id="h0-2-18" class="d">-(setq org-refile-targets &#39;((+org/opened-buffer-files :maxlevel . 9)))
+</a><a href="#h0-2-19" id="h0-2-19" class="i">+;; (setq org-outline-path-complete-in-steps nil)
+</a><a href="#h0-2-20" id="h0-2-20" class="i">+;; (setq org-refile-allow-creating-parent-nodes &#39;confirm)
+</a><a href="#h0-2-21" id="h0-2-21" class="i">+;; (defun +org/opened-buffer-files ()
+</a><a href="#h0-2-22" id="h0-2-22" class="i">+;;   &quot;Return the list of files currently opened in emacs&quot;
+</a><a href="#h0-2-23" id="h0-2-23" class="i">+;;   (delq nil
+</a><a href="#h0-2-24" id="h0-2-24" class="i">+;;         (mapcar (lambda (x)
+</a><a href="#h0-2-25" id="h0-2-25" class="i">+;;                   (if (and (buffer-file-name x)
+</a><a href="#h0-2-26" id="h0-2-26" class="i">+;;                            (string-match &quot;\\.org$&quot;
+</a><a href="#h0-2-27" id="h0-2-27" class="i">+;;                                          (buffer-file-name x)))
+</a><a href="#h0-2-28" id="h0-2-28" class="i">+;;                       (buffer-file-name x)))
+</a><a href="#h0-2-29" id="h0-2-29" class="i">+;;                 (buffer-list))))
+</a><a href="#h0-2-30" id="h0-2-30" class="i">+
+</a><a href="#h0-2-31" id="h0-2-31" class="i">+;; (setq org-refile-targets &#39;((+org/opened-buffer-files :maxlevel . 9)))
+</a><b>diff --git a/<a id="h1" href="../file/.doom.d/+ui.el.html">.doom.d/+ui.el</a> b/<a href="../file/.doom.d/+ui.el.html">.doom.d/+ui.el</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -33,3 +33,10 @@
+</a> ;; Disable clipboard altogether.
+ ;; Use clipboard register to copy-paste with system clipboard!
+ (setq select-enable-clipboard nil)
+<a href="#h1-0-3" id="h1-0-3" class="i">+
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+;; (after! dired
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+;;   ;; (setq dired-listing-switches &quot;-aBhl --group-directories-first&quot;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+;;   (setq dired-listing-switches &quot;-aBhl&quot;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+;;         dired-dwim-target t
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+;;         dired-recursive-copies (quote always)
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+;;         dired-recursive-deletes (quote top)))
+</a><b>diff --git a/<a id="h2" href="../file/.doom.d/init.el.html">.doom.d/init.el</a> b/<a href="../file/.doom.d/init.el.html">.doom.d/init.el</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -27,8 +27,8 @@
+</a>        :ui
+        deft              ; notational velocity for Emacs
+        doom              ; what makes DOOM look the way it does
+<a href="#h2-0-3" id="h2-0-3" class="d">-       doom-dashboard    ; a nifty splash screen for Emacs
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-       doom-quit         ; DOOM quit-message prompts when you quit Emacs
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+       ;; doom-dashboard    ; a nifty splash screen for Emacs
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+       ;; doom-quit         ; DOOM quit-message prompts when you quit Emacs
+</a>        ;;fill-column       ; a `fill-column&#39; indicator
+        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
+        ;;hydra
+<a href="#h2-1" id="h2-1" class="h">@@ -177,3 +177,7 @@
+</a>        :config
+        ;;literate
+        (default +bindings +smartparens))
+<a href="#h2-1-3" id="h2-1-3" class="i">+
+</a><a href="#h2-1-4" id="h2-1-4" class="i">+
+</a><a href="#h2-1-5" id="h2-1-5" class="i">+;; Respects soft line wrapping navigation
+</a><a href="#h2-1-6" id="h2-1-6" class="i">+(setq evil-respect-visual-line-mode t)
+</a></pre>
+</div>
+</div>
+</body>
+</html>

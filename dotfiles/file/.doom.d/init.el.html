@@ -15,7 +15,7 @@
 <a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> init.el (8885B)</p><hr/><pre id="blob">
+<p> init.el (8994B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> ;;; init.el -*- lexical-binding: t; -*-
 <a href="#l2" class="line" id="l2">      2</a> 
 <a href="#l3" class="line" id="l3">      3</a> ;; This file controls what Doom modules are enabled and what order they load
@@ -37,16 +37,16 @@
 <a href="#l19" class="line" id="l19">     19</a>        ;;japanese
 <a href="#l20" class="line" id="l20">     20</a> 
 <a href="#l21" class="line" id="l21">     21</a>        :completion
-<a href="#l22" class="line" id="l22">     22</a>        company           ; the ultimate code completion backend
+<a href="#l22" class="line" id="l22">     22</a>        (company +childframe)           ; the ultimate code completion backend
 <a href="#l23" class="line" id="l23">     23</a>        ;;helm              ; the *other* search engine for love and life
 <a href="#l24" class="line" id="l24">     24</a>        ;;ido               ; the other *other* search engine...
 <a href="#l25" class="line" id="l25">     25</a>        ivy               ; a search engine for love and life
 <a href="#l26" class="line" id="l26">     26</a> 
 <a href="#l27" class="line" id="l27">     27</a>        :ui
-<a href="#l28" class="line" id="l28">     28</a>        ;;deft              ; notational velocity for Emacs
+<a href="#l28" class="line" id="l28">     28</a>        deft              ; notational velocity for Emacs
 <a href="#l29" class="line" id="l29">     29</a>        doom              ; what makes DOOM look the way it does
-<a href="#l30" class="line" id="l30">     30</a>        doom-dashboard    ; a nifty splash screen for Emacs
-<a href="#l31" class="line" id="l31">     31</a>        doom-quit         ; DOOM quit-message prompts when you quit Emacs
+<a href="#l30" class="line" id="l30">     30</a>        ;; doom-dashboard    ; a nifty splash screen for Emacs
+<a href="#l31" class="line" id="l31">     31</a>        ;; doom-quit         ; DOOM quit-message prompts when you quit Emacs
 <a href="#l32" class="line" id="l32">     32</a>        ;;fill-column       ; a `fill-column&#39; indicator
 <a href="#l33" class="line" id="l33">     33</a>        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
 <a href="#l34" class="line" id="l34">     34</a>        ;;hydra
@@ -159,7 +159,7 @@
 <a href="#l141" class="line" id="l141">    141</a>        ;;nim               ; python + lisp at the speed of c
 <a href="#l142" class="line" id="l142">    142</a>        ;;nix               ; I hereby declare &quot;nix geht mehr!&quot;
 <a href="#l143" class="line" id="l143">    143</a>        ;;ocaml             ; an objective camel
-<a href="#l144" class="line" id="l144">    144</a>        org               ; organize your plain life in plain text
+<a href="#l144" class="line" id="l144">    144</a>        (org +roam)               ; organize your plain life in plain text
 <a href="#l145" class="line" id="l145">    145</a>        ;;php               ; perl&#39;s insecure younger brother
 <a href="#l146" class="line" id="l146">    146</a>        ;;plantuml          ; diagrams for confusing people more
 <a href="#l147" class="line" id="l147">    147</a>        ;;purescript        ; javascript, but functional
@@ -195,6 +195,10 @@
 <a href="#l177" class="line" id="l177">    177</a>        :config
 <a href="#l178" class="line" id="l178">    178</a>        ;;literate
 <a href="#l179" class="line" id="l179">    179</a>        (default +bindings +smartparens))
+<a href="#l180" class="line" id="l180">    180</a> 
+<a href="#l181" class="line" id="l181">    181</a> 
+<a href="#l182" class="line" id="l182">    182</a> ;; Respects soft line wrapping navigation
+<a href="#l183" class="line" id="l183">    183</a> (setq evil-respect-visual-line-mode t)
 </pre>
 </div>
 </body>

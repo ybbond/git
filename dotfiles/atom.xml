@@ -4,6 +4,63 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>e3a1f01e1cc0be3584ebbc6aadcecf8a1a267b68</id>
+<published>2020-06-25T15:42:48Z</published>
+<updated>2020-06-25T15:42:48Z</updated>
+<title type="text">update doom settings along with org-roam</title>
+<link rel="alternate" type="text/html" href="commit/e3a1f01e1cc0be3584ebbc6aadcecf8a1a267b68.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit e3a1f01e1cc0be3584ebbc6aadcecf8a1a267b68
+parent 424fb628530e0ce1c1b964496541fc580e682252
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Thu, 25 Jun 2020 22:42:48 +0700
+
+update doom settings along with org-roam
+
+</content>
+</entry>
+<entry>
+<id>424fb628530e0ce1c1b964496541fc580e682252</id>
+<published>2020-06-25T07:24:42Z</published>
+<updated>2020-06-25T07:24:42Z</updated>
+<title type="text">update coc-settings and vscode settings</title>
+<link rel="alternate" type="text/html" href="commit/424fb628530e0ce1c1b964496541fc580e682252.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 424fb628530e0ce1c1b964496541fc580e682252
+parent 42fd9153deef2a02f21e62d8d7d03cd26b0459ab
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Thu, 25 Jun 2020 14:24:42 +0700
+
+update coc-settings and vscode settings
+
+</content>
+</entry>
+<entry>
+<id>42fd9153deef2a02f21e62d8d7d03cd26b0459ab</id>
+<published>2020-06-25T07:23:46Z</published>
+<updated>2020-06-25T07:23:46Z</updated>
+<title type="text">update Doom Emacs setting</title>
+<link rel="alternate" type="text/html" href="commit/42fd9153deef2a02f21e62d8d7d03cd26b0459ab.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 42fd9153deef2a02f21e62d8d7d03cd26b0459ab
+parent c2e04333a6ef7fb456ff164159ffa2442935a000
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Thu, 25 Jun 2020 14:23:46 +0700
+
+update Doom Emacs setting
+
+</content>
+</entry>
+<entry>
 <id>c2e04333a6ef7fb456ff164159ffa2442935a000</id>
 <published>2020-06-24T08:58:19Z</published>
 <updated>2020-06-24T08:58:19Z</updated>
