@@ -15,7 +15,7 @@
 <a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> +ui.el (1555B)</p><hr/><pre id="blob">
+<p> +ui.el (2695B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> ;;; ~/.doom.d/+ui.el -*- lexical-binding: t; -*-
 <a href="#l2" class="line" id="l2">      2</a> 
 <a href="#l3" class="line" id="l3">      3</a> ;; source https://github.com/theianjones/dotfiles/blob/master/.doom.d/+ui.el
@@ -48,16 +48,52 @@
 <a href="#l30" class="line" id="l30">     30</a> ;; numbers are disabled. For relative line numbers, set this to `relative&#39;.
 <a href="#l31" class="line" id="l31">     31</a> (setq display-line-numbers-type &#39;relative)
 <a href="#l32" class="line" id="l32">     32</a> 
-<a href="#l33" class="line" id="l33">     33</a> ;; Disable clipboard altogether.
-<a href="#l34" class="line" id="l34">     34</a> ;; Use clipboard register to copy-paste with system clipboard!
-<a href="#l35" class="line" id="l35">     35</a> (setq select-enable-clipboard nil)
-<a href="#l36" class="line" id="l36">     36</a> 
-<a href="#l37" class="line" id="l37">     37</a> ;; (after! dired
-<a href="#l38" class="line" id="l38">     38</a> ;;   ;; (setq dired-listing-switches &quot;-aBhl --group-directories-first&quot;
-<a href="#l39" class="line" id="l39">     39</a> ;;   (setq dired-listing-switches &quot;-aBhl&quot;
-<a href="#l40" class="line" id="l40">     40</a> ;;         dired-dwim-target t
-<a href="#l41" class="line" id="l41">     41</a> ;;         dired-recursive-copies (quote always)
-<a href="#l42" class="line" id="l42">     42</a> ;;         dired-recursive-deletes (quote top)))
+<a href="#l33" class="line" id="l33">     33</a> 
+<a href="#l34" class="line" id="l34">     34</a> ;;
+<a href="#l35" class="line" id="l35">     35</a> ;; Better Copy-Paste and Clipboard Handling
+<a href="#l36" class="line" id="l36">     36</a> ;;
+<a href="#l37" class="line" id="l37">     37</a> ;; Disable Emacs&#39; integration of killring with clipboard
+<a href="#l38" class="line" id="l38">     38</a> (setq select-enable-clipboard nil)
+<a href="#l39" class="line" id="l39">     39</a> ;; Remove hook for clipboard configurations from Emacs to command mode
+<a href="#l40" class="line" id="l40">     40</a> (remove-hook &#39;tty-setup-hook &#39;doom-init-clipboard-in-tty-emacs-h)
+<a href="#l41" class="line" id="l41">     41</a> ;; Enable ⌘+c and ⌘+v for clipboard handling
+<a href="#l42" class="line" id="l42">     42</a> (defun rc-clipboard-yank ()
+<a href="#l43" class="line" id="l43">     43</a>   &quot;Copies the active region to the system clipboard.&quot;
+<a href="#l44" class="line" id="l44">     44</a>   (interactive)
+<a href="#l45" class="line" id="l45">     45</a>   (when (region-active-p)
+<a href="#l46" class="line" id="l46">     46</a>     (gui-set-selection &#39;CLIPBOARD
+<a href="#l47" class="line" id="l47">     47</a>       (buffer-substring (region-beginning) (region-end)))))
+<a href="#l48" class="line" id="l48">     48</a> (defun rc-clipboard-paste ()
+<a href="#l49" class="line" id="l49">     49</a>   &quot;Pastes text from the system clipboard.&quot;
+<a href="#l50" class="line" id="l50">     50</a>   (interactive)
+<a href="#l51" class="line" id="l51">     51</a>   (let ((text (gui-get-selection &#39;CLIPBOARD)))
+<a href="#l52" class="line" id="l52">     52</a>     (when text (insert-for-yank text))))
+<a href="#l53" class="line" id="l53">     53</a> (map! :v &quot;s-c&quot; #&#39;rc-clipboard-yank
+<a href="#l54" class="line" id="l54">     54</a>       :nvi &quot;s-v&quot; #&#39;rc-clipboard-paste)
+<a href="#l55" class="line" id="l55">     55</a> (define-key! :keymaps &#39;(evil-ex-completion-map) &quot;s-v&quot; #&#39;rc-clipboard-paste)
+<a href="#l56" class="line" id="l56">     56</a> (define-key! :keymaps +default-minibuffer-maps &quot;s-v&quot; #&#39;rc-clipboard-paste)
+<a href="#l57" class="line" id="l57">     57</a> 
+<a href="#l58" class="line" id="l58">     58</a> ;; Snipe
+<a href="#l59" class="line" id="l59">     59</a> (after! evil-snipe
+<a href="#l60" class="line" id="l60">     60</a>   (setq evil-snipe-smart-case t)
+<a href="#l61" class="line" id="l61">     61</a>   (setq evil-snipe-scope &#39;whole-buffer)
+<a href="#l62" class="line" id="l62">     62</a>   (setq evil-snipe-auto-scroll t)
+<a href="#l63" class="line" id="l63">     63</a>   (setq evil-snipe-repeat-keys t)
+<a href="#l64" class="line" id="l64">     64</a>   (setq evil-snipe-repeat-scope &#39;whole-buffer))
+<a href="#l65" class="line" id="l65">     65</a> 
+<a href="#l66" class="line" id="l66">     66</a> ;; Dired
+<a href="#l67" class="line" id="l67">     67</a> (after! dired
+<a href="#l68" class="line" id="l68">     68</a>   ;; (setq dired-listing-switches &quot;-aBhl --group-directories-first&quot;
+<a href="#l69" class="line" id="l69">     69</a>   (setq dired-listing-switches &quot;-aBhl&quot;
+<a href="#l70" class="line" id="l70">     70</a>         dired-dwim-target t
+<a href="#l71" class="line" id="l71">     71</a>         dired-recursive-copies (quote always)
+<a href="#l72" class="line" id="l72">     72</a>         dired-recursive-deletes (quote top)))
+<a href="#l73" class="line" id="l73">     73</a> 
+<a href="#l74" class="line" id="l74">     74</a> ;; Better visual line
+<a href="#l75" class="line" id="l75">     75</a> (use-package evil-better-visual-line
+<a href="#l76" class="line" id="l76">     76</a>   :ensure t
+<a href="#l77" class="line" id="l77">     77</a>   :config
+<a href="#l78" class="line" id="l78">     78</a>   (evil-better-visual-line-on))
 </pre>
 </div>
 </body>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>update doom settings and init.vim - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/1678c9774799239706e8fb0446158a405eed7c1d.html">1678c9774799239706e8fb0446158a405eed7c1d</a>
+<b>parent</b> <a href="../commit/e3a1f01e1cc0be3584ebbc6aadcecf8a1a267b68.html">e3a1f01e1cc0be3584ebbc6aadcecf8a1a267b68</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Fri, 26 Jun 2020 23:04:58 +0700
+
+update doom settings and init.vim
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.config/nvim/init.vim</a></td><td> | </td><td class="num">18</td><td><span class="i">+++++++++</span><span class="d">---------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.doom.d/+org.el</a></td><td> | </td><td class="num">60</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++</span><span class="d">---------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">.doom.d/+ui.el</a></td><td> | </td><td class="num">44</td><td><span class="i">++++++++++++++++++++++++++++++++++++</span><span class="d">--------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">.doom.d/config.el</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">.doom.d/init.el</a></td><td> | </td><td class="num">7</td><td><span class="i">+++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">.doom.d/packages.el</a></td><td> | </td><td class="num">9</td><td><span class="i">+++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>6 files changed, 99 insertions(<span id="plus">+</span>), 41 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a> b/<a href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -268,15 +268,15 @@ nnoremap gB :bprevious&lt;cr&gt;
+</a>   map F &lt;Plug&gt;Sneak_F
+   map t &lt;Plug&gt;Sneak_t
+   map T &lt;Plug&gt;Sneak_T
+<a href="#h0-0-3" id="h0-0-3" class="d">-  &quot; 2-character Sneak (default)
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-  nmap Q &lt;Plug&gt;Sneak_s
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-  nmap &lt;leader&gt;Q &lt;Plug&gt;Sneak_S
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-  &quot; visual-mode
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-  xmap Q &lt;Plug&gt;Sneak_s
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-  xmap &lt;leader&gt;Q &lt;Plug&gt;Sneak_S
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-  &quot; operator-pending-mode
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-  omap Q &lt;Plug&gt;Sneak_s
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-  omap &lt;leader&gt;Q &lt;Plug&gt;Sneak_S
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+  &quot; &quot; 2-character Sneak (default)
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+  &quot; nmap Q &lt;Plug&gt;Sneak_s
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+  &quot; nmap &lt;leader&gt;Q &lt;Plug&gt;Sneak_S
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+  &quot; &quot; visual-mode
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+  &quot; xmap Q &lt;Plug&gt;Sneak_s
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+  &quot; xmap &lt;leader&gt;Q &lt;Plug&gt;Sneak_S
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+  &quot; &quot; operator-pending-mode
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+  &quot; omap Q &lt;Plug&gt;Sneak_s
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+  &quot; omap &lt;leader&gt;Q &lt;Plug&gt;Sneak_S
+</a> 
+ &quot; |vim-fugitive|
+   map &lt;leader&gt;kp :Gdiff!&lt;cr&gt;
+<b>diff --git a/<a id="h1" href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a> b/<a href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -2,12 +2,12 @@
+</a> 
+ ;; source https://github.com/theianjones/dotfiles/blob/master/.doom.d/+org.el
+ 
+<a href="#h1-0-3" id="h1-0-3" class="d">-;; (setq org_notes &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes&quot;
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-(setq org_notes &quot;~/Notes&quot;
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+(setq org_notes &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes&quot;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+; (setq org_notes &quot;~/Notes&quot;
+</a>       org-directory org_notes
+       deft-directory org_notes
+       org-roam-directory org_notes
+<a href="#h1-0-10" id="h1-0-10" class="d">-      org-roam-db-location &quot;~/Notes/org-roam.db&quot;
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+      org-roam-db-location &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes/org-roam.db&quot;
+</a>       org-id-link-to-org-use-id t
+       org-ellipsis &quot; ▼ &quot;)
+ 
+<a href="#h1-1" id="h1-1" class="h">@@ -30,12 +30,19 @@
+</a> 
+ (after! org-roam
+   (add-hook &#39;after-init-hook &#39;org-roam-mode)
+<a href="#h1-1-3" id="h1-1-3" class="i">+  :config
+</a>   (setq org-roam-graph-viewer &quot;/usr/bin/open&quot;)
+   (setq org-roam-capture-ref-templates
+         &#39;((&quot;r&quot; &quot;ref&quot; plain (function org-roam-capture--get-point)
+            &quot;%?&quot;
+            :file-name &quot;websites/${slug}&quot;
+<a href="#h1-1-9" id="h1-1-9" class="d">-           :head &quot;#+title: ${title}\n#+author: ${author}\n#+roam_key: ${ref}\n#+roam_tags: websites\n- source :: ${ref}&quot;
+</a><a href="#h1-1-10" id="h1-1-10" class="i">+           :head &quot;#+title: ${title}
+</a><a href="#h1-1-11" id="h1-1-11" class="i">+#+author: ${author}
+</a><a href="#h1-1-12" id="h1-1-12" class="i">+#+roam_key: ${ref}
+</a><a href="#h1-1-13" id="h1-1-13" class="i">+#+roam_tags: web_references
+</a><a href="#h1-1-14" id="h1-1-14" class="i">+- tags :: [[file:../tags/20200626210745-t_web_references.org|t:web_references]]
+</a><a href="#h1-1-15" id="h1-1-15" class="i">+- saved :: ${savedDate}
+</a><a href="#h1-1-16" id="h1-1-16" class="i">+- source :: ${ref}\n\n* Highlights\n&quot;
+</a>            :unnarrowed t))))
+ 
+   (setq org-roam-dailies-capture-templates
+<a href="#h1-2" id="h1-2" class="h">@@ -57,15 +64,26 @@
+</a>            :file-name &quot;tags/%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+            :head &quot;#+title: ${title}\n#+roam_tags: tags&quot;
+            :unnarrowed t)
+<a href="#h1-2-3" id="h1-2-3" class="i">+          (&quot;c&quot; &quot;companies&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h1-2-4" id="h1-2-4" class="i">+           &quot;%?&quot;
+</a><a href="#h1-2-5" id="h1-2-5" class="i">+           :file-name &quot;companies/%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h1-2-6" id="h1-2-6" class="i">+           :head &quot;#+title: ${title}
+</a><a href="#h1-2-7" id="h1-2-7" class="i">+#+roam_tags: companies
+</a><a href="#h1-2-8" id="h1-2-8" class="i">+- tags :: [[file:../tags/20200626210315-t_companies.org|t:companies]]\n&quot;
+</a><a href="#h1-2-9" id="h1-2-9" class="i">+           :unnarrowed t)
+</a>           (&quot;p&quot; &quot;products&quot; plain (function org-roam-capture--get-point)
+            &quot;%?&quot;
+            :file-name &quot;products/%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+<a href="#h1-2-13" id="h1-2-13" class="d">-           :head &quot;#+title: ${title}\n#+roam_tags: products\n&quot;
+</a><a href="#h1-2-14" id="h1-2-14" class="i">+           :head &quot;#+title: ${title}
+</a><a href="#h1-2-15" id="h1-2-15" class="i">+#+roam_tags: products
+</a><a href="#h1-2-16" id="h1-2-16" class="i">+- tags :: [[file:../tags/20200626205545-t_products.org|t:products]]\n&quot;
+</a>            :unnarrowed t)
+           (&quot;i&quot; &quot;people&quot; plain (function org-roam-capture--get-point)
+            &quot;%?&quot;
+            :file-name &quot;people/%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+<a href="#h1-2-21" id="h1-2-21" class="d">-           :head &quot;#+title: ${title}\n#+roam_tags: people\n&quot;
+</a><a href="#h1-2-22" id="h1-2-22" class="i">+           :head &quot;#+title: ${title}
+</a><a href="#h1-2-23" id="h1-2-23" class="i">+#+roam_tags: people
+</a><a href="#h1-2-24" id="h1-2-24" class="i">+- tags :: [[file:../tags/20200626210651-t_people.org|t:people]]\n&quot;
+</a>            :unnarrowed t)))
+ 
+ (use-package! deft
+<a href="#h1-3" id="h1-3" class="h">@@ -83,7 +101,7 @@
+</a>   :bind
+   (&quot;C-c n j&quot; . org-journal-new-entry)
+   :config
+<a href="#h1-3-3" id="h1-3-3" class="d">-  (setq org-journal-dir &quot;~/Notes/journals/&quot;)
+</a><a href="#h1-3-4" id="h1-3-4" class="i">+  (setq org-journal-dir &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes/journals/&quot;)
+</a>   (setq org-journal-date-prefix &quot;#+title: &quot;)
+   (setq org-journal-file-format &quot;%Y-%m-%d.org&quot;)
+   (setq org-journal-date-format &quot;%A, %d %B %Y\n#+roam_tags: journals\n&quot;))
+<a href="#h1-4" id="h1-4" class="h">@@ -94,7 +112,7 @@
+</a>         :n &quot;M-j&quot; #&#39;org-metadown
+         :n &quot;M-k&quot; #&#39;orge-metaup))
+ 
+<a href="#h1-4-3" id="h1-4-3" class="d">-;; (use-package org-roam-server
+</a><a href="#h1-4-4" id="h1-4-4" class="i">+;; (use-package! org-roam-server
+</a> ;;     :ensure t)
+ 
+ ;; (add-hook &#39;org-roam-server-mode (lambda () (browse-url-chrome &quot;http://localhost:3001&quot;)))
+<a href="#h1-5" id="h1-5" class="h">@@ -102,18 +120,18 @@
+</a> ;; Refile a heading to another buffer
+ ;; Allows you to refile into different files - specifically to
+ ;; create new &#39;parent&#39; headings
+<a href="#h1-5-3" id="h1-5-3" class="d">-;; (setq org-refile-use-outline-path &#39;file)
+</a><a href="#h1-5-4" id="h1-5-4" class="i">+(setq org-refile-use-outline-path &#39;file)
+</a> ;; makes org-refile outline working with helm/ivy
+<a href="#h1-5-6" id="h1-5-6" class="d">-;; (setq org-outline-path-complete-in-steps nil)
+</a><a href="#h1-5-7" id="h1-5-7" class="d">-;; (setq org-refile-allow-creating-parent-nodes &#39;confirm)
+</a><a href="#h1-5-8" id="h1-5-8" class="d">-;; (defun +org/opened-buffer-files ()
+</a><a href="#h1-5-9" id="h1-5-9" class="i">+(setq org-outline-path-complete-in-steps nil)
+</a><a href="#h1-5-10" id="h1-5-10" class="i">+(setq org-refile-allow-creating-parent-nodes &#39;confirm)
+</a><a href="#h1-5-11" id="h1-5-11" class="i">+(defun +org/opened-buffer-files ()
+</a> ;;   &quot;Return the list of files currently opened in emacs&quot;
+<a href="#h1-5-13" id="h1-5-13" class="d">-;;   (delq nil
+</a><a href="#h1-5-14" id="h1-5-14" class="d">-;;         (mapcar (lambda (x)
+</a><a href="#h1-5-15" id="h1-5-15" class="d">-;;                   (if (and (buffer-file-name x)
+</a><a href="#h1-5-16" id="h1-5-16" class="d">-;;                            (string-match &quot;\\.org$&quot;
+</a><a href="#h1-5-17" id="h1-5-17" class="d">-;;                                          (buffer-file-name x)))
+</a><a href="#h1-5-18" id="h1-5-18" class="d">-;;                       (buffer-file-name x)))
+</a><a href="#h1-5-19" id="h1-5-19" class="d">-;;                 (buffer-list))))
+</a><a href="#h1-5-20" id="h1-5-20" class="d">-
+</a><a href="#h1-5-21" id="h1-5-21" class="d">-;; (setq org-refile-targets &#39;((+org/opened-buffer-files :maxlevel . 9)))
+</a><a href="#h1-5-22" id="h1-5-22" class="i">+  (delq nil
+</a><a href="#h1-5-23" id="h1-5-23" class="i">+        (mapcar (lambda (x)
+</a><a href="#h1-5-24" id="h1-5-24" class="i">+                  (if (and (buffer-file-name x)
+</a><a href="#h1-5-25" id="h1-5-25" class="i">+                           (string-match &quot;\\.org$&quot;
+</a><a href="#h1-5-26" id="h1-5-26" class="i">+                                         (buffer-file-name x)))
+</a><a href="#h1-5-27" id="h1-5-27" class="i">+                      (buffer-file-name x)))
+</a><a href="#h1-5-28" id="h1-5-28" class="i">+                (buffer-list))))
+</a><a href="#h1-5-29" id="h1-5-29" class="i">+
+</a><a href="#h1-5-30" id="h1-5-30" class="i">+(setq org-refile-targets &#39;((+org/opened-buffer-files :maxlevel . 9)))
+</a><b>diff --git a/<a id="h2" href="../file/.doom.d/+ui.el.html">.doom.d/+ui.el</a> b/<a href="../file/.doom.d/+ui.el.html">.doom.d/+ui.el</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -30,13 +30,41 @@
+</a> ;; numbers are disabled. For relative line numbers, set this to `relative&#39;.
+ (setq display-line-numbers-type &#39;relative)
+ 
+<a href="#h2-0-3" id="h2-0-3" class="d">-;; Disable clipboard altogether.
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-;; Use clipboard register to copy-paste with system clipboard!
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+;; Emacs Configurations
+</a> (setq select-enable-clipboard nil)
+ 
+<a href="#h2-0-8" id="h2-0-8" class="d">-;; (after! dired
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-;;   ;; (setq dired-listing-switches &quot;-aBhl --group-directories-first&quot;
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-;;   (setq dired-listing-switches &quot;-aBhl&quot;
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-;;         dired-dwim-target t
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-;;         dired-recursive-copies (quote always)
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-;;         dired-recursive-deletes (quote top)))
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+;; remove hook for clipboard configurations from emacs to command mode
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+(remove-hook &#39;tty-setup-hook &#39;doom-init-clipboard-in-tty-emacs-h)
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+;; enable ⌘+c and ⌘+v for clipboard handling
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+(defun rc-clipboard-yank ()
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+  &quot;Copies the active region to the system clipboard.&quot;
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+  (interactive)
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+  (when (region-active-p)
+</a><a href="#h2-0-22" id="h2-0-22" class="i">+    (gui-set-selection &#39;CLIPBOARD
+</a><a href="#h2-0-23" id="h2-0-23" class="i">+                       (buffer-substring (region-beginning) (region-end)))))
+</a><a href="#h2-0-24" id="h2-0-24" class="i">+(defun rc-clipboard-paste ()
+</a><a href="#h2-0-25" id="h2-0-25" class="i">+  &quot;Pastes text from the system clipboard.&quot;
+</a><a href="#h2-0-26" id="h2-0-26" class="i">+  (interactive)
+</a><a href="#h2-0-27" id="h2-0-27" class="i">+  (let ((text (gui-get-selection &#39;CLIPBOARD)))
+</a><a href="#h2-0-28" id="h2-0-28" class="i">+    (when text (insert-for-yank text))))
+</a><a href="#h2-0-29" id="h2-0-29" class="i">+(map! :v &quot;s-c&quot; #&#39;rc-clipboard-yank
+</a><a href="#h2-0-30" id="h2-0-30" class="i">+      :nvi &quot;s-v&quot; #&#39;rc-clipboard-paste)
+</a><a href="#h2-0-31" id="h2-0-31" class="i">+(define-key! :keymaps &#39;(evil-ex-completion-map) &quot;s-v&quot; #&#39;rc-clipboard-paste)
+</a><a href="#h2-0-32" id="h2-0-32" class="i">+(define-key! :keymaps +default-minibuffer-maps &quot;s-v&quot; #&#39;rc-clipboard-paste)
+</a><a href="#h2-0-33" id="h2-0-33" class="i">+
+</a><a href="#h2-0-34" id="h2-0-34" class="i">+;; Snipe
+</a><a href="#h2-0-35" id="h2-0-35" class="i">+(after! evil-snipe
+</a><a href="#h2-0-36" id="h2-0-36" class="i">+  (setq evil-snipe-smart-case t)
+</a><a href="#h2-0-37" id="h2-0-37" class="i">+  (setq evil-snipe-scope &#39;whole-buffer)
+</a><a href="#h2-0-38" id="h2-0-38" class="i">+  (setq evil-snipe-auto-scroll t)
+</a><a href="#h2-0-39" id="h2-0-39" class="i">+  (setq evil-snipe-repeat-keys t)
+</a><a href="#h2-0-40" id="h2-0-40" class="i">+  (setq evil-snipe-repeat-scope &#39;whole-buffer))
+</a><a href="#h2-0-41" id="h2-0-41" class="i">+
+</a><a href="#h2-0-42" id="h2-0-42" class="i">+;; Dired
+</a><a href="#h2-0-43" id="h2-0-43" class="i">+(after! dired
+</a><a href="#h2-0-44" id="h2-0-44" class="i">+  ;; (setq dired-listing-switches &quot;-aBhl --group-directories-first&quot;
+</a><a href="#h2-0-45" id="h2-0-45" class="i">+  (setq dired-listing-switches &quot;-aBhl&quot;
+</a><a href="#h2-0-46" id="h2-0-46" class="i">+        dired-dwim-target t
+</a><a href="#h2-0-47" id="h2-0-47" class="i">+        dired-recursive-copies (quote always)
+</a><a href="#h2-0-48" id="h2-0-48" class="i">+        dired-recursive-deletes (quote top)))
+</a><b>diff --git a/<a id="h3" href="../file/.doom.d/config.el.html">.doom.d/config.el</a> b/<a href="../file/.doom.d/config.el.html">.doom.d/config.el</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -36,4 +36,4 @@
+</a> ;; You can also try &#39;gd&#39; (or &#39;C-c c d&#39;) to jump to their definition and see how
+ ;; they are implemented.
+ 
+<a href="#h3-0-3" id="h3-0-3" class="d">-(map! :iv &quot;s-v&quot; (lambda! (evil-paste-from-register ?+)))
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+;; (map! :iv &quot;s-v&quot; (lambda! (evil-paste-from-register ?+)))
+</a><b>diff --git a/<a id="h4" href="../file/.doom.d/init.el.html">.doom.d/init.el</a> b/<a href="../file/.doom.d/init.el.html">.doom.d/init.el</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -178,6 +178,9 @@
+</a>        ;;literate
+        (default +bindings +smartparens))
+ 
+<a href="#h4-0-3" id="h4-0-3" class="d">-
+</a><a href="#h4-0-4" id="h4-0-4" class="d">-;; Respects soft line wrapping navigation
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+;; Evil Configurations
+</a> (setq evil-respect-visual-line-mode t)
+<a href="#h4-0-7" id="h4-0-7" class="i">+(setq evil-move-cursor-back nil)
+</a><a href="#h4-0-8" id="h4-0-8" class="i">+(setq evil-esc-delay 1)
+</a><a href="#h4-0-9" id="h4-0-9" class="i">+(setq evil-kill-on-visual-paste nil)
+</a><a href="#h4-0-10" id="h4-0-10" class="i">+;; (setq evil-want-minibuffer t)
+</a><b>diff --git a/<a id="h5" href="../file/.doom.d/packages.el.html">.doom.d/packages.el</a> b/<a href="../file/.doom.d/packages.el.html">.doom.d/packages.el</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -48,3 +48,12 @@
+</a> ;(unpin! pinned-package another-pinned-package)
+ ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
+ ;(unpin! t)
+<a href="#h5-0-3" id="h5-0-3" class="i">+
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+(package! org-journal)
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+;; (package! org-roam-server
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+;;   :recipe (:host github :repo &quot;org-roam/org-roam-server&quot;))
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+;; (use-package! easy-hugo
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+;;   :init
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+;;   (setq easy-hugo-basedir &quot;~/projects/bandung/ybbond/&quot;)
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+;;   (setq easy-hugo-url &quot;https://ybbond.dev&quot;)
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+;;   :bind (&quot;C-c C-e&quot; . easy-hugo))
+</a></pre>
+</div>
+</div>
+</body>
+</html>

@@ -4,6 +4,65 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>aebb41d80f88c31564a64beec68542fac200a6ad</id>
+<published>2020-06-27T18:06:13Z</published>
+<updated>2020-06-27T18:06:13Z</updated>
+<title type="text">Fetch webmentions skip-checks: true</title>
+<link rel="alternate" type="text/html" href="commit/aebb41d80f88c31564a64beec68542fac200a6ad.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit aebb41d80f88c31564a64beec68542fac200a6ad
+parent cf0d0ed10bf7a16947a0362440d0d2e2502c9206
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 27 Jun 2020 18:06:13 +0000
+
+Fetch webmentions
+skip-checks: true
+
+</content>
+</entry>
+<entry>
+<id>cf0d0ed10bf7a16947a0362440d0d2e2502c9206</id>
+<published>2020-06-27T16:41:35Z</published>
+<updated>2020-06-27T16:43:42Z</updated>
+<title type="text">content: org-roam</title>
+<link rel="alternate" type="text/html" href="commit/cf0d0ed10bf7a16947a0362440d0d2e2502c9206.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit cf0d0ed10bf7a16947a0362440d0d2e2502c9206
+parent 1eaf656e003978ef363712d0ec39adc663cfeaf9
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 27 Jun 2020 23:41:35 +0700
+
+content: org-roam
+
+</content>
+</entry>
+<entry>
+<id>1eaf656e003978ef363712d0ec39adc663cfeaf9</id>
+<published>2020-06-22T06:05:16Z</published>
+<updated>2020-06-22T06:05:16Z</updated>
+<title type="text">Fetch webmentions skip-checks: true</title>
+<link rel="alternate" type="text/html" href="commit/1eaf656e003978ef363712d0ec39adc663cfeaf9.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 1eaf656e003978ef363712d0ec39adc663cfeaf9
+parent 35dcef9744edc4ce0a6f92d82c69114c4a0386e5
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Mon, 22 Jun 2020 06:05:16 +0000
+
+Fetch webmentions
+skip-checks: true
+
+</content>
+</entry>
+<entry>
 <id>35dcef9744edc4ce0a6f92d82c69114c4a0386e5</id>
 <published>2020-06-21T21:27:10Z</published>
 <updated>2020-06-21T21:27:31Z</updated>
@@ -1850,63 +1909,6 @@ Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  1 May 2020 16:57:29 +0700
 
 content: modify link to old.ybbond, and publish april links
-
-</content>
-</entry>
-<entry>
-<id>281ec2a09fb6878596284cc00322eeffcd59fdae</id>
-<published>2020-05-01T09:57:09Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">style: refactor notes and move scss mixins to variables.scss</title>
-<link rel="alternate" type="text/html" href="commit/281ec2a09fb6878596284cc00322eeffcd59fdae.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 281ec2a09fb6878596284cc00322eeffcd59fdae
-parent 60dc9245c15d21739d28f7b701942ff0fc27bce9
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Fri,  1 May 2020 16:57:09 +0700
-
-style: refactor notes and move scss mixins to variables.scss
-
-</content>
-</entry>
-<entry>
-<id>60dc9245c15d21739d28f7b701942ff0fc27bce9</id>
-<published>2020-05-01T08:09:34Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">content: adjust tags, and notes title</title>
-<link rel="alternate" type="text/html" href="commit/60dc9245c15d21739d28f7b701942ff0fc27bce9.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 60dc9245c15d21739d28f7b701942ff0fc27bce9
-parent d14d08401b29bdea14c55beb82e30d555fa58143
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Fri,  1 May 2020 15:09:34 +0700
-
-content: adjust tags, and notes title
-
-</content>
-</entry>
-<entry>
-<id>d14d08401b29bdea14c55beb82e30d555fa58143</id>
-<published>2020-04-29T11:18:01Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">feature: add rss browser detection</title>
-<link rel="alternate" type="text/html" href="commit/d14d08401b29bdea14c55beb82e30d555fa58143.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit d14d08401b29bdea14c55beb82e30d555fa58143
-parent 854e755d3223c3e09d62194b4e6d93b6184cf381
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Wed, 29 Apr 2020 18:18:01 +0700
-
-feature: add rss browser detection
 
 </content>
 </entry>

@@ -4,6 +4,44 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>6c4425c8865de8436ed5da0fa100752fb7504cbd</id>
+<published>2020-06-28T07:40:17Z</published>
+<updated>2020-06-28T07:40:17Z</updated>
+<title type="text">update doom settings</title>
+<link rel="alternate" type="text/html" href="commit/6c4425c8865de8436ed5da0fa100752fb7504cbd.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 6c4425c8865de8436ed5da0fa100752fb7504cbd
+parent 1678c9774799239706e8fb0446158a405eed7c1d
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun, 28 Jun 2020 14:40:17 +0700
+
+update doom settings
+
+</content>
+</entry>
+<entry>
+<id>1678c9774799239706e8fb0446158a405eed7c1d</id>
+<published>2020-06-26T16:04:58Z</published>
+<updated>2020-06-26T16:04:58Z</updated>
+<title type="text">update doom settings and init.vim</title>
+<link rel="alternate" type="text/html" href="commit/1678c9774799239706e8fb0446158a405eed7c1d.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 1678c9774799239706e8fb0446158a405eed7c1d
+parent e3a1f01e1cc0be3584ebbc6aadcecf8a1a267b68
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Fri, 26 Jun 2020 23:04:58 +0700
+
+update doom settings and init.vim
+
+</content>
+</entry>
+<entry>
 <id>e3a1f01e1cc0be3584ebbc6aadcecf8a1a267b68</id>
 <published>2020-06-25T15:42:48Z</published>
 <updated>2020-06-25T15:42:48Z</updated>
