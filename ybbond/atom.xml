@@ -4,6 +4,83 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>19bbda87d28838a68e2262f9cd904e8c73bf5404</id>
+<published>2020-06-28T16:43:30Z</published>
+<updated>2020-06-28T16:43:30Z</updated>
+<title type="text">content: update footnotes to ARH post</title>
+<link rel="alternate" type="text/html" href="commit/19bbda87d28838a68e2262f9cd904e8c73bf5404.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 19bbda87d28838a68e2262f9cd904e8c73bf5404
+parent 04592f2e5093e81cce619e96b18c87eec90c3b72
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun, 28 Jun 2020 23:43:30 +0700
+
+content: update footnotes to ARH post
+
+</content>
+</entry>
+<entry>
+<id>04592f2e5093e81cce619e96b18c87eec90c3b72</id>
+<published>2020-06-28T16:02:27Z</published>
+<updated>2020-06-28T16:02:27Z</updated>
+<title type="text">feature: twitter linking</title>
+<link rel="alternate" type="text/html" href="commit/04592f2e5093e81cce619e96b18c87eec90c3b72.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 04592f2e5093e81cce619e96b18c87eec90c3b72
+parent a6632f95fce1216138b38a24c720b31edda297ca
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun, 28 Jun 2020 23:02:27 +0700
+
+feature: twitter linking
+
+</content>
+</entry>
+<entry>
+<id>a6632f95fce1216138b38a24c720b31edda297ca</id>
+<published>2020-06-28T15:18:58Z</published>
+<updated>2020-06-28T15:20:45Z</updated>
+<title type="text">content: change youtube to invidious, and post about inclusivity</title>
+<link rel="alternate" type="text/html" href="commit/a6632f95fce1216138b38a24c720b31edda297ca.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit a6632f95fce1216138b38a24c720b31edda297ca
+parent 7ebb29d12015c7760a08eee9d18a15e6934600d8
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun, 28 Jun 2020 22:18:58 +0700
+
+content: change youtube to invidious, and post about inclusivity
+
+</content>
+</entry>
+<entry>
+<id>7ebb29d12015c7760a08eee9d18a15e6934600d8</id>
+<published>2020-06-28T12:06:23Z</published>
+<updated>2020-06-28T12:06:23Z</updated>
+<title type="text">Fetch webmentions skip-checks: true</title>
+<link rel="alternate" type="text/html" href="commit/7ebb29d12015c7760a08eee9d18a15e6934600d8.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 7ebb29d12015c7760a08eee9d18a15e6934600d8
+parent aebb41d80f88c31564a64beec68542fac200a6ad
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun, 28 Jun 2020 12:06:23 +0000
+
+Fetch webmentions
+skip-checks: true
+
+</content>
+</entry>
+<entry>
 <id>aebb41d80f88c31564a64beec68542fac200a6ad</id>
 <published>2020-06-27T18:06:13Z</published>
 <updated>2020-06-27T18:06:13Z</updated>
@@ -1833,82 +1910,6 @@ Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  1 May 2020 21:49:44 +0700
 
 refactor: indentations of components
-
-</content>
-</entry>
-<entry>
-<id>c1634eff2f0e6aedf714862e9328d5d570b2e690</id>
-<published>2020-05-01T13:52:05Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">style: improved code and codeblock color</title>
-<link rel="alternate" type="text/html" href="commit/c1634eff2f0e6aedf714862e9328d5d570b2e690.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit c1634eff2f0e6aedf714862e9328d5d570b2e690
-parent 974d019e8eec46e70bf3f69680759a7150de3c8c
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Fri,  1 May 2020 20:52:05 +0700
-
-style: improved code and codeblock color
-
-</content>
-</entry>
-<entry>
-<id>974d019e8eec46e70bf3f69680759a7150de3c8c</id>
-<published>2020-05-01T13:28:18Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">content: added description and improved notes stylings</title>
-<link rel="alternate" type="text/html" href="commit/974d019e8eec46e70bf3f69680759a7150de3c8c.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 974d019e8eec46e70bf3f69680759a7150de3c8c
-parent dfe815f9d256d4c8170a2d5899a89b78e79b7799
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Fri,  1 May 2020 20:28:18 +0700
-
-content: added description and improved notes stylings
-
-</content>
-</entry>
-<entry>
-<id>dfe815f9d256d4c8170a2d5899a89b78e79b7799</id>
-<published>2020-05-01T13:07:20Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">refactor: rss enhancements</title>
-<link rel="alternate" type="text/html" href="commit/dfe815f9d256d4c8170a2d5899a89b78e79b7799.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit dfe815f9d256d4c8170a2d5899a89b78e79b7799
-parent 81387d7b1f24e4b8301280b4197f08162e8dbaf8
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Fri,  1 May 2020 20:07:20 +0700
-
-refactor: rss enhancements
-
-</content>
-</entry>
-<entry>
-<id>81387d7b1f24e4b8301280b4197f08162e8dbaf8</id>
-<published>2020-05-01T09:57:29Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">content: modify link to old.ybbond, and publish april links</title>
-<link rel="alternate" type="text/html" href="commit/81387d7b1f24e4b8301280b4197f08162e8dbaf8.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 81387d7b1f24e4b8301280b4197f08162e8dbaf8
-parent 281ec2a09fb6878596284cc00322eeffcd59fdae
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Fri,  1 May 2020 16:57:29 +0700
-
-content: modify link to old.ybbond, and publish april links
 
 </content>
 </entry>

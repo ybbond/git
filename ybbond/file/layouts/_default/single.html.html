@@ -15,7 +15,7 @@
 <a href="../../../index.html">Log</a> | <a href="../../../files.html">Files</a> | <a href="../../../refs.html">Refs</a> | <a href="../../../file/README.md.html">README</a> | <a href="../../../file/LICENSE.md.html">LICENSE</a> | <a href="../../../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> single.html (2435B)</p><hr/><pre id="blob">
+<p> single.html (2761B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> {{ define &quot;main&quot; }}
 <a href="#l2" class="line" id="l2">      2</a>   {{ if eq .Type &quot;notes&quot; }}
 <a href="#l3" class="line" id="l3">      3</a>     &lt;article&gt;
@@ -61,19 +61,23 @@
 <a href="#l43" class="line" id="l43">     43</a>           &lt;/p&gt;
 <a href="#l44" class="line" id="l44">     44</a>         {{ end }}
 <a href="#l45" class="line" id="l45">     45</a>         {{ if ne .Type &quot;page&quot; -}}
-<a href="#l46" class="line" id="l46">     46</a>           &lt;p class=&quot;hcard-bottom&quot;&gt;If you have any feedback, please contact me at &lt;a title=&quot;Open default mail client and add my email as recipient&quot; href=&quot;mailto:hi@ybbond.dev&quot;&gt;hi@ybbond.dev&lt;/a&gt;&lt;/p&gt;
-<a href="#l47" class="line" id="l47">     47</a>         {{ end -}}
-<a href="#l48" class="line" id="l48">     48</a>       &lt;/div&gt;
-<a href="#l49" class="line" id="l49">     49</a> 
-<a href="#l50" class="line" id="l50">     50</a>       {{- if ne .Type &quot;page&quot; }}
-<a href="#l51" class="line" id="l51">     51</a>         {{ partial &quot;post/webmentions-handler.html&quot; . }}
-<a href="#l52" class="line" id="l52">     52</a>       {{- else }}
-<a href="#l53" class="line" id="l53">     53</a>         &lt;br&gt;
-<a href="#l54" class="line" id="l54">     54</a>         &lt;br&gt;
-<a href="#l55" class="line" id="l55">     55</a>       {{- end }}
-<a href="#l56" class="line" id="l56">     56</a>     &lt;/article&gt;
-<a href="#l57" class="line" id="l57">     57</a>   {{ end }}
-<a href="#l58" class="line" id="l58">     58</a> {{ end }}</pre>
+<a href="#l46" class="line" id="l46">     46</a>           {{- if isset .Params.Twitter &quot;link&quot; }}
+<a href="#l47" class="line" id="l47">     47</a>             &lt;p&gt;&lt;strong&gt;Comment is unavailable for now&lt;/strong&gt;, sorry :( You can comment on this twitter link instead, that will be linked to this post: &lt;a target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot; href={{ .Params.Twitter.Link }}&gt;»Twitter Link«&lt;/a&gt;&lt;/p&gt;
+<a href="#l48" class="line" id="l48">     48</a>           {{- end }}
+<a href="#l49" class="line" id="l49">     49</a>           &lt;p class=&quot;hcard-bottom&quot;&gt;If you have any feedback, please contact me at &lt;a title=&quot;Open default mail client and add my email as recipient&quot; href=&quot;mailto:hi@ybbond.dev&quot;&gt;hi@ybbond.dev&lt;/a&gt;&lt;/p&gt;
+<a href="#l50" class="line" id="l50">     50</a>         {{ end -}}
+<a href="#l51" class="line" id="l51">     51</a>       &lt;/div&gt;
+<a href="#l52" class="line" id="l52">     52</a> 
+<a href="#l53" class="line" id="l53">     53</a>       {{- if ne .Type &quot;page&quot; }}
+<a href="#l54" class="line" id="l54">     54</a>         {{ partial &quot;post/webmentions-handler.html&quot; . }}
+<a href="#l55" class="line" id="l55">     55</a>       {{- else }}
+<a href="#l56" class="line" id="l56">     56</a>         &lt;br&gt;
+<a href="#l57" class="line" id="l57">     57</a>         &lt;br&gt;
+<a href="#l58" class="line" id="l58">     58</a>       {{- end }}
+<a href="#l59" class="line" id="l59">     59</a>     &lt;/article&gt;
+<a href="#l60" class="line" id="l60">     60</a>   {{ end }}
+<a href="#l61" class="line" id="l61">     61</a> {{ end }}
+</pre>
 </div>
 </body>
 </html>
