@@ -15,7 +15,7 @@
 <a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> +org.el (4794B)</p><hr/><pre id="blob">
+<p> +org.el (5026B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 <a href="#l2" class="line" id="l2">      2</a> 
 <a href="#l3" class="line" id="l3">      3</a> ;; source https://github.com/theianjones/dotfiles/blob/master/.doom.d/+org.el
@@ -29,134 +29,141 @@
 <a href="#l11" class="line" id="l11">     11</a>       org-id-link-to-org-use-id t
 <a href="#l12" class="line" id="l12">     12</a>       org-ellipsis &quot; ▼ &quot;)
 <a href="#l13" class="line" id="l13">     13</a> 
-<a href="#l14" class="line" id="l14">     14</a> ;; I use C-c c to start capture mode
-<a href="#l15" class="line" id="l15">     15</a> (global-set-key (kbd &quot;C-c c&quot;) &#39;org-capture)
-<a href="#l16" class="line" id="l16">     16</a> 
-<a href="#l17" class="line" id="l17">     17</a> (setq org-todo-state-tags-triggers
-<a href="#l18" class="line" id="l18">     18</a>       (quote ((&quot;CANCELLED&quot; (&quot;CANCELLED&quot; . t))
-<a href="#l19" class="line" id="l19">     19</a>               (&quot;WAITING&quot; (&quot;WAITING&quot; . t))
-<a href="#l20" class="line" id="l20">     20</a>               (&quot;HOLD&quot; (&quot;WAITING&quot;) (&quot;HOLD&quot; . t))
-<a href="#l21" class="line" id="l21">     21</a>               (done (&quot;WAITING&quot;) (&quot;HOLD&quot;))
-<a href="#l22" class="line" id="l22">     22</a>               (&quot;TODO&quot; (&quot;WAITING&quot;) (&quot;CANCELLED&quot;) (&quot;HOLD&quot;))
-<a href="#l23" class="line" id="l23">     23</a>               (&quot;NEXT&quot; (&quot;WAITING&quot;) (&quot;CANCELLED&quot;) (&quot;HOLD&quot;))
-<a href="#l24" class="line" id="l24">     24</a>               (&quot;DONE&quot; (&quot;WAITING&quot;) (&quot;CANCELLED&quot;) (&quot;HOLD&quot;)))))
-<a href="#l25" class="line" id="l25">     25</a> 
-<a href="#l26" class="line" id="l26">     26</a> 
-<a href="#l27" class="line" id="l27">     27</a> (use-package! org-roam
-<a href="#l28" class="line" id="l28">     28</a>   :hook
-<a href="#l29" class="line" id="l29">     29</a>   (after-init . org-roam-mode))
-<a href="#l30" class="line" id="l30">     30</a> 
-<a href="#l31" class="line" id="l31">     31</a> (after! org-roam
-<a href="#l32" class="line" id="l32">     32</a>   (add-hook &#39;after-init-hook &#39;org-roam-mode)
-<a href="#l33" class="line" id="l33">     33</a>   :config
-<a href="#l34" class="line" id="l34">     34</a>   (setq org-roam-graph-viewer &quot;/usr/bin/open&quot;)
-<a href="#l35" class="line" id="l35">     35</a>   (setq org-roam-capture-ref-templates
-<a href="#l36" class="line" id="l36">     36</a>         &#39;((&quot;r&quot; &quot;ref&quot; plain (function org-roam-capture--get-point)
-<a href="#l37" class="line" id="l37">     37</a>            &quot;%?&quot;
-<a href="#l38" class="line" id="l38">     38</a>            :file-name &quot;websites/${slug}&quot;
-<a href="#l39" class="line" id="l39">     39</a>            :head &quot;#+title: ${title}
-<a href="#l40" class="line" id="l40">     40</a> #+author: ${author}
-<a href="#l41" class="line" id="l41">     41</a> #+roam_key: ${ref}
-<a href="#l42" class="line" id="l42">     42</a> #+roam_tags: web_references
-<a href="#l43" class="line" id="l43">     43</a> - saved :: ${savedDate}
-<a href="#l44" class="line" id="l44">     44</a> - source :: ${ref}
-<a href="#l45" class="line" id="l45">     45</a> 
-<a href="#l46" class="line" id="l46">     46</a> * Highlights\n&quot;
-<a href="#l47" class="line" id="l47">     47</a>            :unnarrowed t))))
-<a href="#l48" class="line" id="l48">     48</a> 
-<a href="#l49" class="line" id="l49">     49</a>   (setq org-roam-dailies-capture-templates
-<a href="#l50" class="line" id="l50">     50</a>     &#39;((&quot;d&quot; &quot;daily&quot; plain (function org-roam-capture--get-point)
-<a href="#l51" class="line" id="l51">     51</a>       &quot;%?&quot;
-<a href="#l52" class="line" id="l52">     52</a>       :immediate-finish t
-<a href="#l53" class="line" id="l53">     53</a>       :file-name &quot;journals/%&lt;%Y-%m-%d&gt;&quot;
-<a href="#l54" class="line" id="l54">     54</a>       :head &quot;#+title: %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;
-<a href="#l55" class="line" id="l55">     55</a> #+roam_tags: journals\n&quot;
-<a href="#l56" class="line" id="l56">     56</a>       :unnarrowed t)))
-<a href="#l57" class="line" id="l57">     57</a> 
-<a href="#l58" class="line" id="l58">     58</a>   (setq org-roam-capture-templates
-<a href="#l59" class="line" id="l59">     59</a>         &#39;((&quot;d&quot; &quot;default&quot; plain (function org-roam-capture--get-point)
-<a href="#l60" class="line" id="l60">     60</a>            &quot;%?&quot;
-<a href="#l61" class="line" id="l61">     61</a>            :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
-<a href="#l62" class="line" id="l62">     62</a>            :head &quot;#+title: ${title}\n&quot;
-<a href="#l63" class="line" id="l63">     63</a>            :unnarrowed t)
-<a href="#l64" class="line" id="l64">     64</a>           (&quot;c&quot; &quot;companies&quot; plain (function org-roam-capture--get-point)
-<a href="#l65" class="line" id="l65">     65</a>            &quot;%?&quot;
-<a href="#l66" class="line" id="l66">     66</a>            :file-name &quot;companies/%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
-<a href="#l67" class="line" id="l67">     67</a>            :head &quot;#+title: ${title}
-<a href="#l68" class="line" id="l68">     68</a> #+roam_tags: companies\n&quot;
+<a href="#l14" class="line" id="l14">     14</a> (use-package! org-roam
+<a href="#l15" class="line" id="l15">     15</a>   :hook
+<a href="#l16" class="line" id="l16">     16</a>   (after-init . org-roam-mode))
+<a href="#l17" class="line" id="l17">     17</a> 
+<a href="#l18" class="line" id="l18">     18</a> (after! org-roam
+<a href="#l19" class="line" id="l19">     19</a>   (add-hook &#39;after-init-hook &#39;org-roam-mode)
+<a href="#l20" class="line" id="l20">     20</a>   :config
+<a href="#l21" class="line" id="l21">     21</a>   (setq org-roam-graph-viewer &quot;/usr/bin/open&quot;)
+<a href="#l22" class="line" id="l22">     22</a>   (setq org-roam-capture-ref-templates
+<a href="#l23" class="line" id="l23">     23</a>         &#39;((&quot;r&quot; &quot;ref&quot; plain (function org-roam-capture--get-point)
+<a href="#l24" class="line" id="l24">     24</a>            &quot;%?&quot;
+<a href="#l25" class="line" id="l25">     25</a>            :file-name &quot;websites/${slug}&quot;
+<a href="#l26" class="line" id="l26">     26</a>            :head &quot;#+title: ${title}
+<a href="#l27" class="line" id="l27">     27</a> #+author: ${author}
+<a href="#l28" class="line" id="l28">     28</a> #+roam_key: ${ref}
+<a href="#l29" class="line" id="l29">     29</a> #+roam_tags: web_references
+<a href="#l30" class="line" id="l30">     30</a> - saved :: ${savedDate}
+<a href="#l31" class="line" id="l31">     31</a> - source :: ${ref}
+<a href="#l32" class="line" id="l32">     32</a> 
+<a href="#l33" class="line" id="l33">     33</a> * Highlights\n&quot;
+<a href="#l34" class="line" id="l34">     34</a>            :immediate-finish t
+<a href="#l35" class="line" id="l35">     35</a>            :unnarrowed t
+<a href="#l36" class="line" id="l36">     36</a>            :config
+<a href="#l37" class="line" id="l37">     37</a>            (add-hook! &#39;after-init-hook &#39;org-roam-db-build-cache)))))
+<a href="#l38" class="line" id="l38">     38</a> 
+<a href="#l39" class="line" id="l39">     39</a>   (setq org-roam-dailies-capture-templates
+<a href="#l40" class="line" id="l40">     40</a>     &#39;((&quot;d&quot; &quot;daily&quot; plain (function org-roam-capture--get-point)
+<a href="#l41" class="line" id="l41">     41</a>       &quot;%?&quot;
+<a href="#l42" class="line" id="l42">     42</a>       :file-name &quot;journals/%&lt;%Y-%m-%d&gt;&quot;
+<a href="#l43" class="line" id="l43">     43</a>       :immediate-finish t
+<a href="#l44" class="line" id="l44">     44</a>       :head &quot;#+title: %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;
+<a href="#l45" class="line" id="l45">     45</a> #+roam_tags: journals\n&quot;
+<a href="#l46" class="line" id="l46">     46</a>       :unnarrowed t)))
+<a href="#l47" class="line" id="l47">     47</a> 
+<a href="#l48" class="line" id="l48">     48</a>   (setq org-roam-capture-templates
+<a href="#l49" class="line" id="l49">     49</a>         &#39;((&quot;d&quot; &quot;default&quot; plain (function org-roam-capture--get-point)
+<a href="#l50" class="line" id="l50">     50</a>            &quot;%?&quot;
+<a href="#l51" class="line" id="l51">     51</a>            :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+<a href="#l52" class="line" id="l52">     52</a>            :head &quot;#+title: ${title}\n&quot;
+<a href="#l53" class="line" id="l53">     53</a>            :immediate-finish t
+<a href="#l54" class="line" id="l54">     54</a>            :unnarrowed t)
+<a href="#l55" class="line" id="l55">     55</a>           (&quot;k&quot; &quot;kumparan&quot; plain (function org-roam-capture--get-point)
+<a href="#l56" class="line" id="l56">     56</a>            &quot;%?&quot;
+<a href="#l57" class="line" id="l57">     57</a>            :file-name &quot;kumparan/%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+<a href="#l58" class="line" id="l58">     58</a>            :head &quot;#+title: ${title}
+<a href="#l59" class="line" id="l59">     59</a> #+roam_tags: kumparan
+<a href="#l60" class="line" id="l60">     60</a> - backlinks :: [[file:../20200630143644-kumparan.org][kumparan]]&quot;
+<a href="#l61" class="line" id="l61">     61</a>            :immediate-finish t
+<a href="#l62" class="line" id="l62">     62</a>            :unnarrowed t)
+<a href="#l63" class="line" id="l63">     63</a>           (&quot;c&quot; &quot;companies&quot; plain (function org-roam-capture--get-point)
+<a href="#l64" class="line" id="l64">     64</a>            &quot;%?&quot;
+<a href="#l65" class="line" id="l65">     65</a>            :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+<a href="#l66" class="line" id="l66">     66</a>            :head &quot;#+title: ${title}
+<a href="#l67" class="line" id="l67">     67</a> #+roam_tags: companies\n&quot;
+<a href="#l68" class="line" id="l68">     68</a>            :immediate-finish t
 <a href="#l69" class="line" id="l69">     69</a>            :unnarrowed t)
 <a href="#l70" class="line" id="l70">     70</a>           (&quot;p&quot; &quot;products&quot; plain (function org-roam-capture--get-point)
 <a href="#l71" class="line" id="l71">     71</a>            &quot;%?&quot;
-<a href="#l72" class="line" id="l72">     72</a>            :file-name &quot;products/%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+<a href="#l72" class="line" id="l72">     72</a>            :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
 <a href="#l73" class="line" id="l73">     73</a>            :head &quot;#+title: ${title}
 <a href="#l74" class="line" id="l74">     74</a> #+roam_tags: products\n&quot;
-<a href="#l75" class="line" id="l75">     75</a>            :unnarrowed t)
-<a href="#l76" class="line" id="l76">     76</a>           (&quot;i&quot; &quot;people&quot; plain (function org-roam-capture--get-point)
-<a href="#l77" class="line" id="l77">     77</a>            &quot;%?&quot;
-<a href="#l78" class="line" id="l78">     78</a>            :file-name &quot;people/%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
-<a href="#l79" class="line" id="l79">     79</a>            :head &quot;#+title: ${title}
-<a href="#l80" class="line" id="l80">     80</a> #+roam_tags: people\n&quot;
-<a href="#l81" class="line" id="l81">     81</a>            :unnarrowed t)))
-<a href="#l82" class="line" id="l82">     82</a> 
-<a href="#l83" class="line" id="l83">     83</a> (use-package! deft
-<a href="#l84" class="line" id="l84">     84</a>   :after org
-<a href="#l85" class="line" id="l85">     85</a>   :config
-<a href="#l86" class="line" id="l86">     86</a>   (setq deft-recursive t)
-<a href="#l87" class="line" id="l87">     87</a>   (setq deft-use-filter-string-for-filename t)
-<a href="#l88" class="line" id="l88">     88</a>   (setq deft-default-extension &quot;org&quot;)
-<a href="#l89" class="line" id="l89">     89</a>   (setq deft-incremental-search t)
-<a href="#l90" class="line" id="l90">     90</a>   (add-hook &#39;after-init-hook &#39;org-roam-db-build-cache)
-<a href="#l91" class="line" id="l91">     91</a>   :bind
-<a href="#l92" class="line" id="l92">     92</a>   (&quot;C-c n d&quot; . deft))
-<a href="#l93" class="line" id="l93">     93</a> 
-<a href="#l94" class="line" id="l94">     94</a> (use-package! org-journal
-<a href="#l95" class="line" id="l95">     95</a>   :bind
-<a href="#l96" class="line" id="l96">     96</a>   (&quot;C-c n j&quot; . org-journal-new-entry)
-<a href="#l97" class="line" id="l97">     97</a>   :config
-<a href="#l98" class="line" id="l98">     98</a>   (setq org-journal-dir &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes/journals/&quot;)
-<a href="#l99" class="line" id="l99">     99</a>   (setq org-journal-date-prefix &quot;#+title: &quot;)
-<a href="#l100" class="line" id="l100">    100</a>   (setq org-journal-file-format &quot;%Y-%m-%d.org&quot;)
-<a href="#l101" class="line" id="l101">    101</a>   (setq org-journal-date-format &quot;%A, %d %B %Y\n#+roam_tags: journals\n&quot;))
-<a href="#l102" class="line" id="l102">    102</a> (setq org-journal-enable-agenda-integration t)
-<a href="#l103" class="line" id="l103">    103</a> 
-<a href="#l104" class="line" id="l104">    104</a> (after! org
-<a href="#l105" class="line" id="l105">    105</a>   (map! :map org-mode-map
-<a href="#l106" class="line" id="l106">    106</a>         :n &quot;M-j&quot; #&#39;org-metadown
-<a href="#l107" class="line" id="l107">    107</a>         :n &quot;M-k&quot; #&#39;orge-metaup))
-<a href="#l108" class="line" id="l108">    108</a> 
-<a href="#l109" class="line" id="l109">    109</a> (use-package! org-roam-server
-<a href="#l110" class="line" id="l110">    110</a>   :ensure t
+<a href="#l75" class="line" id="l75">     75</a>            :immediate-finish t
+<a href="#l76" class="line" id="l76">     76</a>            :unnarrowed t)
+<a href="#l77" class="line" id="l77">     77</a>           (&quot;i&quot; &quot;people&quot; plain (function org-roam-capture--get-point)
+<a href="#l78" class="line" id="l78">     78</a>            &quot;%?&quot;
+<a href="#l79" class="line" id="l79">     79</a>            :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+<a href="#l80" class="line" id="l80">     80</a>            :head &quot;#+title: ${title}
+<a href="#l81" class="line" id="l81">     81</a> #+roam_tags: people\n&quot;
+<a href="#l82" class="line" id="l82">     82</a>            :immediate-finish t
+<a href="#l83" class="line" id="l83">     83</a>            :unnarrowed t)))
+<a href="#l84" class="line" id="l84">     84</a> 
+<a href="#l85" class="line" id="l85">     85</a> (use-package! deft
+<a href="#l86" class="line" id="l86">     86</a>   :after org
+<a href="#l87" class="line" id="l87">     87</a>   :config
+<a href="#l88" class="line" id="l88">     88</a>   (setq deft-recursive t)
+<a href="#l89" class="line" id="l89">     89</a>   (setq deft-use-filter-string-for-filename t)
+<a href="#l90" class="line" id="l90">     90</a>   (setq deft-default-extension &quot;org&quot;)
+<a href="#l91" class="line" id="l91">     91</a>   (setq deft-incremental-search t)
+<a href="#l92" class="line" id="l92">     92</a>   (add-hook &#39;after-init-hook &#39;org-roam-db-build-cache)
+<a href="#l93" class="line" id="l93">     93</a>   :bind
+<a href="#l94" class="line" id="l94">     94</a>   (&quot;C-c n d&quot; . deft))
+<a href="#l95" class="line" id="l95">     95</a> 
+<a href="#l96" class="line" id="l96">     96</a> (use-package! org-journal
+<a href="#l97" class="line" id="l97">     97</a>   :bind
+<a href="#l98" class="line" id="l98">     98</a>   (&quot;C-c n j&quot; . org-journal-new-entry)
+<a href="#l99" class="line" id="l99">     99</a>   :config
+<a href="#l100" class="line" id="l100">    100</a>   (setq org-journal-dir &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes/journals/&quot;
+<a href="#l101" class="line" id="l101">    101</a>         org-journal-date-prefix &quot;#+title: &quot;
+<a href="#l102" class="line" id="l102">    102</a>         org-journal-file-format &quot;%Y-%m-%d.org&quot;
+<a href="#l103" class="line" id="l103">    103</a>         org-journal-date-format &quot;%A, %d %B %Y\n#+roam_tags: journals\n&quot;
+<a href="#l104" class="line" id="l104">    104</a>         org-journal-enable-agenda-integration t
+<a href="#l105" class="line" id="l105">    105</a>         org-journal-carryover-delete-empty-journal nil))
+<a href="#l106" class="line" id="l106">    106</a> 
+<a href="#l107" class="line" id="l107">    107</a> (after! org
+<a href="#l108" class="line" id="l108">    108</a>   (map! :map org-mode-map
+<a href="#l109" class="line" id="l109">    109</a>         :n &quot;M-j&quot; #&#39;org-metadown
+<a href="#l110" class="line" id="l110">    110</a>         :n &quot;M-k&quot; #&#39;orge-metaup)
 <a href="#l111" class="line" id="l111">    111</a>   :config
-<a href="#l112" class="line" id="l112">    112</a>   (setq org-roam-server-host &quot;127.0.0.1&quot;
-<a href="#l113" class="line" id="l113">    113</a>         org-roam-server-port 3001
-<a href="#l114" class="line" id="l114">    114</a>         org-roam-server-export-inline-images t
-<a href="#l115" class="line" id="l115">    115</a>         org-roam-server-authenticate nil
-<a href="#l116" class="line" id="l116">    116</a>         org-roam-server-network-poll t
-<a href="#l117" class="line" id="l117">    117</a>         org-roam-server-network-arrows nil
-<a href="#l118" class="line" id="l118">    118</a>         org-roam-server-network-label-truncate t
-<a href="#l119" class="line" id="l119">    119</a>         org-roam-server-network-label-truncate-length 60
-<a href="#l120" class="line" id="l120">    120</a>         org-roam-server-network-label-wrap-length 20))
-<a href="#l121" class="line" id="l121">    121</a> 
-<a href="#l122" class="line" id="l122">    122</a> ;; (add-hook &#39;org-roam-server-mode (lambda () (browse-url-chrome &quot;http://localhost:3001&quot;)))
-<a href="#l123" class="line" id="l123">    123</a> 
-<a href="#l124" class="line" id="l124">    124</a> ;; Refile a heading to another buffer
-<a href="#l125" class="line" id="l125">    125</a> ;; Allows you to refile into different files - specifically to
-<a href="#l126" class="line" id="l126">    126</a> ;; create new &#39;parent&#39; headings
-<a href="#l127" class="line" id="l127">    127</a> (setq org-refile-use-outline-path &#39;file)
-<a href="#l128" class="line" id="l128">    128</a> ;; makes org-refile outline working with helm/ivy
-<a href="#l129" class="line" id="l129">    129</a> (setq org-outline-path-complete-in-steps nil)
-<a href="#l130" class="line" id="l130">    130</a> (setq org-refile-allow-creating-parent-nodes &#39;confirm)
-<a href="#l131" class="line" id="l131">    131</a> (defun +org/opened-buffer-files ()
-<a href="#l132" class="line" id="l132">    132</a> ;;   &quot;Return the list of files currently opened in emacs&quot;
-<a href="#l133" class="line" id="l133">    133</a>   (delq nil
-<a href="#l134" class="line" id="l134">    134</a>         (mapcar (lambda (x)
-<a href="#l135" class="line" id="l135">    135</a>                   (if (and (buffer-file-name x)
-<a href="#l136" class="line" id="l136">    136</a>                            (string-match &quot;\\.org$&quot;
-<a href="#l137" class="line" id="l137">    137</a>                                          (buffer-file-name x)))
-<a href="#l138" class="line" id="l138">    138</a>                       (buffer-file-name x)))
-<a href="#l139" class="line" id="l139">    139</a>                 (buffer-list))))
-<a href="#l140" class="line" id="l140">    140</a> 
-<a href="#l141" class="line" id="l141">    141</a> (setq org-refile-targets &#39;((+org/opened-buffer-files :maxlevel . 9)))
+<a href="#l112" class="line" id="l112">    112</a>   (setq org-id-link-to-org-use-id nil
+<a href="#l113" class="line" id="l113">    113</a>         org-pretty-entities t
+<a href="#l114" class="line" id="l114">    114</a>         org-hide-emphasis-markers t))
+<a href="#l115" class="line" id="l115">    115</a> 
+<a href="#l116" class="line" id="l116">    116</a> (use-package! org-roam-server
+<a href="#l117" class="line" id="l117">    117</a>   :ensure t
+<a href="#l118" class="line" id="l118">    118</a>   :config
+<a href="#l119" class="line" id="l119">    119</a>   (setq org-roam-server-host &quot;127.0.0.1&quot;
+<a href="#l120" class="line" id="l120">    120</a>         org-roam-server-port 3001
+<a href="#l121" class="line" id="l121">    121</a>         org-roam-server-export-inline-images t
+<a href="#l122" class="line" id="l122">    122</a>         org-roam-server-authenticate nil
+<a href="#l123" class="line" id="l123">    123</a>         org-roam-server-network-poll t
+<a href="#l124" class="line" id="l124">    124</a>         org-roam-server-network-arrows nil
+<a href="#l125" class="line" id="l125">    125</a>         org-roam-server-network-label-truncate t
+<a href="#l126" class="line" id="l126">    126</a>         org-roam-server-network-label-truncate-length 60
+<a href="#l127" class="line" id="l127">    127</a>         org-roam-server-network-label-wrap-length 20))
+<a href="#l128" class="line" id="l128">    128</a> 
+<a href="#l129" class="line" id="l129">    129</a> ;; (add-hook &#39;org-roam-server-mode (lambda () (browse-url-chrome &quot;http://localhost:3001&quot;)))
+<a href="#l130" class="line" id="l130">    130</a> 
+<a href="#l131" class="line" id="l131">    131</a> ;; Refile a heading to another buffer
+<a href="#l132" class="line" id="l132">    132</a> ;; Allows you to refile into different files - specifically to
+<a href="#l133" class="line" id="l133">    133</a> ;; create new &#39;parent&#39; headings
+<a href="#l134" class="line" id="l134">    134</a> (setq org-refile-use-outline-path &#39;file)
+<a href="#l135" class="line" id="l135">    135</a> ;; makes org-refile outline working with helm/ivy
+<a href="#l136" class="line" id="l136">    136</a> (setq org-outline-path-complete-in-steps nil)
+<a href="#l137" class="line" id="l137">    137</a> (setq org-refile-allow-creating-parent-nodes &#39;confirm)
+<a href="#l138" class="line" id="l138">    138</a> (defun +org/opened-buffer-files ()
+<a href="#l139" class="line" id="l139">    139</a> ;;   &quot;Return the list of files currently opened in emacs&quot;
+<a href="#l140" class="line" id="l140">    140</a>   (delq nil
+<a href="#l141" class="line" id="l141">    141</a>         (mapcar (lambda (x)
+<a href="#l142" class="line" id="l142">    142</a>                   (if (and (buffer-file-name x)
+<a href="#l143" class="line" id="l143">    143</a>                            (string-match &quot;\\.org$&quot;
+<a href="#l144" class="line" id="l144">    144</a>                                          (buffer-file-name x)))
+<a href="#l145" class="line" id="l145">    145</a>                       (buffer-file-name x)))
+<a href="#l146" class="line" id="l146">    146</a>                 (buffer-list))))
+<a href="#l147" class="line" id="l147">    147</a> 
+<a href="#l148" class="line" id="l148">    148</a> (setq org-refile-targets &#39;((+org/opened-buffer-files :maxlevel . 9)))
 </pre>
 </div>
 </body>

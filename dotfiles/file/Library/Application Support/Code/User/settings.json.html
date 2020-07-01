@@ -15,7 +15,7 @@
 <a href="../../../../../index.html">Log</a> | <a href="../../../../../files.html">Files</a> | <a href="../../../../../refs.html">Refs</a> | <a href="../../../../../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> settings.json (5738B)</p><hr/><pre id="blob">
+<p> settings.json (5870B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> {
 <a href="#l2" class="line" id="l2">      2</a>   &quot;flow.useNPMPackagedFlow&quot;: true,
 <a href="#l3" class="line" id="l3">      3</a>   &quot;flow.pathToFlow&quot;: &quot;${workspaceRoot}/node_modules/.bin/flow&quot;,
@@ -89,172 +89,180 @@
 <a href="#l71" class="line" id="l71">     71</a>   ],
 <a href="#l72" class="line" id="l72">     72</a>   &quot;vim.normalModeKeyBindingsNonRecursive&quot;: [
 <a href="#l73" class="line" id="l73">     73</a>     {
-<a href="#l74" class="line" id="l74">     74</a>       &quot;before&quot;: [
-<a href="#l75" class="line" id="l75">     75</a>         &quot;&amp;&quot;
-<a href="#l76" class="line" id="l76">     76</a>       ],
-<a href="#l77" class="line" id="l77">     77</a>       &quot;after&quot;: [
-<a href="#l78" class="line" id="l78">     78</a>         &quot;#&quot;
-<a href="#l79" class="line" id="l79">     79</a>       ]
+<a href="#l74" class="line" id="l74">     74</a>         &quot;before&quot;: [&quot;j&quot;],
+<a href="#l75" class="line" id="l75">     75</a>         &quot;after&quot;: [&quot;g&quot;, &quot;j&quot;]
+<a href="#l76" class="line" id="l76">     76</a>     },
+<a href="#l77" class="line" id="l77">     77</a>     {
+<a href="#l78" class="line" id="l78">     78</a>         &quot;before&quot;: [&quot;k&quot;],
+<a href="#l79" class="line" id="l79">     79</a>         &quot;after&quot;: [&quot;g&quot;, &quot;k&quot;]
 <a href="#l80" class="line" id="l80">     80</a>     },
 <a href="#l81" class="line" id="l81">     81</a>     {
 <a href="#l82" class="line" id="l82">     82</a>       &quot;before&quot;: [
-<a href="#l83" class="line" id="l83">     83</a>         &quot;]&quot;,
-<a href="#l84" class="line" id="l84">     84</a>         &quot;c&quot;
-<a href="#l85" class="line" id="l85">     85</a>       ],
-<a href="#l86" class="line" id="l86">     86</a>       &quot;after&quot;: [],
-<a href="#l87" class="line" id="l87">     87</a>       &quot;commands&quot;: [
-<a href="#l88" class="line" id="l88">     88</a>         {
-<a href="#l89" class="line" id="l89">     89</a>           &quot;command&quot;: &quot;workbench.action.editor.nextChange&quot;,
-<a href="#l90" class="line" id="l90">     90</a>           &quot;args&quot;: []
-<a href="#l91" class="line" id="l91">     91</a>         }
-<a href="#l92" class="line" id="l92">     92</a>       ]
-<a href="#l93" class="line" id="l93">     93</a>     },
-<a href="#l94" class="line" id="l94">     94</a>     {
-<a href="#l95" class="line" id="l95">     95</a>       &quot;before&quot;: [
-<a href="#l96" class="line" id="l96">     96</a>         &quot;[&quot;,
-<a href="#l97" class="line" id="l97">     97</a>         &quot;c&quot;
-<a href="#l98" class="line" id="l98">     98</a>       ],
-<a href="#l99" class="line" id="l99">     99</a>       &quot;after&quot;: [],
-<a href="#l100" class="line" id="l100">    100</a>       &quot;commands&quot;: [
-<a href="#l101" class="line" id="l101">    101</a>         {
-<a href="#l102" class="line" id="l102">    102</a>           &quot;command&quot;: &quot;workbench.action.editor.previousChange&quot;,
-<a href="#l103" class="line" id="l103">    103</a>           &quot;args&quot;: []
-<a href="#l104" class="line" id="l104">    104</a>         }
-<a href="#l105" class="line" id="l105">    105</a>       ]
-<a href="#l106" class="line" id="l106">    106</a>     },
-<a href="#l107" class="line" id="l107">    107</a>     {
-<a href="#l108" class="line" id="l108">    108</a>       &quot;before&quot;: [
-<a href="#l109" class="line" id="l109">    109</a>         &quot;[&quot;,
-<a href="#l110" class="line" id="l110">    110</a>         &quot;C&quot;
-<a href="#l111" class="line" id="l111">    111</a>       ],
-<a href="#l112" class="line" id="l112">    112</a>       &quot;after&quot;: [],
-<a href="#l113" class="line" id="l113">    113</a>       &quot;commands&quot;: [
-<a href="#l114" class="line" id="l114">    114</a>         {
-<a href="#l115" class="line" id="l115">    115</a>           &quot;command&quot;: &quot;workbench.action.compareEditor.previousChange&quot;,
-<a href="#l116" class="line" id="l116">    116</a>           &quot;args&quot;: []
-<a href="#l117" class="line" id="l117">    117</a>         },
-<a href="#l118" class="line" id="l118">    118</a>         {
-<a href="#l119" class="line" id="l119">    119</a>           &quot;command&quot;: &quot;editor.action.dirtydiff.previous&quot;,
-<a href="#l120" class="line" id="l120">    120</a>           &quot;args&quot;: []
-<a href="#l121" class="line" id="l121">    121</a>         }
-<a href="#l122" class="line" id="l122">    122</a>       ]
-<a href="#l123" class="line" id="l123">    123</a>     },
-<a href="#l124" class="line" id="l124">    124</a>     {
-<a href="#l125" class="line" id="l125">    125</a>       &quot;before&quot;: [
-<a href="#l126" class="line" id="l126">    126</a>         &quot;]&quot;,
-<a href="#l127" class="line" id="l127">    127</a>         &quot;C&quot;
-<a href="#l128" class="line" id="l128">    128</a>       ],
-<a href="#l129" class="line" id="l129">    129</a>       &quot;after&quot;: [],
-<a href="#l130" class="line" id="l130">    130</a>       &quot;commands&quot;: [
-<a href="#l131" class="line" id="l131">    131</a>         {
-<a href="#l132" class="line" id="l132">    132</a>           &quot;command&quot;: &quot;workbench.action.compareEditor.nextChange&quot;,
-<a href="#l133" class="line" id="l133">    133</a>           &quot;args&quot;: []
-<a href="#l134" class="line" id="l134">    134</a>         },
-<a href="#l135" class="line" id="l135">    135</a>         {
-<a href="#l136" class="line" id="l136">    136</a>           &quot;command&quot;: &quot;editor.action.dirtydiff.next&quot;,
-<a href="#l137" class="line" id="l137">    137</a>           &quot;args&quot;: []
-<a href="#l138" class="line" id="l138">    138</a>         }
-<a href="#l139" class="line" id="l139">    139</a>       ]
-<a href="#l140" class="line" id="l140">    140</a>     },
-<a href="#l141" class="line" id="l141">    141</a>     {
-<a href="#l142" class="line" id="l142">    142</a>       &quot;before&quot;: [
-<a href="#l143" class="line" id="l143">    143</a>         &quot;u&quot;
-<a href="#l144" class="line" id="l144">    144</a>       ],
-<a href="#l145" class="line" id="l145">    145</a>       &quot;after&quot;: [],
-<a href="#l146" class="line" id="l146">    146</a>       &quot;commands&quot;: [
-<a href="#l147" class="line" id="l147">    147</a>         {
-<a href="#l148" class="line" id="l148">    148</a>           &quot;command&quot;: &quot;undo&quot;,
-<a href="#l149" class="line" id="l149">    149</a>           &quot;args&quot;: []
-<a href="#l150" class="line" id="l150">    150</a>         }
-<a href="#l151" class="line" id="l151">    151</a>       ]
-<a href="#l152" class="line" id="l152">    152</a>     },
-<a href="#l153" class="line" id="l153">    153</a>     {
-<a href="#l154" class="line" id="l154">    154</a>       &quot;before&quot;: [
-<a href="#l155" class="line" id="l155">    155</a>         &quot;&lt;C-r&gt;&quot;
-<a href="#l156" class="line" id="l156">    156</a>       ],
-<a href="#l157" class="line" id="l157">    157</a>       &quot;after&quot;: [],
-<a href="#l158" class="line" id="l158">    158</a>       &quot;commands&quot;: [
-<a href="#l159" class="line" id="l159">    159</a>         {
-<a href="#l160" class="line" id="l160">    160</a>           &quot;command&quot;: &quot;redo&quot;,
-<a href="#l161" class="line" id="l161">    161</a>           &quot;args&quot;: []
-<a href="#l162" class="line" id="l162">    162</a>         }
-<a href="#l163" class="line" id="l163">    163</a>       ]
-<a href="#l164" class="line" id="l164">    164</a>     },
-<a href="#l165" class="line" id="l165">    165</a>     {
-<a href="#l166" class="line" id="l166">    166</a>       &quot;before&quot;: [
-<a href="#l167" class="line" id="l167">    167</a>         &quot;&lt;leader&gt;&quot;,
-<a href="#l168" class="line" id="l168">    168</a>         &quot;&lt;space&gt;&quot;
-<a href="#l169" class="line" id="l169">    169</a>       ],
-<a href="#l170" class="line" id="l170">    170</a>       &quot;commands&quot;: [
-<a href="#l171" class="line" id="l171">    171</a>         &quot;:nohl&quot;
-<a href="#l172" class="line" id="l172">    172</a>       ]
-<a href="#l173" class="line" id="l173">    173</a>     },
-<a href="#l174" class="line" id="l174">    174</a>     {
-<a href="#l175" class="line" id="l175">    175</a>       &quot;before&quot;: [
-<a href="#l176" class="line" id="l176">    176</a>         &quot;Q&quot;
+<a href="#l83" class="line" id="l83">     83</a>         &quot;&amp;&quot;
+<a href="#l84" class="line" id="l84">     84</a>       ],
+<a href="#l85" class="line" id="l85">     85</a>       &quot;after&quot;: [
+<a href="#l86" class="line" id="l86">     86</a>         &quot;#&quot;
+<a href="#l87" class="line" id="l87">     87</a>       ]
+<a href="#l88" class="line" id="l88">     88</a>     },
+<a href="#l89" class="line" id="l89">     89</a>     {
+<a href="#l90" class="line" id="l90">     90</a>       &quot;before&quot;: [
+<a href="#l91" class="line" id="l91">     91</a>         &quot;]&quot;,
+<a href="#l92" class="line" id="l92">     92</a>         &quot;c&quot;
+<a href="#l93" class="line" id="l93">     93</a>       ],
+<a href="#l94" class="line" id="l94">     94</a>       &quot;after&quot;: [],
+<a href="#l95" class="line" id="l95">     95</a>       &quot;commands&quot;: [
+<a href="#l96" class="line" id="l96">     96</a>         {
+<a href="#l97" class="line" id="l97">     97</a>           &quot;command&quot;: &quot;workbench.action.editor.nextChange&quot;,
+<a href="#l98" class="line" id="l98">     98</a>           &quot;args&quot;: []
+<a href="#l99" class="line" id="l99">     99</a>         }
+<a href="#l100" class="line" id="l100">    100</a>       ]
+<a href="#l101" class="line" id="l101">    101</a>     },
+<a href="#l102" class="line" id="l102">    102</a>     {
+<a href="#l103" class="line" id="l103">    103</a>       &quot;before&quot;: [
+<a href="#l104" class="line" id="l104">    104</a>         &quot;[&quot;,
+<a href="#l105" class="line" id="l105">    105</a>         &quot;c&quot;
+<a href="#l106" class="line" id="l106">    106</a>       ],
+<a href="#l107" class="line" id="l107">    107</a>       &quot;after&quot;: [],
+<a href="#l108" class="line" id="l108">    108</a>       &quot;commands&quot;: [
+<a href="#l109" class="line" id="l109">    109</a>         {
+<a href="#l110" class="line" id="l110">    110</a>           &quot;command&quot;: &quot;workbench.action.editor.previousChange&quot;,
+<a href="#l111" class="line" id="l111">    111</a>           &quot;args&quot;: []
+<a href="#l112" class="line" id="l112">    112</a>         }
+<a href="#l113" class="line" id="l113">    113</a>       ]
+<a href="#l114" class="line" id="l114">    114</a>     },
+<a href="#l115" class="line" id="l115">    115</a>     {
+<a href="#l116" class="line" id="l116">    116</a>       &quot;before&quot;: [
+<a href="#l117" class="line" id="l117">    117</a>         &quot;[&quot;,
+<a href="#l118" class="line" id="l118">    118</a>         &quot;C&quot;
+<a href="#l119" class="line" id="l119">    119</a>       ],
+<a href="#l120" class="line" id="l120">    120</a>       &quot;after&quot;: [],
+<a href="#l121" class="line" id="l121">    121</a>       &quot;commands&quot;: [
+<a href="#l122" class="line" id="l122">    122</a>         {
+<a href="#l123" class="line" id="l123">    123</a>           &quot;command&quot;: &quot;workbench.action.compareEditor.previousChange&quot;,
+<a href="#l124" class="line" id="l124">    124</a>           &quot;args&quot;: []
+<a href="#l125" class="line" id="l125">    125</a>         },
+<a href="#l126" class="line" id="l126">    126</a>         {
+<a href="#l127" class="line" id="l127">    127</a>           &quot;command&quot;: &quot;editor.action.dirtydiff.previous&quot;,
+<a href="#l128" class="line" id="l128">    128</a>           &quot;args&quot;: []
+<a href="#l129" class="line" id="l129">    129</a>         }
+<a href="#l130" class="line" id="l130">    130</a>       ]
+<a href="#l131" class="line" id="l131">    131</a>     },
+<a href="#l132" class="line" id="l132">    132</a>     {
+<a href="#l133" class="line" id="l133">    133</a>       &quot;before&quot;: [
+<a href="#l134" class="line" id="l134">    134</a>         &quot;]&quot;,
+<a href="#l135" class="line" id="l135">    135</a>         &quot;C&quot;
+<a href="#l136" class="line" id="l136">    136</a>       ],
+<a href="#l137" class="line" id="l137">    137</a>       &quot;after&quot;: [],
+<a href="#l138" class="line" id="l138">    138</a>       &quot;commands&quot;: [
+<a href="#l139" class="line" id="l139">    139</a>         {
+<a href="#l140" class="line" id="l140">    140</a>           &quot;command&quot;: &quot;workbench.action.compareEditor.nextChange&quot;,
+<a href="#l141" class="line" id="l141">    141</a>           &quot;args&quot;: []
+<a href="#l142" class="line" id="l142">    142</a>         },
+<a href="#l143" class="line" id="l143">    143</a>         {
+<a href="#l144" class="line" id="l144">    144</a>           &quot;command&quot;: &quot;editor.action.dirtydiff.next&quot;,
+<a href="#l145" class="line" id="l145">    145</a>           &quot;args&quot;: []
+<a href="#l146" class="line" id="l146">    146</a>         }
+<a href="#l147" class="line" id="l147">    147</a>       ]
+<a href="#l148" class="line" id="l148">    148</a>     },
+<a href="#l149" class="line" id="l149">    149</a>     {
+<a href="#l150" class="line" id="l150">    150</a>       &quot;before&quot;: [
+<a href="#l151" class="line" id="l151">    151</a>         &quot;u&quot;
+<a href="#l152" class="line" id="l152">    152</a>       ],
+<a href="#l153" class="line" id="l153">    153</a>       &quot;after&quot;: [],
+<a href="#l154" class="line" id="l154">    154</a>       &quot;commands&quot;: [
+<a href="#l155" class="line" id="l155">    155</a>         {
+<a href="#l156" class="line" id="l156">    156</a>           &quot;command&quot;: &quot;undo&quot;,
+<a href="#l157" class="line" id="l157">    157</a>           &quot;args&quot;: []
+<a href="#l158" class="line" id="l158">    158</a>         }
+<a href="#l159" class="line" id="l159">    159</a>       ]
+<a href="#l160" class="line" id="l160">    160</a>     },
+<a href="#l161" class="line" id="l161">    161</a>     {
+<a href="#l162" class="line" id="l162">    162</a>       &quot;before&quot;: [
+<a href="#l163" class="line" id="l163">    163</a>         &quot;&lt;C-r&gt;&quot;
+<a href="#l164" class="line" id="l164">    164</a>       ],
+<a href="#l165" class="line" id="l165">    165</a>       &quot;after&quot;: [],
+<a href="#l166" class="line" id="l166">    166</a>       &quot;commands&quot;: [
+<a href="#l167" class="line" id="l167">    167</a>         {
+<a href="#l168" class="line" id="l168">    168</a>           &quot;command&quot;: &quot;redo&quot;,
+<a href="#l169" class="line" id="l169">    169</a>           &quot;args&quot;: []
+<a href="#l170" class="line" id="l170">    170</a>         }
+<a href="#l171" class="line" id="l171">    171</a>       ]
+<a href="#l172" class="line" id="l172">    172</a>     },
+<a href="#l173" class="line" id="l173">    173</a>     {
+<a href="#l174" class="line" id="l174">    174</a>       &quot;before&quot;: [
+<a href="#l175" class="line" id="l175">    175</a>         &quot;&lt;leader&gt;&quot;,
+<a href="#l176" class="line" id="l176">    176</a>         &quot;&lt;space&gt;&quot;
 <a href="#l177" class="line" id="l177">    177</a>       ],
-<a href="#l178" class="line" id="l178">    178</a>       &quot;after&quot;: [
-<a href="#l179" class="line" id="l179">    179</a>         &quot;&lt;leader&gt;&quot;,
-<a href="#l180" class="line" id="l180">    180</a>         &quot;&lt;leader&gt;&quot;,
-<a href="#l181" class="line" id="l181">    181</a>         &quot;&lt;leader&gt;&quot;,
-<a href="#l182" class="line" id="l182">    182</a>         &quot;j&quot;
-<a href="#l183" class="line" id="l183">    183</a>       ]
-<a href="#l184" class="line" id="l184">    184</a>     }
-<a href="#l185" class="line" id="l185">    185</a>   ],
-<a href="#l186" class="line" id="l186">    186</a>   &quot;vim.visualModeKeyBindingsNonRecursive&quot;: [
-<a href="#l187" class="line" id="l187">    187</a>     {
-<a href="#l188" class="line" id="l188">    188</a>       &quot;before&quot;: [
-<a href="#l189" class="line" id="l189">    189</a>         &quot;p&quot;
-<a href="#l190" class="line" id="l190">    190</a>       ],
-<a href="#l191" class="line" id="l191">    191</a>       &quot;after&quot;: [
-<a href="#l192" class="line" id="l192">    192</a>         &quot;p&quot;,
-<a href="#l193" class="line" id="l193">    193</a>         &quot;g&quot;,
-<a href="#l194" class="line" id="l194">    194</a>         &quot;v&quot;,
-<a href="#l195" class="line" id="l195">    195</a>         &quot;y&quot;
-<a href="#l196" class="line" id="l196">    196</a>       ]
-<a href="#l197" class="line" id="l197">    197</a>     }
-<a href="#l198" class="line" id="l198">    198</a>   ],
-<a href="#l199" class="line" id="l199">    199</a>   &quot;workbench.colorCustomizations&quot;: {
-<a href="#l200" class="line" id="l200">    200</a>     &quot;statusBar.background&quot;: &quot;#333333&quot;,
-<a href="#l201" class="line" id="l201">    201</a>     &quot;statusBar.noFolderBackground&quot;: &quot;#333333&quot;,
-<a href="#l202" class="line" id="l202">    202</a>     &quot;statusBar.debuggingBackground&quot;: &quot;#333333&quot;,
-<a href="#l203" class="line" id="l203">    203</a>     &quot;editor.selectionBackground&quot;: &quot;#ff0000&quot;,
-<a href="#l204" class="line" id="l204">    204</a>     &quot;editor.selectionBorder&quot;: &quot;#ffffffbb&quot;,
-<a href="#l205" class="line" id="l205">    205</a>     &quot;editor.selectionHighlightBackground&quot;: &quot;#4f4e4e&quot;,
-<a href="#l206" class="line" id="l206">    206</a>     &quot;editor.selectionHighlightBorder&quot;: &quot;#ffffffbb&quot;
-<a href="#l207" class="line" id="l207">    207</a>   },
-<a href="#l208" class="line" id="l208">    208</a>   &quot;typescript.updateImportsOnFileMove.enabled&quot;: &quot;always&quot;,
-<a href="#l209" class="line" id="l209">    209</a>   &quot;gitlens.views.repositories.location&quot;: &quot;scm&quot;,
-<a href="#l210" class="line" id="l210">    210</a>   &quot;gitlens.views.fileHistory.location&quot;: &quot;scm&quot;,
-<a href="#l211" class="line" id="l211">    211</a>   &quot;gitlens.views.lineHistory.location&quot;: &quot;scm&quot;,
-<a href="#l212" class="line" id="l212">    212</a>   &quot;gitlens.views.search.location&quot;: &quot;scm&quot;,
-<a href="#l213" class="line" id="l213">    213</a>   &quot;gitlens.views.compare.location&quot;: &quot;scm&quot;,
-<a href="#l214" class="line" id="l214">    214</a>   &quot;editor.fontFamily&quot;: &quot;IBM Plex Mono, Hermit, Victor Mono, Liga Cartograph Mono CF, Menlo, Monaco, &#39;Courier New&#39;, monospace&quot;,
-<a href="#l215" class="line" id="l215">    215</a>   &quot;editor.minimap.showSlider&quot;: &quot;always&quot;,
-<a href="#l216" class="line" id="l216">    216</a>   &quot;editor.minimap.maxColumn&quot;: 100,
-<a href="#l217" class="line" id="l217">    217</a>   &quot;editor.renderWhitespace&quot;: &quot;selection&quot;,
-<a href="#l218" class="line" id="l218">    218</a>   &quot;editor.renderLineHighlight&quot;: &quot;all&quot;,
-<a href="#l219" class="line" id="l219">    219</a>   &quot;editor.renderFinalNewline&quot;: false,
-<a href="#l220" class="line" id="l220">    220</a>   &quot;editor.cursorSurroundingLines&quot;: 5,
-<a href="#l221" class="line" id="l221">    221</a>   &quot;vsintellicode.modify.editor.suggestSelection&quot;: &quot;automaticallyOverrodeDefaultValue&quot;,
-<a href="#l222" class="line" id="l222">    222</a>   &quot;editor.codeLens&quot;: false,
-<a href="#l223" class="line" id="l223">    223</a>   &quot;window.zoomLevel&quot;: -1,
-<a href="#l224" class="line" id="l224">    224</a>   &quot;window.titleBarStyle&quot;: &quot;native&quot;,
-<a href="#l225" class="line" id="l225">    225</a>   &quot;[markdown]&quot;: {
-<a href="#l226" class="line" id="l226">    226</a>     &quot;editor.wordWrap&quot;: &quot;on&quot;,
-<a href="#l227" class="line" id="l227">    227</a>     &quot;editor.quickSuggestions&quot;: true
-<a href="#l228" class="line" id="l228">    228</a>   },
-<a href="#l229" class="line" id="l229">    229</a>   &quot;editor.minimap.enabled&quot;: false,
-<a href="#l230" class="line" id="l230">    230</a>   &quot;workbench.sideBar.location&quot;: &quot;right&quot;,
-<a href="#l231" class="line" id="l231">    231</a>   &quot;vim.cursorStylePerMode.replace&quot;: &quot;underline&quot;,
-<a href="#l232" class="line" id="l232">    232</a>   &quot;terminal.integrated.macOptionIsMeta&quot;: true,
-<a href="#l233" class="line" id="l233">    233</a>   &quot;[javascript]&quot;: {
-<a href="#l234" class="line" id="l234">    234</a>     &quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;
-<a href="#l235" class="line" id="l235">    235</a>   },
-<a href="#l236" class="line" id="l236">    236</a>   &quot;editor.copyWithSyntaxHighlighting&quot;: false,
-<a href="#l237" class="line" id="l237">    237</a>   &quot;files.simpleDialog.enable&quot;: true,
-<a href="#l238" class="line" id="l238">    238</a>   &quot;editor.cursorSmoothCaretAnimation&quot;: true
-<a href="#l239" class="line" id="l239">    239</a> }</pre>
+<a href="#l178" class="line" id="l178">    178</a>       &quot;commands&quot;: [
+<a href="#l179" class="line" id="l179">    179</a>         &quot;:nohl&quot;
+<a href="#l180" class="line" id="l180">    180</a>       ]
+<a href="#l181" class="line" id="l181">    181</a>     },
+<a href="#l182" class="line" id="l182">    182</a>     {
+<a href="#l183" class="line" id="l183">    183</a>       &quot;before&quot;: [
+<a href="#l184" class="line" id="l184">    184</a>         &quot;Q&quot;
+<a href="#l185" class="line" id="l185">    185</a>       ],
+<a href="#l186" class="line" id="l186">    186</a>       &quot;after&quot;: [
+<a href="#l187" class="line" id="l187">    187</a>         &quot;&lt;leader&gt;&quot;,
+<a href="#l188" class="line" id="l188">    188</a>         &quot;&lt;leader&gt;&quot;,
+<a href="#l189" class="line" id="l189">    189</a>         &quot;&lt;leader&gt;&quot;,
+<a href="#l190" class="line" id="l190">    190</a>         &quot;j&quot;
+<a href="#l191" class="line" id="l191">    191</a>       ]
+<a href="#l192" class="line" id="l192">    192</a>     }
+<a href="#l193" class="line" id="l193">    193</a>   ],
+<a href="#l194" class="line" id="l194">    194</a>   &quot;vim.visualModeKeyBindingsNonRecursive&quot;: [
+<a href="#l195" class="line" id="l195">    195</a>     {
+<a href="#l196" class="line" id="l196">    196</a>       &quot;before&quot;: [
+<a href="#l197" class="line" id="l197">    197</a>         &quot;p&quot;
+<a href="#l198" class="line" id="l198">    198</a>       ],
+<a href="#l199" class="line" id="l199">    199</a>       &quot;after&quot;: [
+<a href="#l200" class="line" id="l200">    200</a>         &quot;p&quot;,
+<a href="#l201" class="line" id="l201">    201</a>         &quot;g&quot;,
+<a href="#l202" class="line" id="l202">    202</a>         &quot;v&quot;,
+<a href="#l203" class="line" id="l203">    203</a>         &quot;y&quot;
+<a href="#l204" class="line" id="l204">    204</a>       ]
+<a href="#l205" class="line" id="l205">    205</a>     }
+<a href="#l206" class="line" id="l206">    206</a>   ],
+<a href="#l207" class="line" id="l207">    207</a>   &quot;workbench.colorCustomizations&quot;: {
+<a href="#l208" class="line" id="l208">    208</a>     &quot;statusBar.background&quot;: &quot;#333333&quot;,
+<a href="#l209" class="line" id="l209">    209</a>     &quot;statusBar.noFolderBackground&quot;: &quot;#333333&quot;,
+<a href="#l210" class="line" id="l210">    210</a>     &quot;statusBar.debuggingBackground&quot;: &quot;#333333&quot;,
+<a href="#l211" class="line" id="l211">    211</a>     &quot;editor.selectionBackground&quot;: &quot;#4f4e4f&quot;,
+<a href="#l212" class="line" id="l212">    212</a>     &quot;editor.selectionBorder&quot;: &quot;#ffffffbb&quot;,
+<a href="#l213" class="line" id="l213">    213</a>     &quot;editor.selectionHighlightBackground&quot;: &quot;#4f4e4e&quot;,
+<a href="#l214" class="line" id="l214">    214</a>     &quot;editor.selectionHighlightBorder&quot;: &quot;#ffffffbb&quot;
+<a href="#l215" class="line" id="l215">    215</a>   },
+<a href="#l216" class="line" id="l216">    216</a>   &quot;typescript.updateImportsOnFileMove.enabled&quot;: &quot;always&quot;,
+<a href="#l217" class="line" id="l217">    217</a>   &quot;gitlens.views.repositories.location&quot;: &quot;scm&quot;,
+<a href="#l218" class="line" id="l218">    218</a>   &quot;gitlens.views.fileHistory.location&quot;: &quot;scm&quot;,
+<a href="#l219" class="line" id="l219">    219</a>   &quot;gitlens.views.lineHistory.location&quot;: &quot;scm&quot;,
+<a href="#l220" class="line" id="l220">    220</a>   &quot;gitlens.views.search.location&quot;: &quot;scm&quot;,
+<a href="#l221" class="line" id="l221">    221</a>   &quot;gitlens.views.compare.location&quot;: &quot;scm&quot;,
+<a href="#l222" class="line" id="l222">    222</a>   &quot;editor.fontFamily&quot;: &quot;IBM Plex Mono, Hermit, Victor Mono, Liga Cartograph Mono CF, Menlo, Monaco, &#39;Courier New&#39;, monospace&quot;,
+<a href="#l223" class="line" id="l223">    223</a>   &quot;editor.minimap.showSlider&quot;: &quot;always&quot;,
+<a href="#l224" class="line" id="l224">    224</a>   &quot;editor.minimap.maxColumn&quot;: 100,
+<a href="#l225" class="line" id="l225">    225</a>   &quot;editor.renderWhitespace&quot;: &quot;selection&quot;,
+<a href="#l226" class="line" id="l226">    226</a>   &quot;editor.renderLineHighlight&quot;: &quot;all&quot;,
+<a href="#l227" class="line" id="l227">    227</a>   &quot;editor.renderFinalNewline&quot;: false,
+<a href="#l228" class="line" id="l228">    228</a>   &quot;editor.cursorSurroundingLines&quot;: 5,
+<a href="#l229" class="line" id="l229">    229</a>   &quot;vsintellicode.modify.editor.suggestSelection&quot;: &quot;automaticallyOverrodeDefaultValue&quot;,
+<a href="#l230" class="line" id="l230">    230</a>   &quot;editor.codeLens&quot;: false,
+<a href="#l231" class="line" id="l231">    231</a>   &quot;window.zoomLevel&quot;: -1,
+<a href="#l232" class="line" id="l232">    232</a>   &quot;window.titleBarStyle&quot;: &quot;native&quot;,
+<a href="#l233" class="line" id="l233">    233</a>   &quot;[markdown]&quot;: {
+<a href="#l234" class="line" id="l234">    234</a>     &quot;editor.wordWrap&quot;: &quot;on&quot;,
+<a href="#l235" class="line" id="l235">    235</a>     &quot;editor.quickSuggestions&quot;: true
+<a href="#l236" class="line" id="l236">    236</a>   },
+<a href="#l237" class="line" id="l237">    237</a>   &quot;editor.minimap.enabled&quot;: false,
+<a href="#l238" class="line" id="l238">    238</a>   &quot;vim.cursorStylePerMode.replace&quot;: &quot;underline&quot;,
+<a href="#l239" class="line" id="l239">    239</a>   &quot;terminal.integrated.macOptionIsMeta&quot;: true,
+<a href="#l240" class="line" id="l240">    240</a>   &quot;[javascript]&quot;: {
+<a href="#l241" class="line" id="l241">    241</a>     &quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;
+<a href="#l242" class="line" id="l242">    242</a>   },
+<a href="#l243" class="line" id="l243">    243</a>   &quot;editor.copyWithSyntaxHighlighting&quot;: false,
+<a href="#l244" class="line" id="l244">    244</a>   &quot;files.simpleDialog.enable&quot;: true,
+<a href="#l245" class="line" id="l245">    245</a>   &quot;editor.cursorSmoothCaretAnimation&quot;: true,
+<a href="#l246" class="line" id="l246">    246</a>   &quot;workbench.sideBar.location&quot;: &quot;right&quot;
+<a href="#l247" class="line" id="l247">    247</a> }</pre>
 </div>
 </body>
 </html>

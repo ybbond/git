@@ -4,6 +4,44 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>6507ba42a502aef91b176bdbc449d6f7259b970c</id>
+<published>2020-07-01T16:49:35Z</published>
+<updated>2020-07-01T16:49:35Z</updated>
+<title type="text">update init.vim, zshrc, and vscode settings</title>
+<link rel="alternate" type="text/html" href="commit/6507ba42a502aef91b176bdbc449d6f7259b970c.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 6507ba42a502aef91b176bdbc449d6f7259b970c
+parent f5892a27f374d8f253fbd59f7481477767c51371
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Wed,  1 Jul 2020 23:49:35 +0700
+
+update init.vim, zshrc, and vscode settings
+
+</content>
+</entry>
+<entry>
+<id>f5892a27f374d8f253fbd59f7481477767c51371</id>
+<published>2020-07-01T05:01:21Z</published>
+<updated>2020-07-01T05:01:21Z</updated>
+<title type="text">update doom, performance and convenience for org-roam</title>
+<link rel="alternate" type="text/html" href="commit/f5892a27f374d8f253fbd59f7481477767c51371.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit f5892a27f374d8f253fbd59f7481477767c51371
+parent 6c4425c8865de8436ed5da0fa100752fb7504cbd
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Wed,  1 Jul 2020 12:01:21 +0700
+
+update doom, performance and convenience for org-roam
+
+</content>
+</entry>
+<entry>
 <id>6c4425c8865de8436ed5da0fa100752fb7504cbd</id>
 <published>2020-06-28T07:40:17Z</published>
 <updated>2020-06-28T07:40:17Z</updated>

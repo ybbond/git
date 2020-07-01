@@ -15,7 +15,7 @@
 <a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> init.el (9104B)</p><hr/><pre id="blob">
+<p> init.el (9139B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> ;;; init.el -*- lexical-binding: t; -*-
 <a href="#l2" class="line" id="l2">      2</a> 
 <a href="#l3" class="line" id="l3">      3</a> ;; This file controls what Doom modules are enabled and what order they load
@@ -40,7 +40,7 @@
 <a href="#l22" class="line" id="l22">     22</a>        (company +childframe)           ; the ultimate code completion backend
 <a href="#l23" class="line" id="l23">     23</a>        ;;helm              ; the *other* search engine for love and life
 <a href="#l24" class="line" id="l24">     24</a>        ;;ido               ; the other *other* search engine...
-<a href="#l25" class="line" id="l25">     25</a>        ivy               ; a search engine for love and life
+<a href="#l25" class="line" id="l25">     25</a>        (ivy +fuzzy)               ; a search engine for love and life
 <a href="#l26" class="line" id="l26">     26</a> 
 <a href="#l27" class="line" id="l27">     27</a>        :ui
 <a href="#l28" class="line" id="l28">     28</a>        deft              ; notational velocity for Emacs
@@ -202,6 +202,9 @@
 <a href="#l184" class="line" id="l184">    184</a> (setq evil-esc-delay 1)
 <a href="#l185" class="line" id="l185">    185</a> (setq evil-kill-on-visual-paste nil)
 <a href="#l186" class="line" id="l186">    186</a> ;; (setq evil-want-minibuffer t)
+<a href="#l187" class="line" id="l187">    187</a> 
+<a href="#l188" class="line" id="l188">    188</a> 
+<a href="#l189" class="line" id="l189">    189</a> (setq savehist-mode -1)
 </pre>
 </div>
 </body>
