@@ -15,7 +15,7 @@
 <a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> +org.el (5026B)</p><hr/><pre id="blob">
+<p> +org.el (5104B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 <a href="#l2" class="line" id="l2">      2</a> 
 <a href="#l3" class="line" id="l3">      3</a> ;; source https://github.com/theianjones/dotfiles/blob/master/.doom.d/+org.el
@@ -114,56 +114,58 @@
 <a href="#l96" class="line" id="l96">     96</a> (use-package! org-journal
 <a href="#l97" class="line" id="l97">     97</a>   :bind
 <a href="#l98" class="line" id="l98">     98</a>   (&quot;C-c n j&quot; . org-journal-new-entry)
-<a href="#l99" class="line" id="l99">     99</a>   :config
-<a href="#l100" class="line" id="l100">    100</a>   (setq org-journal-dir &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes/journals/&quot;
-<a href="#l101" class="line" id="l101">    101</a>         org-journal-date-prefix &quot;#+title: &quot;
-<a href="#l102" class="line" id="l102">    102</a>         org-journal-file-format &quot;%Y-%m-%d.org&quot;
-<a href="#l103" class="line" id="l103">    103</a>         org-journal-date-format &quot;%A, %d %B %Y\n#+roam_tags: journals\n&quot;
-<a href="#l104" class="line" id="l104">    104</a>         org-journal-enable-agenda-integration t
-<a href="#l105" class="line" id="l105">    105</a>         org-journal-carryover-delete-empty-journal nil))
-<a href="#l106" class="line" id="l106">    106</a> 
-<a href="#l107" class="line" id="l107">    107</a> (after! org
-<a href="#l108" class="line" id="l108">    108</a>   (map! :map org-mode-map
-<a href="#l109" class="line" id="l109">    109</a>         :n &quot;M-j&quot; #&#39;org-metadown
-<a href="#l110" class="line" id="l110">    110</a>         :n &quot;M-k&quot; #&#39;orge-metaup)
-<a href="#l111" class="line" id="l111">    111</a>   :config
-<a href="#l112" class="line" id="l112">    112</a>   (setq org-id-link-to-org-use-id nil
-<a href="#l113" class="line" id="l113">    113</a>         org-pretty-entities t
-<a href="#l114" class="line" id="l114">    114</a>         org-hide-emphasis-markers t))
-<a href="#l115" class="line" id="l115">    115</a> 
-<a href="#l116" class="line" id="l116">    116</a> (use-package! org-roam-server
-<a href="#l117" class="line" id="l117">    117</a>   :ensure t
-<a href="#l118" class="line" id="l118">    118</a>   :config
-<a href="#l119" class="line" id="l119">    119</a>   (setq org-roam-server-host &quot;127.0.0.1&quot;
-<a href="#l120" class="line" id="l120">    120</a>         org-roam-server-port 3001
-<a href="#l121" class="line" id="l121">    121</a>         org-roam-server-export-inline-images t
-<a href="#l122" class="line" id="l122">    122</a>         org-roam-server-authenticate nil
-<a href="#l123" class="line" id="l123">    123</a>         org-roam-server-network-poll t
-<a href="#l124" class="line" id="l124">    124</a>         org-roam-server-network-arrows nil
-<a href="#l125" class="line" id="l125">    125</a>         org-roam-server-network-label-truncate t
-<a href="#l126" class="line" id="l126">    126</a>         org-roam-server-network-label-truncate-length 60
-<a href="#l127" class="line" id="l127">    127</a>         org-roam-server-network-label-wrap-length 20))
-<a href="#l128" class="line" id="l128">    128</a> 
-<a href="#l129" class="line" id="l129">    129</a> ;; (add-hook &#39;org-roam-server-mode (lambda () (browse-url-chrome &quot;http://localhost:3001&quot;)))
+<a href="#l99" class="line" id="l99">     99</a>   (&quot;C-c b&quot; . org-journal-previous-entry)
+<a href="#l100" class="line" id="l100">    100</a>   (&quot;C-c f&quot; . org-journal-next-entry)
+<a href="#l101" class="line" id="l101">    101</a>   :config
+<a href="#l102" class="line" id="l102">    102</a>   (setq org-journal-dir &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes/journals/&quot;
+<a href="#l103" class="line" id="l103">    103</a>         org-journal-date-prefix &quot;#+title: &quot;
+<a href="#l104" class="line" id="l104">    104</a>         org-journal-file-format &quot;%Y-%m-%d.org&quot;
+<a href="#l105" class="line" id="l105">    105</a>         org-journal-date-format &quot;%A, %d %B %Y\n#+roam_tags: journals\n&quot;
+<a href="#l106" class="line" id="l106">    106</a>         org-journal-enable-agenda-integration t
+<a href="#l107" class="line" id="l107">    107</a>         org-journal-carryover-delete-empty-journal nil))
+<a href="#l108" class="line" id="l108">    108</a> 
+<a href="#l109" class="line" id="l109">    109</a> (after! org
+<a href="#l110" class="line" id="l110">    110</a>   (map! :map org-mode-map
+<a href="#l111" class="line" id="l111">    111</a>         :n &quot;M-j&quot; #&#39;org-metadown
+<a href="#l112" class="line" id="l112">    112</a>         :n &quot;M-k&quot; #&#39;orge-metaup)
+<a href="#l113" class="line" id="l113">    113</a>   :config
+<a href="#l114" class="line" id="l114">    114</a>   (setq org-id-link-to-org-use-id nil
+<a href="#l115" class="line" id="l115">    115</a>         org-pretty-entities t
+<a href="#l116" class="line" id="l116">    116</a>         org-hide-emphasis-markers t))
+<a href="#l117" class="line" id="l117">    117</a> 
+<a href="#l118" class="line" id="l118">    118</a> (use-package! org-roam-server
+<a href="#l119" class="line" id="l119">    119</a>   :ensure t
+<a href="#l120" class="line" id="l120">    120</a>   :config
+<a href="#l121" class="line" id="l121">    121</a>   (setq org-roam-server-host &quot;127.0.0.1&quot;
+<a href="#l122" class="line" id="l122">    122</a>         org-roam-server-port 3001
+<a href="#l123" class="line" id="l123">    123</a>         org-roam-server-export-inline-images t
+<a href="#l124" class="line" id="l124">    124</a>         org-roam-server-authenticate nil
+<a href="#l125" class="line" id="l125">    125</a>         org-roam-server-network-poll t
+<a href="#l126" class="line" id="l126">    126</a>         org-roam-server-network-arrows nil
+<a href="#l127" class="line" id="l127">    127</a>         org-roam-server-network-label-truncate t
+<a href="#l128" class="line" id="l128">    128</a>         org-roam-server-network-label-truncate-length 60
+<a href="#l129" class="line" id="l129">    129</a>         org-roam-server-network-label-wrap-length 20))
 <a href="#l130" class="line" id="l130">    130</a> 
-<a href="#l131" class="line" id="l131">    131</a> ;; Refile a heading to another buffer
-<a href="#l132" class="line" id="l132">    132</a> ;; Allows you to refile into different files - specifically to
-<a href="#l133" class="line" id="l133">    133</a> ;; create new &#39;parent&#39; headings
-<a href="#l134" class="line" id="l134">    134</a> (setq org-refile-use-outline-path &#39;file)
-<a href="#l135" class="line" id="l135">    135</a> ;; makes org-refile outline working with helm/ivy
-<a href="#l136" class="line" id="l136">    136</a> (setq org-outline-path-complete-in-steps nil)
-<a href="#l137" class="line" id="l137">    137</a> (setq org-refile-allow-creating-parent-nodes &#39;confirm)
-<a href="#l138" class="line" id="l138">    138</a> (defun +org/opened-buffer-files ()
-<a href="#l139" class="line" id="l139">    139</a> ;;   &quot;Return the list of files currently opened in emacs&quot;
-<a href="#l140" class="line" id="l140">    140</a>   (delq nil
-<a href="#l141" class="line" id="l141">    141</a>         (mapcar (lambda (x)
-<a href="#l142" class="line" id="l142">    142</a>                   (if (and (buffer-file-name x)
-<a href="#l143" class="line" id="l143">    143</a>                            (string-match &quot;\\.org$&quot;
-<a href="#l144" class="line" id="l144">    144</a>                                          (buffer-file-name x)))
-<a href="#l145" class="line" id="l145">    145</a>                       (buffer-file-name x)))
-<a href="#l146" class="line" id="l146">    146</a>                 (buffer-list))))
-<a href="#l147" class="line" id="l147">    147</a> 
-<a href="#l148" class="line" id="l148">    148</a> (setq org-refile-targets &#39;((+org/opened-buffer-files :maxlevel . 9)))
+<a href="#l131" class="line" id="l131">    131</a> ;; (add-hook &#39;org-roam-server-mode (lambda () (browse-url-chrome &quot;http://localhost:3001&quot;)))
+<a href="#l132" class="line" id="l132">    132</a> 
+<a href="#l133" class="line" id="l133">    133</a> ;; Refile a heading to another buffer
+<a href="#l134" class="line" id="l134">    134</a> ;; Allows you to refile into different files - specifically to
+<a href="#l135" class="line" id="l135">    135</a> ;; create new &#39;parent&#39; headings
+<a href="#l136" class="line" id="l136">    136</a> (setq org-refile-use-outline-path &#39;file)
+<a href="#l137" class="line" id="l137">    137</a> ;; makes org-refile outline working with helm/ivy
+<a href="#l138" class="line" id="l138">    138</a> (setq org-outline-path-complete-in-steps nil)
+<a href="#l139" class="line" id="l139">    139</a> (setq org-refile-allow-creating-parent-nodes &#39;confirm)
+<a href="#l140" class="line" id="l140">    140</a> (defun +org/opened-buffer-files ()
+<a href="#l141" class="line" id="l141">    141</a> ;;   &quot;Return the list of files currently opened in emacs&quot;
+<a href="#l142" class="line" id="l142">    142</a>   (delq nil
+<a href="#l143" class="line" id="l143">    143</a>         (mapcar (lambda (x)
+<a href="#l144" class="line" id="l144">    144</a>                   (if (and (buffer-file-name x)
+<a href="#l145" class="line" id="l145">    145</a>                            (string-match &quot;\\.org$&quot;
+<a href="#l146" class="line" id="l146">    146</a>                                          (buffer-file-name x)))
+<a href="#l147" class="line" id="l147">    147</a>                       (buffer-file-name x)))
+<a href="#l148" class="line" id="l148">    148</a>                 (buffer-list))))
+<a href="#l149" class="line" id="l149">    149</a> 
+<a href="#l150" class="line" id="l150">    150</a> (setq org-refile-targets &#39;((+org/opened-buffer-files :maxlevel . 9)))
 </pre>
 </div>
 </body>

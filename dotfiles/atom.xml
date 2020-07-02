@@ -4,6 +4,25 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>cf7e1011f6e095754cfe59cdd324f29c6da684f0</id>
+<published>2020-07-02T12:57:57Z</published>
+<updated>2020-07-02T12:57:57Z</updated>
+<title type="text">add Boop script, modified +org.el, .zshrc</title>
+<link rel="alternate" type="text/html" href="commit/cf7e1011f6e095754cfe59cdd324f29c6da684f0.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit cf7e1011f6e095754cfe59cdd324f29c6da684f0
+parent 6507ba42a502aef91b176bdbc449d6f7259b970c
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Thu,  2 Jul 2020 19:57:57 +0700
+
+add Boop script, modified +org.el, .zshrc
+
+</content>
+</entry>
+<entry>
 <id>6507ba42a502aef91b176bdbc449d6f7259b970c</id>
 <published>2020-07-01T16:49:35Z</published>
 <updated>2020-07-01T16:49:35Z</updated>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>add Boop script, modified +org.el, .zshrc - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/cf7e1011f6e095754cfe59cdd324f29c6da684f0.html">cf7e1011f6e095754cfe59cdd324f29c6da684f0</a>
+<b>parent</b> <a href="../commit/6507ba42a502aef91b176bdbc449d6f7259b970c.html">6507ba42a502aef91b176bdbc449d6f7259b970c</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Thu,  2 Jul 2020 19:57:57 +0700
+
+add Boop script, modified +org.el, .zshrc
+
+<b>Diffstat:</b>
+<table><tr><td class="A">A</td><td><a href="#h0">.config/boop/hex2rgb.js</a></td><td> | </td><td class="num">44</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.doom.d/+org.el</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">.zshrc</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre></div><p>3 files changed, 47 insertions(<span id="plus">+</span>), 1 deletion(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.config/boop/hex2rgb.js.html">.config/boop/hex2rgb.js</a> b/<a href="../file/.config/boop/hex2rgb.js.html">.config/boop/hex2rgb.js</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -0,0 +1,44 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+/**
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+     {
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+         &quot;api&quot;:1,
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+         &quot;name&quot;:&quot;HEX2RGB&quot;,
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+         &quot;description&quot;:&quot;Convert colors in hexadecimal to RGB.&quot;,
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+         &quot;author&quot;:&quot;Yohanes Bandung Bondowoso&quot;,
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+         &quot;icon&quot;:&quot;table&quot;,
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+         &quot;tags&quot;:&quot;flip&quot;
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+     }
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+ **/
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+function main(input) {
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+  const items = input.text.split(&quot;\n&quot;);
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+  const convertedItems = items.map((item) =&gt; {
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+    if (item) {
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+      return makin(item);
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+    } else {
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+      return item;
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+    }
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+  });
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+  input.text = String(convertedItems.join(&quot;\n&quot;));
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+}
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+function makin(input) {
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+  R = hexToR(input);
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+  G = hexToG(input);
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+  B = hexToB(input);
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+  return `rgb(${R.toString()}, ${G.toString()}, ${B.toString()})`;
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+}
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+function hexToR(h) {
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+  return parseInt(cutHex(h).substring(0, 2), 16);
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+}
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+function hexToG(h) {
+</a><a href="#h0-0-35" id="h0-0-35" class="i">+  return parseInt(cutHex(h).substring(2, 4), 16);
+</a><a href="#h0-0-36" id="h0-0-36" class="i">+}
+</a><a href="#h0-0-37" id="h0-0-37" class="i">+function hexToB(h) {
+</a><a href="#h0-0-38" id="h0-0-38" class="i">+  return parseInt(cutHex(h).substring(4, 6), 16);
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+}
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+function cutHex(h) {
+</a><a href="#h0-0-41" id="h0-0-41" class="i">+  return h.charAt(0) == &quot;#&quot; ? h.substring(1, 7) : h;
+</a><a href="#h0-0-42" id="h0-0-42" class="i">+}
+</a><a href="#h0-0-43" id="h0-0-43" class="i">+
+</a><b>diff --git a/<a id="h1" href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a> b/<a href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -96,6 +96,8 @@
+</a> (use-package! org-journal
+   :bind
+   (&quot;C-c n j&quot; . org-journal-new-entry)
+<a href="#h1-0-3" id="h1-0-3" class="i">+  (&quot;C-c b&quot; . org-journal-previous-entry)
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  (&quot;C-c f&quot; . org-journal-next-entry)
+</a>   :config
+   (setq org-journal-dir &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes/journals/&quot;
+         org-journal-date-prefix &quot;#+title: &quot;
+<b>diff --git a/<a id="h2" href="../file/.zshrc.html">.zshrc</a> b/<a href="../file/.zshrc.html">.zshrc</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -242,7 +242,7 @@ zplugin light zdharma/fast-syntax-highlighting
+</a> 
+ zplugin light denysdovhan/spaceship-prompt
+ 
+<a href="#h2-0-3" id="h2-0-3" class="d">-export NVM_DIR=&quot;$HOME/.nvm&quot;
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+# export NVM_DIR=&quot;$HOME/.nvm&quot;
+</a> # export NVM_COMPLETION=true
+ # export NVM_LAZY_LOAD=true
+ # export NVM_LAZY_LOAD_EXTRA_COMMANDS=(&#39;nvim&#39;)
+</pre>
+</div>
+</div>
+</body>
+</html>
