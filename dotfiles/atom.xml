@@ -4,6 +4,44 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>d8d7a75b63450dbc012bc83ff99a568bd197c576</id>
+<published>2020-07-04T10:23:59Z</published>
+<updated>2020-07-04T10:23:59Z</updated>
+<title type="text">update doom config</title>
+<link rel="alternate" type="text/html" href="commit/d8d7a75b63450dbc012bc83ff99a568bd197c576.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit d8d7a75b63450dbc012bc83ff99a568bd197c576
+parent 17767dbecf127a1fc0ad64f35753ba17dab3f508
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat,  4 Jul 2020 17:23:59 +0700
+
+update doom config
+
+</content>
+</entry>
+<entry>
+<id>17767dbecf127a1fc0ad64f35753ba17dab3f508</id>
+<published>2020-07-04T10:23:39Z</published>
+<updated>2020-07-04T10:23:39Z</updated>
+<title type="text">change to gruvbox (not material)</title>
+<link rel="alternate" type="text/html" href="commit/17767dbecf127a1fc0ad64f35753ba17dab3f508.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 17767dbecf127a1fc0ad64f35753ba17dab3f508
+parent cf7e1011f6e095754cfe59cdd324f29c6da684f0
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat,  4 Jul 2020 17:23:39 +0700
+
+change to gruvbox (not material)
+
+</content>
+</entry>
+<entry>
 <id>cf7e1011f6e095754cfe59cdd324f29c6da684f0</id>
 <published>2020-07-02T12:57:57Z</published>
 <updated>2020-07-02T12:57:57Z</updated>

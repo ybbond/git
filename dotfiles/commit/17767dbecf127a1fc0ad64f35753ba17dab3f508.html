@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>change to gruvbox (not material) - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/17767dbecf127a1fc0ad64f35753ba17dab3f508.html">17767dbecf127a1fc0ad64f35753ba17dab3f508</a>
+<b>parent</b> <a href="../commit/cf7e1011f6e095754cfe59cdd324f29c6da684f0.html">cf7e1011f6e095754cfe59cdd324f29c6da684f0</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Sat,  4 Jul 2020 17:23:39 +0700
+
+change to gruvbox (not material)
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.config/kitty/kitty.conf</a></td><td> | </td><td class="num">40</td><td><span class="i">++++++++++++++++++++</span><span class="d">--------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.config/nvim/init.vim</a></td><td> | </td><td class="num">23</td><td><span class="i">++++++++++++++</span><span class="d">---------</span></td></tr>
+</table></pre></div><p>2 files changed, 34 insertions(<span id="plus">+</span>), 29 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.config/kitty/kitty.conf.html">.config/kitty/kitty.conf</a> b/<a href="../file/.config/kitty/kitty.conf.html">.config/kitty/kitty.conf</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -492,8 +492,8 @@ inactive_tab_font_style normal
+</a> #: Color scheme {{{
+ 
+ # gruvbox-dark
+<a href="#h0-0-3" id="h0-0-3" class="d">-background #282828
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-foreground #d4be98
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+background #272727
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+foreground #ebdbb2
+</a> 
+ # gruvbox-light
+ # background #fbf1c7
+<a href="#h0-1" id="h0-1" class="h">@@ -531,7 +531,7 @@ dim_opacity 0.75
+</a> #: means no dimming and zero means fully dimmed (i.e. invisible).
+ 
+ # gruvbox-dark
+<a href="#h0-1-3" id="h0-1-3" class="d">-selection_foreground #282828
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+selection_foreground #655b53
+</a> 
+ # gruvbox-light
+ # selection_foreground #fbf1c7
+<a href="#h0-2" id="h0-2" class="h">@@ -540,7 +540,7 @@ selection_foreground #282828
+</a> #: means to leave the color unchanged.
+ 
+ # gruvbox-dark
+<a href="#h0-2-3" id="h0-2-3" class="d">-selection_background #d4be98
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+selection_background #ebdbb2
+</a> 
+ # gruvbox-light
+ # selection_background #654735
+<a href="#h0-3" id="h0-3" class="h">@@ -555,8 +555,8 @@ selection_background #d4be98
+</a> # Black
+ 
+ # gruvbox-dark
+<a href="#h0-3-3" id="h0-3-3" class="d">-color0 #665c54
+</a><a href="#h0-3-4" id="h0-3-4" class="d">-color8 #928374
+</a><a href="#h0-3-5" id="h0-3-5" class="i">+color0   #272727
+</a><a href="#h0-3-6" id="h0-3-6" class="i">+color8   #928373
+</a> 
+ # gruvbox-light
+ # color0 #bdae93
+<a href="#h0-4" id="h0-4" class="h">@@ -565,8 +565,8 @@ color8 #928374
+</a> # Red
+ 
+ # gruvbox-dark
+<a href="#h0-4-3" id="h0-4-3" class="d">-color1 #ea6962
+</a><a href="#h0-4-4" id="h0-4-4" class="d">-color9 #ea6962
+</a><a href="#h0-4-5" id="h0-4-5" class="i">+color1   #cc231c
+</a><a href="#h0-4-6" id="h0-4-6" class="i">+color9   #fb4833
+</a> 
+ # gruvbox-light
+ # color1 #c14a4a
+<a href="#h0-5" id="h0-5" class="h">@@ -575,8 +575,8 @@ color9 #ea6962
+</a> # Green
+ 
+ # gruvbox-dark
+<a href="#h0-5-3" id="h0-5-3" class="d">-color2 #a9b665
+</a><a href="#h0-5-4" id="h0-5-4" class="d">-color10 #a9b665
+</a><a href="#h0-5-5" id="h0-5-5" class="i">+color2   #989719
+</a><a href="#h0-5-6" id="h0-5-6" class="i">+color10  #b8ba25
+</a> 
+ # gruvbox-light
+ # color2 #6c782e
+<a href="#h0-6" id="h0-6" class="h">@@ -585,8 +585,8 @@ color10 #a9b665
+</a> # Yellow
+ 
+ # gruvbox-dark
+<a href="#h0-6-3" id="h0-6-3" class="d">-color3 #e78a4e
+</a><a href="#h0-6-4" id="h0-6-4" class="d">-color11 #d8a657
+</a><a href="#h0-6-5" id="h0-6-5" class="i">+color3   #d79920
+</a><a href="#h0-6-6" id="h0-6-6" class="i">+color11  #fabc2e
+</a> 
+ # gruvbox-light
+ # color3 #c35e0a
+<a href="#h0-7" id="h0-7" class="h">@@ -595,8 +595,8 @@ color11 #d8a657
+</a> # Blue
+ 
+ # gruvbox-dark
+<a href="#h0-7-3" id="h0-7-3" class="d">-color4 #7daea3
+</a><a href="#h0-7-4" id="h0-7-4" class="d">-color12 #7daea3
+</a><a href="#h0-7-5" id="h0-7-5" class="i">+color4  #448488
+</a><a href="#h0-7-6" id="h0-7-6" class="i">+color12 #83a597
+</a> 
+ # gruvbox-light
+ # color4 #45707a
+<a href="#h0-8" id="h0-8" class="h">@@ -605,8 +605,8 @@ color12 #7daea3
+</a> # Magenta
+ 
+ # gruvbox-dark
+<a href="#h0-8-3" id="h0-8-3" class="d">-color5 #d3869b
+</a><a href="#h0-8-4" id="h0-8-4" class="d">-color13 #d3869b
+</a><a href="#h0-8-5" id="h0-8-5" class="i">+color5   #b16185
+</a><a href="#h0-8-6" id="h0-8-6" class="i">+color13  #d3859a
+</a> 
+ # gruvbox-light
+ # color5 #945e80
+<a href="#h0-9" id="h0-9" class="h">@@ -615,8 +615,8 @@ color13 #d3869b
+</a> # Cyan
+ 
+ # gruvbox-dark
+<a href="#h0-9-3" id="h0-9-3" class="d">-color6 #89b482
+</a><a href="#h0-9-4" id="h0-9-4" class="d">-color14 #89b482
+</a><a href="#h0-9-5" id="h0-9-5" class="i">+color6   #689d69
+</a><a href="#h0-9-6" id="h0-9-6" class="i">+color14  #8ec07b
+</a> 
+ # gruvbox-light
+ # color6 #4c7a5d
+<a href="#h0-10" id="h0-10" class="h">@@ -625,8 +625,8 @@ color14 #89b482
+</a> # White
+ 
+ # gruvbox-dark
+<a href="#h0-10-3" id="h0-10-3" class="d">-color7 #d4be98
+</a><a href="#h0-10-4" id="h0-10-4" class="d">-color15 #d4be98
+</a><a href="#h0-10-5" id="h0-10-5" class="i">+color7   #a89983
+</a><a href="#h0-10-6" id="h0-10-6" class="i">+color15  #ebdbb2
+</a> 
+ # gruvbox-light
+ # color7 #654735
+<b>diff --git a/<a id="h1" href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a> b/<a href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -9,8 +9,8 @@ endif
+</a> 
+ &quot; PlugIns
+ call plug#begin(s:plugin_location)
+<a href="#h1-0-3" id="h1-0-3" class="d">-  Plug &#39;sainnhe/gruvbox-material&#39;
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-    let g:gruvbox_material_enable_italic = 1
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+  Plug &#39;morhetz/gruvbox&#39;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+    let g:gruvbox_italic = 1
+</a> 
+   &quot; *fzf.vim*
+   Plug &#39;/usr/local/opt/fzf&#39;
+<a href="#h1-1" id="h1-1" class="h">@@ -57,7 +57,7 @@ call plug#begin(s:plugin_location)
+</a>     let g:airline_section_error = &#39;%{airline#util#wrap(airline#extensions#coc#get_error(),0)}&#39;
+     let g:airline_section_warning = &#39;%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}&#39;
+     let g:airline#extensions#vimtex#enabled = 0
+<a href="#h1-1-3" id="h1-1-3" class="d">-    let g:airline_theme = &#39;gruvbox_material&#39;
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+    let g:airline_theme = &#39;gruvbox&#39;
+</a> 
+   &quot; *tmux*
+   Plug &#39;tmux-plugins/vim-tmux&#39;
+<a href="#h1-2" id="h1-2" class="h">@@ -156,8 +156,8 @@ call plug#begin(s:plugin_location)
+</a> 
+ call plug#end()
+ 
+<a href="#h1-2-3" id="h1-2-3" class="d">-colorscheme gruvbox-material
+</a><a href="#h1-2-4" id="h1-2-4" class="d">-set background=dark
+</a><a href="#h1-2-5" id="h1-2-5" class="i">+colorscheme gruvbox
+</a><a href="#h1-2-6" id="h1-2-6" class="i">+&quot; set background=dark
+</a> set termguicolors
+ 
+ syntax enable
+<a href="#h1-3" id="h1-3" class="h">@@ -313,9 +313,14 @@ nnoremap gB :bprevious&lt;cr&gt;
+</a>   &quot; nnoremap &lt;C-i&gt; :Files&lt;cr&gt;
+ 
+ &quot; |vim-clap|
+<a href="#h1-3-3" id="h1-3-3" class="d">-  nnoremap &lt;C-i&gt; :Clap grep ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+</a><a href="#h1-3-4" id="h1-3-4" class="d">-  nnoremap &lt;C-p&gt; :Clap files --hidden&lt;cr&gt;
+</a><a href="#h1-3-5" id="h1-3-5" class="d">-  nnoremap &lt;leader&gt;* :Clap grep ++query=&lt;cword&gt; ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+</a><a href="#h1-3-6" id="h1-3-6" class="i">+  nnoremap &lt;C-i&gt; :Clap!! grep ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+</a><a href="#h1-3-7" id="h1-3-7" class="i">+  nnoremap &lt;leader&gt;&lt;C-i&gt; :Clap grep ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+</a><a href="#h1-3-8" id="h1-3-8" class="i">+  nnoremap &lt;C-p&gt; :Clap!! files --hidden&lt;cr&gt;
+</a><a href="#h1-3-9" id="h1-3-9" class="i">+  nnoremap &lt;leader&gt;&lt;C-p&gt; :Clap files --hidden&lt;cr&gt;
+</a><a href="#h1-3-10" id="h1-3-10" class="i">+  nnoremap &lt;leader&gt;* :Clap!! grep ++query=&lt;cword&gt; ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+</a><a href="#h1-3-11" id="h1-3-11" class="i">+  nnoremap &lt;leader&gt;&lt;leader&gt;* :Clap grep ++query=&lt;cword&gt; ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+</a><a href="#h1-3-12" id="h1-3-12" class="i">+  vnoremap &lt;leader&gt;* :Clap!! grep ++query=@visual ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+</a><a href="#h1-3-13" id="h1-3-13" class="i">+  vnoremap &lt;leader&gt;&lt;leader&gt;* :Clap grep ++query=@visual ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+</a>   nnoremap &lt;C-b&gt; :Clap buffers&lt;cr&gt;
+ 
+ &quot; |nerdtree|
+<a href="#h1-4" id="h1-4" class="h">@@ -443,7 +448,7 @@ set diffopt+=vertical
+</a> 
+ &quot; Change comment color
+ &quot; hi Comment guifg=LightBlue
+<a href="#h1-4-3" id="h1-4-3" class="d">-hi Comment gui=bold cterm=bold
+</a><a href="#h1-4-4" id="h1-4-4" class="i">+hi Comment gui=italic cterm=italic
+</a> hi htmlStrike gui=strikethrough cterm=strikethrough guibg=Black ctermbg=Black
+ hi Todo guibg=White ctermbg=White guifg=Black ctermfg=Black gui=bold,italic cterm=bold,italic
+ hi NonText guifg=#4a4a59 ctermfg=Gray
+</pre>
+</div>
+</div>
+</body>
+</html>

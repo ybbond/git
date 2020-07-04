@@ -15,7 +15,7 @@
 <a href="../../../index.html">Log</a> | <a href="../../../files.html">Files</a> | <a href="../../../refs.html">Refs</a> | <a href="../../../file/README.md.html">README</a> | <a href="../../../file/LICENSE.md.html">LICENSE</a> | <a href="../../../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> list.html (1743B)</p><hr/><pre id="blob">
+<p> list.html (1751B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> {{ define &quot;main&quot; }}
 <a href="#l2" class="line" id="l2">      2</a>   &lt;div class=&quot;h-feed&quot;&gt;
 <a href="#l3" class="line" id="l3">      3</a>     &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
@@ -32,7 +32,7 @@
 <a href="#l14" class="line" id="l14">     14</a>     &lt;/div&gt;
 <a href="#l15" class="line" id="l15">     15</a>   {{ $selflink := .Permalink }}
 <a href="#l16" class="line" id="l16">     16</a>   {{ if or .Title .Content }}
-<a href="#l17" class="line" id="l17">     17</a>     &lt;div class=&quot;list__header&quot;&gt;
+<a href="#l17" class="line" id="l17">     17</a>     &lt;div class=&quot;list__header content&quot;&gt;
 <a href="#l18" class="line" id="l18">     18</a>       {{ $isTag := eq .Type &quot;tags&quot; }}
 <a href="#l19" class="line" id="l19">     19</a>       {{ with .Title }}
 <a href="#l20" class="line" id="l20">     20</a>         &lt;a href={{ $selflink }} class=&quot;u-url no-outline&quot;&gt;

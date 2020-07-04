@@ -15,19 +15,59 @@
 <a href="../../../../index.html">Log</a> | <a href="../../../../files.html">Files</a> | <a href="../../../../refs.html">Refs</a> | <a href="../../../../file/README.md.html">README</a> | <a href="../../../../file/LICENSE.md.html">LICENSE</a> | <a href="../../../../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> render-link.html (324B)</p><hr/><pre id="blob">
+<p> render-link.html (2024B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> &lt;a href=&quot;{{ .Destination | safeURL }}&quot;
-<a href="#l2" class="line" id="l2">      2</a>     {{ with .Title}}
-<a href="#l3" class="line" id="l3">      3</a>       title=&quot;{{ . }}&quot;
-<a href="#l4" class="line" id="l4">      4</a>     {{ end }}
-<a href="#l5" class="line" id="l5">      5</a>     data-goatcounter-click=&quot;{{ .Text }}&quot;
-<a href="#l6" class="line" id="l6">      6</a>     {{ if strings.HasPrefix .Destination &quot;http&quot; }}
-<a href="#l7" class="line" id="l7">      7</a>       target=&quot;_blank&quot;
-<a href="#l8" class="line" id="l8">      8</a>       rel=&quot;noreferrer noopener&quot;
-<a href="#l9" class="line" id="l9">      9</a>     {{ else }}
-<a href="#l10" class="line" id="l10">     10</a>       data-rel=&quot;prefetch&quot;
-<a href="#l11" class="line" id="l11">     11</a>     {{ end }}
-<a href="#l12" class="line" id="l12">     12</a> &gt;{{ .Text | safeHTML }}&lt;/a&gt;</pre>
+<a href="#l2" class="line" id="l2">      2</a>   {{ $brand := &quot;font-awesome-flag&quot; }}
+<a href="#l3" class="line" id="l3">      3</a>   {{ $title := .Title }}
+<a href="#l4" class="line" id="l4">      4</a> 
+<a href="#l5" class="line" id="l5">      5</a>   {{ $root := .Page.Site.BaseURL | replaceRE &quot;^https?://(en.|www.|m.)?([^/]+).*&quot; &quot;$2&quot; }}
+<a href="#l6" class="line" id="l6">      6</a>   {{ $domain := .Destination | replaceRE &quot;^https?://(en.|www.|m.)?([^/]+).*&quot; &quot;$2&quot; }}
+<a href="#l7" class="line" id="l7">      7</a>   {{ if eq $domain &quot;github.com&quot; }}
+<a href="#l8" class="line" id="l8">      8</a>     {{ $brand = &quot;github&quot; }}
+<a href="#l9" class="line" id="l9">      9</a>   {{ else if eq $domain &quot;twitter.com&quot; }}
+<a href="#l10" class="line" id="l10">     10</a>     {{ $brand = &quot;twitter&quot; }}
+<a href="#l11" class="line" id="l11">     11</a>   {{ else if eq $domain &quot;patreon.com&quot; }}
+<a href="#l12" class="line" id="l12">     12</a>     {{ $brand = &quot;patreon&quot; }}
+<a href="#l13" class="line" id="l13">     13</a>   {{ else if eq $domain &quot;instagram.com&quot; }}
+<a href="#l14" class="line" id="l14">     14</a>     {{ $brand = &quot;instagram&quot; }}
+<a href="#l15" class="line" id="l15">     15</a>   {{ else if eq $domain &quot;kickstarter.com&quot; }}
+<a href="#l16" class="line" id="l16">     16</a>     {{ $brand = &quot;kickstarter&quot; }}
+<a href="#l17" class="line" id="l17">     17</a>   {{ else if eq $domain &quot;keybase.io&quot; }}
+<a href="#l18" class="line" id="l18">     18</a>     {{ $brand = &quot;keybase&quot; }}
+<a href="#l19" class="line" id="l19">     19</a>   {{ else if eq $domain &quot;openstreetmap.org&quot; }}
+<a href="#l20" class="line" id="l20">     20</a>     {{ $brand = &quot;periscope&quot; }}
+<a href="#l21" class="line" id="l21">     21</a>   {{ else if eq $domain &quot;apple.stackexchange.com&quot; }}
+<a href="#l22" class="line" id="l22">     22</a>     {{ $brand = &quot;stack-exchange&quot; }}
+<a href="#l23" class="line" id="l23">     23</a>   {{ else if eq $domain &quot;news.ycombinator.com&quot; }}
+<a href="#l24" class="line" id="l24">     24</a>     {{ $brand = &quot;hacker-news&quot; }}
+<a href="#l25" class="line" id="l25">     25</a>   {{ else if eq $domain &quot;git.ybbond.dev&quot; }}
+<a href="#l26" class="line" id="l26">     26</a>     {{ $brand = &quot;git-alt&quot; }}
+<a href="#l27" class="line" id="l27">     27</a>   {{ else if or (eq $domain &quot;wikipedia.com&quot;) (eq $domain &quot;wikipedia.org&quot;) }}
+<a href="#l28" class="line" id="l28">     28</a>     {{ $brand = &quot;wikipedia-w&quot; }}
+<a href="#l29" class="line" id="l29">     29</a>   {{ end}}
+<a href="#l30" class="line" id="l30">     30</a> 
+<a href="#l31" class="line" id="l31">     31</a>   {{ $first := truncate 1 &quot;&quot; $domain }}
+<a href="#l32" class="line" id="l32">     32</a>   {{ $slash := (eq $first &quot;/&quot; )}}
+<a href="#l33" class="line" id="l33">     33</a>   {{ $hash := (eq $first &quot;#&quot;) }}
+<a href="#l34" class="line" id="l34">     34</a>   {{ $not_internal := (eq true (and (and (ne $first &quot;/&quot;) (ne $first &quot;#&quot;)) (ne $domain $root))) }}
+<a href="#l35" class="line" id="l35">     35</a> 
+<a href="#l36" class="line" id="l36">     36</a>     {{ if ne .Title &quot;&quot; }}
+<a href="#l37" class="line" id="l37">     37</a>       title=&quot;{{ .Title }}&quot;
+<a href="#l38" class="line" id="l38">     38</a>     {{ else if $slash }}
+<a href="#l39" class="line" id="l39">     39</a>       title=&quot;Internal link with text: {{ .Text | safeHTML }}&quot;
+<a href="#l40" class="line" id="l40">     40</a>     {{ else if $hash }}
+<a href="#l41" class="line" id="l41">     41</a>       title=&quot;Same post link with text: {{ .Text | safeHTML }}&quot;
+<a href="#l42" class="line" id="l42">     42</a>     {{ else }}
+<a href="#l43" class="line" id="l43">     43</a>       title=&quot;Link to {{ $domain }} with text: {{ .Text | safeHTML }}&quot;
+<a href="#l44" class="line" id="l44">     44</a>     {{ end }}
+<a href="#l45" class="line" id="l45">     45</a>     data-goatcounter-click=&quot;{{ .Text }}&quot;
+<a href="#l46" class="line" id="l46">     46</a>     {{ if strings.HasPrefix .Destination &quot;http&quot; }}
+<a href="#l47" class="line" id="l47">     47</a>       target=&quot;_blank&quot;
+<a href="#l48" class="line" id="l48">     48</a>       rel=&quot;noreferrer noopener&quot;
+<a href="#l49" class="line" id="l49">     49</a>     {{ else }}
+<a href="#l50" class="line" id="l50">     50</a>       data-rel=&quot;prefetch&quot;
+<a href="#l51" class="line" id="l51">     51</a>     {{ end }}
+<a href="#l52" class="line" id="l52">     52</a> &gt;{{ .Text | safeHTML }}{{if and (ne false $not_internal) (ne $domain &quot;stats.ybbond.dev&quot;) }}&amp;nbsp;&lt;i class=&quot;fab fa-{{ $brand }}&quot;&gt;&lt;/i&gt;{{ end }}&lt;/a&gt;</pre>
 </div>
 </body>
 </html>

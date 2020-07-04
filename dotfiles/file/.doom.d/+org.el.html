@@ -15,7 +15,7 @@
 <a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> +org.el (5104B)</p><hr/><pre id="blob">
+<p> +org.el (5552B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 <a href="#l2" class="line" id="l2">      2</a> 
 <a href="#l3" class="line" id="l3">      3</a> ;; source https://github.com/theianjones/dotfiles/blob/master/.doom.d/+org.el
@@ -131,41 +131,51 @@
 <a href="#l113" class="line" id="l113">    113</a>   :config
 <a href="#l114" class="line" id="l114">    114</a>   (setq org-id-link-to-org-use-id nil
 <a href="#l115" class="line" id="l115">    115</a>         org-pretty-entities t
-<a href="#l116" class="line" id="l116">    116</a>         org-hide-emphasis-markers t))
-<a href="#l117" class="line" id="l117">    117</a> 
-<a href="#l118" class="line" id="l118">    118</a> (use-package! org-roam-server
-<a href="#l119" class="line" id="l119">    119</a>   :ensure t
-<a href="#l120" class="line" id="l120">    120</a>   :config
-<a href="#l121" class="line" id="l121">    121</a>   (setq org-roam-server-host &quot;127.0.0.1&quot;
-<a href="#l122" class="line" id="l122">    122</a>         org-roam-server-port 3001
-<a href="#l123" class="line" id="l123">    123</a>         org-roam-server-export-inline-images t
-<a href="#l124" class="line" id="l124">    124</a>         org-roam-server-authenticate nil
-<a href="#l125" class="line" id="l125">    125</a>         org-roam-server-network-poll t
-<a href="#l126" class="line" id="l126">    126</a>         org-roam-server-network-arrows nil
-<a href="#l127" class="line" id="l127">    127</a>         org-roam-server-network-label-truncate t
-<a href="#l128" class="line" id="l128">    128</a>         org-roam-server-network-label-truncate-length 60
-<a href="#l129" class="line" id="l129">    129</a>         org-roam-server-network-label-wrap-length 20))
-<a href="#l130" class="line" id="l130">    130</a> 
-<a href="#l131" class="line" id="l131">    131</a> ;; (add-hook &#39;org-roam-server-mode (lambda () (browse-url-chrome &quot;http://localhost:3001&quot;)))
-<a href="#l132" class="line" id="l132">    132</a> 
-<a href="#l133" class="line" id="l133">    133</a> ;; Refile a heading to another buffer
-<a href="#l134" class="line" id="l134">    134</a> ;; Allows you to refile into different files - specifically to
-<a href="#l135" class="line" id="l135">    135</a> ;; create new &#39;parent&#39; headings
-<a href="#l136" class="line" id="l136">    136</a> (setq org-refile-use-outline-path &#39;file)
-<a href="#l137" class="line" id="l137">    137</a> ;; makes org-refile outline working with helm/ivy
-<a href="#l138" class="line" id="l138">    138</a> (setq org-outline-path-complete-in-steps nil)
-<a href="#l139" class="line" id="l139">    139</a> (setq org-refile-allow-creating-parent-nodes &#39;confirm)
-<a href="#l140" class="line" id="l140">    140</a> (defun +org/opened-buffer-files ()
-<a href="#l141" class="line" id="l141">    141</a> ;;   &quot;Return the list of files currently opened in emacs&quot;
-<a href="#l142" class="line" id="l142">    142</a>   (delq nil
-<a href="#l143" class="line" id="l143">    143</a>         (mapcar (lambda (x)
-<a href="#l144" class="line" id="l144">    144</a>                   (if (and (buffer-file-name x)
-<a href="#l145" class="line" id="l145">    145</a>                            (string-match &quot;\\.org$&quot;
-<a href="#l146" class="line" id="l146">    146</a>                                          (buffer-file-name x)))
-<a href="#l147" class="line" id="l147">    147</a>                       (buffer-file-name x)))
-<a href="#l148" class="line" id="l148">    148</a>                 (buffer-list))))
-<a href="#l149" class="line" id="l149">    149</a> 
-<a href="#l150" class="line" id="l150">    150</a> (setq org-refile-targets &#39;((+org/opened-buffer-files :maxlevel . 9)))
+<a href="#l116" class="line" id="l116">    116</a>         org-hide-emphasis-markers t)
+<a href="#l117" class="line" id="l117">    117</a>   (setq org-todo-keywords
+<a href="#l118" class="line" id="l118">    118</a>         &#39;((sequence &quot;TODO(t)&quot; &quot;PRGS(p)&quot; &quot;TEST(i)&quot; &quot;FDBK(f)&quot; &quot;HOLD(h)&quot; &quot;|&quot; &quot;DONE(d)&quot; &quot;CANCELED(c)&quot;)
+<a href="#l119" class="line" id="l119">    119</a>           (sequence &quot;[ ](T)&quot; &quot;[-](S)&quot; &quot;[?](W)&quot; &quot;|&quot; &quot;[X](D)&quot;)))
+<a href="#l120" class="line" id="l120">    120</a>   (setq org-todo-keyword-faces
+<a href="#l121" class="line" id="l121">    121</a>         &#39;((&quot;[-]&quot; . +org-todo-active)
+<a href="#l122" class="line" id="l122">    122</a>           (&quot;PRGS&quot; . +org-todo-active)
+<a href="#l123" class="line" id="l123">    123</a>           (&quot;[?]&quot; . +org-todo-onhold)
+<a href="#l124" class="line" id="l124">    124</a>           (&quot;FDBK&quot; . +org-todo-onhold)
+<a href="#l125" class="line" id="l125">    125</a>           (&quot;TEST&quot; . +org-todo-onhold)
+<a href="#l126" class="line" id="l126">    126</a>           (&quot;HOLD&quot; . +org-todo-project))))
+<a href="#l127" class="line" id="l127">    127</a> 
+<a href="#l128" class="line" id="l128">    128</a> (use-package! org-roam-server
+<a href="#l129" class="line" id="l129">    129</a>   :ensure t
+<a href="#l130" class="line" id="l130">    130</a>   :config
+<a href="#l131" class="line" id="l131">    131</a>   (setq org-roam-server-host &quot;127.0.0.1&quot;
+<a href="#l132" class="line" id="l132">    132</a>         org-roam-server-port 3001
+<a href="#l133" class="line" id="l133">    133</a>         org-roam-server-export-inline-images t
+<a href="#l134" class="line" id="l134">    134</a>         org-roam-server-authenticate nil
+<a href="#l135" class="line" id="l135">    135</a>         org-roam-server-network-poll t
+<a href="#l136" class="line" id="l136">    136</a>         org-roam-server-network-arrows nil
+<a href="#l137" class="line" id="l137">    137</a>         org-roam-server-network-label-truncate t
+<a href="#l138" class="line" id="l138">    138</a>         org-roam-server-network-label-truncate-length 60
+<a href="#l139" class="line" id="l139">    139</a>         org-roam-server-network-label-wrap-length 20))
+<a href="#l140" class="line" id="l140">    140</a> 
+<a href="#l141" class="line" id="l141">    141</a> ;; (add-hook &#39;org-roam-server-mode (lambda () (browse-url-chrome &quot;http://localhost:3001&quot;)))
+<a href="#l142" class="line" id="l142">    142</a> 
+<a href="#l143" class="line" id="l143">    143</a> ;; Refile a heading to another buffer
+<a href="#l144" class="line" id="l144">    144</a> ;; Allows you to refile into different files - specifically to
+<a href="#l145" class="line" id="l145">    145</a> ;; create new &#39;parent&#39; headings
+<a href="#l146" class="line" id="l146">    146</a> (setq org-refile-use-outline-path &#39;file)
+<a href="#l147" class="line" id="l147">    147</a> ;; makes org-refile outline working with helm/ivy
+<a href="#l148" class="line" id="l148">    148</a> (setq org-outline-path-complete-in-steps nil)
+<a href="#l149" class="line" id="l149">    149</a> (setq org-refile-allow-creating-parent-nodes &#39;confirm)
+<a href="#l150" class="line" id="l150">    150</a> (defun +org/opened-buffer-files ()
+<a href="#l151" class="line" id="l151">    151</a> ;;   &quot;Return the list of files currently opened in emacs&quot;
+<a href="#l152" class="line" id="l152">    152</a>   (delq nil
+<a href="#l153" class="line" id="l153">    153</a>         (mapcar (lambda (x)
+<a href="#l154" class="line" id="l154">    154</a>                   (if (and (buffer-file-name x)
+<a href="#l155" class="line" id="l155">    155</a>                            (string-match &quot;\\.org$&quot;
+<a href="#l156" class="line" id="l156">    156</a>                                          (buffer-file-name x)))
+<a href="#l157" class="line" id="l157">    157</a>                       (buffer-file-name x)))
+<a href="#l158" class="line" id="l158">    158</a>                 (buffer-list))))
+<a href="#l159" class="line" id="l159">    159</a> 
+<a href="#l160" class="line" id="l160">    160</a> (setq org-refile-targets &#39;((+org/opened-buffer-files :maxlevel . 9)))
 </pre>
 </div>
 </body>

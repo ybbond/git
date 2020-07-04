@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>update doom config - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/d8d7a75b63450dbc012bc83ff99a568bd197c576.html">d8d7a75b63450dbc012bc83ff99a568bd197c576</a>
+<b>parent</b> <a href="../commit/17767dbecf127a1fc0ad64f35753ba17dab3f508.html">17767dbecf127a1fc0ad64f35753ba17dab3f508</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Sat,  4 Jul 2020 17:23:59 +0700
+
+update doom config
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.doom.d/+org.el</a></td><td> | </td><td class="num">12</td><td><span class="i">+++++++++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.doom.d/config.el</a></td><td> | </td><td class="num">6</td><td><span class="i">++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>2 files changed, 17 insertions(<span id="plus">+</span>), 1 deletion(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a> b/<a href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -113,7 +113,17 @@
+</a>   :config
+   (setq org-id-link-to-org-use-id nil
+         org-pretty-entities t
+<a href="#h0-0-3" id="h0-0-3" class="d">-        org-hide-emphasis-markers t))
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+        org-hide-emphasis-markers t)
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+  (setq org-todo-keywords
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+        &#39;((sequence &quot;TODO(t)&quot; &quot;PRGS(p)&quot; &quot;TEST(i)&quot; &quot;FDBK(f)&quot; &quot;HOLD(h)&quot; &quot;|&quot; &quot;DONE(d)&quot; &quot;CANCELED(c)&quot;)
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+          (sequence &quot;[ ](T)&quot; &quot;[-](S)&quot; &quot;[?](W)&quot; &quot;|&quot; &quot;[X](D)&quot;)))
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+  (setq org-todo-keyword-faces
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+        &#39;((&quot;[-]&quot; . +org-todo-active)
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+          (&quot;PRGS&quot; . +org-todo-active)
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+          (&quot;[?]&quot; . +org-todo-onhold)
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+          (&quot;FDBK&quot; . +org-todo-onhold)
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+          (&quot;TEST&quot; . +org-todo-onhold)
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+          (&quot;HOLD&quot; . +org-todo-project))))
+</a> 
+ (use-package! org-roam-server
+   :ensure t
+<b>diff --git a/<a id="h1" href="../file/.doom.d/config.el.html">.doom.d/config.el</a> b/<a href="../file/.doom.d/config.el.html">.doom.d/config.el</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -45,6 +45,12 @@
+</a> 
+ (setq whitespace-action &#39;(auto-cleanup))
+ 
+<a href="#h1-0-3" id="h1-0-3" class="i">+;; (define-key! evil-normal-state-map (kbd &quot;M-S-l&quot;) &#39;enlarge-window-horizontally)
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+;; (define-key! evil-normal-state-map (kbd &quot;M-S-h&quot;) &#39;shrink-window-horizontally)
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+(global-set-key (kbd &quot;s-l&quot;) &#39;org-roam-find-file)
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+(global-set-key (kbd &quot;s-b&quot;) &#39;ivy-switch-buffer)
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+(global-set-key (kbd &quot;s-K&quot;) &#39;kill-buffer)
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+
+</a> (load! &quot;+ui&quot;)
+ (load! &quot;+org&quot;)
+ 
+</pre>
+</div>
+</div>
+</body>
+</html>

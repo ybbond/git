@@ -15,7 +15,7 @@
 <a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> config.el (3079B)</p><hr/><pre id="blob">
+<p> config.el (3382B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 <a href="#l2" class="line" id="l2">      2</a> 
 <a href="#l3" class="line" id="l3">      3</a> ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
@@ -63,38 +63,44 @@
 <a href="#l45" class="line" id="l45">     45</a> 
 <a href="#l46" class="line" id="l46">     46</a> (setq whitespace-action &#39;(auto-cleanup))
 <a href="#l47" class="line" id="l47">     47</a> 
-<a href="#l48" class="line" id="l48">     48</a> (load! &quot;+ui&quot;)
-<a href="#l49" class="line" id="l49">     49</a> (load! &quot;+org&quot;)
-<a href="#l50" class="line" id="l50">     50</a> 
-<a href="#l51" class="line" id="l51">     51</a> ;; Here are some additional functions/macros that could help you configure Doom:
-<a href="#l52" class="line" id="l52">     52</a> ;;
-<a href="#l53" class="line" id="l53">     53</a> ;; - `load!&#39; for loading external *.el files relative to this one
-<a href="#l54" class="line" id="l54">     54</a> ;; - `use-package!&#39; for configuring packages
-<a href="#l55" class="line" id="l55">     55</a> ;; - `after!&#39; for running code after a package has loaded
-<a href="#l56" class="line" id="l56">     56</a> ;; - `add-load-path!&#39; for adding directories to the `load-path&#39;, relative to
-<a href="#l57" class="line" id="l57">     57</a> ;;   this file. Emacs searches the `load-path&#39; when you load packages with
-<a href="#l58" class="line" id="l58">     58</a> ;;   `require&#39; or `use-package&#39;.
-<a href="#l59" class="line" id="l59">     59</a> ;; - `map!&#39; for binding new keys
-<a href="#l60" class="line" id="l60">     60</a> ;;
-<a href="#l61" class="line" id="l61">     61</a> ;; To get information about any of these functions/macros, move the cursor over
-<a href="#l62" class="line" id="l62">     62</a> ;; the highlighted symbol at press &#39;K&#39; (non-evil users must press &#39;C-c c k&#39;).
-<a href="#l63" class="line" id="l63">     63</a> ;; This will open documentation for it, including demos of how they are used.
-<a href="#l64" class="line" id="l64">     64</a> ;;
-<a href="#l65" class="line" id="l65">     65</a> ;; You can also try &#39;gd&#39; (or &#39;C-c c d&#39;) to jump to their definition and see how
-<a href="#l66" class="line" id="l66">     66</a> ;; they are implemented.
-<a href="#l67" class="line" id="l67">     67</a> 
-<a href="#l68" class="line" id="l68">     68</a> (custom-set-variables
-<a href="#l69" class="line" id="l69">     69</a>  ;; custom-set-variables was added by Custom.
-<a href="#l70" class="line" id="l70">     70</a>  ;; If you edit it by hand, you could mess it up, so be careful.
-<a href="#l71" class="line" id="l71">     71</a>  ;; Your init file should contain only one such instance.
-<a href="#l72" class="line" id="l72">     72</a>  ;; If there is more than one, they won&#39;t work right.
-<a href="#l73" class="line" id="l73">     73</a>  &#39;(package-selected-packages (quote (org-roam-server evil-better-visual-line))))
-<a href="#l74" class="line" id="l74">     74</a> (custom-set-faces
-<a href="#l75" class="line" id="l75">     75</a>  ;; custom-set-faces was added by Custom.
+<a href="#l48" class="line" id="l48">     48</a> ;; (define-key! evil-normal-state-map (kbd &quot;M-S-l&quot;) &#39;enlarge-window-horizontally)
+<a href="#l49" class="line" id="l49">     49</a> ;; (define-key! evil-normal-state-map (kbd &quot;M-S-h&quot;) &#39;shrink-window-horizontally)
+<a href="#l50" class="line" id="l50">     50</a> (global-set-key (kbd &quot;s-l&quot;) &#39;org-roam-find-file)
+<a href="#l51" class="line" id="l51">     51</a> (global-set-key (kbd &quot;s-b&quot;) &#39;ivy-switch-buffer)
+<a href="#l52" class="line" id="l52">     52</a> (global-set-key (kbd &quot;s-K&quot;) &#39;kill-buffer)
+<a href="#l53" class="line" id="l53">     53</a> 
+<a href="#l54" class="line" id="l54">     54</a> (load! &quot;+ui&quot;)
+<a href="#l55" class="line" id="l55">     55</a> (load! &quot;+org&quot;)
+<a href="#l56" class="line" id="l56">     56</a> 
+<a href="#l57" class="line" id="l57">     57</a> ;; Here are some additional functions/macros that could help you configure Doom:
+<a href="#l58" class="line" id="l58">     58</a> ;;
+<a href="#l59" class="line" id="l59">     59</a> ;; - `load!&#39; for loading external *.el files relative to this one
+<a href="#l60" class="line" id="l60">     60</a> ;; - `use-package!&#39; for configuring packages
+<a href="#l61" class="line" id="l61">     61</a> ;; - `after!&#39; for running code after a package has loaded
+<a href="#l62" class="line" id="l62">     62</a> ;; - `add-load-path!&#39; for adding directories to the `load-path&#39;, relative to
+<a href="#l63" class="line" id="l63">     63</a> ;;   this file. Emacs searches the `load-path&#39; when you load packages with
+<a href="#l64" class="line" id="l64">     64</a> ;;   `require&#39; or `use-package&#39;.
+<a href="#l65" class="line" id="l65">     65</a> ;; - `map!&#39; for binding new keys
+<a href="#l66" class="line" id="l66">     66</a> ;;
+<a href="#l67" class="line" id="l67">     67</a> ;; To get information about any of these functions/macros, move the cursor over
+<a href="#l68" class="line" id="l68">     68</a> ;; the highlighted symbol at press &#39;K&#39; (non-evil users must press &#39;C-c c k&#39;).
+<a href="#l69" class="line" id="l69">     69</a> ;; This will open documentation for it, including demos of how they are used.
+<a href="#l70" class="line" id="l70">     70</a> ;;
+<a href="#l71" class="line" id="l71">     71</a> ;; You can also try &#39;gd&#39; (or &#39;C-c c d&#39;) to jump to their definition and see how
+<a href="#l72" class="line" id="l72">     72</a> ;; they are implemented.
+<a href="#l73" class="line" id="l73">     73</a> 
+<a href="#l74" class="line" id="l74">     74</a> (custom-set-variables
+<a href="#l75" class="line" id="l75">     75</a>  ;; custom-set-variables was added by Custom.
 <a href="#l76" class="line" id="l76">     76</a>  ;; If you edit it by hand, you could mess it up, so be careful.
 <a href="#l77" class="line" id="l77">     77</a>  ;; Your init file should contain only one such instance.
 <a href="#l78" class="line" id="l78">     78</a>  ;; If there is more than one, they won&#39;t work right.
-<a href="#l79" class="line" id="l79">     79</a>  )
+<a href="#l79" class="line" id="l79">     79</a>  &#39;(package-selected-packages (quote (org-roam-server evil-better-visual-line))))
+<a href="#l80" class="line" id="l80">     80</a> (custom-set-faces
+<a href="#l81" class="line" id="l81">     81</a>  ;; custom-set-faces was added by Custom.
+<a href="#l82" class="line" id="l82">     82</a>  ;; If you edit it by hand, you could mess it up, so be careful.
+<a href="#l83" class="line" id="l83">     83</a>  ;; Your init file should contain only one such instance.
+<a href="#l84" class="line" id="l84">     84</a>  ;; If there is more than one, they won&#39;t work right.
+<a href="#l85" class="line" id="l85">     85</a>  )
 </pre>
 </div>
 </body>

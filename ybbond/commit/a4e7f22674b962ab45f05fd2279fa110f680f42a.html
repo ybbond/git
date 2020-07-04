@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: different font weight for light/dark - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/a4e7f22674b962ab45f05fd2279fa110f680f42a.html">a4e7f22674b962ab45f05fd2279fa110f680f42a</a>
+<b>parent</b> <a href="../commit/fe7c6a09a6bbf0618af8e1ed8c5502c3a12670da.html">fe7c6a09a6bbf0618af8e1ed8c5502c3a12670da</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Mon, 22 Jun 2020 04:27:10 +0700
+
+refactor: different font weight for light/dark
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/styles.scss</a></td><td> | </td><td class="num">8</td><td><span class="i">+++++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">assets/variables.scss</a></td><td> | </td><td class="num">7</td><td><span class="i">+++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">content/posts/Why I Positioned Sidebar to the Right.md</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre></div><p>3 files changed, 11 insertions(<span id="plus">+</span>), 6 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/styles.scss.html">assets/styles.scss</a> b/<a href="../file/assets/styles.scss.html">assets/styles.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -6,10 +6,10 @@ html {
+</a>   @include themify($themes) {
+     background-color: themed(&#39;color-background&#39;);
+     color: themed(&#39;color-text&#39;);
+<a href="#h0-0-3" id="h0-0-3" class="i">+    font-weight: themed(&#39;font-weight&#39;);
+</a>   }
+   font-family: $font-text;
+   letter-spacing: 0.025rem;
+<a href="#h0-0-7" id="h0-0-7" class="d">-  font-weight: 300;
+</a>   line-height: 1.6;
+   text-rendering: optimizeLegibility;
+   font-size: 16px;
+<a href="#h0-1" id="h0-1" class="h">@@ -26,7 +26,9 @@ html {
+</a> }
+ 
+ strong {
+<a href="#h0-1-3" id="h0-1-3" class="d">-  font-weight: 600;
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+  @include themify($themes) {
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+    font-weight: themed(&#39;font-weight-bold&#39;);
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+  }
+</a> }
+ 
+ body {
+<a href="#h0-2" id="h0-2" class="h">@@ -78,8 +80,8 @@ code {
+</a> h1, h2, h3, h4, h5 {
+   @include themify($themes) {
+     color: themed(&#39;color-green&#39;);
+<a href="#h0-2-3" id="h0-2-3" class="i">+    font-weight: themed(&#39;font-weight&#39;);
+</a>   }
+<a href="#h0-2-5" id="h0-2-5" class="d">-  font-weight: unset;
+</a>   font-family: $font-text;
+   line-height: 1.3;
+   position: relative;
+<b>diff --git a/<a id="h1" href="../file/assets/variables.scss.html">assets/variables.scss</a> b/<a href="../file/assets/variables.scss.html">assets/variables.scss</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -28,6 +28,8 @@ $themes: (
+</a>     color-red: #C31B00,
+     color-blue: #2263b6,
+     color-green: #257933,
+<a href="#h1-0-3" id="h1-0-3" class="i">+    font-weight: 400,
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+    font-weight-bold: 600,
+</a>   ),
+   dark: (
+     color-text: #E3E0D7,
+<a href="#h1-1" id="h1-1" class="h">@@ -37,8 +39,10 @@ $themes: (
+</a>     color-red: #F9690E,
+     color-blue: #8DBFFF,
+     color-green: #79D688,
+<a href="#h1-1-3" id="h1-1-3" class="i">+    font-weight: 300,
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+    font-weight-bold: 700,
+</a>   ),
+ );
+ 
+ $font-mono: &#39;iA Writer Duospace&#39;, monospace;
+<a href="#h1-1-9" id="h1-1-9" class="d">-$font-text: -apple-system, BlinkMacSystemFont, avenir, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;</a><a href="#h1-1-10" id="h1-1-10" class="d">-
+\ No newline at end of file
+</a><a href="#h1-1-11" id="h1-1-11" class="i">+$font-text: -apple-system, BlinkMacSystemFont, avenir, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+</a><b>diff --git a/<a id="h2" href="../file/content/posts/Why I Positioned Sidebar to the Right.md.html">content/posts/Why I Positioned Sidebar to the Right.md</a> b/<a href="../file/content/posts/Why I Positioned Sidebar to the Right.md.html">content/posts/Why I Positioned Sidebar to the Right.md</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -16,7 +16,7 @@ I laughed when I read that tweet. It brings back so much memories of my previous
+</a> 
+ Positioning the sidebar to the right reduces distraction when I toggle it. If the sidebar is on the left, the text shifts around whenever the sidebar is toggled on or off. Readjusting my eyes for the moved text creates disturbance to my logical thinking. &quot;Why are you not just leave the sidebar open?&quot;, you might be asking. I want to keep the screen real estate wide.
+ 
+<a href="#h2-0-3" id="h2-0-3" class="d">-Back then, I often toggle the sidebar because two reasons. First, the project I was in uses **Redux**-**Saga**. Second, I was using **VSCode**. 
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+Back then, I often toggle the sidebar because two reasons. First, the project I was working on uses **Redux**-**Saga**. Second, I used to use **VSCode**.
+</a> 
+ Redux-Saga is a great states and IO management for React, I was blown away when I was first using it. Sadly, cannot grok the Redux paradigm easily. I often need to see the file structure when I write new files or refactoring. My current project uses Apollo GraphQL and Domain Driven Development paradigm. I am comfortable using the current setup.
+ 
+</pre>
+</div>
+</div>
+</body>
+</html>

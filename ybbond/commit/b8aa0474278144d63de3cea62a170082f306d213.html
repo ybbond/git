@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: step 2. rework header, text formatting, remove duplicate css - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/b8aa0474278144d63de3cea62a170082f306d213.html">b8aa0474278144d63de3cea62a170082f306d213</a>
+<b>parent</b> <a href="../commit/1ddf09c307587792c65d5af4f569f3dda6a1c1eb.html">1ddf09c307587792c65d5af4f569f3dda6a1c1eb</a>
+<b>Author:</b> Yohanes Bandung &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Mon,  1 Jun 2020 21:46:41 +0700
+
+refactor: step 2. rework header, text formatting, remove duplicate css
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.gitignore</a></td><td> | </td><td class="num">1</td><td><span class="i"></span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">assets/content.scss</a></td><td> | </td><td class="num">11</td><td><span class="i"></span><span class="d">-----------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">assets/styles.scss</a></td><td> | </td><td class="num">84</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">---------------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h3">config.dev.toml</a></td><td> | </td><td class="num">44</td><td><span class="i"></span><span class="d">--------------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">config.toml</a></td><td> | </td><td class="num">7</td><td><span class="i">++++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">content/_index.md</a></td><td> | </td><td class="num">18</td><td><span class="i">+++++</span><span class="d">-------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">content/about/index.md</a></td><td> | </td><td class="num">13</td><td><span class="i">++++</span><span class="d">---------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h7">content/contact.md</a></td><td> | </td><td class="num">16</td><td><span class="i">++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h8">content/uses.md</a></td><td> | </td><td class="num">1</td><td><span class="i"></span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h9">layouts/_default/_markup/render-image.html</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h10">layouts/partials/footer/footer.html</a></td><td> | </td><td class="num">6</td><td><span class="i"></span><span class="d">------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h11">layouts/partials/header/header.html</a></td><td> | </td><td class="num">19</td><td><span class="i">+++++++++++</span><span class="d">--------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h12">layouts/partials/post/pagination.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre></div><p>13 files changed, 113 insertions(<span id="plus">+</span>), 113 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.gitignore.html">.gitignore</a> b/<a href="../file/.gitignore.html">.gitignore</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,4 +1,3 @@
+</a> .DS_Store
+<a href="#h0-0-1" id="h0-0-1" class="d">-resources.nosync/
+</a> public/
+ resources/
+<b>diff --git a/<a id="h1" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -31,17 +31,6 @@
+</a>     }
+   }
+ 
+<a href="#h1-0-3" id="h1-0-3" class="d">-  a {
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-    &amp;:hover {
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-      outline-style: solid;
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-      outline-width: 0.3em;
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-      @include themify($themes) {
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-        outline-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-        background-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-      }
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-    }
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-  }
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-
+</a>   table {
+     display: block;
+     overflow-x: auto;
+<b>diff --git a/<a id="h2" href="../file/assets/styles.scss.html">assets/styles.scss</a> b/<a href="../file/assets/styles.scss.html">assets/styles.scss</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -9,11 +9,14 @@ html {
+</a>   }
+   font-family: $font-text;
+   letter-spacing: -0.02rem;
+<a href="#h2-0-3" id="h2-0-3" class="d">-  line-height: 1.6;
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  line-height: 1.5;
+</a>   font-size: 16px;
+ }
+ 
+ @media (max-width: 599px) {
+<a href="#h2-0-9" id="h2-0-9" class="i">+  html {
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+    font-size: 15px;
+</a><a href="#h2-0-11" id="h2-0-11" class="i">+  }
+</a>   body {
+     padding: 0 1.5em;
+     margin: 0;
+<a href="#h2-1" id="h2-1" class="h">@@ -44,6 +47,14 @@ pre {
+</a>   }
+ }
+ 
+<a href="#h2-1-3" id="h2-1-3" class="i">+hr {
+</a><a href="#h2-1-4" id="h2-1-4" class="i">+  border: 0;
+</a><a href="#h2-1-5" id="h2-1-5" class="i">+  height: 0;
+</a><a href="#h2-1-6" id="h2-1-6" class="i">+  @include themify($themes) {
+</a><a href="#h2-1-7" id="h2-1-7" class="i">+    border-top: 1px solid themed(&#39;color-text&#39;);
+</a><a href="#h2-1-8" id="h2-1-8" class="i">+  }
+</a><a href="#h2-1-9" id="h2-1-9" class="i">+}
+</a><a href="#h2-1-10" id="h2-1-10" class="i">+
+</a> code {
+   padding: 0.1rem;
+   font-family: $font-mono;
+<a href="#h2-2" id="h2-2" class="h">@@ -68,6 +79,10 @@ h1, h2, h3, h4, h5 {
+</a>   }
+ }
+ 
+<a href="#h2-2-3" id="h2-2-3" class="i">+h1:not(.header__title) {
+</a><a href="#h2-2-4" id="h2-2-4" class="i">+  font-size: 2.2rem;
+</a><a href="#h2-2-5" id="h2-2-5" class="i">+}
+</a><a href="#h2-2-6" id="h2-2-6" class="i">+
+</a> a {
+   text-decoration: none;
+   @include themify($themes) {
+<a href="#h2-3" id="h2-3" class="h">@@ -76,12 +91,15 @@ a {
+</a>       color: themed(&#39;color-text&#39;);
+     }
+   }
+<a href="#h2-3-3" id="h2-3-3" class="d">-  &amp;:hover {
+</a><a href="#h2-3-4" id="h2-3-4" class="i">+  &amp;#active {
+</a><a href="#h2-3-5" id="h2-3-5" class="i">+    cursor: default;
+</a><a href="#h2-3-6" id="h2-3-6" class="i">+  }
+</a><a href="#h2-3-7" id="h2-3-7" class="i">+  &amp;:hover, &amp;#active {
+</a>     @include themify($themes) {
+       background-color: themed(&#39;color-background-hover&#39;);
+       color: themed(&#39;color-red&#39;);
+     }
+<a href="#h2-3-12" id="h2-3-12" class="d">-    &amp;:not(.no-outline) {
+</a><a href="#h2-3-13" id="h2-3-13" class="i">+    &amp;:not(.no-outline):not(.footnote-ref) {
+</a>       outline-style: solid;
+       outline-width: 0.3rem;
+       @include themify($themes) {
+<a href="#h2-4" id="h2-4" class="h">@@ -92,7 +110,10 @@ a {
+</a>   }
+   &amp;.button {
+     display: inline-block;
+<a href="#h2-4-3" id="h2-4-3" class="d">-    padding: 0.3em 0.7em;
+</a><a href="#h2-4-4" id="h2-4-4" class="i">+    padding: 0.3rem 0.7rem;
+</a><a href="#h2-4-5" id="h2-4-5" class="i">+    @media(max-width: 360px) {
+</a><a href="#h2-4-6" id="h2-4-6" class="i">+      padding: 0.3rem;
+</a><a href="#h2-4-7" id="h2-4-7" class="i">+    }
+</a>   }
+ }
+ 
+<a href="#h2-5" id="h2-5" class="h">@@ -105,7 +126,7 @@ blockquote {
+</a>     border-color: themed(&#39;color-red&#39;);
+   }
+   p {
+<a href="#h2-5-3" id="h2-5-3" class="d">-    font-size: 0.9em;
+</a><a href="#h2-5-4" id="h2-5-4" class="i">+    font-size: 0.9rem;
+</a>   }
+ }
+ 
+<a href="#h2-6" id="h2-6" class="h">@@ -123,7 +144,7 @@ time {
+</a>   &amp;__post {
+     width: 100%;
+     display: inline-block;
+<a href="#h2-6-3" id="h2-6-3" class="d">-    padding: 0.7rem 0;
+</a><a href="#h2-6-4" id="h2-6-4" class="i">+    padding: 0.5rem 0 0.7rem;
+</a>     @media (max-width: 599px) {
+       padding: 0.3em 0 1.3em 0;
+     }
+<a href="#h2-7" id="h2-7" class="h">@@ -146,13 +167,19 @@ time {
+</a>   }
+   @media (max-width: 599px) {
+     &amp;__title {
+<a href="#h2-7-3" id="h2-7-3" class="d">-      font-size: 1.2rem;
+</a><a href="#h2-7-4" id="h2-7-4" class="i">+      font-size: 1.4rem;
+</a><a href="#h2-7-5" id="h2-7-5" class="i">+      margin: 1rem 0;
+</a>     }
+   }
+<a href="#h2-7-8" id="h2-7-8" class="i">+  @media (max-width: 360px) {
+</a><a href="#h2-7-9" id="h2-7-9" class="i">+    &amp;__title {
+</a><a href="#h2-7-10" id="h2-7-10" class="i">+      font-size: 1.2em;
+</a><a href="#h2-7-11" id="h2-7-11" class="i">+    }
+</a><a href="#h2-7-12" id="h2-7-12" class="i">+  }
+</a><a href="#h2-7-13" id="h2-7-13" class="i">+
+</a>   &amp;__menu {
+     margin: 0 0 10px;
+     display: flex;
+<a href="#h2-7-17" id="h2-7-17" class="d">-    overflow: auto;
+</a>     justify-content: flex-start;
+     &amp;__list {
+       padding: 0;
+<a href="#h2-8" id="h2-8" class="h">@@ -167,15 +194,23 @@ time {
+</a>         &amp;:first-child {
+           margin-left: 0;
+         }
+<a href="#h2-8-3" id="h2-8-3" class="d">-        margin: 0 5px;
+</a><a href="#h2-8-4" id="h2-8-4" class="i">+        margin: 0 0.4rem;
+</a>         border-style: solid;
+         border-width: 1px;
+<a href="#h2-8-7" id="h2-8-7" class="i">+        @media (max-width: 599px) {
+</a><a href="#h2-8-8" id="h2-8-8" class="i">+          margin: 0 0.1rem;
+</a><a href="#h2-8-9" id="h2-8-9" class="i">+          font-size: 0.9rem;
+</a><a href="#h2-8-10" id="h2-8-10" class="i">+        }
+</a><a href="#h2-8-11" id="h2-8-11" class="i">+        @media (max-width: 360px) {
+</a><a href="#h2-8-12" id="h2-8-12" class="i">+          font-size: 0.8rem;
+</a><a href="#h2-8-13" id="h2-8-13" class="i">+        }
+</a>       }
+<a href="#h2-8-15" id="h2-8-15" class="i">+
+</a>       &amp;__toggler {
+         &amp;__off {
+           display: none;
+         }
+<a href="#h2-8-20" id="h2-8-20" class="d">-        font-size: 1.75em;
+</a><a href="#h2-8-21" id="h2-8-21" class="i">+        font-size: 1.5rem;
+</a>         padding: 0 0.3em;
+         background-color: transparent;
+         background-repeat: no-repeat;
+<a href="#h2-9" id="h2-9" class="h">@@ -222,6 +257,7 @@ time {
+</a>   }
+   &amp;__center {
+     flex: 1;
+<a href="#h2-9-3" id="h2-9-3" class="i">+    text-align: center;
+</a>   }
+   &amp;__right {
+     text-align: right;
+<a href="#h2-10" id="h2-10" class="h">@@ -248,16 +284,16 @@ time {
+</a>     }
+     &amp;__left {
+       text-align: left;
+<a href="#h2-10-3" id="h2-10-3" class="d">-      @media (min-width: 600px) {
+</a><a href="#h2-10-4" id="h2-10-4" class="d">-        &amp;__back {
+</a><a href="#h2-10-5" id="h2-10-5" class="d">-          margin-left: -0.7em;
+</a><a href="#h2-10-6" id="h2-10-6" class="d">-        }
+</a><a href="#h2-10-7" id="h2-10-7" class="d">-      }
+</a>     }
+     &amp;__right {
+       text-align: right;
+<a href="#h2-10-11" id="h2-10-11" class="i">+      a {
+</a><a href="#h2-10-12" id="h2-10-12" class="i">+        padding: 0 0.2rem;
+</a><a href="#h2-10-13" id="h2-10-13" class="i">+        margin: 0 0.2rem;
+</a><a href="#h2-10-14" id="h2-10-14" class="i">+      }
+</a>     }
+     @media (max-width: 599px) {
+<a href="#h2-10-17" id="h2-10-17" class="i">+      font-size: 0.9rem;
+</a>       display: flex;
+       flex-direction: column;
+       &amp;__left {
+<a href="#h2-11" id="h2-11" class="h">@@ -269,7 +305,15 @@ time {
+</a>         text-align: center;
+         margin-top: 0;
+         a {
+<a href="#h2-11-3" id="h2-11-3" class="d">-          padding-bottom: 0.5em;
+</a><a href="#h2-11-4" id="h2-11-4" class="i">+          line-height: 2rem;
+</a><a href="#h2-11-5" id="h2-11-5" class="i">+        }
+</a><a href="#h2-11-6" id="h2-11-6" class="i">+      }
+</a><a href="#h2-11-7" id="h2-11-7" class="i">+    }
+</a><a href="#h2-11-8" id="h2-11-8" class="i">+    @media (max-width: 400px) {
+</a><a href="#h2-11-9" id="h2-11-9" class="i">+      &amp;__right {
+</a><a href="#h2-11-10" id="h2-11-10" class="i">+        a {
+</a><a href="#h2-11-11" id="h2-11-11" class="i">+          padding: 0 0.15rem;
+</a><a href="#h2-11-12" id="h2-11-12" class="i">+          margin: 0 0.15rem;
+</a>         }
+       }
+     }
+<a href="#h2-12" id="h2-12" class="h">@@ -335,3 +379,11 @@ time {
+</a>     margin: 0;
+   }
+ }
+<a href="#h2-12-3" id="h2-12-3" class="i">+.footnote-ref {
+</a><a href="#h2-12-4" id="h2-12-4" class="i">+  &amp;:before {
+</a><a href="#h2-12-5" id="h2-12-5" class="i">+    content: &#39;[&#39;;
+</a><a href="#h2-12-6" id="h2-12-6" class="i">+  }
+</a><a href="#h2-12-7" id="h2-12-7" class="i">+  &amp;:after {
+</a><a href="#h2-12-8" id="h2-12-8" class="i">+    content: &#39;]&#39;;
+</a><a href="#h2-12-9" id="h2-12-9" class="i">+  }
+</a><a href="#h2-12-10" id="h2-12-10" class="i">+}
+</a><b>diff --git a/<a id="h3" href="../file/config.dev.toml.html">config.dev.toml</a> b/<a href="../file/config.dev.toml.html">config.dev.toml</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -1,44 +0,0 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="d">-baseURL = &quot;https://ybbond.dev/&quot;
+</a><a href="#h3-0-1" id="h3-0-1" class="d">-languageCode = &quot;en-us&quot;
+</a><a href="#h3-0-2" id="h3-0-2" class="d">-title = &quot;YBBond&quot;
+</a><a href="#h3-0-3" id="h3-0-3" class="d">-
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-[permalinks]
+</a><a href="#h3-0-5" id="h3-0-5" class="d">-  posts = &quot;/posts/:year-:month-:slug/&quot;
+</a><a href="#h3-0-6" id="h3-0-6" class="d">-
+</a><a href="#h3-0-7" id="h3-0-7" class="d">-[params]
+</a><a href="#h3-0-8" id="h3-0-8" class="d">-  author = &quot;Yohanes Bandung Bondowoso&quot;
+</a><a href="#h3-0-9" id="h3-0-9" class="d">-  description = &quot;Thoughts, Ideas and Writings.&quot;
+</a><a href="#h3-0-10" id="h3-0-10" class="d">-  mainSiteURL = &quot;https://ybbond.dev&quot;
+</a><a href="#h3-0-11" id="h3-0-11" class="d">-  email = &quot;hi@ybbond.dev&quot;
+</a><a href="#h3-0-12" id="h3-0-12" class="d">-  twitter = &quot;ybbond_&quot;
+</a><a href="#h3-0-13" id="h3-0-13" class="d">-  github = &quot;ybbond&quot;
+</a><a href="#h3-0-14" id="h3-0-14" class="d">-  microblog = &quot;ybbond&quot;
+</a><a href="#h3-0-15" id="h3-0-15" class="d">-
+</a><a href="#h3-0-16" id="h3-0-16" class="d">-[markup.goldmark.renderer]
+</a><a href="#h3-0-17" id="h3-0-17" class="d">-    hardWraps = true
+</a><a href="#h3-0-18" id="h3-0-18" class="d">-    unsafe = true
+</a><a href="#h3-0-19" id="h3-0-19" class="d">-    xhtml = true
+</a><a href="#h3-0-20" id="h3-0-20" class="d">-
+</a><a href="#h3-0-21" id="h3-0-21" class="d">-[[menu.main]]
+</a><a href="#h3-0-22" id="h3-0-22" class="d">-    identifier = &quot;home&quot;
+</a><a href="#h3-0-23" id="h3-0-23" class="d">-    name = &quot;Home&quot;
+</a><a href="#h3-0-24" id="h3-0-24" class="d">-    url = &quot;/&quot;
+</a><a href="#h3-0-25" id="h3-0-25" class="d">-    weight = 8
+</a><a href="#h3-0-26" id="h3-0-26" class="d">-[[menu.main]]
+</a><a href="#h3-0-27" id="h3-0-27" class="d">-    identifier = &quot;about&quot;
+</a><a href="#h3-0-28" id="h3-0-28" class="d">-    name = &quot;About&quot;
+</a><a href="#h3-0-29" id="h3-0-29" class="d">-    url = &quot;/about&quot;
+</a><a href="#h3-0-30" id="h3-0-30" class="d">-    weight = 9
+</a><a href="#h3-0-31" id="h3-0-31" class="d">-[[menu.main]]
+</a><a href="#h3-0-32" id="h3-0-32" class="d">-    identifier = &quot;uses&quot;
+</a><a href="#h3-0-33" id="h3-0-33" class="d">-    name = &quot;Uses&quot;
+</a><a href="#h3-0-34" id="h3-0-34" class="d">-    url = &quot;/uses&quot;
+</a><a href="#h3-0-35" id="h3-0-35" class="d">-    weight = 10
+</a><a href="#h3-0-36" id="h3-0-36" class="d">-
+</a><a href="#h3-0-37" id="h3-0-37" class="d">-[caches.images]
+</a><a href="#h3-0-38" id="h3-0-38" class="d">-  dir = &quot;/Users/yohanesbandung/projects/bandung/ybbond-hugo/resources.nosync/_gen&quot;
+</a><a href="#h3-0-39" id="h3-0-39" class="d">-  maxAge = -1
+</a><a href="#h3-0-40" id="h3-0-40" class="d">-
+</a><a href="#h3-0-41" id="h3-0-41" class="d">-[caches.assets]
+</a><a href="#h3-0-42" id="h3-0-42" class="d">-  dir = &quot;/Users/yohanesbandung/projects/bandung/ybbond-hugo/resources.nosync/_gen&quot;
+</a><a href="#h3-0-43" id="h3-0-43" class="d">-  maxAge = -1
+</a><b>diff --git a/<a id="h4" href="../file/config.toml.html">config.toml</a> b/<a href="../file/config.toml.html">config.toml</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -30,7 +30,12 @@ title = &quot;YBBond&quot;
+</a>     url = &quot;/about&quot;
+     weight = 9
+ [[menu.main]]
+<a href="#h4-0-3" id="h4-0-3" class="i">+    identifier = &quot;contact&quot;
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+    name = &quot;Contact&quot;
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+    url = &quot;/contact&quot;
+</a><a href="#h4-0-6" id="h4-0-6" class="i">+    weight = 10
+</a><a href="#h4-0-7" id="h4-0-7" class="i">+[[menu.main]]
+</a>     identifier = &quot;uses&quot;
+     name = &quot;Uses&quot;
+     url = &quot;/uses&quot;
+<a href="#h4-0-11" id="h4-0-11" class="d">-    weight = 10
+</a><a href="#h4-0-12" id="h4-0-12" class="i">+    weight = 11
+</a><b>diff --git a/<a id="h5" href="../file/content/_index.md.html">content/_index.md</a> b/<a href="../file/content/_index.md.html">content/_index.md</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -1,15 +1,7 @@
+</a> ---
+ menu: home
+ ---
+<a href="#h5-0-3" id="h5-0-3" class="d">-Currently work as Frontend Engineer of kumparan.com in Jakarta, Indonesia. Building it with React, React Native for Android and iOS.
+</a><a href="#h5-0-4" id="h5-0-4" class="d">-
+</a><a href="#h5-0-5" id="h5-0-5" class="d">-Eager to learn.
+</a><a href="#h5-0-6" id="h5-0-6" class="d">-
+</a><a href="#h5-0-7" id="h5-0-7" class="d">-Hardships.
+</a><a href="#h5-0-8" id="h5-0-8" class="d">-
+</a><a href="#h5-0-9" id="h5-0-9" class="d">-I cannot say that I am humble, but I learn from experience that each individuals, their own excellences.
+</a><a href="#h5-0-10" id="h5-0-10" class="d">-
+</a><a href="#h5-0-11" id="h5-0-11" class="d">-I try to learn from everyone, and everything.
+</a><a href="#h5-0-12" id="h5-0-12" class="d">-&lt;br /&gt;
+</a><a href="#h5-0-13" id="h5-0-13" class="d">-
+</a><a href="#h5-0-14" id="h5-0-14" class="d">-૮ ・ﻌ・ა</a><a href="#h5-0-15" id="h5-0-15" class="d">-
+\ No newline at end of file
+</a><a href="#h5-0-16" id="h5-0-16" class="i">+Hi! I&#39;m **Bandung**, welcome to my site!
+</a><a href="#h5-0-17" id="h5-0-17" class="i">+This site contains my blog [posts](/posts/), my often random [notes](/notes/), &quot;snapshot&quot; [report](/reports/) of this site&#39;s size.
+</a><a href="#h5-0-18" id="h5-0-18" class="i">+Here is the RSS for [post](/index.xml) and here is for [notes](/notes/index.xml).
+</a><a href="#h5-0-19" id="h5-0-19" class="i">+Web analytics that I use respects your privacy, see it [here](https://stats.ybbond.dev/ &quot;Link to stats.ybbond.dev&quot;).</a><a href="#h5-0-20" id="h5-0-20" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h6" href="../file/content/about/index.md.html">content/about/index.md</a> b/<a href="../file/content/about/index.md.html">content/about/index.md</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -4,19 +4,14 @@ menu: about
+</a> description: &quot;Hi, my name is Yohanes Bandung Bondowoso&quot;
+ ---
+ 
+<a href="#h6-0-3" id="h6-0-3" class="d">-People call me **Bandung**.
+</a><a href="#h6-0-4" id="h6-0-4" class="i">+People call me **Bandung**. ૮ ・ﻌ・ა
+</a> 
+ ![photo by Soraya Azizah](bandung-mosh-on-tarintih.jpg)
+ 
+<a href="#h6-0-8" id="h6-0-8" class="d">-You can contact me through hi@ybbond.dev,&lt;br&gt;or through any of my social medias in my [keybase](https://keybase.io/ybbond) or listed in the [footer down below](#down).
+</a><a href="#h6-0-9" id="h6-0-9" class="i">+Currently work as **Frontend Engineer** of [kumparan.com](https://kumparan.com) in Jakarta, Indonesia. Building it with `ReactJS` and `React Native` for Web, Android and iOS.
+</a> 
+<a href="#h6-0-11" id="h6-0-11" class="d">-If you prefer encrypted communication, you can get
+</a><a href="#h6-0-12" id="h6-0-12" class="d">-my PGP key in [txt format](/ybbond-public.txt) or [asc format](/ybbond-public.asc).
+</a><a href="#h6-0-13" id="h6-0-13" class="i">+Eager to learn. Hardships. I cannot say that I am humble, but I learn from experience that each individuals, their own excellences. I try to learn from everyone, and everything.
+</a> 
+<a href="#h6-0-15" id="h6-0-15" class="d">-The fingerprint is:
+</a><a href="#h6-0-16" id="h6-0-16" class="d">-```html
+</a><a href="#h6-0-17" id="h6-0-17" class="d">-56DA ADB1 5246 1C80 6792 DBAB 8477 3B93 9886 81A0
+</a><a href="#h6-0-18" id="h6-0-18" class="d">-```
+</a> 
+ ## Quests
+ 
+<a href="#h6-1" id="h6-1" class="h">@@ -34,7 +29,7 @@ I do a lil bit of design too.
+</a> `React Native Web`, `TypeScript`.
+ - &lt;time&gt;2019 -&lt;/time&gt;&lt;br&gt;**Frontend Engineer** [@kumparan](https://kumparan.com/)
+ My current job. I like it here.
+<a href="#h6-1-3" id="h6-1-3" class="d">-`React`, `React Native`, `JavaScript`, `Apollo GraphQL`.
+</a><a href="#h6-1-4" id="h6-1-4" class="i">+`ReactJS`, `React Native`, `JavaScript`, `Apollo GraphQL`.
+</a> 
+ ## Trivial
+ 
+<b>diff --git a/<a id="h7" href="../file/content/contact.md.html">content/contact.md</a> b/<a href="../file/content/contact.md.html">content/contact.md</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -0,0 +1,15 @@
+</a><a href="#h7-0-0" id="h7-0-0" class="i">+---
+</a><a href="#h7-0-1" id="h7-0-1" class="i">+title: Contact Me
+</a><a href="#h7-0-2" id="h7-0-2" class="i">+menu: contact
+</a><a href="#h7-0-3" id="h7-0-3" class="i">+description: Ways to get in touch with me
+</a><a href="#h7-0-4" id="h7-0-4" class="i">+---
+</a><a href="#h7-0-5" id="h7-0-5" class="i">+
+</a><a href="#h7-0-6" id="h7-0-6" class="i">+You can contact me through hi@ybbond.dev,&lt;br&gt;or through any of my social medias on my [keybase](https://keybase.io/ybbond) or listed in the footer down below.
+</a><a href="#h7-0-7" id="h7-0-7" class="i">+
+</a><a href="#h7-0-8" id="h7-0-8" class="i">+If you prefer encrypted communication, you can get
+</a><a href="#h7-0-9" id="h7-0-9" class="i">+my PGP key in [txt format](/ybbond-public.txt) or [asc format](/ybbond-public.asc).
+</a><a href="#h7-0-10" id="h7-0-10" class="i">+
+</a><a href="#h7-0-11" id="h7-0-11" class="i">+The fingerprint is:
+</a><a href="#h7-0-12" id="h7-0-12" class="i">+```html
+</a><a href="#h7-0-13" id="h7-0-13" class="i">+56DA ADB1 5246 1C80 6792 DBAB 8477 3B93 9886 81A0
+</a><a href="#h7-0-14" id="h7-0-14" class="i">+```</a><a href="#h7-0-15" id="h7-0-15" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h8" href="../file/content/uses.md.html">content/uses.md</a> b/<a href="../file/content/uses.md.html">content/uses.md</a></b>
+<a href="#h8-0" id="h8-0" class="h">@@ -24,7 +24,6 @@ Some others satisfy my hobbies.
+</a> - Roland FP-30
+ - Guitars. Many of them.
+ 
+<a href="#h8-0-3" id="h8-0-3" class="d">----
+</a> 
+ ## Software
+ 
+<b>diff --git a/<a id="h9" href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a> b/<a href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a></b>
+<a href="#h9-0" id="h9-0" class="h">@@ -38,7 +38,7 @@
+</a>   &lt;/style&gt;
+   &lt;figure class=&quot;{{ $border_class }}&quot;&gt;
+     &lt;center&gt;
+<a href="#h9-0-3" id="h9-0-3" class="d">-      &lt;a href=&#39;{{ $image.RelPermalink }}&#39;&gt;
+</a><a href="#h9-0-4" id="h9-0-4" class="i">+      &lt;a class=&quot;no-outline&quot; href=&#39;{{ $image.RelPermalink }}&#39;&gt;
+</a>         &lt;img
+           src=&quot;{{ $src.RelPermalink }}&quot;
+           style=&quot;max-width: 100%; height: auto;&quot;
+<a href="#h9-1" id="h9-1" class="h">@@ -53,7 +53,7 @@
+</a> 
+ &lt;figure class=&quot;{{ $border_class }} lazy&quot;&gt;
+   &lt;center&gt;
+<a href="#h9-1-3" id="h9-1-3" class="d">-    &lt;a href=&#39;{{ $image.RelPermalink }}&#39;&gt;
+</a><a href="#h9-1-4" id="h9-1-4" class="i">+    &lt;a class=&quot;no-outline&quot; href=&#39;{{ $image.RelPermalink }}&#39;&gt;
+</a>       &lt;img class=&quot;lazyload&quot; data-sizes=&quot;auto&quot; src=&quot;{{ $src.RelPermalink }}&quot;
+         style=&quot;max-width: 100%; height: auto;&quot;
+         srcset=&quot;data:image/jpeg;base64,{{ $placeholder.Content | base64Encode }}&quot; data-src=&quot;{{ $src.RelPermalink }}&quot;
+<b>diff --git a/<a id="h10" href="../file/layouts/partials/footer/footer.html.html">layouts/partials/footer/footer.html</a> b/<a href="../file/layouts/partials/footer/footer.html.html">layouts/partials/footer/footer.html</a></b>
+<a href="#h10-0" id="h10-0" class="h">@@ -3,7 +3,6 @@
+</a>   &lt;p class=&quot;footer__nav__left&quot;&gt;
+     {{ if not .IsHome }}
+       &lt;a
+<a href="#h10-0-3" id="h10-0-3" class="d">-        class=&quot;button footer__nav__left__back&quot;
+</a>         data-goatcounter-click=&quot;cl-home-foot&quot;
+         data-rel=&quot;prefetch&quot;
+         href={{ .Site.BaseURL }}
+<a href="#h10-1" id="h10-1" class="h">@@ -13,31 +12,26 @@
+</a>   &lt;/p&gt;
+   &lt;p class=&quot;footer__nav__right&quot;&gt;
+     &lt;a
+<a href="#h10-1-3" id="h10-1-3" class="d">-      class=&quot;button&quot;
+</a>       data-goatcounter-click=&quot;cl-gh-foot&quot;
+       href=&quot;https://github.com/{{ .Site.Params.Github }}&quot;
+       rel=&quot;me&quot;
+     &gt;GitHub&lt;/a&gt;
+     &lt;a
+<a href="#h10-1-9" id="h10-1-9" class="d">-      class=&quot;button&quot;
+</a>       data-goatcounter-click=&quot;cl-twit-foot&quot;
+       href=&quot;https://twitter.com/{{ .Site.Params.Twitter }}&quot;
+       rel=&quot;me&quot;
+     &gt;Twitter&lt;/a&gt;
+     &lt;a
+<a href="#h10-1-15" id="h10-1-15" class="d">-      class=&quot;button&quot;
+</a>       data-goatcounter-click=&quot;cl-micro-foot&quot;
+       href=&quot;https://micro.blog/{{ .Site.Params.Microblog }}&quot;
+       rel=&quot;me&quot;
+     &gt;Micro.blog&lt;/a&gt;
+     &lt;a
+<a href="#h10-1-21" id="h10-1-21" class="d">-      class=&quot;button&quot;
+</a>       data-goatcounter-click=&quot;cl-mast-foot&quot;
+       href=&quot;https://indieweb.social/@ybbond&quot;
+       rel=&quot;me&quot;
+     &gt;Mastodon&lt;/a&gt;
+     &lt;a
+<a href="#h10-1-27" id="h10-1-27" class="d">-      class=&quot;button&quot;
+</a>       data-goatcounter-click=&quot;cl-rss-foot&quot;
+       href={{ &quot;index.xml&quot; | absURL }}
+     &gt;RSS&lt;/a&gt;
+<b>diff --git a/<a id="h11" href="../file/layouts/partials/header/header.html.html">layouts/partials/header/header.html</a> b/<a href="../file/layouts/partials/header/header.html.html">layouts/partials/header/header.html</a></b>
+<a href="#h11-0" id="h11-0" class="h">@@ -6,17 +6,20 @@
+</a> &lt;nav class=&quot;header__menu&quot;&gt;
+   &lt;div class=&quot;header__menu__list&quot;&gt;
+     &lt;span&gt;
+<a href="#h11-0-3" id="h11-0-3" class="d">-      {{ $baseURL := .Site.BaseURL }}
+</a>       {{ range .Site.Menus.main }}
+         {{ $url := trim .URL &quot;/&quot; | absURL }}
+<a href="#h11-0-6" id="h11-0-6" class="d">-          &lt;a
+</a><a href="#h11-0-7" id="h11-0-7" class="i">+        &lt;a
+</a><a href="#h11-0-8" id="h11-0-8" class="i">+          data-rel=&quot;prefetch&quot;
+</a><a href="#h11-0-9" id="h11-0-9" class="i">+          role=&quot;button&quot;
+</a><a href="#h11-0-10" id="h11-0-10" class="i">+          class=&quot;header__menu__list__item button no-outline&quot;
+</a><a href="#h11-0-11" id="h11-0-11" class="i">+          {{ if eq $.RelPermalink (print .URL &quot;/&quot;) }}
+</a><a href="#h11-0-12" id="h11-0-12" class="i">+            id=&quot;active&quot;
+</a><a href="#h11-0-13" id="h11-0-13" class="i">+          {{ else }}
+</a>             href={{ $url }}
+<a href="#h11-0-15" id="h11-0-15" class="d">-            data-rel=&quot;prefetch&quot;
+</a><a href="#h11-0-16" id="h11-0-16" class="d">-            role=&quot;button&quot;
+</a><a href="#h11-0-17" id="h11-0-17" class="d">-            class=&quot;header__menu__list__item button no-outline&quot;
+</a><a href="#h11-0-18" id="h11-0-18" class="d">-          &gt;
+</a><a href="#h11-0-19" id="h11-0-19" class="d">-            {{ .Pre }}&lt;span&gt;{{ .Name }}&lt;/span&gt;
+</a><a href="#h11-0-20" id="h11-0-20" class="d">-          &lt;/a&gt;
+</a><a href="#h11-0-21" id="h11-0-21" class="i">+          {{ end }}
+</a><a href="#h11-0-22" id="h11-0-22" class="i">+        &gt;
+</a><a href="#h11-0-23" id="h11-0-23" class="i">+          {{ .Pre }}&lt;span&gt;{{ .Name }}&lt;/span&gt;
+</a><a href="#h11-0-24" id="h11-0-24" class="i">+        &lt;/a&gt;
+</a>       {{ end }}
+     &lt;/span&gt;
+     &lt;button
+<b>diff --git a/<a id="h12" href="../file/layouts/partials/post/pagination.html.html">layouts/partials/post/pagination.html</a> b/<a href="../file/layouts/partials/post/pagination.html.html">layouts/partials/post/pagination.html</a></b>
+<a href="#h12-0" id="h12-0" class="h">@@ -28,6 +28,6 @@
+</a>       &lt;span class=&quot;pagination__right&quot;&gt;&lt;/span&gt;
+     {{ end }}
+   {{ else }}
+<a href="#h12-0-3" id="h12-0-3" class="d">-    &lt;span&gt;No More Post&lt;/span&gt;
+</a><a href="#h12-0-4" id="h12-0-4" class="i">+    &lt;span class=&quot;pagination__center&quot;&gt;No More Post&lt;/span&gt;
+</a>   {{ end }}
+ &lt;/nav&gt; 
+\ No newline at end of file
+</pre>
+</div>
+</div>
+</body>
+</html>

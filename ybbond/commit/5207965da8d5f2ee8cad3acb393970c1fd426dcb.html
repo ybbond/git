@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature: add mastodon reply option - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/5207965da8d5f2ee8cad3acb393970c1fd426dcb.html">5207965da8d5f2ee8cad3acb393970c1fd426dcb</a>
+<b>parent</b> <a href="../commit/a538c681708d66a51ba46c4fd1f0cb99895725cd.html">a538c681708d66a51ba46c4fd1f0cb99895725cd</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Sun, 28 Jun 2020 23:59:33 +0700
+
+feature: add mastodon reply option
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.scss</a></td><td> | </td><td class="num">10</td><td><span class="i">++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">assets/styles.scss</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">content/posts/About GoatCounter the Analytics Tool I Use.md</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">content/posts/Inclusive Content Sharing/index.md</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">content/posts/On Free Trial and Refund/index.md</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">content/posts/Org-mode with Org-roam/index.md</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">layouts/_default/single.html</a></td><td> | </td><td class="num">21</td><td><span class="i">++++++++++++</span><span class="d">---------</span></td></tr>
+</table></pre></div><p>7 files changed, 32 insertions(<span id="plus">+</span>), 9 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -187,6 +187,16 @@
+</a>   }
+ }
+ 
+<a href="#h0-0-3" id="h0-0-3" class="i">+.twitter-link {
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  margin-bottom: 0.2rem;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+  font-size: 0.9rem;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+}
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+.mastodon-link {
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+  margin-top: 0.2rem;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+  font-size: 0.9rem;
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+}
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+
+</a> .responses {
+   margin-bottom: 3rem;
+ 
+<b>diff --git a/<a id="h1" href="../file/assets/styles.scss.html">assets/styles.scss</a> b/<a href="../file/assets/styles.scss.html">assets/styles.scss</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -408,12 +408,14 @@ time {
+</a> }
+ .hcard-top {
+   margin: 0 0 0.8rem;
+<a href="#h1-0-3" id="h1-0-3" class="i">+  font-size: 0.9rem;
+</a> }
+ .hcard-tags {
+   margin: 0.8rem 0 0.7rem;
+ }
+ .hcard-bottom {
+   margin: 0;
+<a href="#h1-0-10" id="h1-0-10" class="i">+  font-size: 0.9rem;
+</a> }
+ 
+ .wm-hr {
+<b>diff --git a/<a id="h2" href="../file/content/posts/About GoatCounter the Analytics Tool I Use.md.html">content/posts/About GoatCounter the Analytics Tool I Use.md</a> b/<a href="../file/content/posts/About GoatCounter the Analytics Tool I Use.md.html">content/posts/About GoatCounter the Analytics Tool I Use.md</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -9,6 +9,8 @@ tags:
+</a>   - privacy #privacy
+ twitter:
+   link: https://twitter.com/ybbond_/status/1264119154606510084
+<a href="#h2-0-3" id="h2-0-3" class="i">+mastodon:
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  link: https://indieweb.social/web/statuses/104216953461884291
+</a> date: 2020-05-23T00:47:36+0700
+ ID: 1590169657
+ ---
+<b>diff --git a/<a id="h3" href="../file/content/posts/Inclusive Content Sharing/index.md.html">content/posts/Inclusive Content Sharing/index.md</a> b/<a href="../file/content/posts/Inclusive Content Sharing/index.md.html">content/posts/Inclusive Content Sharing/index.md</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -10,6 +10,8 @@ image:
+</a>   src: 2.png
+ twitter:
+   link: https://twitter.com/ybbond_/status/1277262291696627712
+<a href="#h3-0-3" id="h3-0-3" class="i">+mastodon:
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+  link: https://indieweb.social/web/statuses/104422323385996032
+</a> date: 2020-06-28T16:44:38+0700
+ ID: 20200628164438
+ ---
+<b>diff --git a/<a id="h4" href="../file/content/posts/On Free Trial and Refund/index.md.html">content/posts/On Free Trial and Refund/index.md</a> b/<a href="../file/content/posts/On Free Trial and Refund/index.md.html">content/posts/On Free Trial and Refund/index.md</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -8,6 +8,8 @@ tags:
+</a>   - review #review
+ twitter:
+   link: https://twitter.com/ybbond_/status/1273787519298007041
+<a href="#h4-0-3" id="h4-0-3" class="i">+mastodon:
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+  link: https://indieweb.social/web/statuses/104367901536889423
+</a> date: 2020-06-17T17:07:22+0700
+ ID: 20200617170722
+ ---
+<b>diff --git a/<a id="h5" href="../file/content/posts/Org-mode with Org-roam/index.md.html">content/posts/Org-mode with Org-roam/index.md</a> b/<a href="../file/content/posts/Org-mode with Org-roam/index.md.html">content/posts/Org-mode with Org-roam/index.md</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -11,6 +11,8 @@ image:
+</a>   src: 2.png
+ twitter:
+   link: https://twitter.com/ybbond_/status/1276920239146450945
+<a href="#h5-0-3" id="h5-0-3" class="i">+mastodon:
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+  link: https://indieweb.social/web/statuses/104416969966573396
+</a> ID: 20200627230528
+ ---
+ 
+<b>diff --git a/<a id="h6" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -33,18 +33,21 @@
+</a>           &lt;a class=&quot;u-url link-white&quot; href={{ .Permalink }}&gt;Published&lt;/a&gt; on
+           &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot; class=&quot;dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;
+             {{ .Date.Format &quot;02 January 2006&quot; }}&lt;/time&gt;,
+<a href="#h6-0-3" id="h6-0-3" class="d">-          for stories like this:
+</a><a href="#h6-0-4" id="h6-0-4" class="i">+          tagged:
+</a><a href="#h6-0-5" id="h6-0-5" class="i">+          {{ with .Params.tags }}
+</a><a href="#h6-0-6" id="h6-0-6" class="i">+            &lt;span class=&quot;hcard-tags&quot;&gt;
+</a><a href="#h6-0-7" id="h6-0-7" class="i">+              {{ range . }}
+</a><a href="#h6-0-8" id="h6-0-8" class="i">+                {{- partial &quot;components/tagitem.html&quot; . -}}
+</a><a href="#h6-0-9" id="h6-0-9" class="i">+              {{ end }}
+</a><a href="#h6-0-10" id="h6-0-10" class="i">+            &lt;/span&gt;
+</a><a href="#h6-0-11" id="h6-0-11" class="i">+          {{ end }}
+</a>         &lt;/p&gt;
+<a href="#h6-0-13" id="h6-0-13" class="d">-        {{ with .Params.tags }}
+</a><a href="#h6-0-14" id="h6-0-14" class="d">-          &lt;p class=&quot;hcard-tags&quot;&gt;
+</a><a href="#h6-0-15" id="h6-0-15" class="d">-            {{ range . }}
+</a><a href="#h6-0-16" id="h6-0-16" class="d">-              {{- partial &quot;components/tagitem.html&quot; . -}}
+</a><a href="#h6-0-17" id="h6-0-17" class="d">-            {{ end }}
+</a><a href="#h6-0-18" id="h6-0-18" class="d">-          &lt;/p&gt;
+</a><a href="#h6-0-19" id="h6-0-19" class="d">-        {{ end }}
+</a>         {{ if ne .Type &quot;page&quot; -}}
+           {{- if isset .Params.Twitter &quot;link&quot; }}
+<a href="#h6-0-22" id="h6-0-22" class="d">-            &lt;p&gt;&lt;strong&gt;Comment is unavailable for now&lt;/strong&gt;, sorry :( You can comment on this twitter link instead, that will be linked to this post: &lt;a target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot; href={{ .Params.Twitter.Link }}&gt;»Twitter Link«&lt;/a&gt;&lt;/p&gt;
+</a><a href="#h6-0-23" id="h6-0-23" class="i">+            &lt;p class=&quot;twitter-link&quot;&gt;&lt;strong&gt;Comment is unavailable for now&lt;/strong&gt;, sorry :( You can reply this tweet, that will be linked to this post: &lt;a target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot; href={{ .Params.Twitter.Link }}&gt;»Twitter Link«&lt;/a&gt;&lt;/p&gt;
+</a><a href="#h6-0-24" id="h6-0-24" class="i">+            {{ if isset .Params.Mastodon &quot;link&quot; -}}
+</a><a href="#h6-0-25" id="h6-0-25" class="i">+            &lt;p class=&quot;mastodon-link&quot;&gt;If you prefer fediverse, you can reply this Toot instead: &lt;a target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot; href={{ .Params.Mastodon.Link }}&gt;»Mastodon Link«&lt;/a&gt;&lt;/p&gt;
+</a><a href="#h6-0-26" id="h6-0-26" class="i">+            {{ end -}}
+</a>           {{- end }}
+           &lt;p class=&quot;hcard-bottom&quot;&gt;If you have any feedback, please contact me at &lt;a title=&quot;Open default mail client and add my email as recipient&quot; href=&quot;mailto:hi@ybbond.dev&quot;&gt;hi@ybbond.dev&lt;/a&gt;&lt;/p&gt;
+         {{ end -}}
+</pre>
+</div>
+</div>
+</body>
+</html>
