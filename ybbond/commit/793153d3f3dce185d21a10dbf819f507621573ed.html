@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>content: June Links, make image non-clickable (use figcaption) - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/793153d3f3dce185d21a10dbf819f507621573ed.html">793153d3f3dce185d21a10dbf819f507621573ed</a>
+<b>parent</b> <a href="../commit/dce6c970e9eaa1acbfde8ca4a8878c897d817f3c.html">dce6c970e9eaa1acbfde8ca4a8878c897d817f3c</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Sat, 11 Jul 2020 13:39:03 +0700
+
+content: June Links, make image non-clickable (use figcaption)
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.scss</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="R">R</td><td><a href="#h1">content/posts/April Links.md -&gt; content/posts/April 2020 Links.md</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="R">R</td><td><a href="#h2">content/posts/February Links.md -&gt; content/posts/February 2020 Links.md</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">content/posts/Inclusive Content Sharing/index.md</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h4">content/posts/June 2020 Links.md</a></td><td> | </td><td class="num">37</td><td><span class="i">+++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="R">R</td><td><a href="#h5">content/posts/March Links.md -&gt; content/posts/March 2020 Links.md</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="R">R</td><td><a href="#h6">content/posts/May Links.md -&gt; content/posts/May 2020 Links.md</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h7">layouts/_default/_markup/render-image.html</a></td><td> | </td><td class="num">41</td><td><span class="i">++++++++++++++++++++++++</span><span class="d">-----------------</span></td></tr>
+</table></pre></div><p>8 files changed, 64 insertions(<span id="plus">+</span>), 20 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -39,7 +39,7 @@
+</a>     }
+   }
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-  i {
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  i:not(.no-sup) {
+</a>     font-size: 0.8rem;
+     vertical-align: 0.4rem;
+   }
+<a href="#h0-1" id="h0-1" class="h">@@ -144,7 +144,7 @@
+</a>     font-size: 0.8em;
+   }
+ 
+<a href="#h0-1-3" id="h0-1-3" class="d">-  twitter-widget {
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+  twitter-widget, .twitter-tweet {
+</a>     margin-left: auto;
+     margin-right: auto;
+   }
+<b>diff --git a/<a id="h1" href="../file/content/posts/April Links.md.html">content/posts/April Links.md</a> b/<a href="../file/content/posts/April 2020 Links.md.html">content/posts/April 2020 Links.md</a></b>
+<b>diff --git a/<a id="h2" href="../file/content/posts/February Links.md.html">content/posts/February Links.md</a> b/<a href="../file/content/posts/February 2020 Links.md.html">content/posts/February 2020 Links.md</a></b>
+<b>diff --git a/<a id="h3" href="../file/content/posts/Inclusive Content Sharing/index.md.html">content/posts/Inclusive Content Sharing/index.md</a> b/<a href="../file/content/posts/Inclusive Content Sharing/index.md.html">content/posts/Inclusive Content Sharing/index.md</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -26,7 +26,7 @@ The awareness of inclusivity had spread wider day by day. There is **Inclusive D
+</a> 
+ Example of diversity: provide more gender dropdown choice knowing some people won&#39;t feel comfortable sharing their gender. Or perhaps, make the gender dropdown choice non-mandatory. Better yet, don&#39;t ask for it.
+ 
+<a href="#h3-0-3" id="h3-0-3" class="d">-![Image courtesy of &lt;a rel=&quot;nofollow noreferrer&quot; href=&quot;http://www.sarahdopp.com/blog/2010/designing-a-better-drop-down-menu-for-gender/&quot;&gt;post from Sarah Dopp&lt;/a&gt;](gender-selection.png)
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+![Image courtesy of &lt;a rel=&quot;nofollow noreferrer&quot; href=&quot;http://www.sarahdopp.com/blog/2010/designing-a-better-drop-down-menu-for-gender/&quot;&gt;post from Sarah Dopp&lt;/a&gt;](gender-selection.png &quot;Image of inclusive drop down choices. Referenced from SarahDopp.com&quot;)
+</a> 
+ Example of accessibility: make your website content recognizable by text-to-speech software for those having difficulties reading. Other example of accessibility: provide certain color scheme on video game&#39;s User Interface, for those having difficulties differentiating certain colors.
+ 
+<b>diff --git a/<a id="h4" href="../file/content/posts/June 2020 Links.md.html">content/posts/June 2020 Links.md</a> b/<a href="../file/content/posts/June 2020 Links.md.html">content/posts/June 2020 Links.md</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -0,0 +1,37 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="i">+---
+</a><a href="#h4-0-1" id="h4-0-1" class="i">+title: Interesting Links I Found on June, 2020
+</a><a href="#h4-0-2" id="h4-0-2" class="i">+author: Yohanes Bandung Bondowoso
+</a><a href="#h4-0-3" id="h4-0-3" class="i">+tags:
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+  - bookmarks #bookmarks
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+date: 2020-07-10T14:12:04+0700
+</a><a href="#h4-0-6" id="h4-0-6" class="i">+ID: 20200710141204
+</a><a href="#h4-0-7" id="h4-0-7" class="i">+---
+</a><a href="#h4-0-8" id="h4-0-8" class="i">+
+</a><a href="#h4-0-9" id="h4-0-9" class="i">+The June&#39;s issue is late, sorry. I&#39;ve been busy at work.
+</a><a href="#h4-0-10" id="h4-0-10" class="i">+
+</a><a href="#h4-0-11" id="h4-0-11" class="i">+## Website
+</a><a href="#h4-0-12" id="h4-0-12" class="i">+
+</a><a href="#h4-0-13" id="h4-0-13" class="i">+[Increment.com](https://increment.com/)
+</a><a href="#h4-0-14" id="h4-0-14" class="i">+Well designed site that contains good articles, updated per 3 month issues. They offer a printed edition that looks good too. I haven&#39;t buy their printed edition yet, because the shipping to my country tagged twice the price of the books.
+</a><a href="#h4-0-15" id="h4-0-15" class="i">+
+</a><a href="#h4-0-16" id="h4-0-16" class="i">+[Beginner&#39;s Guide to Abstraction](https://jesseduffield.com/beginners-guide-to-abstraction/) - **Jesse Duffield**
+</a><a href="#h4-0-17" id="h4-0-17" class="i">+A complementary read to **Bret Victor**&#39;s _Up and Down the Ladder of Abstraction_ (you can [read it here](http://worrydream.com/LadderOfAbstraction/)).
+</a><a href="#h4-0-18" id="h4-0-18" class="i">+
+</a><a href="#h4-0-19" id="h4-0-19" class="i">+Highlight that I like:
+</a><a href="#h4-0-20" id="h4-0-20" class="i">+&gt; Duplication is far cheaper than the wrong abstraction.
+</a><a href="#h4-0-21" id="h4-0-21" class="i">+&gt; [_The Wrong Abstraction_](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction) -**Sandi Metz**
+</a><a href="#h4-0-22" id="h4-0-22" class="i">+
+</a><a href="#h4-0-23" id="h4-0-23" class="i">+
+</a><a href="#h4-0-24" id="h4-0-24" class="i">+## Apps
+</a><a href="#h4-0-25" id="h4-0-25" class="i">+
+</a><a href="#h4-0-26" id="h4-0-26" class="i">+[Boop](https://apps.apple.com/us/app/boop/id1518425043) &amp;nbsp;&lt;small&gt;macOS App&lt;/small&gt;
+</a><a href="#h4-0-27" id="h4-0-27" class="i">+Great utility app to process many kind of text, it can pretty format HTML, XML and JSON, convert HEX color to rgb, and more trivial stuff. It is a great tool as I often open a web tool to do those things.
+</a><a href="#h4-0-28" id="h4-0-28" class="i">+
+</a><a href="#h4-0-29" id="h4-0-29" class="i">+[Org-roam](https://www.orgroam.com/)
+</a><a href="#h4-0-30" id="h4-0-30" class="i">+I think, this is the end of my quest to search the best note taking app (on desktop, at the very least). I&#39;ve written about it [on this post](/posts/2020-06-org-mode-with-org-roam/).
+</a><a href="#h4-0-31" id="h4-0-31" class="i">+
+</a><a href="#h4-0-32" id="h4-0-32" class="i">+[SingleFile Browser Extension](https://github.com/gildas-lormeau/SingleFile)
+</a><a href="#h4-0-33" id="h4-0-33" class="i">+Rotten link is one of my fear when bookmarking a site. **SingleFile** is a good site saver that generates only an html file. It&#39;s much easier and compact than &quot;Save Page As...&quot; browser function.
+</a><a href="#h4-0-34" id="h4-0-34" class="i">+
+</a><a href="#h4-0-35" id="h4-0-35" class="i">+[historio.us](https://historio.us/)
+</a><a href="#h4-0-36" id="h4-0-36" class="i">+Related to my [rant post](/posts/2020-06-on-trial-refund-support), I prefer historio.us as my site archiving service. Page caching system is better (i.e. not an `&lt;iframe/&gt;`), and search is easier.
+</a><b>diff --git a/<a id="h5" href="../file/content/posts/March Links.md.html">content/posts/March Links.md</a> b/<a href="../file/content/posts/March 2020 Links.md.html">content/posts/March 2020 Links.md</a></b>
+<b>diff --git a/<a id="h6" href="../file/content/posts/May Links.md.html">content/posts/May Links.md</a> b/<a href="../file/content/posts/May 2020 Links.md.html">content/posts/May 2020 Links.md</a></b>
+<b>diff --git a/<a id="h7" href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a> b/<a href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -1,6 +1,9 @@
+</a> {{ $image := (.Page.Resources.GetMatch  .Destination) }}
+ {{ $alt := .Text }}
+<a href="#h7-0-2" id="h7-0-2" class="d">-{{ $title := .Text }}
+</a><a href="#h7-0-3" id="h7-0-3" class="i">+{{ $title := &quot;&quot; }}
+</a><a href="#h7-0-4" id="h7-0-4" class="i">+{{ if ne .Text &quot;&quot; }}
+</a><a href="#h7-0-5" id="h7-0-5" class="i">+  {{ $title = .Text }}
+</a><a href="#h7-0-6" id="h7-0-6" class="i">+{{ end }}
+</a> {{ if ne .Title &quot;&quot; }}
+   {{ $title = .Title }}
+ {{ end }}
+<a href="#h7-1" id="h7-1" class="h">@@ -42,16 +45,18 @@
+</a>   &lt;/style&gt;
+   &lt;figure class=&quot;{{ $figure_class }}&quot;&gt;
+     &lt;center&gt;
+<a href="#h7-1-3" id="h7-1-3" class="d">-      &lt;a title={{ $title }} class=&quot;no-outline&quot; href=&#39;{{ $image.RelPermalink }}&#39;&gt;
+</a><a href="#h7-1-4" id="h7-1-4" class="d">-        &lt;img
+</a><a href="#h7-1-5" id="h7-1-5" class="d">-          src=&quot;{{ $src.RelPermalink }}&quot;
+</a><a href="#h7-1-6" id="h7-1-6" class="d">-          style=&quot;max-width: 100%; height: auto;&quot;
+</a><a href="#h7-1-7" id="h7-1-7" class="d">-          alt={{ $title }}
+</a><a href="#h7-1-8" id="h7-1-8" class="d">-          title={{ $title }}
+</a><a href="#h7-1-9" id="h7-1-9" class="d">-        /&gt;
+</a><a href="#h7-1-10" id="h7-1-10" class="d">-      &lt;/a&gt;
+</a><a href="#h7-1-11" id="h7-1-11" class="i">+      &lt;img
+</a><a href="#h7-1-12" id="h7-1-12" class="i">+        src=&quot;{{ $src.RelPermalink }}&quot;
+</a><a href="#h7-1-13" id="h7-1-13" class="i">+        style=&quot;max-width: 100%; height: auto;&quot;
+</a><a href="#h7-1-14" id="h7-1-14" class="i">+        alt={{ $title }}
+</a><a href="#h7-1-15" id="h7-1-15" class="i">+        title={{ $title }}
+</a><a href="#h7-1-16" id="h7-1-16" class="i">+      /&gt;
+</a>       &lt;figcaption&gt;
+<a href="#h7-1-18" id="h7-1-18" class="d">-        &lt;em&gt;{{ .Text }}&lt;/em&gt;
+</a><a href="#h7-1-19" id="h7-1-19" class="i">+      &lt;em&gt;{{ .Text }}
+</a><a href="#h7-1-20" id="h7-1-20" class="i">+        &lt;a title=&quot;{{ $title }}&quot; href=&quot;{{ $image.RelPermalink }}&quot;&gt;
+</a><a href="#h7-1-21" id="h7-1-21" class="i">+          &lt;i class=&quot;no-sup fab fa-font-awesome-flag&quot;&gt;&lt;/i&gt;
+</a><a href="#h7-1-22" id="h7-1-22" class="i">+        &lt;/a&gt;
+</a><a href="#h7-1-23" id="h7-1-23" class="i">+      &lt;/em&gt;
+</a>       &lt;/figcaption&gt;
+     &lt;/center&gt;
+   &lt;/figure&gt;
+<a href="#h7-2" id="h7-2" class="h">@@ -59,14 +64,16 @@
+</a> 
+ &lt;figure class=&quot;{{ $figure_class }} lazy&quot;&gt;
+   &lt;center&gt;
+<a href="#h7-2-3" id="h7-2-3" class="d">-    &lt;a title={{ $title }} class=&quot;no-outline no-hover&quot; href=&#39;{{ $image.RelPermalink }}&#39;&gt;
+</a><a href="#h7-2-4" id="h7-2-4" class="d">-      &lt;img class=&quot;lazyload&quot; data-sizes=&quot;auto&quot; src=&quot;{{ $src.RelPermalink }}&quot;
+</a><a href="#h7-2-5" id="h7-2-5" class="d">-        style=&quot;max-width: 100%; height: auto;&quot;
+</a><a href="#h7-2-6" id="h7-2-6" class="d">-        srcset=&quot;data:image/jpeg;base64,{{ $placeholder.Content | base64Encode }}&quot; data-src=&quot;{{ $src.RelPermalink }}&quot;
+</a><a href="#h7-2-7" id="h7-2-7" class="d">-        data-srcset=&quot;{{ $src_set }}&quot; width=&quot;{{ $image.Width }}&quot; height=&quot;{{ $image.Height }}&quot; alt={{ $title }} title={{ $title }} /&gt;
+</a><a href="#h7-2-8" id="h7-2-8" class="d">-    &lt;/a&gt;
+</a><a href="#h7-2-9" id="h7-2-9" class="i">+    &lt;img class=&quot;lazyload&quot; data-sizes=&quot;auto&quot; src=&quot;{{ $src.RelPermalink }}&quot;
+</a><a href="#h7-2-10" id="h7-2-10" class="i">+      style=&quot;max-width: 100%; height: auto;&quot;
+</a><a href="#h7-2-11" id="h7-2-11" class="i">+      srcset=&quot;data:image/jpeg;base64,{{ $placeholder.Content | base64Encode }}&quot; data-src=&quot;{{ $src.RelPermalink }}&quot;
+</a><a href="#h7-2-12" id="h7-2-12" class="i">+      data-srcset=&quot;{{ $src_set }}&quot; width=&quot;{{ $image.Width }}&quot; height=&quot;{{ $image.Height }}&quot; alt={{ $title }} title={{ $title }} /&gt;
+</a>     &lt;figcaption&gt;
+<a href="#h7-2-14" id="h7-2-14" class="d">-      &lt;em&gt;{{ .Text | safeHTML }}&lt;/em&gt;
+</a><a href="#h7-2-15" id="h7-2-15" class="i">+      &lt;em&gt;{{ .Text | safeHTML }}
+</a><a href="#h7-2-16" id="h7-2-16" class="i">+        &lt;a title=&quot;{{ $title }}&quot; href=&quot;{{ $image.RelPermalink }}&quot;&gt;
+</a><a href="#h7-2-17" id="h7-2-17" class="i">+          &lt;i class=&quot;no-sup fab fa-font-awesome-flag&quot;&gt;&lt;/i&gt;
+</a><a href="#h7-2-18" id="h7-2-18" class="i">+        &lt;/a&gt;
+</a><a href="#h7-2-19" id="h7-2-19" class="i">+      &lt;/em&gt;
+</a>     &lt;/figcaption&gt;
+   &lt;/center&gt;
+ &lt;/figure&gt;
+</pre>
+</div>
+</div>
+</body>
+</html>

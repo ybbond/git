@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>content: rewrite the reports to json - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/dce6c970e9eaa1acbfde8ca4a8878c897d817f3c.html">dce6c970e9eaa1acbfde8ca4a8878c897d817f3c</a>
+<b>parent</b> <a href="../commit/8abf02bad3a1fb0601d0e94e369b01fa002179d0.html">8abf02bad3a1fb0601d0e94e369b01fa002179d0</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Sun,  5 Jul 2020 14:28:44 +0700
+
+content: rewrite the reports to json
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">content/reports/2020-05-09-2.md</a></td><td> | </td><td class="num">276</td><td><span class="i">++++++++++++++++++++++</span><span class="d">---------------------------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">content/reports/2020-05-09.md</a></td><td> | </td><td class="num">276</td><td><span class="i">++++++++++++++++++++++</span><span class="d">---------------------------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">content/reports/2020-05-19.md</a></td><td> | </td><td class="num">130</td><td><span class="i">+++++++++++</span><span class="d">--------------------------------------------------------------------</span></td></tr>
+</table></pre></div><p>3 files changed, 167 insertions(<span id="plus">+</span>), 515 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/content/reports/2020-05-09-2.md.html">content/reports/2020-05-09-2.md</a> b/<a href="../file/content/reports/2020-05-09-2.md.html">content/reports/2020-05-09-2.md</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -29,55 +29,43 @@ Sat,  9 May 2020 20:01:53 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/&quot;,
+<a href="#h0-0-3" id="h0-0-3" class="d">-      &quot;content-length&quot;: &quot;7.04 KB&quot;,
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-      &quot;content-size&quot;: &quot;28.26 KB&quot;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+      &quot;content-length&quot;: &quot;7.03 KB&quot;,
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+      &quot;content-size&quot;: &quot;27.37 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h0-0-11" id="h0-0-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h0-0-18" id="h0-0-18" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h0-0-19" id="h0-0-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h0-0-20" id="h0-0-20" class="d">-    },
+</a><a href="#h0-0-21" id="h0-0-21" class="d">-    {
+</a><a href="#h0-0-22" id="h0-0-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h0-0-23" id="h0-0-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h0-0-24" id="h0-0-24" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h0-0-25" id="h0-0-25" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h0-0-32" id="h0-0-32" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h0-0-39" id="h0-0-39" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h0-0-46" id="h0-0-46" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h0-0-51" id="h0-0-51" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h0-0-52" id="h0-0-52" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h0-0-53" id="h0-0-53" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h0-0-54" id="h0-0-54" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h0-0-55" id="h0-0-55" class="d">-    },
+</a><a href="#h0-0-56" id="h0-0-56" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h0-0-59" id="h0-0-59" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h0-0-60" id="h0-0-60" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<a href="#h0-1" id="h0-1" class="h">@@ -91,68 +79,50 @@ Sat,  9 May 2020 20:01:53 +0700
+</a> [
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h0-1-3" id="h0-1-3" class="d">-      &quot;path&quot;: &quot;/about/&quot;,
+</a><a href="#h0-1-4" id="h0-1-4" class="d">-      &quot;content-length&quot;: &quot;7.34 KB&quot;,
+</a><a href="#h0-1-5" id="h0-1-5" class="d">-      &quot;content-size&quot;: &quot;24.54 KB&quot;
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+      &quot;path&quot;: &quot;/cv/&quot;,
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+      &quot;content-length&quot;: &quot;6.12 KB&quot;,
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+      &quot;content-size&quot;: &quot;20.72 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h0-1-13" id="h0-1-13" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h0-1-14" id="h0-1-14" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h0-1-20" id="h0-1-20" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h0-1-21" id="h0-1-21" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h0-1-22" id="h0-1-22" class="d">-    },
+</a><a href="#h0-1-23" id="h0-1-23" class="d">-    {
+</a><a href="#h0-1-24" id="h0-1-24" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h0-1-25" id="h0-1-25" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h0-1-26" id="h0-1-26" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h0-1-27" id="h0-1-27" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h0-1-28" id="h0-1-28" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h0-1-29" id="h0-1-29" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h0-1-34" id="h0-1-34" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h0-1-35" id="h0-1-35" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h0-1-41" id="h0-1-41" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h0-1-42" id="h0-1-42" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Bold.woff&quot;,
+<a href="#h0-1-48" id="h0-1-48" class="d">-      &quot;content-length&quot;: &quot;56.83 KB&quot;,
+</a><a href="#h0-1-49" id="h0-1-49" class="i">+      &quot;content-length&quot;: &quot;56.85 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;56.59 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h0-1-55" id="h0-1-55" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h0-1-56" id="h0-1-56" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h0-1-61" id="h0-1-61" class="d">-      &quot;path&quot;: &quot;bandung-mosh-on-tarintih.jpeg&quot;,
+</a><a href="#h0-1-62" id="h0-1-62" class="d">-      &quot;content-length&quot;: &quot;36.49 KB&quot;,
+</a><a href="#h0-1-63" id="h0-1-63" class="d">-      &quot;content-size&quot;: &quot;36.26 KB&quot;
+</a><a href="#h0-1-64" id="h0-1-64" class="d">-    },
+</a><a href="#h0-1-65" id="h0-1-65" class="d">-    {
+</a><a href="#h0-1-66" id="h0-1-66" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h0-1-67" id="h0-1-67" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h0-1-68" id="h0-1-68" class="d">-      &quot;content-length&quot;: &quot;578 B&quot;,
+</a><a href="#h0-1-69" id="h0-1-69" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h0-1-70" id="h0-1-70" class="d">-    },
+</a><a href="#h0-1-71" id="h0-1-71" class="d">-    {
+</a><a href="#h0-1-72" id="h0-1-72" class="d">-      &quot;domain&quot;: &quot;ybbond.dev&quot;,
+</a>       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h0-1-74" id="h0-1-74" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h0-1-75" id="h0-1-75" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<a href="#h0-2" id="h0-2" class="h">@@ -167,26 +137,20 @@ Sat,  9 May 2020 20:01:53 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/uses/&quot;,
+<a href="#h0-2-3" id="h0-2-3" class="d">-      &quot;content-length&quot;: &quot;6.49 KB&quot;,
+</a><a href="#h0-2-4" id="h0-2-4" class="d">-      &quot;content-size&quot;: &quot;23.37 KB&quot;
+</a><a href="#h0-2-5" id="h0-2-5" class="i">+      &quot;content-length&quot;: &quot;5.86 KB&quot;,
+</a><a href="#h0-2-6" id="h0-2-6" class="i">+      &quot;content-size&quot;: &quot;20.59 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h0-2-11" id="h0-2-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h0-2-12" id="h0-2-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h0-2-18" id="h0-2-18" class="d">-      &quot;content-length&quot;: &quot;3.69 KB&quot;,
+</a><a href="#h0-2-19" id="h0-2-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h0-2-20" id="h0-2-20" class="d">-    },
+</a><a href="#h0-2-21" id="h0-2-21" class="d">-    {
+</a><a href="#h0-2-22" id="h0-2-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h0-2-23" id="h0-2-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h0-2-24" id="h0-2-24" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h0-2-25" id="h0-2-25" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h0-2-26" id="h0-2-26" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h0-2-27" id="h0-2-27" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h0-3" id="h0-3" class="h">@@ -197,31 +161,19 @@ Sat,  9 May 2020 20:01:53 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h0-3-3" id="h0-3-3" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h0-3-4" id="h0-3-4" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h0-3-10" id="h0-3-10" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h0-3-11" id="h0-3-11" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h0-3-16" id="h0-3-16" class="d">-      &quot;path&quot;: &quot;iAWriterQuattroS-Bold.woff&quot;,
+</a><a href="#h0-3-17" id="h0-3-17" class="d">-      &quot;content-length&quot;: &quot;56.83 KB&quot;,
+</a><a href="#h0-3-18" id="h0-3-18" class="d">-      &quot;content-size&quot;: &quot;56.59 KB&quot;
+</a><a href="#h0-3-19" id="h0-3-19" class="d">-    },
+</a><a href="#h0-3-20" id="h0-3-20" class="d">-    {
+</a><a href="#h0-3-21" id="h0-3-21" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h0-3-22" id="h0-3-22" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h0-3-23" id="h0-3-23" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h0-3-24" id="h0-3-24" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h0-3-25" id="h0-3-25" class="d">-    },
+</a><a href="#h0-3-26" id="h0-3-26" class="d">-    {
+</a><a href="#h0-3-27" id="h0-3-27" class="d">-      &quot;domain&quot;: &quot;ybbond.dev&quot;,
+</a>       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h0-3-29" id="h0-3-29" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h0-3-30" id="h0-3-30" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<a href="#h0-4" id="h0-4" class="h">@@ -236,73 +188,43 @@ Sat,  9 May 2020 20:01:53 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/posts/&quot;,
+<a href="#h0-4-3" id="h0-4-3" class="d">-      &quot;content-length&quot;: &quot;7.80 KB&quot;,
+</a><a href="#h0-4-4" id="h0-4-4" class="d">-      &quot;content-size&quot;: &quot;29.47 KB&quot;
+</a><a href="#h0-4-5" id="h0-4-5" class="i">+      &quot;content-length&quot;: &quot;7.38 KB&quot;,
+</a><a href="#h0-4-6" id="h0-4-6" class="i">+      &quot;content-size&quot;: &quot;26.01 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h0-4-11" id="h0-4-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h0-4-12" id="h0-4-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h0-4-18" id="h0-4-18" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h0-4-19" id="h0-4-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h0-4-20" id="h0-4-20" class="d">-    },
+</a><a href="#h0-4-21" id="h0-4-21" class="d">-    {
+</a><a href="#h0-4-22" id="h0-4-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h0-4-23" id="h0-4-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h0-4-24" id="h0-4-24" class="d">-      &quot;content-length&quot;: &quot;2.45 KB&quot;,
+</a><a href="#h0-4-25" id="h0-4-25" class="d">-      &quot;content-size&quot;: &quot;5.77 KB&quot;
+</a><a href="#h0-4-26" id="h0-4-26" class="d">-    },
+</a><a href="#h0-4-27" id="h0-4-27" class="d">-    {
+</a><a href="#h0-4-28" id="h0-4-28" class="d">-      &quot;domain&quot;: &quot;ybbond.dev&quot;,
+</a><a href="#h0-4-29" id="h0-4-29" class="d">-      &quot;path&quot;: &quot;1.png&quot;,
+</a><a href="#h0-4-30" id="h0-4-30" class="d">-      &quot;content-length&quot;: &quot;502.82 KB&quot;,
+</a><a href="#h0-4-31" id="h0-4-31" class="d">-      &quot;content-size&quot;: &quot;502.59 KB&quot;
+</a><a href="#h0-4-32" id="h0-4-32" class="d">-    },
+</a><a href="#h0-4-33" id="h0-4-33" class="d">-    {
+</a><a href="#h0-4-34" id="h0-4-34" class="d">-      &quot;domain&quot;: &quot;ybbond.dev&quot;,
+</a><a href="#h0-4-35" id="h0-4-35" class="d">-      &quot;path&quot;: &quot;nutype-under-ipad.jpg&quot;,
+</a><a href="#h0-4-36" id="h0-4-36" class="d">-      &quot;content-length&quot;: &quot;282.18 KB&quot;,
+</a><a href="#h0-4-37" id="h0-4-37" class="d">-      &quot;content-size&quot;: &quot;281.95 KB&quot;
+</a><a href="#h0-4-38" id="h0-4-38" class="d">-    },
+</a><a href="#h0-4-39" id="h0-4-39" class="d">-    {
+</a><a href="#h0-4-40" id="h0-4-40" class="d">-      &quot;domain&quot;: &quot;ybbond.dev&quot;,
+</a><a href="#h0-4-41" id="h0-4-41" class="d">-      &quot;path&quot;: &quot;ia-writer-headline.jpg (404)&quot;,
+</a><a href="#h0-4-42" id="h0-4-42" class="d">-      &quot;content-length&quot;: &quot;285 B&quot;,
+</a><a href="#h0-4-43" id="h0-4-43" class="d">-      &quot;content-size&quot;: &quot;146 B&quot;
+</a><a href="#h0-4-44" id="h0-4-44" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h0-4-45" id="h0-4-45" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h0-4-50" id="h0-4-50" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h0-4-51" id="h0-4-51" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h0-4-57" id="h0-4-57" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h0-4-58" id="h0-4-58" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h0-4-64" id="h0-4-64" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h0-4-65" id="h0-4-65" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h0-4-69" id="h0-4-69" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h0-4-70" id="h0-4-70" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h0-4-71" id="h0-4-71" class="d">-      &quot;content-length&quot;: &quot;578 B&quot;,
+</a><a href="#h0-4-72" id="h0-4-72" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h0-4-73" id="h0-4-73" class="d">-    },
+</a><a href="#h0-4-74" id="h0-4-74" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h0-4-77" id="h0-4-77" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h0-4-78" id="h0-4-78" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<a href="#h0-5" id="h0-5" class="h">@@ -317,61 +239,49 @@ Sat,  9 May 2020 20:01:53 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/notes/&quot;,
+<a href="#h0-5-3" id="h0-5-3" class="d">-      &quot;content-length&quot;: &quot;7.83 KB&quot;,
+</a><a href="#h0-5-4" id="h0-5-4" class="d">-      &quot;content-size&quot;: &quot;38.66 KB&quot;
+</a><a href="#h0-5-5" id="h0-5-5" class="i">+      &quot;content-length&quot;: &quot;7.49 KB&quot;,
+</a><a href="#h0-5-6" id="h0-5-6" class="i">+      &quot;content-size&quot;: &quot;35.70 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h0-5-11" id="h0-5-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h0-5-12" id="h0-5-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h0-5-18" id="h0-5-18" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h0-5-19" id="h0-5-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h0-5-20" id="h0-5-20" class="d">-    },
+</a><a href="#h0-5-21" id="h0-5-21" class="d">-    {
+</a><a href="#h0-5-22" id="h0-5-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h0-5-23" id="h0-5-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h0-5-24" id="h0-5-24" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h0-5-25" id="h0-5-25" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h0-5-26" id="h0-5-26" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h0-5-27" id="h0-5-27" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h0-5-32" id="h0-5-32" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h0-5-33" id="h0-5-33" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h0-5-39" id="h0-5-39" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h0-5-40" id="h0-5-40" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h0-5-46" id="h0-5-46" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h0-5-47" id="h0-5-47" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Bold.woff&quot;,
+<a href="#h0-5-53" id="h0-5-53" class="d">-      &quot;content-length&quot;: &quot;56.83 KB&quot;,
+</a><a href="#h0-5-54" id="h0-5-54" class="i">+      &quot;content-length&quot;: &quot;56.85 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;56.59 KB&quot;
+     },
+     {
+<a href="#h0-5-58" id="h0-5-58" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h0-5-59" id="h0-5-59" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h0-5-60" id="h0-5-60" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h0-5-61" id="h0-5-61" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h0-5-62" id="h0-5-62" class="d">-    },
+</a><a href="#h0-5-63" id="h0-5-63" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h0-5-66" id="h0-5-66" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h0-5-67" id="h0-5-67" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<a href="#h0-6" id="h0-6" class="h">@@ -386,61 +296,49 @@ Sat,  9 May 2020 20:01:53 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/posts/2020-04-migrating-my-blog-to-hugo/&quot;,
+<a href="#h0-6-3" id="h0-6-3" class="d">-      &quot;content-length&quot;: &quot;7.53 KB&quot;,
+</a><a href="#h0-6-4" id="h0-6-4" class="d">-      &quot;content-size&quot;: &quot;26.08 KB&quot;
+</a><a href="#h0-6-5" id="h0-6-5" class="i">+      &quot;content-length&quot;: &quot;7.62 KB&quot;,
+</a><a href="#h0-6-6" id="h0-6-6" class="i">+      &quot;content-size&quot;: &quot;25.08 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h0-6-11" id="h0-6-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h0-6-12" id="h0-6-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h0-6-18" id="h0-6-18" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h0-6-19" id="h0-6-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h0-6-20" id="h0-6-20" class="d">-    },
+</a><a href="#h0-6-21" id="h0-6-21" class="d">-    {
+</a><a href="#h0-6-22" id="h0-6-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h0-6-23" id="h0-6-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h0-6-24" id="h0-6-24" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h0-6-25" id="h0-6-25" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h0-6-26" id="h0-6-26" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h0-6-27" id="h0-6-27" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h0-6-32" id="h0-6-32" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h0-6-33" id="h0-6-33" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h0-6-39" id="h0-6-39" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h0-6-40" id="h0-6-40" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Bold.woff&quot;,
+<a href="#h0-6-46" id="h0-6-46" class="d">-      &quot;content-length&quot;: &quot;56.83 KB&quot;,
+</a><a href="#h0-6-47" id="h0-6-47" class="i">+      &quot;content-length&quot;: &quot;56.85 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;56.59 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h0-6-53" id="h0-6-53" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h0-6-54" id="h0-6-54" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h0-6-58" id="h0-6-58" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h0-6-59" id="h0-6-59" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h0-6-60" id="h0-6-60" class="d">-      &quot;content-length&quot;: &quot;578 B&quot;,
+</a><a href="#h0-6-61" id="h0-6-61" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h0-6-62" id="h0-6-62" class="d">-    },
+</a><a href="#h0-6-63" id="h0-6-63" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h0-6-66" id="h0-6-66" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h0-6-67" id="h0-6-67" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<a href="#h0-7" id="h0-7" class="h">@@ -455,58 +353,46 @@ Sat,  9 May 2020 20:01:53 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/posts/2020-04-why-i-positioned-sidebar-to-the-right/&quot;,
+<a href="#h0-7-3" id="h0-7-3" class="d">-      &quot;content-length&quot;: &quot;6.37 KB&quot;,
+</a><a href="#h0-7-4" id="h0-7-4" class="d">-      &quot;content-size&quot;: &quot;22.56 KB&quot;
+</a><a href="#h0-7-5" id="h0-7-5" class="i">+      &quot;content-length&quot;: &quot;6.47 KB&quot;,
+</a><a href="#h0-7-6" id="h0-7-6" class="i">+      &quot;content-size&quot;: &quot;21.67 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h0-7-11" id="h0-7-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h0-7-12" id="h0-7-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h0-7-18" id="h0-7-18" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h0-7-19" id="h0-7-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h0-7-20" id="h0-7-20" class="d">-    },
+</a><a href="#h0-7-21" id="h0-7-21" class="d">-    {
+</a><a href="#h0-7-22" id="h0-7-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h0-7-23" id="h0-7-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h0-7-24" id="h0-7-24" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h0-7-25" id="h0-7-25" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h0-7-26" id="h0-7-26" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h0-7-27" id="h0-7-27" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h0-7-32" id="h0-7-32" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h0-7-33" id="h0-7-33" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h0-7-39" id="h0-7-39" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h0-7-40" id="h0-7-40" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Bold.woff&quot;,
+<a href="#h0-7-46" id="h0-7-46" class="d">-      &quot;content-length&quot;: &quot;56.83 KB&quot;,
+</a><a href="#h0-7-47" id="h0-7-47" class="i">+      &quot;content-length&quot;: &quot;56.85 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;56.59 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h0-7-53" id="h0-7-53" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h0-7-54" id="h0-7-54" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h0-7-58" id="h0-7-58" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h0-7-59" id="h0-7-59" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h0-7-60" id="h0-7-60" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h0-7-61" id="h0-7-61" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h0-7-62" id="h0-7-62" class="d">-    },
+</a><a href="#h0-7-63" id="h0-7-63" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+       &quot;content-length&quot;: &quot;1.35 KB&quot;,
+<a href="#h0-8" id="h0-8" class="h">@@ -524,55 +410,43 @@ Sat,  9 May 2020 20:01:53 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/notes/04-may-2020-2/&quot;,
+<a href="#h0-8-3" id="h0-8-3" class="d">-      &quot;content-length&quot;: &quot;5.27 KB&quot;,
+</a><a href="#h0-8-4" id="h0-8-4" class="d">-      &quot;content-size&quot;: &quot;20 KB&quot;
+</a><a href="#h0-8-5" id="h0-8-5" class="i">+      &quot;content-length&quot;: &quot;5.33 KB&quot;,
+</a><a href="#h0-8-6" id="h0-8-6" class="i">+      &quot;content-size&quot;: &quot;19.17 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h0-8-11" id="h0-8-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h0-8-12" id="h0-8-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h0-8-18" id="h0-8-18" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h0-8-19" id="h0-8-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h0-8-20" id="h0-8-20" class="d">-    },
+</a><a href="#h0-8-21" id="h0-8-21" class="d">-    {
+</a><a href="#h0-8-22" id="h0-8-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h0-8-23" id="h0-8-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h0-8-24" id="h0-8-24" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h0-8-25" id="h0-8-25" class="d">-      &quot;content-size&quot;: &quot;5.81 KB&quot;
+</a><a href="#h0-8-26" id="h0-8-26" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h0-8-27" id="h0-8-27" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h0-8-32" id="h0-8-32" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h0-8-33" id="h0-8-33" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h0-8-39" id="h0-8-39" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h0-8-40" id="h0-8-40" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h0-8-46" id="h0-8-46" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h0-8-47" id="h0-8-47" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h0-8-51" id="h0-8-51" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h0-8-52" id="h0-8-52" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h0-8-53" id="h0-8-53" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h0-8-54" id="h0-8-54" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h0-8-55" id="h0-8-55" class="d">-    },
+</a><a href="#h0-8-56" id="h0-8-56" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h0-8-59" id="h0-8-59" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h0-8-60" id="h0-8-60" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<b>diff --git a/<a id="h1" href="../file/content/reports/2020-05-09.md.html">content/reports/2020-05-09.md</a> b/<a href="../file/content/reports/2020-05-09.md.html">content/reports/2020-05-09.md</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -28,55 +28,43 @@ Sat,  9 May 2020 17:17:59 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/&quot;,
+<a href="#h1-0-3" id="h1-0-3" class="d">-      &quot;content-length&quot;: &quot;7.04 KB&quot;,
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-      &quot;content-size&quot;: &quot;28.26 KB&quot;
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+      &quot;content-length&quot;: &quot;6.67 KB&quot;,
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+      &quot;content-size&quot;: &quot;25.64 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h1-0-11" id="h1-0-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h1-0-18" id="h1-0-18" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-    },
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-    {
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h1-0-26" id="h1-0-26" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h1-0-32" id="h1-0-32" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h1-0-33" id="h1-0-33" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h1-0-39" id="h1-0-39" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h1-0-40" id="h1-0-40" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h1-0-46" id="h1-0-46" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h1-0-47" id="h1-0-47" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h1-0-51" id="h1-0-51" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h1-0-52" id="h1-0-52" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h1-0-53" id="h1-0-53" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h1-0-54" id="h1-0-54" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h1-0-55" id="h1-0-55" class="d">-    },
+</a><a href="#h1-0-56" id="h1-0-56" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h1-0-59" id="h1-0-59" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h1-0-60" id="h1-0-60" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<a href="#h1-1" id="h1-1" class="h">@@ -90,68 +78,50 @@ Sat,  9 May 2020 17:17:59 +0700
+</a> [
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h1-1-3" id="h1-1-3" class="d">-      &quot;path&quot;: &quot;/about/&quot;,
+</a><a href="#h1-1-4" id="h1-1-4" class="d">-      &quot;content-length&quot;: &quot;7.34 KB&quot;,
+</a><a href="#h1-1-5" id="h1-1-5" class="d">-      &quot;content-size&quot;: &quot;24.54 KB&quot;
+</a><a href="#h1-1-6" id="h1-1-6" class="i">+      &quot;path&quot;: &quot;/cv/&quot;,
+</a><a href="#h1-1-7" id="h1-1-7" class="i">+      &quot;content-length&quot;: &quot;5.72 KB&quot;,
+</a><a href="#h1-1-8" id="h1-1-8" class="i">+      &quot;content-size&quot;: &quot;18.94 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h1-1-13" id="h1-1-13" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h1-1-14" id="h1-1-14" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h1-1-20" id="h1-1-20" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h1-1-21" id="h1-1-21" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h1-1-22" id="h1-1-22" class="d">-    },
+</a><a href="#h1-1-23" id="h1-1-23" class="d">-    {
+</a><a href="#h1-1-24" id="h1-1-24" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h1-1-25" id="h1-1-25" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h1-1-26" id="h1-1-26" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h1-1-27" id="h1-1-27" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h1-1-28" id="h1-1-28" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h1-1-29" id="h1-1-29" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h1-1-34" id="h1-1-34" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h1-1-35" id="h1-1-35" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h1-1-41" id="h1-1-41" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h1-1-42" id="h1-1-42" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Bold.woff&quot;,
+<a href="#h1-1-48" id="h1-1-48" class="d">-      &quot;content-length&quot;: &quot;56.83 KB&quot;,
+</a><a href="#h1-1-49" id="h1-1-49" class="i">+      &quot;content-length&quot;: &quot;56.85 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;56.59 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h1-1-55" id="h1-1-55" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h1-1-56" id="h1-1-56" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h1-1-61" id="h1-1-61" class="d">-      &quot;path&quot;: &quot;bandung-mosh-on-tarintih.jpeg&quot;,
+</a><a href="#h1-1-62" id="h1-1-62" class="d">-      &quot;content-length&quot;: &quot;36.49 KB&quot;,
+</a><a href="#h1-1-63" id="h1-1-63" class="d">-      &quot;content-size&quot;: &quot;36.26 KB&quot;
+</a><a href="#h1-1-64" id="h1-1-64" class="d">-    },
+</a><a href="#h1-1-65" id="h1-1-65" class="d">-    {
+</a><a href="#h1-1-66" id="h1-1-66" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h1-1-67" id="h1-1-67" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h1-1-68" id="h1-1-68" class="d">-      &quot;content-length&quot;: &quot;578 B&quot;,
+</a><a href="#h1-1-69" id="h1-1-69" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h1-1-70" id="h1-1-70" class="d">-    },
+</a><a href="#h1-1-71" id="h1-1-71" class="d">-    {
+</a><a href="#h1-1-72" id="h1-1-72" class="d">-      &quot;domain&quot;: &quot;ybbond.dev&quot;,
+</a>       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h1-1-74" id="h1-1-74" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h1-1-75" id="h1-1-75" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<a href="#h1-2" id="h1-2" class="h">@@ -166,26 +136,20 @@ Sat,  9 May 2020 17:17:59 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/uses/&quot;,
+<a href="#h1-2-3" id="h1-2-3" class="d">-      &quot;content-length&quot;: &quot;6.49 KB&quot;,
+</a><a href="#h1-2-4" id="h1-2-4" class="d">-      &quot;content-size&quot;: &quot;23.37 KB&quot;
+</a><a href="#h1-2-5" id="h1-2-5" class="i">+      &quot;content-length&quot;: &quot;5.50 KB&quot;,
+</a><a href="#h1-2-6" id="h1-2-6" class="i">+      &quot;content-size&quot;: &quot;18.75 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h1-2-11" id="h1-2-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h1-2-12" id="h1-2-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h1-2-18" id="h1-2-18" class="d">-      &quot;content-length&quot;: &quot;3.69 KB&quot;,
+</a><a href="#h1-2-19" id="h1-2-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h1-2-20" id="h1-2-20" class="d">-    },
+</a><a href="#h1-2-21" id="h1-2-21" class="d">-    {
+</a><a href="#h1-2-22" id="h1-2-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h1-2-23" id="h1-2-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h1-2-24" id="h1-2-24" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h1-2-25" id="h1-2-25" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h1-2-26" id="h1-2-26" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h1-2-27" id="h1-2-27" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h1-3" id="h1-3" class="h">@@ -196,31 +160,19 @@ Sat,  9 May 2020 17:17:59 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h1-3-3" id="h1-3-3" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h1-3-4" id="h1-3-4" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h1-3-10" id="h1-3-10" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h1-3-11" id="h1-3-11" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h1-3-16" id="h1-3-16" class="d">-      &quot;path&quot;: &quot;iAWriterQuattroS-Bold.woff&quot;,
+</a><a href="#h1-3-17" id="h1-3-17" class="d">-      &quot;content-length&quot;: &quot;56.83 KB&quot;,
+</a><a href="#h1-3-18" id="h1-3-18" class="d">-      &quot;content-size&quot;: &quot;56.59 KB&quot;
+</a><a href="#h1-3-19" id="h1-3-19" class="d">-    },
+</a><a href="#h1-3-20" id="h1-3-20" class="d">-    {
+</a><a href="#h1-3-21" id="h1-3-21" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h1-3-22" id="h1-3-22" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h1-3-23" id="h1-3-23" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h1-3-24" id="h1-3-24" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h1-3-25" id="h1-3-25" class="d">-    },
+</a><a href="#h1-3-26" id="h1-3-26" class="d">-    {
+</a><a href="#h1-3-27" id="h1-3-27" class="d">-      &quot;domain&quot;: &quot;ybbond.dev&quot;,
+</a>       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h1-3-29" id="h1-3-29" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h1-3-30" id="h1-3-30" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<a href="#h1-4" id="h1-4" class="h">@@ -235,73 +187,43 @@ Sat,  9 May 2020 17:17:59 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/posts/&quot;,
+<a href="#h1-4-3" id="h1-4-3" class="d">-      &quot;content-length&quot;: &quot;7.80 KB&quot;,
+</a><a href="#h1-4-4" id="h1-4-4" class="d">-      &quot;content-size&quot;: &quot;29.47 KB&quot;
+</a><a href="#h1-4-5" id="h1-4-5" class="i">+      &quot;content-length&quot;: &quot;6.83 KB&quot;,
+</a><a href="#h1-4-6" id="h1-4-6" class="i">+      &quot;content-size&quot;: &quot;23.13 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h1-4-11" id="h1-4-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h1-4-12" id="h1-4-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h1-4-18" id="h1-4-18" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h1-4-19" id="h1-4-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h1-4-20" id="h1-4-20" class="d">-    },
+</a><a href="#h1-4-21" id="h1-4-21" class="d">-    {
+</a><a href="#h1-4-22" id="h1-4-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h1-4-23" id="h1-4-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h1-4-24" id="h1-4-24" class="d">-      &quot;content-length&quot;: &quot;2.45 KB&quot;,
+</a><a href="#h1-4-25" id="h1-4-25" class="d">-      &quot;content-size&quot;: &quot;5.77 KB&quot;
+</a><a href="#h1-4-26" id="h1-4-26" class="d">-    },
+</a><a href="#h1-4-27" id="h1-4-27" class="d">-    {
+</a><a href="#h1-4-28" id="h1-4-28" class="d">-      &quot;domain&quot;: &quot;ybbond.dev&quot;,
+</a><a href="#h1-4-29" id="h1-4-29" class="d">-      &quot;path&quot;: &quot;1.png&quot;,
+</a><a href="#h1-4-30" id="h1-4-30" class="d">-      &quot;content-length&quot;: &quot;502.82 KB&quot;,
+</a><a href="#h1-4-31" id="h1-4-31" class="d">-      &quot;content-size&quot;: &quot;502.59 KB&quot;
+</a><a href="#h1-4-32" id="h1-4-32" class="d">-    },
+</a><a href="#h1-4-33" id="h1-4-33" class="d">-    {
+</a><a href="#h1-4-34" id="h1-4-34" class="d">-      &quot;domain&quot;: &quot;ybbond.dev&quot;,
+</a><a href="#h1-4-35" id="h1-4-35" class="d">-      &quot;path&quot;: &quot;nutype-under-ipad.jpg&quot;,
+</a><a href="#h1-4-36" id="h1-4-36" class="d">-      &quot;content-length&quot;: &quot;282.18 KB&quot;,
+</a><a href="#h1-4-37" id="h1-4-37" class="d">-      &quot;content-size&quot;: &quot;281.95 KB&quot;
+</a><a href="#h1-4-38" id="h1-4-38" class="d">-    },
+</a><a href="#h1-4-39" id="h1-4-39" class="d">-    {
+</a><a href="#h1-4-40" id="h1-4-40" class="d">-      &quot;domain&quot;: &quot;ybbond.dev&quot;,
+</a><a href="#h1-4-41" id="h1-4-41" class="d">-      &quot;path&quot;: &quot;ia-writer-headline.jpg (404)&quot;,
+</a><a href="#h1-4-42" id="h1-4-42" class="d">-      &quot;content-length&quot;: &quot;285 B&quot;,
+</a><a href="#h1-4-43" id="h1-4-43" class="d">-      &quot;content-size&quot;: &quot;146 B&quot;
+</a><a href="#h1-4-44" id="h1-4-44" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h1-4-45" id="h1-4-45" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h1-4-50" id="h1-4-50" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h1-4-51" id="h1-4-51" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h1-4-57" id="h1-4-57" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h1-4-58" id="h1-4-58" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h1-4-64" id="h1-4-64" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h1-4-65" id="h1-4-65" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h1-4-69" id="h1-4-69" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h1-4-70" id="h1-4-70" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h1-4-71" id="h1-4-71" class="d">-      &quot;content-length&quot;: &quot;578 B&quot;,
+</a><a href="#h1-4-72" id="h1-4-72" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h1-4-73" id="h1-4-73" class="d">-    },
+</a><a href="#h1-4-74" id="h1-4-74" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h1-4-77" id="h1-4-77" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h1-4-78" id="h1-4-78" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<a href="#h1-5" id="h1-5" class="h">@@ -316,61 +238,49 @@ Sat,  9 May 2020 17:17:59 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/notes/&quot;,
+<a href="#h1-5-3" id="h1-5-3" class="d">-      &quot;content-length&quot;: &quot;7.83 KB&quot;,
+</a><a href="#h1-5-4" id="h1-5-4" class="d">-      &quot;content-size&quot;: &quot;38.66 KB&quot;
+</a><a href="#h1-5-5" id="h1-5-5" class="i">+      &quot;content-length&quot;: &quot;6.99 KB&quot;,
+</a><a href="#h1-5-6" id="h1-5-6" class="i">+      &quot;content-size&quot;: &quot;33.31 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h1-5-11" id="h1-5-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h1-5-12" id="h1-5-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h1-5-18" id="h1-5-18" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h1-5-19" id="h1-5-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h1-5-20" id="h1-5-20" class="d">-    },
+</a><a href="#h1-5-21" id="h1-5-21" class="d">-    {
+</a><a href="#h1-5-22" id="h1-5-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h1-5-23" id="h1-5-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h1-5-24" id="h1-5-24" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h1-5-25" id="h1-5-25" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h1-5-26" id="h1-5-26" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h1-5-27" id="h1-5-27" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h1-5-32" id="h1-5-32" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h1-5-33" id="h1-5-33" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h1-5-39" id="h1-5-39" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h1-5-40" id="h1-5-40" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h1-5-46" id="h1-5-46" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h1-5-47" id="h1-5-47" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Bold.woff&quot;,
+<a href="#h1-5-53" id="h1-5-53" class="d">-      &quot;content-length&quot;: &quot;56.83 KB&quot;,
+</a><a href="#h1-5-54" id="h1-5-54" class="i">+      &quot;content-length&quot;: &quot;56.85 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;56.59 KB&quot;
+     },
+     {
+<a href="#h1-5-58" id="h1-5-58" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h1-5-59" id="h1-5-59" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h1-5-60" id="h1-5-60" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h1-5-61" id="h1-5-61" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h1-5-62" id="h1-5-62" class="d">-    },
+</a><a href="#h1-5-63" id="h1-5-63" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h1-5-66" id="h1-5-66" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h1-5-67" id="h1-5-67" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<a href="#h1-6" id="h1-6" class="h">@@ -385,61 +295,49 @@ Sat,  9 May 2020 17:17:59 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/posts/2020-04-migrating-my-blog-to-hugo/&quot;,
+<a href="#h1-6-3" id="h1-6-3" class="d">-      &quot;content-length&quot;: &quot;7.53 KB&quot;,
+</a><a href="#h1-6-4" id="h1-6-4" class="d">-      &quot;content-size&quot;: &quot;26.08 KB&quot;
+</a><a href="#h1-6-5" id="h1-6-5" class="i">+      &quot;content-length&quot;: &quot;7.26 KB&quot;,
+</a><a href="#h1-6-6" id="h1-6-6" class="i">+      &quot;content-size&quot;: &quot;23.29 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h1-6-11" id="h1-6-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h1-6-12" id="h1-6-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h1-6-18" id="h1-6-18" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h1-6-19" id="h1-6-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h1-6-20" id="h1-6-20" class="d">-    },
+</a><a href="#h1-6-21" id="h1-6-21" class="d">-    {
+</a><a href="#h1-6-22" id="h1-6-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h1-6-23" id="h1-6-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h1-6-24" id="h1-6-24" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h1-6-25" id="h1-6-25" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h1-6-26" id="h1-6-26" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h1-6-27" id="h1-6-27" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h1-6-32" id="h1-6-32" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h1-6-33" id="h1-6-33" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h1-6-39" id="h1-6-39" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h1-6-40" id="h1-6-40" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Bold.woff&quot;,
+<a href="#h1-6-46" id="h1-6-46" class="d">-      &quot;content-length&quot;: &quot;56.83 KB&quot;,
+</a><a href="#h1-6-47" id="h1-6-47" class="i">+      &quot;content-length&quot;: &quot;56.85 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;56.59 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h1-6-53" id="h1-6-53" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h1-6-54" id="h1-6-54" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h1-6-58" id="h1-6-58" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h1-6-59" id="h1-6-59" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h1-6-60" id="h1-6-60" class="d">-      &quot;content-length&quot;: &quot;578 B&quot;,
+</a><a href="#h1-6-61" id="h1-6-61" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h1-6-62" id="h1-6-62" class="d">-    },
+</a><a href="#h1-6-63" id="h1-6-63" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h1-6-66" id="h1-6-66" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h1-6-67" id="h1-6-67" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<a href="#h1-7" id="h1-7" class="h">@@ -454,58 +352,46 @@ Sat,  9 May 2020 17:17:59 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/posts/2020-04-why-i-positioned-sidebar-to-the-right/&quot;,
+<a href="#h1-7-3" id="h1-7-3" class="d">-      &quot;content-length&quot;: &quot;6.37 KB&quot;,
+</a><a href="#h1-7-4" id="h1-7-4" class="d">-      &quot;content-size&quot;: &quot;22.56 KB&quot;
+</a><a href="#h1-7-5" id="h1-7-5" class="i">+      &quot;content-length&quot;: &quot;6.12 KB&quot;,
+</a><a href="#h1-7-6" id="h1-7-6" class="i">+      &quot;content-size&quot;: &quot;19.99 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h1-7-11" id="h1-7-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h1-7-12" id="h1-7-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h1-7-18" id="h1-7-18" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h1-7-19" id="h1-7-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h1-7-20" id="h1-7-20" class="d">-    },
+</a><a href="#h1-7-21" id="h1-7-21" class="d">-    {
+</a><a href="#h1-7-22" id="h1-7-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h1-7-23" id="h1-7-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h1-7-24" id="h1-7-24" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h1-7-25" id="h1-7-25" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h1-7-26" id="h1-7-26" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h1-7-27" id="h1-7-27" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h1-7-32" id="h1-7-32" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h1-7-33" id="h1-7-33" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h1-7-39" id="h1-7-39" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h1-7-40" id="h1-7-40" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Bold.woff&quot;,
+<a href="#h1-7-46" id="h1-7-46" class="d">-      &quot;content-length&quot;: &quot;56.83 KB&quot;,
+</a><a href="#h1-7-47" id="h1-7-47" class="i">+      &quot;content-length&quot;: &quot;56.85 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;56.59 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h1-7-53" id="h1-7-53" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h1-7-54" id="h1-7-54" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h1-7-58" id="h1-7-58" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h1-7-59" id="h1-7-59" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h1-7-60" id="h1-7-60" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h1-7-61" id="h1-7-61" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h1-7-62" id="h1-7-62" class="d">-    },
+</a><a href="#h1-7-63" id="h1-7-63" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+       &quot;content-length&quot;: &quot;1.35 KB&quot;,
+<a href="#h1-8" id="h1-8" class="h">@@ -523,55 +409,43 @@ Sat,  9 May 2020 17:17:59 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/notes/04-may-2020-2/&quot;,
+<a href="#h1-8-3" id="h1-8-3" class="d">-      &quot;content-length&quot;: &quot;5.27 KB&quot;,
+</a><a href="#h1-8-4" id="h1-8-4" class="d">-      &quot;content-size&quot;: &quot;20 KB&quot;
+</a><a href="#h1-8-5" id="h1-8-5" class="i">+      &quot;content-length&quot;: &quot;4.98 KB&quot;,
+</a><a href="#h1-8-6" id="h1-8-6" class="i">+      &quot;content-size&quot;: &quot;17.43 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;darkToggler.js&quot;,
+<a href="#h1-8-11" id="h1-8-11" class="d">-      &quot;content-length&quot;: &quot;682 B&quot;,
+</a><a href="#h1-8-12" id="h1-8-12" class="i">+      &quot;content-length&quot;: &quot;1.29 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.04 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h1-8-18" id="h1-8-18" class="d">-      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a><a href="#h1-8-19" id="h1-8-19" class="d">-      &quot;content-size&quot;: &quot;7.07 KB&quot;
+</a><a href="#h1-8-20" id="h1-8-20" class="d">-    },
+</a><a href="#h1-8-21" id="h1-8-21" class="d">-    {
+</a><a href="#h1-8-22" id="h1-8-22" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h1-8-23" id="h1-8-23" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h1-8-24" id="h1-8-24" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h1-8-25" id="h1-8-25" class="d">-      &quot;content-size&quot;: &quot;5.81 KB&quot;
+</a><a href="#h1-8-26" id="h1-8-26" class="i">+      &quot;content-length&quot;: &quot;844 B&quot;,
+</a><a href="#h1-8-27" id="h1-8-27" class="i">+      &quot;content-size&quot;: &quot;584 B&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+<a href="#h1-8-32" id="h1-8-32" class="d">-      &quot;content-length&quot;: &quot;138.33 KB&quot;,
+</a><a href="#h1-8-33" id="h1-8-33" class="i">+      &quot;content-length&quot;: &quot;138.35 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;138.10 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterQuattroS-Regular.woff&quot;,
+<a href="#h1-8-39" id="h1-8-39" class="d">-      &quot;content-length&quot;: &quot;55.77 KB&quot;,
+</a><a href="#h1-8-40" id="h1-8-40" class="i">+      &quot;content-length&quot;: &quot;55.79 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;55.53 KB&quot;
+     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;iAWriterDuospace-Regular.woff&quot;,
+<a href="#h1-8-46" id="h1-8-46" class="d">-      &quot;content-length&quot;: &quot;76.60 KB&quot;,
+</a><a href="#h1-8-47" id="h1-8-47" class="i">+      &quot;content-length&quot;: &quot;76.61 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h1-8-51" id="h1-8-51" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h1-8-52" id="h1-8-52" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h1-8-53" id="h1-8-53" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h1-8-54" id="h1-8-54" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h1-8-55" id="h1-8-55" class="d">-    },
+</a><a href="#h1-8-56" id="h1-8-56" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+<a href="#h1-8-59" id="h1-8-59" class="d">-      &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</a><a href="#h1-8-60" id="h1-8-60" class="i">+      &quot;content-length&quot;: &quot;1.37 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;1.12 KB&quot;
+     }
+ ]
+<b>diff --git a/<a id="h2" href="../file/content/reports/2020-05-19.md.html">content/reports/2020-05-19.md</a> b/<a href="../file/content/reports/2020-05-19.md.html">content/reports/2020-05-19.md</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -29,8 +29,8 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/&quot;,
+<a href="#h2-0-3" id="h2-0-3" class="d">-      &quot;content-length&quot;: &quot;7.04 KB&quot;,
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-      &quot;content-size&quot;: &quot;28.26 KB&quot;
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+      &quot;content-length&quot;: &quot;7 KB&quot;,
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+      &quot;content-size&quot;: &quot;28.16 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h2-1" id="h2-1" class="h">@@ -45,12 +45,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;7.07 KB&quot;
+     },
+     {
+<a href="#h2-1-3" id="h2-1-3" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h2-1-4" id="h2-1-4" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h2-1-5" id="h2-1-5" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h2-1-6" id="h2-1-6" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h2-1-7" id="h2-1-7" class="d">-    },
+</a><a href="#h2-1-8" id="h2-1-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+       &quot;content-length&quot;: &quot;138.33 KB&quot;,
+<a href="#h2-2" id="h2-2" class="h">@@ -69,12 +63,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h2-2-3" id="h2-2-3" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h2-2-4" id="h2-2-4" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h2-2-5" id="h2-2-5" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h2-2-6" id="h2-2-6" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h2-2-7" id="h2-2-7" class="d">-    },
+</a><a href="#h2-2-8" id="h2-2-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+       &quot;content-length&quot;: &quot;1.35 KB&quot;,
+<a href="#h2-3" id="h2-3" class="h">@@ -92,8 +80,8 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/about/&quot;,
+<a href="#h2-3-3" id="h2-3-3" class="d">-      &quot;content-length&quot;: &quot;7.34 KB&quot;,
+</a><a href="#h2-3-4" id="h2-3-4" class="d">-      &quot;content-size&quot;: &quot;24.54 KB&quot;
+</a><a href="#h2-3-5" id="h2-3-5" class="i">+      &quot;content-length&quot;: &quot;7.24 KB&quot;,
+</a><a href="#h2-3-6" id="h2-3-6" class="i">+      &quot;content-size&quot;: &quot;24.43 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h2-4" id="h2-4" class="h">@@ -108,12 +96,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;7.07 KB&quot;
+     },
+     {
+<a href="#h2-4-3" id="h2-4-3" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h2-4-4" id="h2-4-4" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h2-4-5" id="h2-4-5" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h2-4-6" id="h2-4-6" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h2-4-7" id="h2-4-7" class="d">-    },
+</a><a href="#h2-4-8" id="h2-4-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+       &quot;content-length&quot;: &quot;138.33 KB&quot;,
+<a href="#h2-5" id="h2-5" class="h">@@ -144,12 +126,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;36.26 KB&quot;
+     },
+     {
+<a href="#h2-5-3" id="h2-5-3" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h2-5-4" id="h2-5-4" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h2-5-5" id="h2-5-5" class="d">-      &quot;content-length&quot;: &quot;578 B&quot;,
+</a><a href="#h2-5-6" id="h2-5-6" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h2-5-7" id="h2-5-7" class="d">-    },
+</a><a href="#h2-5-8" id="h2-5-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+       &quot;content-length&quot;: &quot;1.35 KB&quot;,
+<a href="#h2-6" id="h2-6" class="h">@@ -167,8 +143,8 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/uses/&quot;,
+<a href="#h2-6-3" id="h2-6-3" class="d">-      &quot;content-length&quot;: &quot;6.49 KB&quot;,
+</a><a href="#h2-6-4" id="h2-6-4" class="d">-      &quot;content-size&quot;: &quot;23.37 KB&quot;
+</a><a href="#h2-6-5" id="h2-6-5" class="i">+      &quot;content-length&quot;: &quot;6.36 KB&quot;,
+</a><a href="#h2-6-6" id="h2-6-6" class="i">+      &quot;content-size&quot;: &quot;23.26 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h2-7" id="h2-7" class="h">@@ -179,16 +155,10 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;lazyImage.js&quot;,
+<a href="#h2-7-3" id="h2-7-3" class="d">-      &quot;content-length&quot;: &quot;3.69 KB&quot;,
+</a><a href="#h2-7-4" id="h2-7-4" class="i">+      &quot;content-length&quot;: &quot;3.68 KB&quot;,
+</a>       &quot;content-size&quot;: &quot;7.07 KB&quot;
+     },
+     {
+<a href="#h2-7-8" id="h2-7-8" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h2-7-9" id="h2-7-9" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h2-7-10" id="h2-7-10" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h2-7-11" id="h2-7-11" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h2-7-12" id="h2-7-12" class="d">-    },
+</a><a href="#h2-7-13" id="h2-7-13" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+       &quot;content-length&quot;: &quot;138.33 KB&quot;,
+<a href="#h2-8" id="h2-8" class="h">@@ -213,12 +183,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;56.59 KB&quot;
+     },
+     {
+<a href="#h2-8-3" id="h2-8-3" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h2-8-4" id="h2-8-4" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h2-8-5" id="h2-8-5" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h2-8-6" id="h2-8-6" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h2-8-7" id="h2-8-7" class="d">-    },
+</a><a href="#h2-8-8" id="h2-8-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+       &quot;content-length&quot;: &quot;1.35 KB&quot;,
+<a href="#h2-9" id="h2-9" class="h">@@ -236,8 +200,8 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/posts/&quot;,
+<a href="#h2-9-3" id="h2-9-3" class="d">-      &quot;content-length&quot;: &quot;7.80 KB&quot;,
+</a><a href="#h2-9-4" id="h2-9-4" class="d">-      &quot;content-size&quot;: &quot;29.47 KB&quot;
+</a><a href="#h2-9-5" id="h2-9-5" class="i">+      &quot;content-length&quot;: &quot;7.76 KB&quot;,
+</a><a href="#h2-9-6" id="h2-9-6" class="i">+      &quot;content-size&quot;: &quot;29.37 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h2-10" id="h2-10" class="h">@@ -252,12 +216,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;7.07 KB&quot;
+     },
+     {
+<a href="#h2-10-3" id="h2-10-3" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h2-10-4" id="h2-10-4" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h2-10-5" id="h2-10-5" class="d">-      &quot;content-length&quot;: &quot;2.45 KB&quot;,
+</a><a href="#h2-10-6" id="h2-10-6" class="d">-      &quot;content-size&quot;: &quot;5.77 KB&quot;
+</a><a href="#h2-10-7" id="h2-10-7" class="d">-    },
+</a><a href="#h2-10-8" id="h2-10-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;1.png&quot;,
+       &quot;content-length&quot;: &quot;502.82 KB&quot;,
+<a href="#h2-11" id="h2-11" class="h">@@ -294,12 +252,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h2-11-3" id="h2-11-3" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h2-11-4" id="h2-11-4" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h2-11-5" id="h2-11-5" class="d">-      &quot;content-length&quot;: &quot;578 B&quot;,
+</a><a href="#h2-11-6" id="h2-11-6" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h2-11-7" id="h2-11-7" class="d">-    },
+</a><a href="#h2-11-8" id="h2-11-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+       &quot;content-length&quot;: &quot;1.35 KB&quot;,
+<a href="#h2-12" id="h2-12" class="h">@@ -317,8 +269,8 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/notes/&quot;,
+<a href="#h2-12-3" id="h2-12-3" class="d">-      &quot;content-length&quot;: &quot;7.83 KB&quot;,
+</a><a href="#h2-12-4" id="h2-12-4" class="d">-      &quot;content-size&quot;: &quot;38.66 KB&quot;
+</a><a href="#h2-12-5" id="h2-12-5" class="i">+      &quot;content-length&quot;: &quot;7.79 KB&quot;,
+</a><a href="#h2-12-6" id="h2-12-6" class="i">+      &quot;content-size&quot;: &quot;38.55 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h2-13" id="h2-13" class="h">@@ -333,12 +285,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;7.07 KB&quot;
+     },
+     {
+<a href="#h2-13-3" id="h2-13-3" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h2-13-4" id="h2-13-4" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h2-13-5" id="h2-13-5" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h2-13-6" id="h2-13-6" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h2-13-7" id="h2-13-7" class="d">-    },
+</a><a href="#h2-13-8" id="h2-13-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+       &quot;content-length&quot;: &quot;138.33 KB&quot;,
+<a href="#h2-14" id="h2-14" class="h">@@ -363,12 +309,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;56.59 KB&quot;
+     },
+     {
+<a href="#h2-14-3" id="h2-14-3" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h2-14-4" id="h2-14-4" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h2-14-5" id="h2-14-5" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h2-14-6" id="h2-14-6" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h2-14-7" id="h2-14-7" class="d">-    },
+</a><a href="#h2-14-8" id="h2-14-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+       &quot;content-length&quot;: &quot;1.35 KB&quot;,
+<a href="#h2-15" id="h2-15" class="h">@@ -386,8 +326,8 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/posts/2020-04-migrating-my-blog-to-hugo/&quot;,
+<a href="#h2-15-3" id="h2-15-3" class="d">-      &quot;content-length&quot;: &quot;7.53 KB&quot;,
+</a><a href="#h2-15-4" id="h2-15-4" class="d">-      &quot;content-size&quot;: &quot;26.08 KB&quot;
+</a><a href="#h2-15-5" id="h2-15-5" class="i">+      &quot;content-length&quot;: &quot;7.49 KB&quot;,
+</a><a href="#h2-15-6" id="h2-15-6" class="i">+      &quot;content-size&quot;: &quot;25.97 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h2-16" id="h2-16" class="h">@@ -402,12 +342,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;7.07 KB&quot;
+     },
+     {
+<a href="#h2-16-3" id="h2-16-3" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h2-16-4" id="h2-16-4" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h2-16-5" id="h2-16-5" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h2-16-6" id="h2-16-6" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h2-16-7" id="h2-16-7" class="d">-    },
+</a><a href="#h2-16-8" id="h2-16-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+       &quot;content-length&quot;: &quot;138.33 KB&quot;,
+<a href="#h2-17" id="h2-17" class="h">@@ -432,12 +366,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h2-17-3" id="h2-17-3" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h2-17-4" id="h2-17-4" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h2-17-5" id="h2-17-5" class="d">-      &quot;content-length&quot;: &quot;578 B&quot;,
+</a><a href="#h2-17-6" id="h2-17-6" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h2-17-7" id="h2-17-7" class="d">-    },
+</a><a href="#h2-17-8" id="h2-17-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+       &quot;content-length&quot;: &quot;1.35 KB&quot;,
+<a href="#h2-18" id="h2-18" class="h">@@ -455,8 +383,8 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/posts/2020-04-why-i-positioned-sidebar-to-the-right/&quot;,
+<a href="#h2-18-3" id="h2-18-3" class="d">-      &quot;content-length&quot;: &quot;6.37 KB&quot;,
+</a><a href="#h2-18-4" id="h2-18-4" class="d">-      &quot;content-size&quot;: &quot;22.56 KB&quot;
+</a><a href="#h2-18-5" id="h2-18-5" class="i">+      &quot;content-length&quot;: &quot;6.33 KB&quot;,
+</a><a href="#h2-18-6" id="h2-18-6" class="i">+      &quot;content-size&quot;: &quot;22.45 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h2-19" id="h2-19" class="h">@@ -471,12 +399,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;7.07 KB&quot;
+     },
+     {
+<a href="#h2-19-3" id="h2-19-3" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h2-19-4" id="h2-19-4" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h2-19-5" id="h2-19-5" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h2-19-6" id="h2-19-6" class="d">-      &quot;content-size&quot;: &quot;4.81 KB&quot;
+</a><a href="#h2-19-7" id="h2-19-7" class="d">-    },
+</a><a href="#h2-19-8" id="h2-19-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+       &quot;content-length&quot;: &quot;138.33 KB&quot;,
+<a href="#h2-20" id="h2-20" class="h">@@ -501,12 +423,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h2-20-3" id="h2-20-3" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h2-20-4" id="h2-20-4" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h2-20-5" id="h2-20-5" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h2-20-6" id="h2-20-6" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h2-20-7" id="h2-20-7" class="d">-    },
+</a><a href="#h2-20-8" id="h2-20-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+       &quot;content-length&quot;: &quot;1.35 KB&quot;,
+<a href="#h2-21" id="h2-21" class="h">@@ -524,8 +440,8 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;/notes/04-may-2020-2/&quot;,
+<a href="#h2-21-3" id="h2-21-3" class="d">-      &quot;content-length&quot;: &quot;5.27 KB&quot;,
+</a><a href="#h2-21-4" id="h2-21-4" class="d">-      &quot;content-size&quot;: &quot;20 KB&quot;
+</a><a href="#h2-21-5" id="h2-21-5" class="i">+      &quot;content-length&quot;: &quot;5.23 KB&quot;,
+</a><a href="#h2-21-6" id="h2-21-6" class="i">+      &quot;content-size&quot;: &quot;19.90 KB&quot;
+</a>     },
+     {
+       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+<a href="#h2-22" id="h2-22" class="h">@@ -540,12 +456,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;7.07 KB&quot;
+     },
+     {
+<a href="#h2-22-3" id="h2-22-3" class="d">-      &quot;domain&quot;: &quot;gc.zgo.at&quot;,
+</a><a href="#h2-22-4" id="h2-22-4" class="d">-      &quot;path&quot;: &quot;count.js&quot;,
+</a><a href="#h2-22-5" id="h2-22-5" class="d">-      &quot;content-length&quot;: &quot;2.21 KB&quot;,
+</a><a href="#h2-22-6" id="h2-22-6" class="d">-      &quot;content-size&quot;: &quot;5.81 KB&quot;
+</a><a href="#h2-22-7" id="h2-22-7" class="d">-    },
+</a><a href="#h2-22-8" id="h2-22-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;logo.png&quot;,
+       &quot;content-length&quot;: &quot;138.33 KB&quot;,
+<a href="#h2-23" id="h2-23" class="h">@@ -564,12 +474,6 @@ Tue, 19 May 2020 14:32:06 +0700
+</a>       &quot;content-size&quot;: &quot;76.36 KB&quot;
+     },
+     {
+<a href="#h2-23-3" id="h2-23-3" class="d">-      &quot;domain&quot;: &quot;stats.ybbond.dev&quot;,
+</a><a href="#h2-23-4" id="h2-23-4" class="d">-      &quot;path&quot;: &quot;count?p=/&amp;t=&quot;,
+</a><a href="#h2-23-5" id="h2-23-5" class="d">-      &quot;content-length&quot;: &quot;598 B&quot;,
+</a><a href="#h2-23-6" id="h2-23-6" class="d">-      &quot;content-size&quot;: &quot;43 B&quot;
+</a><a href="#h2-23-7" id="h2-23-7" class="d">-    },
+</a><a href="#h2-23-8" id="h2-23-8" class="d">-    {
+</a>       &quot;domain&quot;: &quot;ybbond.dev&quot;,
+       &quot;path&quot;: &quot;favicon.ico&quot;,
+       &quot;content-length&quot;: &quot;1.35 KB&quot;,
+</pre>
+</div>
+</div>
+</body>
+</html>

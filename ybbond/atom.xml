@@ -4,6 +4,82 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>793153d3f3dce185d21a10dbf819f507621573ed</id>
+<published>2020-07-11T06:39:03Z</published>
+<updated>2020-07-11T06:39:03Z</updated>
+<title type="text">content: June Links, make image non-clickable (use figcaption)</title>
+<link rel="alternate" type="text/html" href="commit/793153d3f3dce185d21a10dbf819f507621573ed.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 793153d3f3dce185d21a10dbf819f507621573ed
+parent dce6c970e9eaa1acbfde8ca4a8878c897d817f3c
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 11 Jul 2020 13:39:03 +0700
+
+content: June Links, make image non-clickable (use figcaption)
+
+</content>
+</entry>
+<entry>
+<id>dce6c970e9eaa1acbfde8ca4a8878c897d817f3c</id>
+<published>2020-07-05T07:28:44Z</published>
+<updated>2020-07-05T07:28:44Z</updated>
+<title type="text">content: rewrite the reports to json</title>
+<link rel="alternate" type="text/html" href="commit/dce6c970e9eaa1acbfde8ca4a8878c897d817f3c.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit dce6c970e9eaa1acbfde8ca4a8878c897d817f3c
+parent 8abf02bad3a1fb0601d0e94e369b01fa002179d0
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun,  5 Jul 2020 14:28:44 +0700
+
+content: rewrite the reports to json
+
+</content>
+</entry>
+<entry>
+<id>8abf02bad3a1fb0601d0e94e369b01fa002179d0</id>
+<published>2020-07-04T14:24:50Z</published>
+<updated>2020-07-04T14:24:50Z</updated>
+<title type="text">content: add reports and comparison before &amp; after FontAwesome</title>
+<link rel="alternate" type="text/html" href="commit/8abf02bad3a1fb0601d0e94e369b01fa002179d0.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 8abf02bad3a1fb0601d0e94e369b01fa002179d0
+parent 9c3440fefee9f71c5209683b60fefc9627a2d69f
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat,  4 Jul 2020 21:24:50 +0700
+
+content: add reports and comparison before &amp; after FontAwesome
+
+</content>
+</entry>
+<entry>
+<id>9c3440fefee9f71c5209683b60fefc9627a2d69f</id>
+<published>2020-07-04T10:36:24Z</published>
+<updated>2020-07-04T10:36:24Z</updated>
+<title type="text">content: move reports to its own md file, and add report 30 June</title>
+<link rel="alternate" type="text/html" href="commit/9c3440fefee9f71c5209683b60fefc9627a2d69f.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 9c3440fefee9f71c5209683b60fefc9627a2d69f
+parent cd6ace0ed98e5466be6c2c273aa4861ff267cb75
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat,  4 Jul 2020 17:36:24 +0700
+
+content: move reports to its own md file, and add report 30 June
+
+</content>
+</entry>
+<entry>
 <id>cd6ace0ed98e5466be6c2c273aa4861ff267cb75</id>
 <published>2020-07-04T10:17:22Z</published>
 <updated>2020-07-04T10:17:22Z</updated>
@@ -1836,82 +1912,6 @@ Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  2 May 2020 17:33:25 +0700
 
 content: indieweb notes
-
-</content>
-</entry>
-<entry>
-<id>fd67d0073f5bec76a26d5679ad03f35689b3a5ee</id>
-<published>2020-05-02T10:23:18Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">content: modify Migrating to Hugo</title>
-<link rel="alternate" type="text/html" href="commit/fd67d0073f5bec76a26d5679ad03f35689b3a5ee.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit fd67d0073f5bec76a26d5679ad03f35689b3a5ee
-parent aec217685daa604e4db62f3efc72825d49360bc5
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Sat,  2 May 2020 17:23:18 +0700
-
-content: modify Migrating to Hugo
-
-</content>
-</entry>
-<entry>
-<id>aec217685daa604e4db62f3efc72825d49360bc5</id>
-<published>2020-05-02T09:55:30Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">content: fix link to obsolete formats</title>
-<link rel="alternate" type="text/html" href="commit/aec217685daa604e4db62f3efc72825d49360bc5.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit aec217685daa604e4db62f3efc72825d49360bc5
-parent a31a0a58875fdbe81dafb9bd96ffa67560cbfefa
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Sat,  2 May 2020 16:55:30 +0700
-
-content: fix link to obsolete formats
-
-</content>
-</entry>
-<entry>
-<id>a31a0a58875fdbe81dafb9bd96ffa67560cbfefa</id>
-<published>2020-05-02T09:41:44Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">content: change NuType link</title>
-<link rel="alternate" type="text/html" href="commit/a31a0a58875fdbe81dafb9bd96ffa67560cbfefa.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit a31a0a58875fdbe81dafb9bd96ffa67560cbfefa
-parent 665a5cd18075d02292e9b585471d21dd5d4d45b9
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Sat,  2 May 2020 16:41:44 +0700
-
-content: change NuType link
-
-</content>
-</entry>
-<entry>
-<id>665a5cd18075d02292e9b585471d21dd5d4d45b9</id>
-<published>2020-05-02T09:18:04Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">hotfix: twitter metas image not found</title>
-<link rel="alternate" type="text/html" href="commit/665a5cd18075d02292e9b585471d21dd5d4d45b9.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 665a5cd18075d02292e9b585471d21dd5d4d45b9
-parent e71edccf0c57758acddf3055d5f1673fd19ee64f
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Sat,  2 May 2020 16:18:04 +0700
-
-hotfix: twitter metas image not found
 
 </content>
 </entry>

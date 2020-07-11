@@ -4,6 +4,63 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>19e3ded736900ec03c1541094144c5760990046e</id>
+<published>2020-07-11T06:42:39Z</published>
+<updated>2020-07-11T06:42:39Z</updated>
+<title type="text">update sublime settings</title>
+<link rel="alternate" type="text/html" href="commit/19e3ded736900ec03c1541094144c5760990046e.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 19e3ded736900ec03c1541094144c5760990046e
+parent 873ad781aaf57b0b9244f9c66d5a9c1290819fa1
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 11 Jul 2020 13:42:39 +0700
+
+update sublime settings
+
+</content>
+</entry>
+<entry>
+<id>873ad781aaf57b0b9244f9c66d5a9c1290819fa1</id>
+<published>2020-07-11T05:59:39Z</published>
+<updated>2020-07-11T05:59:39Z</updated>
+<title type="text">update neovim, doom, and vscode settings</title>
+<link rel="alternate" type="text/html" href="commit/873ad781aaf57b0b9244f9c66d5a9c1290819fa1.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 873ad781aaf57b0b9244f9c66d5a9c1290819fa1
+parent c964d84e0ec0031dde8af66edb595d484282b0d4
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 11 Jul 2020 12:59:39 +0700
+
+update neovim, doom, and vscode settings
+
+</content>
+</entry>
+<entry>
+<id>c964d84e0ec0031dde8af66edb595d484282b0d4</id>
+<published>2020-07-11T05:57:58Z</published>
+<updated>2020-07-11T05:57:58Z</updated>
+<title type="text">add sublime settings</title>
+<link rel="alternate" type="text/html" href="commit/c964d84e0ec0031dde8af66edb595d484282b0d4.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit c964d84e0ec0031dde8af66edb595d484282b0d4
+parent d8d7a75b63450dbc012bc83ff99a568bd197c576
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 11 Jul 2020 12:57:58 +0700
+
+add sublime settings
+
+</content>
+</entry>
+<entry>
 <id>d8d7a75b63450dbc012bc83ff99a568bd197c576</id>
 <published>2020-07-04T10:23:59Z</published>
 <updated>2020-07-04T10:23:59Z</updated>
