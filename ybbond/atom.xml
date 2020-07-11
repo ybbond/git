@@ -4,6 +4,25 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>7cf2f864e9743a13615712dbcfb23dc0bf6533d7</id>
+<published>2020-07-11T07:21:35Z</published>
+<updated>2020-07-11T07:21:35Z</updated>
+<title type="text">update README to follow trend</title>
+<link rel="alternate" type="text/html" href="commit/7cf2f864e9743a13615712dbcfb23dc0bf6533d7.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 7cf2f864e9743a13615712dbcfb23dc0bf6533d7
+parent 793153d3f3dce185d21a10dbf819f507621573ed
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 11 Jul 2020 14:21:35 +0700
+
+update README to follow trend
+
+</content>
+</entry>
+<entry>
 <id>793153d3f3dce185d21a10dbf819f507621573ed</id>
 <published>2020-07-11T06:39:03Z</published>
 <updated>2020-07-11T06:39:03Z</updated>
@@ -1894,25 +1913,6 @@ Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Sat,  2 May 2020 19:47:12 +0700
 
 content: fixes grammatical error and a lil enhancement
-</content>
-</entry>
-<entry>
-<id>420565db44716ce2595f453e387919caea854fd8</id>
-<published>2020-05-02T10:33:25Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">content: indieweb notes</title>
-<link rel="alternate" type="text/html" href="commit/420565db44716ce2595f453e387919caea854fd8.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 420565db44716ce2595f453e387919caea854fd8
-parent fd67d0073f5bec76a26d5679ad03f35689b3a5ee
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Sat,  2 May 2020 17:33:25 +0700
-
-content: indieweb notes
-
 </content>
 </entry>
 </feed>
