@@ -4,6 +4,25 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>ff114ea518be6653bebb3a9860aa1679dc41ee1b</id>
+<published>2020-07-26T17:56:52Z</published>
+<updated>2020-07-26T17:56:52Z</updated>
+<title type="text">update all and add gitconfig</title>
+<link rel="alternate" type="text/html" href="commit/ff114ea518be6653bebb3a9860aa1679dc41ee1b.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit ff114ea518be6653bebb3a9860aa1679dc41ee1b
+parent 19e3ded736900ec03c1541094144c5760990046e
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Mon, 27 Jul 2020 00:56:52 +0700
+
+update all and add gitconfig
+
+</content>
+</entry>
+<entry>
 <id>19e3ded736900ec03c1541094144c5760990046e</id>
 <published>2020-07-11T06:42:39Z</published>
 <updated>2020-07-11T06:42:39Z</updated>
