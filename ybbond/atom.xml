@@ -4,6 +4,82 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>d4892e473b7fce9cc920a9a48daaf6fbba7c0dd7</id>
+<published>2020-08-15T13:56:48Z</published>
+<updated>2020-08-16T19:30:45Z</updated>
+<title type="text">content: July Links, post about refactoring this site</title>
+<link rel="alternate" type="text/html" href="commit/d4892e473b7fce9cc920a9a48daaf6fbba7c0dd7.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit d4892e473b7fce9cc920a9a48daaf6fbba7c0dd7
+parent 27d6022c717b5494cc2082e61d94ba58ed07d2e1
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 15 Aug 2020 20:56:48 +0700
+
+content: July Links, post about refactoring this site
+
+</content>
+</entry>
+<entry>
+<id>27d6022c717b5494cc2082e61d94ba58ed07d2e1</id>
+<published>2020-07-27T04:05:01Z</published>
+<updated>2020-07-27T04:05:01Z</updated>
+<title type="text">update custom Boop script</title>
+<link rel="alternate" type="text/html" href="commit/27d6022c717b5494cc2082e61d94ba58ed07d2e1.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 27d6022c717b5494cc2082e61d94ba58ed07d2e1
+parent 9086c624225ed06c48ec8334bf46015b6afb2342
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Mon, 27 Jul 2020 11:05:01 +0700
+
+update custom Boop script
+
+</content>
+</entry>
+<entry>
+<id>9086c624225ed06c48ec8334bf46015b6afb2342</id>
+<published>2020-07-19T06:08:53Z</published>
+<updated>2020-07-19T06:08:53Z</updated>
+<title type="text">disable stats.ybbond.dev for now</title>
+<link rel="alternate" type="text/html" href="commit/9086c624225ed06c48ec8334bf46015b6afb2342.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 9086c624225ed06c48ec8334bf46015b6afb2342
+parent 0aa6fadacc898e06bb5cee186336c47e358049bb
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun, 19 Jul 2020 13:08:53 +0700
+
+disable stats.ybbond.dev for now
+
+</content>
+</entry>
+<entry>
+<id>0aa6fadacc898e06bb5cee186336c47e358049bb</id>
+<published>2020-07-11T14:26:56Z</published>
+<updated>2020-07-11T14:26:56Z</updated>
+<title type="text">content: shorten git hash, add appstore on render-link</title>
+<link rel="alternate" type="text/html" href="commit/0aa6fadacc898e06bb5cee186336c47e358049bb.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 0aa6fadacc898e06bb5cee186336c47e358049bb
+parent 7cf2f864e9743a13615712dbcfb23dc0bf6533d7
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 11 Jul 2020 21:26:56 +0700
+
+content: shorten git hash, add appstore on render-link
+
+</content>
+</entry>
+<entry>
 <id>7cf2f864e9743a13615712dbcfb23dc0bf6533d7</id>
 <published>2020-07-11T07:21:35Z</published>
 <updated>2020-07-11T07:21:35Z</updated>
@@ -1838,81 +1914,6 @@ Date:   Sun,  3 May 2020 23:13:16 +0700
 
 refactor: separate auth links header
 
-</content>
-</entry>
-<entry>
-<id>af2b0bae6c8ef5889d61f8893e4098c85841d0e4</id>
-<published>2020-05-03T16:13:05Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">feature: add h-card</title>
-<link rel="alternate" type="text/html" href="commit/af2b0bae6c8ef5889d61f8893e4098c85841d0e4.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit af2b0bae6c8ef5889d61f8893e4098c85841d0e4
-parent a81d43878bba7be1e0a9d0c2aa75a06ec5ae23b5
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Sun,  3 May 2020 23:13:05 +0700
-
-feature: add h-card
-
-</content>
-</entry>
-<entry>
-<id>a81d43878bba7be1e0a9d0c2aa75a06ec5ae23b5</id>
-<published>2020-05-03T14:10:29Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">refactor: use IndieAuth for indie authorization</title>
-<link rel="alternate" type="text/html" href="commit/a81d43878bba7be1e0a9d0c2aa75a06ec5ae23b5.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit a81d43878bba7be1e0a9d0c2aa75a06ec5ae23b5
-parent 95bcd236bacfb437bb809e8e1750557a1fe4d98c
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Sun,  3 May 2020 21:10:29 +0700
-
-refactor: use IndieAuth for indie authorization
-
-</content>
-</entry>
-<entry>
-<id>95bcd236bacfb437bb809e8e1750557a1fe4d98c</id>
-<published>2020-05-03T08:50:19Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">content: add checklist capability and style tweak</title>
-<link rel="alternate" type="text/html" href="commit/95bcd236bacfb437bb809e8e1750557a1fe4d98c.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 95bcd236bacfb437bb809e8e1750557a1fe4d98c
-parent dd6aafaacbc8f96afb8b5d8e225afce07d2f0c1d
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Sun,  3 May 2020 15:50:19 +0700
-
-content: add checklist capability and style tweak
-
-</content>
-</entry>
-<entry>
-<id>dd6aafaacbc8f96afb8b5d8e225afce07d2f0c1d</id>
-<published>2020-05-02T12:47:12Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">content: fixes grammatical error and a lil enhancement</title>
-<link rel="alternate" type="text/html" href="commit/dd6aafaacbc8f96afb8b5d8e225afce07d2f0c1d.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit dd6aafaacbc8f96afb8b5d8e225afce07d2f0c1d
-parent 420565db44716ce2595f453e387919caea854fd8
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Sat,  2 May 2020 19:47:12 +0700
-
-content: fixes grammatical error and a lil enhancement
 </content>
 </entry>
 </feed>

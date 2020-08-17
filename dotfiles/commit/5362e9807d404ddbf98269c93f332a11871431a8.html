@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>backup nvim, kitty, zsh, and sublime settings - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/5362e9807d404ddbf98269c93f332a11871431a8.html">5362e9807d404ddbf98269c93f332a11871431a8</a>
+<b>parent</b> <a href="../commit/ed193cdf02a6378f1eb15ec99093de06e6134382.html">ed193cdf02a6378f1eb15ec99093de06e6134382</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Thu, 13 Aug 2020 01:03:09 +0700
+
+backup nvim, kitty, zsh, and sublime settings
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.config/kitty/kitty.conf</a></td><td> | </td><td class="num">8</td><td><span class="i">++++</span><span class="d">----</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.config/nvim/coc-settings.json</a></td><td> | </td><td class="num">4</td><td><span class="i">++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">.config/nvim/init.vim</a></td><td> | </td><td class="num">17</td><td><span class="i">+++++++++</span><span class="d">--------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">.zshrc</a></td><td> | </td><td class="num">9</td><td><span class="i">+++</span><span class="d">------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings</a></td><td> | </td><td class="num">3</td><td><span class="i">++</span><span class="d">-</span></td></tr>
+</table></pre></div><p>5 files changed, 22 insertions(<span id="plus">+</span>), 19 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.config/kitty/kitty.conf.html">.config/kitty/kitty.conf</a> b/<a href="../file/.config/kitty/kitty.conf.html">.config/kitty/kitty.conf</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -11,10 +11,10 @@ bold_font        IBM Plex Mono Bold
+</a> italic_font      IBM Plex Mono Light Italic
+ bold_italic_font IBM Plex Mono Bold Italic
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-# font_family      Roboto Mono Light for Powerline Light
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-# bold_font        Roboto Mono Medium for Powerline Medium
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-# italic_font      Roboto Mono Light for Powerline Light Italic
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-# bold_italic_font Roboto Mono Medium for Powerline Medium Italic
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+# font_family      iA Writer Mono S Regular
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+# bold_font        iA Writer Mono S Bold
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+# italic_font      iA Writer Mono S Italic
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+# bold_italic_font iA Writer Mono S Bold Italic
+</a> 
+ # font_family      Hermit Light
+ # bold_font        Hermit Bold
+<b>diff --git a/<a id="h1" href="../file/.config/nvim/coc-settings.json.html">.config/nvim/coc-settings.json</a> b/<a href="../file/.config/nvim/coc-settings.json.html">.config/nvim/coc-settings.json</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -16,6 +16,10 @@
+</a>   &quot;tsserver.npm&quot;: &quot;/usr/local/bin/npm&quot;,
+   &quot;tsserver.locale&quot;: &quot;/usr/local/bin/tsserver&quot;,
+   &quot;languageserver&quot;: {
+<a href="#h1-0-3" id="h1-0-3" class="i">+    &quot;reason&quot;: {
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+      &quot;command&quot;: &quot;~/bin/reason-language-server&quot;,
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+      &quot;filetypes&quot;: [&quot;reason&quot;, &quot;ocaml&quot;]
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+    },
+</a>     &quot;ccls&quot;: {
+       &quot;command&quot;: &quot;ccls&quot;,
+       &quot;filetypes&quot;: [&quot;c&quot;, &quot;cpp&quot;, &quot;objc&quot;, &quot;objcpp&quot;],
+<b>diff --git a/<a id="h2" href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a> b/<a href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -16,6 +16,10 @@ call plug#begin(s:plugin_location)
+</a>   Plug &#39;/usr/local/opt/fzf&#39;
+   Plug &#39;ybbond/fzf.vim&#39;
+ 
+<a href="#h2-0-3" id="h2-0-3" class="i">+  &quot; *wiki*
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  Plug &#39;vimwiki/vimwiki&#39;
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+  Plug &#39;michal-h21/vim-zettel&#39;
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+
+</a>   &quot; *bufkill*
+   Plug &#39;qpkorr/vim-bufkill&#39;
+ 
+<a href="#h2-1" id="h2-1" class="h">@@ -58,7 +62,6 @@ call plug#begin(s:plugin_location)
+</a>     &quot; use error &amp; warning count of diagnostics form coc.nvim
+     let g:airline_section_error = &#39;%{airline#util#wrap(airline#extensions#coc#get_error(),0)}&#39;
+     let g:airline_section_warning = &#39;%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}&#39;
+<a href="#h2-1-3" id="h2-1-3" class="d">-    let g:airline#extensions#vimtex#enabled = 0
+</a>     let g:airline_theme = &#39;gruvbox&#39;
+ 
+   &quot; *tmux*
+<a href="#h2-2" id="h2-2" class="h">@@ -118,7 +121,6 @@ call plug#begin(s:plugin_location)
+</a>     let g:vim_markdown_folding_disabled = 1
+     let g:vim_markdown_conceal = 0
+     let g:vim_markdown_strikethrough = 1
+<a href="#h2-2-3" id="h2-2-3" class="d">-    let g:tex_conceal = &quot;&quot;
+</a>     let g:vim_markdown_math = 1
+     let g:vim_markdown_frontmatter = 1  &quot; for YAML format
+     let g:vim_markdown_toml_frontmatter = 1  &quot; for TOML format
+<a href="#h2-3" id="h2-3" class="h">@@ -150,12 +152,6 @@ call plug#begin(s:plugin_location)
+</a>     au BufNewFile,BufRead *.(v|py) setlocal shiftwidth=4
+     au BufNewFile,BufRead *.(v|py) setlocal set noexpandtab
+ 
+<a href="#h2-3-3" id="h2-3-3" class="d">-  &quot; LaTex
+</a><a href="#h2-3-4" id="h2-3-4" class="d">-  Plug &#39;lervag/vimtex&#39;
+</a><a href="#h2-3-5" id="h2-3-5" class="d">-    let g:vimtex_compiler_progname = &#39;nvr&#39;
+</a><a href="#h2-3-6" id="h2-3-6" class="d">-    let g:vimtex_view_method = &#39;skim&#39;
+</a><a href="#h2-3-7" id="h2-3-7" class="d">-    let g:vimtex_texcount_custom_arg = &#39;macro \cmt [state1]&#39;
+</a><a href="#h2-3-8" id="h2-3-8" class="d">-
+</a> call plug#end()
+ 
+ colorscheme gruvbox
+<a href="#h2-4" id="h2-4" class="h">@@ -199,6 +195,11 @@ if has(&#39;nvim&#39;)
+</a>   set inccommand=split
+ endif
+ 
+<a href="#h2-4-3" id="h2-4-3" class="i">+let g:nv_search_paths = [&#39;~/notes&#39;]
+</a><a href="#h2-4-4" id="h2-4-4" class="i">+let g:vimwiki_list = [{&#39;path&#39;: &#39;~/notes/&#39;,
+</a><a href="#h2-4-5" id="h2-4-5" class="i">+                      \ &#39;syntax&#39;: &#39;markdown&#39;, &#39;ext&#39;: &#39;.md&#39;}]
+</a><a href="#h2-4-6" id="h2-4-6" class="i">+let g:zettel_fzf_command = &quot;rg --column --line-number --ignore-case --no-heading --color=always &quot;
+</a><a href="#h2-4-7" id="h2-4-7" class="i">+
+</a> &quot; Let&#39;s save undo info!
+ if has(&#39;nvim&#39;)
+   if has(&#39;persistent_undo&#39;)
+<b>diff --git a/<a id="h3" href="../file/.zshrc.html">.zshrc</a> b/<a href="../file/.zshrc.html">.zshrc</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -9,6 +9,7 @@ export TERM=xterm-256color
+</a> 
+ export PATH=$HOME/bin:/usr/local/bin:$PATH
+ export PATH=&quot;/usr/local/sbin:$PATH&quot;
+<a href="#h3-0-3" id="h3-0-3" class="i">+# export PATH=$HOME/.local/bin:$PATH
+</a> 
+ export PATH=$PATH:$HOME/go/bin
+ export PATH=$PATH:$HOME/.cargo/bin
+<a href="#h3-1" id="h3-1" class="h">@@ -34,9 +35,6 @@ export PATH=&quot;${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools&quot;
+</a> 
+ export SCRIPT=~/Library/Mobile\ Documents/com\~apple\~ScriptEditor2/Documents
+ 
+<a href="#h3-1-3" id="h3-1-3" class="d">-export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+</a><a href="#h3-1-4" id="h3-1-4" class="d">-export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+</a><a href="#h3-1-5" id="h3-1-5" class="d">-
+</a> ########################################################################
+ #                     FUNCTIONS
+ ########################################################################
+<a href="#h3-2" id="h3-2" class="h">@@ -129,6 +127,8 @@ alias ybbold=&quot;cd ${YBPATH}/old-ybbond&quot;
+</a> alias ybreason=&quot;cd ${YBPATH}/ybbond-reason&quot;
+ alias ftex=&quot;cd ${YBPATH}/latex&quot;
+ alias todo=&quot;nvim ~/todo.md&quot;
+<a href="#h3-2-3" id="h3-2-3" class="i">+alias tempbin=&quot;nvim ~/tempbin.md&quot;
+</a><a href="#h3-2-4" id="h3-2-4" class="i">+alias personal=&quot;nvim ~/personal.md&quot;
+</a> alias mine=&quot;nvim ~/Library/Mobile\ Documents/27N4MQEA55~pro~writer/Documents&quot;
+ alias fetchwm=&quot;WEBMENTIONS_TOKEN=${WMTOKEN} node ${YBPATH}/ybbond/webmentions.js&quot;
+ 
+<a href="#h3-3" id="h3-3" class="h">@@ -293,6 +293,3 @@ zle -N zle-keymap-select
+</a> # }
+ # precmd_functions+=(_fix_cursor)
+ alias config=$CONFTREE
+<a href="#h3-3-3" id="h3-3-3" class="d">-if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then
+</a><a href="#h3-3-4" id="h3-3-4" class="d">-  eval &quot;$(pyenv init -)&quot;
+</a><a href="#h3-3-5" id="h3-3-5" class="d">-fi
+</a><b>diff --git a/<a id="h4" href="../file/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings.html">Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings</a> b/<a href="../file/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings.html">Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -10,11 +10,12 @@
+</a>   ],
+   &quot;bold_folder_labels&quot;: true,
+   &quot;create_window_at_startup&quot;: false,
+<a href="#h4-0-3" id="h4-0-3" class="i">+  &quot;color_scheme&quot;: &quot;Packages/Color Scheme - Default/Monokai.tmTheme&quot;,
+</a>   &quot;default_line_ending&quot;: &quot;unix&quot;,
+   &quot;drag_text&quot;: false,
+   &quot;draw_white_space&quot;: &quot;all&quot;,
+   &quot;font_face&quot;: &quot;IBM Plex Mono&quot;,
+<a href="#h4-0-8" id="h4-0-8" class="d">-  &quot;font_size&quot;: 14,
+</a><a href="#h4-0-9" id="h4-0-9" class="i">+  &quot;font_size&quot;: 13,
+</a>   &quot;highlight_line&quot;: true,
+   &quot;highlight_modified_tabs&quot;: true,
+   &quot;hot_exit&quot;: &quot;disabled&quot;,
+</pre>
+</div>
+</div>
+</body>
+</html>

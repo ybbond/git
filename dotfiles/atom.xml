@@ -4,6 +4,63 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>803836d4bb6fa437d4fc404c0ff78aa0f57849c8</id>
+<published>2020-08-17T08:34:46Z</published>
+<updated>2020-08-17T08:34:46Z</updated>
+<title type="text">update doom config, and remove vim-zettel from nvim</title>
+<link rel="alternate" type="text/html" href="commit/803836d4bb6fa437d4fc404c0ff78aa0f57849c8.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 803836d4bb6fa437d4fc404c0ff78aa0f57849c8
+parent 5362e9807d404ddbf98269c93f332a11871431a8
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Mon, 17 Aug 2020 15:34:46 +0700
+
+update doom config, and remove vim-zettel from nvim
+
+</content>
+</entry>
+<entry>
+<id>5362e9807d404ddbf98269c93f332a11871431a8</id>
+<published>2020-08-12T18:03:09Z</published>
+<updated>2020-08-12T18:03:09Z</updated>
+<title type="text">backup nvim, kitty, zsh, and sublime settings</title>
+<link rel="alternate" type="text/html" href="commit/5362e9807d404ddbf98269c93f332a11871431a8.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 5362e9807d404ddbf98269c93f332a11871431a8
+parent ed193cdf02a6378f1eb15ec99093de06e6134382
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Thu, 13 Aug 2020 01:03:09 +0700
+
+backup nvim, kitty, zsh, and sublime settings
+
+</content>
+</entry>
+<entry>
+<id>ed193cdf02a6378f1eb15ec99093de06e6134382</id>
+<published>2020-08-12T18:00:20Z</published>
+<updated>2020-08-12T18:01:59Z</updated>
+<title type="text">rework doom settings</title>
+<link rel="alternate" type="text/html" href="commit/ed193cdf02a6378f1eb15ec99093de06e6134382.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit ed193cdf02a6378f1eb15ec99093de06e6134382
+parent ff114ea518be6653bebb3a9860aa1679dc41ee1b
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Thu, 13 Aug 2020 01:00:20 +0700
+
+rework doom settings
+
+</content>
+</entry>
+<entry>
 <id>ff114ea518be6653bebb3a9860aa1679dc41ee1b</id>
 <published>2020-07-26T17:56:52Z</published>
 <updated>2020-07-26T17:56:52Z</updated>

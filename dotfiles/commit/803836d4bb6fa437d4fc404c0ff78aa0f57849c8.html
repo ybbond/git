@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>update doom config, and remove vim-zettel from nvim - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/803836d4bb6fa437d4fc404c0ff78aa0f57849c8.html">803836d4bb6fa437d4fc404c0ff78aa0f57849c8</a>
+<b>parent</b> <a href="../commit/5362e9807d404ddbf98269c93f332a11871431a8.html">5362e9807d404ddbf98269c93f332a11871431a8</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Mon, 17 Aug 2020 15:34:46 +0700
+
+update doom config, and remove vim-zettel from nvim
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.config/nvim/init.vim</a></td><td> | </td><td class="num">9</td><td><span class="i"></span><span class="d">---------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.doom.d/+plugins.el</a></td><td> | </td><td class="num">6</td><td><span class="i">++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">.doom.d/config.el</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">.doom.d/custom.el</a></td><td> | </td><td class="num">4</td><td><span class="i">+</span><span class="d">---</span></td></tr>
+</table></pre></div><p>4 files changed, 8 insertions(<span id="plus">+</span>), 13 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a> b/<a href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -16,10 +16,6 @@ call plug#begin(s:plugin_location)
+</a>   Plug &#39;/usr/local/opt/fzf&#39;
+   Plug &#39;ybbond/fzf.vim&#39;
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-  &quot; *wiki*
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-  Plug &#39;vimwiki/vimwiki&#39;
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-  Plug &#39;michal-h21/vim-zettel&#39;
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-
+</a>   &quot; *bufkill*
+   Plug &#39;qpkorr/vim-bufkill&#39;
+ 
+<a href="#h0-1" id="h0-1" class="h">@@ -195,11 +191,6 @@ if has(&#39;nvim&#39;)
+</a>   set inccommand=split
+ endif
+ 
+<a href="#h0-1-3" id="h0-1-3" class="d">-let g:nv_search_paths = [&#39;~/notes&#39;]
+</a><a href="#h0-1-4" id="h0-1-4" class="d">-let g:vimwiki_list = [{&#39;path&#39;: &#39;~/notes/&#39;,
+</a><a href="#h0-1-5" id="h0-1-5" class="d">-                      \ &#39;syntax&#39;: &#39;markdown&#39;, &#39;ext&#39;: &#39;.md&#39;}]
+</a><a href="#h0-1-6" id="h0-1-6" class="d">-let g:zettel_fzf_command = &quot;rg --column --line-number --ignore-case --no-heading --color=always &quot;
+</a><a href="#h0-1-7" id="h0-1-7" class="d">-
+</a> &quot; Let&#39;s save undo info!
+ if has(&#39;nvim&#39;)
+   if has(&#39;persistent_undo&#39;)
+<b>diff --git a/<a id="h1" href="../file/.doom.d/+plugins.el.html">.doom.d/+plugins.el</a> b/<a href="../file/.doom.d/+plugins.el.html">.doom.d/+plugins.el</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -27,6 +27,12 @@
+</a>   :config
+   (evil-better-visual-line-on))
+ 
+<a href="#h1-0-3" id="h1-0-3" class="i">+;; Ivy
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+(map! :after ivy
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+  :map ivy-minibuffer-map
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+  &quot;S-SPC&quot; nil
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+  &quot;C-SPC&quot; &#39;ivy-restrict-to-matches)
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+
+</a> ;; Snipe
+ (after! evil-snipe
+   (setq evil-snipe-smart-case t)
+<b>diff --git a/<a id="h2" href="../file/.doom.d/config.el.html">.doom.d/config.el</a> b/<a href="../file/.doom.d/config.el.html">.doom.d/config.el</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -37,8 +37,8 @@
+</a> ;; available. You can either set `doom-theme&#39; or manually load a theme with the
+ ;; `load-theme&#39; function. This is the default:
+ ;; light theme: white
+<a href="#h2-0-3" id="h2-0-3" class="d">-(setq doom-theme &#39;doom-gruvbox)
+</a> 
+<a href="#h2-0-5" id="h2-0-5" class="i">+(setq doom-theme &#39;doom-gruvbox)
+</a> (setq doom-incremental-load-immediately nil)
+ 
+ (setq display-line-numbers-type &#39;relative)
+<b>diff --git a/<a id="h3" href="../file/.doom.d/custom.el.html">.doom.d/custom.el</a> b/<a href="../file/.doom.d/custom.el.html">.doom.d/custom.el</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -3,9 +3,7 @@
+</a>  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won&#39;t work right.
+<a href="#h3-0-3" id="h3-0-3" class="d">- &#39;(org-agenda-files
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-   (quote
+</a><a href="#h3-0-5" id="h3-0-5" class="d">-    (&quot;/Users/yohanesbandung/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/journals/2020-08-12.org&quot;)))
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+ &#39;(org-agenda-files nil)
+</a>  &#39;(package-selected-packages (quote (org-roam-server evil-better-visual-line))))
+ (custom-set-faces
+  ;; custom-set-faces was added by Custom.
+</pre>
+</div>
+</div>
+</body>
+</html>
