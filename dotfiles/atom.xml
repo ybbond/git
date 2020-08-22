@@ -4,6 +4,44 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>e83b07474e881fde80060711dd7ab6ab2ce5ac7f</id>
+<published>2020-08-22T13:38:22Z</published>
+<updated>2020-08-22T13:38:22Z</updated>
+<title type="text">update zshrc and sublime keymap</title>
+<link rel="alternate" type="text/html" href="commit/e83b07474e881fde80060711dd7ab6ab2ce5ac7f.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit e83b07474e881fde80060711dd7ab6ab2ce5ac7f
+parent 786aabede63876e6bf2751f3cd04d8c33d388496
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 22 Aug 2020 20:38:22 +0700
+
+update zshrc and sublime keymap
+
+</content>
+</entry>
+<entry>
+<id>786aabede63876e6bf2751f3cd04d8c33d388496</id>
+<published>2020-08-22T13:37:37Z</published>
+<updated>2020-08-22T13:37:37Z</updated>
+<title type="text">update doom config, and add hammerspoon config</title>
+<link rel="alternate" type="text/html" href="commit/786aabede63876e6bf2751f3cd04d8c33d388496.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 786aabede63876e6bf2751f3cd04d8c33d388496
+parent 803836d4bb6fa437d4fc404c0ff78aa0f57849c8
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sat, 22 Aug 2020 20:37:37 +0700
+
+update doom config, and add hammerspoon config
+
+</content>
+</entry>
+<entry>
 <id>803836d4bb6fa437d4fc404c0ff78aa0f57849c8</id>
 <published>2020-08-17T08:34:46Z</published>
 <updated>2020-08-17T08:34:46Z</updated>

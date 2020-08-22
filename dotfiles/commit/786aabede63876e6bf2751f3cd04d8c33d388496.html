@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>update doom config, and add hammerspoon config - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/786aabede63876e6bf2751f3cd04d8c33d388496.html">786aabede63876e6bf2751f3cd04d8c33d388496</a>
+<b>parent</b> <a href="../commit/803836d4bb6fa437d4fc404c0ff78aa0f57849c8.html">803836d4bb6fa437d4fc404c0ff78aa0f57849c8</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Sat, 22 Aug 2020 20:37:37 +0700
+
+update doom config, and add hammerspoon config
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.doom.d/+org.el</a></td><td> | </td><td class="num">1</td><td><span class="i"></span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.doom.d/+plugins.el</a></td><td> | </td><td class="num">24</td><td><span class="i">++++++++++</span><span class="d">--------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">.doom.d/config.el</a></td><td> | </td><td class="num">29</td><td><span class="i">++++++++</span><span class="d">---------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">.doom.d/custom.el</a></td><td> | </td><td class="num">4</td><td><span class="i">+++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">.doom.d/init.el</a></td><td> | </td><td class="num">5</td><td><span class="i">+++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h5">.hammerspoon/init.lua</a></td><td> | </td><td class="num">177</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>6 files changed, 203 insertions(<span id="plus">+</span>), 37 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a> b/<a href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -119,7 +119,6 @@
+</a>         :n &quot;M-k&quot; #&#39;orge-metaup)
+   :config
+   (setq org-directory org_notes
+<a href="#h0-0-3" id="h0-0-3" class="d">-        org-id-link-to-org-use-id t
+</a>         org-ellipsis &quot; ▼ &quot;
+         org-id-link-to-org-use-id nil
+         org-pretty-entities t
+<b>diff --git a/<a id="h1" href="../file/.doom.d/+plugins.el.html">.doom.d/+plugins.el</a> b/<a href="../file/.doom.d/+plugins.el.html">.doom.d/+plugins.el</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -14,24 +14,14 @@
+</a>   (general-setq evil-disable-insert-state-bindings t)
+   :general
+   ([remap evil-emacs-state] &#39;evil-normal-state)
+<a href="#h1-0-3" id="h1-0-3" class="d">-  :config
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-  (setq evil-move-cursor-back nil)
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-  (setq evil-esc-delay 1)
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-  (setq evil-kill-on-visual-paste nil))
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+  (general-imap &quot;C-f&quot; &#39;delete-forward-char))
+</a> ;; replaced by evil-better-visual-line
+<a href="#h1-0-9" id="h1-0-9" class="d">-;; (setq evil-respect-visual-line-mode t)
+</a> ;; (setq evil-want-minibuffer t)
+ 
+ ;; Better visual line
+<a href="#h1-0-13" id="h1-0-13" class="d">-(use-package! evil-better-visual-line
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-  :config
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-  (evil-better-visual-line-on))
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-;; Ivy
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-(map! :after ivy
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-  :map ivy-minibuffer-map
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-  &quot;S-SPC&quot; nil
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-  &quot;C-SPC&quot; &#39;ivy-restrict-to-matches)
+</a><a href="#h1-0-22" id="h1-0-22" class="i">+;; (use-package! evil-better-visual-line
+</a><a href="#h1-0-23" id="h1-0-23" class="i">+;;   :config
+</a><a href="#h1-0-24" id="h1-0-24" class="i">+;;   (evil-better-visual-line-on))
+</a> 
+ ;; Snipe
+ (after! evil-snipe
+<a href="#h1-1" id="h1-1" class="h">@@ -41,6 +31,12 @@
+</a>   (setq evil-snipe-repeat-keys t)
+   (setq evil-snipe-repeat-scope &#39;whole-buffer))
+ 
+<a href="#h1-1-3" id="h1-1-3" class="i">+;; Ivy
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+(map! :after ivy
+</a><a href="#h1-1-5" id="h1-1-5" class="i">+  :map ivy-minibuffer-map
+</a><a href="#h1-1-6" id="h1-1-6" class="i">+  &quot;S-SPC&quot; nil
+</a><a href="#h1-1-7" id="h1-1-7" class="i">+  &quot;C-SPC&quot; &#39;ivy-restrict-to-matches)
+</a><a href="#h1-1-8" id="h1-1-8" class="i">+
+</a> ;; Dired
+ (after! dired
+   ;; (setq dired-listing-switches &quot;-aBhl --group-directories-first&quot;
+<b>diff --git a/<a id="h2" href="../file/.doom.d/config.el.html">.doom.d/config.el</a> b/<a href="../file/.doom.d/config.el.html">.doom.d/config.el</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -47,15 +47,6 @@
+</a> 
+ (setq savehist-mode -1)
+ 
+<a href="#h2-0-3" id="h2-0-3" class="d">-;; (define-key! evil-normal-state-map (kbd &quot;M-S-l&quot;) &#39;enlarge-window-horizontally)
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-;; (define-key! evil-normal-state-map (kbd &quot;M-S-h&quot;) &#39;shrink-window-horizontally)
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-(global-set-key (kbd &quot;s-l&quot;) &#39;org-roam-find-file)
+</a><a href="#h2-0-6" id="h2-0-6" class="d">-(global-set-key (kbd &quot;s-b&quot;) &#39;ivy-switch-buffer)
+</a><a href="#h2-0-7" id="h2-0-7" class="d">-(global-set-key (kbd &quot;s-K&quot;) &#39;kill-buffer)
+</a><a href="#h2-0-8" id="h2-0-8" class="d">-
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-(load! &quot;+plugins&quot;)
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-(load! &quot;+org&quot;)
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-
+</a> ;; Here are some additional functions/macros that could help you configure Doom:
+ ;;
+ ;; - `load!&#39; for loading external *.el files relative to this one
+<a href="#h2-1" id="h2-1" class="h">@@ -73,15 +64,11 @@
+</a> ;; You can also try &#39;gd&#39; (or &#39;C-c c d&#39;) to jump to their definition and see how
+ ;; they are implemented.
+ 
+<a href="#h2-1-3" id="h2-1-3" class="d">-(custom-set-variables
+</a><a href="#h2-1-4" id="h2-1-4" class="d">- ;; custom-set-variables was added by Custom.
+</a><a href="#h2-1-5" id="h2-1-5" class="d">- ;; If you edit it by hand, you could mess it up, so be careful.
+</a><a href="#h2-1-6" id="h2-1-6" class="d">- ;; Your init file should contain only one such instance.
+</a><a href="#h2-1-7" id="h2-1-7" class="d">- ;; If there is more than one, they won&#39;t work right.
+</a><a href="#h2-1-8" id="h2-1-8" class="d">- &#39;(package-selected-packages (quote (org-roam-server evil-better-visual-line))))
+</a><a href="#h2-1-9" id="h2-1-9" class="d">-(custom-set-faces
+</a><a href="#h2-1-10" id="h2-1-10" class="d">- ;; custom-set-faces was added by Custom.
+</a><a href="#h2-1-11" id="h2-1-11" class="d">- ;; If you edit it by hand, you could mess it up, so be careful.
+</a><a href="#h2-1-12" id="h2-1-12" class="d">- ;; Your init file should contain only one such instance.
+</a><a href="#h2-1-13" id="h2-1-13" class="d">- ;; If there is more than one, they won&#39;t work right.
+</a><a href="#h2-1-14" id="h2-1-14" class="d">- )
+</a><a href="#h2-1-15" id="h2-1-15" class="i">+;; (define-key! evil-normal-state-map (kbd &quot;M-S-l&quot;) &#39;enlarge-window-horizontally)
+</a><a href="#h2-1-16" id="h2-1-16" class="i">+;; (define-key! evil-normal-state-map (kbd &quot;M-S-h&quot;) &#39;shrink-window-horizontally)
+</a><a href="#h2-1-17" id="h2-1-17" class="i">+(global-set-key (kbd &quot;s-l&quot;) &#39;org-roam-find-file)
+</a><a href="#h2-1-18" id="h2-1-18" class="i">+(global-set-key (kbd &quot;s-b&quot;) &#39;ivy-switch-buffer)
+</a><a href="#h2-1-19" id="h2-1-19" class="i">+(global-set-key (kbd &quot;s-K&quot;) &#39;kill-buffer)
+</a><a href="#h2-1-20" id="h2-1-20" class="i">+
+</a><a href="#h2-1-21" id="h2-1-21" class="i">+(load! &quot;+plugins&quot;)
+</a><a href="#h2-1-22" id="h2-1-22" class="i">+(load! &quot;+org&quot;)
+</a><b>diff --git a/<a id="h3" href="../file/.doom.d/custom.el.html">.doom.d/custom.el</a> b/<a href="../file/.doom.d/custom.el.html">.doom.d/custom.el</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -3,7 +3,9 @@
+</a>  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won&#39;t work right.
+<a href="#h3-0-3" id="h3-0-3" class="d">- &#39;(org-agenda-files nil)
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+ &#39;(org-agenda-files
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+   (quote
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+    (&quot;/Users/yohanesbandung/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/journals/2020-08-22.org&quot;)))
+</a>  &#39;(package-selected-packages (quote (org-roam-server evil-better-visual-line))))
+ (custom-set-faces
+  ;; custom-set-faces was added by Custom.
+<b>diff --git a/<a id="h4" href="../file/.doom.d/init.el.html">.doom.d/init.el</a> b/<a href="../file/.doom.d/init.el.html">.doom.d/init.el</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -177,3 +177,8 @@
+</a>        :config
+        ;;literate
+        (default +bindings +smartparens))
+<a href="#h4-0-3" id="h4-0-3" class="i">+
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+  (setq evil-move-cursor-back nil)
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+  (setq evil-esc-delay 1)
+</a><a href="#h4-0-6" id="h4-0-6" class="i">+  (setq evil-respect-visual-line-mode t)
+</a><a href="#h4-0-7" id="h4-0-7" class="i">+  (setq evil-kill-on-visual-paste nil)
+</a><b>diff --git a/<a id="h5" href="../file/.hammerspoon/init.lua.html">.hammerspoon/init.lua</a> b/<a href="../file/.hammerspoon/init.lua.html">.hammerspoon/init.lua</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -0,0 +1,177 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="i">+-- option + ctrl + h to make active window half to the left
+</a><a href="#h5-0-1" id="h5-0-1" class="i">+hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;H&quot;, function()
+</a><a href="#h5-0-2" id="h5-0-2" class="i">+  local win = hs.window.focusedWindow()
+</a><a href="#h5-0-3" id="h5-0-3" class="i">+  local f = win:frame()
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+  local screen = win:screen()
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+  local max = screen:frame()
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+  f.x = max.x
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+  f.y = max.y
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+  f.w = max.w / 2
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+  f.h = max.h
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+  win:setFrame(f)
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+end)
+</a><a href="#h5-0-13" id="h5-0-13" class="i">+
+</a><a href="#h5-0-14" id="h5-0-14" class="i">+-- option + ctrl + l to make active window half to the right
+</a><a href="#h5-0-15" id="h5-0-15" class="i">+hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;L&quot;, function()
+</a><a href="#h5-0-16" id="h5-0-16" class="i">+  local win = hs.window.focusedWindow()
+</a><a href="#h5-0-17" id="h5-0-17" class="i">+  local f = win:frame()
+</a><a href="#h5-0-18" id="h5-0-18" class="i">+  local screen = win:screen()
+</a><a href="#h5-0-19" id="h5-0-19" class="i">+  local max = screen:frame()
+</a><a href="#h5-0-20" id="h5-0-20" class="i">+
+</a><a href="#h5-0-21" id="h5-0-21" class="i">+  f.x = max.x + (max.w / 2)
+</a><a href="#h5-0-22" id="h5-0-22" class="i">+  f.y = max.y
+</a><a href="#h5-0-23" id="h5-0-23" class="i">+  f.w = max.w / 2
+</a><a href="#h5-0-24" id="h5-0-24" class="i">+  f.h = max.h
+</a><a href="#h5-0-25" id="h5-0-25" class="i">+  win:setFrame(f)
+</a><a href="#h5-0-26" id="h5-0-26" class="i">+end)
+</a><a href="#h5-0-27" id="h5-0-27" class="i">+
+</a><a href="#h5-0-28" id="h5-0-28" class="i">+-- option + ctrl + j to make active window two-third to the left
+</a><a href="#h5-0-29" id="h5-0-29" class="i">+hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;J&quot;, function()
+</a><a href="#h5-0-30" id="h5-0-30" class="i">+  local win = hs.window.focusedWindow()
+</a><a href="#h5-0-31" id="h5-0-31" class="i">+  local f = win:frame()
+</a><a href="#h5-0-32" id="h5-0-32" class="i">+  local screen = win:screen()
+</a><a href="#h5-0-33" id="h5-0-33" class="i">+  local max = screen:frame()
+</a><a href="#h5-0-34" id="h5-0-34" class="i">+
+</a><a href="#h5-0-35" id="h5-0-35" class="i">+  f.x = max.x
+</a><a href="#h5-0-36" id="h5-0-36" class="i">+  f.y = max.y
+</a><a href="#h5-0-37" id="h5-0-37" class="i">+  f.w = max.w * (2/3)
+</a><a href="#h5-0-38" id="h5-0-38" class="i">+  f.h = max.h
+</a><a href="#h5-0-39" id="h5-0-39" class="i">+  win:setFrame(f)
+</a><a href="#h5-0-40" id="h5-0-40" class="i">+end)
+</a><a href="#h5-0-41" id="h5-0-41" class="i">+
+</a><a href="#h5-0-42" id="h5-0-42" class="i">+-- option + ctrl + k to make active window two-third to the right
+</a><a href="#h5-0-43" id="h5-0-43" class="i">+hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;K&quot;, function()
+</a><a href="#h5-0-44" id="h5-0-44" class="i">+  local win = hs.window.focusedWindow()
+</a><a href="#h5-0-45" id="h5-0-45" class="i">+  local f = win:frame()
+</a><a href="#h5-0-46" id="h5-0-46" class="i">+  local screen = win:screen()
+</a><a href="#h5-0-47" id="h5-0-47" class="i">+  local max = screen:frame()
+</a><a href="#h5-0-48" id="h5-0-48" class="i">+
+</a><a href="#h5-0-49" id="h5-0-49" class="i">+  f.x = max.x + (max.w * (1/3))
+</a><a href="#h5-0-50" id="h5-0-50" class="i">+  f.y = max.y
+</a><a href="#h5-0-51" id="h5-0-51" class="i">+  f.w = max.w * (2/3)
+</a><a href="#h5-0-52" id="h5-0-52" class="i">+  f.h = max.h
+</a><a href="#h5-0-53" id="h5-0-53" class="i">+  win:setFrame(f)
+</a><a href="#h5-0-54" id="h5-0-54" class="i">+end)
+</a><a href="#h5-0-55" id="h5-0-55" class="i">+
+</a><a href="#h5-0-56" id="h5-0-56" class="i">+-- option + ctrl + i to make active window one-third to the right
+</a><a href="#h5-0-57" id="h5-0-57" class="i">+hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;I&quot;, function()
+</a><a href="#h5-0-58" id="h5-0-58" class="i">+  local win = hs.window.focusedWindow()
+</a><a href="#h5-0-59" id="h5-0-59" class="i">+  local f = win:frame()
+</a><a href="#h5-0-60" id="h5-0-60" class="i">+  local screen = win:screen()
+</a><a href="#h5-0-61" id="h5-0-61" class="i">+  local max = screen:frame()
+</a><a href="#h5-0-62" id="h5-0-62" class="i">+
+</a><a href="#h5-0-63" id="h5-0-63" class="i">+  f.x = max.x + (max.w * (2/3))
+</a><a href="#h5-0-64" id="h5-0-64" class="i">+  f.y = max.y
+</a><a href="#h5-0-65" id="h5-0-65" class="i">+  f.w = max.w * (1/3)
+</a><a href="#h5-0-66" id="h5-0-66" class="i">+  f.h = max.h
+</a><a href="#h5-0-67" id="h5-0-67" class="i">+  win:setFrame(f)
+</a><a href="#h5-0-68" id="h5-0-68" class="i">+end)
+</a><a href="#h5-0-69" id="h5-0-69" class="i">+
+</a><a href="#h5-0-70" id="h5-0-70" class="i">+-- option + ctrl + u to make active window one-third to the left
+</a><a href="#h5-0-71" id="h5-0-71" class="i">+hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;U&quot;, function()
+</a><a href="#h5-0-72" id="h5-0-72" class="i">+  local win = hs.window.focusedWindow()
+</a><a href="#h5-0-73" id="h5-0-73" class="i">+  local f = win:frame()
+</a><a href="#h5-0-74" id="h5-0-74" class="i">+  local screen = win:screen()
+</a><a href="#h5-0-75" id="h5-0-75" class="i">+  local max = screen:frame()
+</a><a href="#h5-0-76" id="h5-0-76" class="i">+
+</a><a href="#h5-0-77" id="h5-0-77" class="i">+  f.x = max.x
+</a><a href="#h5-0-78" id="h5-0-78" class="i">+  f.y = max.y
+</a><a href="#h5-0-79" id="h5-0-79" class="i">+  f.w = max.w * (1/3)
+</a><a href="#h5-0-80" id="h5-0-80" class="i">+  f.h = max.h
+</a><a href="#h5-0-81" id="h5-0-81" class="i">+  win:setFrame(f)
+</a><a href="#h5-0-82" id="h5-0-82" class="i">+end)
+</a><a href="#h5-0-83" id="h5-0-83" class="i">+
+</a><a href="#h5-0-84" id="h5-0-84" class="i">+-- option + ctrl + s to make active window three-fourth to the left
+</a><a href="#h5-0-85" id="h5-0-85" class="i">+hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;S&quot;, function()
+</a><a href="#h5-0-86" id="h5-0-86" class="i">+  local win = hs.window.focusedWindow()
+</a><a href="#h5-0-87" id="h5-0-87" class="i">+  local f = win:frame()
+</a><a href="#h5-0-88" id="h5-0-88" class="i">+  local screen = win:screen()
+</a><a href="#h5-0-89" id="h5-0-89" class="i">+  local max = screen:frame()
+</a><a href="#h5-0-90" id="h5-0-90" class="i">+
+</a><a href="#h5-0-91" id="h5-0-91" class="i">+  f.x = max.x
+</a><a href="#h5-0-92" id="h5-0-92" class="i">+  f.y = max.y
+</a><a href="#h5-0-93" id="h5-0-93" class="i">+  f.w = max.w * (3/4)
+</a><a href="#h5-0-94" id="h5-0-94" class="i">+  f.h = max.h
+</a><a href="#h5-0-95" id="h5-0-95" class="i">+  win:setFrame(f)
+</a><a href="#h5-0-96" id="h5-0-96" class="i">+end)
+</a><a href="#h5-0-97" id="h5-0-97" class="i">+
+</a><a href="#h5-0-98" id="h5-0-98" class="i">+-- option + ctrl + d to make active window aligned right
+</a><a href="#h5-0-99" id="h5-0-99" class="i">+hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;D&quot;, function()
+</a><a href="#h5-0-100" id="h5-0-100" class="i">+  local win = hs.window.focusedWindow()
+</a><a href="#h5-0-101" id="h5-0-101" class="i">+  local f = win:frame()
+</a><a href="#h5-0-102" id="h5-0-102" class="i">+  local screen = win:screen()
+</a><a href="#h5-0-103" id="h5-0-103" class="i">+  local max = screen:frame()
+</a><a href="#h5-0-104" id="h5-0-104" class="i">+
+</a><a href="#h5-0-105" id="h5-0-105" class="i">+  f.x = max.x + max.w - f.w
+</a><a href="#h5-0-106" id="h5-0-106" class="i">+  f.y = max.y
+</a><a href="#h5-0-107" id="h5-0-107" class="i">+  win:setFrame(f)
+</a><a href="#h5-0-108" id="h5-0-108" class="i">+end)
+</a><a href="#h5-0-109" id="h5-0-109" class="i">+
+</a><a href="#h5-0-110" id="h5-0-110" class="i">+-- option + ctrl + c to make active window centered
+</a><a href="#h5-0-111" id="h5-0-111" class="i">+hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;C&quot;, function()
+</a><a href="#h5-0-112" id="h5-0-112" class="i">+  local win = hs.window.focusedWindow()
+</a><a href="#h5-0-113" id="h5-0-113" class="i">+  local f = win:frame()
+</a><a href="#h5-0-114" id="h5-0-114" class="i">+  local screen = win:screen()
+</a><a href="#h5-0-115" id="h5-0-115" class="i">+  local max = screen:frame()
+</a><a href="#h5-0-116" id="h5-0-116" class="i">+
+</a><a href="#h5-0-117" id="h5-0-117" class="i">+  -- f.x = max.x + (max.w * (1/6))
+</a><a href="#h5-0-118" id="h5-0-118" class="i">+  -- f.y = max.y + (max.h * (1/6))
+</a><a href="#h5-0-119" id="h5-0-119" class="i">+  -- f.w = max.w * (2/3)
+</a><a href="#h5-0-120" id="h5-0-120" class="i">+  -- f.h = max.h * (2/3)
+</a><a href="#h5-0-121" id="h5-0-121" class="i">+  -- f.x = max.x + (max.w * (1/8))
+</a><a href="#h5-0-122" id="h5-0-122" class="i">+  -- f.y = max.y + (max.h * (1/8))
+</a><a href="#h5-0-123" id="h5-0-123" class="i">+  -- f.w = max.w * (3/4)
+</a><a href="#h5-0-124" id="h5-0-124" class="i">+  -- f.h = max.h * (3/4)
+</a><a href="#h5-0-125" id="h5-0-125" class="i">+  f.x = max.x + (max.w * (3/16))
+</a><a href="#h5-0-126" id="h5-0-126" class="i">+  f.y = max.y + (max.h * (2/16))
+</a><a href="#h5-0-127" id="h5-0-127" class="i">+  f.w = max.w * (5/8)
+</a><a href="#h5-0-128" id="h5-0-128" class="i">+  f.h = max.h * (6/8)
+</a><a href="#h5-0-129" id="h5-0-129" class="i">+  win:setFrame(f)
+</a><a href="#h5-0-130" id="h5-0-130" class="i">+end)
+</a><a href="#h5-0-131" id="h5-0-131" class="i">+
+</a><a href="#h5-0-132" id="h5-0-132" class="i">+-- option + ctrl + enter to make active window maximized
+</a><a href="#h5-0-133" id="h5-0-133" class="i">+hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;Return&quot;, function()
+</a><a href="#h5-0-134" id="h5-0-134" class="i">+  local win = hs.window.focusedWindow()
+</a><a href="#h5-0-135" id="h5-0-135" class="i">+  local f = win:frame()
+</a><a href="#h5-0-136" id="h5-0-136" class="i">+  local screen = win:screen()
+</a><a href="#h5-0-137" id="h5-0-137" class="i">+  local max = screen:frame()
+</a><a href="#h5-0-138" id="h5-0-138" class="i">+
+</a><a href="#h5-0-139" id="h5-0-139" class="i">+  f.x = max.x
+</a><a href="#h5-0-140" id="h5-0-140" class="i">+  f.y = max.y
+</a><a href="#h5-0-141" id="h5-0-141" class="i">+  f.w = max.w
+</a><a href="#h5-0-142" id="h5-0-142" class="i">+  f.h = max.h
+</a><a href="#h5-0-143" id="h5-0-143" class="i">+  win:setFrame(f)
+</a><a href="#h5-0-144" id="h5-0-144" class="i">+end)
+</a><a href="#h5-0-145" id="h5-0-145" class="i">+
+</a><a href="#h5-0-146" id="h5-0-146" class="i">+-- option + ctrl + N to make active window centered tall
+</a><a href="#h5-0-147" id="h5-0-147" class="i">+hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;N&quot;, function()
+</a><a href="#h5-0-148" id="h5-0-148" class="i">+  local win = hs.window.focusedWindow()
+</a><a href="#h5-0-149" id="h5-0-149" class="i">+  local f = win:frame()
+</a><a href="#h5-0-150" id="h5-0-150" class="i">+  local screen = win:screen()
+</a><a href="#h5-0-151" id="h5-0-151" class="i">+  local max = screen:frame()
+</a><a href="#h5-0-152" id="h5-0-152" class="i">+
+</a><a href="#h5-0-153" id="h5-0-153" class="i">+  f.x = max.x + (max.w * (4/16))
+</a><a href="#h5-0-154" id="h5-0-154" class="i">+  f.w = max.w * (4/8)
+</a><a href="#h5-0-155" id="h5-0-155" class="i">+  f.y = max.y
+</a><a href="#h5-0-156" id="h5-0-156" class="i">+  f.h = max.h
+</a><a href="#h5-0-157" id="h5-0-157" class="i">+  win:setFrame(f)
+</a><a href="#h5-0-158" id="h5-0-158" class="i">+end)
+</a><a href="#h5-0-159" id="h5-0-159" class="i">+
+</a><a href="#h5-0-160" id="h5-0-160" class="i">+-- layoutWatcher = hs.eventtap.new({hs.eventtap.event.types.flagsChanged}, function(e)
+</a><a href="#h5-0-161" id="h5-0-161" class="i">+--     local flags = e:getFlags()
+</a><a href="#h5-0-162" id="h5-0-162" class="i">+--     if flags.cmd and not (flags.alt or flags.shift or flags.ctrl or flags.fn) then
+</a><a href="#h5-0-163" id="h5-0-163" class="i">+--         local keyCode = e:getKeyCode()
+</a><a href="#h5-0-164" id="h5-0-164" class="i">+--         if keyCode == 0x37 then
+</a><a href="#h5-0-165" id="h5-0-165" class="i">+--             hs.alert.show(&quot;left cmd key&quot;)
+</a><a href="#h5-0-166" id="h5-0-166" class="i">+--         elseif keyCode == 0x36 then
+</a><a href="#h5-0-167" id="h5-0-167" class="i">+--             hs.alert.show(&quot;right cmd key&quot;)
+</a><a href="#h5-0-168" id="h5-0-168" class="i">+--         end
+</a><a href="#h5-0-169" id="h5-0-169" class="i">+--     end
+</a><a href="#h5-0-170" id="h5-0-170" class="i">+-- end):start()
+</a><a href="#h5-0-171" id="h5-0-171" class="i">+
+</a><a href="#h5-0-172" id="h5-0-172" class="i">+-- option + ctrl + r to reload config
+</a><a href="#h5-0-173" id="h5-0-173" class="i">+hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;R&quot;, function()
+</a><a href="#h5-0-174" id="h5-0-174" class="i">+  hs.reload()
+</a><a href="#h5-0-175" id="h5-0-175" class="i">+end)
+</a><a href="#h5-0-176" id="h5-0-176" class="i">+hs.alert.show(&quot;Config loaded&quot;)
+</a></pre>
+</div>
+</div>
+</body>
+</html>

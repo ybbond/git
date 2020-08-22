@@ -15,7 +15,7 @@
 <a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> +plugins.el (2215B)</p><hr/><pre id="blob">
+<p> +plugins.el (2116B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> ;;; ~/.doom.d/+ui.el -*- lexical-binding: t; -*-
 <a href="#l2" class="line" id="l2">      2</a> 
 <a href="#l3" class="line" id="l3">      3</a> ;; source https://github.com/theianjones/dotfiles/blob/master/.doom.d/+ui.el
@@ -32,62 +32,58 @@
 <a href="#l14" class="line" id="l14">     14</a>   (general-setq evil-disable-insert-state-bindings t)
 <a href="#l15" class="line" id="l15">     15</a>   :general
 <a href="#l16" class="line" id="l16">     16</a>   ([remap evil-emacs-state] &#39;evil-normal-state)
-<a href="#l17" class="line" id="l17">     17</a>   :config
-<a href="#l18" class="line" id="l18">     18</a>   (setq evil-move-cursor-back nil)
-<a href="#l19" class="line" id="l19">     19</a>   (setq evil-esc-delay 1)
-<a href="#l20" class="line" id="l20">     20</a>   (setq evil-kill-on-visual-paste nil))
-<a href="#l21" class="line" id="l21">     21</a> ;; replaced by evil-better-visual-line
-<a href="#l22" class="line" id="l22">     22</a> ;; (setq evil-respect-visual-line-mode t)
-<a href="#l23" class="line" id="l23">     23</a> ;; (setq evil-want-minibuffer t)
-<a href="#l24" class="line" id="l24">     24</a> 
-<a href="#l25" class="line" id="l25">     25</a> ;; Better visual line
-<a href="#l26" class="line" id="l26">     26</a> (use-package! evil-better-visual-line
-<a href="#l27" class="line" id="l27">     27</a>   :config
-<a href="#l28" class="line" id="l28">     28</a>   (evil-better-visual-line-on))
-<a href="#l29" class="line" id="l29">     29</a> 
-<a href="#l30" class="line" id="l30">     30</a> ;; Ivy
-<a href="#l31" class="line" id="l31">     31</a> (map! :after ivy
-<a href="#l32" class="line" id="l32">     32</a>   :map ivy-minibuffer-map
-<a href="#l33" class="line" id="l33">     33</a>   &quot;S-SPC&quot; nil
-<a href="#l34" class="line" id="l34">     34</a>   &quot;C-SPC&quot; &#39;ivy-restrict-to-matches)
-<a href="#l35" class="line" id="l35">     35</a> 
-<a href="#l36" class="line" id="l36">     36</a> ;; Snipe
-<a href="#l37" class="line" id="l37">     37</a> (after! evil-snipe
-<a href="#l38" class="line" id="l38">     38</a>   (setq evil-snipe-smart-case t)
-<a href="#l39" class="line" id="l39">     39</a>   (setq evil-snipe-scope &#39;whole-buffer)
-<a href="#l40" class="line" id="l40">     40</a>   (setq evil-snipe-auto-scroll t)
-<a href="#l41" class="line" id="l41">     41</a>   (setq evil-snipe-repeat-keys t)
-<a href="#l42" class="line" id="l42">     42</a>   (setq evil-snipe-repeat-scope &#39;whole-buffer))
-<a href="#l43" class="line" id="l43">     43</a> 
-<a href="#l44" class="line" id="l44">     44</a> ;; Dired
-<a href="#l45" class="line" id="l45">     45</a> (after! dired
-<a href="#l46" class="line" id="l46">     46</a>   ;; (setq dired-listing-switches &quot;-aBhl --group-directories-first&quot;
-<a href="#l47" class="line" id="l47">     47</a>   (setq dired-listing-switches &quot;-aBhl&quot;
-<a href="#l48" class="line" id="l48">     48</a>         dired-dwim-target t
-<a href="#l49" class="line" id="l49">     49</a>         dired-recursive-copies (quote always)
-<a href="#l50" class="line" id="l50">     50</a>         dired-recursive-deletes (quote top)))
-<a href="#l51" class="line" id="l51">     51</a> 
-<a href="#l52" class="line" id="l52">     52</a> ;; Better Copy-Paste and Clipboard Handling
-<a href="#l53" class="line" id="l53">     53</a> ;; Disable Emacs&#39; integration of killring with clipboard
-<a href="#l54" class="line" id="l54">     54</a> (setq select-enable-clipboard nil)
-<a href="#l55" class="line" id="l55">     55</a> ;; Remove hook for clipboard configurations from Emacs to command mode
-<a href="#l56" class="line" id="l56">     56</a> (remove-hook &#39;tty-setup-hook &#39;doom-init-clipboard-in-tty-emacs-h)
-<a href="#l57" class="line" id="l57">     57</a> ;; Enable ⌘+c and ⌘+v for clipboard handling
-<a href="#l58" class="line" id="l58">     58</a> (defun rc-clipboard-yank ()
-<a href="#l59" class="line" id="l59">     59</a>   &quot;Copies the active region to the system clipboard.&quot;
-<a href="#l60" class="line" id="l60">     60</a>   (interactive)
-<a href="#l61" class="line" id="l61">     61</a>   (when (region-active-p)
-<a href="#l62" class="line" id="l62">     62</a>     (gui-set-selection &#39;CLIPBOARD
-<a href="#l63" class="line" id="l63">     63</a>       (buffer-substring (region-beginning) (region-end)))))
-<a href="#l64" class="line" id="l64">     64</a> (defun rc-clipboard-paste ()
-<a href="#l65" class="line" id="l65">     65</a>   &quot;Pastes text from the system clipboard.&quot;
-<a href="#l66" class="line" id="l66">     66</a>   (interactive)
-<a href="#l67" class="line" id="l67">     67</a>   (let ((text (gui-get-selection &#39;CLIPBOARD)))
-<a href="#l68" class="line" id="l68">     68</a>     (when text (insert-for-yank text))))
-<a href="#l69" class="line" id="l69">     69</a> (map! :v &quot;s-c&quot; #&#39;rc-clipboard-yank
-<a href="#l70" class="line" id="l70">     70</a>       :nvi &quot;s-v&quot; #&#39;rc-clipboard-paste)
-<a href="#l71" class="line" id="l71">     71</a> (define-key! :keymaps &#39;(evil-ex-completion-map) &quot;s-v&quot; #&#39;rc-clipboard-paste)
-<a href="#l72" class="line" id="l72">     72</a> (define-key! :keymaps +default-minibuffer-maps &quot;s-v&quot; #&#39;rc-clipboard-paste)
+<a href="#l17" class="line" id="l17">     17</a>   (general-imap &quot;C-f&quot; &#39;delete-forward-char))
+<a href="#l18" class="line" id="l18">     18</a> ;; replaced by evil-better-visual-line
+<a href="#l19" class="line" id="l19">     19</a> ;; (setq evil-want-minibuffer t)
+<a href="#l20" class="line" id="l20">     20</a> 
+<a href="#l21" class="line" id="l21">     21</a> ;; Better visual line
+<a href="#l22" class="line" id="l22">     22</a> ;; (use-package! evil-better-visual-line
+<a href="#l23" class="line" id="l23">     23</a> ;;   :config
+<a href="#l24" class="line" id="l24">     24</a> ;;   (evil-better-visual-line-on))
+<a href="#l25" class="line" id="l25">     25</a> 
+<a href="#l26" class="line" id="l26">     26</a> ;; Snipe
+<a href="#l27" class="line" id="l27">     27</a> (after! evil-snipe
+<a href="#l28" class="line" id="l28">     28</a>   (setq evil-snipe-smart-case t)
+<a href="#l29" class="line" id="l29">     29</a>   (setq evil-snipe-scope &#39;whole-buffer)
+<a href="#l30" class="line" id="l30">     30</a>   (setq evil-snipe-auto-scroll t)
+<a href="#l31" class="line" id="l31">     31</a>   (setq evil-snipe-repeat-keys t)
+<a href="#l32" class="line" id="l32">     32</a>   (setq evil-snipe-repeat-scope &#39;whole-buffer))
+<a href="#l33" class="line" id="l33">     33</a> 
+<a href="#l34" class="line" id="l34">     34</a> ;; Ivy
+<a href="#l35" class="line" id="l35">     35</a> (map! :after ivy
+<a href="#l36" class="line" id="l36">     36</a>   :map ivy-minibuffer-map
+<a href="#l37" class="line" id="l37">     37</a>   &quot;S-SPC&quot; nil
+<a href="#l38" class="line" id="l38">     38</a>   &quot;C-SPC&quot; &#39;ivy-restrict-to-matches)
+<a href="#l39" class="line" id="l39">     39</a> 
+<a href="#l40" class="line" id="l40">     40</a> ;; Dired
+<a href="#l41" class="line" id="l41">     41</a> (after! dired
+<a href="#l42" class="line" id="l42">     42</a>   ;; (setq dired-listing-switches &quot;-aBhl --group-directories-first&quot;
+<a href="#l43" class="line" id="l43">     43</a>   (setq dired-listing-switches &quot;-aBhl&quot;
+<a href="#l44" class="line" id="l44">     44</a>         dired-dwim-target t
+<a href="#l45" class="line" id="l45">     45</a>         dired-recursive-copies (quote always)
+<a href="#l46" class="line" id="l46">     46</a>         dired-recursive-deletes (quote top)))
+<a href="#l47" class="line" id="l47">     47</a> 
+<a href="#l48" class="line" id="l48">     48</a> ;; Better Copy-Paste and Clipboard Handling
+<a href="#l49" class="line" id="l49">     49</a> ;; Disable Emacs&#39; integration of killring with clipboard
+<a href="#l50" class="line" id="l50">     50</a> (setq select-enable-clipboard nil)
+<a href="#l51" class="line" id="l51">     51</a> ;; Remove hook for clipboard configurations from Emacs to command mode
+<a href="#l52" class="line" id="l52">     52</a> (remove-hook &#39;tty-setup-hook &#39;doom-init-clipboard-in-tty-emacs-h)
+<a href="#l53" class="line" id="l53">     53</a> ;; Enable ⌘+c and ⌘+v for clipboard handling
+<a href="#l54" class="line" id="l54">     54</a> (defun rc-clipboard-yank ()
+<a href="#l55" class="line" id="l55">     55</a>   &quot;Copies the active region to the system clipboard.&quot;
+<a href="#l56" class="line" id="l56">     56</a>   (interactive)
+<a href="#l57" class="line" id="l57">     57</a>   (when (region-active-p)
+<a href="#l58" class="line" id="l58">     58</a>     (gui-set-selection &#39;CLIPBOARD
+<a href="#l59" class="line" id="l59">     59</a>       (buffer-substring (region-beginning) (region-end)))))
+<a href="#l60" class="line" id="l60">     60</a> (defun rc-clipboard-paste ()
+<a href="#l61" class="line" id="l61">     61</a>   &quot;Pastes text from the system clipboard.&quot;
+<a href="#l62" class="line" id="l62">     62</a>   (interactive)
+<a href="#l63" class="line" id="l63">     63</a>   (let ((text (gui-get-selection &#39;CLIPBOARD)))
+<a href="#l64" class="line" id="l64">     64</a>     (when text (insert-for-yank text))))
+<a href="#l65" class="line" id="l65">     65</a> (map! :v &quot;s-c&quot; #&#39;rc-clipboard-yank
+<a href="#l66" class="line" id="l66">     66</a>       :nvi &quot;s-v&quot; #&#39;rc-clipboard-paste)
+<a href="#l67" class="line" id="l67">     67</a> (define-key! :keymaps &#39;(evil-ex-completion-map) &quot;s-v&quot; #&#39;rc-clipboard-paste)
+<a href="#l68" class="line" id="l68">     68</a> (define-key! :keymaps +default-minibuffer-maps &quot;s-v&quot; #&#39;rc-clipboard-paste)
 </pre>
 </div>
 </body>
