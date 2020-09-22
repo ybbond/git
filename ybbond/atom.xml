@@ -4,6 +4,84 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>c2b01acef2d7abd72c1437c9df7f5718954d62b4</id>
+<published>2020-08-27T18:08:24Z</published>
+<updated>2020-08-27T18:08:24Z</updated>
+<title type="text">Fetch webmentions skip-checks: true</title>
+<link rel="alternate" type="text/html" href="commit/c2b01acef2d7abd72c1437c9df7f5718954d62b4.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit c2b01acef2d7abd72c1437c9df7f5718954d62b4
+parent 72116588cf05db28e3ee21b1bfe6c68492f87d85
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Thu, 27 Aug 2020 18:08:24 +0000
+
+Fetch webmentions
+skip-checks: true
+
+</content>
+</entry>
+<entry>
+<id>72116588cf05db28e3ee21b1bfe6c68492f87d85</id>
+<published>2020-08-24T12:10:02Z</published>
+<updated>2020-08-24T12:10:02Z</updated>
+<title type="text">Fetch webmentions skip-checks: true</title>
+<link rel="alternate" type="text/html" href="commit/72116588cf05db28e3ee21b1bfe6c68492f87d85.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 72116588cf05db28e3ee21b1bfe6c68492f87d85
+parent 415fc8830956635a955c9ea23c41a514257b2dc9
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Mon, 24 Aug 2020 12:10:02 +0000
+
+Fetch webmentions
+skip-checks: true
+
+</content>
+</entry>
+<entry>
+<id>415fc8830956635a955c9ea23c41a514257b2dc9</id>
+<published>2020-08-23T18:16:34Z</published>
+<updated>2020-08-23T18:52:57Z</updated>
+<title type="text">content: add content about Apple Scripts for Safari</title>
+<link rel="alternate" type="text/html" href="commit/415fc8830956635a955c9ea23c41a514257b2dc9.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 415fc8830956635a955c9ea23c41a514257b2dc9
+parent bb3815d690222f1f62cf8f77473e9e4caa69860b
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Mon, 24 Aug 2020 01:16:34 +0700
+
+content: add content about Apple Scripts for Safari
+
+</content>
+</entry>
+<entry>
+<id>bb3815d690222f1f62cf8f77473e9e4caa69860b</id>
+<published>2020-08-20T11:56:55Z</published>
+<updated>2020-08-20T11:56:55Z</updated>
+<title type="text">refactor(tracker): remove goatcounter</title>
+<link rel="alternate" type="text/html" href="commit/bb3815d690222f1f62cf8f77473e9e4caa69860b.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit bb3815d690222f1f62cf8f77473e9e4caa69860b
+parent d4892e473b7fce9cc920a9a48daaf6fbba7c0dd7
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Thu, 20 Aug 2020 18:56:55 +0700
+
+refactor(tracker): remove goatcounter
+
+</content>
+</entry>
+<entry>
 <id>d4892e473b7fce9cc920a9a48daaf6fbba7c0dd7</id>
 <published>2020-08-15T13:56:48Z</published>
 <updated>2020-08-16T19:30:45Z</updated>
@@ -1837,82 +1915,6 @@ Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Mon,  4 May 2020 01:24:55 +0700
 
 feature: h-entry for notes
-
-</content>
-</entry>
-<entry>
-<id>076731f596b27331236f2ce3ca9d5d79eba0d2cf</id>
-<published>2020-05-03T17:46:58Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">feature: h-entry for indieweb</title>
-<link rel="alternate" type="text/html" href="commit/076731f596b27331236f2ce3ca9d5d79eba0d2cf.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 076731f596b27331236f2ce3ca9d5d79eba0d2cf
-parent 3e129700eaadc782104f43a041ca7ea3362f92d6
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Mon,  4 May 2020 00:46:58 +0700
-
-feature: h-entry for indieweb
-
-</content>
-</entry>
-<entry>
-<id>3e129700eaadc782104f43a041ca7ea3362f92d6</id>
-<published>2020-05-03T16:39:26Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">hotfix: h-card u-uid rel=me</title>
-<link rel="alternate" type="text/html" href="commit/3e129700eaadc782104f43a041ca7ea3362f92d6.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 3e129700eaadc782104f43a041ca7ea3362f92d6
-parent b0b6e02a9d837a5d2c8b6dc0d5f97b71536fc6e7
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Sun,  3 May 2020 23:39:26 +0700
-
-hotfix: h-card u-uid rel=me
-
-</content>
-</entry>
-<entry>
-<id>b0b6e02a9d837a5d2c8b6dc0d5f97b71536fc6e7</id>
-<published>2020-05-03T16:35:11Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">feature: add web-ring to footer</title>
-<link rel="alternate" type="text/html" href="commit/b0b6e02a9d837a5d2c8b6dc0d5f97b71536fc6e7.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit b0b6e02a9d837a5d2c8b6dc0d5f97b71536fc6e7
-parent 80613f52680b20b819624753dfdb67925ba2683f
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Sun,  3 May 2020 23:35:11 +0700
-
-feature: add web-ring to footer
-
-</content>
-</entry>
-<entry>
-<id>80613f52680b20b819624753dfdb67925ba2683f</id>
-<published>2020-05-03T16:13:16Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">refactor: separate auth links header</title>
-<link rel="alternate" type="text/html" href="commit/80613f52680b20b819624753dfdb67925ba2683f.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 80613f52680b20b819624753dfdb67925ba2683f
-parent af2b0bae6c8ef5889d61f8893e4098c85841d0e4
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Sun,  3 May 2020 23:13:16 +0700
-
-refactor: separate auth links header
 
 </content>
 </entry>

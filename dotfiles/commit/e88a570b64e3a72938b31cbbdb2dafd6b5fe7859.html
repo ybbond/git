@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>update all - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/e88a570b64e3a72938b31cbbdb2dafd6b5fe7859.html">e88a570b64e3a72938b31cbbdb2dafd6b5fe7859</a>
+<b>parent</b> <a href="../commit/e83b07474e881fde80060711dd7ab6ab2ce5ac7f.html">e83b07474e881fde80060711dd7ab6ab2ce5ac7f</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Tue, 22 Sep 2020 20:27:45 +0700
+
+update all
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.config/nvim/init.vim</a></td><td> | </td><td class="num">4</td><td><span class="i">++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.doom.d/+org.el</a></td><td> | </td><td class="num">48</td><td><span class="i">++++++++++++++++++++++++++++</span><span class="d">--------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">.doom.d/custom.el</a></td><td> | </td><td class="num">3</td><td><span class="i"></span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">.doom.d/init.el</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">.zshrc</a></td><td> | </td><td class="num">7</td><td><span class="i">++++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">Library/Application Support/Code/User/settings.json</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre></div><p>6 files changed, 39 insertions(<span id="plus">+</span>), 29 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a> b/<a href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -41,6 +41,10 @@ call plug#begin(s:plugin_location)
+</a>   &quot; *vim-easymotion*
+   &quot; Plug &#39;easymotion/vim-easymotion&#39;
+ 
+<a href="#h0-0-3" id="h0-0-3" class="i">+  &quot; *vim-searchindex*
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  &quot; Plug &#39;google/vim-searchindex&#39;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+  &quot;   let g:searchindex_line_limit=10000000
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+
+</a>   &quot; *vim-sneak*
+   Plug &#39;justinmk/vim-sneak&#39;
+ 
+<b>diff --git a/<a id="h1" href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a> b/<a href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -5,22 +5,19 @@
+</a> (use-package! org-roam
+   :hook
+   (after-init . org-roam-mode))
+<a href="#h1-0-3" id="h1-0-3" class="d">-; (setq org_notes &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes&quot;)
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-  ;; (setq org_notes &quot;~/org/Notes&quot;)
+</a>   (setq org_notes &quot;~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/&quot;)
+ 
+ (after! org-roam
+   (add-hook &#39;after-init-hook &#39;org-roam-mode)
+   :config
+   (setq org-roam-directory org_notes)
+<a href="#h1-0-11" id="h1-0-11" class="d">-  ; (setq org-roam-db-location &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes/org-roam.db&quot;)
+</a>   (setq org-roam-db-location &quot;~/org/org-roam.db&quot;)
+   (setq org-roam-link-title-format &quot;[[%s]]&quot;)
+   (setq org-roam-graph-viewer &quot;/usr/bin/open&quot;)
+   (setq org-roam-capture-ref-templates
+         &#39;((&quot;r&quot; &quot;ref&quot; plain (function org-roam-capture--get-point)
+            &quot;%?&quot;
+<a href="#h1-0-18" id="h1-0-18" class="d">-           :file-name &quot;websites/${slug}&quot;
+</a><a href="#h1-0-19" id="h1-0-19" class="i">+           :file-name &quot;${slug}&quot;
+</a>            :head &quot;#+title: ${title}
+ #+author: ${author}
+ #+roam_key: ${ref}
+<a href="#h1-1" id="h1-1" class="h">@@ -37,10 +34,12 @@
+</a>   (setq org-roam-dailies-capture-templates
+     &#39;((&quot;d&quot; &quot;daily&quot; plain (function org-roam-capture--get-point)
+       &quot;%?&quot;
+<a href="#h1-1-3" id="h1-1-3" class="d">-      :file-name &quot;journals/%&lt;%Y-%m-%d&gt;&quot;
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+      :file-name &quot;%&lt;%Y-%m-%d&gt;&quot;
+</a>       :immediate-finish t
+       :head &quot;#+title: %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;
+<a href="#h1-1-7" id="h1-1-7" class="d">-#+roam_tags: journals\n&quot;
+</a><a href="#h1-1-8" id="h1-1-8" class="i">+#+roam_tags: journals\n
+</a><a href="#h1-1-9" id="h1-1-9" class="i">+\n
+</a><a href="#h1-1-10" id="h1-1-10" class="i">+* %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;&quot;
+</a>       :unnarrowed t)))
+ 
+   (setq org-roam-capture-templates
+<a href="#h1-2" id="h1-2" class="h">@@ -52,10 +51,10 @@
+</a>            :unnarrowed t)
+           (&quot;k&quot; &quot;kumparan&quot; plain (function org-roam-capture--get-point)
+            &quot;%?&quot;
+<a href="#h1-2-3" id="h1-2-3" class="d">-           :file-name &quot;kumparan/%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h1-2-4" id="h1-2-4" class="i">+           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a>            :head &quot;#+title: ${title}
+ #+roam_tags: kumparan
+<a href="#h1-2-7" id="h1-2-7" class="d">-- backlinks :: [[file:../20200630143644-kumparan.org][kumparan]]&quot;
+</a><a href="#h1-2-8" id="h1-2-8" class="i">+- backlinks :: [[file:20200630143644-kumparan.org][kumparan]]&quot;
+</a>            :immediate-finish t
+            :unnarrowed t)
+           (&quot;c&quot; &quot;companies&quot; plain (function org-roam-capture--get-point)
+<a href="#h1-3" id="h1-3" class="h">@@ -105,15 +104,17 @@
+</a>   (&quot;C-c b&quot; . org-journal-previous-entry)
+   (&quot;C-c f&quot; . org-journal-next-entry)
+   :config
+<a href="#h1-3-3" id="h1-3-3" class="d">-  (setq org-journal-dir &quot;~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/journals/&quot;
+</a><a href="#h1-3-4" id="h1-3-4" class="d">-        ; org-journal-dir &quot;~/Library/Mobile Documents/com\~apple\~CloudDocs/Notes/journals/&quot;
+</a><a href="#h1-3-5" id="h1-3-5" class="d">-        ; org-journal-dir &quot;~/org/Notes/journals/&quot;
+</a><a href="#h1-3-6" id="h1-3-6" class="i">+  (setq org-journal-dir org_notes
+</a>         org-journal-date-prefix &quot;#+title: &quot;
+         org-journal-file-format &quot;%Y-%m-%d.org&quot;
+<a href="#h1-3-9" id="h1-3-9" class="d">-        org-journal-date-format &quot;%A, %d %B %Y\n#+roam_tags: journals\n&quot;
+</a><a href="#h1-3-10" id="h1-3-10" class="d">-        org-journal-enable-agenda-integration t))
+</a><a href="#h1-3-11" id="h1-3-11" class="i">+        org-journal-date-format &quot;%A, %d %B %Y\n#+roam_tags: journals\n\n* %A, %d %B %Y\n&quot;))
+</a> 
+ (after! org
+<a href="#h1-3-14" id="h1-3-14" class="i">+  :init
+</a><a href="#h1-3-15" id="h1-3-15" class="i">+  (require &#39;find-lisp)
+</a><a href="#h1-3-16" id="h1-3-16" class="i">+  (setq org-agenda-files (find-lisp-find-files org_notes &quot;\.org$&quot;))
+</a><a href="#h1-3-17" id="h1-3-17" class="i">+  (setq org-agenda-start-with-log-mode &#39;(state))
+</a><a href="#h1-3-18" id="h1-3-18" class="i">+  (setq org-agenda-start-day &quot;-9d&quot;)
+</a>   (map! :map org-mode-map
+         :n &quot;M-j&quot; #&#39;org-metadown
+         :n &quot;M-k&quot; #&#39;orge-metaup)
+<a href="#h1-4" id="h1-4" class="h">@@ -122,18 +123,25 @@
+</a>         org-ellipsis &quot; ▼ &quot;
+         org-id-link-to-org-use-id nil
+         org-pretty-entities t
+<a href="#h1-4-3" id="h1-4-3" class="i">+        org-log-done &#39;note
+</a><a href="#h1-4-4" id="h1-4-4" class="i">+        org-log-into-drawer t
+</a><a href="#h1-4-5" id="h1-4-5" class="i">+        org-log-refile t
+</a>         org-src-fontify-natively t
+         org-hide-emphasis-markers t)
+   (setq org-todo-keywords
+<a href="#h1-4-9" id="h1-4-9" class="d">-        &#39;((sequence &quot;TODO(t)&quot; &quot;PRGS(p)&quot; &quot;TEST(i)&quot; &quot;FDBK(f)&quot; &quot;HOLD(h)&quot; &quot;|&quot; &quot;DONE(d)&quot; &quot;CANCELED(c)&quot;)
+</a><a href="#h1-4-10" id="h1-4-10" class="i">+        &#39;((sequence &quot;TODO(t!)&quot; &quot;INPROGRESS(p!)&quot; &quot;INTEST(i!)&quot; &quot;FEEDBACK(f!)&quot; &quot;HOLD(h!)&quot; &quot;|&quot; &quot;MERGED(m!)&quot; &quot;DONE(d@/!)&quot; &quot;CANCELLED(c!)&quot;)
+</a>           (sequence &quot;[ ](T)&quot; &quot;[-](S)&quot; &quot;[?](W)&quot; &quot;|&quot; &quot;[X](D)&quot;)))
+   (setq org-todo-keyword-faces
+<a href="#h1-4-13" id="h1-4-13" class="d">-        &#39;((&quot;[-]&quot; . +org-todo-active)
+</a><a href="#h1-4-14" id="h1-4-14" class="d">-          (&quot;PRGS&quot; . +org-todo-active)
+</a><a href="#h1-4-15" id="h1-4-15" class="d">-          (&quot;[?]&quot; . +org-todo-onhold)
+</a><a href="#h1-4-16" id="h1-4-16" class="d">-          (&quot;FDBK&quot; . +org-todo-onhold)
+</a><a href="#h1-4-17" id="h1-4-17" class="d">-          (&quot;TEST&quot; . +org-todo-onhold)
+</a><a href="#h1-4-18" id="h1-4-18" class="d">-          (&quot;HOLD&quot; . +org-todo-project))))
+</a><a href="#h1-4-19" id="h1-4-19" class="i">+        &#39;((&quot;TODO&quot; :foreground &quot;ffff00&quot; :weight normal :underline t)
+</a><a href="#h1-4-20" id="h1-4-20" class="i">+          (&quot;INPROGRESS&quot; :foreground &quot;#e39ff6&quot; :weight normal :underline t)
+</a><a href="#h1-4-21" id="h1-4-21" class="i">+          (&quot;INTEST&quot; :foreground &quot;#0098dd&quot; :weight normal :underline t)
+</a><a href="#h1-4-22" id="h1-4-22" class="i">+          (&quot;FEEDBACK&quot; :foreground &quot;#0098ee&quot; :weight normal :underline t)
+</a><a href="#h1-4-23" id="h1-4-23" class="i">+          (&quot;HOLD&quot; :foreground &quot;#9f7efe&quot; :weight normal :underline t)
+</a><a href="#h1-4-24" id="h1-4-24" class="i">+          (&quot;MERGED&quot; :foreground &quot;#50a14f&quot; :weight normal :underline t)
+</a><a href="#h1-4-25" id="h1-4-25" class="i">+          (&quot;DONE&quot; :foreground &quot;#50a14f&quot; :weight bold :underline t)
+</a><a href="#h1-4-26" id="h1-4-26" class="i">+          (&quot;CANCELLED&quot; :foreground &quot;#ff6480&quot; :weight normal :underline t)
+</a><a href="#h1-4-27" id="h1-4-27" class="i">+          (&quot;[-]&quot; :foreground &quot;#e39ff6&quot; :weight bold)
+</a><a href="#h1-4-28" id="h1-4-28" class="i">+          (&quot;[?]&quot; :foreground &quot;#9f7efe&quot; :weight bold))))
+</a> 
+ (use-package! org-roam-server
+   :config
+<b>diff --git a/<a id="h2" href="../file/.doom.d/custom.el.html">.doom.d/custom.el</a> b/<a href="../file/.doom.d/custom.el.html">.doom.d/custom.el</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -3,9 +3,6 @@
+</a>  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won&#39;t work right.
+<a href="#h2-0-3" id="h2-0-3" class="d">- &#39;(org-agenda-files
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-   (quote
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-    (&quot;/Users/yohanesbandung/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/journals/2020-08-22.org&quot;)))
+</a>  &#39;(package-selected-packages (quote (org-roam-server evil-better-visual-line))))
+ (custom-set-faces
+  ;; custom-set-faces was added by Custom.
+<b>diff --git a/<a id="h3" href="../file/.doom.d/init.el.html">.doom.d/init.el</a> b/<a href="../file/.doom.d/init.el.html">.doom.d/init.el</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -92,7 +92,7 @@
+</a>        ;;gist              ; interacting with github gists
+        lookup              ; navigate your code and its documentation
+        ;;lsp
+<a href="#h3-0-3" id="h3-0-3" class="d">-       ;; macos             ; MacOS-specific commands
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+       macos             ; MacOS-specific commands
+</a>        magit             ; a git porcelain for Emacs
+        ;;make              ; run make tasks from Emacs
+        ;;pass              ; password manager for nerds
+<a href="#h3-1" id="h3-1" class="h">@@ -141,7 +141,7 @@
+</a>        ;;nim               ; python + lisp at the speed of c
+        ;;nix               ; I hereby declare &quot;nix geht mehr!&quot;
+        ;;ocaml             ; an objective camel
+<a href="#h3-1-3" id="h3-1-3" class="d">-       (org +roam)               ; organize your plain life in plain text
+</a><a href="#h3-1-4" id="h3-1-4" class="i">+       (org +journal +roam)               ; organize your plain life in plain text
+</a>        ;;php               ; perl&#39;s insecure younger brother
+        ;;plantuml          ; diagrams for confusing people more
+        ;;purescript        ; javascript, but functional
+<b>diff --git a/<a id="h4" href="../file/.zshrc.html">.zshrc</a> b/<a href="../file/.zshrc.html">.zshrc</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -16,8 +16,6 @@ export PATH=$PATH:$HOME/.cargo/bin
+</a> # export PATH=$PATH:/usr/local/bin
+ export PATH=/.config/yarn/global/node_modules/.bin:$PATH./node_modules/.bin:$HOME/.yarn/bin:$HOME
+ export PATH=/usr/local/opt/openssl/bin:$PATH
+<a href="#h4-0-3" id="h4-0-3" class="d">-export PATH=$HOME/Library/Frameworks/Python.framework/Versions/3.6/bin:$PATH
+</a><a href="#h4-0-4" id="h4-0-4" class="d">-export PATH=$HOME/Library/Python/3.7/bin:$PATH
+</a> export PATH=$PATH:$KUMPATH/yowez-cli/bin
+ export GOPATH=$HOME/go
+ export PATH=$GOPATH/bin:$PATH
+<a href="#h4-1" id="h4-1" class="h">@@ -71,6 +69,10 @@ function test_kantal {
+</a>   echo &quot;now your @ argument $@&quot;
+ }
+ 
+<a href="#h4-1-3" id="h4-1-3" class="i">+function tempjson {
+</a><a href="#h4-1-4" id="h4-1-4" class="i">+  nvim ~/tempjson$1.json
+</a><a href="#h4-1-5" id="h4-1-5" class="i">+}
+</a><a href="#h4-1-6" id="h4-1-6" class="i">+
+</a> function commit {
+   git add . &amp;&amp; git commit -m &quot;$1&quot;
+ }
+<a href="#h4-2" id="h4-2" class="h">@@ -129,7 +131,6 @@ alias ybreason=&quot;cd ${YBPATH}/ybbond-reason&quot;
+</a> alias ftex=&quot;cd ${YBPATH}/latex&quot;
+ alias todo=&quot;nvim ~/todo.md&quot;
+ alias tempbin=&quot;nvim ~/tempbin.md&quot;
+<a href="#h4-2-3" id="h4-2-3" class="d">-alias tempjson=&quot;nvim ~/tempjson.json&quot;
+</a> alias personal=&quot;nvim ~/personal.md&quot;
+ alias mine=&quot;nvim ~/Library/Mobile\ Documents/27N4MQEA55~pro~writer/Documents&quot;
+ alias fetchwm=&quot;WEBMENTIONS_TOKEN=${WMTOKEN} node ${YBPATH}/ybbond/webmentions.js&quot;
+<b>diff --git a/<a id="h5" href="../file/Library/Application Support/Code/User/settings.json.html">Library/Application Support/Code/User/settings.json</a> b/<a href="../file/Library/Application Support/Code/User/settings.json.html">Library/Application Support/Code/User/settings.json</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -228,7 +228,7 @@
+</a>   &quot;editor.cursorSurroundingLines&quot;: 5,
+   &quot;vsintellicode.modify.editor.suggestSelection&quot;: &quot;automaticallyOverrodeDefaultValue&quot;,
+   &quot;editor.codeLens&quot;: false,
+<a href="#h5-0-3" id="h5-0-3" class="d">-  &quot;window.zoomLevel&quot;: -1,
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+  &quot;window.zoomLevel&quot;: 0,
+</a>   &quot;window.titleBarStyle&quot;: &quot;native&quot;,
+   &quot;[markdown]&quot;: {
+     &quot;editor.wordWrap&quot;: &quot;on&quot;,
+</pre>
+</div>
+</div>
+</body>
+</html>

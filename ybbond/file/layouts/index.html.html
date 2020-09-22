@@ -15,7 +15,7 @@
 <a href="../../index.html">Log</a> | <a href="../../files.html">Files</a> | <a href="../../refs.html">Refs</a> | <a href="../../file/README.md.html">README</a> | <a href="../../file/LICENSE.md.html">LICENSE</a> | <a href="../../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> index.html (1220B)</p><hr/><pre id="blob">
+<p> index.html (1142B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> {{ define &quot;main&quot; }}
 <a href="#l2" class="line" id="l2">      2</a>   {{ $postURL := &quot;/posts&quot; | absURL }}
 <a href="#l3" class="line" id="l3">      3</a>   {{ $notesURL := &quot;/notes&quot; | absURL }}
@@ -46,7 +46,7 @@
 <a href="#l28" class="line" id="l28">     28</a>       &lt;/a&gt;
 <a href="#l29" class="line" id="l29">     29</a>     {{ end }}
 <a href="#l30" class="line" id="l30">     30</a>   &lt;/div&gt;
-<a href="#l31" class="line" id="l31">     31</a>   &lt;p class=&quot;main__more&quot;&gt;&lt;a data-goatcounter-click=&quot;cl-posts-more&quot; href={{ $postURL }} class=&quot;button&quot;&gt;More Blogs ⤳&lt;/a&gt;&lt;/p&gt;
+<a href="#l31" class="line" id="l31">     31</a>   &lt;p class=&quot;main__more&quot;&gt;&lt;a href={{ $postURL }} class=&quot;button&quot;&gt;More Blogs ⤳&lt;/a&gt;&lt;/p&gt;
 <a href="#l32" class="line" id="l32">     32</a> 
 <a href="#l33" class="line" id="l33">     33</a>   &lt;hr&gt;
 <a href="#l34" class="line" id="l34">     34</a> 
@@ -56,7 +56,7 @@
 <a href="#l38" class="line" id="l38">     38</a>       {{ partial &quot;post/notes-item.html&quot; . }}
 <a href="#l39" class="line" id="l39">     39</a>     {{ end }}
 <a href="#l40" class="line" id="l40">     40</a>   &lt;/div&gt;
-<a href="#l41" class="line" id="l41">     41</a>   &lt;p class=&quot;main__more&quot;&gt;&lt;a data-goatcounter-click=&quot;cl-notes-more&quot; href={{ $notesURL }} class=&quot;button&quot;&gt;More Notes ⤳&lt;/a&gt;&lt;/p&gt;
+<a href="#l41" class="line" id="l41">     41</a>   &lt;p class=&quot;main__more&quot;&gt;&lt;a href={{ $notesURL }} class=&quot;button&quot;&gt;More Notes ⤳&lt;/a&gt;&lt;/p&gt;
 <a href="#l42" class="line" id="l42">     42</a> 
 <a href="#l43" class="line" id="l43">     43</a> 
 <a href="#l44" class="line" id="l44">     44</a> {{ end }}

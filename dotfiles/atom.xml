@@ -4,6 +4,25 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>e88a570b64e3a72938b31cbbdb2dafd6b5fe7859</id>
+<published>2020-09-22T13:27:45Z</published>
+<updated>2020-09-22T13:27:45Z</updated>
+<title type="text">update all</title>
+<link rel="alternate" type="text/html" href="commit/e88a570b64e3a72938b31cbbdb2dafd6b5fe7859.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit e88a570b64e3a72938b31cbbdb2dafd6b5fe7859
+parent e83b07474e881fde80060711dd7ab6ab2ce5ac7f
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Tue, 22 Sep 2020 20:27:45 +0700
+
+update all
+
+</content>
+</entry>
+<entry>
 <id>e83b07474e881fde80060711dd7ab6ab2ce5ac7f</id>
 <published>2020-08-22T13:38:22Z</published>
 <updated>2020-08-22T13:38:22Z</updated>

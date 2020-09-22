@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor(tracker): remove goatcounter - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/bb3815d690222f1f62cf8f77473e9e4caa69860b.html">bb3815d690222f1f62cf8f77473e9e4caa69860b</a>
+<b>parent</b> <a href="../commit/d4892e473b7fce9cc920a9a48daaf6fbba7c0dd7.html">d4892e473b7fce9cc920a9a48daaf6fbba7c0dd7</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Thu, 20 Aug 2020 18:56:55 +0700
+
+refactor(tracker): remove goatcounter
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">content/_index.md</a></td><td> | </td><td class="num">2</td><td><span class="i"></span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">layouts/index.html</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">layouts/partials/footer/footer.html</a></td><td> | </td><td class="num">30</td><td><span class="i"></span><span class="d">------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">layouts/partials/head/head.html</a></td><td> | </td><td class="num">4</td><td><span class="i"></span><span class="d">----</span></td></tr>
+</table></pre></div><p>4 files changed, 2 insertions(<span id="plus">+</span>), 38 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/content/_index.md.html">content/_index.md</a> b/<a href="../file/content/_index.md.html">content/_index.md</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -5,4 +5,3 @@ Hi! I&#39;m **Bandung**, welcome to my site!
+</a> This site contains my [posts](/posts/ &quot;Link to list of posts&quot;), my often random [notes](/notes/ &quot;Link to list of notes&quot;), and the [archives](/archives/ &quot;Link to list of archived posts&quot;) from my old blog.
+ See basic &quot;snapshot&quot; [report](/reports/ &quot;Link to list of this site&#39;s basic reports&quot;) of this site&#39;s size.
+ Here is the RSS for [post](/index.xml &quot;Link to the RSS feed for posts&quot;) and here is for [notes](/notes/index.xml &quot;Link to the RSS feed for notes&quot;).
+<a href="#h0-0-3" id="h0-0-3" class="d">-Web analytics that I use respects your privacy, see [the stats](https://ybbond.goatcounter.com/ &quot;Link to ybbond.goatcounter.com&quot;).</a><a href="#h0-0-4" id="h0-0-4" class="d">-
+\ No newline at end of file
+</a><b>diff --git a/<a id="h1" href="../file/layouts/index.html.html">layouts/index.html</a> b/<a href="../file/layouts/index.html.html">layouts/index.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -28,7 +28,7 @@
+</a>       &lt;/a&gt;
+     {{ end }}
+   &lt;/div&gt;
+<a href="#h1-0-3" id="h1-0-3" class="d">-  &lt;p class=&quot;main__more&quot;&gt;&lt;a data-goatcounter-click=&quot;cl-posts-more&quot; href={{ $postURL }} class=&quot;button&quot;&gt;More Blogs ⤳&lt;/a&gt;&lt;/p&gt;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  &lt;p class=&quot;main__more&quot;&gt;&lt;a href={{ $postURL }} class=&quot;button&quot;&gt;More Blogs ⤳&lt;/a&gt;&lt;/p&gt;
+</a> 
+   &lt;hr&gt;
+ 
+<a href="#h1-1" id="h1-1" class="h">@@ -38,7 +38,7 @@
+</a>       {{ partial &quot;post/notes-item.html&quot; . }}
+     {{ end }}
+   &lt;/div&gt;
+<a href="#h1-1-3" id="h1-1-3" class="d">-  &lt;p class=&quot;main__more&quot;&gt;&lt;a data-goatcounter-click=&quot;cl-notes-more&quot; href={{ $notesURL }} class=&quot;button&quot;&gt;More Notes ⤳&lt;/a&gt;&lt;/p&gt;
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+  &lt;p class=&quot;main__more&quot;&gt;&lt;a href={{ $notesURL }} class=&quot;button&quot;&gt;More Notes ⤳&lt;/a&gt;&lt;/p&gt;
+</a> 
+ 
+ {{ end }}
+<b>diff --git a/<a id="h2" href="../file/layouts/partials/footer/footer.html.html">layouts/partials/footer/footer.html</a> b/<a href="../file/layouts/partials/footer/footer.html.html">layouts/partials/footer/footer.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -3,7 +3,6 @@
+</a>   &lt;p class=&quot;footer__nav__left&quot;&gt;
+     {{ if not .IsHome }}
+       &lt;a
+<a href="#h2-0-3" id="h2-0-3" class="d">-        data-goatcounter-click=&quot;cl-home-foot&quot;
+</a>         data-rel=&quot;prefetch&quot;
+         title=&quot;Button to go back to home page&quot;
+         href={{ .Site.BaseURL }}
+<a href="#h2-1" id="h2-1" class="h">@@ -13,76 +12,47 @@
+</a>   &lt;/p&gt;
+   &lt;p class=&quot;footer__nav__right&quot;&gt;
+     &lt;a
+<a href="#h2-1-3" id="h2-1-3" class="d">-      data-goatcounter-click=&quot;cl-gh-foot&quot;
+</a>       href=&quot;https://github.com/{{ .Site.Params.Github }}&quot;
+       title=&quot;external link to my github profile&quot;
+       rel=&quot;me&quot;
+     &gt;GitHub&lt;/a&gt;
+     &lt;a
+<a href="#h2-1-9" id="h2-1-9" class="d">-      data-goatcounter-click=&quot;cl-twit-foot&quot;
+</a>       href=&quot;https://twitter.com/{{ .Site.Params.Twitter }}&quot;
+       title=&quot;external link to my twitter profile&quot;
+       rel=&quot;me&quot;
+     &gt;Twitter&lt;/a&gt;
+     &lt;a
+<a href="#h2-1-15" id="h2-1-15" class="d">-      data-goatcounter-click=&quot;cl-micro-foot&quot;
+</a>       href=&quot;https://micro.blog/{{ .Site.Params.Microblog }}&quot;
+       title=&quot;external link to my micro dot blog profile&quot;
+       rel=&quot;me&quot;
+     &gt;Micro.blog&lt;/a&gt;
+     &lt;a
+<a href="#h2-1-21" id="h2-1-21" class="d">-      data-goatcounter-click=&quot;cl-mast-foot&quot;
+</a>       href=&quot;https://indieweb.social/@ybbond&quot;
+       title=&quot;external link to my mastodon profile&quot;
+       rel=&quot;me&quot;
+     &gt;Mastodon&lt;/a&gt;
+     &lt;a
+<a href="#h2-1-27" id="h2-1-27" class="d">-      data-goatcounter-click=&quot;cl-rss-foot&quot;
+</a>       title=&quot;link to the RSS Feed for main content of this site&quot;
+       href={{ &quot;index.xml&quot; | absURL }}
+     &gt;RSS&lt;/a&gt;
+   &lt;/p&gt;
+ &lt;/div&gt;
+ 
+<a href="#h2-1-34" id="h2-1-34" class="d">-&lt;center&gt;
+</a><a href="#h2-1-35" id="h2-1-35" class="d">-  &lt;span class=&quot;footer__analytic&quot;&gt;
+</a><a href="#h2-1-36" id="h2-1-36" class="d">-    This site implements
+</a><a href="#h2-1-37" id="h2-1-37" class="d">-    &lt;a
+</a><a href="#h2-1-38" id="h2-1-38" class="d">-      href=&quot;https://goatcounter.com&quot;
+</a><a href="#h2-1-39" id="h2-1-39" class="d">-      data-goatcounter-click=&quot;cl-gc-foot&quot;
+</a><a href="#h2-1-40" id="h2-1-40" class="d">-      target=&quot;_blank&quot;
+</a><a href="#h2-1-41" id="h2-1-41" class="d">-      title=&quot;A Good Privacy Aware Web Analytics&quot;
+</a><a href="#h2-1-42" id="h2-1-42" class="d">-      rel=&quot;noreferrer noopener&quot;
+</a><a href="#h2-1-43" id="h2-1-43" class="d">-    &gt;GoatCounter&lt;/a&gt; web analytics,
+</a><a href="#h2-1-44" id="h2-1-44" class="d">-    see results
+</a><a href="#h2-1-45" id="h2-1-45" class="d">-    &lt;a
+</a><a href="#h2-1-46" id="h2-1-46" class="d">-      href=&quot;https://ybbond.goatcounter.com/&quot;
+</a><a href="#h2-1-47" id="h2-1-47" class="d">-      data-goatcounter-click=&quot;cl-stats-foot&quot;
+</a><a href="#h2-1-48" id="h2-1-48" class="d">-      target=&quot;_blank&quot;
+</a><a href="#h2-1-49" id="h2-1-49" class="d">-      title=&quot;external link to ybbond.goatcounter.com&quot;
+</a><a href="#h2-1-50" id="h2-1-50" class="d">-      rel=&quot;noreferrer noopener&quot;
+</a><a href="#h2-1-51" id="h2-1-51" class="d">-    &gt;here&lt;/a&gt;.
+</a><a href="#h2-1-52" id="h2-1-52" class="d">-  &lt;/span&gt;
+</a><a href="#h2-1-53" id="h2-1-53" class="d">-&lt;/center&gt;
+</a><a href="#h2-1-54" id="h2-1-54" class="d">-
+</a> {{ partial &quot;components/h-card.html&quot; . }}
+ 
+ &lt;center class=&quot;web-ring&quot;&gt;
+   &lt;a
+<a href="#h2-1-59" id="h2-1-59" class="d">-    data-goatcounter-click=&quot;cl-webring-prev&quot;
+</a>     href=&quot;https://xn--sr8hvo.ws/%F0%9F%8E%B8%F0%9F%8D%8D%F0%9F%95%97/previous&quot;
+     target=&quot;_blank&quot;
+     rel=&quot;noreferrer noopener&quot;
+   &gt;←&lt;/a&gt;
+     An
+     &lt;a
+<a href="#h2-1-66" id="h2-1-66" class="d">-      data-goatcounter-click=&quot;cl-webring-center&quot;
+</a>       href=&quot;https://xn--sr8hvo.ws/&quot;
+       target=&quot;_blank&quot;
+       rel=&quot;noreferrer noopener&quot;
+     &gt;IndieWeb Webring&lt;/a&gt; 🕸💍
+   &lt;a
+<a href="#h2-1-72" id="h2-1-72" class="d">-    data-goatcounter-click=&quot;cl-webring-next&quot;
+</a>     href=&quot;https://xn--sr8hvo.ws/%F0%9F%8E%B8%F0%9F%8D%8D%F0%9F%95%97/next&quot;
+     target=&quot;_blank&quot;
+     rel=&quot;noreferrer noopener&quot;
+<b>diff --git a/<a id="h3" href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a> b/<a href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -18,10 +18,6 @@
+</a> 
+ &lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}darkToggler.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;
+ &lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}lazyImage.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;
+<a href="#h3-0-3" id="h3-0-3" class="d">-&lt;script data-goatcounter=&quot;https://ybbond.goatcounter.com/count&quot; async src=&quot;//gc.zgo.at/count.js&quot;&gt;&lt;/script&gt;
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-&lt;noscript&gt;
+</a><a href="#h3-0-5" id="h3-0-5" class="d">-  &lt;img src=&quot;https://ybbond.goatcounter.com/count?p=/test-img&quot;&gt;
+</a><a href="#h3-0-6" id="h3-0-6" class="d">-&lt;/noscript&gt;
+</a> 
+ &lt;style&gt;
+   {{ with resources.Get &quot;styles.scss&quot; | resources.ToCSS | resources.Minify }}
+</pre>
+</div>
+</div>
+</body>
+</html>
