@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>migrate from scss to css - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/2555c749781d0c45f748023adcb902e554d0746a.html">2555c749781d0c45f748023adcb902e554d0746a</a>
+<b>parent</b> <a href="../commit/ba11c73f0664b70512078bd84dc4897f70696de5.html">ba11c73f0664b70512078bd84dc4897f70696de5</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Sat,  2 Jan 2021 22:02:27 +0700
+
+migrate from scss to css
+
+<b>Diffstat:</b>
+<table><tr><td class="A">A</td><td><a href="#h0">assets/content.css</a></td><td> | </td><td class="num">185</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="D">D</td><td><a href="#h1">assets/content.scss</a></td><td> | </td><td class="num">243</td><td><span class="i"></span><span class="d">-------------------------------------------------------------------------------</span></td></tr>
+<tr><td class="R">R</td><td><a href="#h2">assets/fonts.scss -&gt; assets/fonts.css</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">assets/footer.css</a></td><td> | </td><td class="num">71</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h4">assets/header.css</a></td><td> | </td><td class="num">27</td><td><span class="i">+++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h5">assets/main.css</a></td><td> | </td><td class="num">210</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h6">assets/responsive.css</a></td><td> | </td><td class="num">102</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="D">D</td><td><a href="#h7">assets/styles.scss</a></td><td> | </td><td class="num">459</td><td><span class="i"></span><span class="d">-------------------------------------------------------------------------------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h8">assets/theme.css</a></td><td> | </td><td class="num">170</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h9">assets/variables.css</a></td><td> | </td><td class="num">24</td><td><span class="i">++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="D">D</td><td><a href="#h10">assets/variables.scss</a></td><td> | </td><td class="num">48</td><td><span class="i"></span><span class="d">------------------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h11">layouts/_default/single.html</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h12">layouts/partials/head/head.html</a></td><td> | </td><td class="num">24</td><td><span class="i">++++++++++++++++++++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h13">layouts/partials/header/header.html</a></td><td> | </td><td class="num">6</td><td><span class="i"></span><span class="d">------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h14">static/darkToggler.js</a></td><td> | </td><td class="num">29</td><td><span class="i"></span><span class="d">-----------------------------</span></td></tr>
+</table></pre></div><p>15 files changed, 813 insertions(<span id="plus">+</span>), 789 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.css.html">assets/content.css</a> b/<a href="../file/assets/content.css.html">assets/content.css</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -0,0 +1,185 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+.content {
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+  font-family: var(--font-text);
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+  width: 100%;
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+}
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+.content .language-json {
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+  font-size: 0.75rem;
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+}
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+.content .headline-hash {
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+  padding: 0 0.2em;
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+}
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+.content .before-hash {
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+  position: absolute;
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+  font-size: 0.9em;
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+  top: 0.1rem;
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+}
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+.content .before-hash.h2 {
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+  left: -1.6em;
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+}
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+.content .before-hash.h3 {
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+  left: -2.4em;
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+}
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+.content figcaption {
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+  font-size: 0.8em;
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+}
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+.content twitter-widget, .content .twitter-tweet {
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+  margin-left: auto;
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+  margin-right: auto;
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+}
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+.content i:not(.no-sup) {
+</a><a href="#h0-0-35" id="h0-0-35" class="i">+  font-size: 0.8rem;
+</a><a href="#h0-0-36" id="h0-0-36" class="i">+  vertical-align: 0.4rem;
+</a><a href="#h0-0-37" id="h0-0-37" class="i">+}
+</a><a href="#h0-0-38" id="h0-0-38" class="i">+
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+.content i.fa-font-awesome-flag {
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+  font-size: 0.6rem;
+</a><a href="#h0-0-41" id="h0-0-41" class="i">+}
+</a><a href="#h0-0-42" id="h0-0-42" class="i">+
+</a><a href="#h0-0-43" id="h0-0-43" class="i">+.content p:not([class]) {
+</a><a href="#h0-0-44" id="h0-0-44" class="i">+  margin: 1.2rem 0;
+</a><a href="#h0-0-45" id="h0-0-45" class="i">+}
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+.content p + ul, .content p + ol {
+</a><a href="#h0-0-48" id="h0-0-48" class="i">+  margin-top: -0.8rem;
+</a><a href="#h0-0-49" id="h0-0-49" class="i">+}
+</a><a href="#h0-0-50" id="h0-0-50" class="i">+
+</a><a href="#h0-0-51" id="h0-0-51" class="i">+.content table {
+</a><a href="#h0-0-52" id="h0-0-52" class="i">+  display: block;
+</a><a href="#h0-0-53" id="h0-0-53" class="i">+  overflow-x: auto;
+</a><a href="#h0-0-54" id="h0-0-54" class="i">+  border-collapse: collapse;
+</a><a href="#h0-0-55" id="h0-0-55" class="i">+}
+</a><a href="#h0-0-56" id="h0-0-56" class="i">+.content table td, .content table th {
+</a><a href="#h0-0-57" id="h0-0-57" class="i">+  border: 1px solid;
+</a><a href="#h0-0-58" id="h0-0-58" class="i">+}
+</a><a href="#h0-0-59" id="h0-0-59" class="i">+.content table td {
+</a><a href="#h0-0-60" id="h0-0-60" class="i">+  padding: 0.5em 1em;
+</a><a href="#h0-0-61" id="h0-0-61" class="i">+}
+</a><a href="#h0-0-62" id="h0-0-62" class="i">+.content table th {
+</a><a href="#h0-0-63" id="h0-0-63" class="i">+  padding: 1em 2em;
+</a><a href="#h0-0-64" id="h0-0-64" class="i">+}
+</a><a href="#h0-0-65" id="h0-0-65" class="i">+
+</a><a href="#h0-0-66" id="h0-0-66" class="i">+.content ol {
+</a><a href="#h0-0-67" id="h0-0-67" class="i">+  margin: 1.5em 0;
+</a><a href="#h0-0-68" id="h0-0-68" class="i">+  padding: 0;
+</a><a href="#h0-0-69" id="h0-0-69" class="i">+  counter-reset: my-awesome-counter;
+</a><a href="#h0-0-70" id="h0-0-70" class="i">+  list-style: none;
+</a><a href="#h0-0-71" id="h0-0-71" class="i">+}
+</a><a href="#h0-0-72" id="h0-0-72" class="i">+.content ol li {
+</a><a href="#h0-0-73" id="h0-0-73" class="i">+  counter-increment: my-awesome-counter;
+</a><a href="#h0-0-74" id="h0-0-74" class="i">+  list-style-position: outside;
+</a><a href="#h0-0-75" id="h0-0-75" class="i">+  margin-bottom: 0.2em;
+</a><a href="#h0-0-76" id="h0-0-76" class="i">+}
+</a><a href="#h0-0-77" id="h0-0-77" class="i">+.content ol li span {
+</a><a href="#h0-0-78" id="h0-0-78" class="i">+  position: relative;
+</a><a href="#h0-0-79" id="h0-0-79" class="i">+}
+</a><a href="#h0-0-80" id="h0-0-80" class="i">+.content ol li span:before {
+</a><a href="#h0-0-81" id="h0-0-81" class="i">+  position: absolute;
+</a><a href="#h0-0-82" id="h0-0-82" class="i">+  right: 0.5em;
+</a><a href="#h0-0-83" id="h0-0-83" class="i">+  top: 0.1em;
+</a><a href="#h0-0-84" id="h0-0-84" class="i">+  content: counter(my-awesome-counter)&#39;.&#39;;
+</a><a href="#h0-0-85" id="h0-0-85" class="i">+  font-size: 0.8em;
+</a><a href="#h0-0-86" id="h0-0-86" class="i">+}
+</a><a href="#h0-0-87" id="h0-0-87" class="i">+
+</a><a href="#h0-0-88" id="h0-0-88" class="i">+.content ul {
+</a><a href="#h0-0-89" id="h0-0-89" class="i">+  margin: 1.5em 0;
+</a><a href="#h0-0-90" id="h0-0-90" class="i">+  padding: 0;
+</a><a href="#h0-0-91" id="h0-0-91" class="i">+  list-style: none;
+</a><a href="#h0-0-92" id="h0-0-92" class="i">+}
+</a><a href="#h0-0-93" id="h0-0-93" class="i">+.content ul li {
+</a><a href="#h0-0-94" id="h0-0-94" class="i">+  margin-bottom: 0.2em;
+</a><a href="#h0-0-95" id="h0-0-95" class="i">+  position: relative;
+</a><a href="#h0-0-96" id="h0-0-96" class="i">+}
+</a><a href="#h0-0-97" id="h0-0-97" class="i">+.content ul li span {
+</a><a href="#h0-0-98" id="h0-0-98" class="i">+  position: relative;
+</a><a href="#h0-0-99" id="h0-0-99" class="i">+}
+</a><a href="#h0-0-100" id="h0-0-100" class="i">+.content ul li span:before {
+</a><a href="#h0-0-101" id="h0-0-101" class="i">+  right: 0.6em;
+</a><a href="#h0-0-102" id="h0-0-102" class="i">+  top: -0.2em;
+</a><a href="#h0-0-103" id="h0-0-103" class="i">+  display: inline-block;
+</a><a href="#h0-0-104" id="h0-0-104" class="i">+  content: &quot;–&quot;;
+</a><a href="#h0-0-105" id="h0-0-105" class="i">+  position: absolute;
+</a><a href="#h0-0-106" id="h0-0-106" class="i">+  z-index: 1;
+</a><a href="#h0-0-107" id="h0-0-107" class="i">+}
+</a><a href="#h0-0-108" id="h0-0-108" class="i">+.content ul li input {
+</a><a href="#h0-0-109" id="h0-0-109" class="i">+  margin-left: -1.9em;
+</a><a href="#h0-0-110" id="h0-0-110" class="i">+  position: absolute;
+</a><a href="#h0-0-111" id="h0-0-111" class="i">+  z-index: 2;
+</a><a href="#h0-0-112" id="h0-0-112" class="i">+  top: 3.9px;
+</a><a href="#h0-0-113" id="h0-0-113" class="i">+  margin-right: 0;
+</a><a href="#h0-0-114" id="h0-0-114" class="i">+}
+</a><a href="#h0-0-115" id="h0-0-115" class="i">+
+</a><a href="#h0-0-116" id="h0-0-116" class="i">+.content__hr {
+</a><a href="#h0-0-117" id="h0-0-117" class="i">+  margin: 4em 0 0;
+</a><a href="#h0-0-118" id="h0-0-118" class="i">+}
+</a><a href="#h0-0-119" id="h0-0-119" class="i">+
+</a><a href="#h0-0-120" id="h0-0-120" class="i">+.notes {
+</a><a href="#h0-0-121" id="h0-0-121" class="i">+  margin-bottom: 2rem;
+</a><a href="#h0-0-122" id="h0-0-122" class="i">+}
+</a><a href="#h0-0-123" id="h0-0-123" class="i">+.notes &gt; div, .notes &gt; p {
+</a><a href="#h0-0-124" id="h0-0-124" class="i">+  margin: 0;
+</a><a href="#h0-0-125" id="h0-0-125" class="i">+  margin-top: 0.7rem;
+</a><a href="#h0-0-126" id="h0-0-126" class="i">+}
+</a><a href="#h0-0-127" id="h0-0-127" class="i">+.notes &gt; div &gt; p, .notes &gt; p &gt; p {
+</a><a href="#h0-0-128" id="h0-0-128" class="i">+  margin: 0;
+</a><a href="#h0-0-129" id="h0-0-129" class="i">+  margin-top: 0.7rem;
+</a><a href="#h0-0-130" id="h0-0-130" class="i">+}
+</a><a href="#h0-0-131" id="h0-0-131" class="i">+.notes:target {
+</a><a href="#h0-0-132" id="h0-0-132" class="i">+  outline-style: solid;
+</a><a href="#h0-0-133" id="h0-0-133" class="i">+  outline-width: 0.2em;
+</a><a href="#h0-0-134" id="h0-0-134" class="i">+  outline-offset: 0.6em;
+</a><a href="#h0-0-135" id="h0-0-135" class="i">+}
+</a><a href="#h0-0-136" id="h0-0-136" class="i">+
+</a><a href="#h0-0-137" id="h0-0-137" class="i">+.notes__title {
+</a><a href="#h0-0-138" id="h0-0-138" class="i">+  margin: 0;
+</a><a href="#h0-0-139" id="h0-0-139" class="i">+}
+</a><a href="#h0-0-140" id="h0-0-140" class="i">+.notes__title a {
+</a><a href="#h0-0-141" id="h0-0-141" class="i">+  font-family: var(--font-mono);
+</a><a href="#h0-0-142" id="h0-0-142" class="i">+}
+</a><a href="#h0-0-143" id="h0-0-143" class="i">+
+</a><a href="#h0-0-144" id="h0-0-144" class="i">+.notes__content {
+</a><a href="#h0-0-145" id="h0-0-145" class="i">+  margin-top: 0 !important;
+</a><a href="#h0-0-146" id="h0-0-146" class="i">+}
+</a><a href="#h0-0-147" id="h0-0-147" class="i">+.notes__content &gt; p {
+</a><a href="#h0-0-148" id="h0-0-148" class="i">+  margin-top: 0 !important;
+</a><a href="#h0-0-149" id="h0-0-149" class="i">+}
+</a><a href="#h0-0-150" id="h0-0-150" class="i">+
+</a><a href="#h0-0-151" id="h0-0-151" class="i">+.twitter-link {
+</a><a href="#h0-0-152" id="h0-0-152" class="i">+  margin-bottom: 0.2rem;
+</a><a href="#h0-0-153" id="h0-0-153" class="i">+  font-size: 0.9rem;
+</a><a href="#h0-0-154" id="h0-0-154" class="i">+}
+</a><a href="#h0-0-155" id="h0-0-155" class="i">+
+</a><a href="#h0-0-156" id="h0-0-156" class="i">+.mastodon-link {
+</a><a href="#h0-0-157" id="h0-0-157" class="i">+  margin-top: 0.2rem;
+</a><a href="#h0-0-158" id="h0-0-158" class="i">+  font-size: 0.9rem;
+</a><a href="#h0-0-159" id="h0-0-159" class="i">+}
+</a><a href="#h0-0-160" id="h0-0-160" class="i">+
+</a><a href="#h0-0-161" id="h0-0-161" class="i">+.responses {
+</a><a href="#h0-0-162" id="h0-0-162" class="i">+  margin-bottom: 3rem;
+</a><a href="#h0-0-163" id="h0-0-163" class="i">+}
+</a><a href="#h0-0-164" id="h0-0-164" class="i">+.responses:target {
+</a><a href="#h0-0-165" id="h0-0-165" class="i">+  outline-style: solid;
+</a><a href="#h0-0-166" id="h0-0-166" class="i">+  outline-width: 0.2rem;
+</a><a href="#h0-0-167" id="h0-0-167" class="i">+  outline-offset: 1.3rem;
+</a><a href="#h0-0-168" id="h0-0-168" class="i">+}
+</a><a href="#h0-0-169" id="h0-0-169" class="i">+
+</a><a href="#h0-0-170" id="h0-0-170" class="i">+.responses h1 {
+</a><a href="#h0-0-171" id="h0-0-171" class="i">+  margin-bottom: 0;
+</a><a href="#h0-0-172" id="h0-0-172" class="i">+}
+</a><a href="#h0-0-173" id="h0-0-173" class="i">+
+</a><a href="#h0-0-174" id="h0-0-174" class="i">+.responses__subtitle {
+</a><a href="#h0-0-175" id="h0-0-175" class="i">+  margin: 0;
+</a><a href="#h0-0-176" id="h0-0-176" class="i">+}
+</a><a href="#h0-0-177" id="h0-0-177" class="i">+.responses__subtitle a {
+</a><a href="#h0-0-178" id="h0-0-178" class="i">+  font-family: var(--font-mono);
+</a><a href="#h0-0-179" id="h0-0-179" class="i">+}
+</a><a href="#h0-0-180" id="h0-0-180" class="i">+
+</a><a href="#h0-0-181" id="h0-0-181" class="i">+.image-figure {
+</a><a href="#h0-0-182" id="h0-0-182" class="i">+  margin-top: 1.5rem;
+</a><a href="#h0-0-183" id="h0-0-183" class="i">+  margin-bottom: 1.5rem;
+</a><a href="#h0-0-184" id="h0-0-184" class="i">+}
+</a><b>diff --git a/<a id="h1" href="../file/assets/content.scss.html">assets/content.scss</a> b/<a href="../file/assets/content.scss.html">assets/content.scss</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,243 +0,0 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="d">-@import &quot;fonts&quot;;
+</a><a href="#h1-0-1" id="h1-0-1" class="d">-@import &quot;variables&quot;;
+</a><a href="#h1-0-2" id="h1-0-2" class="d">-
+</a><a href="#h1-0-3" id="h1-0-3" class="d">-@function themed($key) {
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-  @return map-get($theme-map, $key);
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-}
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-.content {
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-  font-family: $font-text;
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-  width: 100%;
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-  &amp;__hr {
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-    margin: 4em 0 0;
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-  }
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-  .language-json {
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-    font-size: 0.75rem;
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-  }
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-  .headline-hash {
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-    padding: 0 0.2em;
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-    @media(min-width: 600px) {
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-      display: none;
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-    }
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-  }
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-  .before-hash {
+</a><a href="#h1-0-27" id="h1-0-27" class="d">-    position: absolute;
+</a><a href="#h1-0-28" id="h1-0-28" class="d">-    font-size: 0.9em;
+</a><a href="#h1-0-29" id="h1-0-29" class="d">-    top: 0.1rem;
+</a><a href="#h1-0-30" id="h1-0-30" class="d">-    &amp;.h2 {
+</a><a href="#h1-0-31" id="h1-0-31" class="d">-      left: -1.6em;
+</a><a href="#h1-0-32" id="h1-0-32" class="d">-    }
+</a><a href="#h1-0-33" id="h1-0-33" class="d">-    &amp;.h3 {
+</a><a href="#h1-0-34" id="h1-0-34" class="d">-      left: -2.4em;
+</a><a href="#h1-0-35" id="h1-0-35" class="d">-    }
+</a><a href="#h1-0-36" id="h1-0-36" class="d">-    @media(max-width: 599px) {
+</a><a href="#h1-0-37" id="h1-0-37" class="d">-      display: none;
+</a><a href="#h1-0-38" id="h1-0-38" class="d">-    }
+</a><a href="#h1-0-39" id="h1-0-39" class="d">-  }
+</a><a href="#h1-0-40" id="h1-0-40" class="d">-
+</a><a href="#h1-0-41" id="h1-0-41" class="d">-  i:not(.no-sup) {
+</a><a href="#h1-0-42" id="h1-0-42" class="d">-    font-size: 0.8rem;
+</a><a href="#h1-0-43" id="h1-0-43" class="d">-    vertical-align: 0.4rem;
+</a><a href="#h1-0-44" id="h1-0-44" class="d">-  }
+</a><a href="#h1-0-45" id="h1-0-45" class="d">-
+</a><a href="#h1-0-46" id="h1-0-46" class="d">-  i.fa-font-awesome-flag {
+</a><a href="#h1-0-47" id="h1-0-47" class="d">-    font-size: 0.6rem;
+</a><a href="#h1-0-48" id="h1-0-48" class="d">-  }
+</a><a href="#h1-0-49" id="h1-0-49" class="d">-
+</a><a href="#h1-0-50" id="h1-0-50" class="d">-  p:not([class]) {
+</a><a href="#h1-0-51" id="h1-0-51" class="d">-    margin: 1.2rem 0;
+</a><a href="#h1-0-52" id="h1-0-52" class="d">-  }
+</a><a href="#h1-0-53" id="h1-0-53" class="d">-
+</a><a href="#h1-0-54" id="h1-0-54" class="d">-  p + ul, p + ol {
+</a><a href="#h1-0-55" id="h1-0-55" class="d">-    margin-top: -0.8rem;
+</a><a href="#h1-0-56" id="h1-0-56" class="d">-  }
+</a><a href="#h1-0-57" id="h1-0-57" class="d">-
+</a><a href="#h1-0-58" id="h1-0-58" class="d">-  table {
+</a><a href="#h1-0-59" id="h1-0-59" class="d">-    display: block;
+</a><a href="#h1-0-60" id="h1-0-60" class="d">-    overflow-x: auto;
+</a><a href="#h1-0-61" id="h1-0-61" class="d">-    border-collapse: collapse;
+</a><a href="#h1-0-62" id="h1-0-62" class="d">-    td, th {
+</a><a href="#h1-0-63" id="h1-0-63" class="d">-      border: 1px solid;
+</a><a href="#h1-0-64" id="h1-0-64" class="d">-      @include themify($themes) {
+</a><a href="#h1-0-65" id="h1-0-65" class="d">-        border-color: themed(&#39;color-text&#39;);
+</a><a href="#h1-0-66" id="h1-0-66" class="d">-      }
+</a><a href="#h1-0-67" id="h1-0-67" class="d">-    }
+</a><a href="#h1-0-68" id="h1-0-68" class="d">-    td {
+</a><a href="#h1-0-69" id="h1-0-69" class="d">-      padding: 0.5em 1em;
+</a><a href="#h1-0-70" id="h1-0-70" class="d">-    }
+</a><a href="#h1-0-71" id="h1-0-71" class="d">-    th {
+</a><a href="#h1-0-72" id="h1-0-72" class="d">-      padding: 1em 2em;
+</a><a href="#h1-0-73" id="h1-0-73" class="d">-      @include themify($themes) {
+</a><a href="#h1-0-74" id="h1-0-74" class="d">-        background-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h1-0-75" id="h1-0-75" class="d">-        color: themed(&#39;color-text&#39;);
+</a><a href="#h1-0-76" id="h1-0-76" class="d">-      }
+</a><a href="#h1-0-77" id="h1-0-77" class="d">-    }
+</a><a href="#h1-0-78" id="h1-0-78" class="d">-    tr:nth-child(even) {
+</a><a href="#h1-0-79" id="h1-0-79" class="d">-      @include themify($themes) {
+</a><a href="#h1-0-80" id="h1-0-80" class="d">-        background-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h1-0-81" id="h1-0-81" class="d">-        color: themed(&#39;color-text&#39;);
+</a><a href="#h1-0-82" id="h1-0-82" class="d">-      }
+</a><a href="#h1-0-83" id="h1-0-83" class="d">-    }
+</a><a href="#h1-0-84" id="h1-0-84" class="d">-  }
+</a><a href="#h1-0-85" id="h1-0-85" class="d">-
+</a><a href="#h1-0-86" id="h1-0-86" class="d">-  ol {
+</a><a href="#h1-0-87" id="h1-0-87" class="d">-    margin: 1.5em 0;
+</a><a href="#h1-0-88" id="h1-0-88" class="d">-    padding: 0;
+</a><a href="#h1-0-89" id="h1-0-89" class="d">-    counter-reset: my-awesome-counter;
+</a><a href="#h1-0-90" id="h1-0-90" class="d">-    list-style: none;
+</a><a href="#h1-0-91" id="h1-0-91" class="d">-    li {
+</a><a href="#h1-0-92" id="h1-0-92" class="d">-      counter-increment: my-awesome-counter;
+</a><a href="#h1-0-93" id="h1-0-93" class="d">-      list-style-position: outside;
+</a><a href="#h1-0-94" id="h1-0-94" class="d">-      margin-bottom: 0.2em;
+</a><a href="#h1-0-95" id="h1-0-95" class="d">-      span {
+</a><a href="#h1-0-96" id="h1-0-96" class="d">-        position: relative;
+</a><a href="#h1-0-97" id="h1-0-97" class="d">-        &amp;:before {
+</a><a href="#h1-0-98" id="h1-0-98" class="d">-          position: absolute;
+</a><a href="#h1-0-99" id="h1-0-99" class="d">-          right: 0.5em;
+</a><a href="#h1-0-100" id="h1-0-100" class="d">-          top: 0.1em;
+</a><a href="#h1-0-101" id="h1-0-101" class="d">-          content: counter(my-awesome-counter)&#39;.&#39;;
+</a><a href="#h1-0-102" id="h1-0-102" class="d">-          font-size: 0.8em;
+</a><a href="#h1-0-103" id="h1-0-103" class="d">-          @include themify($themes) {
+</a><a href="#h1-0-104" id="h1-0-104" class="d">-            color: themed(&#39;color-red&#39;);
+</a><a href="#h1-0-105" id="h1-0-105" class="d">-          }
+</a><a href="#h1-0-106" id="h1-0-106" class="d">-        }
+</a><a href="#h1-0-107" id="h1-0-107" class="d">-      }
+</a><a href="#h1-0-108" id="h1-0-108" class="d">-    }
+</a><a href="#h1-0-109" id="h1-0-109" class="d">-  }
+</a><a href="#h1-0-110" id="h1-0-110" class="d">-
+</a><a href="#h1-0-111" id="h1-0-111" class="d">-  ul {
+</a><a href="#h1-0-112" id="h1-0-112" class="d">-    margin: 1.5em 0;
+</a><a href="#h1-0-113" id="h1-0-113" class="d">-    padding: 0;
+</a><a href="#h1-0-114" id="h1-0-114" class="d">-    list-style: none;
+</a><a href="#h1-0-115" id="h1-0-115" class="d">-    li {
+</a><a href="#h1-0-116" id="h1-0-116" class="d">-      margin-bottom: 0.2em;
+</a><a href="#h1-0-117" id="h1-0-117" class="d">-      position: relative;
+</a><a href="#h1-0-118" id="h1-0-118" class="d">-      span {
+</a><a href="#h1-0-119" id="h1-0-119" class="d">-        position: relative;
+</a><a href="#h1-0-120" id="h1-0-120" class="d">-        &amp;:before {
+</a><a href="#h1-0-121" id="h1-0-121" class="d">-          right: 0.6em;
+</a><a href="#h1-0-122" id="h1-0-122" class="d">-          top: -0.2em;
+</a><a href="#h1-0-123" id="h1-0-123" class="d">-          display: inline-block;
+</a><a href="#h1-0-124" id="h1-0-124" class="d">-          content: &quot;–&quot;;
+</a><a href="#h1-0-125" id="h1-0-125" class="d">-          position: absolute;
+</a><a href="#h1-0-126" id="h1-0-126" class="d">-          z-index: 1;
+</a><a href="#h1-0-127" id="h1-0-127" class="d">-          @include themify($themes) {
+</a><a href="#h1-0-128" id="h1-0-128" class="d">-            color: themed(&#39;color-red&#39;);
+</a><a href="#h1-0-129" id="h1-0-129" class="d">-          }
+</a><a href="#h1-0-130" id="h1-0-130" class="d">-        }
+</a><a href="#h1-0-131" id="h1-0-131" class="d">-      }
+</a><a href="#h1-0-132" id="h1-0-132" class="d">-      input {
+</a><a href="#h1-0-133" id="h1-0-133" class="d">-        margin-left: -1.9em;
+</a><a href="#h1-0-134" id="h1-0-134" class="d">-        position: absolute;
+</a><a href="#h1-0-135" id="h1-0-135" class="d">-        z-index: 2;
+</a><a href="#h1-0-136" id="h1-0-136" class="d">-        top: 3.9px;
+</a><a href="#h1-0-137" id="h1-0-137" class="d">-        margin-right: 0;
+</a><a href="#h1-0-138" id="h1-0-138" class="d">-      }
+</a><a href="#h1-0-139" id="h1-0-139" class="d">-    }
+</a><a href="#h1-0-140" id="h1-0-140" class="d">-  }
+</a><a href="#h1-0-141" id="h1-0-141" class="d">-
+</a><a href="#h1-0-142" id="h1-0-142" class="d">-  figcaption {
+</a><a href="#h1-0-143" id="h1-0-143" class="d">-    font-size: 0.8em;
+</a><a href="#h1-0-144" id="h1-0-144" class="d">-  }
+</a><a href="#h1-0-145" id="h1-0-145" class="d">-
+</a><a href="#h1-0-146" id="h1-0-146" class="d">-  twitter-widget, .twitter-tweet {
+</a><a href="#h1-0-147" id="h1-0-147" class="d">-    margin-left: auto;
+</a><a href="#h1-0-148" id="h1-0-148" class="d">-    margin-right: auto;
+</a><a href="#h1-0-149" id="h1-0-149" class="d">-  }
+</a><a href="#h1-0-150" id="h1-0-150" class="d">-}
+</a><a href="#h1-0-151" id="h1-0-151" class="d">-
+</a><a href="#h1-0-152" id="h1-0-152" class="d">-.notes {
+</a><a href="#h1-0-153" id="h1-0-153" class="d">-  margin-bottom: 2rem;
+</a><a href="#h1-0-154" id="h1-0-154" class="d">-
+</a><a href="#h1-0-155" id="h1-0-155" class="d">-  &amp; &gt; div, &amp; &gt; p {
+</a><a href="#h1-0-156" id="h1-0-156" class="d">-    margin: 0;
+</a><a href="#h1-0-157" id="h1-0-157" class="d">-    margin-top: 0.7rem;
+</a><a href="#h1-0-158" id="h1-0-158" class="d">-    &amp; &gt; p {
+</a><a href="#h1-0-159" id="h1-0-159" class="d">-      margin: 0;
+</a><a href="#h1-0-160" id="h1-0-160" class="d">-      margin-top: 0.7rem;
+</a><a href="#h1-0-161" id="h1-0-161" class="d">-    }
+</a><a href="#h1-0-162" id="h1-0-162" class="d">-  }
+</a><a href="#h1-0-163" id="h1-0-163" class="d">-
+</a><a href="#h1-0-164" id="h1-0-164" class="d">-  &amp;__title {
+</a><a href="#h1-0-165" id="h1-0-165" class="d">-    margin: 0;
+</a><a href="#h1-0-166" id="h1-0-166" class="d">-    a {
+</a><a href="#h1-0-167" id="h1-0-167" class="d">-      font-family: $font-mono;
+</a><a href="#h1-0-168" id="h1-0-168" class="d">-    }
+</a><a href="#h1-0-169" id="h1-0-169" class="d">-  }
+</a><a href="#h1-0-170" id="h1-0-170" class="d">-
+</a><a href="#h1-0-171" id="h1-0-171" class="d">-  &amp;__content {
+</a><a href="#h1-0-172" id="h1-0-172" class="d">-    margin-top: 0 !important;
+</a><a href="#h1-0-173" id="h1-0-173" class="d">-    &amp; &gt; p {
+</a><a href="#h1-0-174" id="h1-0-174" class="d">-      margin-top: 0 !important;
+</a><a href="#h1-0-175" id="h1-0-175" class="d">-    }
+</a><a href="#h1-0-176" id="h1-0-176" class="d">-  }
+</a><a href="#h1-0-177" id="h1-0-177" class="d">-
+</a><a href="#h1-0-178" id="h1-0-178" class="d">-  &amp;:target {
+</a><a href="#h1-0-179" id="h1-0-179" class="d">-    outline: solid 0.2em;
+</a><a href="#h1-0-180" id="h1-0-180" class="d">-    outline-offset: 0.6em;
+</a><a href="#h1-0-181" id="h1-0-181" class="d">-    @include themify($themes) {
+</a><a href="#h1-0-182" id="h1-0-182" class="d">-      outline-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h1-0-183" id="h1-0-183" class="d">-    }
+</a><a href="#h1-0-184" id="h1-0-184" class="d">-    @media (max-width: 599px) {
+</a><a href="#h1-0-185" id="h1-0-185" class="d">-      outline: solid 0.3em;
+</a><a href="#h1-0-186" id="h1-0-186" class="d">-      outline-offset: 0.5em;
+</a><a href="#h1-0-187" id="h1-0-187" class="d">-    }
+</a><a href="#h1-0-188" id="h1-0-188" class="d">-  }
+</a><a href="#h1-0-189" id="h1-0-189" class="d">-
+</a><a href="#h1-0-190" id="h1-0-190" class="d">-  @media (max-width: 599px) {
+</a><a href="#h1-0-191" id="h1-0-191" class="d">-    &amp;__title {
+</a><a href="#h1-0-192" id="h1-0-192" class="d">-      margin: 10px 0 0;
+</a><a href="#h1-0-193" id="h1-0-193" class="d">-      &amp;__separator {
+</a><a href="#h1-0-194" id="h1-0-194" class="d">-        display: none;
+</a><a href="#h1-0-195" id="h1-0-195" class="d">-      }
+</a><a href="#h1-0-196" id="h1-0-196" class="d">-      display: flex;
+</a><a href="#h1-0-197" id="h1-0-197" class="d">-      flex-direction: column;
+</a><a href="#h1-0-198" id="h1-0-198" class="d">-    }
+</a><a href="#h1-0-199" id="h1-0-199" class="d">-  }
+</a><a href="#h1-0-200" id="h1-0-200" class="d">-}
+</a><a href="#h1-0-201" id="h1-0-201" class="d">-
+</a><a href="#h1-0-202" id="h1-0-202" class="d">-.twitter-link {
+</a><a href="#h1-0-203" id="h1-0-203" class="d">-  margin-bottom: 0.2rem;
+</a><a href="#h1-0-204" id="h1-0-204" class="d">-  font-size: 0.9rem;
+</a><a href="#h1-0-205" id="h1-0-205" class="d">-}
+</a><a href="#h1-0-206" id="h1-0-206" class="d">-
+</a><a href="#h1-0-207" id="h1-0-207" class="d">-.mastodon-link {
+</a><a href="#h1-0-208" id="h1-0-208" class="d">-  margin-top: 0.2rem;
+</a><a href="#h1-0-209" id="h1-0-209" class="d">-  font-size: 0.9rem;
+</a><a href="#h1-0-210" id="h1-0-210" class="d">-}
+</a><a href="#h1-0-211" id="h1-0-211" class="d">-
+</a><a href="#h1-0-212" id="h1-0-212" class="d">-.responses {
+</a><a href="#h1-0-213" id="h1-0-213" class="d">-  margin-bottom: 3rem;
+</a><a href="#h1-0-214" id="h1-0-214" class="d">-
+</a><a href="#h1-0-215" id="h1-0-215" class="d">-  h1 {
+</a><a href="#h1-0-216" id="h1-0-216" class="d">-    margin-bottom: 0;
+</a><a href="#h1-0-217" id="h1-0-217" class="d">-  }
+</a><a href="#h1-0-218" id="h1-0-218" class="d">-
+</a><a href="#h1-0-219" id="h1-0-219" class="d">-  &amp;__subtitle {
+</a><a href="#h1-0-220" id="h1-0-220" class="d">-    margin: 0;
+</a><a href="#h1-0-221" id="h1-0-221" class="d">-    a {
+</a><a href="#h1-0-222" id="h1-0-222" class="d">-      font-family: $font-mono;
+</a><a href="#h1-0-223" id="h1-0-223" class="d">-    }
+</a><a href="#h1-0-224" id="h1-0-224" class="d">-  }
+</a><a href="#h1-0-225" id="h1-0-225" class="d">-
+</a><a href="#h1-0-226" id="h1-0-226" class="d">-  &amp;:target {
+</a><a href="#h1-0-227" id="h1-0-227" class="d">-    outline: solid 0.2rem;
+</a><a href="#h1-0-228" id="h1-0-228" class="d">-    outline-offset: 1.3rem;
+</a><a href="#h1-0-229" id="h1-0-229" class="d">-    @include themify($themes) {
+</a><a href="#h1-0-230" id="h1-0-230" class="d">-      outline-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h1-0-231" id="h1-0-231" class="d">-    }
+</a><a href="#h1-0-232" id="h1-0-232" class="d">-    @media (max-width: 599px) {
+</a><a href="#h1-0-233" id="h1-0-233" class="d">-      outline: solid 0.3rem;
+</a><a href="#h1-0-234" id="h1-0-234" class="d">-      outline-offset: 1.2rem 0.8rem;
+</a><a href="#h1-0-235" id="h1-0-235" class="d">-    }
+</a><a href="#h1-0-236" id="h1-0-236" class="d">-  }
+</a><a href="#h1-0-237" id="h1-0-237" class="d">-}
+</a><a href="#h1-0-238" id="h1-0-238" class="d">-
+</a><a href="#h1-0-239" id="h1-0-239" class="d">-.image-figure {
+</a><a href="#h1-0-240" id="h1-0-240" class="d">-  margin-top: 1.5rem;
+</a><a href="#h1-0-241" id="h1-0-241" class="d">-  margin-bottom: 1.5rem;
+</a><a href="#h1-0-242" id="h1-0-242" class="d">-}
+</a><b>diff --git a/<a id="h2" href="../file/assets/fonts.scss.html">assets/fonts.scss</a> b/<a href="../file/assets/fonts.css.html">assets/fonts.css</a></b>
+<b>diff --git a/<a id="h3" href="../file/assets/footer.css.html">assets/footer.css</a> b/<a href="../file/assets/footer.css.html">assets/footer.css</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,71 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+.footer__nav {
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+  display: flex;
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+  flex-direction: row;
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+  justify-content: space-between;
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+  margin-bottom: 1.5em;
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+}
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+.footer__nav &gt; p {
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+  margin: 0;
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+}
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+.footer__nav__left {
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+  text-align: left;
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+}
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+.footer__nav__right {
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+  text-align: right;
+</a><a href="#h3-0-17" id="h3-0-17" class="i">+}
+</a><a href="#h3-0-18" id="h3-0-18" class="i">+.footer__nav__right a {
+</a><a href="#h3-0-19" id="h3-0-19" class="i">+  padding: 0 0.2rem;
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+  margin: 0 0.2rem;
+</a><a href="#h3-0-21" id="h3-0-21" class="i">+}
+</a><a href="#h3-0-22" id="h3-0-22" class="i">+
+</a><a href="#h3-0-23" id="h3-0-23" class="i">+.footer .web-ring {
+</a><a href="#h3-0-24" id="h3-0-24" class="i">+  font-size: 0.8rem;
+</a><a href="#h3-0-25" id="h3-0-25" class="i">+  margin: 0 0 1.5rem;
+</a><a href="#h3-0-26" id="h3-0-26" class="i">+}
+</a><a href="#h3-0-27" id="h3-0-27" class="i">+
+</a><a href="#h3-0-28" id="h3-0-28" class="i">+.footer__separator {
+</a><a href="#h3-0-29" id="h3-0-29" class="i">+  margin: 0.5rem auto 1.4rem;
+</a><a href="#h3-0-30" id="h3-0-30" class="i">+}
+</a><a href="#h3-0-31" id="h3-0-31" class="i">+
+</a><a href="#h3-0-32" id="h3-0-32" class="i">+.footer__license {
+</a><a href="#h3-0-33" id="h3-0-33" class="i">+  margin: 0.7rem 0 1rem;
+</a><a href="#h3-0-34" id="h3-0-34" class="i">+  font-size: 0.7rem;
+</a><a href="#h3-0-35" id="h3-0-35" class="i">+}
+</a><a href="#h3-0-36" id="h3-0-36" class="i">+
+</a><a href="#h3-0-37" id="h3-0-37" class="i">+.footer .hcard {
+</a><a href="#h3-0-38" id="h3-0-38" class="i">+  max-width: 19rem;
+</a><a href="#h3-0-39" id="h3-0-39" class="i">+  font-size: 0.8rem;
+</a><a href="#h3-0-40" id="h3-0-40" class="i">+  margin: 2rem auto 0.5rem;
+</a><a href="#h3-0-41" id="h3-0-41" class="i">+  padding: 1rem 1rem 0.8rem;
+</a><a href="#h3-0-42" id="h3-0-42" class="i">+  position: relative;
+</a><a href="#h3-0-43" id="h3-0-43" class="i">+  border-style: solid;
+</a><a href="#h3-0-44" id="h3-0-44" class="i">+  border-width: 1px;
+</a><a href="#h3-0-45" id="h3-0-45" class="i">+}
+</a><a href="#h3-0-46" id="h3-0-46" class="i">+.footer .hcard .h-card {
+</a><a href="#h3-0-47" id="h3-0-47" class="i">+  position: relative;
+</a><a href="#h3-0-48" id="h3-0-48" class="i">+}
+</a><a href="#h3-0-49" id="h3-0-49" class="i">+.footer .hcard .h-card img {
+</a><a href="#h3-0-50" id="h3-0-50" class="i">+  position: absolute;
+</a><a href="#h3-0-51" id="h3-0-51" class="i">+  width: 3.8rem;
+</a><a href="#h3-0-52" id="h3-0-52" class="i">+  height: 3.8rem;
+</a><a href="#h3-0-53" id="h3-0-53" class="i">+}
+</a><a href="#h3-0-54" id="h3-0-54" class="i">+.footer .hcard .h-card &gt; a {
+</a><a href="#h3-0-55" id="h3-0-55" class="i">+  margin-left: 5rem;
+</a><a href="#h3-0-56" id="h3-0-56" class="i">+}
+</a><a href="#h3-0-57" id="h3-0-57" class="i">+.footer .hcard .h-card &gt; .p-locality {
+</a><a href="#h3-0-58" id="h3-0-58" class="i">+  margin-left: 5rem;
+</a><a href="#h3-0-59" id="h3-0-59" class="i">+}
+</a><a href="#h3-0-60" id="h3-0-60" class="i">+
+</a><a href="#h3-0-61" id="h3-0-61" class="i">+.footer .hcard__description {
+</a><a href="#h3-0-62" id="h3-0-62" class="i">+  top: -0.7rem;
+</a><a href="#h3-0-63" id="h3-0-63" class="i">+  left: 0.8rem;
+</a><a href="#h3-0-64" id="h3-0-64" class="i">+  padding: 0 0.4rem;
+</a><a href="#h3-0-65" id="h3-0-65" class="i">+  position: absolute;
+</a><a href="#h3-0-66" id="h3-0-66" class="i">+}
+</a><a href="#h3-0-67" id="h3-0-67" class="i">+
+</a><a href="#h3-0-68" id="h3-0-68" class="i">+.footer .hcard__description &gt; p {
+</a><a href="#h3-0-69" id="h3-0-69" class="i">+  margin: 0;
+</a><a href="#h3-0-70" id="h3-0-70" class="i">+}
+</a><b>diff --git a/<a id="h4" href="../file/assets/header.css.html">assets/header.css</a> b/<a href="../file/assets/header.css.html">assets/header.css</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -0,0 +1,27 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="i">+.header {
+</a><a href="#h4-0-1" id="h4-0-1" class="i">+  margin-top: 1em;
+</a><a href="#h4-0-2" id="h4-0-2" class="i">+}
+</a><a href="#h4-0-3" id="h4-0-3" class="i">+
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+.header__menu {
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+  margin: 0 0 10px;
+</a><a href="#h4-0-6" id="h4-0-6" class="i">+  display: flex;
+</a><a href="#h4-0-7" id="h4-0-7" class="i">+  justify-content: flex-start;
+</a><a href="#h4-0-8" id="h4-0-8" class="i">+}
+</a><a href="#h4-0-9" id="h4-0-9" class="i">+
+</a><a href="#h4-0-10" id="h4-0-10" class="i">+.header__menu__list {
+</a><a href="#h4-0-11" id="h4-0-11" class="i">+  padding: 0;
+</a><a href="#h4-0-12" id="h4-0-12" class="i">+  margin: 0;
+</a><a href="#h4-0-13" id="h4-0-13" class="i">+  display: flex;
+</a><a href="#h4-0-14" id="h4-0-14" class="i">+  flex-grow: 1;
+</a><a href="#h4-0-15" id="h4-0-15" class="i">+  flex-wrap: nowrap;
+</a><a href="#h4-0-16" id="h4-0-16" class="i">+}
+</a><a href="#h4-0-17" id="h4-0-17" class="i">+
+</a><a href="#h4-0-18" id="h4-0-18" class="i">+.header__menu__list__item {
+</a><a href="#h4-0-19" id="h4-0-19" class="i">+  margin: 0 0.4rem;
+</a><a href="#h4-0-20" id="h4-0-20" class="i">+  border-style: solid;
+</a><a href="#h4-0-21" id="h4-0-21" class="i">+  border-width: 1px;
+</a><a href="#h4-0-22" id="h4-0-22" class="i">+}
+</a><a href="#h4-0-23" id="h4-0-23" class="i">+
+</a><a href="#h4-0-24" id="h4-0-24" class="i">+.header__menu__list__item:first-child {
+</a><a href="#h4-0-25" id="h4-0-25" class="i">+  margin-left: 0;
+</a><a href="#h4-0-26" id="h4-0-26" class="i">+}
+</a><b>diff --git a/<a id="h5" href="../file/assets/main.css.html">assets/main.css</a> b/<a href="../file/assets/main.css.html">assets/main.css</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -0,0 +1,210 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="i">+html {
+</a><a href="#h5-0-1" id="h5-0-1" class="i">+  font-family: var(--font-text);
+</a><a href="#h5-0-2" id="h5-0-2" class="i">+  letter-spacing: 0.025rem;
+</a><a href="#h5-0-3" id="h5-0-3" class="i">+  line-height: 1.6;
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+  text-rendering: optimizeLegibility;
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+  font-size: 16px;
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+}
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+body {
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+  max-width: 600px;
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+  margin: 0 auto;
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+}
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+
+</a><a href="#h5-0-13" id="h5-0-13" class="i">+[hidden] {
+</a><a href="#h5-0-14" id="h5-0-14" class="i">+  display: none;
+</a><a href="#h5-0-15" id="h5-0-15" class="i">+}
+</a><a href="#h5-0-16" id="h5-0-16" class="i">+
+</a><a href="#h5-0-17" id="h5-0-17" class="i">+pre {
+</a><a href="#h5-0-18" id="h5-0-18" class="i">+  overflow: auto;
+</a><a href="#h5-0-19" id="h5-0-19" class="i">+  padding: 0.5rem;
+</a><a href="#h5-0-20" id="h5-0-20" class="i">+}
+</a><a href="#h5-0-21" id="h5-0-21" class="i">+
+</a><a href="#h5-0-22" id="h5-0-22" class="i">+hr {
+</a><a href="#h5-0-23" id="h5-0-23" class="i">+  border: 0;
+</a><a href="#h5-0-24" id="h5-0-24" class="i">+  height: 0;
+</a><a href="#h5-0-25" id="h5-0-25" class="i">+  border-top-width: 1px;
+</a><a href="#h5-0-26" id="h5-0-26" class="i">+  border-top-style: solid;
+</a><a href="#h5-0-27" id="h5-0-27" class="i">+}
+</a><a href="#h5-0-28" id="h5-0-28" class="i">+hr.list__subtitle {
+</a><a href="#h5-0-29" id="h5-0-29" class="i">+  margin-bottom: 2rem;
+</a><a href="#h5-0-30" id="h5-0-30" class="i">+}
+</a><a href="#h5-0-31" id="h5-0-31" class="i">+
+</a><a href="#h5-0-32" id="h5-0-32" class="i">+code {
+</a><a href="#h5-0-33" id="h5-0-33" class="i">+  padding: 0.1rem;
+</a><a href="#h5-0-34" id="h5-0-34" class="i">+  font-family: var(--font-mono);
+</a><a href="#h5-0-35" id="h5-0-35" class="i">+  font-size: 0.9rem;
+</a><a href="#h5-0-36" id="h5-0-36" class="i">+}
+</a><a href="#h5-0-37" id="h5-0-37" class="i">+code.language-bash::before {
+</a><a href="#h5-0-38" id="h5-0-38" class="i">+  content: &quot;$ &quot;;
+</a><a href="#h5-0-39" id="h5-0-39" class="i">+}
+</a><a href="#h5-0-40" id="h5-0-40" class="i">+
+</a><a href="#h5-0-41" id="h5-0-41" class="i">+h1, h2, h3, h4, h5 {
+</a><a href="#h5-0-42" id="h5-0-42" class="i">+  font-family: var(--font-text);
+</a><a href="#h5-0-43" id="h5-0-43" class="i">+  line-height: 1.3;
+</a><a href="#h5-0-44" id="h5-0-44" class="i">+  position: relative;
+</a><a href="#h5-0-45" id="h5-0-45" class="i">+}
+</a><a href="#h5-0-46" id="h5-0-46" class="i">+h1 a, h2 a, h3 a, h4 a, h5 a {
+</a><a href="#h5-0-47" id="h5-0-47" class="i">+  font-family: var(--font-mono);
+</a><a href="#h5-0-48" id="h5-0-48" class="i">+}
+</a><a href="#h5-0-49" id="h5-0-49" class="i">+
+</a><a href="#h5-0-50" id="h5-0-50" class="i">+h1:not(.header__title) {
+</a><a href="#h5-0-51" id="h5-0-51" class="i">+  font-size: 2.2rem;
+</a><a href="#h5-0-52" id="h5-0-52" class="i">+}
+</a><a href="#h5-0-53" id="h5-0-53" class="i">+
+</a><a href="#h5-0-54" id="h5-0-54" class="i">+a {
+</a><a href="#h5-0-55" id="h5-0-55" class="i">+  text-decoration: none;
+</a><a href="#h5-0-56" id="h5-0-56" class="i">+}
+</a><a href="#h5-0-57" id="h5-0-57" class="i">+a:hover:not(.wm-avatar):not(.no-hover):not(.no-outline):not(.footnote-ref),
+</a><a href="#h5-0-58" id="h5-0-58" class="i">+a#active:not(.no-outline):not(.footnote-ref) {
+</a><a href="#h5-0-59" id="h5-0-59" class="i">+  outline-style: solid;
+</a><a href="#h5-0-60" id="h5-0-60" class="i">+  outline-width: 0.3rem;
+</a><a href="#h5-0-61" id="h5-0-61" class="i">+}
+</a><a href="#h5-0-62" id="h5-0-62" class="i">+a.button {
+</a><a href="#h5-0-63" id="h5-0-63" class="i">+  display: inline-block;
+</a><a href="#h5-0-64" id="h5-0-64" class="i">+  padding: 0.3rem 0.7rem;
+</a><a href="#h5-0-65" id="h5-0-65" class="i">+}
+</a><a href="#h5-0-66" id="h5-0-66" class="i">+a#active {
+</a><a href="#h5-0-67" id="h5-0-67" class="i">+  cursor: default;
+</a><a href="#h5-0-68" id="h5-0-68" class="i">+}
+</a><a href="#h5-0-69" id="h5-0-69" class="i">+blockquote {
+</a><a href="#h5-0-70" id="h5-0-70" class="i">+  margin: inherit auto;
+</a><a href="#h5-0-71" id="h5-0-71" class="i">+  margin-left: 0;
+</a><a href="#h5-0-72" id="h5-0-72" class="i">+  padding: 0 1em;
+</a><a href="#h5-0-73" id="h5-0-73" class="i">+  border-left-style: solid;
+</a><a href="#h5-0-74" id="h5-0-74" class="i">+  border-left-width: 2px;
+</a><a href="#h5-0-75" id="h5-0-75" class="i">+}
+</a><a href="#h5-0-76" id="h5-0-76" class="i">+blockquote p {
+</a><a href="#h5-0-77" id="h5-0-77" class="i">+  font-size: 0.9rem;
+</a><a href="#h5-0-78" id="h5-0-78" class="i">+}
+</a><a href="#h5-0-79" id="h5-0-79" class="i">+
+</a><a href="#h5-0-80" id="h5-0-80" class="i">+time {
+</a><a href="#h5-0-81" id="h5-0-81" class="i">+  font-family: var(--font-mono);
+</a><a href="#h5-0-82" id="h5-0-82" class="i">+}
+</a><a href="#h5-0-83" id="h5-0-83" class="i">+time[title] {
+</a><a href="#h5-0-84" id="h5-0-84" class="i">+  cursor: help;
+</a><a href="#h5-0-85" id="h5-0-85" class="i">+}
+</a><a href="#h5-0-86" id="h5-0-86" class="i">+
+</a><a href="#h5-0-87" id="h5-0-87" class="i">+.listing__post {
+</a><a href="#h5-0-88" id="h5-0-88" class="i">+  width: 100%;
+</a><a href="#h5-0-89" id="h5-0-89" class="i">+  display: inline-block;
+</a><a href="#h5-0-90" id="h5-0-90" class="i">+  padding: 0.5rem 0 0.7rem;
+</a><a href="#h5-0-91" id="h5-0-91" class="i">+}
+</a><a href="#h5-0-92" id="h5-0-92" class="i">+.listing__post__title {
+</a><a href="#h5-0-93" id="h5-0-93" class="i">+  margin: 0.01rem;
+</a><a href="#h5-0-94" id="h5-0-94" class="i">+}
+</a><a href="#h5-0-95" id="h5-0-95" class="i">+.listing__post__description {
+</a><a href="#h5-0-96" id="h5-0-96" class="i">+  margin: 0;
+</a><a href="#h5-0-97" id="h5-0-97" class="i">+  margin-top: 0.8em;
+</a><a href="#h5-0-98" id="h5-0-98" class="i">+}
+</a><a href="#h5-0-99" id="h5-0-99" class="i">+
+</a><a href="#h5-0-100" id="h5-0-100" class="i">+.main__more {
+</a><a href="#h5-0-101" id="h5-0-101" class="i">+  padding: 1em 0 0;
+</a><a href="#h5-0-102" id="h5-0-102" class="i">+  margin-bottom: 0;
+</a><a href="#h5-0-103" id="h5-0-103" class="i">+  margin-right: 0.3em;
+</a><a href="#h5-0-104" id="h5-0-104" class="i">+  text-align: right;
+</a><a href="#h5-0-105" id="h5-0-105" class="i">+}
+</a><a href="#h5-0-106" id="h5-0-106" class="i">+
+</a><a href="#h5-0-107" id="h5-0-107" class="i">+.summary {
+</a><a href="#h5-0-108" id="h5-0-108" class="i">+  margin: 1.5em 0;
+</a><a href="#h5-0-109" id="h5-0-109" class="i">+}
+</a><a href="#h5-0-110" id="h5-0-110" class="i">+.summary p {
+</a><a href="#h5-0-111" id="h5-0-111" class="i">+  margin: 0em 0 0.4em;
+</a><a href="#h5-0-112" id="h5-0-112" class="i">+}
+</a><a href="#h5-0-113" id="h5-0-113" class="i">+.summary__title {
+</a><a href="#h5-0-114" id="h5-0-114" class="i">+  margin-bottom: 0;
+</a><a href="#h5-0-115" id="h5-0-115" class="i">+}
+</a><a href="#h5-0-116" id="h5-0-116" class="i">+
+</a><a href="#h5-0-117" id="h5-0-117" class="i">+.pagination {
+</a><a href="#h5-0-118" id="h5-0-118" class="i">+  padding: 1em 0;
+</a><a href="#h5-0-119" id="h5-0-119" class="i">+  display: flex;
+</a><a href="#h5-0-120" id="h5-0-120" class="i">+  &amp;__left {
+</a><a href="#h5-0-121" id="h5-0-121" class="i">+    text-align: left;
+</a><a href="#h5-0-122" id="h5-0-122" class="i">+    margin-left: 0.3rem;
+</a><a href="#h5-0-123" id="h5-0-123" class="i">+  }
+</a><a href="#h5-0-124" id="h5-0-124" class="i">+  &amp;__center {
+</a><a href="#h5-0-125" id="h5-0-125" class="i">+    flex: 1;
+</a><a href="#h5-0-126" id="h5-0-126" class="i">+    text-align: center;
+</a><a href="#h5-0-127" id="h5-0-127" class="i">+  }
+</a><a href="#h5-0-128" id="h5-0-128" class="i">+  &amp;__right {
+</a><a href="#h5-0-129" id="h5-0-129" class="i">+    text-align: right;
+</a><a href="#h5-0-130" id="h5-0-130" class="i">+    margin-right: 0.3rem;
+</a><a href="#h5-0-131" id="h5-0-131" class="i">+  }
+</a><a href="#h5-0-132" id="h5-0-132" class="i">+}
+</a><a href="#h5-0-133" id="h5-0-133" class="i">+
+</a><a href="#h5-0-134" id="h5-0-134" class="i">+.tagitem {
+</a><a href="#h5-0-135" id="h5-0-135" class="i">+  font-family: $font-mono;
+</a><a href="#h5-0-136" id="h5-0-136" class="i">+  margin: 0 0.4rem;
+</a><a href="#h5-0-137" id="h5-0-137" class="i">+}
+</a><a href="#h5-0-138" id="h5-0-138" class="i">+
+</a><a href="#h5-0-139" id="h5-0-139" class="i">+.footnotes {
+</a><a href="#h5-0-140" id="h5-0-140" class="i">+  hr {
+</a><a href="#h5-0-141" id="h5-0-141" class="i">+    margin-top: 3rem;
+</a><a href="#h5-0-142" id="h5-0-142" class="i">+    margin-bottom: 0.2rem;
+</a><a href="#h5-0-143" id="h5-0-143" class="i">+  }
+</a><a href="#h5-0-144" id="h5-0-144" class="i">+  &amp;__text {
+</a><a href="#h5-0-145" id="h5-0-145" class="i">+    margin: 0;
+</a><a href="#h5-0-146" id="h5-0-146" class="i">+  }
+</a><a href="#h5-0-147" id="h5-0-147" class="i">+}
+</a><a href="#h5-0-148" id="h5-0-148" class="i">+
+</a><a href="#h5-0-149" id="h5-0-149" class="i">+.footnote-ref::before {
+</a><a href="#h5-0-150" id="h5-0-150" class="i">+  content: &#39;[&#39;;
+</a><a href="#h5-0-151" id="h5-0-151" class="i">+}
+</a><a href="#h5-0-152" id="h5-0-152" class="i">+.footnote-ref::after {
+</a><a href="#h5-0-153" id="h5-0-153" class="i">+  content: &#39;]&#39;;
+</a><a href="#h5-0-154" id="h5-0-154" class="i">+}
+</a><a href="#h5-0-155" id="h5-0-155" class="i">+
+</a><a href="#h5-0-156" id="h5-0-156" class="i">+.bottom-hcard-container {
+</a><a href="#h5-0-157" id="h5-0-157" class="i">+  margin: 4rem 0 1rem;
+</a><a href="#h5-0-158" id="h5-0-158" class="i">+}
+</a><a href="#h5-0-159" id="h5-0-159" class="i">+.hcard-top {
+</a><a href="#h5-0-160" id="h5-0-160" class="i">+  margin: 0 0 0.8rem;
+</a><a href="#h5-0-161" id="h5-0-161" class="i">+  font-size: 0.9rem;
+</a><a href="#h5-0-162" id="h5-0-162" class="i">+}
+</a><a href="#h5-0-163" id="h5-0-163" class="i">+.hcard-tags {
+</a><a href="#h5-0-164" id="h5-0-164" class="i">+  margin: 0.8rem 0 0.7rem;
+</a><a href="#h5-0-165" id="h5-0-165" class="i">+}
+</a><a href="#h5-0-166" id="h5-0-166" class="i">+.hcard-bottom {
+</a><a href="#h5-0-167" id="h5-0-167" class="i">+  margin: 0;
+</a><a href="#h5-0-168" id="h5-0-168" class="i">+  font-size: 0.9rem;
+</a><a href="#h5-0-169" id="h5-0-169" class="i">+}
+</a><a href="#h5-0-170" id="h5-0-170" class="i">+
+</a><a href="#h5-0-171" id="h5-0-171" class="i">+.wm-hr {
+</a><a href="#h5-0-172" id="h5-0-172" class="i">+  margin-bottom: 0.2rem;
+</a><a href="#h5-0-173" id="h5-0-173" class="i">+}
+</a><a href="#h5-0-174" id="h5-0-174" class="i">+.wm-div {
+</a><a href="#h5-0-175" id="h5-0-175" class="i">+  margin-bottom: 3rem;
+</a><a href="#h5-0-176" id="h5-0-176" class="i">+}
+</a><a href="#h5-0-177" id="h5-0-177" class="i">+
+</a><a href="#h5-0-178" id="h5-0-178" class="i">+.wm-title {
+</a><a href="#h5-0-179" id="h5-0-179" class="i">+  margin: 0 0 0.7rem;
+</a><a href="#h5-0-180" id="h5-0-180" class="i">+}
+</a><a href="#h5-0-181" id="h5-0-181" class="i">+.wm-subtitle {
+</a><a href="#h5-0-182" id="h5-0-182" class="i">+  margin: 0.7rem 0 0.3rem;
+</a><a href="#h5-0-183" id="h5-0-183" class="i">+  font-size: 0.8rem;
+</a><a href="#h5-0-184" id="h5-0-184" class="i">+}
+</a><a href="#h5-0-185" id="h5-0-185" class="i">+
+</a><a href="#h5-0-186" id="h5-0-186" class="i">+a.wm-avatar {
+</a><a href="#h5-0-187" id="h5-0-187" class="i">+  width: 2rem;
+</a><a href="#h5-0-188" id="h5-0-188" class="i">+  height: 2rem;
+</a><a href="#h5-0-189" id="h5-0-189" class="i">+  font-size: 0.6rem;
+</a><a href="#h5-0-190" id="h5-0-190" class="i">+  margin-right: 0.4rem;
+</a><a href="#h5-0-191" id="h5-0-191" class="i">+}
+</a><a href="#h5-0-192" id="h5-0-192" class="i">+img.wm-avatar {
+</a><a href="#h5-0-193" id="h5-0-193" class="i">+  width: 2rem;
+</a><a href="#h5-0-194" id="h5-0-194" class="i">+  height: 2rem;
+</a><a href="#h5-0-195" id="h5-0-195" class="i">+  border-radius: 1rem;
+</a><a href="#h5-0-196" id="h5-0-196" class="i">+}
+</a><a href="#h5-0-197" id="h5-0-197" class="i">+
+</a><a href="#h5-0-198" id="h5-0-198" class="i">+.wm-reply {
+</a><a href="#h5-0-199" id="h5-0-199" class="i">+  margin-bottom: 1rem;
+</a><a href="#h5-0-200" id="h5-0-200" class="i">+  padding-left: 1rem;
+</a><a href="#h5-0-201" id="h5-0-201" class="i">+}
+</a><a href="#h5-0-202" id="h5-0-202" class="i">+.wm-reply-head {
+</a><a href="#h5-0-203" id="h5-0-203" class="i">+  display: flex;
+</a><a href="#h5-0-204" id="h5-0-204" class="i">+  align-items: center;
+</a><a href="#h5-0-205" id="h5-0-205" class="i">+}
+</a><a href="#h5-0-206" id="h5-0-206" class="i">+.wm-reply-content {
+</a><a href="#h5-0-207" id="h5-0-207" class="i">+  margin-top: 0.4rem;
+</a><a href="#h5-0-208" id="h5-0-208" class="i">+  font-size: 0.9rem;
+</a><a href="#h5-0-209" id="h5-0-209" class="i">+}
+</a><b>diff --git a/<a id="h6" href="../file/assets/responsive.css.html">assets/responsive.css</a> b/<a href="../file/assets/responsive.css.html">assets/responsive.css</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -0,0 +1,102 @@
+</a><a href="#h6-0-0" id="h6-0-0" class="i">+@media (min-width: 600px) {
+</a><a href="#h6-0-1" id="h6-0-1" class="i">+  /* content */
+</a><a href="#h6-0-2" id="h6-0-2" class="i">+  .headline-hash {
+</a><a href="#h6-0-3" id="h6-0-3" class="i">+    display: none;
+</a><a href="#h6-0-4" id="h6-0-4" class="i">+  }
+</a><a href="#h6-0-5" id="h6-0-5" class="i">+
+</a><a href="#h6-0-6" id="h6-0-6" class="i">+  /* header */
+</a><a href="#h6-0-7" id="h6-0-7" class="i">+  .header__title:not(h1) {
+</a><a href="#h6-0-8" id="h6-0-8" class="i">+    margin-top: 1.4em;
+</a><a href="#h6-0-9" id="h6-0-9" class="i">+  }
+</a><a href="#h6-0-10" id="h6-0-10" class="i">+}
+</a><a href="#h6-0-11" id="h6-0-11" class="i">+
+</a><a href="#h6-0-12" id="h6-0-12" class="i">+@media (max-width: 599px) {
+</a><a href="#h6-0-13" id="h6-0-13" class="i">+  html {
+</a><a href="#h6-0-14" id="h6-0-14" class="i">+    font-size: 15px;
+</a><a href="#h6-0-15" id="h6-0-15" class="i">+  }
+</a><a href="#h6-0-16" id="h6-0-16" class="i">+
+</a><a href="#h6-0-17" id="h6-0-17" class="i">+  body {
+</a><a href="#h6-0-18" id="h6-0-18" class="i">+    padding: 0 1.5em;
+</a><a href="#h6-0-19" id="h6-0-19" class="i">+    margin: 0;
+</a><a href="#h6-0-20" id="h6-0-20" class="i">+  }
+</a><a href="#h6-0-21" id="h6-0-21" class="i">+
+</a><a href="#h6-0-22" id="h6-0-22" class="i">+  .listing__post {
+</a><a href="#h6-0-23" id="h6-0-23" class="i">+    padding: 0.3em 0 1.3em 0;
+</a><a href="#h6-0-24" id="h6-0-24" class="i">+  }
+</a><a href="#h6-0-25" id="h6-0-25" class="i">+
+</a><a href="#h6-0-26" id="h6-0-26" class="i">+  /* content */
+</a><a href="#h6-0-27" id="h6-0-27" class="i">+  .before-hash {
+</a><a href="#h6-0-28" id="h6-0-28" class="i">+    display: none;
+</a><a href="#h6-0-29" id="h6-0-29" class="i">+  }
+</a><a href="#h6-0-30" id="h6-0-30" class="i">+  .responses:target {
+</a><a href="#h6-0-31" id="h6-0-31" class="i">+    outline: solid 0.3rem;
+</a><a href="#h6-0-32" id="h6-0-32" class="i">+    outline-offset: 1.2rem 0.8rem;
+</a><a href="#h6-0-33" id="h6-0-33" class="i">+  }
+</a><a href="#h6-0-34" id="h6-0-34" class="i">+  .notes:target {
+</a><a href="#h6-0-35" id="h6-0-35" class="i">+    outline: solid 0.3em;
+</a><a href="#h6-0-36" id="h6-0-36" class="i">+    outline-offset: 0.5em;
+</a><a href="#h6-0-37" id="h6-0-37" class="i">+  }
+</a><a href="#h6-0-38" id="h6-0-38" class="i">+  .notes__title {
+</a><a href="#h6-0-39" id="h6-0-39" class="i">+    margin: 10px 0 0;
+</a><a href="#h6-0-40" id="h6-0-40" class="i">+    display: flex;
+</a><a href="#h6-0-41" id="h6-0-41" class="i">+    flex-direction: column;
+</a><a href="#h6-0-42" id="h6-0-42" class="i">+  }
+</a><a href="#h6-0-43" id="h6-0-43" class="i">+  .notes__title__separator {
+</a><a href="#h6-0-44" id="h6-0-44" class="i">+    display: none;
+</a><a href="#h6-0-45" id="h6-0-45" class="i">+  }
+</a><a href="#h6-0-46" id="h6-0-46" class="i">+
+</a><a href="#h6-0-47" id="h6-0-47" class="i">+  /* header */
+</a><a href="#h6-0-48" id="h6-0-48" class="i">+  .header__title {
+</a><a href="#h6-0-49" id="h6-0-49" class="i">+    font-size: 1.4rem;
+</a><a href="#h6-0-50" id="h6-0-50" class="i">+    margin: 1rem 0;
+</a><a href="#h6-0-51" id="h6-0-51" class="i">+  }
+</a><a href="#h6-0-52" id="h6-0-52" class="i">+  .header__menu__list {
+</a><a href="#h6-0-53" id="h6-0-53" class="i">+    justify-content: space-between;
+</a><a href="#h6-0-54" id="h6-0-54" class="i">+  }
+</a><a href="#h6-0-55" id="h6-0-55" class="i">+  .header__menu__list__item {
+</a><a href="#h6-0-56" id="h6-0-56" class="i">+    margin: 0 0.1rem;
+</a><a href="#h6-0-57" id="h6-0-57" class="i">+    font-size: 0.9rem;
+</a><a href="#h6-0-58" id="h6-0-58" class="i">+  }
+</a><a href="#h6-0-59" id="h6-0-59" class="i">+
+</a><a href="#h6-0-60" id="h6-0-60" class="i">+  /* footer */
+</a><a href="#h6-0-61" id="h6-0-61" class="i">+  .footer__nav {
+</a><a href="#h6-0-62" id="h6-0-62" class="i">+    font-size: 0.9rem;
+</a><a href="#h6-0-63" id="h6-0-63" class="i">+    display: flex;
+</a><a href="#h6-0-64" id="h6-0-64" class="i">+    flex-direction: column;
+</a><a href="#h6-0-65" id="h6-0-65" class="i">+  }
+</a><a href="#h6-0-66" id="h6-0-66" class="i">+  .footer__nav__left {
+</a><a href="#h6-0-67" id="h6-0-67" class="i">+    text-align: center;
+</a><a href="#h6-0-68" id="h6-0-68" class="i">+    padding-bottom: 0.5em;
+</a><a href="#h6-0-69" id="h6-0-69" class="i">+    margin: 0;
+</a><a href="#h6-0-70" id="h6-0-70" class="i">+  }
+</a><a href="#h6-0-71" id="h6-0-71" class="i">+  .footer__nav__right {
+</a><a href="#h6-0-72" id="h6-0-72" class="i">+    text-align: center;
+</a><a href="#h6-0-73" id="h6-0-73" class="i">+    margin-top: 0;
+</a><a href="#h6-0-74" id="h6-0-74" class="i">+  }
+</a><a href="#h6-0-75" id="h6-0-75" class="i">+  .footer__nav__right a {
+</a><a href="#h6-0-76" id="h6-0-76" class="i">+    line-height: 2rem;
+</a><a href="#h6-0-77" id="h6-0-77" class="i">+  }
+</a><a href="#h6-0-78" id="h6-0-78" class="i">+}
+</a><a href="#h6-0-79" id="h6-0-79" class="i">+
+</a><a href="#h6-0-80" id="h6-0-80" class="i">+@media (max-width: 400px) {
+</a><a href="#h6-0-81" id="h6-0-81" class="i">+  /* footer */
+</a><a href="#h6-0-82" id="h6-0-82" class="i">+  .footer__nav__right a {
+</a><a href="#h6-0-83" id="h6-0-83" class="i">+    padding: 0 0.15rem;
+</a><a href="#h6-0-84" id="h6-0-84" class="i">+    margin: 0 0.15rem;
+</a><a href="#h6-0-85" id="h6-0-85" class="i">+  }
+</a><a href="#h6-0-86" id="h6-0-86" class="i">+}
+</a><a href="#h6-0-87" id="h6-0-87" class="i">+
+</a><a href="#h6-0-88" id="h6-0-88" class="i">+@media(max-width: 360px) {
+</a><a href="#h6-0-89" id="h6-0-89" class="i">+  a.button {
+</a><a href="#h6-0-90" id="h6-0-90" class="i">+    padding: 0.3rem;
+</a><a href="#h6-0-91" id="h6-0-91" class="i">+  }
+</a><a href="#h6-0-92" id="h6-0-92" class="i">+
+</a><a href="#h6-0-93" id="h6-0-93" class="i">+  /* header */
+</a><a href="#h6-0-94" id="h6-0-94" class="i">+  .header__title {
+</a><a href="#h6-0-95" id="h6-0-95" class="i">+    font-size: 1.2em;
+</a><a href="#h6-0-96" id="h6-0-96" class="i">+  }
+</a><a href="#h6-0-97" id="h6-0-97" class="i">+  .header__menu__list__item {
+</a><a href="#h6-0-98" id="h6-0-98" class="i">+    font-size: 0.8rem;
+</a><a href="#h6-0-99" id="h6-0-99" class="i">+  }
+</a><a href="#h6-0-100" id="h6-0-100" class="i">+}
+</a><a href="#h6-0-101" id="h6-0-101" class="i">+
+</a><b>diff --git a/<a id="h7" href="../file/assets/styles.scss.html">assets/styles.scss</a> b/<a href="../file/assets/styles.scss.html">assets/styles.scss</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -1,459 +0,0 @@
+</a><a href="#h7-0-0" id="h7-0-0" class="d">-@import &quot;variables&quot;;
+</a><a href="#h7-0-1" id="h7-0-1" class="d">-@import &quot;fonts&quot;;
+</a><a href="#h7-0-2" id="h7-0-2" class="d">-@import &quot;content&quot;;
+</a><a href="#h7-0-3" id="h7-0-3" class="d">-
+</a><a href="#h7-0-4" id="h7-0-4" class="d">-html {
+</a><a href="#h7-0-5" id="h7-0-5" class="d">-  @include themify($themes) {
+</a><a href="#h7-0-6" id="h7-0-6" class="d">-    background-color: themed(&#39;color-background&#39;);
+</a><a href="#h7-0-7" id="h7-0-7" class="d">-    color: themed(&#39;color-text&#39;);
+</a><a href="#h7-0-8" id="h7-0-8" class="d">-    font-weight: themed(&#39;font-weight&#39;);
+</a><a href="#h7-0-9" id="h7-0-9" class="d">-  }
+</a><a href="#h7-0-10" id="h7-0-10" class="d">-  font-family: $font-text;
+</a><a href="#h7-0-11" id="h7-0-11" class="d">-  letter-spacing: 0.025rem;
+</a><a href="#h7-0-12" id="h7-0-12" class="d">-  line-height: 1.6;
+</a><a href="#h7-0-13" id="h7-0-13" class="d">-  text-rendering: optimizeLegibility;
+</a><a href="#h7-0-14" id="h7-0-14" class="d">-  font-size: 16px;
+</a><a href="#h7-0-15" id="h7-0-15" class="d">-}
+</a><a href="#h7-0-16" id="h7-0-16" class="d">-
+</a><a href="#h7-0-17" id="h7-0-17" class="d">-@media (max-width: 599px) {
+</a><a href="#h7-0-18" id="h7-0-18" class="d">-  html {
+</a><a href="#h7-0-19" id="h7-0-19" class="d">-    font-size: 15px;
+</a><a href="#h7-0-20" id="h7-0-20" class="d">-  }
+</a><a href="#h7-0-21" id="h7-0-21" class="d">-  body {
+</a><a href="#h7-0-22" id="h7-0-22" class="d">-    padding: 0 1.5em;
+</a><a href="#h7-0-23" id="h7-0-23" class="d">-    margin: 0;
+</a><a href="#h7-0-24" id="h7-0-24" class="d">-  }
+</a><a href="#h7-0-25" id="h7-0-25" class="d">-}
+</a><a href="#h7-0-26" id="h7-0-26" class="d">-
+</a><a href="#h7-0-27" id="h7-0-27" class="d">-strong {
+</a><a href="#h7-0-28" id="h7-0-28" class="d">-  @include themify($themes) {
+</a><a href="#h7-0-29" id="h7-0-29" class="d">-    font-weight: themed(&#39;font-weight-bold&#39;);
+</a><a href="#h7-0-30" id="h7-0-30" class="d">-  }
+</a><a href="#h7-0-31" id="h7-0-31" class="d">-}
+</a><a href="#h7-0-32" id="h7-0-32" class="d">-
+</a><a href="#h7-0-33" id="h7-0-33" class="d">-body {
+</a><a href="#h7-0-34" id="h7-0-34" class="d">-  @include themify($themes) {
+</a><a href="#h7-0-35" id="h7-0-35" class="d">-    background-color: themed(&#39;color-background&#39;);
+</a><a href="#h7-0-36" id="h7-0-36" class="d">-    color: themed(&#39;color-text&#39;);
+</a><a href="#h7-0-37" id="h7-0-37" class="d">-  }
+</a><a href="#h7-0-38" id="h7-0-38" class="d">-  max-width: 600px;
+</a><a href="#h7-0-39" id="h7-0-39" class="d">-  margin: 0 auto;
+</a><a href="#h7-0-40" id="h7-0-40" class="d">-}
+</a><a href="#h7-0-41" id="h7-0-41" class="d">-
+</a><a href="#h7-0-42" id="h7-0-42" class="d">-[hidden] {
+</a><a href="#h7-0-43" id="h7-0-43" class="d">-  display: none;
+</a><a href="#h7-0-44" id="h7-0-44" class="d">-}
+</a><a href="#h7-0-45" id="h7-0-45" class="d">-
+</a><a href="#h7-0-46" id="h7-0-46" class="d">-pre {
+</a><a href="#h7-0-47" id="h7-0-47" class="d">-  overflow: auto;
+</a><a href="#h7-0-48" id="h7-0-48" class="d">-  padding: 0.5rem;
+</a><a href="#h7-0-49" id="h7-0-49" class="d">-}
+</a><a href="#h7-0-50" id="h7-0-50" class="d">-
+</a><a href="#h7-0-51" id="h7-0-51" class="d">-:not(pre) &gt; code {
+</a><a href="#h7-0-52" id="h7-0-52" class="d">-  @include themify($themes) {
+</a><a href="#h7-0-53" id="h7-0-53" class="d">-    background-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h7-0-54" id="h7-0-54" class="d">-  }
+</a><a href="#h7-0-55" id="h7-0-55" class="d">-}
+</a><a href="#h7-0-56" id="h7-0-56" class="d">-
+</a><a href="#h7-0-57" id="h7-0-57" class="d">-hr {
+</a><a href="#h7-0-58" id="h7-0-58" class="d">-  border: 0;
+</a><a href="#h7-0-59" id="h7-0-59" class="d">-  height: 0;
+</a><a href="#h7-0-60" id="h7-0-60" class="d">-  @include themify($themes) {
+</a><a href="#h7-0-61" id="h7-0-61" class="d">-    border-top: 1px solid themed(&#39;color-text&#39;);
+</a><a href="#h7-0-62" id="h7-0-62" class="d">-  }
+</a><a href="#h7-0-63" id="h7-0-63" class="d">-  &amp;.list__subtitle {
+</a><a href="#h7-0-64" id="h7-0-64" class="d">-    margin-bottom: 2rem;
+</a><a href="#h7-0-65" id="h7-0-65" class="d">-  }
+</a><a href="#h7-0-66" id="h7-0-66" class="d">-}
+</a><a href="#h7-0-67" id="h7-0-67" class="d">-
+</a><a href="#h7-0-68" id="h7-0-68" class="d">-code {
+</a><a href="#h7-0-69" id="h7-0-69" class="d">-  padding: 0.1rem;
+</a><a href="#h7-0-70" id="h7-0-70" class="d">-  font-family: $font-mono;
+</a><a href="#h7-0-71" id="h7-0-71" class="d">-  font-size: 0.9rem;
+</a><a href="#h7-0-72" id="h7-0-72" class="d">-  &amp;.language-bash {
+</a><a href="#h7-0-73" id="h7-0-73" class="d">-    &amp;:before {
+</a><a href="#h7-0-74" id="h7-0-74" class="d">-      content: &quot;$ &quot;;
+</a><a href="#h7-0-75" id="h7-0-75" class="d">-    }
+</a><a href="#h7-0-76" id="h7-0-76" class="d">-  }
+</a><a href="#h7-0-77" id="h7-0-77" class="d">-}
+</a><a href="#h7-0-78" id="h7-0-78" class="d">-
+</a><a href="#h7-0-79" id="h7-0-79" class="d">-h1, h2, h3, h4, h5 {
+</a><a href="#h7-0-80" id="h7-0-80" class="d">-  @include themify($themes) {
+</a><a href="#h7-0-81" id="h7-0-81" class="d">-    color: themed(&#39;color-green&#39;);
+</a><a href="#h7-0-82" id="h7-0-82" class="d">-    font-weight: themed(&#39;font-weight&#39;);
+</a><a href="#h7-0-83" id="h7-0-83" class="d">-  }
+</a><a href="#h7-0-84" id="h7-0-84" class="d">-  font-family: $font-text;
+</a><a href="#h7-0-85" id="h7-0-85" class="d">-  line-height: 1.3;
+</a><a href="#h7-0-86" id="h7-0-86" class="d">-  position: relative;
+</a><a href="#h7-0-87" id="h7-0-87" class="d">-  a {
+</a><a href="#h7-0-88" id="h7-0-88" class="d">-    font-family: $font-mono;
+</a><a href="#h7-0-89" id="h7-0-89" class="d">-  }
+</a><a href="#h7-0-90" id="h7-0-90" class="d">-}
+</a><a href="#h7-0-91" id="h7-0-91" class="d">-
+</a><a href="#h7-0-92" id="h7-0-92" class="d">-h1:not(.header__title) {
+</a><a href="#h7-0-93" id="h7-0-93" class="d">-  font-size: 2.2rem;
+</a><a href="#h7-0-94" id="h7-0-94" class="d">-}
+</a><a href="#h7-0-95" id="h7-0-95" class="d">-
+</a><a href="#h7-0-96" id="h7-0-96" class="d">-a {
+</a><a href="#h7-0-97" id="h7-0-97" class="d">-  text-decoration: none;
+</a><a href="#h7-0-98" id="h7-0-98" class="d">-  @include themify($themes) {
+</a><a href="#h7-0-99" id="h7-0-99" class="d">-    color: themed(&#39;color-blue&#39;);
+</a><a href="#h7-0-100" id="h7-0-100" class="d">-    &amp;.link-white, .link-white {
+</a><a href="#h7-0-101" id="h7-0-101" class="d">-      color: themed(&#39;color-text&#39;);
+</a><a href="#h7-0-102" id="h7-0-102" class="d">-    }
+</a><a href="#h7-0-103" id="h7-0-103" class="d">-  }
+</a><a href="#h7-0-104" id="h7-0-104" class="d">-  &amp;#active {
+</a><a href="#h7-0-105" id="h7-0-105" class="d">-    cursor: default;
+</a><a href="#h7-0-106" id="h7-0-106" class="d">-  }
+</a><a href="#h7-0-107" id="h7-0-107" class="d">-  &amp;:hover:not(.wm-avatar):not(.no-hover), &amp;#active {
+</a><a href="#h7-0-108" id="h7-0-108" class="d">-    @include themify($themes) {
+</a><a href="#h7-0-109" id="h7-0-109" class="d">-      background-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h7-0-110" id="h7-0-110" class="d">-      color: themed(&#39;color-red&#39;);
+</a><a href="#h7-0-111" id="h7-0-111" class="d">-    }
+</a><a href="#h7-0-112" id="h7-0-112" class="d">-    &amp;:not(.no-outline):not(.footnote-ref) {
+</a><a href="#h7-0-113" id="h7-0-113" class="d">-      outline-style: solid;
+</a><a href="#h7-0-114" id="h7-0-114" class="d">-      outline-width: 0.3rem;
+</a><a href="#h7-0-115" id="h7-0-115" class="d">-      @include themify($themes) {
+</a><a href="#h7-0-116" id="h7-0-116" class="d">-        outline-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h7-0-117" id="h7-0-117" class="d">-        background-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h7-0-118" id="h7-0-118" class="d">-      }
+</a><a href="#h7-0-119" id="h7-0-119" class="d">-    }
+</a><a href="#h7-0-120" id="h7-0-120" class="d">-  }
+</a><a href="#h7-0-121" id="h7-0-121" class="d">-  &amp;.button {
+</a><a href="#h7-0-122" id="h7-0-122" class="d">-    display: inline-block;
+</a><a href="#h7-0-123" id="h7-0-123" class="d">-    padding: 0.3rem 0.7rem;
+</a><a href="#h7-0-124" id="h7-0-124" class="d">-    @media(max-width: 360px) {
+</a><a href="#h7-0-125" id="h7-0-125" class="d">-      padding: 0.3rem;
+</a><a href="#h7-0-126" id="h7-0-126" class="d">-    }
+</a><a href="#h7-0-127" id="h7-0-127" class="d">-  }
+</a><a href="#h7-0-128" id="h7-0-128" class="d">-}
+</a><a href="#h7-0-129" id="h7-0-129" class="d">-
+</a><a href="#h7-0-130" id="h7-0-130" class="d">-blockquote {
+</a><a href="#h7-0-131" id="h7-0-131" class="d">-  margin: inherit auto;
+</a><a href="#h7-0-132" id="h7-0-132" class="d">-  margin-left: 0;
+</a><a href="#h7-0-133" id="h7-0-133" class="d">-  padding: 0 1em;
+</a><a href="#h7-0-134" id="h7-0-134" class="d">-  border-left: 2px solid;
+</a><a href="#h7-0-135" id="h7-0-135" class="d">-  @include themify($themes) {
+</a><a href="#h7-0-136" id="h7-0-136" class="d">-    border-color: themed(&#39;color-red&#39;);
+</a><a href="#h7-0-137" id="h7-0-137" class="d">-  }
+</a><a href="#h7-0-138" id="h7-0-138" class="d">-  p {
+</a><a href="#h7-0-139" id="h7-0-139" class="d">-    font-size: 0.9rem;
+</a><a href="#h7-0-140" id="h7-0-140" class="d">-  }
+</a><a href="#h7-0-141" id="h7-0-141" class="d">-}
+</a><a href="#h7-0-142" id="h7-0-142" class="d">-
+</a><a href="#h7-0-143" id="h7-0-143" class="d">-time {
+</a><a href="#h7-0-144" id="h7-0-144" class="d">-  @include themify($themes) {
+</a><a href="#h7-0-145" id="h7-0-145" class="d">-    color: themed(&#39;color-red&#39;);
+</a><a href="#h7-0-146" id="h7-0-146" class="d">-  }
+</a><a href="#h7-0-147" id="h7-0-147" class="d">-  font-family: $font-mono;
+</a><a href="#h7-0-148" id="h7-0-148" class="d">-  &amp;[title] {
+</a><a href="#h7-0-149" id="h7-0-149" class="d">-    cursor: help;
+</a><a href="#h7-0-150" id="h7-0-150" class="d">-  }
+</a><a href="#h7-0-151" id="h7-0-151" class="d">-}
+</a><a href="#h7-0-152" id="h7-0-152" class="d">-
+</a><a href="#h7-0-153" id="h7-0-153" class="d">-.listing {
+</a><a href="#h7-0-154" id="h7-0-154" class="d">-  &amp;__post {
+</a><a href="#h7-0-155" id="h7-0-155" class="d">-    width: 100%;
+</a><a href="#h7-0-156" id="h7-0-156" class="d">-    display: inline-block;
+</a><a href="#h7-0-157" id="h7-0-157" class="d">-    padding: 0.5rem 0 0.7rem;
+</a><a href="#h7-0-158" id="h7-0-158" class="d">-    @media (max-width: 599px) {
+</a><a href="#h7-0-159" id="h7-0-159" class="d">-      padding: 0.3em 0 1.3em 0;
+</a><a href="#h7-0-160" id="h7-0-160" class="d">-    }
+</a><a href="#h7-0-161" id="h7-0-161" class="d">-    &amp;__title {
+</a><a href="#h7-0-162" id="h7-0-162" class="d">-      margin: 0.01rem;
+</a><a href="#h7-0-163" id="h7-0-163" class="d">-    }
+</a><a href="#h7-0-164" id="h7-0-164" class="d">-    &amp;__description {
+</a><a href="#h7-0-165" id="h7-0-165" class="d">-      margin: 0;
+</a><a href="#h7-0-166" id="h7-0-166" class="d">-      margin-top: 0.8em;
+</a><a href="#h7-0-167" id="h7-0-167" class="d">-    }
+</a><a href="#h7-0-168" id="h7-0-168" class="d">-  }
+</a><a href="#h7-0-169" id="h7-0-169" class="d">-}
+</a><a href="#h7-0-170" id="h7-0-170" class="d">-
+</a><a href="#h7-0-171" id="h7-0-171" class="d">-.header {
+</a><a href="#h7-0-172" id="h7-0-172" class="d">-  margin-top: 1em;
+</a><a href="#h7-0-173" id="h7-0-173" class="d">-  @media (min-width: 600px) {
+</a><a href="#h7-0-174" id="h7-0-174" class="d">-    &amp;__title:not(h1) {
+</a><a href="#h7-0-175" id="h7-0-175" class="d">-      margin-top: 1.4em;
+</a><a href="#h7-0-176" id="h7-0-176" class="d">-    }
+</a><a href="#h7-0-177" id="h7-0-177" class="d">-  }
+</a><a href="#h7-0-178" id="h7-0-178" class="d">-  @media (max-width: 599px) {
+</a><a href="#h7-0-179" id="h7-0-179" class="d">-    &amp;__title {
+</a><a href="#h7-0-180" id="h7-0-180" class="d">-      font-size: 1.4rem;
+</a><a href="#h7-0-181" id="h7-0-181" class="d">-      margin: 1rem 0;
+</a><a href="#h7-0-182" id="h7-0-182" class="d">-    }
+</a><a href="#h7-0-183" id="h7-0-183" class="d">-  }
+</a><a href="#h7-0-184" id="h7-0-184" class="d">-  @media (max-width: 360px) {
+</a><a href="#h7-0-185" id="h7-0-185" class="d">-    &amp;__title {
+</a><a href="#h7-0-186" id="h7-0-186" class="d">-      font-size: 1.2em;
+</a><a href="#h7-0-187" id="h7-0-187" class="d">-    }
+</a><a href="#h7-0-188" id="h7-0-188" class="d">-  }
+</a><a href="#h7-0-189" id="h7-0-189" class="d">-
+</a><a href="#h7-0-190" id="h7-0-190" class="d">-  &amp;__menu {
+</a><a href="#h7-0-191" id="h7-0-191" class="d">-    margin: 0 0 10px;
+</a><a href="#h7-0-192" id="h7-0-192" class="d">-    display: flex;
+</a><a href="#h7-0-193" id="h7-0-193" class="d">-    justify-content: flex-start;
+</a><a href="#h7-0-194" id="h7-0-194" class="d">-    &amp;__list {
+</a><a href="#h7-0-195" id="h7-0-195" class="d">-      padding: 0;
+</a><a href="#h7-0-196" id="h7-0-196" class="d">-      margin: 0;
+</a><a href="#h7-0-197" id="h7-0-197" class="d">-      display: flex;
+</a><a href="#h7-0-198" id="h7-0-198" class="d">-      flex-grow: 1;
+</a><a href="#h7-0-199" id="h7-0-199" class="d">-      flex-wrap: nowrap;
+</a><a href="#h7-0-200" id="h7-0-200" class="d">-      @media (max-width: 599px) {
+</a><a href="#h7-0-201" id="h7-0-201" class="d">-        justify-content: space-between;
+</a><a href="#h7-0-202" id="h7-0-202" class="d">-      }
+</a><a href="#h7-0-203" id="h7-0-203" class="d">-      &amp;__item {
+</a><a href="#h7-0-204" id="h7-0-204" class="d">-        &amp;:first-child {
+</a><a href="#h7-0-205" id="h7-0-205" class="d">-          margin-left: 0;
+</a><a href="#h7-0-206" id="h7-0-206" class="d">-        }
+</a><a href="#h7-0-207" id="h7-0-207" class="d">-        margin: 0 0.4rem;
+</a><a href="#h7-0-208" id="h7-0-208" class="d">-        border-style: solid;
+</a><a href="#h7-0-209" id="h7-0-209" class="d">-        border-width: 1px;
+</a><a href="#h7-0-210" id="h7-0-210" class="d">-        @media (max-width: 599px) {
+</a><a href="#h7-0-211" id="h7-0-211" class="d">-          margin: 0 0.1rem;
+</a><a href="#h7-0-212" id="h7-0-212" class="d">-          font-size: 0.9rem;
+</a><a href="#h7-0-213" id="h7-0-213" class="d">-        }
+</a><a href="#h7-0-214" id="h7-0-214" class="d">-        @media (max-width: 360px) {
+</a><a href="#h7-0-215" id="h7-0-215" class="d">-          font-size: 0.8rem;
+</a><a href="#h7-0-216" id="h7-0-216" class="d">-        }
+</a><a href="#h7-0-217" id="h7-0-217" class="d">-      }
+</a><a href="#h7-0-218" id="h7-0-218" class="d">-
+</a><a href="#h7-0-219" id="h7-0-219" class="d">-      &amp;__toggler {
+</a><a href="#h7-0-220" id="h7-0-220" class="d">-        &amp;__off {
+</a><a href="#h7-0-221" id="h7-0-221" class="d">-          display: none;
+</a><a href="#h7-0-222" id="h7-0-222" class="d">-        }
+</a><a href="#h7-0-223" id="h7-0-223" class="d">-        font-size: 1.5rem;
+</a><a href="#h7-0-224" id="h7-0-224" class="d">-        padding: 0 0.3em;
+</a><a href="#h7-0-225" id="h7-0-225" class="d">-        background-color: transparent;
+</a><a href="#h7-0-226" id="h7-0-226" class="d">-        background-repeat: no-repeat;
+</a><a href="#h7-0-227" id="h7-0-227" class="d">-        border: none;
+</a><a href="#h7-0-228" id="h7-0-228" class="d">-        cursor: pointer;
+</a><a href="#h7-0-229" id="h7-0-229" class="d">-        overflow: hidden;
+</a><a href="#h7-0-230" id="h7-0-230" class="d">-        outline: none;
+</a><a href="#h7-0-231" id="h7-0-231" class="d">-        @media (min-width: 600px) {
+</a><a href="#h7-0-232" id="h7-0-232" class="d">-          margin-left: 20px;
+</a><a href="#h7-0-233" id="h7-0-233" class="d">-        }
+</a><a href="#h7-0-234" id="h7-0-234" class="d">-        &amp;:hover {
+</a><a href="#h7-0-235" id="h7-0-235" class="d">-          @include themify($themes) {
+</a><a href="#h7-0-236" id="h7-0-236" class="d">-            background-color: themed(&#39;color-background-hover&#39;);
+</a><a href="#h7-0-237" id="h7-0-237" class="d">-          }
+</a><a href="#h7-0-238" id="h7-0-238" class="d">-        }
+</a><a href="#h7-0-239" id="h7-0-239" class="d">-      }
+</a><a href="#h7-0-240" id="h7-0-240" class="d">-    }
+</a><a href="#h7-0-241" id="h7-0-241" class="d">-  }
+</a><a href="#h7-0-242" id="h7-0-242" class="d">-}
+</a><a href="#h7-0-243" id="h7-0-243" class="d">-
+</a><a href="#h7-0-244" id="h7-0-244" class="d">-.main {
+</a><a href="#h7-0-245" id="h7-0-245" class="d">-  &amp;__more {
+</a><a href="#h7-0-246" id="h7-0-246" class="d">-    padding: 1em 0 0;
+</a><a href="#h7-0-247" id="h7-0-247" class="d">-    margin-bottom: 0;
+</a><a href="#h7-0-248" id="h7-0-248" class="d">-    margin-right: 0.3em;
+</a><a href="#h7-0-249" id="h7-0-249" class="d">-    text-align: right;
+</a><a href="#h7-0-250" id="h7-0-250" class="d">-  }
+</a><a href="#h7-0-251" id="h7-0-251" class="d">-}
+</a><a href="#h7-0-252" id="h7-0-252" class="d">-
+</a><a href="#h7-0-253" id="h7-0-253" class="d">-.summary {
+</a><a href="#h7-0-254" id="h7-0-254" class="d">-  margin: 1.5em 0;
+</a><a href="#h7-0-255" id="h7-0-255" class="d">-  p {
+</a><a href="#h7-0-256" id="h7-0-256" class="d">-    margin: 0em 0 0.4em;
+</a><a href="#h7-0-257" id="h7-0-257" class="d">-  }
+</a><a href="#h7-0-258" id="h7-0-258" class="d">-  &amp;__title {
+</a><a href="#h7-0-259" id="h7-0-259" class="d">-    margin-bottom: 0;
+</a><a href="#h7-0-260" id="h7-0-260" class="d">-  }
+</a><a href="#h7-0-261" id="h7-0-261" class="d">-}
+</a><a href="#h7-0-262" id="h7-0-262" class="d">-
+</a><a href="#h7-0-263" id="h7-0-263" class="d">-.pagination {
+</a><a href="#h7-0-264" id="h7-0-264" class="d">-  padding: 1em 0;
+</a><a href="#h7-0-265" id="h7-0-265" class="d">-  display: flex;
+</a><a href="#h7-0-266" id="h7-0-266" class="d">-  &amp;__left {
+</a><a href="#h7-0-267" id="h7-0-267" class="d">-    text-align: left;
+</a><a href="#h7-0-268" id="h7-0-268" class="d">-    margin-left: 0.3rem;
+</a><a href="#h7-0-269" id="h7-0-269" class="d">-  }
+</a><a href="#h7-0-270" id="h7-0-270" class="d">-  &amp;__center {
+</a><a href="#h7-0-271" id="h7-0-271" class="d">-    flex: 1;
+</a><a href="#h7-0-272" id="h7-0-272" class="d">-    text-align: center;
+</a><a href="#h7-0-273" id="h7-0-273" class="d">-  }
+</a><a href="#h7-0-274" id="h7-0-274" class="d">-  &amp;__right {
+</a><a href="#h7-0-275" id="h7-0-275" class="d">-    text-align: right;
+</a><a href="#h7-0-276" id="h7-0-276" class="d">-    margin-right: 0.3rem;
+</a><a href="#h7-0-277" id="h7-0-277" class="d">-  }
+</a><a href="#h7-0-278" id="h7-0-278" class="d">-}
+</a><a href="#h7-0-279" id="h7-0-279" class="d">-
+</a><a href="#h7-0-280" id="h7-0-280" class="d">-.tagitem {
+</a><a href="#h7-0-281" id="h7-0-281" class="d">-  font-family: $font-mono;
+</a><a href="#h7-0-282" id="h7-0-282" class="d">-  margin: 0 0.4rem;
+</a><a href="#h7-0-283" id="h7-0-283" class="d">-}
+</a><a href="#h7-0-284" id="h7-0-284" class="d">-
+</a><a href="#h7-0-285" id="h7-0-285" class="d">-.footer {
+</a><a href="#h7-0-286" id="h7-0-286" class="d">-  &amp;__separator {
+</a><a href="#h7-0-287" id="h7-0-287" class="d">-    margin: 0.5rem auto 1.4rem;
+</a><a href="#h7-0-288" id="h7-0-288" class="d">-  }
+</a><a href="#h7-0-289" id="h7-0-289" class="d">-
+</a><a href="#h7-0-290" id="h7-0-290" class="d">-  &amp;__nav {
+</a><a href="#h7-0-291" id="h7-0-291" class="d">-    display: flex;
+</a><a href="#h7-0-292" id="h7-0-292" class="d">-    flex-direction: row;
+</a><a href="#h7-0-293" id="h7-0-293" class="d">-    justify-content: space-between;
+</a><a href="#h7-0-294" id="h7-0-294" class="d">-    margin-bottom: 1.5em;
+</a><a href="#h7-0-295" id="h7-0-295" class="d">-    &amp; &gt; p {
+</a><a href="#h7-0-296" id="h7-0-296" class="d">-      margin: 0;
+</a><a href="#h7-0-297" id="h7-0-297" class="d">-    }
+</a><a href="#h7-0-298" id="h7-0-298" class="d">-    &amp;__left {
+</a><a href="#h7-0-299" id="h7-0-299" class="d">-      text-align: left;
+</a><a href="#h7-0-300" id="h7-0-300" class="d">-    }
+</a><a href="#h7-0-301" id="h7-0-301" class="d">-    &amp;__right {
+</a><a href="#h7-0-302" id="h7-0-302" class="d">-      text-align: right;
+</a><a href="#h7-0-303" id="h7-0-303" class="d">-      a {
+</a><a href="#h7-0-304" id="h7-0-304" class="d">-        padding: 0 0.2rem;
+</a><a href="#h7-0-305" id="h7-0-305" class="d">-        margin: 0 0.2rem;
+</a><a href="#h7-0-306" id="h7-0-306" class="d">-      }
+</a><a href="#h7-0-307" id="h7-0-307" class="d">-    }
+</a><a href="#h7-0-308" id="h7-0-308" class="d">-    @media (max-width: 599px) {
+</a><a href="#h7-0-309" id="h7-0-309" class="d">-      font-size: 0.9rem;
+</a><a href="#h7-0-310" id="h7-0-310" class="d">-      display: flex;
+</a><a href="#h7-0-311" id="h7-0-311" class="d">-      flex-direction: column;
+</a><a href="#h7-0-312" id="h7-0-312" class="d">-      &amp;__left {
+</a><a href="#h7-0-313" id="h7-0-313" class="d">-        text-align: center;
+</a><a href="#h7-0-314" id="h7-0-314" class="d">-        padding-bottom: 0.5em;
+</a><a href="#h7-0-315" id="h7-0-315" class="d">-        margin: 0;
+</a><a href="#h7-0-316" id="h7-0-316" class="d">-      }
+</a><a href="#h7-0-317" id="h7-0-317" class="d">-      &amp;__right {
+</a><a href="#h7-0-318" id="h7-0-318" class="d">-        text-align: center;
+</a><a href="#h7-0-319" id="h7-0-319" class="d">-        margin-top: 0;
+</a><a href="#h7-0-320" id="h7-0-320" class="d">-        a {
+</a><a href="#h7-0-321" id="h7-0-321" class="d">-          line-height: 2rem;
+</a><a href="#h7-0-322" id="h7-0-322" class="d">-        }
+</a><a href="#h7-0-323" id="h7-0-323" class="d">-      }
+</a><a href="#h7-0-324" id="h7-0-324" class="d">-    }
+</a><a href="#h7-0-325" id="h7-0-325" class="d">-    @media (max-width: 400px) {
+</a><a href="#h7-0-326" id="h7-0-326" class="d">-      &amp;__right {
+</a><a href="#h7-0-327" id="h7-0-327" class="d">-        a {
+</a><a href="#h7-0-328" id="h7-0-328" class="d">-          padding: 0 0.15rem;
+</a><a href="#h7-0-329" id="h7-0-329" class="d">-          margin: 0 0.15rem;
+</a><a href="#h7-0-330" id="h7-0-330" class="d">-        }
+</a><a href="#h7-0-331" id="h7-0-331" class="d">-      }
+</a><a href="#h7-0-332" id="h7-0-332" class="d">-    }
+</a><a href="#h7-0-333" id="h7-0-333" class="d">-  }
+</a><a href="#h7-0-334" id="h7-0-334" class="d">-
+</a><a href="#h7-0-335" id="h7-0-335" class="d">-  &amp;__analytic {
+</a><a href="#h7-0-336" id="h7-0-336" class="d">-    font-size: 0.8em;
+</a><a href="#h7-0-337" id="h7-0-337" class="d">-  }
+</a><a href="#h7-0-338" id="h7-0-338" class="d">-
+</a><a href="#h7-0-339" id="h7-0-339" class="d">-  .hcard {
+</a><a href="#h7-0-340" id="h7-0-340" class="d">-    max-width: 19rem;
+</a><a href="#h7-0-341" id="h7-0-341" class="d">-    font-size: 0.8rem;
+</a><a href="#h7-0-342" id="h7-0-342" class="d">-    margin: 2rem auto 0.5rem;
+</a><a href="#h7-0-343" id="h7-0-343" class="d">-    padding: 1rem 1rem 0.8rem;
+</a><a href="#h7-0-344" id="h7-0-344" class="d">-    position: relative;
+</a><a href="#h7-0-345" id="h7-0-345" class="d">-    @include themify($themes) {
+</a><a href="#h7-0-346" id="h7-0-346" class="d">-      border: solid 1px themed(&#39;color-border&#39;);
+</a><a href="#h7-0-347" id="h7-0-347" class="d">-    }
+</a><a href="#h7-0-348" id="h7-0-348" class="d">-    &amp;__description {
+</a><a href="#h7-0-349" id="h7-0-349" class="d">-      top: -0.7rem;
+</a><a href="#h7-0-350" id="h7-0-350" class="d">-      left: 0.8rem;
+</a><a href="#h7-0-351" id="h7-0-351" class="d">-      padding: 0 0.4rem;
+</a><a href="#h7-0-352" id="h7-0-352" class="d">-      position: absolute;
+</a><a href="#h7-0-353" id="h7-0-353" class="d">-      @include themify($themes) {
+</a><a href="#h7-0-354" id="h7-0-354" class="d">-        background-color: themed(&#39;color-background&#39;);
+</a><a href="#h7-0-355" id="h7-0-355" class="d">-      }
+</a><a href="#h7-0-356" id="h7-0-356" class="d">-      &amp; &gt; p {
+</a><a href="#h7-0-357" id="h7-0-357" class="d">-        margin: 0;
+</a><a href="#h7-0-358" id="h7-0-358" class="d">-      }
+</a><a href="#h7-0-359" id="h7-0-359" class="d">-    }
+</a><a href="#h7-0-360" id="h7-0-360" class="d">-    .h-card {
+</a><a href="#h7-0-361" id="h7-0-361" class="d">-      position: relative;
+</a><a href="#h7-0-362" id="h7-0-362" class="d">-      img {
+</a><a href="#h7-0-363" id="h7-0-363" class="d">-        position: absolute;
+</a><a href="#h7-0-364" id="h7-0-364" class="d">-        width: 3.8rem;
+</a><a href="#h7-0-365" id="h7-0-365" class="d">-        height: 3.8rem;
+</a><a href="#h7-0-366" id="h7-0-366" class="d">-      }
+</a><a href="#h7-0-367" id="h7-0-367" class="d">-      &amp; &gt; a {
+</a><a href="#h7-0-368" id="h7-0-368" class="d">-        margin-left: 5rem;
+</a><a href="#h7-0-369" id="h7-0-369" class="d">-      }
+</a><a href="#h7-0-370" id="h7-0-370" class="d">-      &amp; &gt; .p-locality {
+</a><a href="#h7-0-371" id="h7-0-371" class="d">-        margin-left: 5rem;
+</a><a href="#h7-0-372" id="h7-0-372" class="d">-      }
+</a><a href="#h7-0-373" id="h7-0-373" class="d">-    }
+</a><a href="#h7-0-374" id="h7-0-374" class="d">-  }
+</a><a href="#h7-0-375" id="h7-0-375" class="d">-
+</a><a href="#h7-0-376" id="h7-0-376" class="d">-  .web-ring {
+</a><a href="#h7-0-377" id="h7-0-377" class="d">-    font-size: 0.8rem;
+</a><a href="#h7-0-378" id="h7-0-378" class="d">-    margin: 0 0 1.5rem;
+</a><a href="#h7-0-379" id="h7-0-379" class="d">-  }
+</a><a href="#h7-0-380" id="h7-0-380" class="d">-
+</a><a href="#h7-0-381" id="h7-0-381" class="d">-  &amp;__license {
+</a><a href="#h7-0-382" id="h7-0-382" class="d">-    margin: 0.7rem 0 1rem;
+</a><a href="#h7-0-383" id="h7-0-383" class="d">-    font-size: 0.7rem;
+</a><a href="#h7-0-384" id="h7-0-384" class="d">-  }
+</a><a href="#h7-0-385" id="h7-0-385" class="d">-}
+</a><a href="#h7-0-386" id="h7-0-386" class="d">-
+</a><a href="#h7-0-387" id="h7-0-387" class="d">-.footnotes {
+</a><a href="#h7-0-388" id="h7-0-388" class="d">-  hr {
+</a><a href="#h7-0-389" id="h7-0-389" class="d">-    margin-top: 3rem;
+</a><a href="#h7-0-390" id="h7-0-390" class="d">-    margin-bottom: 0.2rem;
+</a><a href="#h7-0-391" id="h7-0-391" class="d">-  }
+</a><a href="#h7-0-392" id="h7-0-392" class="d">-  &amp;__text {
+</a><a href="#h7-0-393" id="h7-0-393" class="d">-    margin: 0;
+</a><a href="#h7-0-394" id="h7-0-394" class="d">-  }
+</a><a href="#h7-0-395" id="h7-0-395" class="d">-}
+</a><a href="#h7-0-396" id="h7-0-396" class="d">-.footnote-ref {
+</a><a href="#h7-0-397" id="h7-0-397" class="d">-  &amp;:before {
+</a><a href="#h7-0-398" id="h7-0-398" class="d">-    content: &#39;[&#39;;
+</a><a href="#h7-0-399" id="h7-0-399" class="d">-  }
+</a><a href="#h7-0-400" id="h7-0-400" class="d">-  &amp;:after {
+</a><a href="#h7-0-401" id="h7-0-401" class="d">-    content: &#39;]&#39;;
+</a><a href="#h7-0-402" id="h7-0-402" class="d">-  }
+</a><a href="#h7-0-403" id="h7-0-403" class="d">-}
+</a><a href="#h7-0-404" id="h7-0-404" class="d">-
+</a><a href="#h7-0-405" id="h7-0-405" class="d">-.bottom-hcard-container {
+</a><a href="#h7-0-406" id="h7-0-406" class="d">-  margin: 4rem 0 1rem;
+</a><a href="#h7-0-407" id="h7-0-407" class="d">-}
+</a><a href="#h7-0-408" id="h7-0-408" class="d">-.hcard-top {
+</a><a href="#h7-0-409" id="h7-0-409" class="d">-  margin: 0 0 0.8rem;
+</a><a href="#h7-0-410" id="h7-0-410" class="d">-  font-size: 0.9rem;
+</a><a href="#h7-0-411" id="h7-0-411" class="d">-}
+</a><a href="#h7-0-412" id="h7-0-412" class="d">-.hcard-tags {
+</a><a href="#h7-0-413" id="h7-0-413" class="d">-  margin: 0.8rem 0 0.7rem;
+</a><a href="#h7-0-414" id="h7-0-414" class="d">-}
+</a><a href="#h7-0-415" id="h7-0-415" class="d">-.hcard-bottom {
+</a><a href="#h7-0-416" id="h7-0-416" class="d">-  margin: 0;
+</a><a href="#h7-0-417" id="h7-0-417" class="d">-  font-size: 0.9rem;
+</a><a href="#h7-0-418" id="h7-0-418" class="d">-}
+</a><a href="#h7-0-419" id="h7-0-419" class="d">-
+</a><a href="#h7-0-420" id="h7-0-420" class="d">-.wm-hr {
+</a><a href="#h7-0-421" id="h7-0-421" class="d">-  margin-bottom: 0.2rem;
+</a><a href="#h7-0-422" id="h7-0-422" class="d">-}
+</a><a href="#h7-0-423" id="h7-0-423" class="d">-.wm-div {
+</a><a href="#h7-0-424" id="h7-0-424" class="d">-  margin-bottom: 3rem;
+</a><a href="#h7-0-425" id="h7-0-425" class="d">-}
+</a><a href="#h7-0-426" id="h7-0-426" class="d">-
+</a><a href="#h7-0-427" id="h7-0-427" class="d">-.wm-title {
+</a><a href="#h7-0-428" id="h7-0-428" class="d">-  margin: 0 0 0.7rem;
+</a><a href="#h7-0-429" id="h7-0-429" class="d">-}
+</a><a href="#h7-0-430" id="h7-0-430" class="d">-.wm-subtitle {
+</a><a href="#h7-0-431" id="h7-0-431" class="d">-  margin: 0.7rem 0 0.3rem;
+</a><a href="#h7-0-432" id="h7-0-432" class="d">-  font-size: 0.8rem;
+</a><a href="#h7-0-433" id="h7-0-433" class="d">-}
+</a><a href="#h7-0-434" id="h7-0-434" class="d">-
+</a><a href="#h7-0-435" id="h7-0-435" class="d">-a.wm-avatar {
+</a><a href="#h7-0-436" id="h7-0-436" class="d">-  width: 2rem;
+</a><a href="#h7-0-437" id="h7-0-437" class="d">-  height: 2rem;
+</a><a href="#h7-0-438" id="h7-0-438" class="d">-  font-size: 0.6rem;
+</a><a href="#h7-0-439" id="h7-0-439" class="d">-  margin-right: 0.4rem;
+</a><a href="#h7-0-440" id="h7-0-440" class="d">-}
+</a><a href="#h7-0-441" id="h7-0-441" class="d">-img.wm-avatar {
+</a><a href="#h7-0-442" id="h7-0-442" class="d">-  width: 2rem;
+</a><a href="#h7-0-443" id="h7-0-443" class="d">-  height: 2rem;
+</a><a href="#h7-0-444" id="h7-0-444" class="d">-  border-radius: 1rem;
+</a><a href="#h7-0-445" id="h7-0-445" class="d">-}
+</a><a href="#h7-0-446" id="h7-0-446" class="d">-
+</a><a href="#h7-0-447" id="h7-0-447" class="d">-.wm-reply {
+</a><a href="#h7-0-448" id="h7-0-448" class="d">-  margin-bottom: 1rem;
+</a><a href="#h7-0-449" id="h7-0-449" class="d">-  padding-left: 1rem;
+</a><a href="#h7-0-450" id="h7-0-450" class="d">-}
+</a><a href="#h7-0-451" id="h7-0-451" class="d">-.wm-reply-head {
+</a><a href="#h7-0-452" id="h7-0-452" class="d">-  display: flex;
+</a><a href="#h7-0-453" id="h7-0-453" class="d">-  align-items: center;
+</a><a href="#h7-0-454" id="h7-0-454" class="d">-}
+</a><a href="#h7-0-455" id="h7-0-455" class="d">-.wm-reply-content {
+</a><a href="#h7-0-456" id="h7-0-456" class="d">-  margin-top: 0.4rem;
+</a><a href="#h7-0-457" id="h7-0-457" class="d">-  font-size: 0.9rem;
+</a><a href="#h7-0-458" id="h7-0-458" class="d">-}
+</a><b>diff --git a/<a id="h8" href="../file/assets/theme.css.html">assets/theme.css</a> b/<a href="../file/assets/theme.css.html">assets/theme.css</a></b>
+<a href="#h8-0" id="h8-0" class="h">@@ -0,0 +1,170 @@
+</a><a href="#h8-0-0" id="h8-0-0" class="i">+@media (prefers-color-scheme: light) {
+</a><a href="#h8-0-1" id="h8-0-1" class="i">+  html {
+</a><a href="#h8-0-2" id="h8-0-2" class="i">+    background-color: var(--light-background);
+</a><a href="#h8-0-3" id="h8-0-3" class="i">+    color: var(--light-text);
+</a><a href="#h8-0-4" id="h8-0-4" class="i">+    font-weight: var(--light-font);
+</a><a href="#h8-0-5" id="h8-0-5" class="i">+  }
+</a><a href="#h8-0-6" id="h8-0-6" class="i">+
+</a><a href="#h8-0-7" id="h8-0-7" class="i">+  h1, h2, h3, h4, h5 {
+</a><a href="#h8-0-8" id="h8-0-8" class="i">+    color: var(--light-green);
+</a><a href="#h8-0-9" id="h8-0-9" class="i">+    font-weight: var(--light-font);
+</a><a href="#h8-0-10" id="h8-0-10" class="i">+  }
+</a><a href="#h8-0-11" id="h8-0-11" class="i">+
+</a><a href="#h8-0-12" id="h8-0-12" class="i">+  a {
+</a><a href="#h8-0-13" id="h8-0-13" class="i">+    color: var(--light-blue);
+</a><a href="#h8-0-14" id="h8-0-14" class="i">+  }
+</a><a href="#h8-0-15" id="h8-0-15" class="i">+  .link-white {
+</a><a href="#h8-0-16" id="h8-0-16" class="i">+    color: var(--light-text);
+</a><a href="#h8-0-17" id="h8-0-17" class="i">+  }
+</a><a href="#h8-0-18" id="h8-0-18" class="i">+
+</a><a href="#h8-0-19" id="h8-0-19" class="i">+  a:hover:not(.wm-avatar):not(.no-hover), a#active {
+</a><a href="#h8-0-20" id="h8-0-20" class="i">+    background-color: var(--light-background-hover);
+</a><a href="#h8-0-21" id="h8-0-21" class="i">+    color: var(--light-red);
+</a><a href="#h8-0-22" id="h8-0-22" class="i">+  }
+</a><a href="#h8-0-23" id="h8-0-23" class="i">+  a:hover:not(.wm-avatar):not(.no-hover):not(.no-outline):not(.footnote-ref),
+</a><a href="#h8-0-24" id="h8-0-24" class="i">+  a#active:not(.no-outline):not(.footnote-ref) {
+</a><a href="#h8-0-25" id="h8-0-25" class="i">+    outline-color: var(--light-background-hover);
+</a><a href="#h8-0-26" id="h8-0-26" class="i">+    background-color: var(--light-background-hover);
+</a><a href="#h8-0-27" id="h8-0-27" class="i">+  }
+</a><a href="#h8-0-28" id="h8-0-28" class="i">+
+</a><a href="#h8-0-29" id="h8-0-29" class="i">+  hr {
+</a><a href="#h8-0-30" id="h8-0-30" class="i">+    border-top-color: var(--light-text);
+</a><a href="#h8-0-31" id="h8-0-31" class="i">+  }
+</a><a href="#h8-0-32" id="h8-0-32" class="i">+
+</a><a href="#h8-0-33" id="h8-0-33" class="i">+  strong {
+</a><a href="#h8-0-34" id="h8-0-34" class="i">+    font-weight: var(--light-font-bold);
+</a><a href="#h8-0-35" id="h8-0-35" class="i">+  }
+</a><a href="#h8-0-36" id="h8-0-36" class="i">+
+</a><a href="#h8-0-37" id="h8-0-37" class="i">+  time {
+</a><a href="#h8-0-38" id="h8-0-38" class="i">+    color: var(--light-red);
+</a><a href="#h8-0-39" id="h8-0-39" class="i">+  }
+</a><a href="#h8-0-40" id="h8-0-40" class="i">+
+</a><a href="#h8-0-41" id="h8-0-41" class="i">+  blockquote {
+</a><a href="#h8-0-42" id="h8-0-42" class="i">+    border-left-color: var(--light-red);
+</a><a href="#h8-0-43" id="h8-0-43" class="i">+  }
+</a><a href="#h8-0-44" id="h8-0-44" class="i">+
+</a><a href="#h8-0-45" id="h8-0-45" class="i">+  :not(pre) &gt; code {
+</a><a href="#h8-0-46" id="h8-0-46" class="i">+    background-color: var(--light-background-hover);
+</a><a href="#h8-0-47" id="h8-0-47" class="i">+  }
+</a><a href="#h8-0-48" id="h8-0-48" class="i">+
+</a><a href="#h8-0-49" id="h8-0-49" class="i">+  /* content */
+</a><a href="#h8-0-50" id="h8-0-50" class="i">+  .notes:target {
+</a><a href="#h8-0-51" id="h8-0-51" class="i">+    outline-color: var(--light-background-hover);
+</a><a href="#h8-0-52" id="h8-0-52" class="i">+  }
+</a><a href="#h8-0-53" id="h8-0-53" class="i">+  .responses:target {
+</a><a href="#h8-0-54" id="h8-0-54" class="i">+    outline-color: var(--light-background-hover);
+</a><a href="#h8-0-55" id="h8-0-55" class="i">+  }
+</a><a href="#h8-0-56" id="h8-0-56" class="i">+
+</a><a href="#h8-0-57" id="h8-0-57" class="i">+  .content ol li span:before {
+</a><a href="#h8-0-58" id="h8-0-58" class="i">+    color: var(--light-red);
+</a><a href="#h8-0-59" id="h8-0-59" class="i">+  }
+</a><a href="#h8-0-60" id="h8-0-60" class="i">+  .content ul li span:before {
+</a><a href="#h8-0-61" id="h8-0-61" class="i">+    color: var(--light-red);
+</a><a href="#h8-0-62" id="h8-0-62" class="i">+  }
+</a><a href="#h8-0-63" id="h8-0-63" class="i">+
+</a><a href="#h8-0-64" id="h8-0-64" class="i">+  .content table th {
+</a><a href="#h8-0-65" id="h8-0-65" class="i">+    background-color: var(--light-background-hover);
+</a><a href="#h8-0-66" id="h8-0-66" class="i">+    color: var(--light-text);
+</a><a href="#h8-0-67" id="h8-0-67" class="i">+  }
+</a><a href="#h8-0-68" id="h8-0-68" class="i">+  .content table td, .content table th {
+</a><a href="#h8-0-69" id="h8-0-69" class="i">+    border-color: var(--light-text);
+</a><a href="#h8-0-70" id="h8-0-70" class="i">+  }
+</a><a href="#h8-0-71" id="h8-0-71" class="i">+  .content table tr:nth-child(even) {
+</a><a href="#h8-0-72" id="h8-0-72" class="i">+    background-color: var(--light-background-hover);
+</a><a href="#h8-0-73" id="h8-0-73" class="i">+    color: var(--light-text);
+</a><a href="#h8-0-74" id="h8-0-74" class="i">+  }
+</a><a href="#h8-0-75" id="h8-0-75" class="i">+
+</a><a href="#h8-0-76" id="h8-0-76" class="i">+  /* footer */
+</a><a href="#h8-0-77" id="h8-0-77" class="i">+  .footer .hcard {
+</a><a href="#h8-0-78" id="h8-0-78" class="i">+    border: solid 1px var(--light-border);
+</a><a href="#h8-0-79" id="h8-0-79" class="i">+  }
+</a><a href="#h8-0-80" id="h8-0-80" class="i">+  .footer .hcard__description {
+</a><a href="#h8-0-81" id="h8-0-81" class="i">+    background-color: var(--light-background);
+</a><a href="#h8-0-82" id="h8-0-82" class="i">+  }
+</a><a href="#h8-0-83" id="h8-0-83" class="i">+}
+</a><a href="#h8-0-84" id="h8-0-84" class="i">+
+</a><a href="#h8-0-85" id="h8-0-85" class="i">+@media (prefers-color-scheme: dark) {
+</a><a href="#h8-0-86" id="h8-0-86" class="i">+  html {
+</a><a href="#h8-0-87" id="h8-0-87" class="i">+    background-color: var(--dark-background);
+</a><a href="#h8-0-88" id="h8-0-88" class="i">+    color: var(--dark-text);
+</a><a href="#h8-0-89" id="h8-0-89" class="i">+    font-weight: var(--dark-font);
+</a><a href="#h8-0-90" id="h8-0-90" class="i">+  }
+</a><a href="#h8-0-91" id="h8-0-91" class="i">+
+</a><a href="#h8-0-92" id="h8-0-92" class="i">+  h1, h2, h3, h4, h5 {
+</a><a href="#h8-0-93" id="h8-0-93" class="i">+    color: var(--dark-green);
+</a><a href="#h8-0-94" id="h8-0-94" class="i">+    font-weight: var(--dark-font);
+</a><a href="#h8-0-95" id="h8-0-95" class="i">+  }
+</a><a href="#h8-0-96" id="h8-0-96" class="i">+
+</a><a href="#h8-0-97" id="h8-0-97" class="i">+  a {
+</a><a href="#h8-0-98" id="h8-0-98" class="i">+    color: var(--dark-blue);
+</a><a href="#h8-0-99" id="h8-0-99" class="i">+  }
+</a><a href="#h8-0-100" id="h8-0-100" class="i">+  .link-white {
+</a><a href="#h8-0-101" id="h8-0-101" class="i">+    color: var(--dark-text);
+</a><a href="#h8-0-102" id="h8-0-102" class="i">+  }
+</a><a href="#h8-0-103" id="h8-0-103" class="i">+
+</a><a href="#h8-0-104" id="h8-0-104" class="i">+  a:hover:not(.wm-avatar):not(.no-hover), a#active {
+</a><a href="#h8-0-105" id="h8-0-105" class="i">+    background-color: var(--dark-background-hover);
+</a><a href="#h8-0-106" id="h8-0-106" class="i">+    color: var(--dark-red);
+</a><a href="#h8-0-107" id="h8-0-107" class="i">+  }
+</a><a href="#h8-0-108" id="h8-0-108" class="i">+  a:hover:not(.wm-avatar):not(.no-hover):not(.no-outline):not(.footnote-ref),
+</a><a href="#h8-0-109" id="h8-0-109" class="i">+  a#active:not(.no-outline):not(.footnote-ref) {
+</a><a href="#h8-0-110" id="h8-0-110" class="i">+    outline-color: var(--dark-background-hover);
+</a><a href="#h8-0-111" id="h8-0-111" class="i">+    background-color: var(--dark-background-hover);
+</a><a href="#h8-0-112" id="h8-0-112" class="i">+  }
+</a><a href="#h8-0-113" id="h8-0-113" class="i">+
+</a><a href="#h8-0-114" id="h8-0-114" class="i">+  hr {
+</a><a href="#h8-0-115" id="h8-0-115" class="i">+    border-top-color: var(--dark-text);
+</a><a href="#h8-0-116" id="h8-0-116" class="i">+  }
+</a><a href="#h8-0-117" id="h8-0-117" class="i">+
+</a><a href="#h8-0-118" id="h8-0-118" class="i">+  strong {
+</a><a href="#h8-0-119" id="h8-0-119" class="i">+    font-weight: var(--dark-font-bold);
+</a><a href="#h8-0-120" id="h8-0-120" class="i">+  }
+</a><a href="#h8-0-121" id="h8-0-121" class="i">+
+</a><a href="#h8-0-122" id="h8-0-122" class="i">+  time {
+</a><a href="#h8-0-123" id="h8-0-123" class="i">+    color: var(--dark-red);
+</a><a href="#h8-0-124" id="h8-0-124" class="i">+  }
+</a><a href="#h8-0-125" id="h8-0-125" class="i">+
+</a><a href="#h8-0-126" id="h8-0-126" class="i">+  blockquote {
+</a><a href="#h8-0-127" id="h8-0-127" class="i">+    border-color-color: var(--dark-red);
+</a><a href="#h8-0-128" id="h8-0-128" class="i">+  }
+</a><a href="#h8-0-129" id="h8-0-129" class="i">+
+</a><a href="#h8-0-130" id="h8-0-130" class="i">+  :not(pre) &gt; code {
+</a><a href="#h8-0-131" id="h8-0-131" class="i">+    background-color: var(--dark-background-hover);
+</a><a href="#h8-0-132" id="h8-0-132" class="i">+  }
+</a><a href="#h8-0-133" id="h8-0-133" class="i">+
+</a><a href="#h8-0-134" id="h8-0-134" class="i">+  /* content */
+</a><a href="#h8-0-135" id="h8-0-135" class="i">+  .notes:target {
+</a><a href="#h8-0-136" id="h8-0-136" class="i">+    outline-color: var(--dark-background-hover);
+</a><a href="#h8-0-137" id="h8-0-137" class="i">+  }
+</a><a href="#h8-0-138" id="h8-0-138" class="i">+  .responses:target {
+</a><a href="#h8-0-139" id="h8-0-139" class="i">+    outline-color: var(--dark-background-hover);
+</a><a href="#h8-0-140" id="h8-0-140" class="i">+  }
+</a><a href="#h8-0-141" id="h8-0-141" class="i">+
+</a><a href="#h8-0-142" id="h8-0-142" class="i">+  .content ol li span:before {
+</a><a href="#h8-0-143" id="h8-0-143" class="i">+    color: var(--dark-red);
+</a><a href="#h8-0-144" id="h8-0-144" class="i">+  }
+</a><a href="#h8-0-145" id="h8-0-145" class="i">+  .content ul li span:before {
+</a><a href="#h8-0-146" id="h8-0-146" class="i">+    color: var(--dark-red);
+</a><a href="#h8-0-147" id="h8-0-147" class="i">+  }
+</a><a href="#h8-0-148" id="h8-0-148" class="i">+
+</a><a href="#h8-0-149" id="h8-0-149" class="i">+  .content table th {
+</a><a href="#h8-0-150" id="h8-0-150" class="i">+    background-color: var(--dark-background-hover);
+</a><a href="#h8-0-151" id="h8-0-151" class="i">+    color: var(--dark-text);
+</a><a href="#h8-0-152" id="h8-0-152" class="i">+  }
+</a><a href="#h8-0-153" id="h8-0-153" class="i">+  .content table td, .content table th {
+</a><a href="#h8-0-154" id="h8-0-154" class="i">+    border-color: var(--dark-text);
+</a><a href="#h8-0-155" id="h8-0-155" class="i">+  }
+</a><a href="#h8-0-156" id="h8-0-156" class="i">+  .content table tr:nth-child(even) {
+</a><a href="#h8-0-157" id="h8-0-157" class="i">+    background-color: var(--dark-background-hover);
+</a><a href="#h8-0-158" id="h8-0-158" class="i">+    color: var(--dark-text);
+</a><a href="#h8-0-159" id="h8-0-159" class="i">+  }
+</a><a href="#h8-0-160" id="h8-0-160" class="i">+
+</a><a href="#h8-0-161" id="h8-0-161" class="i">+  /* footer */
+</a><a href="#h8-0-162" id="h8-0-162" class="i">+  .footer .hcard {
+</a><a href="#h8-0-163" id="h8-0-163" class="i">+    border: solid 1px var(--dark-border);
+</a><a href="#h8-0-164" id="h8-0-164" class="i">+  }
+</a><a href="#h8-0-165" id="h8-0-165" class="i">+  .footer .hcard__description {
+</a><a href="#h8-0-166" id="h8-0-166" class="i">+    background-color: var(--dark-background);
+</a><a href="#h8-0-167" id="h8-0-167" class="i">+  }
+</a><a href="#h8-0-168" id="h8-0-168" class="i">+}
+</a><a href="#h8-0-169" id="h8-0-169" class="i">+
+</a><b>diff --git a/<a id="h9" href="../file/assets/variables.css.html">assets/variables.css</a> b/<a href="../file/assets/variables.css.html">assets/variables.css</a></b>
+<a href="#h9-0" id="h9-0" class="h">@@ -0,0 +1,24 @@
+</a><a href="#h9-0-0" id="h9-0-0" class="i">+:root {
+</a><a href="#h9-0-1" id="h9-0-1" class="i">+  --light-text: #242424;
+</a><a href="#h9-0-2" id="h9-0-2" class="i">+  --light-background: #E3E0D7;
+</a><a href="#h9-0-3" id="h9-0-3" class="i">+  --light-background-hover: #D4D1C7;
+</a><a href="#h9-0-4" id="h9-0-4" class="i">+  --light-border: #555555;
+</a><a href="#h9-0-5" id="h9-0-5" class="i">+  --light-red: #C31B00;
+</a><a href="#h9-0-6" id="h9-0-6" class="i">+  --light-blue: #2263b6;
+</a><a href="#h9-0-7" id="h9-0-7" class="i">+  --light-green: #257933;
+</a><a href="#h9-0-8" id="h9-0-8" class="i">+  --light-font: 400;
+</a><a href="#h9-0-9" id="h9-0-9" class="i">+  --light-font-bold: 600;
+</a><a href="#h9-0-10" id="h9-0-10" class="i">+
+</a><a href="#h9-0-11" id="h9-0-11" class="i">+  --dark-text: #E3E0D7;
+</a><a href="#h9-0-12" id="h9-0-12" class="i">+  --dark-background: #242424;
+</a><a href="#h9-0-13" id="h9-0-13" class="i">+  --dark-background-hover: #303030;
+</a><a href="#h9-0-14" id="h9-0-14" class="i">+  --dark-border: #808080;
+</a><a href="#h9-0-15" id="h9-0-15" class="i">+  --dark-red: #F9690E;
+</a><a href="#h9-0-16" id="h9-0-16" class="i">+  --dark-blue: #8DBFFF;
+</a><a href="#h9-0-17" id="h9-0-17" class="i">+  --dark-green: #79D688;
+</a><a href="#h9-0-18" id="h9-0-18" class="i">+  --dark-font: 300;
+</a><a href="#h9-0-19" id="h9-0-19" class="i">+  --dark-font-bold: 700;
+</a><a href="#h9-0-20" id="h9-0-20" class="i">+
+</a><a href="#h9-0-21" id="h9-0-21" class="i">+  --font-mono: &#39;iA Writer Duospace&#39;, monospace;
+</a><a href="#h9-0-22" id="h9-0-22" class="i">+  --font-text: -apple-system, BlinkMacSystemFont, avenir, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+</a><a href="#h9-0-23" id="h9-0-23" class="i">+}
+</a><b>diff --git a/<a id="h10" href="../file/assets/variables.scss.html">assets/variables.scss</a> b/<a href="../file/assets/variables.scss.html">assets/variables.scss</a></b>
+<a href="#h10-0" id="h10-0" class="h">@@ -1,48 +0,0 @@
+</a><a href="#h10-0-0" id="h10-0-0" class="d">-@mixin themify($themes: $themes) {
+</a><a href="#h10-0-1" id="h10-0-1" class="d">-  @each $theme, $map in $themes {
+</a><a href="#h10-0-2" id="h10-0-2" class="d">-
+</a><a href="#h10-0-3" id="h10-0-3" class="d">-    .theme-#{$theme} &amp; {
+</a><a href="#h10-0-4" id="h10-0-4" class="d">-      $theme-map: () !global;
+</a><a href="#h10-0-5" id="h10-0-5" class="d">-      @each $key, $submap in $map {
+</a><a href="#h10-0-6" id="h10-0-6" class="d">-        $value: map-get(map-get($themes, $theme), &#39;#{$key}&#39;);
+</a><a href="#h10-0-7" id="h10-0-7" class="d">-        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+</a><a href="#h10-0-8" id="h10-0-8" class="d">-      }
+</a><a href="#h10-0-9" id="h10-0-9" class="d">-
+</a><a href="#h10-0-10" id="h10-0-10" class="d">-      @content;
+</a><a href="#h10-0-11" id="h10-0-11" class="d">-      $theme-map: null !global;
+</a><a href="#h10-0-12" id="h10-0-12" class="d">-    }
+</a><a href="#h10-0-13" id="h10-0-13" class="d">-
+</a><a href="#h10-0-14" id="h10-0-14" class="d">-  }
+</a><a href="#h10-0-15" id="h10-0-15" class="d">-}
+</a><a href="#h10-0-16" id="h10-0-16" class="d">-
+</a><a href="#h10-0-17" id="h10-0-17" class="d">-@function themed($key) {
+</a><a href="#h10-0-18" id="h10-0-18" class="d">-  @return map-get($theme-map, $key);
+</a><a href="#h10-0-19" id="h10-0-19" class="d">-}
+</a><a href="#h10-0-20" id="h10-0-20" class="d">-
+</a><a href="#h10-0-21" id="h10-0-21" class="d">-$themes: (
+</a><a href="#h10-0-22" id="h10-0-22" class="d">-  light: (
+</a><a href="#h10-0-23" id="h10-0-23" class="d">-    color-text: #242424,
+</a><a href="#h10-0-24" id="h10-0-24" class="d">-    color-background: #E3E0D7,
+</a><a href="#h10-0-25" id="h10-0-25" class="d">-    color-background-hover: #D4D1C7,
+</a><a href="#h10-0-26" id="h10-0-26" class="d">-    color-border: #555555,
+</a><a href="#h10-0-27" id="h10-0-27" class="d">-    color-red: #C31B00,
+</a><a href="#h10-0-28" id="h10-0-28" class="d">-    color-blue: #2263b6,
+</a><a href="#h10-0-29" id="h10-0-29" class="d">-    color-green: #257933,
+</a><a href="#h10-0-30" id="h10-0-30" class="d">-    font-weight: 400,
+</a><a href="#h10-0-31" id="h10-0-31" class="d">-    font-weight-bold: 600,
+</a><a href="#h10-0-32" id="h10-0-32" class="d">-  ),
+</a><a href="#h10-0-33" id="h10-0-33" class="d">-  dark: (
+</a><a href="#h10-0-34" id="h10-0-34" class="d">-    color-text: #E3E0D7,
+</a><a href="#h10-0-35" id="h10-0-35" class="d">-    color-background: #242424,
+</a><a href="#h10-0-36" id="h10-0-36" class="d">-    color-background-hover: #303030,
+</a><a href="#h10-0-37" id="h10-0-37" class="d">-    color-border: #808080,
+</a><a href="#h10-0-38" id="h10-0-38" class="d">-    color-red: #F9690E,
+</a><a href="#h10-0-39" id="h10-0-39" class="d">-    color-blue: #8DBFFF,
+</a><a href="#h10-0-40" id="h10-0-40" class="d">-    color-green: #79D688,
+</a><a href="#h10-0-41" id="h10-0-41" class="d">-    font-weight: 300,
+</a><a href="#h10-0-42" id="h10-0-42" class="d">-    font-weight-bold: 700,
+</a><a href="#h10-0-43" id="h10-0-43" class="d">-  ),
+</a><a href="#h10-0-44" id="h10-0-44" class="d">-);
+</a><a href="#h10-0-45" id="h10-0-45" class="d">-
+</a><a href="#h10-0-46" id="h10-0-46" class="d">-$font-mono: &#39;iA Writer Duospace&#39;, monospace;
+</a><a href="#h10-0-47" id="h10-0-47" class="d">-$font-text: -apple-system, BlinkMacSystemFont, avenir, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+</a><b>diff --git a/<a id="h11" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h11-0" id="h11-0" class="h">@@ -30,9 +30,9 @@
+</a> 
+       &lt;div class=&quot;bottom-hcard-container&quot; {{ if eq .Type &quot;page&quot; }} hidden=&quot;&quot;{{ end }}&gt;
+         &lt;p class=&quot;hcard-top hcard&quot;&gt;
+<a href="#h11-0-3" id="h11-0-3" class="d">-          &lt;a class=&quot;u-url link-white&quot; href={{ .Permalink }}&gt;Published&lt;/a&gt; on
+</a><a href="#h11-0-4" id="h11-0-4" class="i">+          Published on
+</a>           &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot; class=&quot;dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;
+<a href="#h11-0-6" id="h11-0-6" class="d">-            {{ .Date.Format &quot;02 January 2006&quot; }}&lt;/time&gt;,
+</a><a href="#h11-0-7" id="h11-0-7" class="i">+            {{ .Date.Format &quot;02 January 2006&quot; }}&lt;/time&gt; &lt;a class=&quot;u-url link-white&quot; href={{ .Permalink }}&gt;🔗&lt;/a&gt;,
+</a>           tagged:
+           {{ with .Params.tags }}
+             &lt;span class=&quot;hcard-tags&quot;&gt;
+<b>diff --git a/<a id="h12" href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a> b/<a href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a></b>
+<a href="#h12-0" id="h12-0" class="h">@@ -16,11 +16,31 @@
+</a>     {{ printf `&lt;link rel=&quot;%s&quot; type=&quot;%s&quot; href=&quot;%s&quot; title=&quot;%s&quot; /&gt;` .Rel .MediaType.Type .Permalink $rssTitle | safeHTML }}
+ {{ end }}
+ 
+<a href="#h12-0-3" id="h12-0-3" class="d">-&lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}darkToggler.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;
+</a> &lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}lazyImage.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;
+ 
+ &lt;style&gt;
+<a href="#h12-0-7" id="h12-0-7" class="d">-  {{ with resources.Get &quot;styles.scss&quot; | resources.ToCSS | resources.Minify }}
+</a><a href="#h12-0-8" id="h12-0-8" class="i">+  {{ with resources.Get &quot;fonts.css&quot; | resources.Minify }}
+</a><a href="#h12-0-9" id="h12-0-9" class="i">+      {{ .Content | safeCSS }}
+</a><a href="#h12-0-10" id="h12-0-10" class="i">+  {{ end }}
+</a><a href="#h12-0-11" id="h12-0-11" class="i">+  {{ with resources.Get &quot;theme.css&quot; | resources.Minify }}
+</a><a href="#h12-0-12" id="h12-0-12" class="i">+      {{ .Content | safeCSS }}
+</a><a href="#h12-0-13" id="h12-0-13" class="i">+  {{ end }}
+</a><a href="#h12-0-14" id="h12-0-14" class="i">+  {{ with resources.Get &quot;responsive.css&quot; | resources.Minify }}
+</a><a href="#h12-0-15" id="h12-0-15" class="i">+      {{ .Content | safeCSS }}
+</a><a href="#h12-0-16" id="h12-0-16" class="i">+  {{ end }}
+</a><a href="#h12-0-17" id="h12-0-17" class="i">+  {{ with resources.Get &quot;main.css&quot; | resources.Minify }}
+</a><a href="#h12-0-18" id="h12-0-18" class="i">+      {{ .Content | safeCSS }}
+</a><a href="#h12-0-19" id="h12-0-19" class="i">+  {{ end }}
+</a><a href="#h12-0-20" id="h12-0-20" class="i">+  {{ with resources.Get &quot;content.css&quot; | resources.Minify }}
+</a><a href="#h12-0-21" id="h12-0-21" class="i">+      {{ .Content | safeCSS }}
+</a><a href="#h12-0-22" id="h12-0-22" class="i">+  {{ end }}
+</a><a href="#h12-0-23" id="h12-0-23" class="i">+  {{ with resources.Get &quot;header.css&quot; | resources.Minify }}
+</a><a href="#h12-0-24" id="h12-0-24" class="i">+      {{ .Content | safeCSS }}
+</a><a href="#h12-0-25" id="h12-0-25" class="i">+  {{ end }}
+</a><a href="#h12-0-26" id="h12-0-26" class="i">+  {{ with resources.Get &quot;footer.css&quot; | resources.Minify }}
+</a><a href="#h12-0-27" id="h12-0-27" class="i">+      {{ .Content | safeCSS }}
+</a><a href="#h12-0-28" id="h12-0-28" class="i">+  {{ end }}
+</a><a href="#h12-0-29" id="h12-0-29" class="i">+  {{ with resources.Get &quot;variables.css&quot; | resources.Minify }}
+</a>       {{ .Content | safeCSS }}
+   {{ end }}
+ &lt;/style&gt;
+<b>diff --git a/<a id="h13" href="../file/layouts/partials/header/header.html.html">layouts/partials/header/header.html</a> b/<a href="../file/layouts/partials/header/header.html.html">layouts/partials/header/header.html</a></b>
+<a href="#h13-0" id="h13-0" class="h">@@ -22,11 +22,5 @@
+</a>         &lt;/a&gt;
+       {{ end }}
+     &lt;/span&gt;
+<a href="#h13-0-3" id="h13-0-3" class="d">-    &lt;button
+</a><a href="#h13-0-4" id="h13-0-4" class="d">-      class=&quot;header__menu__list__toggler__off&quot;
+</a><a href="#h13-0-5" id="h13-0-5" class="d">-      id=&quot;dark-toggler&quot;
+</a><a href="#h13-0-6" id="h13-0-6" class="d">-    &gt;
+</a><a href="#h13-0-7" id="h13-0-7" class="d">-      🌛
+</a><a href="#h13-0-8" id="h13-0-8" class="d">-    &lt;/button&gt;
+</a>   &lt;/div&gt;
+ &lt;/nav&gt;
+<b>diff --git a/<a id="h14" href="../file/static/darkToggler.js.html">static/darkToggler.js</a> b/<a href="../file/static/darkToggler.js.html">static/darkToggler.js</a></b>
+<a href="#h14-0" id="h14-0" class="h">@@ -1,28 +0,0 @@
+</a><a href="#h14-0-0" id="h14-0-0" class="d">-(function() {
+</a><a href="#h14-0-1" id="h14-0-1" class="d">-  const toggler = document.getElementById(&quot;dark-toggler&quot;);
+</a><a href="#h14-0-2" id="h14-0-2" class="d">-  const mainWrapper = document.getElementById(&quot;main-theme&quot;);
+</a><a href="#h14-0-3" id="h14-0-3" class="d">-  const currentTheme = localStorage.getItem(&quot;theme&quot;);
+</a><a href="#h14-0-4" id="h14-0-4" class="d">-
+</a><a href="#h14-0-5" id="h14-0-5" class="d">-  if (toggler &amp;&amp; mainWrapper) {
+</a><a href="#h14-0-6" id="h14-0-6" class="d">-    toggler.className = &quot;header__menu__list__toggler&quot;;
+</a><a href="#h14-0-7" id="h14-0-7" class="d">-    toggler.onclick = function() {
+</a><a href="#h14-0-8" id="h14-0-8" class="d">-      if (mainWrapper.className === &quot;theme-light&quot;) {
+</a><a href="#h14-0-9" id="h14-0-9" class="d">-        mainWrapper.className = &quot;theme-dark&quot;;
+</a><a href="#h14-0-10" id="h14-0-10" class="d">-        localStorage.setItem(&quot;theme&quot;, &quot;dark&quot;);
+</a><a href="#h14-0-11" id="h14-0-11" class="d">-        toggler.innerText = &quot;🌛&quot;;
+</a><a href="#h14-0-12" id="h14-0-12" class="d">-      } else if (mainWrapper.className === &quot;theme-dark&quot;) {
+</a><a href="#h14-0-13" id="h14-0-13" class="d">-        mainWrapper.className = &quot;theme-light&quot;;
+</a><a href="#h14-0-14" id="h14-0-14" class="d">-        localStorage.setItem(&quot;theme&quot;, &quot;light&quot;);
+</a><a href="#h14-0-15" id="h14-0-15" class="d">-        toggler.innerText = &quot;🌞&quot;;
+</a><a href="#h14-0-16" id="h14-0-16" class="d">-      }
+</a><a href="#h14-0-17" id="h14-0-17" class="d">-    };
+</a><a href="#h14-0-18" id="h14-0-18" class="d">-  }
+</a><a href="#h14-0-19" id="h14-0-19" class="d">-
+</a><a href="#h14-0-20" id="h14-0-20" class="d">-  if (currentTheme &amp;&amp; currentTheme === &quot;light&quot;) {
+</a><a href="#h14-0-21" id="h14-0-21" class="d">-    mainWrapper.className = &quot;theme-light&quot;;
+</a><a href="#h14-0-22" id="h14-0-22" class="d">-    toggler.innerText = &quot;🌞&quot;;
+</a><a href="#h14-0-23" id="h14-0-23" class="d">-  }
+</a><a href="#h14-0-24" id="h14-0-24" class="d">-
+</a><a href="#h14-0-25" id="h14-0-25" class="d">-  console.log(&quot;Nice! You have the privilege of toggling the dark mode :D&quot;);
+</a><a href="#h14-0-26" id="h14-0-26" class="d">-  console.log(&quot;Just press the 🌞 or 🌛 logo on the top of page!&quot;);
+</a><a href="#h14-0-27" id="h14-0-27" class="d">-})()</a><a href="#h14-0-28" id="h14-0-28" class="d">-
+\ No newline at end of file
+</a></pre>
+</div>
+</div>
+</body>
+</html>

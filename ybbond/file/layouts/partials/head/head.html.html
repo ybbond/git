@@ -15,7 +15,7 @@
 <a href="../../../../index.html">Log</a> | <a href="../../../../files.html">Files</a> | <a href="../../../../refs.html">Refs</a> | <a href="../../../../file/README.md.html">README</a> | <a href="../../../../file/LICENSE.md.html">LICENSE</a> | <a href="../../../../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> head.html (1425B)</p><hr/><pre id="blob">
+<p> head.html (2023B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> &lt;meta charset=&quot;UTF-8&quot;&gt;
 <a href="#l2" class="line" id="l2">      2</a> &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
 <a href="#l3" class="line" id="l3">      3</a> &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
@@ -34,24 +34,44 @@
 <a href="#l16" class="line" id="l16">     16</a>     {{ printf `&lt;link rel=&quot;%s&quot; type=&quot;%s&quot; href=&quot;%s&quot; title=&quot;%s&quot; /&gt;` .Rel .MediaType.Type .Permalink $rssTitle | safeHTML }}
 <a href="#l17" class="line" id="l17">     17</a> {{ end }}
 <a href="#l18" class="line" id="l18">     18</a> 
-<a href="#l19" class="line" id="l19">     19</a> &lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}darkToggler.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;
-<a href="#l20" class="line" id="l20">     20</a> &lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}lazyImage.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;
-<a href="#l21" class="line" id="l21">     21</a> 
-<a href="#l22" class="line" id="l22">     22</a> &lt;style&gt;
-<a href="#l23" class="line" id="l23">     23</a>   {{ with resources.Get &quot;styles.scss&quot; | resources.ToCSS | resources.Minify }}
-<a href="#l24" class="line" id="l24">     24</a>       {{ .Content | safeCSS }}
-<a href="#l25" class="line" id="l25">     25</a>   {{ end }}
-<a href="#l26" class="line" id="l26">     26</a> &lt;/style&gt;
-<a href="#l27" class="line" id="l27">     27</a> &lt;link href=&quot;/fontawesome.min.css&quot; rel=&quot;stylesheet&quot;&gt;
-<a href="#l28" class="line" id="l28">     28</a> &lt;link href=&quot;/brands.min.css&quot; rel=&quot;stylesheet&quot;&gt;
-<a href="#l29" class="line" id="l29">     29</a> 
-<a href="#l30" class="line" id="l30">     30</a> 
-<a href="#l31" class="line" id="l31">     31</a> &lt;link rel=&quot;canonical&quot; href=&quot;{{ .Permalink }}&quot; /&gt;
-<a href="#l32" class="line" id="l32">     32</a> &lt;link rel=&quot;sitemap&quot; href=&quot;{{ &quot;sitemap.xml&quot; | absURL }}&quot; type=&quot;application/xml&quot; /&gt;
-<a href="#l33" class="line" id="l33">     33</a> 
-<a href="#l34" class="line" id="l34">     34</a> {{ partial &quot;head/auth-links.html&quot; . }}
-<a href="#l35" class="line" id="l35">     35</a> {{ partial &quot;head/og-metas.html&quot; . }}
-<a href="#l36" class="line" id="l36">     36</a> {{ partial &quot;head/twitter-card-metas.html&quot; . }}
+<a href="#l19" class="line" id="l19">     19</a> &lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}lazyImage.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;
+<a href="#l20" class="line" id="l20">     20</a> 
+<a href="#l21" class="line" id="l21">     21</a> &lt;style&gt;
+<a href="#l22" class="line" id="l22">     22</a>   {{ with resources.Get &quot;fonts.css&quot; | resources.Minify }}
+<a href="#l23" class="line" id="l23">     23</a>       {{ .Content | safeCSS }}
+<a href="#l24" class="line" id="l24">     24</a>   {{ end }}
+<a href="#l25" class="line" id="l25">     25</a>   {{ with resources.Get &quot;variables.css&quot; | resources.Minify }}
+<a href="#l26" class="line" id="l26">     26</a>       {{ .Content | safeCSS }}
+<a href="#l27" class="line" id="l27">     27</a>   {{ end }}
+<a href="#l28" class="line" id="l28">     28</a>   {{ with resources.Get &quot;theme.css&quot; | resources.Minify }}
+<a href="#l29" class="line" id="l29">     29</a>       {{ .Content | safeCSS }}
+<a href="#l30" class="line" id="l30">     30</a>   {{ end }}
+<a href="#l31" class="line" id="l31">     31</a>   {{ with resources.Get &quot;main.css&quot; | resources.Minify }}
+<a href="#l32" class="line" id="l32">     32</a>       {{ .Content | safeCSS }}
+<a href="#l33" class="line" id="l33">     33</a>   {{ end }}
+<a href="#l34" class="line" id="l34">     34</a>   {{ with resources.Get &quot;header.css&quot; | resources.Minify }}
+<a href="#l35" class="line" id="l35">     35</a>       {{ .Content | safeCSS }}
+<a href="#l36" class="line" id="l36">     36</a>   {{ end }}
+<a href="#l37" class="line" id="l37">     37</a>   {{ with resources.Get &quot;footer.css&quot; | resources.Minify }}
+<a href="#l38" class="line" id="l38">     38</a>       {{ .Content | safeCSS }}
+<a href="#l39" class="line" id="l39">     39</a>   {{ end }}
+<a href="#l40" class="line" id="l40">     40</a>   {{ with resources.Get &quot;content.css&quot; | resources.Minify }}
+<a href="#l41" class="line" id="l41">     41</a>       {{ .Content | safeCSS }}
+<a href="#l42" class="line" id="l42">     42</a>   {{ end }}
+<a href="#l43" class="line" id="l43">     43</a>   {{ with resources.Get &quot;responsive.css&quot; | resources.Minify }}
+<a href="#l44" class="line" id="l44">     44</a>       {{ .Content | safeCSS }}
+<a href="#l45" class="line" id="l45">     45</a>   {{ end }}
+<a href="#l46" class="line" id="l46">     46</a> &lt;/style&gt;
+<a href="#l47" class="line" id="l47">     47</a> &lt;link href=&quot;/fontawesome.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+<a href="#l48" class="line" id="l48">     48</a> &lt;link href=&quot;/brands.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+<a href="#l49" class="line" id="l49">     49</a> 
+<a href="#l50" class="line" id="l50">     50</a> 
+<a href="#l51" class="line" id="l51">     51</a> &lt;link rel=&quot;canonical&quot; href=&quot;{{ .Permalink }}&quot; /&gt;
+<a href="#l52" class="line" id="l52">     52</a> &lt;link rel=&quot;sitemap&quot; href=&quot;{{ &quot;sitemap.xml&quot; | absURL }}&quot; type=&quot;application/xml&quot; /&gt;
+<a href="#l53" class="line" id="l53">     53</a> 
+<a href="#l54" class="line" id="l54">     54</a> {{ partial &quot;head/auth-links.html&quot; . }}
+<a href="#l55" class="line" id="l55">     55</a> {{ partial &quot;head/og-metas.html&quot; . }}
+<a href="#l56" class="line" id="l56">     56</a> {{ partial &quot;head/twitter-card-metas.html&quot; . }}
 </pre>
 </div>
 </body>

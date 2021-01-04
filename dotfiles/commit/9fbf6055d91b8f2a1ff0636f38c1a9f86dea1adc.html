@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>modify doom - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/9fbf6055d91b8f2a1ff0636f38c1a9f86dea1adc.html">9fbf6055d91b8f2a1ff0636f38c1a9f86dea1adc</a>
+<b>parent</b> <a href="../commit/cb491a4623714b77c1bf0f14efc612954f9d712a.html">cb491a4623714b77c1bf0f14efc612954f9d712a</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Wed, 21 Oct 2020 13:18:15 +0700
+
+modify doom
+
+<b>Diffstat:</b>
+<table><tr><td class="D">D</td><td><a href="#h0">.doom.d/+org.el</a></td><td> | </td><td class="num">177</td><td><span class="i"></span><span class="d">-------------------------------------------------------------------------------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h1">.doom.d/+plugins.el</a></td><td> | </td><td class="num">68</td><td><span class="i"></span><span class="d">--------------------------------------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">.doom.d/config.el</a></td><td> | </td><td class="num">275</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">--------------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h3">.doom.d/custom.el</a></td><td> | </td><td class="num">12</td><td><span class="i"></span><span class="d">------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">.doom.d/init.el</a></td><td> | </td><td class="num">23</td><td><span class="i">+++++++++++</span><span class="d">------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">.doom.d/packages.el</a></td><td> | </td><td class="num">7</td><td><span class="i">++</span><span class="d">-----</span></td></tr>
+</table></pre></div><p>6 files changed, 241 insertions(<span id="plus">+</span>), 321 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a> b/<a href="../file/.doom.d/+org.el.html">.doom.d/+org.el</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,177 +0,0 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="d">-;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
+</a><a href="#h0-0-1" id="h0-0-1" class="d">-
+</a><a href="#h0-0-2" id="h0-0-2" class="d">-;; source https://github.com/theianjones/dotfiles/blob/master/.doom.d/+org.el
+</a><a href="#h0-0-3" id="h0-0-3" class="d">-
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-(use-package! org-roam
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-  :hook
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-  (after-init . org-roam-mode))
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-  (setq org_notes &quot;~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/&quot;)
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-(after! org-roam
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-  (add-hook &#39;after-init-hook &#39;org-roam-mode)
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-  :config
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-  (setq org-roam-directory org_notes)
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-  (setq org-roam-db-location &quot;~/org/org-roam.db&quot;)
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-  (setq org-roam-link-title-format &quot;[[%s]]&quot;)
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-  (setq org-roam-graph-viewer &quot;/usr/bin/open&quot;)
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-  (setq org-roam-capture-ref-templates
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-        &#39;((&quot;r&quot; &quot;ref&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-           &quot;%?&quot;
+</a><a href="#h0-0-19" id="h0-0-19" class="d">-           :file-name &quot;${slug}&quot;
+</a><a href="#h0-0-20" id="h0-0-20" class="d">-           :head &quot;#+title: ${title}
+</a><a href="#h0-0-21" id="h0-0-21" class="d">-#+author: ${author}
+</a><a href="#h0-0-22" id="h0-0-22" class="d">-#+roam_key: ${ref}
+</a><a href="#h0-0-23" id="h0-0-23" class="d">-#+roam_tags: web_references
+</a><a href="#h0-0-24" id="h0-0-24" class="d">-- saved :: ${savedDate}
+</a><a href="#h0-0-25" id="h0-0-25" class="d">-- source :: ${ref}
+</a><a href="#h0-0-26" id="h0-0-26" class="d">-
+</a><a href="#h0-0-27" id="h0-0-27" class="d">-* Highlights\n&quot;
+</a><a href="#h0-0-28" id="h0-0-28" class="d">-           :immediate-finish t
+</a><a href="#h0-0-29" id="h0-0-29" class="d">-           :unnarrowed t
+</a><a href="#h0-0-30" id="h0-0-30" class="d">-           :config
+</a><a href="#h0-0-31" id="h0-0-31" class="d">-           (add-hook! &#39;after-init-hook &#39;org-roam-db-build-cache)))))
+</a><a href="#h0-0-32" id="h0-0-32" class="d">-
+</a><a href="#h0-0-33" id="h0-0-33" class="d">-  (setq org-roam-dailies-capture-templates
+</a><a href="#h0-0-34" id="h0-0-34" class="d">-    &#39;((&quot;d&quot; &quot;daily&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h0-0-35" id="h0-0-35" class="d">-      &quot;%?&quot;
+</a><a href="#h0-0-36" id="h0-0-36" class="d">-      :file-name &quot;%&lt;%Y-%m-%d&gt;&quot;
+</a><a href="#h0-0-37" id="h0-0-37" class="d">-      :immediate-finish t
+</a><a href="#h0-0-38" id="h0-0-38" class="d">-      :head &quot;#+title: %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;
+</a><a href="#h0-0-39" id="h0-0-39" class="d">-#+roam_tags: journals\n
+</a><a href="#h0-0-40" id="h0-0-40" class="d">-\n
+</a><a href="#h0-0-41" id="h0-0-41" class="d">-* %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;&quot;
+</a><a href="#h0-0-42" id="h0-0-42" class="d">-      :unnarrowed t)))
+</a><a href="#h0-0-43" id="h0-0-43" class="d">-
+</a><a href="#h0-0-44" id="h0-0-44" class="d">-  (setq org-roam-capture-templates
+</a><a href="#h0-0-45" id="h0-0-45" class="d">-        &#39;((&quot;d&quot; &quot;default&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h0-0-46" id="h0-0-46" class="d">-           &quot;%?&quot;
+</a><a href="#h0-0-47" id="h0-0-47" class="d">-           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h0-0-48" id="h0-0-48" class="d">-           :head &quot;#+title: ${title}\n&quot;
+</a><a href="#h0-0-49" id="h0-0-49" class="d">-           :immediate-finish t
+</a><a href="#h0-0-50" id="h0-0-50" class="d">-           :unnarrowed t)
+</a><a href="#h0-0-51" id="h0-0-51" class="d">-          (&quot;k&quot; &quot;kumparan&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h0-0-52" id="h0-0-52" class="d">-           &quot;%?&quot;
+</a><a href="#h0-0-53" id="h0-0-53" class="d">-           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h0-0-54" id="h0-0-54" class="d">-           :head &quot;#+title: ${title}
+</a><a href="#h0-0-55" id="h0-0-55" class="d">-#+roam_tags: kumparan
+</a><a href="#h0-0-56" id="h0-0-56" class="d">-- backlinks :: [[file:20200630143644-kumparan.org][kumparan]]&quot;
+</a><a href="#h0-0-57" id="h0-0-57" class="d">-           :immediate-finish t
+</a><a href="#h0-0-58" id="h0-0-58" class="d">-           :unnarrowed t)
+</a><a href="#h0-0-59" id="h0-0-59" class="d">-          (&quot;c&quot; &quot;companies&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h0-0-60" id="h0-0-60" class="d">-           &quot;%?&quot;
+</a><a href="#h0-0-61" id="h0-0-61" class="d">-           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h0-0-62" id="h0-0-62" class="d">-           :head &quot;#+title: ${title}
+</a><a href="#h0-0-63" id="h0-0-63" class="d">-#+roam_tags: companies\n&quot;
+</a><a href="#h0-0-64" id="h0-0-64" class="d">-           :immediate-finish t
+</a><a href="#h0-0-65" id="h0-0-65" class="d">-           :unnarrowed t)
+</a><a href="#h0-0-66" id="h0-0-66" class="d">-          (&quot;m&quot; &quot;medias&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h0-0-67" id="h0-0-67" class="d">-           &quot;%?&quot;
+</a><a href="#h0-0-68" id="h0-0-68" class="d">-           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h0-0-69" id="h0-0-69" class="d">-           :head &quot;#+title: ${title}
+</a><a href="#h0-0-70" id="h0-0-70" class="d">-#+roam_tags: medias\n&quot;
+</a><a href="#h0-0-71" id="h0-0-71" class="d">-           :immediate-finish t
+</a><a href="#h0-0-72" id="h0-0-72" class="d">-           :unnarrowed t)
+</a><a href="#h0-0-73" id="h0-0-73" class="d">-          (&quot;p&quot; &quot;products&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h0-0-74" id="h0-0-74" class="d">-           &quot;%?&quot;
+</a><a href="#h0-0-75" id="h0-0-75" class="d">-           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h0-0-76" id="h0-0-76" class="d">-           :head &quot;#+title: ${title}
+</a><a href="#h0-0-77" id="h0-0-77" class="d">-#+roam_tags: products\n&quot;
+</a><a href="#h0-0-78" id="h0-0-78" class="d">-           :immediate-finish t
+</a><a href="#h0-0-79" id="h0-0-79" class="d">-           :unnarrowed t)
+</a><a href="#h0-0-80" id="h0-0-80" class="d">-          (&quot;i&quot; &quot;people&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h0-0-81" id="h0-0-81" class="d">-           &quot;%?&quot;
+</a><a href="#h0-0-82" id="h0-0-82" class="d">-           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h0-0-83" id="h0-0-83" class="d">-           :head &quot;#+title: ${title}
+</a><a href="#h0-0-84" id="h0-0-84" class="d">-#+roam_tags: people\n&quot;
+</a><a href="#h0-0-85" id="h0-0-85" class="d">-           :immediate-finish t
+</a><a href="#h0-0-86" id="h0-0-86" class="d">-           :unnarrowed t)))
+</a><a href="#h0-0-87" id="h0-0-87" class="d">-
+</a><a href="#h0-0-88" id="h0-0-88" class="d">-(use-package! deft
+</a><a href="#h0-0-89" id="h0-0-89" class="d">-  :after org
+</a><a href="#h0-0-90" id="h0-0-90" class="d">-  :config
+</a><a href="#h0-0-91" id="h0-0-91" class="d">-  (setq deft-recursive t)
+</a><a href="#h0-0-92" id="h0-0-92" class="d">-  (setq deft-use-filter-string-for-filename t)
+</a><a href="#h0-0-93" id="h0-0-93" class="d">-  (setq deft-default-extension &quot;org&quot;)
+</a><a href="#h0-0-94" id="h0-0-94" class="d">-  (setq deft-incremental-search t)
+</a><a href="#h0-0-95" id="h0-0-95" class="d">-  (setq deft-directory org_notes)
+</a><a href="#h0-0-96" id="h0-0-96" class="d">-  (add-hook &#39;after-init-hook &#39;org-roam-db-build-cache)
+</a><a href="#h0-0-97" id="h0-0-97" class="d">-  :bind
+</a><a href="#h0-0-98" id="h0-0-98" class="d">-  (&quot;s-d&quot; . deft))
+</a><a href="#h0-0-99" id="h0-0-99" class="d">-
+</a><a href="#h0-0-100" id="h0-0-100" class="d">-(use-package! org-journal
+</a><a href="#h0-0-101" id="h0-0-101" class="d">-  :bind
+</a><a href="#h0-0-102" id="h0-0-102" class="d">-  (&quot;C-c n j&quot; . org-journal-new-entry)
+</a><a href="#h0-0-103" id="h0-0-103" class="d">-  (&quot;C-c b&quot; . org-journal-previous-entry)
+</a><a href="#h0-0-104" id="h0-0-104" class="d">-  (&quot;C-c f&quot; . org-journal-next-entry)
+</a><a href="#h0-0-105" id="h0-0-105" class="d">-  :config
+</a><a href="#h0-0-106" id="h0-0-106" class="d">-  (setq org-journal-dir org_notes
+</a><a href="#h0-0-107" id="h0-0-107" class="d">-        org-journal-date-prefix &quot;#+title: &quot;
+</a><a href="#h0-0-108" id="h0-0-108" class="d">-        org-journal-file-format &quot;%Y-%m-%d.org&quot;
+</a><a href="#h0-0-109" id="h0-0-109" class="d">-        org-journal-date-format &quot;%A, %d %B %Y\n#+roam_tags: journals\n&quot;))
+</a><a href="#h0-0-110" id="h0-0-110" class="d">-
+</a><a href="#h0-0-111" id="h0-0-111" class="d">-(after! org
+</a><a href="#h0-0-112" id="h0-0-112" class="d">-  :init
+</a><a href="#h0-0-113" id="h0-0-113" class="d">-  (require &#39;find-lisp)
+</a><a href="#h0-0-114" id="h0-0-114" class="d">-  (setq org-agenda-files (find-lisp-find-files org_notes &quot;tasks\.org$&quot;))
+</a><a href="#h0-0-115" id="h0-0-115" class="d">-  (setq org-agenda-start-with-log-mode &#39;(state))
+</a><a href="#h0-0-116" id="h0-0-116" class="d">-  (setq org-agenda-start-day &quot;-9d&quot;)
+</a><a href="#h0-0-117" id="h0-0-117" class="d">-  (map! :map org-mode-map
+</a><a href="#h0-0-118" id="h0-0-118" class="d">-        :n &quot;M-j&quot; #&#39;org-metadown
+</a><a href="#h0-0-119" id="h0-0-119" class="d">-        :n &quot;M-k&quot; #&#39;orge-metaup)
+</a><a href="#h0-0-120" id="h0-0-120" class="d">-  :config
+</a><a href="#h0-0-121" id="h0-0-121" class="d">-  (setq org-directory org_notes
+</a><a href="#h0-0-122" id="h0-0-122" class="d">-        org-ellipsis &quot; ▼ &quot;
+</a><a href="#h0-0-123" id="h0-0-123" class="d">-        org-id-link-to-org-use-id nil
+</a><a href="#h0-0-124" id="h0-0-124" class="d">-        org-pretty-entities t
+</a><a href="#h0-0-125" id="h0-0-125" class="d">-        org-log-done &#39;note
+</a><a href="#h0-0-126" id="h0-0-126" class="d">-        org-log-into-drawer t
+</a><a href="#h0-0-127" id="h0-0-127" class="d">-        org-log-refile t
+</a><a href="#h0-0-128" id="h0-0-128" class="d">-        org-src-fontify-natively t
+</a><a href="#h0-0-129" id="h0-0-129" class="d">-        org-hide-emphasis-markers t)
+</a><a href="#h0-0-130" id="h0-0-130" class="d">-  (setq org-todo-keywords
+</a><a href="#h0-0-131" id="h0-0-131" class="d">-        &#39;((sequence &quot;TODO(t!)&quot; &quot;INPROGRESS(p!)&quot; &quot;INTEST(i!)&quot; &quot;FEEDBACK(f!)&quot; &quot;HOLD(h!)&quot; &quot;|&quot; &quot;MERGED(m!)&quot; &quot;DONE(d@/!)&quot; &quot;CANCELLED(c!)&quot;)
+</a><a href="#h0-0-132" id="h0-0-132" class="d">-          (sequence &quot;[ ](T)&quot; &quot;[-](S)&quot; &quot;[?](W)&quot; &quot;|&quot; &quot;[X](D)&quot;)))
+</a><a href="#h0-0-133" id="h0-0-133" class="d">-  (setq org-todo-keyword-faces
+</a><a href="#h0-0-134" id="h0-0-134" class="d">-        &#39;((&quot;TODO&quot; :foreground &quot;ffff00&quot; :weight normal :underline t)
+</a><a href="#h0-0-135" id="h0-0-135" class="d">-          (&quot;INPROGRESS&quot; :foreground &quot;#e39ff6&quot; :weight normal :underline t)
+</a><a href="#h0-0-136" id="h0-0-136" class="d">-          (&quot;INTEST&quot; :foreground &quot;#0098dd&quot; :weight normal :underline t)
+</a><a href="#h0-0-137" id="h0-0-137" class="d">-          (&quot;FEEDBACK&quot; :foreground &quot;#0098ee&quot; :weight normal :underline t)
+</a><a href="#h0-0-138" id="h0-0-138" class="d">-          (&quot;HOLD&quot; :foreground &quot;#9f7efe&quot; :weight normal :underline t)
+</a><a href="#h0-0-139" id="h0-0-139" class="d">-          (&quot;MERGED&quot; :foreground &quot;#50a14f&quot; :weight normal :underline t)
+</a><a href="#h0-0-140" id="h0-0-140" class="d">-          (&quot;DONE&quot; :foreground &quot;#50a14f&quot; :weight bold :underline t)
+</a><a href="#h0-0-141" id="h0-0-141" class="d">-          (&quot;CANCELLED&quot; :foreground &quot;#ff6480&quot; :weight normal :underline t)
+</a><a href="#h0-0-142" id="h0-0-142" class="d">-          (&quot;[-]&quot; :foreground &quot;#e39ff6&quot; :weight bold)
+</a><a href="#h0-0-143" id="h0-0-143" class="d">-          (&quot;[?]&quot; :foreground &quot;#9f7efe&quot; :weight bold))))
+</a><a href="#h0-0-144" id="h0-0-144" class="d">-
+</a><a href="#h0-0-145" id="h0-0-145" class="d">-(use-package! org-roam-server
+</a><a href="#h0-0-146" id="h0-0-146" class="d">-  :config
+</a><a href="#h0-0-147" id="h0-0-147" class="d">-  (setq org-roam-server-host &quot;127.0.0.1&quot;
+</a><a href="#h0-0-148" id="h0-0-148" class="d">-        org-roam-server-port 3001
+</a><a href="#h0-0-149" id="h0-0-149" class="d">-        org-roam-server-export-inline-images t
+</a><a href="#h0-0-150" id="h0-0-150" class="d">-        org-roam-server-authenticate nil
+</a><a href="#h0-0-151" id="h0-0-151" class="d">-        org-roam-server-network-poll t
+</a><a href="#h0-0-152" id="h0-0-152" class="d">-        org-roam-server-network-arrows nil
+</a><a href="#h0-0-153" id="h0-0-153" class="d">-        org-roam-server-network-label-truncate t
+</a><a href="#h0-0-154" id="h0-0-154" class="d">-        org-roam-server-network-label-truncate-length 60
+</a><a href="#h0-0-155" id="h0-0-155" class="d">-        org-roam-server-network-label-wrap-length 20))
+</a><a href="#h0-0-156" id="h0-0-156" class="d">-
+</a><a href="#h0-0-157" id="h0-0-157" class="d">-;; (add-hook &#39;org-roam-server-mode (lambda () (browse-url-chrome &quot;http://localhost:3001&quot;)))
+</a><a href="#h0-0-158" id="h0-0-158" class="d">-
+</a><a href="#h0-0-159" id="h0-0-159" class="d">-;; Refile a heading to another buffer
+</a><a href="#h0-0-160" id="h0-0-160" class="d">-;; Allows you to refile into different files - specifically to
+</a><a href="#h0-0-161" id="h0-0-161" class="d">-;; create new &#39;parent&#39; headings
+</a><a href="#h0-0-162" id="h0-0-162" class="d">-(setq org-refile-use-outline-path &#39;file)
+</a><a href="#h0-0-163" id="h0-0-163" class="d">-;; makes org-refile outline working with helm/ivy
+</a><a href="#h0-0-164" id="h0-0-164" class="d">-(setq org-outline-path-complete-in-steps nil)
+</a><a href="#h0-0-165" id="h0-0-165" class="d">-(setq org-refile-allow-creating-parent-nodes &#39;confirm)
+</a><a href="#h0-0-166" id="h0-0-166" class="d">-(defun +org/opened-buffer-files ()
+</a><a href="#h0-0-167" id="h0-0-167" class="d">-;;   &quot;Return the list of files currently opened in emacs&quot;
+</a><a href="#h0-0-168" id="h0-0-168" class="d">-  (delq nil
+</a><a href="#h0-0-169" id="h0-0-169" class="d">-        (mapcar (lambda (x)
+</a><a href="#h0-0-170" id="h0-0-170" class="d">-                  (if (and (buffer-file-name x)
+</a><a href="#h0-0-171" id="h0-0-171" class="d">-                           (string-match &quot;\\.org$&quot;
+</a><a href="#h0-0-172" id="h0-0-172" class="d">-                                         (buffer-file-name x)))
+</a><a href="#h0-0-173" id="h0-0-173" class="d">-                      (buffer-file-name x)))
+</a><a href="#h0-0-174" id="h0-0-174" class="d">-                (buffer-list))))
+</a><a href="#h0-0-175" id="h0-0-175" class="d">-
+</a><a href="#h0-0-176" id="h0-0-176" class="d">-(setq org-refile-targets &#39;((+org/opened-buffer-files :maxlevel . 9)))
+</a><b>diff --git a/<a id="h1" href="../file/.doom.d/+plugins.el.html">.doom.d/+plugins.el</a> b/<a href="../file/.doom.d/+plugins.el.html">.doom.d/+plugins.el</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,68 +0,0 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="d">-;;; ~/.doom.d/+ui.el -*- lexical-binding: t; -*-
+</a><a href="#h1-0-1" id="h1-0-1" class="d">-
+</a><a href="#h1-0-2" id="h1-0-2" class="d">-;; source https://github.com/theianjones/dotfiles/blob/master/.doom.d/+ui.el
+</a><a href="#h1-0-3" id="h1-0-3" class="d">-
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-;; General Configurations
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-(use-package! general
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-  :config
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-  (general-evil-setup))
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-;; Evil Configurations
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-(use-package! evil
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-  :init
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-  (general-setq evil-disable-insert-state-bindings t)
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-  :general
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-  ([remap evil-emacs-state] &#39;evil-normal-state)
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-  (general-imap &quot;C-f&quot; &#39;delete-forward-char))
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-;; replaced by evil-better-visual-line
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-;; (setq evil-want-minibuffer t)
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-;; Better visual line
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-;; (use-package! evil-better-visual-line
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-;;   :config
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-;;   (evil-better-visual-line-on))
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-;; Snipe
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-(after! evil-snipe
+</a><a href="#h1-0-27" id="h1-0-27" class="d">-  (setq evil-snipe-smart-case t)
+</a><a href="#h1-0-28" id="h1-0-28" class="d">-  (setq evil-snipe-scope &#39;whole-buffer)
+</a><a href="#h1-0-29" id="h1-0-29" class="d">-  (setq evil-snipe-auto-scroll t)
+</a><a href="#h1-0-30" id="h1-0-30" class="d">-  (setq evil-snipe-repeat-keys t)
+</a><a href="#h1-0-31" id="h1-0-31" class="d">-  (setq evil-snipe-repeat-scope &#39;whole-buffer))
+</a><a href="#h1-0-32" id="h1-0-32" class="d">-
+</a><a href="#h1-0-33" id="h1-0-33" class="d">-;; Ivy
+</a><a href="#h1-0-34" id="h1-0-34" class="d">-(map! :after ivy
+</a><a href="#h1-0-35" id="h1-0-35" class="d">-  :map ivy-minibuffer-map
+</a><a href="#h1-0-36" id="h1-0-36" class="d">-  &quot;S-SPC&quot; nil
+</a><a href="#h1-0-37" id="h1-0-37" class="d">-  &quot;C-SPC&quot; &#39;ivy-restrict-to-matches)
+</a><a href="#h1-0-38" id="h1-0-38" class="d">-
+</a><a href="#h1-0-39" id="h1-0-39" class="d">-;; Dired
+</a><a href="#h1-0-40" id="h1-0-40" class="d">-(after! dired
+</a><a href="#h1-0-41" id="h1-0-41" class="d">-  ;; (setq dired-listing-switches &quot;-aBhl --group-directories-first&quot;
+</a><a href="#h1-0-42" id="h1-0-42" class="d">-  (setq dired-listing-switches &quot;-aBhl&quot;
+</a><a href="#h1-0-43" id="h1-0-43" class="d">-        dired-dwim-target t
+</a><a href="#h1-0-44" id="h1-0-44" class="d">-        dired-recursive-copies (quote always)
+</a><a href="#h1-0-45" id="h1-0-45" class="d">-        dired-recursive-deletes (quote top)))
+</a><a href="#h1-0-46" id="h1-0-46" class="d">-
+</a><a href="#h1-0-47" id="h1-0-47" class="d">-;; Better Copy-Paste and Clipboard Handling
+</a><a href="#h1-0-48" id="h1-0-48" class="d">-;; Disable Emacs&#39; integration of killring with clipboard
+</a><a href="#h1-0-49" id="h1-0-49" class="d">-(setq select-enable-clipboard nil)
+</a><a href="#h1-0-50" id="h1-0-50" class="d">-;; Remove hook for clipboard configurations from Emacs to command mode
+</a><a href="#h1-0-51" id="h1-0-51" class="d">-(remove-hook &#39;tty-setup-hook &#39;doom-init-clipboard-in-tty-emacs-h)
+</a><a href="#h1-0-52" id="h1-0-52" class="d">-;; Enable ⌘+c and ⌘+v for clipboard handling
+</a><a href="#h1-0-53" id="h1-0-53" class="d">-(defun rc-clipboard-yank ()
+</a><a href="#h1-0-54" id="h1-0-54" class="d">-  &quot;Copies the active region to the system clipboard.&quot;
+</a><a href="#h1-0-55" id="h1-0-55" class="d">-  (interactive)
+</a><a href="#h1-0-56" id="h1-0-56" class="d">-  (when (region-active-p)
+</a><a href="#h1-0-57" id="h1-0-57" class="d">-    (gui-set-selection &#39;CLIPBOARD
+</a><a href="#h1-0-58" id="h1-0-58" class="d">-      (buffer-substring (region-beginning) (region-end)))))
+</a><a href="#h1-0-59" id="h1-0-59" class="d">-(defun rc-clipboard-paste ()
+</a><a href="#h1-0-60" id="h1-0-60" class="d">-  &quot;Pastes text from the system clipboard.&quot;
+</a><a href="#h1-0-61" id="h1-0-61" class="d">-  (interactive)
+</a><a href="#h1-0-62" id="h1-0-62" class="d">-  (let ((text (gui-get-selection &#39;CLIPBOARD)))
+</a><a href="#h1-0-63" id="h1-0-63" class="d">-    (when text (insert-for-yank text))))
+</a><a href="#h1-0-64" id="h1-0-64" class="d">-(map! :v &quot;s-c&quot; #&#39;rc-clipboard-yank
+</a><a href="#h1-0-65" id="h1-0-65" class="d">-      :nvi &quot;s-v&quot; #&#39;rc-clipboard-paste)
+</a><a href="#h1-0-66" id="h1-0-66" class="d">-(define-key! :keymaps &#39;(evil-ex-completion-map) &quot;s-v&quot; #&#39;rc-clipboard-paste)
+</a><a href="#h1-0-67" id="h1-0-67" class="d">-(define-key! :keymaps +default-minibuffer-maps &quot;s-v&quot; #&#39;rc-clipboard-paste)
+</a><b>diff --git a/<a id="h2" href="../file/.doom.d/config.el.html">.doom.d/config.el</a> b/<a href="../file/.doom.d/config.el.html">.doom.d/config.el</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,18 +1,11 @@
+</a> ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+ 
+<a href="#h2-0-2" id="h2-0-2" class="d">-;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
+</a><a href="#h2-0-3" id="h2-0-3" class="d">-;; are the three important ones:
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-;;
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-;; + `doom-font&#39;
+</a><a href="#h2-0-6" id="h2-0-6" class="d">-;; + `doom-variable-pitch-font&#39;
+</a><a href="#h2-0-7" id="h2-0-7" class="d">-;; + `doom-big-font&#39; -- used for `doom-big-font-mode&#39;; use this for
+</a><a href="#h2-0-8" id="h2-0-8" class="d">-;;   presentations or streaming.
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-;;
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-;; They all accept either a font-spec, font string (&quot;Input Mono-12&quot;), or xlfd
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-;; font string. You generally only need these two:
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-;; (setq doom-font (font-spec :family &quot;monospace&quot; :size 12 :weight &#39;semi-light)
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-;;       doom-variable-pitch-font (font-spec :family &quot;sans&quot; :size 13))
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+;; Place your private configuration here! Remember, you do not need to run &#39;doom
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+;; sync&#39; after modifying this file!
+</a> 
+<a href="#h2-0-17" id="h2-0-17" class="i">+
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+;; Some functionality uses this to identify you, e.g. GPG configuration, email
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+;; clients, file templates and snippets.
+</a> (setq user-full-name &quot;Yohanes Bandung Bondowoso&quot;
+       user-mail-address &quot;hi@ybbond.dev&quot;)
+ 
+<a href="#h2-1" id="h2-1" class="h">@@ -26,49 +19,237 @@
+</a> ;;
+ ;; They all accept either a font-spec, font string (&quot;Input Mono-12&quot;), or xlfd
+ ;; font string. You generally only need these two:
+<a href="#h2-1-3" id="h2-1-3" class="d">-;; (setq doom-font (font-spec :family &quot;IBM Plex Mono&quot; :size 14))
+</a><a href="#h2-1-4" id="h2-1-4" class="d">-
+</a><a href="#h2-1-5" id="h2-1-5" class="d">-;; (use-package mixed-pitch
+</a><a href="#h2-1-6" id="h2-1-6" class="d">-;;   :hook
+</a><a href="#h2-1-7" id="h2-1-7" class="d">-;;   ;; If you want it in all text modes:
+</a><a href="#h2-1-8" id="h2-1-8" class="d">-;;   (text-mode . mixed-pitch-mode))
+</a><a href="#h2-1-9" id="h2-1-9" class="d">-
+</a><a href="#h2-1-10" id="h2-1-10" class="d">-;; There are two ways to load a theme. Both assume the theme is installed and
+</a><a href="#h2-1-11" id="h2-1-11" class="d">-;; available. You can either set `doom-theme&#39; or manually load a theme with the
+</a><a href="#h2-1-12" id="h2-1-12" class="d">-;; `load-theme&#39; function. This is the default:
+</a><a href="#h2-1-13" id="h2-1-13" class="d">-;; light theme: white
+</a><a href="#h2-1-14" id="h2-1-14" class="i">+;; (setq doom-font (font-spec :family &quot;monospace&quot; :size 12 :weight &#39;semi-light)
+</a><a href="#h2-1-15" id="h2-1-15" class="i">+;;       doom-variable-pitch-font (font-spec :family &quot;sans&quot; :size 13))
+</a> 
+ (setq doom-theme &#39;doom-gruvbox)
+<a href="#h2-1-18" id="h2-1-18" class="d">-(setq doom-incremental-load-immediately nil)
+</a> 
+ (setq display-line-numbers-type &#39;relative)
+<a href="#h2-1-21" id="h2-1-21" class="d">-
+</a> (setq whitespace-action &#39;(auto-cleanup))
+<a href="#h2-1-23" id="h2-1-23" class="d">-
+</a> (setq savehist-mode -1)
+ 
+<a href="#h2-1-26" id="h2-1-26" class="d">-;; Here are some additional functions/macros that could help you configure Doom:
+</a><a href="#h2-1-27" id="h2-1-27" class="d">-;;
+</a><a href="#h2-1-28" id="h2-1-28" class="d">-;; - `load!&#39; for loading external *.el files relative to this one
+</a><a href="#h2-1-29" id="h2-1-29" class="d">-;; - `use-package!&#39; for configuring packages
+</a><a href="#h2-1-30" id="h2-1-30" class="d">-;; - `after!&#39; for running code after a package has loaded
+</a><a href="#h2-1-31" id="h2-1-31" class="d">-;; - `add-load-path!&#39; for adding directories to the `load-path&#39;, relative to
+</a><a href="#h2-1-32" id="h2-1-32" class="d">-;;   this file. Emacs searches the `load-path&#39; when you load packages with
+</a><a href="#h2-1-33" id="h2-1-33" class="d">-;;   `require&#39; or `use-package&#39;.
+</a><a href="#h2-1-34" id="h2-1-34" class="d">-;; - `map!&#39; for binding new keys
+</a><a href="#h2-1-35" id="h2-1-35" class="d">-;;
+</a><a href="#h2-1-36" id="h2-1-36" class="d">-;; To get information about any of these functions/macros, move the cursor over
+</a><a href="#h2-1-37" id="h2-1-37" class="d">-;; the highlighted symbol at press &#39;K&#39; (non-evil users must press &#39;C-c c k&#39;).
+</a><a href="#h2-1-38" id="h2-1-38" class="d">-;; This will open documentation for it, including demos of how they are used.
+</a><a href="#h2-1-39" id="h2-1-39" class="d">-;;
+</a><a href="#h2-1-40" id="h2-1-40" class="d">-;; You can also try &#39;gd&#39; (or &#39;C-c c d&#39;) to jump to their definition and see how
+</a><a href="#h2-1-41" id="h2-1-41" class="d">-;; they are implemented.
+</a><a href="#h2-1-42" id="h2-1-42" class="i">+(setq company-idle-delay nil)
+</a><a href="#h2-1-43" id="h2-1-43" class="i">+
+</a><a href="#h2-1-44" id="h2-1-44" class="i">+(setq org_dir &quot;~/Dropbox/org/&quot;)
+</a><a href="#h2-1-45" id="h2-1-45" class="i">+(setq org-adapt-indentation nil)
+</a> 
+<a href="#h2-1-47" id="h2-1-47" class="d">-;; (define-key! evil-normal-state-map (kbd &quot;M-S-l&quot;) &#39;enlarge-window-horizontally)
+</a><a href="#h2-1-48" id="h2-1-48" class="d">-;; (define-key! evil-normal-state-map (kbd &quot;M-S-h&quot;) &#39;shrink-window-horizontally)
+</a><a href="#h2-1-49" id="h2-1-49" class="d">-(global-set-key (kbd &quot;s-l&quot;) &#39;org-roam-find-file)
+</a> (global-set-key (kbd &quot;s-b&quot;) &#39;ivy-switch-buffer)
+ (global-set-key (kbd &quot;s-K&quot;) &#39;kill-buffer)
+<a href="#h2-1-52" id="h2-1-52" class="i">+(global-set-key (kbd &quot;s-l&quot;) &#39;org-roam-find-file)
+</a><a href="#h2-1-53" id="h2-1-53" class="i">+
+</a><a href="#h2-1-54" id="h2-1-54" class="i">+;; Better Copy-Paste and Clipboard Handling
+</a><a href="#h2-1-55" id="h2-1-55" class="i">+;; Disable Emacs&#39; integration of killring with clipboard
+</a><a href="#h2-1-56" id="h2-1-56" class="i">+(setq select-enable-clipboard nil)
+</a><a href="#h2-1-57" id="h2-1-57" class="i">+;; Remove hook for clipboard configurations from Emacs to command mode
+</a><a href="#h2-1-58" id="h2-1-58" class="i">+(remove-hook &#39;tty-setup-hook &#39;doom-init-clipboard-in-tty-emacs-h)
+</a><a href="#h2-1-59" id="h2-1-59" class="i">+;; Enable ⌘+c and ⌘+v for clipboard handling
+</a><a href="#h2-1-60" id="h2-1-60" class="i">+(defun rc-clipboard-yank ()
+</a><a href="#h2-1-61" id="h2-1-61" class="i">+  &quot;Copies the active region to the system clipboard.&quot;
+</a><a href="#h2-1-62" id="h2-1-62" class="i">+  (interactive)
+</a><a href="#h2-1-63" id="h2-1-63" class="i">+  (when (region-active-p)
+</a><a href="#h2-1-64" id="h2-1-64" class="i">+    (gui-set-selection &#39;CLIPBOARD
+</a><a href="#h2-1-65" id="h2-1-65" class="i">+      (buffer-substring (region-beginning) (region-end)))))
+</a><a href="#h2-1-66" id="h2-1-66" class="i">+(defun rc-clipboard-paste ()
+</a><a href="#h2-1-67" id="h2-1-67" class="i">+  &quot;Pastes text from the system clipboard.&quot;
+</a><a href="#h2-1-68" id="h2-1-68" class="i">+  (interactive)
+</a><a href="#h2-1-69" id="h2-1-69" class="i">+  (let ((text (gui-get-selection &#39;CLIPBOARD)))
+</a><a href="#h2-1-70" id="h2-1-70" class="i">+    (when text (insert-for-yank text))))
+</a><a href="#h2-1-71" id="h2-1-71" class="i">+(map! :v &quot;s-c&quot; #&#39;rc-clipboard-yank
+</a><a href="#h2-1-72" id="h2-1-72" class="i">+      :nvi &quot;s-v&quot; #&#39;rc-clipboard-paste)
+</a><a href="#h2-1-73" id="h2-1-73" class="i">+(define-key! :keymaps &#39;(evil-ex-completion-map) &quot;s-v&quot; #&#39;rc-clipboard-paste)
+</a><a href="#h2-1-74" id="h2-1-74" class="i">+(define-key! :keymaps +default-minibuffer-maps &quot;s-v&quot; #&#39;rc-clipboard-paste)
+</a><a href="#h2-1-75" id="h2-1-75" class="i">+
+</a><a href="#h2-1-76" id="h2-1-76" class="i">+;; General Configurations
+</a><a href="#h2-1-77" id="h2-1-77" class="i">+;; (use-package! general
+</a><a href="#h2-1-78" id="h2-1-78" class="i">+;;   :config
+</a><a href="#h2-1-79" id="h2-1-79" class="i">+;;   (general-evil-setup))
+</a><a href="#h2-1-80" id="h2-1-80" class="i">+
+</a><a href="#h2-1-81" id="h2-1-81" class="i">+;; Evil
+</a><a href="#h2-1-82" id="h2-1-82" class="i">+(use-package! evil
+</a><a href="#h2-1-83" id="h2-1-83" class="i">+  :init
+</a><a href="#h2-1-84" id="h2-1-84" class="i">+  (setq evil-move-cursor-back nil)
+</a><a href="#h2-1-85" id="h2-1-85" class="i">+  ;; (setq evil-respect-visual-line-mode t)
+</a><a href="#h2-1-86" id="h2-1-86" class="i">+  (setq evil-kill-on-visual-paste nil)
+</a><a href="#h2-1-87" id="h2-1-87" class="i">+  (setq evil-disable-insert-state-bindings t))
+</a><a href="#h2-1-88" id="h2-1-88" class="i">+  ;; :general
+</a><a href="#h2-1-89" id="h2-1-89" class="i">+  ;; ([remap evil-emacs-state] &#39;evil-normal-state)
+</a><a href="#h2-1-90" id="h2-1-90" class="i">+  ;; (general-nmap &quot;j&quot; &#39;evil-next-visual-line)
+</a><a href="#h2-1-91" id="h2-1-91" class="i">+  ;; (general-nmap &quot;k&quot; &#39;evil-previous-visual-line)
+</a><a href="#h2-1-92" id="h2-1-92" class="i">+  ;; (general-nmap &quot;gj&quot; &#39;evil-next-line)
+</a><a href="#h2-1-93" id="h2-1-93" class="i">+  ;; (general-nmap &quot;gk&quot; &#39;evil-previous-line)
+</a><a href="#h2-1-94" id="h2-1-94" class="i">+  ;; (general-imap &quot;C-f&quot; &#39;delete-forward-char))
+</a><a href="#h2-1-95" id="h2-1-95" class="i">+(map! :after evil
+</a><a href="#h2-1-96" id="h2-1-96" class="i">+      :map evil-normal-state-map
+</a><a href="#h2-1-97" id="h2-1-97" class="i">+      &quot;C-z&quot; &#39;evil-normal-state
+</a><a href="#h2-1-98" id="h2-1-98" class="i">+      &quot;j&quot; &#39;evil-next-visual-line
+</a><a href="#h2-1-99" id="h2-1-99" class="i">+      &quot;k&quot; &#39;evil-previous-visual-line
+</a><a href="#h2-1-100" id="h2-1-100" class="i">+      &quot;gj&quot; &#39;evil-next-line
+</a><a href="#h2-1-101" id="h2-1-101" class="i">+      &quot;gk&quot; &#39;evil-previous-line
+</a><a href="#h2-1-102" id="h2-1-102" class="i">+      :map evil-insert-state-map
+</a><a href="#h2-1-103" id="h2-1-103" class="i">+      &quot;C-f&quot; &#39;delete-forward-char
+</a><a href="#h2-1-104" id="h2-1-104" class="i">+      &quot;C-z&quot; &#39;evil-normal-state)
+</a><a href="#h2-1-105" id="h2-1-105" class="i">+
+</a><a href="#h2-1-106" id="h2-1-106" class="i">+;; Snipe
+</a><a href="#h2-1-107" id="h2-1-107" class="i">+(after! evil-snipe
+</a><a href="#h2-1-108" id="h2-1-108" class="i">+  (setq evil-snipe-smart-case t)
+</a><a href="#h2-1-109" id="h2-1-109" class="i">+  (setq evil-snipe-scope &#39;whole-buffer)
+</a><a href="#h2-1-110" id="h2-1-110" class="i">+  (setq evil-snipe-auto-scroll t)
+</a><a href="#h2-1-111" id="h2-1-111" class="i">+  (setq evil-snipe-repeat-keys t)
+</a><a href="#h2-1-112" id="h2-1-112" class="i">+  (setq evil-snipe-repeat-scope &#39;whole-buffer))
+</a><a href="#h2-1-113" id="h2-1-113" class="i">+
+</a><a href="#h2-1-114" id="h2-1-114" class="i">+;; Ivy
+</a><a href="#h2-1-115" id="h2-1-115" class="i">+(map! :after ivy
+</a><a href="#h2-1-116" id="h2-1-116" class="i">+  :map ivy-minibuffer-map
+</a><a href="#h2-1-117" id="h2-1-117" class="i">+  &quot;S-SPC&quot; nil
+</a><a href="#h2-1-118" id="h2-1-118" class="i">+  &quot;C-SPC&quot; &#39;ivy-restrict-to-matches)
+</a><a href="#h2-1-119" id="h2-1-119" class="i">+
+</a><a href="#h2-1-120" id="h2-1-120" class="i">+;; Dired
+</a><a href="#h2-1-121" id="h2-1-121" class="i">+(after! dired
+</a><a href="#h2-1-122" id="h2-1-122" class="i">+  ;; (setq dired-listing-switches &quot;-aBhl --group-directories-first&quot;
+</a><a href="#h2-1-123" id="h2-1-123" class="i">+  (setq dired-listing-switches &quot;-aBhl&quot;
+</a><a href="#h2-1-124" id="h2-1-124" class="i">+        dired-dwim-target t
+</a><a href="#h2-1-125" id="h2-1-125" class="i">+        dired-recursive-copies (quote always)
+</a><a href="#h2-1-126" id="h2-1-126" class="i">+        dired-recursive-deletes (quote top)))
+</a><a href="#h2-1-127" id="h2-1-127" class="i">+
+</a><a href="#h2-1-128" id="h2-1-128" class="i">+;; Deft
+</a><a href="#h2-1-129" id="h2-1-129" class="i">+(use-package! deft
+</a><a href="#h2-1-130" id="h2-1-130" class="i">+  :after org
+</a><a href="#h2-1-131" id="h2-1-131" class="i">+  :config
+</a><a href="#h2-1-132" id="h2-1-132" class="i">+  (setq deft-recursive t)
+</a><a href="#h2-1-133" id="h2-1-133" class="i">+  ;; (setq deft-use-filter-string-for-filename t)
+</a><a href="#h2-1-134" id="h2-1-134" class="i">+  (setq deft-default-extension &quot;org&quot;)
+</a><a href="#h2-1-135" id="h2-1-135" class="i">+  (setq deft-incremental-search t)
+</a><a href="#h2-1-136" id="h2-1-136" class="i">+  (setq deft-directory org_dir)
+</a><a href="#h2-1-137" id="h2-1-137" class="i">+  (add-hook &#39;after-init-hook &#39;org-roam-db-build-cache)
+</a><a href="#h2-1-138" id="h2-1-138" class="i">+  :bind
+</a><a href="#h2-1-139" id="h2-1-139" class="i">+  (&quot;s-d&quot; . deft))
+</a><a href="#h2-1-140" id="h2-1-140" class="i">+
+</a><a href="#h2-1-141" id="h2-1-141" class="i">+;; Org-roam
+</a><a href="#h2-1-142" id="h2-1-142" class="i">+(use-package! org-roam
+</a><a href="#h2-1-143" id="h2-1-143" class="i">+  :hook
+</a><a href="#h2-1-144" id="h2-1-144" class="i">+  (after-init . org-roam-mode))
+</a><a href="#h2-1-145" id="h2-1-145" class="i">+(after! org-roam
+</a><a href="#h2-1-146" id="h2-1-146" class="i">+  (add-hook &#39;after-init-hook &#39;org-roam-mode)
+</a><a href="#h2-1-147" id="h2-1-147" class="i">+  :config
+</a><a href="#h2-1-148" id="h2-1-148" class="i">+  (setq org-roam-directory org_dir)
+</a><a href="#h2-1-149" id="h2-1-149" class="i">+  (setq org-roam-db-location &quot;~/org/org-roam.db&quot;)
+</a><a href="#h2-1-150" id="h2-1-150" class="i">+  (setq org-roam-link-title-format &quot;[[%s]]&quot;)
+</a><a href="#h2-1-151" id="h2-1-151" class="i">+  (set-company-backend! &#39;org-mode &#39;(company-capf))
+</a><a href="#h2-1-152" id="h2-1-152" class="i">+
+</a><a href="#h2-1-153" id="h2-1-153" class="i">+  (setq org-roam-dailies-capture-templates
+</a><a href="#h2-1-154" id="h2-1-154" class="i">+    &#39;((&quot;d&quot; &quot;daily&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-1-155" id="h2-1-155" class="i">+      &quot;%?&quot;
+</a><a href="#h2-1-156" id="h2-1-156" class="i">+      :file-name &quot;%&lt;%Y-%m-%d&gt;&quot;
+</a><a href="#h2-1-157" id="h2-1-157" class="i">+      :immediate-finish t
+</a><a href="#h2-1-158" id="h2-1-158" class="i">+      :head &quot;#+title: %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;
+</a><a href="#h2-1-159" id="h2-1-159" class="i">+#+roam_tags: journals\n
+</a><a href="#h2-1-160" id="h2-1-160" class="i">+\n
+</a><a href="#h2-1-161" id="h2-1-161" class="i">+* %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;&quot;
+</a><a href="#h2-1-162" id="h2-1-162" class="i">+      :unnarrowed t)))
+</a><a href="#h2-1-163" id="h2-1-163" class="i">+
+</a><a href="#h2-1-164" id="h2-1-164" class="i">+  (setq org-roam-capture-templates
+</a><a href="#h2-1-165" id="h2-1-165" class="i">+        &#39;((&quot;d&quot; &quot;default&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-1-166" id="h2-1-166" class="i">+           &quot;%?&quot;
+</a><a href="#h2-1-167" id="h2-1-167" class="i">+           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h2-1-168" id="h2-1-168" class="i">+           :head &quot;#+title: ${title}\n&quot;
+</a><a href="#h2-1-169" id="h2-1-169" class="i">+           :immediate-finish t
+</a><a href="#h2-1-170" id="h2-1-170" class="i">+           :unnarrowed t)
+</a><a href="#h2-1-171" id="h2-1-171" class="i">+          (&quot;k&quot; &quot;kumparan&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-1-172" id="h2-1-172" class="i">+           &quot;%?&quot;
+</a><a href="#h2-1-173" id="h2-1-173" class="i">+           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h2-1-174" id="h2-1-174" class="i">+           :head &quot;#+title: ${title}
+</a><a href="#h2-1-175" id="h2-1-175" class="i">+#+roam_tags: kumparan
+</a><a href="#h2-1-176" id="h2-1-176" class="i">+- backlinks :: [[file:20200630143644-kumparan.org][kumparan]]&quot;
+</a><a href="#h2-1-177" id="h2-1-177" class="i">+           :immediate-finish t
+</a><a href="#h2-1-178" id="h2-1-178" class="i">+           :unnarrowed t)
+</a><a href="#h2-1-179" id="h2-1-179" class="i">+          (&quot;c&quot; &quot;companies&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-1-180" id="h2-1-180" class="i">+           &quot;%?&quot;
+</a><a href="#h2-1-181" id="h2-1-181" class="i">+           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h2-1-182" id="h2-1-182" class="i">+           :head &quot;#+title: ${title}
+</a><a href="#h2-1-183" id="h2-1-183" class="i">+#+roam_tags: companies\n&quot;
+</a><a href="#h2-1-184" id="h2-1-184" class="i">+           :immediate-finish t
+</a><a href="#h2-1-185" id="h2-1-185" class="i">+           :unnarrowed t)
+</a><a href="#h2-1-186" id="h2-1-186" class="i">+          (&quot;m&quot; &quot;medias&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-1-187" id="h2-1-187" class="i">+           &quot;%?&quot;
+</a><a href="#h2-1-188" id="h2-1-188" class="i">+           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h2-1-189" id="h2-1-189" class="i">+           :head &quot;#+title: ${title}
+</a><a href="#h2-1-190" id="h2-1-190" class="i">+#+roam_tags: medias\n&quot;
+</a><a href="#h2-1-191" id="h2-1-191" class="i">+           :immediate-finish t
+</a><a href="#h2-1-192" id="h2-1-192" class="i">+           :unnarrowed t)
+</a><a href="#h2-1-193" id="h2-1-193" class="i">+          (&quot;p&quot; &quot;products&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-1-194" id="h2-1-194" class="i">+           &quot;%?&quot;
+</a><a href="#h2-1-195" id="h2-1-195" class="i">+           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h2-1-196" id="h2-1-196" class="i">+           :head &quot;#+title: ${title}
+</a><a href="#h2-1-197" id="h2-1-197" class="i">+#+roam_tags: products\n&quot;
+</a><a href="#h2-1-198" id="h2-1-198" class="i">+           :immediate-finish t
+</a><a href="#h2-1-199" id="h2-1-199" class="i">+           :unnarrowed t)
+</a><a href="#h2-1-200" id="h2-1-200" class="i">+          (&quot;i&quot; &quot;people&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-1-201" id="h2-1-201" class="i">+           &quot;%?&quot;
+</a><a href="#h2-1-202" id="h2-1-202" class="i">+           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h2-1-203" id="h2-1-203" class="i">+           :head &quot;#+title: ${title}
+</a><a href="#h2-1-204" id="h2-1-204" class="i">+#+roam_tags: people\n&quot;
+</a><a href="#h2-1-205" id="h2-1-205" class="i">+           :immediate-finish t
+</a><a href="#h2-1-206" id="h2-1-206" class="i">+           :unnarrowed t))))
+</a><a href="#h2-1-207" id="h2-1-207" class="i">+
+</a><a href="#h2-1-208" id="h2-1-208" class="i">+;; Org-journal
+</a><a href="#h2-1-209" id="h2-1-209" class="i">+(use-package! org-journal
+</a><a href="#h2-1-210" id="h2-1-210" class="i">+  :bind
+</a><a href="#h2-1-211" id="h2-1-211" class="i">+  (&quot;C-c j&quot; . org-journal-new-entry)
+</a><a href="#h2-1-212" id="h2-1-212" class="i">+  (&quot;C-c b&quot; . org-journal-previous-entry)
+</a><a href="#h2-1-213" id="h2-1-213" class="i">+  (&quot;C-c f&quot; . org-journal-next-entry)
+</a><a href="#h2-1-214" id="h2-1-214" class="i">+  :config
+</a><a href="#h2-1-215" id="h2-1-215" class="i">+  (setq org-journal-dir org_dir
+</a><a href="#h2-1-216" id="h2-1-216" class="i">+        org-journal-date-prefix &quot;#+title: &quot;
+</a><a href="#h2-1-217" id="h2-1-217" class="i">+        org-journal-file-format &quot;%Y-%m-%d.org&quot;
+</a><a href="#h2-1-218" id="h2-1-218" class="i">+        org-journal-date-format &quot;%A, %d %B %Y\n&quot;))
+</a> 
+<a href="#h2-1-220" id="h2-1-220" class="d">-(load! &quot;+plugins&quot;)
+</a><a href="#h2-1-221" id="h2-1-221" class="d">-(load! &quot;+org&quot;)
+</a><a href="#h2-1-222" id="h2-1-222" class="i">+;; Org-mode
+</a><a href="#h2-1-223" id="h2-1-223" class="i">+(after! org
+</a><a href="#h2-1-224" id="h2-1-224" class="i">+  :init
+</a><a href="#h2-1-225" id="h2-1-225" class="i">+  (require &#39;find-lisp)
+</a><a href="#h2-1-226" id="h2-1-226" class="i">+  (setq org-agenda-files (find-lisp-find-files org_dir &quot;tasks\.org$&quot;))
+</a><a href="#h2-1-227" id="h2-1-227" class="i">+  (setq org-agenda-start-with-log-mode &#39;(state))
+</a><a href="#h2-1-228" id="h2-1-228" class="i">+  (setq org-agenda-start-day &quot;-9d&quot;)
+</a><a href="#h2-1-229" id="h2-1-229" class="i">+  (map! :map org-mode-map
+</a><a href="#h2-1-230" id="h2-1-230" class="i">+        :n &quot;gj&quot; #&#39;evil-next-line
+</a><a href="#h2-1-231" id="h2-1-231" class="i">+        :n &quot;gk&quot; #&#39;evil-previous-line
+</a><a href="#h2-1-232" id="h2-1-232" class="i">+        :n &quot;M-j&quot; #&#39;org-metadown
+</a><a href="#h2-1-233" id="h2-1-233" class="i">+        :n &quot;M-k&quot; #&#39;org-metaup
+</a><a href="#h2-1-234" id="h2-1-234" class="i">+        :n &quot;C-s-r&quot; #&#39;org-roam-insert
+</a><a href="#h2-1-235" id="h2-1-235" class="i">+        :i &quot;C-s-r&quot; #&#39;org-roam-insert
+</a><a href="#h2-1-236" id="h2-1-236" class="i">+        :n &quot;s-r&quot; #&#39;org-roam-buffer-toggle-display
+</a><a href="#h2-1-237" id="h2-1-237" class="i">+        :i &quot;s-r&quot; #&#39;org-roam-buffer-toggle-display)
+</a><a href="#h2-1-238" id="h2-1-238" class="i">+  :config
+</a><a href="#h2-1-239" id="h2-1-239" class="i">+  (setq org-directory org_dir
+</a><a href="#h2-1-240" id="h2-1-240" class="i">+        org-ellipsis &quot; ▼ &quot;
+</a><a href="#h2-1-241" id="h2-1-241" class="i">+        org-id-link-to-org-use-id nil
+</a><a href="#h2-1-242" id="h2-1-242" class="i">+        org-pretty-entities t
+</a><a href="#h2-1-243" id="h2-1-243" class="i">+        org-log-done &#39;note
+</a><a href="#h2-1-244" id="h2-1-244" class="i">+        org-log-into-drawer t
+</a><a href="#h2-1-245" id="h2-1-245" class="i">+        org-log-refile t
+</a><a href="#h2-1-246" id="h2-1-246" class="i">+        org-src-fontify-natively t
+</a><a href="#h2-1-247" id="h2-1-247" class="i">+        org-hide-emphasis-markers t)
+</a><a href="#h2-1-248" id="h2-1-248" class="i">+  (setq org-todo-keywords
+</a><a href="#h2-1-249" id="h2-1-249" class="i">+        &#39;((sequence &quot;TODO(t!)&quot; &quot;INPROGRESS(p!)&quot; &quot;INTEST(i!)&quot; &quot;FEEDBACK(f!)&quot; &quot;HOLD(h!)&quot; &quot;|&quot; &quot;MERGED(m!)&quot; &quot;DONE(d@/!)&quot; &quot;CANCELLED(c!)&quot;)
+</a><a href="#h2-1-250" id="h2-1-250" class="i">+          (sequence &quot;[ ](T)&quot; &quot;[-](S)&quot; &quot;[?](W)&quot; &quot;|&quot; &quot;[X](D)&quot;)))
+</a><a href="#h2-1-251" id="h2-1-251" class="i">+  (setq org-todo-keyword-faces
+</a><a href="#h2-1-252" id="h2-1-252" class="i">+        &#39;((&quot;TODO&quot; :foreground &quot;ffff00&quot; :weight normal :underline t)
+</a><a href="#h2-1-253" id="h2-1-253" class="i">+          (&quot;INPROGRESS&quot; :foreground &quot;#e39ff6&quot; :weight normal :underline t)
+</a><a href="#h2-1-254" id="h2-1-254" class="i">+          (&quot;INTEST&quot; :foreground &quot;#0098dd&quot; :weight normal :underline t)
+</a><a href="#h2-1-255" id="h2-1-255" class="i">+          (&quot;FEEDBACK&quot; :foreground &quot;#0098ee&quot; :weight normal :underline t)
+</a><a href="#h2-1-256" id="h2-1-256" class="i">+          (&quot;HOLD&quot; :foreground &quot;#9f7efe&quot; :weight normal :underline t)
+</a><a href="#h2-1-257" id="h2-1-257" class="i">+          (&quot;MERGED&quot; :foreground &quot;#50a14f&quot; :weight normal :underline t)
+</a><a href="#h2-1-258" id="h2-1-258" class="i">+          (&quot;DONE&quot; :foreground &quot;#50a14f&quot; :weight bold :underline t)
+</a><a href="#h2-1-259" id="h2-1-259" class="i">+          (&quot;CANCELLED&quot; :foreground &quot;#ff6480&quot; :weight normal :underline t)
+</a><a href="#h2-1-260" id="h2-1-260" class="i">+          (&quot;[-]&quot; :foreground &quot;#e39ff6&quot; :weight bold)
+</a><a href="#h2-1-261" id="h2-1-261" class="i">+          (&quot;[?]&quot; :foreground &quot;#9f7efe&quot; :weight bold)))
+</a><a href="#h2-1-262" id="h2-1-262" class="i">+  (setq org-roam-dailies-capture-templates
+</a><a href="#h2-1-263" id="h2-1-263" class="i">+    &#39;((&quot;d&quot; &quot;daily&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-1-264" id="h2-1-264" class="i">+      &quot;%?&quot;
+</a><a href="#h2-1-265" id="h2-1-265" class="i">+      :file-name &quot;%&lt;%Y-%m-%d&gt;&quot;
+</a><a href="#h2-1-266" id="h2-1-266" class="i">+      :immediate-finish t
+</a><a href="#h2-1-267" id="h2-1-267" class="i">+      :head &quot;#+title: %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;
+</a><a href="#h2-1-268" id="h2-1-268" class="i">+#+roam_tags: journals\n
+</a><a href="#h2-1-269" id="h2-1-269" class="i">+\n
+</a><a href="#h2-1-270" id="h2-1-270" class="i">+* %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;&quot;
+</a><a href="#h2-1-271" id="h2-1-271" class="i">+      :unnarrowed t))))
+</a><b>diff --git a/<a id="h3" href="../file/.doom.d/custom.el.html">.doom.d/custom.el</a> b/<a href="../file/.doom.d/custom.el.html">.doom.d/custom.el</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -1,12 +0,0 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="d">-(custom-set-variables
+</a><a href="#h3-0-1" id="h3-0-1" class="d">- ;; custom-set-variables was added by Custom.
+</a><a href="#h3-0-2" id="h3-0-2" class="d">- ;; If you edit it by hand, you could mess it up, so be careful.
+</a><a href="#h3-0-3" id="h3-0-3" class="d">- ;; Your init file should contain only one such instance.
+</a><a href="#h3-0-4" id="h3-0-4" class="d">- ;; If there is more than one, they won&#39;t work right.
+</a><a href="#h3-0-5" id="h3-0-5" class="d">- &#39;(package-selected-packages (quote (org-roam-server evil-better-visual-line))))
+</a><a href="#h3-0-6" id="h3-0-6" class="d">-(custom-set-faces
+</a><a href="#h3-0-7" id="h3-0-7" class="d">- ;; custom-set-faces was added by Custom.
+</a><a href="#h3-0-8" id="h3-0-8" class="d">- ;; If you edit it by hand, you could mess it up, so be careful.
+</a><a href="#h3-0-9" id="h3-0-9" class="d">- ;; Your init file should contain only one such instance.
+</a><a href="#h3-0-10" id="h3-0-10" class="d">- ;; If there is more than one, they won&#39;t work right.
+</a><a href="#h3-0-11" id="h3-0-11" class="d">- )
+</a><b>diff --git a/<a id="h4" href="../file/.doom.d/init.el.html">.doom.d/init.el</a> b/<a href="../file/.doom.d/init.el.html">.doom.d/init.el</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -17,12 +17,13 @@
+</a> (doom! :input
+        ;;chinese
+        ;;japanese
+<a href="#h4-0-3" id="h4-0-3" class="i">+       ;;layout            ; auie,ctsrnm is the superior home row
+</a> 
+        :completion
+        (company +childframe)           ; the ultimate code completion backend
+        ;;helm              ; the *other* search engine for love and life
+        ;;ido               ; the other *other* search engine...
+<a href="#h4-0-9" id="h4-0-9" class="d">-       (ivy +fuzzy)               ; a search engine for love and life
+</a><a href="#h4-0-10" id="h4-0-10" class="i">+       ivy               ; a search engine for love and life
+</a> 
+        :ui
+        deft              ; notational velocity for Emacs
+<a href="#h4-1" id="h4-1" class="h">@@ -33,14 +34,14 @@
+</a>        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
+        ;;hydra
+        ;;indent-guides     ; highlighted indent columns
+<a href="#h4-1-3" id="h4-1-3" class="i">+       ;;ligatures         ; ligatures and symbols to make your code pretty again
+</a>        ;;minimap           ; show a map of the code on the side
+        modeline          ; snazzy, Atom-inspired modeline, plus API
+        ;;nav-flash         ; blink cursor line after big motions
+        ;;neotree           ; a project drawer, like NERDTree for vim
+        ophints           ; highlight the region an operation acts on
+        (popup +defaults)   ; tame sudden yet inevitable temporary windows
+<a href="#h4-1-10" id="h4-1-10" class="d">-       ;;pretty-code       ; ligatures or substitute text with pretty symbols
+</a><a href="#h4-1-11" id="h4-1-11" class="d">-       ;;tabs              ; an tab bar for Emacs
+</a><a href="#h4-1-12" id="h4-1-12" class="i">+       ;;tabs              ; a tab bar for Emacs
+</a>        ;;treemacs          ; a project drawer, like neotree but cooler
+        ;;unicode           ; extended unicode support for various languages
+        vc-gutter         ; vcs diff in the fringe
+<a href="#h4-2" id="h4-2" class="h">@@ -92,7 +93,6 @@
+</a>        ;;gist              ; interacting with github gists
+        lookup              ; navigate your code and its documentation
+        ;;lsp
+<a href="#h4-2-3" id="h4-2-3" class="d">-       macos             ; MacOS-specific commands
+</a>        magit             ; a git porcelain for Emacs
+        ;;make              ; run make tasks from Emacs
+        ;;pass              ; password manager for nerds
+<a href="#h4-3" id="h4-3" class="h">@@ -104,6 +104,10 @@
+</a>        ;;tmux              ; an API for interacting with tmux
+        ;;upload            ; map local to remote projects via ssh/ftp
+ 
+<a href="#h4-3-3" id="h4-3-3" class="i">+       :os
+</a><a href="#h4-3-4" id="h4-3-4" class="i">+       (:if IS-MAC macos)  ; improve compatibility with macOS
+</a><a href="#h4-3-5" id="h4-3-5" class="i">+       ;;tty               ; improve the terminal Emacs experience
+</a><a href="#h4-3-6" id="h4-3-6" class="i">+
+</a>        :lang
+        ;;agda              ; types of types of types of types...
+        ;;cc                ; C/C++/Obj-C madness
+<a href="#h4-4" id="h4-4" class="h">@@ -120,7 +124,7 @@
+</a>        ;;erlang            ; an elegant language for a more civilized age
+        ;;ess               ; emacs speaks statistics
+        ;;faust             ; dsp, but you get to keep your soul
+<a href="#h4-4-3" id="h4-4-3" class="d">-       ;;fsharp           ; ML stands for Microsoft&#39;s Language
+</a><a href="#h4-4-4" id="h4-4-4" class="i">+       ;;fsharp            ; ML stands for Microsoft&#39;s Language
+</a>        ;;fstar             ; (dependent) types and (monadic) effects and Z3
+        ;;gdscript          ; the language you waited for
+        ;;(go +lsp)         ; the hipster dialect
+<a href="#h4-5" id="h4-5" class="h">@@ -141,7 +145,7 @@
+</a>        ;;nim               ; python + lisp at the speed of c
+        ;;nix               ; I hereby declare &quot;nix geht mehr!&quot;
+        ;;ocaml             ; an objective camel
+<a href="#h4-5-3" id="h4-5-3" class="d">-       (org +journal +roam)               ; organize your plain life in plain text
+</a><a href="#h4-5-4" id="h4-5-4" class="i">+       (org +journal)               ; organize your plain life in plain text
+</a>        ;;php               ; perl&#39;s insecure younger brother
+        ;;plantuml          ; diagrams for confusing people more
+        ;;purescript        ; javascript, but functional
+<a href="#h4-6" id="h4-6" class="h">@@ -155,7 +159,7 @@
+</a>        ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+        ;;scala             ; java, but good
+        ;;scheme            ; a fully conniving family of lisps
+<a href="#h4-6-3" id="h4-6-3" class="d">-       ;; sh               ; she sells {ba,z,fi}sh shells on the C xor
+</a><a href="#h4-6-4" id="h4-6-4" class="i">+       sh                ; she sells {ba,z,fi}sh shells on the C xor
+</a>        ;;sml
+        ;;solidity          ; do you need a blockchain? No.
+        ;;swift             ; who asked for emoji variables?
+<a href="#h4-7" id="h4-7" class="h">@@ -177,8 +181,3 @@
+</a>        :config
+        ;;literate
+        (default +bindings +smartparens))
+<a href="#h4-7-3" id="h4-7-3" class="d">-
+</a><a href="#h4-7-4" id="h4-7-4" class="d">-  (setq evil-move-cursor-back nil)
+</a><a href="#h4-7-5" id="h4-7-5" class="d">-  (setq evil-esc-delay 1)
+</a><a href="#h4-7-6" id="h4-7-6" class="d">-  (setq evil-respect-visual-line-mode t)
+</a><a href="#h4-7-7" id="h4-7-7" class="d">-  (setq evil-kill-on-visual-paste nil)
+</a><b>diff --git a/<a id="h5" href="../file/.doom.d/packages.el.html">.doom.d/packages.el</a> b/<a href="../file/.doom.d/packages.el.html">.doom.d/packages.el</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -49,8 +49,5 @@
+</a> ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
+ ;(unpin! t)
+ 
+<a href="#h5-0-3" id="h5-0-3" class="d">-(package! evil-better-visual-line)
+</a><a href="#h5-0-4" id="h5-0-4" class="d">-(package! general)
+</a><a href="#h5-0-5" id="h5-0-5" class="d">-(package! org-journal)
+</a><a href="#h5-0-6" id="h5-0-6" class="d">-(package! org-roam-server
+</a><a href="#h5-0-7" id="h5-0-7" class="d">-  :recipe (:host github :repo &quot;org-roam/org-roam-server&quot;))
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+(package! org-roam
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+  :recipe (:host github :repo &quot;org-roam/org-roam&quot;))
+</a></pre>
+</div>
+</div>
+</body>
+</html>

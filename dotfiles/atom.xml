@@ -4,6 +4,63 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>70b47fcce790d489328e4e2a9e0773660a4528b5</id>
+<published>2021-01-04T09:21:38Z</published>
+<updated>2021-01-04T09:21:38Z</updated>
+<title type="text">change some settings to be dark-light variant</title>
+<link rel="alternate" type="text/html" href="commit/70b47fcce790d489328e4e2a9e0773660a4528b5.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 70b47fcce790d489328e4e2a9e0773660a4528b5
+parent 9fbf6055d91b8f2a1ff0636f38c1a9f86dea1adc
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Mon,  4 Jan 2021 16:21:38 +0700
+
+change some settings to be dark-light variant
+
+</content>
+</entry>
+<entry>
+<id>9fbf6055d91b8f2a1ff0636f38c1a9f86dea1adc</id>
+<published>2020-10-21T06:18:15Z</published>
+<updated>2020-10-21T06:18:15Z</updated>
+<title type="text">modify doom</title>
+<link rel="alternate" type="text/html" href="commit/9fbf6055d91b8f2a1ff0636f38c1a9f86dea1adc.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 9fbf6055d91b8f2a1ff0636f38c1a9f86dea1adc
+parent cb491a4623714b77c1bf0f14efc612954f9d712a
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Wed, 21 Oct 2020 13:18:15 +0700
+
+modify doom
+
+</content>
+</entry>
+<entry>
+<id>cb491a4623714b77c1bf0f14efc612954f9d712a</id>
+<published>2020-09-22T15:11:07Z</published>
+<updated>2020-09-22T15:11:07Z</updated>
+<title type="text">update doom</title>
+<link rel="alternate" type="text/html" href="commit/cb491a4623714b77c1bf0f14efc612954f9d712a.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit cb491a4623714b77c1bf0f14efc612954f9d712a
+parent e88a570b64e3a72938b31cbbdb2dafd6b5fe7859
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Tue, 22 Sep 2020 22:11:07 +0700
+
+update doom
+
+</content>
+</entry>
+<entry>
 <id>e88a570b64e3a72938b31cbbdb2dafd6b5fe7859</id>
 <published>2020-09-22T13:27:45Z</published>
 <updated>2020-09-22T13:27:45Z</updated>

@@ -4,6 +4,25 @@
 <subtitle>My mobile friendly fork of stagit
 </subtitle>
 <entry>
+<id>e90c870bd4fa2c3f65d710e2be5735daa8585ef1</id>
+<published>2020-06-21T05:22:12Z</published>
+<updated>2020-06-21T05:22:12Z</updated>
+<title type="text">modify to check whether cc-license exists or not</title>
+<link rel="alternate" type="text/html" href="commit/e90c870bd4fa2c3f65d710e2be5735daa8585ef1.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit e90c870bd4fa2c3f65d710e2be5735daa8585ef1
+parent bc63b5d390a989f3d15ee42764cc4093a80f5b52
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Sun, 21 Jun 2020 12:22:12 +0700
+
+modify to check whether cc-license exists or not
+
+</content>
+</entry>
+<entry>
 <id>bc63b5d390a989f3d15ee42764cc4093a80f5b52</id>
 <published>2020-06-21T05:04:40Z</published>
 <updated>2020-06-21T05:04:40Z</updated>
@@ -2027,25 +2046,6 @@ Author: Hiltjo Posthuma &lt;hiltjo@codemadness.org&gt;
 Date:   Sun, 12 Mar 2017 19:47:58 +0100
 
 reduce scope of repodir, remove unused branch parameter
-
-</content>
-</entry>
-<entry>
-<id>82aefe6305b858b5aa329fb357a5cf7639c3522d</id>
-<published>2017-01-05T17:47:26Z</published>
-<updated>2017-01-05T17:47:26Z</updated>
-<title type="text">bump version to 0.5</title>
-<link rel="alternate" type="text/html" href="commit/82aefe6305b858b5aa329fb357a5cf7639c3522d.html" />
-<author>
-<name>Hiltjo Posthuma</name>
-<email>hiltjo@codemadness.org</email>
-</author>
-<content type="text">commit 82aefe6305b858b5aa329fb357a5cf7639c3522d
-parent 92cee02f1217f19a19d872d857f6e617ed3e0eec
-Author: Hiltjo Posthuma &lt;hiltjo@codemadness.org&gt;
-Date:   Thu,  5 Jan 2017 18:47:26 +0100
-
-bump version to 0.5
 
 </content>
 </entry>

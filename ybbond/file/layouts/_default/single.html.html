@@ -15,7 +15,7 @@
 <a href="../../../index.html">Log</a> | <a href="../../../files.html">Files</a> | <a href="../../../refs.html">Refs</a> | <a href="../../../file/README.md.html">README</a> | <a href="../../../file/LICENSE.md.html">LICENSE</a> | <a href="../../../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> single.html (3041B)</p><hr/><pre id="blob">
+<p> single.html (3080B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> {{ define &quot;main&quot; }}
 <a href="#l2" class="line" id="l2">      2</a>   {{ if eq .Type &quot;notes&quot; }}
 <a href="#l3" class="line" id="l3">      3</a>     &lt;article&gt;
@@ -48,9 +48,9 @@
 <a href="#l30" class="line" id="l30">     30</a> 
 <a href="#l31" class="line" id="l31">     31</a>       &lt;div class=&quot;bottom-hcard-container&quot; {{ if eq .Type &quot;page&quot; }} hidden=&quot;&quot;{{ end }}&gt;
 <a href="#l32" class="line" id="l32">     32</a>         &lt;p class=&quot;hcard-top hcard&quot;&gt;
-<a href="#l33" class="line" id="l33">     33</a>           &lt;a class=&quot;u-url link-white&quot; href={{ .Permalink }}&gt;Published&lt;/a&gt; on
+<a href="#l33" class="line" id="l33">     33</a>           Published on
 <a href="#l34" class="line" id="l34">     34</a>           &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot; class=&quot;dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;
-<a href="#l35" class="line" id="l35">     35</a>             {{ .Date.Format &quot;02 January 2006&quot; }}&lt;/time&gt;,
+<a href="#l35" class="line" id="l35">     35</a>             {{ .Date.Format &quot;02 January 2006&quot; }}&lt;/time&gt; &lt;a class=&quot;u-url link-white&quot; href={{ .Permalink }}&gt;🔗&lt;/a&gt;,
 <a href="#l36" class="line" id="l36">     36</a>           tagged:
 <a href="#l37" class="line" id="l37">     37</a>           {{ with .Params.tags }}
 <a href="#l38" class="line" id="l38">     38</a>             &lt;span class=&quot;hcard-tags&quot;&gt;
@@ -62,7 +62,7 @@
 <a href="#l44" class="line" id="l44">     44</a>         &lt;/p&gt;
 <a href="#l45" class="line" id="l45">     45</a>         {{ if ne .Type &quot;page&quot; -}}
 <a href="#l46" class="line" id="l46">     46</a>           {{- if isset .Params.Twitter &quot;link&quot; }}
-<a href="#l47" class="line" id="l47">     47</a>             &lt;p class=&quot;twitter-link&quot;&gt;&lt;strong&gt;Comment is unavailable for now&lt;/strong&gt;, sorry :( You can reply this tweet, that will be linked to this post: &lt;a target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot; href={{ .Params.Twitter.Link }}&gt;»Twitter Link«&lt;/a&gt;&lt;/p&gt;
+<a href="#l47" class="line" id="l47">     47</a>           &lt;p class=&quot;twitter-link&quot;&gt;&lt;strong&gt;Comment is unavailable for now&lt;/strong&gt;, sorry :( You can reply this tweet, that will be linked to this post: &lt;a target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot; href={{ .Params.Twitter.Link }}&gt;»Twitter Link«&amp;nbsp;&lt;i class=&quot;fab fa-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
 <a href="#l48" class="line" id="l48">     48</a>             {{ if isset .Params.Mastodon &quot;link&quot; -}}
 <a href="#l49" class="line" id="l49">     49</a>             &lt;p class=&quot;mastodon-link&quot;&gt;If you prefer fediverse, you can reply this Toot instead: &lt;a target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot; href={{ .Params.Mastodon.Link }}&gt;»Mastodon Link«&lt;/a&gt;&lt;/p&gt;
 <a href="#l50" class="line" id="l50">     50</a>             {{ end -}}

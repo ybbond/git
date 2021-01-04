@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>kitty-light.conf - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../../../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../../../index.html">Log</a> | <a href="../../../files.html">Files</a> | <a href="../../../refs.html">Refs</a> | <a href="../../../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> kitty-light.conf (38877B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> # vim:fileencoding=utf-8:ft=conf:foldmethod=marker
+<a href="#l2" class="line" id="l2">      2</a> 
+<a href="#l3" class="line" id="l3">      3</a> #: Fonts {{{
+<a href="#l4" class="line" id="l4">      4</a> 
+<a href="#l5" class="line" id="l5">      5</a> #: kitty has very powerful font management. You can configure
+<a href="#l6" class="line" id="l6">      6</a> #: individual font faces and even specify special fonts for particular
+<a href="#l7" class="line" id="l7">      7</a> #: characters.
+<a href="#l8" class="line" id="l8">      8</a> 
+<a href="#l9" class="line" id="l9">      9</a> font_family      IBM Plex Mono Regular
+<a href="#l10" class="line" id="l10">     10</a> bold_font        IBM Plex Mono Bold
+<a href="#l11" class="line" id="l11">     11</a> italic_font      IBM Plex Mono Italic
+<a href="#l12" class="line" id="l12">     12</a> bold_italic_font IBM Plex Mono Bold Italic
+<a href="#l13" class="line" id="l13">     13</a> 
+<a href="#l14" class="line" id="l14">     14</a> # font_family      iA Writer Mono S Regular
+<a href="#l15" class="line" id="l15">     15</a> # bold_font        iA Writer Mono S Bold
+<a href="#l16" class="line" id="l16">     16</a> # italic_font      iA Writer Mono S Italic
+<a href="#l17" class="line" id="l17">     17</a> # bold_italic_font iA Writer Mono S Bold Italic
+<a href="#l18" class="line" id="l18">     18</a> 
+<a href="#l19" class="line" id="l19">     19</a> # font_family      Hermit Light
+<a href="#l20" class="line" id="l20">     20</a> # bold_font        Hermit Bold
+<a href="#l21" class="line" id="l21">     21</a> # italic_font      Hermit LightItalic
+<a href="#l22" class="line" id="l22">     22</a> # bold_italic_font Hermit BoldItalic
+<a href="#l23" class="line" id="l23">     23</a> 
+<a href="#l24" class="line" id="l24">     24</a> # font_family      Liga Cartograph Mono CF Thin
+<a href="#l25" class="line" id="l25">     25</a> # bold_font        Liga Cartograph Mono CF DemiBold
+<a href="#l26" class="line" id="l26">     26</a> # italic_font      Liga Cartograph Mono CF Thin Italic
+<a href="#l27" class="line" id="l27">     27</a> # bold_italic_font Liga Cartograph Mono CF DemiBold Italic
+<a href="#l28" class="line" id="l28">     28</a> 
+<a href="#l29" class="line" id="l29">     29</a> #: You can specify different fonts for the bold/italic/bold-italic
+<a href="#l30" class="line" id="l30">     30</a> #: variants. To get a full list of supported fonts use the `kitty
+<a href="#l31" class="line" id="l31">     31</a> #: list-fonts` command. By default they are derived automatically, by
+<a href="#l32" class="line" id="l32">     32</a> #: the OSes font system. Setting them manually is useful for font
+<a href="#l33" class="line" id="l33">     33</a> #: families that have many weight variants like Book, Medium, Thick,
+<a href="#l34" class="line" id="l34">     34</a> #: etc. For example::
+<a href="#l35" class="line" id="l35">     35</a> 
+<a href="#l36" class="line" id="l36">     36</a> #:     font_family      Operator Mono Book
+<a href="#l37" class="line" id="l37">     37</a> #:     bold_font        Operator Mono Medium
+<a href="#l38" class="line" id="l38">     38</a> #:     italic_font      Operator Mono Book Italic
+<a href="#l39" class="line" id="l39">     39</a> #:     bold_italic_font Operator Mono Medium Italic
+<a href="#l40" class="line" id="l40">     40</a> 
+<a href="#l41" class="line" id="l41">     41</a> font_size 13.0
+<a href="#l42" class="line" id="l42">     42</a> 
+<a href="#l43" class="line" id="l43">     43</a> #: Font size (in pts)
+<a href="#l44" class="line" id="l44">     44</a> 
+<a href="#l45" class="line" id="l45">     45</a> adjust_line_height  0
+<a href="#l46" class="line" id="l46">     46</a> adjust_column_width 0
+<a href="#l47" class="line" id="l47">     47</a> 
+<a href="#l48" class="line" id="l48">     48</a> #: Change the size of each character cell kitty renders. You can use
+<a href="#l49" class="line" id="l49">     49</a> #: either numbers, which are interpreted as pixels or percentages
+<a href="#l50" class="line" id="l50">     50</a> #: (number followed by %), which are interpreted as percentages of the
+<a href="#l51" class="line" id="l51">     51</a> #: unmodified values. You can use negative pixels or percentages less
+<a href="#l52" class="line" id="l52">     52</a> #: than 100% to reduce sizes (but this might cause rendering
+<a href="#l53" class="line" id="l53">     53</a> #: artifacts).
+<a href="#l54" class="line" id="l54">     54</a> 
+<a href="#l55" class="line" id="l55">     55</a> # symbol_map U+E0A0-U+E0A2,U+E0B0-U+E0B3 PowerlineSymbols
+<a href="#l56" class="line" id="l56">     56</a> 
+<a href="#l57" class="line" id="l57">     57</a> #: Map the specified unicode codepoints to a particular font. Useful
+<a href="#l58" class="line" id="l58">     58</a> #: if you need special rendering for some symbols, such as for
+<a href="#l59" class="line" id="l59">     59</a> #: Powerline. Avoids the need for patched fonts. Each unicode code
+<a href="#l60" class="line" id="l60">     60</a> #: point is specified in the form U+&lt;code point in hexadecimal&gt;. You
+<a href="#l61" class="line" id="l61">     61</a> #: can specify multiple code points, separated by commas and ranges
+<a href="#l62" class="line" id="l62">     62</a> #: separated by hyphens. symbol_map itself can be specified multiple
+<a href="#l63" class="line" id="l63">     63</a> #: times. Syntax is::
+<a href="#l64" class="line" id="l64">     64</a> 
+<a href="#l65" class="line" id="l65">     65</a> #:     symbol_map codepoints Font Family Name
+<a href="#l66" class="line" id="l66">     66</a> 
+<a href="#l67" class="line" id="l67">     67</a> disable_ligatures always
+<a href="#l68" class="line" id="l68">     68</a> 
+<a href="#l69" class="line" id="l69">     69</a> #: Choose how you want to handle multi-character ligatures. The
+<a href="#l70" class="line" id="l70">     70</a> #: default is to always render them.  You can tell kitty to not render
+<a href="#l71" class="line" id="l71">     71</a> #: them when the cursor is over them by using cursor to make editing
+<a href="#l72" class="line" id="l72">     72</a> #: easier, or have kitty never render them at all by using always, if
+<a href="#l73" class="line" id="l73">     73</a> #: you don&#39;t like them. The ligature strategy can be set per-window
+<a href="#l74" class="line" id="l74">     74</a> #: either using the kitty remote control facility or by defining
+<a href="#l75" class="line" id="l75">     75</a> #: shortcuts for it in kitty.conf, for example::
+<a href="#l76" class="line" id="l76">     76</a> 
+<a href="#l77" class="line" id="l77">     77</a> #:     map alt+1 disable_ligatures_in active always
+<a href="#l78" class="line" id="l78">     78</a> #:     map alt+2 disable_ligatures_in all never
+<a href="#l79" class="line" id="l79">     79</a> #:     map alt+3 disable_ligatures_in tab cursor
+<a href="#l80" class="line" id="l80">     80</a> 
+<a href="#l81" class="line" id="l81">     81</a> box_drawing_scale 0.001, 1, 1.5, 2
+<a href="#l82" class="line" id="l82">     82</a> 
+<a href="#l83" class="line" id="l83">     83</a> #: Change the sizes of the lines used for the box drawing unicode
+<a href="#l84" class="line" id="l84">     84</a> #: characters These values are in pts. They will be scaled by the
+<a href="#l85" class="line" id="l85">     85</a> #: monitor DPI to arrive at a pixel value. There must be four values
+<a href="#l86" class="line" id="l86">     86</a> #: corresponding to thin, normal, thick, and very thick lines.
+<a href="#l87" class="line" id="l87">     87</a> 
+<a href="#l88" class="line" id="l88">     88</a> #: }}}
+<a href="#l89" class="line" id="l89">     89</a> 
+<a href="#l90" class="line" id="l90">     90</a> #: Cursor customization {{{
+<a href="#l91" class="line" id="l91">     91</a> 
+<a href="#l92" class="line" id="l92">     92</a> # gruvbox-dark
+<a href="#l93" class="line" id="l93">     93</a> # cursor #a89984
+<a href="#l94" class="line" id="l94">     94</a> 
+<a href="#l95" class="line" id="l95">     95</a> # gruvbox-light
+<a href="#l96" class="line" id="l96">     96</a> cursor #4c4c4c
+<a href="#l97" class="line" id="l97">     97</a> 
+<a href="#l98" class="line" id="l98">     98</a> #: Default cursor color
+<a href="#l99" class="line" id="l99">     99</a> 
+<a href="#l100" class="line" id="l100">    100</a> cursor_text_color background
+<a href="#l101" class="line" id="l101">    101</a> 
+<a href="#l102" class="line" id="l102">    102</a> #: Choose the color of text under the cursor. If you want it rendered
+<a href="#l103" class="line" id="l103">    103</a> #: with the background color of the cell underneath instead, use the
+<a href="#l104" class="line" id="l104">    104</a> #: special keyword: background
+<a href="#l105" class="line" id="l105">    105</a> 
+<a href="#l106" class="line" id="l106">    106</a> cursor_shape block
+<a href="#l107" class="line" id="l107">    107</a> 
+<a href="#l108" class="line" id="l108">    108</a> #: The cursor shape can be one of (block, beam, underline)
+<a href="#l109" class="line" id="l109">    109</a> 
+<a href="#l110" class="line" id="l110">    110</a> cursor_blink_interval -1
+<a href="#l111" class="line" id="l111">    111</a> 
+<a href="#l112" class="line" id="l112">    112</a> #: The interval (in seconds) at which to blink the cursor. Set to zero
+<a href="#l113" class="line" id="l113">    113</a> #: to disable blinking. Negative values mean use system default. Note
+<a href="#l114" class="line" id="l114">    114</a> #: that numbers smaller than repaint_delay will be limited to
+<a href="#l115" class="line" id="l115">    115</a> #: repaint_delay.
+<a href="#l116" class="line" id="l116">    116</a> 
+<a href="#l117" class="line" id="l117">    117</a> cursor_stop_blinking_after 15.0
+<a href="#l118" class="line" id="l118">    118</a> 
+<a href="#l119" class="line" id="l119">    119</a> #: Stop blinking cursor after the specified number of seconds of
+<a href="#l120" class="line" id="l120">    120</a> #: keyboard inactivity.  Set to zero to never stop blinking.
+<a href="#l121" class="line" id="l121">    121</a> 
+<a href="#l122" class="line" id="l122">    122</a> #: }}}
+<a href="#l123" class="line" id="l123">    123</a> 
+<a href="#l124" class="line" id="l124">    124</a> #: Scrollback {{{
+<a href="#l125" class="line" id="l125">    125</a> 
+<a href="#l126" class="line" id="l126">    126</a> scrollback_lines 2000
+<a href="#l127" class="line" id="l127">    127</a> 
+<a href="#l128" class="line" id="l128">    128</a> #: Number of lines of history to keep in memory for scrolling back.
+<a href="#l129" class="line" id="l129">    129</a> #: Memory is allocated on demand. Negative numbers are (effectively)
+<a href="#l130" class="line" id="l130">    130</a> #: infinite scrollback. Note that using very large scrollback is not
+<a href="#l131" class="line" id="l131">    131</a> #: recommended as it can slow down resizing of the terminal and also
+<a href="#l132" class="line" id="l132">    132</a> #: use large amounts of RAM.
+<a href="#l133" class="line" id="l133">    133</a> 
+<a href="#l134" class="line" id="l134">    134</a> scrollback_pager less --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER
+<a href="#l135" class="line" id="l135">    135</a> 
+<a href="#l136" class="line" id="l136">    136</a> #: Program with which to view scrollback in a new window. The
+<a href="#l137" class="line" id="l137">    137</a> #: scrollback buffer is passed as STDIN to this program. If you change
+<a href="#l138" class="line" id="l138">    138</a> #: it, make sure the program you use can handle ANSI escape sequences
+<a href="#l139" class="line" id="l139">    139</a> #: for colors and text formatting. INPUT_LINE_NUMBER in the command
+<a href="#l140" class="line" id="l140">    140</a> #: line above will be replaced by an integer representing which line
+<a href="#l141" class="line" id="l141">    141</a> #: should be at the top of the screen.
+<a href="#l142" class="line" id="l142">    142</a> 
+<a href="#l143" class="line" id="l143">    143</a> scrollback_pager_history_size 0
+<a href="#l144" class="line" id="l144">    144</a> 
+<a href="#l145" class="line" id="l145">    145</a> #: Separate scrollback history size, used only for browsing the
+<a href="#l146" class="line" id="l146">    146</a> #: scrollback buffer (in MB). This separate buffer is not available
+<a href="#l147" class="line" id="l147">    147</a> #: for interactive scrolling but will be piped to the pager program
+<a href="#l148" class="line" id="l148">    148</a> #: when viewing scrollback buffer in a separate window. The current
+<a href="#l149" class="line" id="l149">    149</a> #: implementation stores one character in 4 bytes, so approximatively
+<a href="#l150" class="line" id="l150">    150</a> #: 2500 lines per megabyte at 100 chars per line. A value of zero or
+<a href="#l151" class="line" id="l151">    151</a> #: less disables this feature. The maximum allowed size is 4GB.
+<a href="#l152" class="line" id="l152">    152</a> 
+<a href="#l153" class="line" id="l153">    153</a> wheel_scroll_multiplier 5.0
+<a href="#l154" class="line" id="l154">    154</a> 
+<a href="#l155" class="line" id="l155">    155</a> #: Modify the amount scrolled by the mouse wheel. Note this is only
+<a href="#l156" class="line" id="l156">    156</a> #: used for low precision scrolling devices, not for high precision
+<a href="#l157" class="line" id="l157">    157</a> #: scrolling on platforms such as macOS and Wayland. Use negative
+<a href="#l158" class="line" id="l158">    158</a> #: numbers to change scroll direction.
+<a href="#l159" class="line" id="l159">    159</a> 
+<a href="#l160" class="line" id="l160">    160</a> touch_scroll_multiplier 1.0
+<a href="#l161" class="line" id="l161">    161</a> 
+<a href="#l162" class="line" id="l162">    162</a> #: Modify the amount scrolled by a touchpad. Note this is only used
+<a href="#l163" class="line" id="l163">    163</a> #: for high precision scrolling devices on platforms such as macOS and
+<a href="#l164" class="line" id="l164">    164</a> #: Wayland. Use negative numbers to change scroll direction.
+<a href="#l165" class="line" id="l165">    165</a> 
+<a href="#l166" class="line" id="l166">    166</a> #: }}}
+<a href="#l167" class="line" id="l167">    167</a> 
+<a href="#l168" class="line" id="l168">    168</a> #: Mouse {{{
+<a href="#l169" class="line" id="l169">    169</a> 
+<a href="#l170" class="line" id="l170">    170</a> mouse_hide_wait 0
+<a href="#l171" class="line" id="l171">    171</a> 
+<a href="#l172" class="line" id="l172">    172</a> #: Hide mouse cursor after the specified number of seconds of the
+<a href="#l173" class="line" id="l173">    173</a> #: mouse not being used. Set to zero to disable mouse cursor hiding.
+<a href="#l174" class="line" id="l174">    174</a> #: Set to a negative value to hide the mouse cursor immediately when
+<a href="#l175" class="line" id="l175">    175</a> #: typing text. Disabled by default on macOS as getting it to work
+<a href="#l176" class="line" id="l176">    176</a> #: robustly with the ever-changing sea of bugs that is Cocoa is too
+<a href="#l177" class="line" id="l177">    177</a> #: much effort.
+<a href="#l178" class="line" id="l178">    178</a> 
+<a href="#l179" class="line" id="l179">    179</a> url_color             #d65c0d
+<a href="#l180" class="line" id="l180">    180</a> url_style curly
+<a href="#l181" class="line" id="l181">    181</a> 
+<a href="#l182" class="line" id="l182">    182</a> #: The color and style for highlighting URLs on mouse-over. url_style
+<a href="#l183" class="line" id="l183">    183</a> #: can be one of: none, single, double, curly
+<a href="#l184" class="line" id="l184">    184</a> 
+<a href="#l185" class="line" id="l185">    185</a> open_url_modifiers kitty_mod
+<a href="#l186" class="line" id="l186">    186</a> 
+<a href="#l187" class="line" id="l187">    187</a> #: The modifier keys to press when clicking with the mouse on URLs to
+<a href="#l188" class="line" id="l188">    188</a> #: open the URL
+<a href="#l189" class="line" id="l189">    189</a> 
+<a href="#l190" class="line" id="l190">    190</a> open_url_with default
+<a href="#l191" class="line" id="l191">    191</a> 
+<a href="#l192" class="line" id="l192">    192</a> #: The program with which to open URLs that are clicked on. The
+<a href="#l193" class="line" id="l193">    193</a> #: special value default means to use the operating system&#39;s default
+<a href="#l194" class="line" id="l194">    194</a> #: URL handler.
+<a href="#l195" class="line" id="l195">    195</a> 
+<a href="#l196" class="line" id="l196">    196</a> copy_on_select no
+<a href="#l197" class="line" id="l197">    197</a> 
+<a href="#l198" class="line" id="l198">    198</a> #: Copy to clipboard or a private buffer on select. With this set to
+<a href="#l199" class="line" id="l199">    199</a> #: clipboard, simply selecting text with the mouse will cause the text
+<a href="#l200" class="line" id="l200">    200</a> #: to be copied to clipboard. Useful on platforms such as macOS that
+<a href="#l201" class="line" id="l201">    201</a> #: do not have the concept of primary selections. You can instead
+<a href="#l202" class="line" id="l202">    202</a> #: specify a name such as a1 to copy to a private kitty buffer
+<a href="#l203" class="line" id="l203">    203</a> #: instead. Map a shortcut with the paste_from_buffer action to paste
+<a href="#l204" class="line" id="l204">    204</a> #: from this private buffer. For example::
+<a href="#l205" class="line" id="l205">    205</a> 
+<a href="#l206" class="line" id="l206">    206</a> #:     map cmd+shift+v paste_from_buffer a1
+<a href="#l207" class="line" id="l207">    207</a> 
+<a href="#l208" class="line" id="l208">    208</a> #: Note that copying to the clipboard is a security risk, as all
+<a href="#l209" class="line" id="l209">    209</a> #: programs, including websites open in your browser can read the
+<a href="#l210" class="line" id="l210">    210</a> #: contents of the system clipboard.
+<a href="#l211" class="line" id="l211">    211</a> 
+<a href="#l212" class="line" id="l212">    212</a> strip_trailing_spaces never
+<a href="#l213" class="line" id="l213">    213</a> 
+<a href="#l214" class="line" id="l214">    214</a> #: Remove spaces at the end of lines when copying to clipboard. A
+<a href="#l215" class="line" id="l215">    215</a> #: value of smart will do it when using normal selections, but not
+<a href="#l216" class="line" id="l216">    216</a> #: rectangle selections. always will always do it.
+<a href="#l217" class="line" id="l217">    217</a> 
+<a href="#l218" class="line" id="l218">    218</a> rectangle_select_modifiers ctrl+alt
+<a href="#l219" class="line" id="l219">    219</a> 
+<a href="#l220" class="line" id="l220">    220</a> #: The modifiers to use rectangular selection (i.e. to select text in
+<a href="#l221" class="line" id="l221">    221</a> #: a rectangular block with the mouse)
+<a href="#l222" class="line" id="l222">    222</a> 
+<a href="#l223" class="line" id="l223">    223</a> terminal_select_modifiers shift
+<a href="#l224" class="line" id="l224">    224</a> 
+<a href="#l225" class="line" id="l225">    225</a> #: The modifiers to override mouse selection even when a terminal
+<a href="#l226" class="line" id="l226">    226</a> #: application has grabbed the mouse
+<a href="#l227" class="line" id="l227">    227</a> 
+<a href="#l228" class="line" id="l228">    228</a> select_by_word_characters :@-./_~?&amp;=%+#
+<a href="#l229" class="line" id="l229">    229</a> 
+<a href="#l230" class="line" id="l230">    230</a> #: Characters considered part of a word when double clicking. In
+<a href="#l231" class="line" id="l231">    231</a> #: addition to these characters any character that is marked as an
+<a href="#l232" class="line" id="l232">    232</a> #: alphanumeric character in the unicode database will be matched.
+<a href="#l233" class="line" id="l233">    233</a> 
+<a href="#l234" class="line" id="l234">    234</a> click_interval -1.0
+<a href="#l235" class="line" id="l235">    235</a> 
+<a href="#l236" class="line" id="l236">    236</a> #: The interval between successive clicks to detect double/triple
+<a href="#l237" class="line" id="l237">    237</a> #: clicks (in seconds). Negative numbers will use the system default
+<a href="#l238" class="line" id="l238">    238</a> #: instead, if available, or fallback to 0.5.
+<a href="#l239" class="line" id="l239">    239</a> 
+<a href="#l240" class="line" id="l240">    240</a> focus_follows_mouse no
+<a href="#l241" class="line" id="l241">    241</a> 
+<a href="#l242" class="line" id="l242">    242</a> #: Set the active window to the window under the mouse when moving the
+<a href="#l243" class="line" id="l243">    243</a> #: mouse around
+<a href="#l244" class="line" id="l244">    244</a> 
+<a href="#l245" class="line" id="l245">    245</a> pointer_shape_when_grabbed arrow
+<a href="#l246" class="line" id="l246">    246</a> 
+<a href="#l247" class="line" id="l247">    247</a> #: The shape of the mouse pointer when the program running in the
+<a href="#l248" class="line" id="l248">    248</a> #: terminal grabs the mouse.
+<a href="#l249" class="line" id="l249">    249</a> 
+<a href="#l250" class="line" id="l250">    250</a> #: }}}
+<a href="#l251" class="line" id="l251">    251</a> 
+<a href="#l252" class="line" id="l252">    252</a> #: Performance tuning {{{
+<a href="#l253" class="line" id="l253">    253</a> 
+<a href="#l254" class="line" id="l254">    254</a> repaint_delay 10
+<a href="#l255" class="line" id="l255">    255</a> 
+<a href="#l256" class="line" id="l256">    256</a> #: Delay (in milliseconds) between screen updates. Decreasing it,
+<a href="#l257" class="line" id="l257">    257</a> #: increases frames-per-second (FPS) at the cost of more CPU usage.
+<a href="#l258" class="line" id="l258">    258</a> #: The default value yields ~100 FPS which is more than sufficient for
+<a href="#l259" class="line" id="l259">    259</a> #: most uses. Note that to actually achieve 100 FPS you have to either
+<a href="#l260" class="line" id="l260">    260</a> #: set sync_to_monitor to no or use a monitor with a high refresh
+<a href="#l261" class="line" id="l261">    261</a> #: rate. Also, to minimize latency when there is pending input to be
+<a href="#l262" class="line" id="l262">    262</a> #: processed, repaint_delay is ignored.
+<a href="#l263" class="line" id="l263">    263</a> 
+<a href="#l264" class="line" id="l264">    264</a> input_delay 3
+<a href="#l265" class="line" id="l265">    265</a> 
+<a href="#l266" class="line" id="l266">    266</a> #: Delay (in milliseconds) before input from the program running in
+<a href="#l267" class="line" id="l267">    267</a> #: the terminal is processed. Note that decreasing it will increase
+<a href="#l268" class="line" id="l268">    268</a> #: responsiveness, but also increase CPU usage and might cause flicker
+<a href="#l269" class="line" id="l269">    269</a> #: in full screen programs that redraw the entire screen on each loop,
+<a href="#l270" class="line" id="l270">    270</a> #: because kitty is so fast that partial screen updates will be drawn.
+<a href="#l271" class="line" id="l271">    271</a> 
+<a href="#l272" class="line" id="l272">    272</a> sync_to_monitor yes
+<a href="#l273" class="line" id="l273">    273</a> 
+<a href="#l274" class="line" id="l274">    274</a> #: Sync screen updates to the refresh rate of the monitor. This
+<a href="#l275" class="line" id="l275">    275</a> #: prevents tearing (https://en.wikipedia.org/wiki/Screen_tearing)
+<a href="#l276" class="line" id="l276">    276</a> #: when scrolling. However, it limits the rendering speed to the
+<a href="#l277" class="line" id="l277">    277</a> #: refresh rate of your monitor. With a very high speed mouse/high
+<a href="#l278" class="line" id="l278">    278</a> #: keyboard repeat rate, you may notice some slight input latency. If
+<a href="#l279" class="line" id="l279">    279</a> #: so, set this to no.
+<a href="#l280" class="line" id="l280">    280</a> 
+<a href="#l281" class="line" id="l281">    281</a> #: }}}
+<a href="#l282" class="line" id="l282">    282</a> 
+<a href="#l283" class="line" id="l283">    283</a> #: Terminal bell {{{
+<a href="#l284" class="line" id="l284">    284</a> 
+<a href="#l285" class="line" id="l285">    285</a> enable_audio_bell yes
+<a href="#l286" class="line" id="l286">    286</a> 
+<a href="#l287" class="line" id="l287">    287</a> #: Enable/disable the audio bell. Useful in environments that require
+<a href="#l288" class="line" id="l288">    288</a> #: silence.
+<a href="#l289" class="line" id="l289">    289</a> 
+<a href="#l290" class="line" id="l290">    290</a> visual_bell_duration 0.0
+<a href="#l291" class="line" id="l291">    291</a> 
+<a href="#l292" class="line" id="l292">    292</a> #: Visual bell duration. Flash the screen when a bell occurs for the
+<a href="#l293" class="line" id="l293">    293</a> #: specified number of seconds. Set to zero to disable.
+<a href="#l294" class="line" id="l294">    294</a> 
+<a href="#l295" class="line" id="l295">    295</a> window_alert_on_bell yes
+<a href="#l296" class="line" id="l296">    296</a> 
+<a href="#l297" class="line" id="l297">    297</a> #: Request window attention on bell. Makes the dock icon bounce on
+<a href="#l298" class="line" id="l298">    298</a> #: macOS or the taskbar flash on linux.
+<a href="#l299" class="line" id="l299">    299</a> 
+<a href="#l300" class="line" id="l300">    300</a> bell_on_tab yes
+<a href="#l301" class="line" id="l301">    301</a> 
+<a href="#l302" class="line" id="l302">    302</a> #: Show a bell symbol on the tab if a bell occurs in one of the
+<a href="#l303" class="line" id="l303">    303</a> #: windows in the tab and the window is not the currently focused
+<a href="#l304" class="line" id="l304">    304</a> #: window
+<a href="#l305" class="line" id="l305">    305</a> 
+<a href="#l306" class="line" id="l306">    306</a> command_on_bell none
+<a href="#l307" class="line" id="l307">    307</a> 
+<a href="#l308" class="line" id="l308">    308</a> #: Program to run when a bell occurs.
+<a href="#l309" class="line" id="l309">    309</a> 
+<a href="#l310" class="line" id="l310">    310</a> #: }}}
+<a href="#l311" class="line" id="l311">    311</a> 
+<a href="#l312" class="line" id="l312">    312</a> #: Window layout {{{
+<a href="#l313" class="line" id="l313">    313</a> 
+<a href="#l314" class="line" id="l314">    314</a> remember_window_size  yes
+<a href="#l315" class="line" id="l315">    315</a> initial_window_width  640
+<a href="#l316" class="line" id="l316">    316</a> initial_window_height 400
+<a href="#l317" class="line" id="l317">    317</a> 
+<a href="#l318" class="line" id="l318">    318</a> #: If enabled, the window size will be remembered so that new
+<a href="#l319" class="line" id="l319">    319</a> #: instances of kitty will have the same size as the previous
+<a href="#l320" class="line" id="l320">    320</a> #: instance. If disabled, the window will initially have size
+<a href="#l321" class="line" id="l321">    321</a> #: configured by initial_window_width/height, in pixels. You can use a
+<a href="#l322" class="line" id="l322">    322</a> #: suffix of &quot;c&quot; on the width/height values to have them interpreted
+<a href="#l323" class="line" id="l323">    323</a> #: as number of cells instead of pixels.
+<a href="#l324" class="line" id="l324">    324</a> 
+<a href="#l325" class="line" id="l325">    325</a> enabled_layouts *
+<a href="#l326" class="line" id="l326">    326</a> 
+<a href="#l327" class="line" id="l327">    327</a> #: The enabled window layouts. A comma separated list of layout names.
+<a href="#l328" class="line" id="l328">    328</a> #: The special value all means all layouts. The first listed layout
+<a href="#l329" class="line" id="l329">    329</a> #: will be used as the startup layout. For a list of available
+<a href="#l330" class="line" id="l330">    330</a> #: layouts, see the
+<a href="#l331" class="line" id="l331">    331</a> #: https://sw.kovidgoyal.net/kitty/index.html#layouts.
+<a href="#l332" class="line" id="l332">    332</a> 
+<a href="#l333" class="line" id="l333">    333</a> window_resize_step_cells 2
+<a href="#l334" class="line" id="l334">    334</a> window_resize_step_lines 2
+<a href="#l335" class="line" id="l335">    335</a> 
+<a href="#l336" class="line" id="l336">    336</a> #: The step size (in units of cell width/cell height) to use when
+<a href="#l337" class="line" id="l337">    337</a> #: resizing windows. The cells value is used for horizontal resizing
+<a href="#l338" class="line" id="l338">    338</a> #: and the lines value for vertical resizing.
+<a href="#l339" class="line" id="l339">    339</a> 
+<a href="#l340" class="line" id="l340">    340</a> window_border_width 1.0
+<a href="#l341" class="line" id="l341">    341</a> 
+<a href="#l342" class="line" id="l342">    342</a> #: The width (in pts) of window borders. Will be rounded to the
+<a href="#l343" class="line" id="l343">    343</a> #: nearest number of pixels based on screen resolution. Note that
+<a href="#l344" class="line" id="l344">    344</a> #: borders are displayed only when more than one window is visible.
+<a href="#l345" class="line" id="l345">    345</a> #: They are meant to separate multiple windows.
+<a href="#l346" class="line" id="l346">    346</a> 
+<a href="#l347" class="line" id="l347">    347</a> draw_minimal_borders yes
+<a href="#l348" class="line" id="l348">    348</a> 
+<a href="#l349" class="line" id="l349">    349</a> #: Draw only the minimum borders needed. This means that only the
+<a href="#l350" class="line" id="l350">    350</a> #: minimum needed borders for inactive windows are drawn. That is only
+<a href="#l351" class="line" id="l351">    351</a> #: the borders that separate the inactive window from a neighbor. Note
+<a href="#l352" class="line" id="l352">    352</a> #: that setting a non-zero window margin overrides this and causes all
+<a href="#l353" class="line" id="l353">    353</a> #: borders to be drawn.
+<a href="#l354" class="line" id="l354">    354</a> 
+<a href="#l355" class="line" id="l355">    355</a> window_margin_width 0.0
+<a href="#l356" class="line" id="l356">    356</a> 
+<a href="#l357" class="line" id="l357">    357</a> #: The window margin (in pts) (blank area outside the border)
+<a href="#l358" class="line" id="l358">    358</a> 
+<a href="#l359" class="line" id="l359">    359</a> single_window_margin_width -1000.0
+<a href="#l360" class="line" id="l360">    360</a> 
+<a href="#l361" class="line" id="l361">    361</a> #: The window margin (in pts) to use when only a single window is
+<a href="#l362" class="line" id="l362">    362</a> #: visible. Negative values will cause the value of
+<a href="#l363" class="line" id="l363">    363</a> #: window_margin_width to be used instead.
+<a href="#l364" class="line" id="l364">    364</a> 
+<a href="#l365" class="line" id="l365">    365</a> window_padding_width 0.0
+<a href="#l366" class="line" id="l366">    366</a> 
+<a href="#l367" class="line" id="l367">    367</a> #: The window padding (in pts) (blank area between the text and the
+<a href="#l368" class="line" id="l368">    368</a> #: window border)
+<a href="#l369" class="line" id="l369">    369</a> 
+<a href="#l370" class="line" id="l370">    370</a> placement_strategy top-left
+<a href="#l371" class="line" id="l371">    371</a> 
+<a href="#l372" class="line" id="l372">    372</a> #: When the window size is not an exact multiple of the cell size, the
+<a href="#l373" class="line" id="l373">    373</a> #: cell area of the terminal window will have some extra padding on
+<a href="#l374" class="line" id="l374">    374</a> #: the sides. You can control how that padding is distributed with
+<a href="#l375" class="line" id="l375">    375</a> #: this option. Using a value of center means the cell area will be
+<a href="#l376" class="line" id="l376">    376</a> #: placed centrally. A value of top-left means the padding will be on
+<a href="#l377" class="line" id="l377">    377</a> #: only the bottom and right edges.
+<a href="#l378" class="line" id="l378">    378</a> 
+<a href="#l379" class="line" id="l379">    379</a> active_border_color #00ff00
+<a href="#l380" class="line" id="l380">    380</a> 
+<a href="#l381" class="line" id="l381">    381</a> #: The color for the border of the active window. Set this to none to
+<a href="#l382" class="line" id="l382">    382</a> #: not draw borders around the active window.
+<a href="#l383" class="line" id="l383">    383</a> 
+<a href="#l384" class="line" id="l384">    384</a> inactive_border_color #cccccc
+<a href="#l385" class="line" id="l385">    385</a> 
+<a href="#l386" class="line" id="l386">    386</a> #: The color for the border of inactive windows
+<a href="#l387" class="line" id="l387">    387</a> 
+<a href="#l388" class="line" id="l388">    388</a> bell_border_color #ff5a00
+<a href="#l389" class="line" id="l389">    389</a> 
+<a href="#l390" class="line" id="l390">    390</a> #: The color for the border of inactive windows in which a bell has
+<a href="#l391" class="line" id="l391">    391</a> #: occurred
+<a href="#l392" class="line" id="l392">    392</a> 
+<a href="#l393" class="line" id="l393">    393</a> inactive_text_alpha 1.0
+<a href="#l394" class="line" id="l394">    394</a> 
+<a href="#l395" class="line" id="l395">    395</a> #: Fade the text in inactive windows by the specified amount (a number
+<a href="#l396" class="line" id="l396">    396</a> #: between zero and one, with zero being fully faded).
+<a href="#l397" class="line" id="l397">    397</a> 
+<a href="#l398" class="line" id="l398">    398</a> hide_window_decorations yes
+<a href="#l399" class="line" id="l399">    399</a> 
+<a href="#l400" class="line" id="l400">    400</a> #: Hide the window decorations (title-bar and window borders). Whether
+<a href="#l401" class="line" id="l401">    401</a> #: this works and exactly what effect it has depends on the window
+<a href="#l402" class="line" id="l402">    402</a> #: manager/operating system.
+<a href="#l403" class="line" id="l403">    403</a> 
+<a href="#l404" class="line" id="l404">    404</a> resize_debounce_time 0.1
+<a href="#l405" class="line" id="l405">    405</a> 
+<a href="#l406" class="line" id="l406">    406</a> #: The time (in seconds) to wait before redrawing the screen when a
+<a href="#l407" class="line" id="l407">    407</a> #: resize event is received. On platforms such as macOS, where the
+<a href="#l408" class="line" id="l408">    408</a> #: operating system sends events corresponding to the start and end of
+<a href="#l409" class="line" id="l409">    409</a> #: a resize, this number is ignored.
+<a href="#l410" class="line" id="l410">    410</a> 
+<a href="#l411" class="line" id="l411">    411</a> resize_draw_strategy static
+<a href="#l412" class="line" id="l412">    412</a> 
+<a href="#l413" class="line" id="l413">    413</a> #: Choose how kitty draws a window while a resize is in progress. A
+<a href="#l414" class="line" id="l414">    414</a> #: value of static means draw the current window contents, mostly
+<a href="#l415" class="line" id="l415">    415</a> #: unchanged. A value of scale means draw the current window contents
+<a href="#l416" class="line" id="l416">    416</a> #: scaled. A value of blank means draw a blank window. A value of size
+<a href="#l417" class="line" id="l417">    417</a> #: means show the window size in cells.
+<a href="#l418" class="line" id="l418">    418</a> 
+<a href="#l419" class="line" id="l419">    419</a> #: }}}
+<a href="#l420" class="line" id="l420">    420</a> 
+<a href="#l421" class="line" id="l421">    421</a> #: Tab bar {{{
+<a href="#l422" class="line" id="l422">    422</a> 
+<a href="#l423" class="line" id="l423">    423</a> tab_bar_edge bottom
+<a href="#l424" class="line" id="l424">    424</a> 
+<a href="#l425" class="line" id="l425">    425</a> #: Which edge to show the tab bar on, top or bottom
+<a href="#l426" class="line" id="l426">    426</a> 
+<a href="#l427" class="line" id="l427">    427</a> tab_bar_margin_width 0.0
+<a href="#l428" class="line" id="l428">    428</a> 
+<a href="#l429" class="line" id="l429">    429</a> #: The margin to the left and right of the tab bar (in pts)
+<a href="#l430" class="line" id="l430">    430</a> 
+<a href="#l431" class="line" id="l431">    431</a> tab_bar_style fade
+<a href="#l432" class="line" id="l432">    432</a> 
+<a href="#l433" class="line" id="l433">    433</a> #: The tab bar style, can be one of: fade, separator, powerline, or
+<a href="#l434" class="line" id="l434">    434</a> #: hidden. In the fade style, each tab&#39;s edges fade into the
+<a href="#l435" class="line" id="l435">    435</a> #: background color, in the separator style, tabs are separated by a
+<a href="#l436" class="line" id="l436">    436</a> #: configurable separator, and the powerline shows the tabs as a
+<a href="#l437" class="line" id="l437">    437</a> #: continuous line.
+<a href="#l438" class="line" id="l438">    438</a> 
+<a href="#l439" class="line" id="l439">    439</a> tab_bar_min_tabs 2
+<a href="#l440" class="line" id="l440">    440</a> 
+<a href="#l441" class="line" id="l441">    441</a> #: The minimum number of tabs that must exist before the tab bar is
+<a href="#l442" class="line" id="l442">    442</a> #: shown
+<a href="#l443" class="line" id="l443">    443</a> 
+<a href="#l444" class="line" id="l444">    444</a> tab_switch_strategy previous
+<a href="#l445" class="line" id="l445">    445</a> 
+<a href="#l446" class="line" id="l446">    446</a> #: The algorithm to use when switching to a tab when the current tab
+<a href="#l447" class="line" id="l447">    447</a> #: is closed. The default of previous will switch to the last used
+<a href="#l448" class="line" id="l448">    448</a> #: tab. A value of left will switch to the tab to the left of the
+<a href="#l449" class="line" id="l449">    449</a> #: closed tab. A value of last will switch to the right-most tab.
+<a href="#l450" class="line" id="l450">    450</a> 
+<a href="#l451" class="line" id="l451">    451</a> tab_fade 0.25 0.5 0.75 1
+<a href="#l452" class="line" id="l452">    452</a> 
+<a href="#l453" class="line" id="l453">    453</a> #: Control how each tab fades into the background when using fade for
+<a href="#l454" class="line" id="l454">    454</a> #: the tab_bar_style. Each number is an alpha (between zero and one)
+<a href="#l455" class="line" id="l455">    455</a> #: that controls how much the corresponding cell fades into the
+<a href="#l456" class="line" id="l456">    456</a> #: background, with zero being no fade and one being full fade. You
+<a href="#l457" class="line" id="l457">    457</a> #: can change the number of cells used by adding/removing entries to
+<a href="#l458" class="line" id="l458">    458</a> #: this list.
+<a href="#l459" class="line" id="l459">    459</a> 
+<a href="#l460" class="line" id="l460">    460</a> tab_separator &quot; ┇&quot;
+<a href="#l461" class="line" id="l461">    461</a> 
+<a href="#l462" class="line" id="l462">    462</a> #: The separator between tabs in the tab bar when using separator as
+<a href="#l463" class="line" id="l463">    463</a> #: the tab_bar_style.
+<a href="#l464" class="line" id="l464">    464</a> 
+<a href="#l465" class="line" id="l465">    465</a> tab_title_template {title}
+<a href="#l466" class="line" id="l466">    466</a> 
+<a href="#l467" class="line" id="l467">    467</a> #: A template to render the tab title. The default just renders the
+<a href="#l468" class="line" id="l468">    468</a> #: title. If you wish to include the tab-index as well, use something
+<a href="#l469" class="line" id="l469">    469</a> #: like: {index}: {title}. Useful if you have shortcuts mapped for
+<a href="#l470" class="line" id="l470">    470</a> #: goto_tab N.
+<a href="#l471" class="line" id="l471">    471</a> 
+<a href="#l472" class="line" id="l472">    472</a> # gruvbox-dark
+<a href="#l473" class="line" id="l473">    473</a> # active_tab_background #282828
+<a href="#l474" class="line" id="l474">    474</a> # active_tab_foreground #d4be98
+<a href="#l475" class="line" id="l475">    475</a> # active_tab_font_style bold
+<a href="#l476" class="line" id="l476">    476</a> # inactive_tab_background #282828
+<a href="#l477" class="line" id="l477">    477</a> # inactive_tab_foreground #a89984
+<a href="#l478" class="line" id="l478">    478</a> # inactive_tab_font_style normal
+<a href="#l479" class="line" id="l479">    479</a> 
+<a href="#l480" class="line" id="l480">    480</a> # gruvbox-light
+<a href="#l481" class="line" id="l481">    481</a> active_tab_background #fbf1c7
+<a href="#l482" class="line" id="l482">    482</a> active_tab_foreground #654735
+<a href="#l483" class="line" id="l483">    483</a> active_tab_font_style bold
+<a href="#l484" class="line" id="l484">    484</a> inactive_tab_background #fbf1c7
+<a href="#l485" class="line" id="l485">    485</a> inactive_tab_foreground #7c6f64
+<a href="#l486" class="line" id="l486">    486</a> inactive_tab_font_style normal
+<a href="#l487" class="line" id="l487">    487</a> 
+<a href="#l488" class="line" id="l488">    488</a> #: Tab bar colors and styles
+<a href="#l489" class="line" id="l489">    489</a> 
+<a href="#l490" class="line" id="l490">    490</a> #: }}}
+<a href="#l491" class="line" id="l491">    491</a> 
+<a href="#l492" class="line" id="l492">    492</a> #: Color scheme {{{
+<a href="#l493" class="line" id="l493">    493</a> 
+<a href="#l494" class="line" id="l494">    494</a> # gruvbox-dark
+<a href="#l495" class="line" id="l495">    495</a> # background #272727
+<a href="#l496" class="line" id="l496">    496</a> # foreground #ebdbb2
+<a href="#l497" class="line" id="l497">    497</a> 
+<a href="#l498" class="line" id="l498">    498</a> # gruvbox-light
+<a href="#l499" class="line" id="l499">    499</a> background #ffffff
+<a href="#l500" class="line" id="l500">    500</a> foreground #4c4c4c
+<a href="#l501" class="line" id="l501">    501</a> 
+<a href="#l502" class="line" id="l502">    502</a> #: The foreground and background colors
+<a href="#l503" class="line" id="l503">    503</a> 
+<a href="#l504" class="line" id="l504">    504</a> background_opacity 1.0
+<a href="#l505" class="line" id="l505">    505</a> 
+<a href="#l506" class="line" id="l506">    506</a> #: The opacity of the background. A number between 0 and 1, where 1 is
+<a href="#l507" class="line" id="l507">    507</a> #: opaque and 0 is fully transparent.  This will only work if
+<a href="#l508" class="line" id="l508">    508</a> #: supported by the OS (for instance, when using a compositor under
+<a href="#l509" class="line" id="l509">    509</a> #: X11). Note that it only sets the default background color&#39;s
+<a href="#l510" class="line" id="l510">    510</a> #: opacity. This is so that things like the status bar in vim,
+<a href="#l511" class="line" id="l511">    511</a> #: powerline prompts, etc. still look good.  But it means that if you
+<a href="#l512" class="line" id="l512">    512</a> #: use a color theme with a background color in your editor, it will
+<a href="#l513" class="line" id="l513">    513</a> #: not be rendered as transparent.  Instead you should change the
+<a href="#l514" class="line" id="l514">    514</a> #: default background color in your kitty config and not use a
+<a href="#l515" class="line" id="l515">    515</a> #: background color in the editor color scheme. Or use the escape
+<a href="#l516" class="line" id="l516">    516</a> #: codes to set the terminals default colors in a shell script to
+<a href="#l517" class="line" id="l517">    517</a> #: launch your editor.  Be aware that using a value less than 1.0 is a
+<a href="#l518" class="line" id="l518">    518</a> #: (possibly significant) performance hit.  If you want to dynamically
+<a href="#l519" class="line" id="l519">    519</a> #: change transparency of windows set dynamic_background_opacity to
+<a href="#l520" class="line" id="l520">    520</a> #: yes (this is off by default as it has a performance cost)
+<a href="#l521" class="line" id="l521">    521</a> 
+<a href="#l522" class="line" id="l522">    522</a> dynamic_background_opacity no
+<a href="#l523" class="line" id="l523">    523</a> 
+<a href="#l524" class="line" id="l524">    524</a> #: Allow changing of the background_opacity dynamically, using either
+<a href="#l525" class="line" id="l525">    525</a> #: keyboard shortcuts (increase_background_opacity and
+<a href="#l526" class="line" id="l526">    526</a> #: decrease_background_opacity) or the remote control facility.
+<a href="#l527" class="line" id="l527">    527</a> 
+<a href="#l528" class="line" id="l528">    528</a> dim_opacity 0.75
+<a href="#l529" class="line" id="l529">    529</a> 
+<a href="#l530" class="line" id="l530">    530</a> #: How much to dim text that has the DIM/FAINT attribute set. One
+<a href="#l531" class="line" id="l531">    531</a> #: means no dimming and zero means fully dimmed (i.e. invisible).
+<a href="#l532" class="line" id="l532">    532</a> 
+<a href="#l533" class="line" id="l533">    533</a> # gruvbox-dark
+<a href="#l534" class="line" id="l534">    534</a> # selection_foreground #655b53
+<a href="#l535" class="line" id="l535">    535</a> 
+<a href="#l536" class="line" id="l536">    536</a> # gruvbox-light
+<a href="#l537" class="line" id="l537">    537</a> selection_foreground #ffffff
+<a href="#l538" class="line" id="l538">    538</a> 
+<a href="#l539" class="line" id="l539">    539</a> #: The foreground for text selected with the mouse. A value of none
+<a href="#l540" class="line" id="l540">    540</a> #: means to leave the color unchanged.
+<a href="#l541" class="line" id="l541">    541</a> 
+<a href="#l542" class="line" id="l542">    542</a> # gruvbox-dark
+<a href="#l543" class="line" id="l543">    543</a> # selection_background #ebdbb2
+<a href="#l544" class="line" id="l544">    544</a> 
+<a href="#l545" class="line" id="l545">    545</a> # gruvbox-light
+<a href="#l546" class="line" id="l546">    546</a> selection_background #d6d6d6
+<a href="#l547" class="line" id="l547">    547</a> 
+<a href="#l548" class="line" id="l548">    548</a> #: The background for text selected with the mouse.
+<a href="#l549" class="line" id="l549">    549</a> 
+<a href="#l550" class="line" id="l550">    550</a> 
+<a href="#l551" class="line" id="l551">    551</a> #: The 16 terminal colors. There are 8 basic colors, each color has a
+<a href="#l552" class="line" id="l552">    552</a> #: dull and bright version. You can also set the remaining colors from
+<a href="#l553" class="line" id="l553">    553</a> #: the 256 color table as color16 to color255.
+<a href="#l554" class="line" id="l554">    554</a> 
+<a href="#l555" class="line" id="l555">    555</a> # Black
+<a href="#l556" class="line" id="l556">    556</a> 
+<a href="#l557" class="line" id="l557">    557</a> # gruvbox-dark
+<a href="#l558" class="line" id="l558">    558</a> # color0   #272727
+<a href="#l559" class="line" id="l559">    559</a> # color8   #928373
+<a href="#l560" class="line" id="l560">    560</a> 
+<a href="#l561" class="line" id="l561">    561</a> # gruvbox-light
+<a href="#l562" class="line" id="l562">    562</a> color0 #000000
+<a href="#l563" class="line" id="l563">    563</a> color8 #000000
+<a href="#l564" class="line" id="l564">    564</a> 
+<a href="#l565" class="line" id="l565">    565</a> # Red
+<a href="#l566" class="line" id="l566">    566</a> 
+<a href="#l567" class="line" id="l567">    567</a> # gruvbox-dark
+<a href="#l568" class="line" id="l568">    568</a> # color1   #cc231c
+<a href="#l569" class="line" id="l569">    569</a> # color9   #fb4833
+<a href="#l570" class="line" id="l570">    570</a> 
+<a href="#l571" class="line" id="l571">    571</a> # gruvbox-light
+<a href="#l572" class="line" id="l572">    572</a> color1 #c82828
+<a href="#l573" class="line" id="l573">    573</a> color9 #c82828
+<a href="#l574" class="line" id="l574">    574</a> 
+<a href="#l575" class="line" id="l575">    575</a> # Green
+<a href="#l576" class="line" id="l576">    576</a> 
+<a href="#l577" class="line" id="l577">    577</a> # gruvbox-dark
+<a href="#l578" class="line" id="l578">    578</a> # color2   #989719
+<a href="#l579" class="line" id="l579">    579</a> # color10  #b8ba25
+<a href="#l580" class="line" id="l580">    580</a> 
+<a href="#l581" class="line" id="l581">    581</a> # gruvbox-light
+<a href="#l582" class="line" id="l582">    582</a> color2 #708b00
+<a href="#l583" class="line" id="l583">    583</a> color10 #708b00
+<a href="#l584" class="line" id="l584">    584</a> 
+<a href="#l585" class="line" id="l585">    585</a> # Yellow
+<a href="#l586" class="line" id="l586">    586</a> 
+<a href="#l587" class="line" id="l587">    587</a> # gruvbox-dark
+<a href="#l588" class="line" id="l588">    588</a> # color3   #d79920
+<a href="#l589" class="line" id="l589">    589</a> # color11  #fabc2e
+<a href="#l590" class="line" id="l590">    590</a> 
+<a href="#l591" class="line" id="l591">    591</a> # gruvbox-light
+<a href="#l592" class="line" id="l592">    592</a> color3 #e9b600
+<a href="#l593" class="line" id="l593">    593</a> color11 #e9b600
+<a href="#l594" class="line" id="l594">    594</a> 
+<a href="#l595" class="line" id="l595">    595</a> # Blue
+<a href="#l596" class="line" id="l596">    596</a> 
+<a href="#l597" class="line" id="l597">    597</a> # gruvbox-dark
+<a href="#l598" class="line" id="l598">    598</a> # color4  #448488
+<a href="#l599" class="line" id="l599">    599</a> # color12 #83a597
+<a href="#l600" class="line" id="l600">    600</a> 
+<a href="#l601" class="line" id="l601">    601</a> # gruvbox-light
+<a href="#l602" class="line" id="l602">    602</a> color4 #4170ae
+<a href="#l603" class="line" id="l603">    603</a> color12 #4170ae
+<a href="#l604" class="line" id="l604">    604</a> 
+<a href="#l605" class="line" id="l605">    605</a> # Magenta
+<a href="#l606" class="line" id="l606">    606</a> 
+<a href="#l607" class="line" id="l607">    607</a> # gruvbox-dark
+<a href="#l608" class="line" id="l608">    608</a> # color5   #b16185
+<a href="#l609" class="line" id="l609">    609</a> # color13  #d3859a
+<a href="#l610" class="line" id="l610">    610</a> 
+<a href="#l611" class="line" id="l611">    611</a> # gruvbox-light
+<a href="#l612" class="line" id="l612">    612</a> color5 #8958a7
+<a href="#l613" class="line" id="l613">    613</a> color13 #8958a7
+<a href="#l614" class="line" id="l614">    614</a> 
+<a href="#l615" class="line" id="l615">    615</a> # Cyan
+<a href="#l616" class="line" id="l616">    616</a> 
+<a href="#l617" class="line" id="l617">    617</a> # gruvbox-dark
+<a href="#l618" class="line" id="l618">    618</a> # color6   #689d69
+<a href="#l619" class="line" id="l619">    619</a> # color14  #8ec07b
+<a href="#l620" class="line" id="l620">    620</a> 
+<a href="#l621" class="line" id="l621">    621</a> # gruvbox-light
+<a href="#l622" class="line" id="l622">    622</a> color6 #3d999f
+<a href="#l623" class="line" id="l623">    623</a> color14 #3d999f
+<a href="#l624" class="line" id="l624">    624</a> 
+<a href="#l625" class="line" id="l625">    625</a> # White
+<a href="#l626" class="line" id="l626">    626</a> 
+<a href="#l627" class="line" id="l627">    627</a> # gruvbox-dark
+<a href="#l628" class="line" id="l628">    628</a> # color7   #a89983
+<a href="#l629" class="line" id="l629">    629</a> # color15  #ebdbb2
+<a href="#l630" class="line" id="l630">    630</a> 
+<a href="#l631" class="line" id="l631">    631</a> # gruvbox-light
+<a href="#l632" class="line" id="l632">    632</a> color7 #fffefe
+<a href="#l633" class="line" id="l633">    633</a> color15 #fffefe
+<a href="#l634" class="line" id="l634">    634</a> 
+<a href="#l635" class="line" id="l635">    635</a> #: }}}
+<a href="#l636" class="line" id="l636">    636</a> 
+<a href="#l637" class="line" id="l637">    637</a> #: Advanced {{{
+<a href="#l638" class="line" id="l638">    638</a> 
+<a href="#l639" class="line" id="l639">    639</a> shell .
+<a href="#l640" class="line" id="l640">    640</a> 
+<a href="#l641" class="line" id="l641">    641</a> #: The shell program to execute. The default value of . means to use
+<a href="#l642" class="line" id="l642">    642</a> #: whatever shell is set as the default shell for the current user.
+<a href="#l643" class="line" id="l643">    643</a> #: Note that on macOS if you change this, you might need to add
+<a href="#l644" class="line" id="l644">    644</a> #: --login to ensure that the shell starts in interactive mode and
+<a href="#l645" class="line" id="l645">    645</a> #: reads its startup rc files.
+<a href="#l646" class="line" id="l646">    646</a> 
+<a href="#l647" class="line" id="l647">    647</a> editor .
+<a href="#l648" class="line" id="l648">    648</a> 
+<a href="#l649" class="line" id="l649">    649</a> #: The console editor to use when editing the kitty config file or
+<a href="#l650" class="line" id="l650">    650</a> #: similar tasks. A value of . means to use the environment variables
+<a href="#l651" class="line" id="l651">    651</a> #: VISUAL and EDITOR in that order. Note that this environment
+<a href="#l652" class="line" id="l652">    652</a> #: variable has to be set not just in your shell startup scripts but
+<a href="#l653" class="line" id="l653">    653</a> #: system-wide, otherwise kitty will not see it.
+<a href="#l654" class="line" id="l654">    654</a> 
+<a href="#l655" class="line" id="l655">    655</a> close_on_child_death no
+<a href="#l656" class="line" id="l656">    656</a> 
+<a href="#l657" class="line" id="l657">    657</a> #: Close the window when the child process (shell) exits. If no (the
+<a href="#l658" class="line" id="l658">    658</a> #: default), the terminal will remain open when the child exits as
+<a href="#l659" class="line" id="l659">    659</a> #: long as there are still processes outputting to the terminal (for
+<a href="#l660" class="line" id="l660">    660</a> #: example disowned or backgrounded processes). If yes, the window
+<a href="#l661" class="line" id="l661">    661</a> #: will close as soon as the child process exits. Note that setting it
+<a href="#l662" class="line" id="l662">    662</a> #: to yes means that any background processes still using the terminal
+<a href="#l663" class="line" id="l663">    663</a> #: can fail silently because their stdout/stderr/stdin no longer work.
+<a href="#l664" class="line" id="l664">    664</a> 
+<a href="#l665" class="line" id="l665">    665</a> allow_remote_control yes
+<a href="#l666" class="line" id="l666">    666</a> 
+<a href="#l667" class="line" id="l667">    667</a> #: Allow other programs to control kitty. If you turn this on other
+<a href="#l668" class="line" id="l668">    668</a> #: programs can control all aspects of kitty, including sending text
+<a href="#l669" class="line" id="l669">    669</a> #: to kitty windows, opening new windows, closing windows, reading the
+<a href="#l670" class="line" id="l670">    670</a> #: content of windows, etc.  Note that this even works over ssh
+<a href="#l671" class="line" id="l671">    671</a> #: connections. You can chose to either allow any program running
+<a href="#l672" class="line" id="l672">    672</a> #: within kitty to control it, with yes or only programs that connect
+<a href="#l673" class="line" id="l673">    673</a> #: to the socket specified with the kitty --listen-on command line
+<a href="#l674" class="line" id="l674">    674</a> #: option, if you use the value socket-only. The latter is useful if
+<a href="#l675" class="line" id="l675">    675</a> #: you want to prevent programs running on a remote computer over ssh
+<a href="#l676" class="line" id="l676">    676</a> #: from controlling kitty.
+<a href="#l677" class="line" id="l677">    677</a> 
+<a href="#l678" class="line" id="l678">    678</a> # env 
+<a href="#l679" class="line" id="l679">    679</a> 
+<a href="#l680" class="line" id="l680">    680</a> #: Specify environment variables to set in all child processes. Note
+<a href="#l681" class="line" id="l681">    681</a> #: that environment variables are expanded recursively, so if you
+<a href="#l682" class="line" id="l682">    682</a> #: use::
+<a href="#l683" class="line" id="l683">    683</a> 
+<a href="#l684" class="line" id="l684">    684</a> #:     env MYVAR1=a
+<a href="#l685" class="line" id="l685">    685</a> #:     env MYVAR2=${MYVAR1}/${HOME}/b
+<a href="#l686" class="line" id="l686">    686</a> 
+<a href="#l687" class="line" id="l687">    687</a> #: The value of MYVAR2 will be a/&lt;path to home directory&gt;/b.
+<a href="#l688" class="line" id="l688">    688</a> 
+<a href="#l689" class="line" id="l689">    689</a> update_check_interval 24
+<a href="#l690" class="line" id="l690">    690</a> 
+<a href="#l691" class="line" id="l691">    691</a> #: Periodically check if an update to kitty is available. If an update
+<a href="#l692" class="line" id="l692">    692</a> #: is found a system notification is displayed informing you of the
+<a href="#l693" class="line" id="l693">    693</a> #: available update. The default is to check every 24 hrs, set to zero
+<a href="#l694" class="line" id="l694">    694</a> #: to disable.
+<a href="#l695" class="line" id="l695">    695</a> 
+<a href="#l696" class="line" id="l696">    696</a> startup_session none
+<a href="#l697" class="line" id="l697">    697</a> 
+<a href="#l698" class="line" id="l698">    698</a> #: Path to a session file to use for all kitty instances. Can be
+<a href="#l699" class="line" id="l699">    699</a> #: overridden by using the kitty --session command line option for
+<a href="#l700" class="line" id="l700">    700</a> #: individual instances. See
+<a href="#l701" class="line" id="l701">    701</a> #: https://sw.kovidgoyal.net/kitty/index.html#sessions in the kitty
+<a href="#l702" class="line" id="l702">    702</a> #: documentation for details. Note that relative paths are interpreted
+<a href="#l703" class="line" id="l703">    703</a> #: with respect to the kitty config directory. Environment variables
+<a href="#l704" class="line" id="l704">    704</a> #: in the path are expanded.
+<a href="#l705" class="line" id="l705">    705</a> 
+<a href="#l706" class="line" id="l706">    706</a> clipboard_control write-clipboard write-primary
+<a href="#l707" class="line" id="l707">    707</a> 
+<a href="#l708" class="line" id="l708">    708</a> #: Allow programs running in kitty to read and write from the
+<a href="#l709" class="line" id="l709">    709</a> #: clipboard. You can control exactly which actions are allowed. The
+<a href="#l710" class="line" id="l710">    710</a> #: set of possible actions is: write-clipboard read-clipboard write-
+<a href="#l711" class="line" id="l711">    711</a> #: primary read-primary. You can additionally specify no-append to
+<a href="#l712" class="line" id="l712">    712</a> #: disable kitty&#39;s protocol extension for clipboard concatenation. The
+<a href="#l713" class="line" id="l713">    713</a> #: default is to allow writing to the clipboard and primary selection
+<a href="#l714" class="line" id="l714">    714</a> #: with concatenation enabled. Note that enabling the read
+<a href="#l715" class="line" id="l715">    715</a> #: functionality is a security risk as it means that any program, even
+<a href="#l716" class="line" id="l716">    716</a> #: one running on a remote server via SSH can read your clipboard.
+<a href="#l717" class="line" id="l717">    717</a> 
+<a href="#l718" class="line" id="l718">    718</a> term xterm-kitty
+<a href="#l719" class="line" id="l719">    719</a> 
+<a href="#l720" class="line" id="l720">    720</a> #: The value of the TERM environment variable to set. Changing this
+<a href="#l721" class="line" id="l721">    721</a> #: can break many terminal programs, only change it if you know what
+<a href="#l722" class="line" id="l722">    722</a> #: you are doing, not because you read some advice on Stack Overflow
+<a href="#l723" class="line" id="l723">    723</a> #: to change it. The TERM variable is used by various programs to get
+<a href="#l724" class="line" id="l724">    724</a> #: information about the capabilities and behavior of the terminal. If
+<a href="#l725" class="line" id="l725">    725</a> #: you change it, depending on what programs you run, and how
+<a href="#l726" class="line" id="l726">    726</a> #: different the terminal you are changing it to is, various things
+<a href="#l727" class="line" id="l727">    727</a> #: from key-presses, to colors, to various advanced features may not
+<a href="#l728" class="line" id="l728">    728</a> #: work.
+<a href="#l729" class="line" id="l729">    729</a> 
+<a href="#l730" class="line" id="l730">    730</a> #: }}}
+<a href="#l731" class="line" id="l731">    731</a> 
+<a href="#l732" class="line" id="l732">    732</a> #: OS specific tweaks {{{
+<a href="#l733" class="line" id="l733">    733</a> 
+<a href="#l734" class="line" id="l734">    734</a> macos_titlebar_color system
+<a href="#l735" class="line" id="l735">    735</a> 
+<a href="#l736" class="line" id="l736">    736</a> #: Change the color of the kitty window&#39;s titlebar on macOS. A value
+<a href="#l737" class="line" id="l737">    737</a> #: of system means to use the default system color, a value of
+<a href="#l738" class="line" id="l738">    738</a> #: background means to use the background color of the currently
+<a href="#l739" class="line" id="l739">    739</a> #: active window and finally you can use an arbitrary color, such as
+<a href="#l740" class="line" id="l740">    740</a> #: #12af59 or red. WARNING: This option works by using a hack, as
+<a href="#l741" class="line" id="l741">    741</a> #: there is no proper Cocoa API for it. It sets the background color
+<a href="#l742" class="line" id="l742">    742</a> #: of the entire window and makes the titlebar transparent. As such it
+<a href="#l743" class="line" id="l743">    743</a> #: is incompatible with background_opacity. If you want to use both,
+<a href="#l744" class="line" id="l744">    744</a> #: you are probably better off just hiding the titlebar with
+<a href="#l745" class="line" id="l745">    745</a> #: hide_window_decorations.
+<a href="#l746" class="line" id="l746">    746</a> 
+<a href="#l747" class="line" id="l747">    747</a> macos_option_as_alt yes
+<a href="#l748" class="line" id="l748">    748</a> 
+<a href="#l749" class="line" id="l749">    749</a> #: Use the option key as an alt key. With this set to no, kitty will
+<a href="#l750" class="line" id="l750">    750</a> #: use the macOS native Option+Key = unicode character behavior. This
+<a href="#l751" class="line" id="l751">    751</a> #: will break any Alt+key keyboard shortcuts in your terminal
+<a href="#l752" class="line" id="l752">    752</a> #: programs, but you can use the macOS unicode input technique. You
+<a href="#l753" class="line" id="l753">    753</a> #: can use the values: left, right, or both to use only the left,
+<a href="#l754" class="line" id="l754">    754</a> #: right or both Option keys as Alt, instead.
+<a href="#l755" class="line" id="l755">    755</a> 
+<a href="#l756" class="line" id="l756">    756</a> macos_hide_from_tasks no
+<a href="#l757" class="line" id="l757">    757</a> 
+<a href="#l758" class="line" id="l758">    758</a> #: Hide the kitty window from running tasks (Option+Tab) on macOS.
+<a href="#l759" class="line" id="l759">    759</a> 
+<a href="#l760" class="line" id="l760">    760</a> macos_quit_when_last_window_closed yes
+<a href="#l761" class="line" id="l761">    761</a> 
+<a href="#l762" class="line" id="l762">    762</a> #: Have kitty quit when all the top-level windows are closed. By
+<a href="#l763" class="line" id="l763">    763</a> #: default, kitty will stay running, even with no open windows, as is
+<a href="#l764" class="line" id="l764">    764</a> #: the expected behavior on macOS.
+<a href="#l765" class="line" id="l765">    765</a> 
+<a href="#l766" class="line" id="l766">    766</a> macos_window_resizable yes
+<a href="#l767" class="line" id="l767">    767</a> 
+<a href="#l768" class="line" id="l768">    768</a> #: Disable this if you want kitty top-level (OS) windows to not be
+<a href="#l769" class="line" id="l769">    769</a> #: resizable on macOS.
+<a href="#l770" class="line" id="l770">    770</a> 
+<a href="#l771" class="line" id="l771">    771</a> macos_thicken_font 0
+<a href="#l772" class="line" id="l772">    772</a> 
+<a href="#l773" class="line" id="l773">    773</a> #: Draw an extra border around the font with the given width, to
+<a href="#l774" class="line" id="l774">    774</a> #: increase legibility at small font sizes. For example, a value of
+<a href="#l775" class="line" id="l775">    775</a> #: 0.75 will result in rendering that looks similar to sub-pixel
+<a href="#l776" class="line" id="l776">    776</a> #: antialiasing at common font sizes.
+<a href="#l777" class="line" id="l777">    777</a> 
+<a href="#l778" class="line" id="l778">    778</a> macos_traditional_fullscreen no
+<a href="#l779" class="line" id="l779">    779</a> 
+<a href="#l780" class="line" id="l780">    780</a> #: Use the traditional full-screen transition, that is faster, but
+<a href="#l781" class="line" id="l781">    781</a> #: less pretty.
+<a href="#l782" class="line" id="l782">    782</a> 
+<a href="#l783" class="line" id="l783">    783</a> macos_show_window_title_in all
+<a href="#l784" class="line" id="l784">    784</a> 
+<a href="#l785" class="line" id="l785">    785</a> #: Show or hide the window title in the macOS window or menu-bar. A
+<a href="#l786" class="line" id="l786">    786</a> #: value of window will show the title of the currently active window
+<a href="#l787" class="line" id="l787">    787</a> #: at the top of the macOS window. A value of menubar will show the
+<a href="#l788" class="line" id="l788">    788</a> #: title of the currently active window in the macOS menu-bar, making
+<a href="#l789" class="line" id="l789">    789</a> #: use of otherwise wasted space. all will show the title everywhere
+<a href="#l790" class="line" id="l790">    790</a> #: and none hides the title in the window and the menu-bar.
+<a href="#l791" class="line" id="l791">    791</a> 
+<a href="#l792" class="line" id="l792">    792</a> macos_custom_beam_cursor no
+<a href="#l793" class="line" id="l793">    793</a> 
+<a href="#l794" class="line" id="l794">    794</a> #: Enable/disable custom mouse cursor for macOS that is easier to see
+<a href="#l795" class="line" id="l795">    795</a> #: on both light and dark backgrounds. WARNING: this might make your
+<a href="#l796" class="line" id="l796">    796</a> #: mouse cursor invisible on dual GPU machines.
+<a href="#l797" class="line" id="l797">    797</a> 
+<a href="#l798" class="line" id="l798">    798</a> linux_display_server auto
+<a href="#l799" class="line" id="l799">    799</a> 
+<a href="#l800" class="line" id="l800">    800</a> #: Choose between Wayland and X11 backends. By default, an appropriate
+<a href="#l801" class="line" id="l801">    801</a> #: backend based on the system state is chosen automatically. Set it
+<a href="#l802" class="line" id="l802">    802</a> #: to x11 or wayland to force the choice.
+<a href="#l803" class="line" id="l803">    803</a> 
+<a href="#l804" class="line" id="l804">    804</a> #: }}}
+<a href="#l805" class="line" id="l805">    805</a> 
+<a href="#l806" class="line" id="l806">    806</a> #: Keyboard shortcuts {{{
+<a href="#l807" class="line" id="l807">    807</a> 
+<a href="#l808" class="line" id="l808">    808</a> #: For a list of key names, see: GLFW keys
+<a href="#l809" class="line" id="l809">    809</a> #: &lt;https://www.glfw.org/docs/latest/group__keys.html&gt;. The name to
+<a href="#l810" class="line" id="l810">    810</a> #: use is the part after the GLFW_KEY_ prefix. For a list of modifier
+<a href="#l811" class="line" id="l811">    811</a> #: names, see: GLFW mods
+<a href="#l812" class="line" id="l812">    812</a> #: &lt;https://www.glfw.org/docs/latest/group__mods.html&gt;
+<a href="#l813" class="line" id="l813">    813</a> 
+<a href="#l814" class="line" id="l814">    814</a> #: On Linux you can also use XKB key names to bind keys that are not
+<a href="#l815" class="line" id="l815">    815</a> #: supported by GLFW. See XKB keys
+<a href="#l816" class="line" id="l816">    816</a> #: &lt;https://github.com/xkbcommon/libxkbcommon/blob/master/xkbcommon/xkbcommon-
+<a href="#l817" class="line" id="l817">    817</a> #: keysyms.h&gt; for a list of key names. The name to use is the part
+<a href="#l818" class="line" id="l818">    818</a> #: after the XKB_KEY_ prefix. Note that you should only use an XKB key
+<a href="#l819" class="line" id="l819">    819</a> #: name for keys that are not present in the list of GLFW keys.
+<a href="#l820" class="line" id="l820">    820</a> 
+<a href="#l821" class="line" id="l821">    821</a> #: Finally, you can use raw system key codes to map keys. To see the
+<a href="#l822" class="line" id="l822">    822</a> #: system key code for a key, start kitty with the kitty --debug-
+<a href="#l823" class="line" id="l823">    823</a> #: keyboard option. Then kitty will output some debug text for every
+<a href="#l824" class="line" id="l824">    824</a> #: key event. In that text look for ``native_code`` the value of that
+<a href="#l825" class="line" id="l825">    825</a> #: becomes the key name in the shortcut. For example:
+<a href="#l826" class="line" id="l826">    826</a> 
+<a href="#l827" class="line" id="l827">    827</a> #: .. code-block:: none
+<a href="#l828" class="line" id="l828">    828</a> 
+<a href="#l829" class="line" id="l829">    829</a> #:     on_key_input: glfw key: 65 native_code: 0x61 action: PRESS mods: 0x0 text: &#39;a&#39;
+<a href="#l830" class="line" id="l830">    830</a> 
+<a href="#l831" class="line" id="l831">    831</a> #: Here, the key name for the A key is 0x61 and you can use it with::
+<a href="#l832" class="line" id="l832">    832</a> 
+<a href="#l833" class="line" id="l833">    833</a> #:     map ctrl+0x61 something
+<a href="#l834" class="line" id="l834">    834</a> 
+<a href="#l835" class="line" id="l835">    835</a> #: to map ctrl+a to something.
+<a href="#l836" class="line" id="l836">    836</a> 
+<a href="#l837" class="line" id="l837">    837</a> #: You can use the special action no_op to unmap a keyboard shortcut
+<a href="#l838" class="line" id="l838">    838</a> #: that is assigned in the default configuration::
+<a href="#l839" class="line" id="l839">    839</a> 
+<a href="#l840" class="line" id="l840">    840</a> #:     map kitty_mod+space no_op
+<a href="#l841" class="line" id="l841">    841</a> 
+<a href="#l842" class="line" id="l842">    842</a> #: You can combine multiple actions to be triggered by a single
+<a href="#l843" class="line" id="l843">    843</a> #: shortcut, using the syntax below::
+<a href="#l844" class="line" id="l844">    844</a> 
+<a href="#l845" class="line" id="l845">    845</a> #:     map key combine &lt;separator&gt; action1 &lt;separator&gt; action2 &lt;separator&gt; action3 ...
+<a href="#l846" class="line" id="l846">    846</a> 
+<a href="#l847" class="line" id="l847">    847</a> #: For example::
+<a href="#l848" class="line" id="l848">    848</a> 
+<a href="#l849" class="line" id="l849">    849</a> #:     map kitty_mod+e combine : new_window : next_layout
+<a href="#l850" class="line" id="l850">    850</a> 
+<a href="#l851" class="line" id="l851">    851</a> #: this will create a new window and switch to the next available
+<a href="#l852" class="line" id="l852">    852</a> #: layout
+<a href="#l853" class="line" id="l853">    853</a> 
+<a href="#l854" class="line" id="l854">    854</a> #: You can use multi-key shortcuts using the syntax shown below::
+<a href="#l855" class="line" id="l855">    855</a> 
+<a href="#l856" class="line" id="l856">    856</a> #:     map key1&gt;key2&gt;key3 action
+<a href="#l857" class="line" id="l857">    857</a> 
+<a href="#l858" class="line" id="l858">    858</a> #: For example::
+<a href="#l859" class="line" id="l859">    859</a> 
+<a href="#l860" class="line" id="l860">    860</a> #:     map ctrl+f&gt;2 set_font_size 20
+<a href="#l861" class="line" id="l861">    861</a> 
+<a href="#l862" class="line" id="l862">    862</a> kitty_mod ctrl+shift
+<a href="#l863" class="line" id="l863">    863</a> 
+<a href="#l864" class="line" id="l864">    864</a> #: The value of kitty_mod is used as the modifier for all default
+<a href="#l865" class="line" id="l865">    865</a> #: shortcuts, you can change it in your kitty.conf to change the
+<a href="#l866" class="line" id="l866">    866</a> #: modifiers for all the default shortcuts.
+<a href="#l867" class="line" id="l867">    867</a> 
+<a href="#l868" class="line" id="l868">    868</a> clear_all_shortcuts no
+<a href="#l869" class="line" id="l869">    869</a> 
+<a href="#l870" class="line" id="l870">    870</a> #: You can have kitty remove all shortcut definition seen up to this
+<a href="#l871" class="line" id="l871">    871</a> #: point. Useful, for instance, to remove the default shortcuts.
+<a href="#l872" class="line" id="l872">    872</a> 
+<a href="#l873" class="line" id="l873">    873</a> # kitten_alias hints hints --hints-offset=0
+<a href="#l874" class="line" id="l874">    874</a> 
+<a href="#l875" class="line" id="l875">    875</a> #: You can create aliases for kitten names, this allows overriding the
+<a href="#l876" class="line" id="l876">    876</a> #: defaults for kitten options and can also be used to shorten
+<a href="#l877" class="line" id="l877">    877</a> #: repeated mappings of the same kitten with a specific group of
+<a href="#l878" class="line" id="l878">    878</a> #: options. For example, the above alias changes the default value of
+<a href="#l879" class="line" id="l879">    879</a> #: kitty +kitten hints --hints-offset to zero for all mappings,
+<a href="#l880" class="line" id="l880">    880</a> #: including the builtin ones.
+<a href="#l881" class="line" id="l881">    881</a> 
+<a href="#l882" class="line" id="l882">    882</a> #: Clipboard {{{
+<a href="#l883" class="line" id="l883">    883</a> 
+<a href="#l884" class="line" id="l884">    884</a> map kitty_mod+c copy_to_clipboard
+<a href="#l885" class="line" id="l885">    885</a> 
+<a href="#l886" class="line" id="l886">    886</a> #: There is also a copy_or_interrupt action that can be optionally
+<a href="#l887" class="line" id="l887">    887</a> #: mapped to Ctrl+c. It will copy only if there is a selection and
+<a href="#l888" class="line" id="l888">    888</a> #: send an interrupt otherwise.
+<a href="#l889" class="line" id="l889">    889</a> 
+<a href="#l890" class="line" id="l890">    890</a> map kitty_mod+v  paste_from_clipboard
+<a href="#l891" class="line" id="l891">    891</a> map kitty_mod+s  paste_from_selection
+<a href="#l892" class="line" id="l892">    892</a> map shift+insert paste_from_selection
+<a href="#l893" class="line" id="l893">    893</a> map kitty_mod+o  pass_selection_to_program
+<a href="#l894" class="line" id="l894">    894</a> 
+<a href="#l895" class="line" id="l895">    895</a> #: You can also pass the contents of the current selection to any
+<a href="#l896" class="line" id="l896">    896</a> #: program using pass_selection_to_program. By default, the system&#39;s
+<a href="#l897" class="line" id="l897">    897</a> #: open program is used, but you can specify your own, the selection
+<a href="#l898" class="line" id="l898">    898</a> #: will be passed as a command line argument to the program, for
+<a href="#l899" class="line" id="l899">    899</a> #: example::
+<a href="#l900" class="line" id="l900">    900</a> 
+<a href="#l901" class="line" id="l901">    901</a> #:     map kitty_mod+o pass_selection_to_program firefox
+<a href="#l902" class="line" id="l902">    902</a> 
+<a href="#l903" class="line" id="l903">    903</a> #: You can pass the current selection to a terminal program running in
+<a href="#l904" class="line" id="l904">    904</a> #: a new kitty window, by using the @selection placeholder::
+<a href="#l905" class="line" id="l905">    905</a> 
+<a href="#l906" class="line" id="l906">    906</a> #:     map kitty_mod+y new_window less @selection
+<a href="#l907" class="line" id="l907">    907</a> 
+<a href="#l908" class="line" id="l908">    908</a> #: }}}
+<a href="#l909" class="line" id="l909">    909</a> 
+<a href="#l910" class="line" id="l910">    910</a> #: Scrolling {{{
+<a href="#l911" class="line" id="l911">    911</a> 
+<a href="#l912" class="line" id="l912">    912</a> map kitty_mod+up        scroll_line_up
+<a href="#l913" class="line" id="l913">    913</a> map kitty_mod+k         scroll_line_up
+<a href="#l914" class="line" id="l914">    914</a> map kitty_mod+down      scroll_line_down
+<a href="#l915" class="line" id="l915">    915</a> map kitty_mod+j         scroll_line_down
+<a href="#l916" class="line" id="l916">    916</a> map kitty_mod+page_up   scroll_page_up
+<a href="#l917" class="line" id="l917">    917</a> map kitty_mod+page_down scroll_page_down
+<a href="#l918" class="line" id="l918">    918</a> map kitty_mod+home      scroll_home
+<a href="#l919" class="line" id="l919">    919</a> map kitty_mod+end       scroll_end
+<a href="#l920" class="line" id="l920">    920</a> map kitty_mod+h         show_scrollback
+<a href="#l921" class="line" id="l921">    921</a> 
+<a href="#l922" class="line" id="l922">    922</a> #: You can pipe the contents of the current screen + history buffer as
+<a href="#l923" class="line" id="l923">    923</a> #: STDIN to an arbitrary program using the ``launch`` function. For
+<a href="#l924" class="line" id="l924">    924</a> #: example, the following opens the scrollback buffer in less in an
+<a href="#l925" class="line" id="l925">    925</a> #: overlay window::
+<a href="#l926" class="line" id="l926">    926</a> 
+<a href="#l927" class="line" id="l927">    927</a> #:     map f1 launch --stdin-source=@screen_scrollback --stdin-add-formatting --type=overlay less +G -R
+<a href="#l928" class="line" id="l928">    928</a> 
+<a href="#l929" class="line" id="l929">    929</a> #: For more details on piping screen and buffer contents to external
+<a href="#l930" class="line" id="l930">    930</a> #: programs, see launch.
+<a href="#l931" class="line" id="l931">    931</a> 
+<a href="#l932" class="line" id="l932">    932</a> #: }}}
+<a href="#l933" class="line" id="l933">    933</a> 
+<a href="#l934" class="line" id="l934">    934</a> #: Window management {{{
+<a href="#l935" class="line" id="l935">    935</a> 
+<a href="#l936" class="line" id="l936">    936</a> map kitty_mod+enter new_window
+<a href="#l937" class="line" id="l937">    937</a> 
+<a href="#l938" class="line" id="l938">    938</a> #: You can open a new window running an arbitrary program, for
+<a href="#l939" class="line" id="l939">    939</a> #: example::
+<a href="#l940" class="line" id="l940">    940</a> 
+<a href="#l941" class="line" id="l941">    941</a> #:     map kitty_mod+y      launch mutt
+<a href="#l942" class="line" id="l942">    942</a> 
+<a href="#l943" class="line" id="l943">    943</a> #: You can open a new window with the current working directory set to
+<a href="#l944" class="line" id="l944">    944</a> #: the working directory of the current window using::
+<a href="#l945" class="line" id="l945">    945</a> 
+<a href="#l946" class="line" id="l946">    946</a> #:     map ctrl+alt+enter    launch --cwd=current
+<a href="#l947" class="line" id="l947">    947</a> 
+<a href="#l948" class="line" id="l948">    948</a> #: You can open a new window that is allowed to control kitty via the
+<a href="#l949" class="line" id="l949">    949</a> #: kitty remote control facility by prefixing the command line with @.
+<a href="#l950" class="line" id="l950">    950</a> #: Any programs running in that window will be allowed to control
+<a href="#l951" class="line" id="l951">    951</a> #: kitty. For example::
+<a href="#l952" class="line" id="l952">    952</a> 
+<a href="#l953" class="line" id="l953">    953</a> #:     map ctrl+enter launch --allow-remote-control some_program
+<a href="#l954" class="line" id="l954">    954</a> 
+<a href="#l955" class="line" id="l955">    955</a> #: You can open a new window next to the currently active window or as
+<a href="#l956" class="line" id="l956">    956</a> #: the first window, with::
+<a href="#l957" class="line" id="l957">    957</a> 
+<a href="#l958" class="line" id="l958">    958</a> #:     map ctrl+n launch --location=neighbor some_program
+<a href="#l959" class="line" id="l959">    959</a> #:     map ctrl+f launch --location=first some_program
+<a href="#l960" class="line" id="l960">    960</a> 
+<a href="#l961" class="line" id="l961">    961</a> #: For more details, see launch.
+<a href="#l962" class="line" id="l962">    962</a> 
+<a href="#l963" class="line" id="l963">    963</a> map kitty_mod+n new_os_window
+<a href="#l964" class="line" id="l964">    964</a> 
+<a href="#l965" class="line" id="l965">    965</a> #: Works like new_window above, except that it opens a top level OS
+<a href="#l966" class="line" id="l966">    966</a> #: kitty window. In particular you can use new_os_window_with_cwd to
+<a href="#l967" class="line" id="l967">    967</a> #: open a window with the current working directory.
+<a href="#l968" class="line" id="l968">    968</a> 
+<a href="#l969" class="line" id="l969">    969</a> map kitty_mod+w close_window
+<a href="#l970" class="line" id="l970">    970</a> map kitty_mod+] next_window
+<a href="#l971" class="line" id="l971">    971</a> map kitty_mod+[ previous_window
+<a href="#l972" class="line" id="l972">    972</a> map kitty_mod+f move_window_forward
+<a href="#l973" class="line" id="l973">    973</a> map kitty_mod+b move_window_backward
+<a href="#l974" class="line" id="l974">    974</a> map kitty_mod+` move_window_to_top
+<a href="#l975" class="line" id="l975">    975</a> map kitty_mod+r start_resizing_window
+<a href="#l976" class="line" id="l976">    976</a> map kitty_mod+1 first_window
+<a href="#l977" class="line" id="l977">    977</a> map kitty_mod+2 second_window
+<a href="#l978" class="line" id="l978">    978</a> map kitty_mod+3 third_window
+<a href="#l979" class="line" id="l979">    979</a> map kitty_mod+4 fourth_window
+<a href="#l980" class="line" id="l980">    980</a> map kitty_mod+5 fifth_window
+<a href="#l981" class="line" id="l981">    981</a> map kitty_mod+6 sixth_window
+<a href="#l982" class="line" id="l982">    982</a> map kitty_mod+7 seventh_window
+<a href="#l983" class="line" id="l983">    983</a> map kitty_mod+8 eighth_window
+<a href="#l984" class="line" id="l984">    984</a> map kitty_mod+9 ninth_window
+<a href="#l985" class="line" id="l985">    985</a> #: }}}
+<a href="#l986" class="line" id="l986">    986</a> 
+<a href="#l987" class="line" id="l987">    987</a> #: Tab management {{{
+<a href="#l988" class="line" id="l988">    988</a> 
+<a href="#l989" class="line" id="l989">    989</a> map cmd+] next_tab
+<a href="#l990" class="line" id="l990">    990</a> map cmd+[  previous_tab
+<a href="#l991" class="line" id="l991">    991</a> map kitty_mod+t     new_tab
+<a href="#l992" class="line" id="l992">    992</a> map kitty_mod+q     close_tab
+<a href="#l993" class="line" id="l993">    993</a> map kitty_mod+.     move_tab_forward
+<a href="#l994" class="line" id="l994">    994</a> map kitty_mod+,     move_tab_backward
+<a href="#l995" class="line" id="l995">    995</a> map kitty_mod+alt+t set_tab_title
+<a href="#l996" class="line" id="l996">    996</a> 
+<a href="#l997" class="line" id="l997">    997</a> map kitty_mod+right next_tab
+<a href="#l998" class="line" id="l998">    998</a> map kitty_mod+left  previous_tab
+<a href="#l999" class="line" id="l999">    999</a> map kitty_mod+t     new_tab
+<a href="#l1000" class="line" id="l1000">   1000</a> map kitty_mod+q     close_tab
+<a href="#l1001" class="line" id="l1001">   1001</a> map kitty_mod+.     move_tab_forward
+<a href="#l1002" class="line" id="l1002">   1002</a> map kitty_mod+,     move_tab_backward
+<a href="#l1003" class="line" id="l1003">   1003</a> map kitty_mod+alt+t set_tab_title
+<a href="#l1004" class="line" id="l1004">   1004</a> 
+<a href="#l1005" class="line" id="l1005">   1005</a> #: You can also create shortcuts to go to specific tabs, with 1 being
+<a href="#l1006" class="line" id="l1006">   1006</a> #: the first tab, 2 the second tab and -1 being the previously active
+<a href="#l1007" class="line" id="l1007">   1007</a> #: tab::
+<a href="#l1008" class="line" id="l1008">   1008</a> 
+<a href="#l1009" class="line" id="l1009">   1009</a> #:     map ctrl+alt+1 goto_tab 1
+<a href="#l1010" class="line" id="l1010">   1010</a> #:     map ctrl+alt+2 goto_tab 2
+<a href="#l1011" class="line" id="l1011">   1011</a> 
+<a href="#l1012" class="line" id="l1012">   1012</a> #: Just as with new_window above, you can also pass the name of
+<a href="#l1013" class="line" id="l1013">   1013</a> #: arbitrary commands to run when using new_tab and use
+<a href="#l1014" class="line" id="l1014">   1014</a> #: new_tab_with_cwd. Finally, if you want the new tab to open next to
+<a href="#l1015" class="line" id="l1015">   1015</a> #: the current tab rather than at the end of the tabs list, use::
+<a href="#l1016" class="line" id="l1016">   1016</a> 
+<a href="#l1017" class="line" id="l1017">   1017</a> #:     map ctrl+t new_tab !neighbor [optional cmd to run]
+<a href="#l1018" class="line" id="l1018">   1018</a> #: }}}
+<a href="#l1019" class="line" id="l1019">   1019</a> 
+<a href="#l1020" class="line" id="l1020">   1020</a> #: Layout management {{{
+<a href="#l1021" class="line" id="l1021">   1021</a> 
+<a href="#l1022" class="line" id="l1022">   1022</a> map kitty_mod+l next_layout
+<a href="#l1023" class="line" id="l1023">   1023</a> map cmd+l next_layout
+<a href="#l1024" class="line" id="l1024">   1024</a> 
+<a href="#l1025" class="line" id="l1025">   1025</a> #: You can also create shortcuts to switch to specific layouts::
+<a href="#l1026" class="line" id="l1026">   1026</a> 
+<a href="#l1027" class="line" id="l1027">   1027</a> #:     map ctrl+alt+t goto_layout tall
+<a href="#l1028" class="line" id="l1028">   1028</a> #:     map ctrl+alt+s goto_layout stack
+<a href="#l1029" class="line" id="l1029">   1029</a> 
+<a href="#l1030" class="line" id="l1030">   1030</a> #: Similarly, to switch back to the previous layout::
+<a href="#l1031" class="line" id="l1031">   1031</a> 
+<a href="#l1032" class="line" id="l1032">   1032</a> #:    map ctrl+alt+p last_used_layout
+<a href="#l1033" class="line" id="l1033">   1033</a> #: }}}
+<a href="#l1034" class="line" id="l1034">   1034</a> 
+<a href="#l1035" class="line" id="l1035">   1035</a> #: Font sizes {{{
+<a href="#l1036" class="line" id="l1036">   1036</a> 
+<a href="#l1037" class="line" id="l1037">   1037</a> #: You can change the font size for all top-level kitty OS windows at
+<a href="#l1038" class="line" id="l1038">   1038</a> #: a time or only the current one.
+<a href="#l1039" class="line" id="l1039">   1039</a> 
+<a href="#l1040" class="line" id="l1040">   1040</a> map kitty_mod+equal     change_font_size all +1.0
+<a href="#l1041" class="line" id="l1041">   1041</a> map kitty_mod+minus     change_font_size all -1.0
+<a href="#l1042" class="line" id="l1042">   1042</a> map kitty_mod+0 change_font_size all 0
+<a href="#l1043" class="line" id="l1043">   1043</a> 
+<a href="#l1044" class="line" id="l1044">   1044</a> #: To setup shortcuts for specific font sizes::
+<a href="#l1045" class="line" id="l1045">   1045</a> 
+<a href="#l1046" class="line" id="l1046">   1046</a> #:     map kitty_mod+f6 change_font_size all 10.0
+<a href="#l1047" class="line" id="l1047">   1047</a> 
+<a href="#l1048" class="line" id="l1048">   1048</a> #: To setup shortcuts to change only the current OS window&#39;s font
+<a href="#l1049" class="line" id="l1049">   1049</a> #: size::
+<a href="#l1050" class="line" id="l1050">   1050</a> 
+<a href="#l1051" class="line" id="l1051">   1051</a> #:     map kitty_mod+f6 change_font_size current 10.0
+<a href="#l1052" class="line" id="l1052">   1052</a> #: }}}
+<a href="#l1053" class="line" id="l1053">   1053</a> 
+<a href="#l1054" class="line" id="l1054">   1054</a> #: Select and act on visible text {{{
+<a href="#l1055" class="line" id="l1055">   1055</a> 
+<a href="#l1056" class="line" id="l1056">   1056</a> #: Use the hints kitten to select text and either pass it to an
+<a href="#l1057" class="line" id="l1057">   1057</a> #: external program or insert it into the terminal or copy it to the
+<a href="#l1058" class="line" id="l1058">   1058</a> #: clipboard.
+<a href="#l1059" class="line" id="l1059">   1059</a> 
+<a href="#l1060" class="line" id="l1060">   1060</a> map kitty_mod+e kitten hints
+<a href="#l1061" class="line" id="l1061">   1061</a> 
+<a href="#l1062" class="line" id="l1062">   1062</a> #: Open a currently visible URL using the keyboard. The program used
+<a href="#l1063" class="line" id="l1063">   1063</a> #: to open the URL is specified in open_url_with.
+<a href="#l1064" class="line" id="l1064">   1064</a> 
+<a href="#l1065" class="line" id="l1065">   1065</a> map kitty_mod+p&gt;f kitten hints --type path --program -
+<a href="#l1066" class="line" id="l1066">   1066</a> 
+<a href="#l1067" class="line" id="l1067">   1067</a> #: Select a path/filename and insert it into the terminal. Useful, for
+<a href="#l1068" class="line" id="l1068">   1068</a> #: instance to run git commands on a filename output from a previous
+<a href="#l1069" class="line" id="l1069">   1069</a> #: git command.
+<a href="#l1070" class="line" id="l1070">   1070</a> 
+<a href="#l1071" class="line" id="l1071">   1071</a> map kitty_mod+p&gt;shift+f kitten hints --type path
+<a href="#l1072" class="line" id="l1072">   1072</a> 
+<a href="#l1073" class="line" id="l1073">   1073</a> #: Select a path/filename and open it with the default open program.
+<a href="#l1074" class="line" id="l1074">   1074</a> 
+<a href="#l1075" class="line" id="l1075">   1075</a> map kitty_mod+p&gt;l kitten hints --type line --program -
+<a href="#l1076" class="line" id="l1076">   1076</a> 
+<a href="#l1077" class="line" id="l1077">   1077</a> #: Select a line of text and insert it into the terminal. Use for the
+<a href="#l1078" class="line" id="l1078">   1078</a> #: output of things like: ls -1
+<a href="#l1079" class="line" id="l1079">   1079</a> 
+<a href="#l1080" class="line" id="l1080">   1080</a> map kitty_mod+p&gt;w kitten hints --type word --program -
+<a href="#l1081" class="line" id="l1081">   1081</a> 
+<a href="#l1082" class="line" id="l1082">   1082</a> #: Select words and insert into terminal.
+<a href="#l1083" class="line" id="l1083">   1083</a> 
+<a href="#l1084" class="line" id="l1084">   1084</a> map kitty_mod+p&gt;h kitten hints --type hash --program -
+<a href="#l1085" class="line" id="l1085">   1085</a> 
+<a href="#l1086" class="line" id="l1086">   1086</a> #: Select something that looks like a hash and insert it into the
+<a href="#l1087" class="line" id="l1087">   1087</a> #: terminal. Useful with git, which uses sha1 hashes to identify
+<a href="#l1088" class="line" id="l1088">   1088</a> #: commits
+<a href="#l1089" class="line" id="l1089">   1089</a> 
+<a href="#l1090" class="line" id="l1090">   1090</a> 
+<a href="#l1091" class="line" id="l1091">   1091</a> #: The hints kitten has many more modes of operation that you can map
+<a href="#l1092" class="line" id="l1092">   1092</a> #: to different shortcuts. For a full description see kittens/hints.
+<a href="#l1093" class="line" id="l1093">   1093</a> #: }}}
+<a href="#l1094" class="line" id="l1094">   1094</a> 
+<a href="#l1095" class="line" id="l1095">   1095</a> #: Miscellaneous {{{
+<a href="#l1096" class="line" id="l1096">   1096</a> 
+<a href="#l1097" class="line" id="l1097">   1097</a> # map kitty_mod+f11    toggle_fullscreen
+<a href="#l1098" class="line" id="l1098">   1098</a> # map kitty_mod+f10    toggle_maximized
+<a href="#l1099" class="line" id="l1099">   1099</a> # map kitty_mod+u      kitten unicode_input
+<a href="#l1100" class="line" id="l1100">   1100</a> # map kitty_mod+f2     edit_config_file
+<a href="#l1101" class="line" id="l1101">   1101</a> # map kitty_mod+escape kitty_shell window
+<a href="#l1102" class="line" id="l1102">   1102</a> 
+<a href="#l1103" class="line" id="l1103">   1103</a> #: Open the kitty shell in a new window/tab/overlay/os_window to
+<a href="#l1104" class="line" id="l1104">   1104</a> #: control kitty using commands.
+<a href="#l1105" class="line" id="l1105">   1105</a> 
+<a href="#l1106" class="line" id="l1106">   1106</a> # map kitty_mod+a&gt;m    set_background_opacity +0.1
+<a href="#l1107" class="line" id="l1107">   1107</a> # map kitty_mod+a&gt;l    set_background_opacity -0.1
+<a href="#l1108" class="line" id="l1108">   1108</a> # map kitty_mod+a&gt;1    set_background_opacity 1
+<a href="#l1109" class="line" id="l1109">   1109</a> # map kitty_mod+a&gt;d    set_background_opacity default
+<a href="#l1110" class="line" id="l1110">   1110</a> # map kitty_mod+delete clear_terminal reset active
+<a href="#l1111" class="line" id="l1111">   1111</a> 
+<a href="#l1112" class="line" id="l1112">   1112</a> #: You can create shortcuts to clear/reset the terminal. For example::
+<a href="#l1113" class="line" id="l1113">   1113</a> 
+<a href="#l1114" class="line" id="l1114">   1114</a> map super+w no_op
+<a href="#l1115" class="line" id="l1115">   1115</a> map super+r no_op
+<a href="#l1116" class="line" id="l1116">   1116</a> map super+t no_op
+<a href="#l1117" class="line" id="l1117">   1117</a> map super+1 no_op
+<a href="#l1118" class="line" id="l1118">   1118</a> map super+2 no_op
+<a href="#l1119" class="line" id="l1119">   1119</a> map super+3 no_op
+<a href="#l1120" class="line" id="l1120">   1120</a> map super+4 no_op
+<a href="#l1121" class="line" id="l1121">   1121</a> map super+5 no_op
+<a href="#l1122" class="line" id="l1122">   1122</a> map super+6 no_op
+<a href="#l1123" class="line" id="l1123">   1123</a> map super+7 no_op
+<a href="#l1124" class="line" id="l1124">   1124</a> map super+8 no_op
+<a href="#l1125" class="line" id="l1125">   1125</a> map super+9 no_op
+<a href="#l1126" class="line" id="l1126">   1126</a> map ctrl+shift+tab no_op
+<a href="#l1127" class="line" id="l1127">   1127</a> map ctrl+tab no_op
+<a href="#l1128" class="line" id="l1128">   1128</a> map super+shift+left no_op
+<a href="#l1129" class="line" id="l1129">   1129</a> map super+shift+right no_op
+<a href="#l1130" class="line" id="l1130">   1130</a> map super+shift+; no_op
+<a href="#l1131" class="line" id="l1131">   1131</a> 
+<a href="#l1132" class="line" id="l1132">   1132</a> #: tmux close
+<a href="#l1133" class="line" id="l1133">   1133</a> map super+w send_text all \x00x
+<a href="#l1134" class="line" id="l1134">   1134</a> #: tmux rename tab
+<a href="#l1135" class="line" id="l1135">   1135</a> map super+r send_text all \x00,
+<a href="#l1136" class="line" id="l1136">   1136</a> #: tmux new tab
+<a href="#l1137" class="line" id="l1137">   1137</a> map super+t send_text all \x00c
+<a href="#l1138" class="line" id="l1138">   1138</a> map super+1 send_text all \x001
+<a href="#l1139" class="line" id="l1139">   1139</a> map super+2 send_text all \x002
+<a href="#l1140" class="line" id="l1140">   1140</a> map super+3 send_text all \x003
+<a href="#l1141" class="line" id="l1141">   1141</a> map super+4 send_text all \x004
+<a href="#l1142" class="line" id="l1142">   1142</a> map super+5 send_text all \x005
+<a href="#l1143" class="line" id="l1143">   1143</a> map super+6 send_text all \x006
+<a href="#l1144" class="line" id="l1144">   1144</a> map super+7 send_text all \x007
+<a href="#l1145" class="line" id="l1145">   1145</a> map super+8 send_text all \x008
+<a href="#l1146" class="line" id="l1146">   1146</a> map super+9 send_text all \x009
+<a href="#l1147" class="line" id="l1147">   1147</a> map ctrl+shift+tab send_text all \x00_
+<a href="#l1148" class="line" id="l1148">   1148</a> map ctrl+tab send_text all \x00+
+<a href="#l1149" class="line" id="l1149">   1149</a> map super+shift+left send_text all \x00p
+<a href="#l1150" class="line" id="l1150">   1150</a> map super+shift+right send_text all \x00n
+<a href="#l1151" class="line" id="l1151">   1151</a> map super+shift+; send_text all \x00:
+<a href="#l1152" class="line" id="l1152">   1152</a> 
+<a href="#l1153" class="line" id="l1153">   1153</a> 
+<a href="#l1154" class="line" id="l1154">   1154</a> #:     # Reset the terminal
+<a href="#l1155" class="line" id="l1155">   1155</a> #:     map kitty_mod+f9 clear_terminal reset active
+<a href="#l1156" class="line" id="l1156">   1156</a> #:     # Clear the terminal screen by erasing all contents
+<a href="#l1157" class="line" id="l1157">   1157</a> #:     map kitty_mod+f10 clear_terminal clear active
+<a href="#l1158" class="line" id="l1158">   1158</a> #:     # Clear the terminal scrollback by erasing it
+<a href="#l1159" class="line" id="l1159">   1159</a> #:     map kitty_mod+f11 clear_terminal scrollback active
+<a href="#l1160" class="line" id="l1160">   1160</a> #:     # Scroll the contents of the screen into the scrollback
+<a href="#l1161" class="line" id="l1161">   1161</a> #:     map kitty_mod+f12 clear_terminal scroll active
+<a href="#l1162" class="line" id="l1162">   1162</a> 
+<a href="#l1163" class="line" id="l1163">   1163</a> #: If you want to operate on all windows instead of just the current
+<a href="#l1164" class="line" id="l1164">   1164</a> #: one, use all instead of active.
+<a href="#l1165" class="line" id="l1165">   1165</a> 
+<a href="#l1166" class="line" id="l1166">   1166</a> #: It is also possible to remap Ctrl+L to both scroll the current
+<a href="#l1167" class="line" id="l1167">   1167</a> #: screen contents into the scrollback buffer and clear the screen,
+<a href="#l1168" class="line" id="l1168">   1168</a> #: instead of just clearing the screen::
+<a href="#l1169" class="line" id="l1169">   1169</a> 
+<a href="#l1170" class="line" id="l1170">   1170</a> #:     map ctrl+l combine : clear_terminal scroll active : send_text normal,application \x0c
+<a href="#l1171" class="line" id="l1171">   1171</a> 
+<a href="#l1172" class="line" id="l1172">   1172</a> 
+<a href="#l1173" class="line" id="l1173">   1173</a> #: You can tell kitty to send arbitrary (UTF-8) encoded text to the
+<a href="#l1174" class="line" id="l1174">   1174</a> #: client program when pressing specified shortcut keys. For example::
+<a href="#l1175" class="line" id="l1175">   1175</a> 
+<a href="#l1176" class="line" id="l1176">   1176</a> #:     map ctrl+alt+a send_text all Special text
+<a href="#l1177" class="line" id="l1177">   1177</a> 
+<a href="#l1178" class="line" id="l1178">   1178</a> #: This will send &quot;Special text&quot; when you press the ctrl+alt+a key
+<a href="#l1179" class="line" id="l1179">   1179</a> #: combination.  The text to be sent is a python string literal so you
+<a href="#l1180" class="line" id="l1180">   1180</a> #: can use escapes like \x1b to send control codes or \u21fb to send
+<a href="#l1181" class="line" id="l1181">   1181</a> #: unicode characters (or you can just input the unicode characters
+<a href="#l1182" class="line" id="l1182">   1182</a> #: directly as UTF-8 text). The first argument to send_text is the
+<a href="#l1183" class="line" id="l1183">   1183</a> #: keyboard modes in which to activate the shortcut. The possible
+<a href="#l1184" class="line" id="l1184">   1184</a> #: values are normal or application or kitty or a comma separated
+<a href="#l1185" class="line" id="l1185">   1185</a> #: combination of them.  The special keyword all means all modes. The
+<a href="#l1186" class="line" id="l1186">   1186</a> #: modes normal and application refer to the DECCKM cursor key mode
+<a href="#l1187" class="line" id="l1187">   1187</a> #: for terminals, and kitty refers to the special kitty extended
+<a href="#l1188" class="line" id="l1188">   1188</a> #: keyboard protocol.
+<a href="#l1189" class="line" id="l1189">   1189</a> 
+<a href="#l1190" class="line" id="l1190">   1190</a> #: Another example, that outputs a word and then moves the cursor to
+<a href="#l1191" class="line" id="l1191">   1191</a> #: the start of the line (same as pressing the Home key)::
+<a href="#l1192" class="line" id="l1192">   1192</a> 
+<a href="#l1193" class="line" id="l1193">   1193</a> #:     map ctrl+alt+a send_text normal Word\x1b[H
+<a href="#l1194" class="line" id="l1194">   1194</a> #:     map ctrl+alt+a send_text application Word\x1bOH
+<a href="#l1195" class="line" id="l1195">   1195</a> 
+<a href="#l1196" class="line" id="l1196">   1196</a> #: }}}
+<a href="#l1197" class="line" id="l1197">   1197</a> 
+<a href="#l1198" class="line" id="l1198">   1198</a> # }}}
+</pre>
+</div>
+</body>
+</html>

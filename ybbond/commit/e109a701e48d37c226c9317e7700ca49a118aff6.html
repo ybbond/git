@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>TEMP: gc - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/e109a701e48d37c226c9317e7700ca49a118aff6.html">e109a701e48d37c226c9317e7700ca49a118aff6</a>
+<b>parent</b> <a href="../commit/b6ae3fe126dd3cec06a6ec6de48f347597e679cd.html">b6ae3fe126dd3cec06a6ec6de48f347597e679cd</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Mon,  4 Jan 2021 22:37:53 +0700
+
+TEMP: gc
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/_default/baseof.html</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">layouts/partials/components/goatcounter.html</a></td><td> | </td><td class="num">238</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>2 files changed, 239 insertions(<span id="plus">+</span>), 0 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/_default/baseof.html.html">layouts/_default/baseof.html</a> b/<a href="../file/layouts/_default/baseof.html.html">layouts/_default/baseof.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -18,5 +18,6 @@
+</a>     &lt;footer class=&quot;footer&quot;&gt;
+       {{ partial &quot;footer/footer.html&quot; . }}
+     &lt;/footer&gt;
+<a href="#h0-0-3" id="h0-0-3" class="i">+    {{ partial &quot;components/goatcounter.html&quot; . }}
+</a>   &lt;/body&gt;
+ &lt;/html&gt;
+<b>diff --git a/<a id="h1" href="../file/layouts/partials/components/goatcounter.html.html">layouts/partials/components/goatcounter.html</a> b/<a href="../file/layouts/partials/components/goatcounter.html.html">layouts/partials/components/goatcounter.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -0,0 +1,238 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+&lt;script&gt;
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+window.goatcounter = {endpoint: &#39;https://stats.ybbond.dev/count&#39;}
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+
+</a><a href="#h1-0-3" id="h1-0-3" class="i">+// GoatCounter: https://www.goatcounter.com
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+// This file (and *only* this file) is released under the ISC license:
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+// https://opensource.org/licenses/ISC
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+(function() {
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+	&#39;use strict&#39;;
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+	if (window.goatcounter &amp;&amp; window.goatcounter.vars)  // Compatibility
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+		window.goatcounter = window.goatcounter.vars
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+	else
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+		window.goatcounter = window.goatcounter || {}
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+	// Get all data we&#39;re going to send off to the counter endpoint.
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+	var get_data = function(vars) {
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+		var data = {
+</a><a href="#h1-0-17" id="h1-0-17" class="i">+			p: (vars.path     === undefined ? goatcounter.path     : vars.path),
+</a><a href="#h1-0-18" id="h1-0-18" class="i">+			r: (vars.referrer === undefined ? goatcounter.referrer : vars.referrer),
+</a><a href="#h1-0-19" id="h1-0-19" class="i">+			t: (vars.title    === undefined ? goatcounter.title    : vars.title),
+</a><a href="#h1-0-20" id="h1-0-20" class="i">+			e: !!(vars.event || goatcounter.event),
+</a><a href="#h1-0-21" id="h1-0-21" class="i">+			s: [window.screen.width, window.screen.height, (window.devicePixelRatio || 1)],
+</a><a href="#h1-0-22" id="h1-0-22" class="i">+			b: is_bot(),
+</a><a href="#h1-0-23" id="h1-0-23" class="i">+			q: location.search,
+</a><a href="#h1-0-24" id="h1-0-24" class="i">+		}
+</a><a href="#h1-0-25" id="h1-0-25" class="i">+
+</a><a href="#h1-0-26" id="h1-0-26" class="i">+		var rcb, pcb, tcb  // Save callbacks to apply later.
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+		if (typeof(data.r) === &#39;function&#39;) rcb = data.r
+</a><a href="#h1-0-28" id="h1-0-28" class="i">+		if (typeof(data.t) === &#39;function&#39;) tcb = data.t
+</a><a href="#h1-0-29" id="h1-0-29" class="i">+		if (typeof(data.p) === &#39;function&#39;) pcb = data.p
+</a><a href="#h1-0-30" id="h1-0-30" class="i">+
+</a><a href="#h1-0-31" id="h1-0-31" class="i">+		if (is_empty(data.r)) data.r = document.referrer
+</a><a href="#h1-0-32" id="h1-0-32" class="i">+		if (is_empty(data.t)) data.t = document.title
+</a><a href="#h1-0-33" id="h1-0-33" class="i">+		if (is_empty(data.p)) data.p = get_path()
+</a><a href="#h1-0-34" id="h1-0-34" class="i">+
+</a><a href="#h1-0-35" id="h1-0-35" class="i">+		if (rcb) data.r = rcb(data.r)
+</a><a href="#h1-0-36" id="h1-0-36" class="i">+		if (tcb) data.t = tcb(data.t)
+</a><a href="#h1-0-37" id="h1-0-37" class="i">+		if (pcb) data.p = pcb(data.p)
+</a><a href="#h1-0-38" id="h1-0-38" class="i">+		return data
+</a><a href="#h1-0-39" id="h1-0-39" class="i">+	}
+</a><a href="#h1-0-40" id="h1-0-40" class="i">+
+</a><a href="#h1-0-41" id="h1-0-41" class="i">+	// Check if a value is &quot;empty&quot; for the purpose of get_data().
+</a><a href="#h1-0-42" id="h1-0-42" class="i">+	var is_empty = function(v) { return v === null || v === undefined || typeof(v) === &#39;function&#39; }
+</a><a href="#h1-0-43" id="h1-0-43" class="i">+
+</a><a href="#h1-0-44" id="h1-0-44" class="i">+	// See if this looks like a bot; there is some additional filtering on the
+</a><a href="#h1-0-45" id="h1-0-45" class="i">+	// backend, but these properties can&#39;t be fetched from there.
+</a><a href="#h1-0-46" id="h1-0-46" class="i">+	var is_bot = function() {
+</a><a href="#h1-0-47" id="h1-0-47" class="i">+		// Headless browsers are probably a bot.
+</a><a href="#h1-0-48" id="h1-0-48" class="i">+		var w = window, d = document
+</a><a href="#h1-0-49" id="h1-0-49" class="i">+		if (w.callPhantom || w._phantom || w.phantom)
+</a><a href="#h1-0-50" id="h1-0-50" class="i">+			return 150
+</a><a href="#h1-0-51" id="h1-0-51" class="i">+		if (w.__nightmare)
+</a><a href="#h1-0-52" id="h1-0-52" class="i">+			return 151
+</a><a href="#h1-0-53" id="h1-0-53" class="i">+		if (d.__selenium_unwrapped || d.__webdriver_evaluate || d.__driver_evaluate)
+</a><a href="#h1-0-54" id="h1-0-54" class="i">+			return 152
+</a><a href="#h1-0-55" id="h1-0-55" class="i">+		if (navigator.webdriver)
+</a><a href="#h1-0-56" id="h1-0-56" class="i">+			return 153
+</a><a href="#h1-0-57" id="h1-0-57" class="i">+		return 0
+</a><a href="#h1-0-58" id="h1-0-58" class="i">+	}
+</a><a href="#h1-0-59" id="h1-0-59" class="i">+
+</a><a href="#h1-0-60" id="h1-0-60" class="i">+	// Object to urlencoded string, starting with a ?.
+</a><a href="#h1-0-61" id="h1-0-61" class="i">+	var urlencode = function(obj) {
+</a><a href="#h1-0-62" id="h1-0-62" class="i">+		var p = []
+</a><a href="#h1-0-63" id="h1-0-63" class="i">+		for (var k in obj)
+</a><a href="#h1-0-64" id="h1-0-64" class="i">+			if (obj[k] !== &#39;&#39; &amp;&amp; obj[k] !== null &amp;&amp; obj[k] !== undefined &amp;&amp; obj[k] !== false)
+</a><a href="#h1-0-65" id="h1-0-65" class="i">+				p.push(encodeURIComponent(k) + &#39;=&#39; + encodeURIComponent(obj[k]))
+</a><a href="#h1-0-66" id="h1-0-66" class="i">+		return &#39;?&#39; + p.join(&#39;&amp;&#39;)
+</a><a href="#h1-0-67" id="h1-0-67" class="i">+	}
+</a><a href="#h1-0-68" id="h1-0-68" class="i">+
+</a><a href="#h1-0-69" id="h1-0-69" class="i">+	// Show a warning in the console.
+</a><a href="#h1-0-70" id="h1-0-70" class="i">+	var warn = function(msg) {
+</a><a href="#h1-0-71" id="h1-0-71" class="i">+		if (console &amp;&amp; &#39;warn&#39; in console)
+</a><a href="#h1-0-72" id="h1-0-72" class="i">+			console.warn(&#39;goatcounter: &#39; + msg)
+</a><a href="#h1-0-73" id="h1-0-73" class="i">+	}
+</a><a href="#h1-0-74" id="h1-0-74" class="i">+
+</a><a href="#h1-0-75" id="h1-0-75" class="i">+	// Get the endpoint to send requests to.
+</a><a href="#h1-0-76" id="h1-0-76" class="i">+	var get_endpoint = function() {
+</a><a href="#h1-0-77" id="h1-0-77" class="i">+		var s = document.querySelector(&#39;script[data-goatcounter]&#39;);
+</a><a href="#h1-0-78" id="h1-0-78" class="i">+		if (s &amp;&amp; s.dataset.goatcounter)
+</a><a href="#h1-0-79" id="h1-0-79" class="i">+			return s.dataset.goatcounter
+</a><a href="#h1-0-80" id="h1-0-80" class="i">+		return (goatcounter.endpoint || window.counter)  // counter is for compat; don&#39;t use.
+</a><a href="#h1-0-81" id="h1-0-81" class="i">+	}
+</a><a href="#h1-0-82" id="h1-0-82" class="i">+
+</a><a href="#h1-0-83" id="h1-0-83" class="i">+	// Get current path.
+</a><a href="#h1-0-84" id="h1-0-84" class="i">+	var get_path = function() {
+</a><a href="#h1-0-85" id="h1-0-85" class="i">+		var loc = location,
+</a><a href="#h1-0-86" id="h1-0-86" class="i">+			c = document.querySelector(&#39;link[rel=&quot;canonical&quot;][href]&#39;)
+</a><a href="#h1-0-87" id="h1-0-87" class="i">+		if (c) {  // May be relative or point to different domain.
+</a><a href="#h1-0-88" id="h1-0-88" class="i">+			var a = document.createElement(&#39;a&#39;)
+</a><a href="#h1-0-89" id="h1-0-89" class="i">+			a.href = c.href
+</a><a href="#h1-0-90" id="h1-0-90" class="i">+			if (a.hostname.replace(/^www\./, &#39;&#39;) === location.hostname.replace(/^www\./, &#39;&#39;))
+</a><a href="#h1-0-91" id="h1-0-91" class="i">+				loc = a
+</a><a href="#h1-0-92" id="h1-0-92" class="i">+		}
+</a><a href="#h1-0-93" id="h1-0-93" class="i">+		return (loc.pathname + loc.search) || &#39;/&#39;
+</a><a href="#h1-0-94" id="h1-0-94" class="i">+	}
+</a><a href="#h1-0-95" id="h1-0-95" class="i">+
+</a><a href="#h1-0-96" id="h1-0-96" class="i">+	// Filter some requests that we (probably) don&#39;t want to count.
+</a><a href="#h1-0-97" id="h1-0-97" class="i">+	goatcounter.filter = function() {
+</a><a href="#h1-0-98" id="h1-0-98" class="i">+		if (&#39;visibilityState&#39; in document &amp;&amp; (document.visibilityState === &#39;prerender&#39; || document.visibilityState === &#39;hidden&#39;))
+</a><a href="#h1-0-99" id="h1-0-99" class="i">+			return &#39;visibilityState&#39;
+</a><a href="#h1-0-100" id="h1-0-100" class="i">+		if (!goatcounter.allow_frame &amp;&amp; location !== parent.location)
+</a><a href="#h1-0-101" id="h1-0-101" class="i">+			return &#39;frame&#39;
+</a><a href="#h1-0-102" id="h1-0-102" class="i">+		if (!goatcounter.allow_local &amp;&amp; location.hostname.match(/(localhost$|^127\.|^10\.|^172\.(1[6-9]|2[0-9]|3[0-1])\.|^192\.168\.)/))
+</a><a href="#h1-0-103" id="h1-0-103" class="i">+			return &#39;localhost&#39;
+</a><a href="#h1-0-104" id="h1-0-104" class="i">+		if (!goatcounter.allow_local &amp;&amp; location.protocol === &#39;file:&#39;)
+</a><a href="#h1-0-105" id="h1-0-105" class="i">+			return &#39;localfile&#39;
+</a><a href="#h1-0-106" id="h1-0-106" class="i">+		if (localStorage &amp;&amp; localStorage.getItem(&#39;skipgc&#39;) === &#39;t&#39;)
+</a><a href="#h1-0-107" id="h1-0-107" class="i">+			return &#39;disabled with #toggle-goatcounter&#39;
+</a><a href="#h1-0-108" id="h1-0-108" class="i">+		return false
+</a><a href="#h1-0-109" id="h1-0-109" class="i">+	}
+</a><a href="#h1-0-110" id="h1-0-110" class="i">+
+</a><a href="#h1-0-111" id="h1-0-111" class="i">+	// Get URL to send to GoatCounter.
+</a><a href="#h1-0-112" id="h1-0-112" class="i">+	window.goatcounter.url = function(vars) {
+</a><a href="#h1-0-113" id="h1-0-113" class="i">+		var data = get_data(vars || {})
+</a><a href="#h1-0-114" id="h1-0-114" class="i">+		if (data.p === null)  // null from user callback.
+</a><a href="#h1-0-115" id="h1-0-115" class="i">+			return
+</a><a href="#h1-0-116" id="h1-0-116" class="i">+		data.rnd = Math.random().toString(36).substr(2, 5)  // Browsers don&#39;t always listen to Cache-Control.
+</a><a href="#h1-0-117" id="h1-0-117" class="i">+
+</a><a href="#h1-0-118" id="h1-0-118" class="i">+		var endpoint = get_endpoint()
+</a><a href="#h1-0-119" id="h1-0-119" class="i">+		if (!endpoint)
+</a><a href="#h1-0-120" id="h1-0-120" class="i">+			return warn(&#39;no endpoint found&#39;)
+</a><a href="#h1-0-121" id="h1-0-121" class="i">+
+</a><a href="#h1-0-122" id="h1-0-122" class="i">+		return endpoint + urlencode(data)
+</a><a href="#h1-0-123" id="h1-0-123" class="i">+	}
+</a><a href="#h1-0-124" id="h1-0-124" class="i">+
+</a><a href="#h1-0-125" id="h1-0-125" class="i">+	// Count a hit.
+</a><a href="#h1-0-126" id="h1-0-126" class="i">+	window.goatcounter.count = function(vars) {
+</a><a href="#h1-0-127" id="h1-0-127" class="i">+		var f = goatcounter.filter()
+</a><a href="#h1-0-128" id="h1-0-128" class="i">+		if (f)
+</a><a href="#h1-0-129" id="h1-0-129" class="i">+			return warn(&#39;not counting because of: &#39; + f)
+</a><a href="#h1-0-130" id="h1-0-130" class="i">+
+</a><a href="#h1-0-131" id="h1-0-131" class="i">+		var url = goatcounter.url(vars)
+</a><a href="#h1-0-132" id="h1-0-132" class="i">+		if (!url)
+</a><a href="#h1-0-133" id="h1-0-133" class="i">+			return warn(&#39;not counting because path callback returned null&#39;)
+</a><a href="#h1-0-134" id="h1-0-134" class="i">+
+</a><a href="#h1-0-135" id="h1-0-135" class="i">+		var img = document.createElement(&#39;img&#39;)
+</a><a href="#h1-0-136" id="h1-0-136" class="i">+		img.src = url
+</a><a href="#h1-0-137" id="h1-0-137" class="i">+		img.style.position = &#39;absolute&#39;  // Affect layout less.
+</a><a href="#h1-0-138" id="h1-0-138" class="i">+		img.setAttribute(&#39;alt&#39;, &#39;&#39;)
+</a><a href="#h1-0-139" id="h1-0-139" class="i">+		img.setAttribute(&#39;aria-hidden&#39;, &#39;true&#39;)
+</a><a href="#h1-0-140" id="h1-0-140" class="i">+
+</a><a href="#h1-0-141" id="h1-0-141" class="i">+		var rm = function() { if (img &amp;&amp; img.parentNode) img.parentNode.removeChild(img) }
+</a><a href="#h1-0-142" id="h1-0-142" class="i">+		setTimeout(rm, 3000)  // In case the onload isn&#39;t triggered.
+</a><a href="#h1-0-143" id="h1-0-143" class="i">+		img.addEventListener(&#39;load&#39;, rm, false)
+</a><a href="#h1-0-144" id="h1-0-144" class="i">+		document.body.appendChild(img)
+</a><a href="#h1-0-145" id="h1-0-145" class="i">+	}
+</a><a href="#h1-0-146" id="h1-0-146" class="i">+
+</a><a href="#h1-0-147" id="h1-0-147" class="i">+	// Get a query parameter.
+</a><a href="#h1-0-148" id="h1-0-148" class="i">+	window.goatcounter.get_query = function(name) {
+</a><a href="#h1-0-149" id="h1-0-149" class="i">+		var s = location.search.substr(1).split(&#39;&amp;&#39;)
+</a><a href="#h1-0-150" id="h1-0-150" class="i">+		for (var i = 0; i &lt; s.length; i++)
+</a><a href="#h1-0-151" id="h1-0-151" class="i">+			if (s[i].toLowerCase().indexOf(name.toLowerCase() + &#39;=&#39;) === 0)
+</a><a href="#h1-0-152" id="h1-0-152" class="i">+				return s[i].substr(name.length + 1)
+</a><a href="#h1-0-153" id="h1-0-153" class="i">+	}
+</a><a href="#h1-0-154" id="h1-0-154" class="i">+
+</a><a href="#h1-0-155" id="h1-0-155" class="i">+	// Track click events.
+</a><a href="#h1-0-156" id="h1-0-156" class="i">+	window.goatcounter.bind_events = function() {
+</a><a href="#h1-0-157" id="h1-0-157" class="i">+		if (!document.querySelectorAll)  // Just in case someone uses an ancient browser.
+</a><a href="#h1-0-158" id="h1-0-158" class="i">+			return
+</a><a href="#h1-0-159" id="h1-0-159" class="i">+
+</a><a href="#h1-0-160" id="h1-0-160" class="i">+		var send = function(elem) {
+</a><a href="#h1-0-161" id="h1-0-161" class="i">+			return function() {
+</a><a href="#h1-0-162" id="h1-0-162" class="i">+				goatcounter.count({
+</a><a href="#h1-0-163" id="h1-0-163" class="i">+					event:    true,
+</a><a href="#h1-0-164" id="h1-0-164" class="i">+					path:     (elem.dataset.goatcounterClick || elem.name || elem.id || &#39;&#39;),
+</a><a href="#h1-0-165" id="h1-0-165" class="i">+					title:    (elem.dataset.goatcounterTitle || elem.title || (elem.innerHTML || &#39;&#39;).substr(0, 200) || &#39;&#39;),
+</a><a href="#h1-0-166" id="h1-0-166" class="i">+					referrer: (elem.dataset.goatcounterReferrer || elem.dataset.goatcounterReferral || &#39;&#39;),
+</a><a href="#h1-0-167" id="h1-0-167" class="i">+				})
+</a><a href="#h1-0-168" id="h1-0-168" class="i">+			}
+</a><a href="#h1-0-169" id="h1-0-169" class="i">+		}
+</a><a href="#h1-0-170" id="h1-0-170" class="i">+
+</a><a href="#h1-0-171" id="h1-0-171" class="i">+		Array.prototype.slice.call(document.querySelectorAll(&quot;*[data-goatcounter-click]&quot;)).forEach(function(elem) {
+</a><a href="#h1-0-172" id="h1-0-172" class="i">+			if (elem.dataset.goatcounterBound)
+</a><a href="#h1-0-173" id="h1-0-173" class="i">+				return
+</a><a href="#h1-0-174" id="h1-0-174" class="i">+			var f = send(elem)
+</a><a href="#h1-0-175" id="h1-0-175" class="i">+			elem.addEventListener(&#39;click&#39;, f, false)
+</a><a href="#h1-0-176" id="h1-0-176" class="i">+			elem.addEventListener(&#39;auxclick&#39;, f, false)  // Middle click.
+</a><a href="#h1-0-177" id="h1-0-177" class="i">+			elem.dataset.goatcounterBound = &#39;true&#39;
+</a><a href="#h1-0-178" id="h1-0-178" class="i">+		})
+</a><a href="#h1-0-179" id="h1-0-179" class="i">+	}
+</a><a href="#h1-0-180" id="h1-0-180" class="i">+
+</a><a href="#h1-0-181" id="h1-0-181" class="i">+	// Add a &quot;visitor counter&quot; frame or image.
+</a><a href="#h1-0-182" id="h1-0-182" class="i">+	window.goatcounter.visit_count = function(opt) {
+</a><a href="#h1-0-183" id="h1-0-183" class="i">+		opt        = opt        || {}
+</a><a href="#h1-0-184" id="h1-0-184" class="i">+		opt.type   = opt.type   || &#39;html&#39;
+</a><a href="#h1-0-185" id="h1-0-185" class="i">+		opt.append = opt.append || &#39;body&#39;
+</a><a href="#h1-0-186" id="h1-0-186" class="i">+		opt.path   = opt.path   || get_path()
+</a><a href="#h1-0-187" id="h1-0-187" class="i">+		opt.attr   = opt.attr   || {width: &#39;200&#39;, height: (opt.no_branding ? &#39;60&#39; : &#39;80&#39;)}
+</a><a href="#h1-0-188" id="h1-0-188" class="i">+
+</a><a href="#h1-0-189" id="h1-0-189" class="i">+		opt.attr[&#39;src&#39;] = get_endpoint() + &#39;er/&#39; + encodeURIComponent(opt.path) + &#39;.&#39; + opt.type + &#39;?&#39;
+</a><a href="#h1-0-190" id="h1-0-190" class="i">+		if (opt.no_branding) opt.attr[&#39;src&#39;] += &#39;&amp;no_branding=1&#39;
+</a><a href="#h1-0-191" id="h1-0-191" class="i">+		if (opt.style)       opt.attr[&#39;src&#39;] += &#39;&amp;style=&#39; + encodeURIComponent(opt.style)
+</a><a href="#h1-0-192" id="h1-0-192" class="i">+
+</a><a href="#h1-0-193" id="h1-0-193" class="i">+		var tag = {png: &#39;img&#39;, svg: &#39;img&#39;, html: &#39;iframe&#39;}[opt.type]
+</a><a href="#h1-0-194" id="h1-0-194" class="i">+		if (!tag)
+</a><a href="#h1-0-195" id="h1-0-195" class="i">+			return warn(&#39;visit_count: unknown type: &#39; + opt.type)
+</a><a href="#h1-0-196" id="h1-0-196" class="i">+
+</a><a href="#h1-0-197" id="h1-0-197" class="i">+		if (opt.type === &#39;html&#39;) {
+</a><a href="#h1-0-198" id="h1-0-198" class="i">+			opt.attr[&#39;frameborder&#39;] = &#39;0&#39;
+</a><a href="#h1-0-199" id="h1-0-199" class="i">+			opt.attr[&#39;scrolling&#39;]   = &#39;no&#39;
+</a><a href="#h1-0-200" id="h1-0-200" class="i">+		}
+</a><a href="#h1-0-201" id="h1-0-201" class="i">+
+</a><a href="#h1-0-202" id="h1-0-202" class="i">+		var d = document.createElement(tag)
+</a><a href="#h1-0-203" id="h1-0-203" class="i">+		for (var k in opt.attr)
+</a><a href="#h1-0-204" id="h1-0-204" class="i">+			d.setAttribute(k, opt.attr[k])
+</a><a href="#h1-0-205" id="h1-0-205" class="i">+
+</a><a href="#h1-0-206" id="h1-0-206" class="i">+		var p = document.querySelector(opt.append)
+</a><a href="#h1-0-207" id="h1-0-207" class="i">+		if (!p)
+</a><a href="#h1-0-208" id="h1-0-208" class="i">+			return warn(&#39;visit_count: append not found: &#39; + opt.append)
+</a><a href="#h1-0-209" id="h1-0-209" class="i">+		p.appendChild(d)
+</a><a href="#h1-0-210" id="h1-0-210" class="i">+	}
+</a><a href="#h1-0-211" id="h1-0-211" class="i">+
+</a><a href="#h1-0-212" id="h1-0-212" class="i">+	// Make it easy to skip your own views.
+</a><a href="#h1-0-213" id="h1-0-213" class="i">+	if (location.hash === &#39;#toggle-goatcounter&#39;)
+</a><a href="#h1-0-214" id="h1-0-214" class="i">+		if (localStorage.getItem(&#39;skipgc&#39;) === &#39;t&#39;) {
+</a><a href="#h1-0-215" id="h1-0-215" class="i">+			localStorage.removeItem(&#39;skipgc&#39;, &#39;t&#39;)
+</a><a href="#h1-0-216" id="h1-0-216" class="i">+			alert(&#39;GoatCounter tracking is now ENABLED in this browser.&#39;)
+</a><a href="#h1-0-217" id="h1-0-217" class="i">+		}
+</a><a href="#h1-0-218" id="h1-0-218" class="i">+		else {
+</a><a href="#h1-0-219" id="h1-0-219" class="i">+			localStorage.setItem(&#39;skipgc&#39;, &#39;t&#39;)
+</a><a href="#h1-0-220" id="h1-0-220" class="i">+			alert(&#39;GoatCounter tracking is now DISABLED in this browser until &#39; + location + &#39; is loaded again.&#39;)
+</a><a href="#h1-0-221" id="h1-0-221" class="i">+		}
+</a><a href="#h1-0-222" id="h1-0-222" class="i">+
+</a><a href="#h1-0-223" id="h1-0-223" class="i">+	if (!goatcounter.no_onload) {
+</a><a href="#h1-0-224" id="h1-0-224" class="i">+		var go = function() {
+</a><a href="#h1-0-225" id="h1-0-225" class="i">+			goatcounter.count()
+</a><a href="#h1-0-226" id="h1-0-226" class="i">+			if (!goatcounter.no_events)
+</a><a href="#h1-0-227" id="h1-0-227" class="i">+				goatcounter.bind_events()
+</a><a href="#h1-0-228" id="h1-0-228" class="i">+		}
+</a><a href="#h1-0-229" id="h1-0-229" class="i">+
+</a><a href="#h1-0-230" id="h1-0-230" class="i">+		if (document.body === null)
+</a><a href="#h1-0-231" id="h1-0-231" class="i">+			document.addEventListener(&#39;DOMContentLoaded&#39;, function() { go() }, false)
+</a><a href="#h1-0-232" id="h1-0-232" class="i">+		else
+</a><a href="#h1-0-233" id="h1-0-233" class="i">+			go()
+</a><a href="#h1-0-234" id="h1-0-234" class="i">+	}
+</a><a href="#h1-0-235" id="h1-0-235" class="i">+})();
+</a><a href="#h1-0-236" id="h1-0-236" class="i">+&lt;/script&gt;
+</a><a href="#h1-0-237" id="h1-0-237" class="i">+&lt;noscript&gt;&lt;img src=&quot;https://stats.ybbond.dev/count?p=/test-img&quot;&gt;&lt;/noscript&gt;
+</a></pre>
+</div>
+</div>
+</body>
+</html>
