@@ -15,7 +15,7 @@
 <a href="../../../index.html">Log</a> | <a href="../../../files.html">Files</a> | <a href="../../../refs.html">Refs</a> | <a href="../../../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> init.vim (14591B)</p><hr/><pre id="blob">
+<p> init.vim (14610B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> &quot; For Vim
 <a href="#l2" class="line" id="l2">      2</a> set nocompatible
 <a href="#l3" class="line" id="l3">      3</a> set encoding=UTF-8
@@ -328,188 +328,189 @@
 <a href="#l310" class="line" id="l310">    310</a>   nmap &lt;leader&gt;. :call CocAction(&quot;codeAction&quot;)&lt;cr&gt;
 <a href="#l311" class="line" id="l311">    311</a> 
 <a href="#l312" class="line" id="l312">    312</a>   command! GC CocList gstatus
-<a href="#l313" class="line" id="l313">    313</a> 
-<a href="#l314" class="line" id="l314">    314</a> &quot; |git-messenger|
-<a href="#l315" class="line" id="l315">    315</a>   nmap &lt;C-w&gt;m &lt;Plug&gt;(git-messenger)
-<a href="#l316" class="line" id="l316">    316</a>   nmap &lt;C-w&gt;&lt;C-m&gt; &lt;Plug&gt;(git-messenger)
-<a href="#l317" class="line" id="l317">    317</a> 
-<a href="#l318" class="line" id="l318">    318</a> &quot; |bufkill|
-<a href="#l319" class="line" id="l319">    319</a>   nnoremap gx :BD&lt;cr&gt;
-<a href="#l320" class="line" id="l320">    320</a> 
-<a href="#l321" class="line" id="l321">    321</a> &quot; |fzf.vim|
-<a href="#l322" class="line" id="l322">    322</a>   let g:rg_command = &#39;
-<a href="#l323" class="line" id="l323">    323</a>     \ rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color &quot;always&quot;
-<a href="#l324" class="line" id="l324">    324</a>     \ -g &quot;*.{css,js,jsx,ts,tsx,json,re,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}&quot;
-<a href="#l325" class="line" id="l325">    325</a>     \ -g &quot;!{.git,node_modules,coverage,vendor,build}/*&quot; &#39;
-<a href="#l326" class="line" id="l326">    326</a>   &quot; command! -bang -nargs=* Strings call fzf#vim#grep(g:rg_command .shellescape(&lt;q-args&gt;), 1, &lt;bang&gt;0)
-<a href="#l327" class="line" id="l327">    327</a>   command! -bang -nargs=* StringsAll
-<a href="#l328" class="line" id="l328">    328</a>   \ call fzf#vim#grep(
-<a href="#l329" class="line" id="l329">    329</a>   \   &#39;rg --column --line-number --hidden --no-ignore --no-heading --color=always --smart-case -- &#39;.shellescape(&lt;q-args&gt;), 1,
-<a href="#l330" class="line" id="l330">    330</a>   \   fzf#vim#with_preview({&#39;options&#39;: &#39;--preview-window=down:50% --layout=reverse --delimiter : --nth 4..&#39;}), &lt;bang&gt;0)
-<a href="#l331" class="line" id="l331">    331</a>   command! -bang -nargs=* Strings
-<a href="#l332" class="line" id="l332">    332</a>   \ call fzf#vim#grep(
-<a href="#l333" class="line" id="l333">    333</a>   \   &#39;rg --column --line-number --hidden --glob &quot;!{.git,node_modules,flow-typed,operation-types.flow.js,generatedTypes}&quot; --no-heading --color=always --smart-case -- &#39;.shellescape(&lt;q-args&gt;), 1,
-<a href="#l334" class="line" id="l334">    334</a>   \   fzf#vim#with_preview({&#39;options&#39;: &#39;--preview-window=down:50% --layout=reverse --delimiter : --nth 4..&#39;}), &lt;bang&gt;0)
-<a href="#l335" class="line" id="l335">    335</a>   command! -bang -nargs=* StringsAndFile
-<a href="#l336" class="line" id="l336">    336</a>   \ call fzf#vim#grep(
-<a href="#l337" class="line" id="l337">    337</a>   \   &#39;rg --column --line-number --hidden --glob &quot;!{.git,node_modules,flow-typed,operation-types.flow.js,generatedTypes}&quot; --no-heading --color=always --smart-case -- &#39;.shellescape(&lt;q-args&gt;), 1,
-<a href="#l338" class="line" id="l338">    338</a>   \   fzf#vim#with_preview({&#39;options&#39;: &#39;--preview-window=down:50% --layout=reverse&#39;}), &lt;bang&gt;0)
-<a href="#l339" class="line" id="l339">    339</a>   &quot; the {&#39;options&#39;: &#39;--delimiter : --nth 4..&#39;} option limit the string search
-<a href="#l340" class="line" id="l340">    340</a>   &quot; only for file content
-<a href="#l341" class="line" id="l341">    341</a> 
-<a href="#l342" class="line" id="l342">    342</a>   command! -bang -nargs=? -complete=dir FilesAll
-<a href="#l343" class="line" id="l343">    343</a>     \ call fzf#vim#files(&lt;q-args&gt;, fzf#vim#with_preview({&#39;options&#39;: [&#39;--preview-window=down:50%&#39;, &#39;--layout=reverse&#39;, &#39;--info=inline&#39;]}), &lt;bang&gt;0)
-<a href="#l344" class="line" id="l344">    344</a>   command! -bang -nargs=? -complete=dir Files
-<a href="#l345" class="line" id="l345">    345</a>     \ call fzf#vim#gitfiles(&lt;q-args&gt;, fzf#vim#with_preview({&#39;options&#39;: [&#39;--preview-window=down:50%&#39;, &#39;--layout=reverse&#39;, &#39;--info=inline&#39;]}), &lt;bang&gt;0)
-<a href="#l346" class="line" id="l346">    346</a> 
-<a href="#l347" class="line" id="l347">    347</a>   &quot; nnoremap &lt;C-o&gt; :Strings&lt;cr&gt;
-<a href="#l348" class="line" id="l348">    348</a>   &quot; nnoremap &lt;C-i&gt; :Files&lt;cr&gt;
-<a href="#l349" class="line" id="l349">    349</a>   noremap &lt;C-i&gt; :Strings&lt;cr&gt;
-<a href="#l350" class="line" id="l350">    350</a>   noremap &lt;C-s&gt; :StringsAndFile&lt;cr&gt;
-<a href="#l351" class="line" id="l351">    351</a>   noremap &lt;leader&gt;&lt;C-i&gt; :StringsAll&lt;cr&gt;
-<a href="#l352" class="line" id="l352">    352</a>   noremap &lt;C-p&gt; :Files --cached --others --exclude-standard&lt;cr&gt;
-<a href="#l353" class="line" id="l353">    353</a>   noremap &lt;leader&gt;&lt;C-p&gt; :FilesAll&lt;cr&gt;
-<a href="#l354" class="line" id="l354">    354</a>   noremap &lt;C-b&gt; :Buffers&lt;CR&gt;
-<a href="#l355" class="line" id="l355">    355</a>   noremap &lt;C-g&gt; :GC&lt;CR&gt;
-<a href="#l356" class="line" id="l356">    356</a> 
-<a href="#l357" class="line" id="l357">    357</a> &quot; |vim-clap|
-<a href="#l358" class="line" id="l358">    358</a>   &quot; nnoremap &lt;C-i&gt; :Clap!! grep ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
-<a href="#l359" class="line" id="l359">    359</a>   &quot; nnoremap &lt;leader&gt;&lt;C-i&gt; :Clap grep ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
-<a href="#l360" class="line" id="l360">    360</a>   &quot; nnoremap &lt;C-p&gt; :Clap!! files --hidden&lt;cr&gt;
-<a href="#l361" class="line" id="l361">    361</a>   &quot; nnoremap &lt;leader&gt;&lt;C-p&gt; :Clap files --hidden&lt;cr&gt;
-<a href="#l362" class="line" id="l362">    362</a>   &quot; nnoremap &lt;leader&gt;* :Clap!! grep ++query=&lt;cword&gt; ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
-<a href="#l363" class="line" id="l363">    363</a>   &quot; nnoremap &lt;leader&gt;&lt;leader&gt;* :Clap grep ++query=&lt;cword&gt; ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
-<a href="#l364" class="line" id="l364">    364</a>   &quot; vnoremap &lt;leader&gt;* :Clap!! grep ++query=@visual ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
-<a href="#l365" class="line" id="l365">    365</a>   &quot; vnoremap &lt;leader&gt;&lt;leader&gt;* :Clap grep ++query=@visual ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
-<a href="#l366" class="line" id="l366">    366</a>   &quot; nnoremap &lt;C-b&gt; :Clap buffers&lt;cr&gt;
-<a href="#l367" class="line" id="l367">    367</a> 
-<a href="#l368" class="line" id="l368">    368</a> &quot; |nerdtree|
-<a href="#l369" class="line" id="l369">    369</a>   map &lt;leader&gt;e :NERDTreeToggle&lt;cr&gt;
-<a href="#l370" class="line" id="l370">    370</a>   map &lt;leader&gt;r :NERDTreeFind&lt;cr&gt;
-<a href="#l371" class="line" id="l371">    371</a> 
+<a href="#l313" class="line" id="l313">    313</a>   command! W noa w
+<a href="#l314" class="line" id="l314">    314</a> 
+<a href="#l315" class="line" id="l315">    315</a> &quot; |git-messenger|
+<a href="#l316" class="line" id="l316">    316</a>   nmap &lt;C-w&gt;m &lt;Plug&gt;(git-messenger)
+<a href="#l317" class="line" id="l317">    317</a>   nmap &lt;C-w&gt;&lt;C-m&gt; &lt;Plug&gt;(git-messenger)
+<a href="#l318" class="line" id="l318">    318</a> 
+<a href="#l319" class="line" id="l319">    319</a> &quot; |bufkill|
+<a href="#l320" class="line" id="l320">    320</a>   nnoremap gx :BD&lt;cr&gt;
+<a href="#l321" class="line" id="l321">    321</a> 
+<a href="#l322" class="line" id="l322">    322</a> &quot; |fzf.vim|
+<a href="#l323" class="line" id="l323">    323</a>   let g:rg_command = &#39;
+<a href="#l324" class="line" id="l324">    324</a>     \ rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color &quot;always&quot;
+<a href="#l325" class="line" id="l325">    325</a>     \ -g &quot;*.{css,js,jsx,ts,tsx,json,re,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}&quot;
+<a href="#l326" class="line" id="l326">    326</a>     \ -g &quot;!{.git,node_modules,coverage,vendor,build}/*&quot; &#39;
+<a href="#l327" class="line" id="l327">    327</a>   &quot; command! -bang -nargs=* Strings call fzf#vim#grep(g:rg_command .shellescape(&lt;q-args&gt;), 1, &lt;bang&gt;0)
+<a href="#l328" class="line" id="l328">    328</a>   command! -bang -nargs=* StringsAll
+<a href="#l329" class="line" id="l329">    329</a>   \ call fzf#vim#grep(
+<a href="#l330" class="line" id="l330">    330</a>   \   &#39;rg --column --line-number --hidden --no-ignore --no-heading --color=always --smart-case -- &#39;.shellescape(&lt;q-args&gt;), 1,
+<a href="#l331" class="line" id="l331">    331</a>   \   fzf#vim#with_preview({&#39;options&#39;: &#39;--preview-window=down:50% --layout=reverse --delimiter : --nth 4..&#39;}), &lt;bang&gt;0)
+<a href="#l332" class="line" id="l332">    332</a>   command! -bang -nargs=* Strings
+<a href="#l333" class="line" id="l333">    333</a>   \ call fzf#vim#grep(
+<a href="#l334" class="line" id="l334">    334</a>   \   &#39;rg --column --line-number --hidden --glob &quot;!{.git,node_modules,flow-typed,operation-types.flow.js,generatedTypes}&quot; --no-heading --color=always --smart-case -- &#39;.shellescape(&lt;q-args&gt;), 1,
+<a href="#l335" class="line" id="l335">    335</a>   \   fzf#vim#with_preview({&#39;options&#39;: &#39;--preview-window=down:50% --layout=reverse --delimiter : --nth 4..&#39;}), &lt;bang&gt;0)
+<a href="#l336" class="line" id="l336">    336</a>   command! -bang -nargs=* StringsAndFile
+<a href="#l337" class="line" id="l337">    337</a>   \ call fzf#vim#grep(
+<a href="#l338" class="line" id="l338">    338</a>   \   &#39;rg --column --line-number --hidden --glob &quot;!{.git,node_modules,flow-typed,operation-types.flow.js,generatedTypes}&quot; --no-heading --color=always --smart-case -- &#39;.shellescape(&lt;q-args&gt;), 1,
+<a href="#l339" class="line" id="l339">    339</a>   \   fzf#vim#with_preview({&#39;options&#39;: &#39;--preview-window=down:50% --layout=reverse&#39;}), &lt;bang&gt;0)
+<a href="#l340" class="line" id="l340">    340</a>   &quot; the {&#39;options&#39;: &#39;--delimiter : --nth 4..&#39;} option limit the string search
+<a href="#l341" class="line" id="l341">    341</a>   &quot; only for file content
+<a href="#l342" class="line" id="l342">    342</a> 
+<a href="#l343" class="line" id="l343">    343</a>   command! -bang -nargs=? -complete=dir FilesAll
+<a href="#l344" class="line" id="l344">    344</a>     \ call fzf#vim#files(&lt;q-args&gt;, fzf#vim#with_preview({&#39;options&#39;: [&#39;--preview-window=down:50%&#39;, &#39;--layout=reverse&#39;, &#39;--info=inline&#39;]}), &lt;bang&gt;0)
+<a href="#l345" class="line" id="l345">    345</a>   command! -bang -nargs=? -complete=dir Files
+<a href="#l346" class="line" id="l346">    346</a>     \ call fzf#vim#gitfiles(&lt;q-args&gt;, fzf#vim#with_preview({&#39;options&#39;: [&#39;--preview-window=down:50%&#39;, &#39;--layout=reverse&#39;, &#39;--info=inline&#39;]}), &lt;bang&gt;0)
+<a href="#l347" class="line" id="l347">    347</a> 
+<a href="#l348" class="line" id="l348">    348</a>   &quot; nnoremap &lt;C-o&gt; :Strings&lt;cr&gt;
+<a href="#l349" class="line" id="l349">    349</a>   &quot; nnoremap &lt;C-i&gt; :Files&lt;cr&gt;
+<a href="#l350" class="line" id="l350">    350</a>   noremap &lt;C-i&gt; :Strings&lt;cr&gt;
+<a href="#l351" class="line" id="l351">    351</a>   noremap &lt;C-s&gt; :StringsAndFile&lt;cr&gt;
+<a href="#l352" class="line" id="l352">    352</a>   noremap &lt;leader&gt;&lt;C-i&gt; :StringsAll&lt;cr&gt;
+<a href="#l353" class="line" id="l353">    353</a>   noremap &lt;C-p&gt; :Files --cached --others --exclude-standard&lt;cr&gt;
+<a href="#l354" class="line" id="l354">    354</a>   noremap &lt;leader&gt;&lt;C-p&gt; :FilesAll&lt;cr&gt;
+<a href="#l355" class="line" id="l355">    355</a>   noremap &lt;C-b&gt; :Buffers&lt;CR&gt;
+<a href="#l356" class="line" id="l356">    356</a>   noremap &lt;C-g&gt; :GC&lt;CR&gt;
+<a href="#l357" class="line" id="l357">    357</a> 
+<a href="#l358" class="line" id="l358">    358</a> &quot; |vim-clap|
+<a href="#l359" class="line" id="l359">    359</a>   &quot; nnoremap &lt;C-i&gt; :Clap!! grep ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+<a href="#l360" class="line" id="l360">    360</a>   &quot; nnoremap &lt;leader&gt;&lt;C-i&gt; :Clap grep ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+<a href="#l361" class="line" id="l361">    361</a>   &quot; nnoremap &lt;C-p&gt; :Clap!! files --hidden&lt;cr&gt;
+<a href="#l362" class="line" id="l362">    362</a>   &quot; nnoremap &lt;leader&gt;&lt;C-p&gt; :Clap files --hidden&lt;cr&gt;
+<a href="#l363" class="line" id="l363">    363</a>   &quot; nnoremap &lt;leader&gt;* :Clap!! grep ++query=&lt;cword&gt; ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+<a href="#l364" class="line" id="l364">    364</a>   &quot; nnoremap &lt;leader&gt;&lt;leader&gt;* :Clap grep ++query=&lt;cword&gt; ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+<a href="#l365" class="line" id="l365">    365</a>   &quot; vnoremap &lt;leader&gt;* :Clap!! grep ++query=@visual ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+<a href="#l366" class="line" id="l366">    366</a>   &quot; vnoremap &lt;leader&gt;&lt;leader&gt;* :Clap grep ++query=@visual ++opt=--hidden ++opt=-g=!.git&lt;cr&gt;
+<a href="#l367" class="line" id="l367">    367</a>   &quot; nnoremap &lt;C-b&gt; :Clap buffers&lt;cr&gt;
+<a href="#l368" class="line" id="l368">    368</a> 
+<a href="#l369" class="line" id="l369">    369</a> &quot; |nerdtree|
+<a href="#l370" class="line" id="l370">    370</a>   map &lt;leader&gt;e :NERDTreeToggle&lt;cr&gt;
+<a href="#l371" class="line" id="l371">    371</a>   map &lt;leader&gt;r :NERDTreeFind&lt;cr&gt;
 <a href="#l372" class="line" id="l372">    372</a> 
-<a href="#l373" class="line" id="l373">    373</a> &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
-<a href="#l374" class="line" id="l374">    374</a> &quot;                      INSERT MODE
-<a href="#l375" class="line" id="l375">    375</a> &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
-<a href="#l376" class="line" id="l376">    376</a> 
-<a href="#l377" class="line" id="l377">    377</a> &quot; Remap &lt;c-d&gt; to delete
-<a href="#l378" class="line" id="l378">    378</a> inoremap &lt;C-d&gt; &lt;Del&gt;
-<a href="#l379" class="line" id="l379">    379</a> 
-<a href="#l380" class="line" id="l380">    380</a> &quot; Remap &lt;c-b&gt; to delete within word
-<a href="#l381" class="line" id="l381">    381</a> inoremap &lt;C-b&gt; &lt;ESC&gt;lcw
-<a href="#l382" class="line" id="l382">    382</a> 
-<a href="#l383" class="line" id="l383">    383</a> &quot; Remap escape to j + k
-<a href="#l384" class="line" id="l384">    384</a> inoremap jk &lt;ESC&gt;
-<a href="#l385" class="line" id="l385">    385</a> inoremap &lt;C-c&gt; &lt;ESC&gt;
-<a href="#l386" class="line" id="l386">    386</a> 
-<a href="#l387" class="line" id="l387">    387</a> &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
-<a href="#l388" class="line" id="l388">    388</a> &quot;                      APPEARANCE
-<a href="#l389" class="line" id="l389">    389</a> &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
-<a href="#l390" class="line" id="l390">    390</a> 
-<a href="#l391" class="line" id="l391">    391</a> augroup numbertoggle
-<a href="#l392" class="line" id="l392">    392</a>   if &amp;number == 1
-<a href="#l393" class="line" id="l393">    393</a>     autocmd!
-<a href="#l394" class="line" id="l394">    394</a>     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-<a href="#l395" class="line" id="l395">    395</a>     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-<a href="#l396" class="line" id="l396">    396</a>   endif
-<a href="#l397" class="line" id="l397">    397</a> augroup end
-<a href="#l398" class="line" id="l398">    398</a> 
-<a href="#l399" class="line" id="l399">    399</a> function ToggleNumberToggle(numberVar)
-<a href="#l400" class="line" id="l400">    400</a>   &quot; Reset group
-<a href="#l401" class="line" id="l401">    401</a>   augroup numbertoggle
-<a href="#l402" class="line" id="l402">    402</a>     autocmd!
-<a href="#l403" class="line" id="l403">    403</a>   augroup end
-<a href="#l404" class="line" id="l404">    404</a> 
-<a href="#l405" class="line" id="l405">    405</a>   &quot; Enable if toggled on
-<a href="#l406" class="line" id="l406">    406</a>   if a:numberVar
-<a href="#l407" class="line" id="l407">    407</a>     augroup numbertoggle
-<a href="#l408" class="line" id="l408">    408</a>       if &amp;number == 1
-<a href="#l409" class="line" id="l409">    409</a>         autocmd!
-<a href="#l410" class="line" id="l410">    410</a>         autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-<a href="#l411" class="line" id="l411">    411</a>         autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-<a href="#l412" class="line" id="l412">    412</a>       endif
-<a href="#l413" class="line" id="l413">    413</a>     augroup end
-<a href="#l414" class="line" id="l414">    414</a>   endif
-<a href="#l415" class="line" id="l415">    415</a> endfunction
-<a href="#l416" class="line" id="l416">    416</a> 
-<a href="#l417" class="line" id="l417">    417</a> &quot; function! s:goyo_enter()
-<a href="#l418" class="line" id="l418">    418</a> &quot;   if executable(&#39;tmux&#39;) &amp;&amp; strlen($TMUX)
-<a href="#l419" class="line" id="l419">    419</a> &quot;     silent !tmux set status off
-<a href="#l420" class="line" id="l420">    420</a> &quot;     silent !tmux list-panes -F &#39;\#F&#39; | grep -q Z || tmux resize-pane -Z
-<a href="#l421" class="line" id="l421">    421</a> &quot;   endif
-<a href="#l422" class="line" id="l422">    422</a> &quot;   set noshowcmd
-<a href="#l423" class="line" id="l423">    423</a> &quot;   set wrap
-<a href="#l424" class="line" id="l424">    424</a> &quot;   set nonumber
-<a href="#l425" class="line" id="l425">    425</a> &quot;   set norelativenumber
-<a href="#l426" class="line" id="l426">    426</a> &quot;   set eventignore=FocusGained,BufEnter
-<a href="#l427" class="line" id="l427">    427</a> &quot;   set nocursorline
-<a href="#l428" class="line" id="l428">    428</a> &quot;   Limelight
-<a href="#l429" class="line" id="l429">    429</a> &quot;   :call ToggleNumberToggle(0)
-<a href="#l430" class="line" id="l430">    430</a> &quot; endfunction
-<a href="#l431" class="line" id="l431">    431</a> 
-<a href="#l432" class="line" id="l432">    432</a> &quot; function! s:goyo_leave()
-<a href="#l433" class="line" id="l433">    433</a> &quot;   if executable(&#39;tmux&#39;) &amp;&amp; strlen($TMUX)
-<a href="#l434" class="line" id="l434">    434</a> &quot;     silent !tmux set status on
-<a href="#l435" class="line" id="l435">    435</a> &quot;     silent !tmux list-panes -F &#39;\#F&#39; | grep -q Z &amp;&amp; tmux resize-pane -Z
-<a href="#l436" class="line" id="l436">    436</a> &quot;   endif
-<a href="#l437" class="line" id="l437">    437</a> &quot;   set showcmd
-<a href="#l438" class="line" id="l438">    438</a> &quot;   set nowrap
-<a href="#l439" class="line" id="l439">    439</a> &quot;   set number
-<a href="#l440" class="line" id="l440">    440</a> &quot;   set relativenumber
-<a href="#l441" class="line" id="l441">    441</a> &quot;   set eventignore=
-<a href="#l442" class="line" id="l442">    442</a> &quot;   set cursorline
-<a href="#l443" class="line" id="l443">    443</a> &quot;   Limelight!
-<a href="#l444" class="line" id="l444">    444</a> &quot;   :call ToggleNumberToggle(1)
-<a href="#l445" class="line" id="l445">    445</a> &quot; endfunction
-<a href="#l446" class="line" id="l446">    446</a> 
-<a href="#l447" class="line" id="l447">    447</a> &quot; autocmd! User GoyoEnter nested call &lt;SID&gt;goyo_enter()
-<a href="#l448" class="line" id="l448">    448</a> &quot; autocmd! User GoyoLeave nested call &lt;SID&gt;goyo_leave()
-<a href="#l449" class="line" id="l449">    449</a> 
-<a href="#l450" class="line" id="l450">    450</a> &quot; change cursor in different mode
-<a href="#l451" class="line" id="l451">    451</a> if has(&#39;nvim&#39;)
-<a href="#l452" class="line" id="l452">    452</a>   &quot; make the ^[ sign with:
-<a href="#l453" class="line" id="l453">    453</a>   &quot; (INSERT MODE) &lt;C-v&gt;&lt;ESC&gt;
-<a href="#l454" class="line" id="l454">    454</a>   &quot; make sure it shows different color than the rest
-<a href="#l455" class="line" id="l455">    455</a>   set t_SI=[5\ q
-<a href="#l456" class="line" id="l456">    456</a>   set t_SR=[4\ q
-<a href="#l457" class="line" id="l457">    457</a>   set t_EI=[1\ q
-<a href="#l458" class="line" id="l458">    458</a> else
-<a href="#l459" class="line" id="l459">    459</a>   if exists(&#39;$TMUX&#39;)
-<a href="#l460" class="line" id="l460">    460</a>       &quot; tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
-<a href="#l461" class="line" id="l461">    461</a>       let &amp;t_SI .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[5 q\&lt;Esc&gt;\\&quot;
-<a href="#l462" class="line" id="l462">    462</a>       let &amp;t_SR .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[4 q\&lt;Esc&gt;\\&quot;
-<a href="#l463" class="line" id="l463">    463</a>       let &amp;t_EI .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[1 q\&lt;Esc&gt;\\&quot;
-<a href="#l464" class="line" id="l464">    464</a>       autocmd VimLeave * silent !echo -ne &quot;\033Ptmux;\033\033[0 q\033\\&quot;
-<a href="#l465" class="line" id="l465">    465</a>   else
-<a href="#l466" class="line" id="l466">    466</a>       &quot; make the ^[ sign with:
-<a href="#l467" class="line" id="l467">    467</a>       &quot; (INSERT MODE) &lt;C-v&gt;&lt;ESC&gt;
-<a href="#l468" class="line" id="l468">    468</a>       &quot; make sure it shows different color than the rest
-<a href="#l469" class="line" id="l469">    469</a>       set t_SI=[5\ q
-<a href="#l470" class="line" id="l470">    470</a>       set t_SR=[4\ q
-<a href="#l471" class="line" id="l471">    471</a>       set t_EI=[1\ q
-<a href="#l472" class="line" id="l472">    472</a>       autocmd VimLeave * silent !echo -ne &quot;\033[0 q&quot;
-<a href="#l473" class="line" id="l473">    473</a>   endif
-<a href="#l474" class="line" id="l474">    474</a> endif
-<a href="#l475" class="line" id="l475">    475</a> 
-<a href="#l476" class="line" id="l476">    476</a> &quot; |vim-fugitive|
-<a href="#l477" class="line" id="l477">    477</a> set diffopt+=vertical
-<a href="#l478" class="line" id="l478">    478</a> 
-<a href="#l479" class="line" id="l479">    479</a> &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
-<a href="#l480" class="line" id="l480">    480</a> &quot;                      COLOR RELATED
-<a href="#l481" class="line" id="l481">    481</a> &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
-<a href="#l482" class="line" id="l482">    482</a> 
-<a href="#l483" class="line" id="l483">    483</a> &quot; TODO highlight
-<a href="#l484" class="line" id="l484">    484</a> &quot; FIXME highlight
-<a href="#l485" class="line" id="l485">    485</a> &quot; XXX highlight
-<a href="#l486" class="line" id="l486">    486</a> 
-<a href="#l487" class="line" id="l487">    487</a> &quot; Change comment color
-<a href="#l488" class="line" id="l488">    488</a> &quot; hi Comment guifg=LightBlue
-<a href="#l489" class="line" id="l489">    489</a> hi Comment gui=italic cterm=italic
-<a href="#l490" class="line" id="l490">    490</a> &quot; hi htmlStrike gui=strikethrough cterm=strikethrough guibg=Black ctermbg=Black
-<a href="#l491" class="line" id="l491">    491</a> hi Todo guibg=Black ctermbg=Black guifg=White ctermfg=White gui=bold,italic cterm=bold,italic
-<a href="#l492" class="line" id="l492">    492</a> &quot; hi NonText guifg=#4a4a59 ctermfg=Gray
-<a href="#l493" class="line" id="l493">    493</a> &quot; hi SpecialKey guifg=#4a4a59 ctermfg=Gray
-<a href="#l494" class="line" id="l494">    494</a> &quot; hi SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
+<a href="#l373" class="line" id="l373">    373</a> 
+<a href="#l374" class="line" id="l374">    374</a> &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+<a href="#l375" class="line" id="l375">    375</a> &quot;                      INSERT MODE
+<a href="#l376" class="line" id="l376">    376</a> &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+<a href="#l377" class="line" id="l377">    377</a> 
+<a href="#l378" class="line" id="l378">    378</a> &quot; Remap &lt;c-d&gt; to delete
+<a href="#l379" class="line" id="l379">    379</a> inoremap &lt;C-d&gt; &lt;Del&gt;
+<a href="#l380" class="line" id="l380">    380</a> 
+<a href="#l381" class="line" id="l381">    381</a> &quot; Remap &lt;c-b&gt; to delete within word
+<a href="#l382" class="line" id="l382">    382</a> inoremap &lt;C-b&gt; &lt;ESC&gt;lcw
+<a href="#l383" class="line" id="l383">    383</a> 
+<a href="#l384" class="line" id="l384">    384</a> &quot; Remap escape to j + k
+<a href="#l385" class="line" id="l385">    385</a> inoremap jk &lt;ESC&gt;
+<a href="#l386" class="line" id="l386">    386</a> inoremap &lt;C-c&gt; &lt;ESC&gt;
+<a href="#l387" class="line" id="l387">    387</a> 
+<a href="#l388" class="line" id="l388">    388</a> &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+<a href="#l389" class="line" id="l389">    389</a> &quot;                      APPEARANCE
+<a href="#l390" class="line" id="l390">    390</a> &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+<a href="#l391" class="line" id="l391">    391</a> 
+<a href="#l392" class="line" id="l392">    392</a> augroup numbertoggle
+<a href="#l393" class="line" id="l393">    393</a>   if &amp;number == 1
+<a href="#l394" class="line" id="l394">    394</a>     autocmd!
+<a href="#l395" class="line" id="l395">    395</a>     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+<a href="#l396" class="line" id="l396">    396</a>     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+<a href="#l397" class="line" id="l397">    397</a>   endif
+<a href="#l398" class="line" id="l398">    398</a> augroup end
+<a href="#l399" class="line" id="l399">    399</a> 
+<a href="#l400" class="line" id="l400">    400</a> function ToggleNumberToggle(numberVar)
+<a href="#l401" class="line" id="l401">    401</a>   &quot; Reset group
+<a href="#l402" class="line" id="l402">    402</a>   augroup numbertoggle
+<a href="#l403" class="line" id="l403">    403</a>     autocmd!
+<a href="#l404" class="line" id="l404">    404</a>   augroup end
+<a href="#l405" class="line" id="l405">    405</a> 
+<a href="#l406" class="line" id="l406">    406</a>   &quot; Enable if toggled on
+<a href="#l407" class="line" id="l407">    407</a>   if a:numberVar
+<a href="#l408" class="line" id="l408">    408</a>     augroup numbertoggle
+<a href="#l409" class="line" id="l409">    409</a>       if &amp;number == 1
+<a href="#l410" class="line" id="l410">    410</a>         autocmd!
+<a href="#l411" class="line" id="l411">    411</a>         autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+<a href="#l412" class="line" id="l412">    412</a>         autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+<a href="#l413" class="line" id="l413">    413</a>       endif
+<a href="#l414" class="line" id="l414">    414</a>     augroup end
+<a href="#l415" class="line" id="l415">    415</a>   endif
+<a href="#l416" class="line" id="l416">    416</a> endfunction
+<a href="#l417" class="line" id="l417">    417</a> 
+<a href="#l418" class="line" id="l418">    418</a> &quot; function! s:goyo_enter()
+<a href="#l419" class="line" id="l419">    419</a> &quot;   if executable(&#39;tmux&#39;) &amp;&amp; strlen($TMUX)
+<a href="#l420" class="line" id="l420">    420</a> &quot;     silent !tmux set status off
+<a href="#l421" class="line" id="l421">    421</a> &quot;     silent !tmux list-panes -F &#39;\#F&#39; | grep -q Z || tmux resize-pane -Z
+<a href="#l422" class="line" id="l422">    422</a> &quot;   endif
+<a href="#l423" class="line" id="l423">    423</a> &quot;   set noshowcmd
+<a href="#l424" class="line" id="l424">    424</a> &quot;   set wrap
+<a href="#l425" class="line" id="l425">    425</a> &quot;   set nonumber
+<a href="#l426" class="line" id="l426">    426</a> &quot;   set norelativenumber
+<a href="#l427" class="line" id="l427">    427</a> &quot;   set eventignore=FocusGained,BufEnter
+<a href="#l428" class="line" id="l428">    428</a> &quot;   set nocursorline
+<a href="#l429" class="line" id="l429">    429</a> &quot;   Limelight
+<a href="#l430" class="line" id="l430">    430</a> &quot;   :call ToggleNumberToggle(0)
+<a href="#l431" class="line" id="l431">    431</a> &quot; endfunction
+<a href="#l432" class="line" id="l432">    432</a> 
+<a href="#l433" class="line" id="l433">    433</a> &quot; function! s:goyo_leave()
+<a href="#l434" class="line" id="l434">    434</a> &quot;   if executable(&#39;tmux&#39;) &amp;&amp; strlen($TMUX)
+<a href="#l435" class="line" id="l435">    435</a> &quot;     silent !tmux set status on
+<a href="#l436" class="line" id="l436">    436</a> &quot;     silent !tmux list-panes -F &#39;\#F&#39; | grep -q Z &amp;&amp; tmux resize-pane -Z
+<a href="#l437" class="line" id="l437">    437</a> &quot;   endif
+<a href="#l438" class="line" id="l438">    438</a> &quot;   set showcmd
+<a href="#l439" class="line" id="l439">    439</a> &quot;   set nowrap
+<a href="#l440" class="line" id="l440">    440</a> &quot;   set number
+<a href="#l441" class="line" id="l441">    441</a> &quot;   set relativenumber
+<a href="#l442" class="line" id="l442">    442</a> &quot;   set eventignore=
+<a href="#l443" class="line" id="l443">    443</a> &quot;   set cursorline
+<a href="#l444" class="line" id="l444">    444</a> &quot;   Limelight!
+<a href="#l445" class="line" id="l445">    445</a> &quot;   :call ToggleNumberToggle(1)
+<a href="#l446" class="line" id="l446">    446</a> &quot; endfunction
+<a href="#l447" class="line" id="l447">    447</a> 
+<a href="#l448" class="line" id="l448">    448</a> &quot; autocmd! User GoyoEnter nested call &lt;SID&gt;goyo_enter()
+<a href="#l449" class="line" id="l449">    449</a> &quot; autocmd! User GoyoLeave nested call &lt;SID&gt;goyo_leave()
+<a href="#l450" class="line" id="l450">    450</a> 
+<a href="#l451" class="line" id="l451">    451</a> &quot; change cursor in different mode
+<a href="#l452" class="line" id="l452">    452</a> if has(&#39;nvim&#39;)
+<a href="#l453" class="line" id="l453">    453</a>   &quot; make the ^[ sign with:
+<a href="#l454" class="line" id="l454">    454</a>   &quot; (INSERT MODE) &lt;C-v&gt;&lt;ESC&gt;
+<a href="#l455" class="line" id="l455">    455</a>   &quot; make sure it shows different color than the rest
+<a href="#l456" class="line" id="l456">    456</a>   set t_SI=[5\ q
+<a href="#l457" class="line" id="l457">    457</a>   set t_SR=[4\ q
+<a href="#l458" class="line" id="l458">    458</a>   set t_EI=[1\ q
+<a href="#l459" class="line" id="l459">    459</a> else
+<a href="#l460" class="line" id="l460">    460</a>   if exists(&#39;$TMUX&#39;)
+<a href="#l461" class="line" id="l461">    461</a>       &quot; tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
+<a href="#l462" class="line" id="l462">    462</a>       let &amp;t_SI .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[5 q\&lt;Esc&gt;\\&quot;
+<a href="#l463" class="line" id="l463">    463</a>       let &amp;t_SR .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[4 q\&lt;Esc&gt;\\&quot;
+<a href="#l464" class="line" id="l464">    464</a>       let &amp;t_EI .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[1 q\&lt;Esc&gt;\\&quot;
+<a href="#l465" class="line" id="l465">    465</a>       autocmd VimLeave * silent !echo -ne &quot;\033Ptmux;\033\033[0 q\033\\&quot;
+<a href="#l466" class="line" id="l466">    466</a>   else
+<a href="#l467" class="line" id="l467">    467</a>       &quot; make the ^[ sign with:
+<a href="#l468" class="line" id="l468">    468</a>       &quot; (INSERT MODE) &lt;C-v&gt;&lt;ESC&gt;
+<a href="#l469" class="line" id="l469">    469</a>       &quot; make sure it shows different color than the rest
+<a href="#l470" class="line" id="l470">    470</a>       set t_SI=[5\ q
+<a href="#l471" class="line" id="l471">    471</a>       set t_SR=[4\ q
+<a href="#l472" class="line" id="l472">    472</a>       set t_EI=[1\ q
+<a href="#l473" class="line" id="l473">    473</a>       autocmd VimLeave * silent !echo -ne &quot;\033[0 q&quot;
+<a href="#l474" class="line" id="l474">    474</a>   endif
+<a href="#l475" class="line" id="l475">    475</a> endif
+<a href="#l476" class="line" id="l476">    476</a> 
+<a href="#l477" class="line" id="l477">    477</a> &quot; |vim-fugitive|
+<a href="#l478" class="line" id="l478">    478</a> set diffopt+=vertical
+<a href="#l479" class="line" id="l479">    479</a> 
+<a href="#l480" class="line" id="l480">    480</a> &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+<a href="#l481" class="line" id="l481">    481</a> &quot;                      COLOR RELATED
+<a href="#l482" class="line" id="l482">    482</a> &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+<a href="#l483" class="line" id="l483">    483</a> 
+<a href="#l484" class="line" id="l484">    484</a> &quot; TODO highlight
+<a href="#l485" class="line" id="l485">    485</a> &quot; FIXME highlight
+<a href="#l486" class="line" id="l486">    486</a> &quot; XXX highlight
+<a href="#l487" class="line" id="l487">    487</a> 
+<a href="#l488" class="line" id="l488">    488</a> &quot; Change comment color
+<a href="#l489" class="line" id="l489">    489</a> &quot; hi Comment guifg=LightBlue
+<a href="#l490" class="line" id="l490">    490</a> hi Comment gui=italic cterm=italic
+<a href="#l491" class="line" id="l491">    491</a> &quot; hi htmlStrike gui=strikethrough cterm=strikethrough guibg=Black ctermbg=Black
+<a href="#l492" class="line" id="l492">    492</a> hi Todo guibg=Black ctermbg=Black guifg=White ctermfg=White gui=bold,italic cterm=bold,italic
+<a href="#l493" class="line" id="l493">    493</a> &quot; hi NonText guifg=#4a4a59 ctermfg=Gray
+<a href="#l494" class="line" id="l494">    494</a> &quot; hi SpecialKey guifg=#4a4a59 ctermfg=Gray
+<a href="#l495" class="line" id="l495">    495</a> &quot; hi SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 </pre>
 </div>
 </body>

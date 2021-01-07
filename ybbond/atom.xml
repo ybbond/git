@@ -4,6 +4,44 @@
 <subtitle>My site. The main domain
 </subtitle>
 <entry>
+<id>74956a8fa2a97cf1327edb1016bfc7407e686ef2</id>
+<published>2021-01-07T01:53:18Z</published>
+<updated>2021-01-07T02:23:03Z</updated>
+<title type="text">refactor: move to ybbond.id, except subdomains</title>
+<link rel="alternate" type="text/html" href="commit/74956a8fa2a97cf1327edb1016bfc7407e686ef2.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.id</email>
+</author>
+<content type="text">commit 74956a8fa2a97cf1327edb1016bfc7407e686ef2
+parent 53a76dc186a29b6b51ce3cddf4e3737876d4b1cd
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.id&gt;
+Date:   Thu,  7 Jan 2021 08:53:18 +0700
+
+refactor: move to ybbond.id, except subdomains
+
+</content>
+</entry>
+<entry>
+<id>53a76dc186a29b6b51ce3cddf4e3737876d4b1cd</id>
+<published>2021-01-06T09:12:58Z</published>
+<updated>2021-01-06T09:12:58Z</updated>
+<title type="text">content: update kalender, tambah kalender meja lala</title>
+<link rel="alternate" type="text/html" href="commit/53a76dc186a29b6b51ce3cddf4e3737876d4b1cd.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.dev</email>
+</author>
+<content type="text">commit 53a76dc186a29b6b51ce3cddf4e3737876d4b1cd
+parent e109a701e48d37c226c9317e7700ca49a118aff6
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.dev&gt;
+Date:   Wed,  6 Jan 2021 16:12:58 +0700
+
+content: update kalender, tambah kalender meja lala
+
+</content>
+</entry>
+<entry>
 <id>e109a701e48d37c226c9317e7700ca49a118aff6</id>
 <published>2021-01-04T15:37:53Z</published>
 <updated>2021-01-04T16:55:53Z</updated>
@@ -1877,44 +1915,6 @@ Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
 Date:   Fri,  8 May 2020 00:03:11 +0700
 
 refactor: change twitter handle to ybbond_
-
-</content>
-</entry>
-<entry>
-<id>b100b32b6fc67cd685d8a4bbe98650da2a9c14fc</id>
-<published>2020-05-07T08:44:14Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">refactor: change email</title>
-<link rel="alternate" type="text/html" href="commit/b100b32b6fc67cd685d8a4bbe98650da2a9c14fc.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit b100b32b6fc67cd685d8a4bbe98650da2a9c14fc
-parent 3ac97340033528e8101763bec95a4d1f1bc74988
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Thu,  7 May 2020 15:44:14 +0700
-
-refactor: change email
-
-</content>
-</entry>
-<entry>
-<id>3ac97340033528e8101763bec95a4d1f1bc74988</id>
-<published>2020-05-04T09:55:42Z</published>
-<updated>2020-06-19T16:35:10Z</updated>
-<title type="text">refactor: notes outline</title>
-<link rel="alternate" type="text/html" href="commit/3ac97340033528e8101763bec95a4d1f1bc74988.html" />
-<author>
-<name>Yohanes Bandung</name>
-<email>bandungpenting@gmail.com</email>
-</author>
-<content type="text">commit 3ac97340033528e8101763bec95a4d1f1bc74988
-parent c670a7d6b394c3d7cd1836b9bf05e6b1643a2c5b
-Author: Yohanes Bandung &lt;bandungpenting@gmail.com&gt;
-Date:   Mon,  4 May 2020 16:55:42 +0700
-
-refactor: notes outline
 
 </content>
 </entry>

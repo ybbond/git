@@ -15,14 +15,14 @@
 <a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> webmentions.js (1664B)</p><hr/><pre id="blob">
+<p> webmentions.js (1662B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> const fs = require(&quot;fs&quot;);
 <a href="#l2" class="line" id="l2">      2</a> const https = require(&quot;https&quot;);
 <a href="#l3" class="line" id="l3">      3</a> 
 <a href="#l4" class="line" id="l4">      4</a> fetchWebmentions().then(webmentions =&gt; {
 <a href="#l5" class="line" id="l5">      5</a>   webmentions.forEach(webmention =&gt; {
 <a href="#l6" class="line" id="l6">      6</a>     const slug = webmention[&quot;wm-target&quot;]
-<a href="#l7" class="line" id="l7">      7</a>       .replace(&quot;https://ybbond.dev/&quot;, &quot;&quot;)
+<a href="#l7" class="line" id="l7">      7</a>       .replace(&quot;https://ybbond.id/&quot;, &quot;&quot;)
 <a href="#l8" class="line" id="l8">      8</a>       .replace(/\/$/, &quot;&quot;)
 <a href="#l9" class="line" id="l9">      9</a>       .replace(&quot;/&quot;, &quot;--&quot;);
 <a href="#l10" class="line" id="l10">     10</a> 
@@ -52,7 +52,7 @@
 <a href="#l34" class="line" id="l34">     34</a> 
 <a href="#l35" class="line" id="l35">     35</a>   const url =
 <a href="#l36" class="line" id="l36">     36</a>     &quot;https://webmention.io/api/mentions.jf2&quot; +
-<a href="#l37" class="line" id="l37">     37</a>     &quot;?domain=ybbond.dev&quot; +
+<a href="#l37" class="line" id="l37">     37</a>     &quot;?domain=ybbond.id&quot; +
 <a href="#l38" class="line" id="l38">     38</a>     `&amp;token=${token}` +
 <a href="#l39" class="line" id="l39">     39</a>     `&amp;since=${since.toISOString()}` +
 <a href="#l40" class="line" id="l40">     40</a>     &quot;&amp;per-page=999&quot;;

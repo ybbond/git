@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>add no formatting save for nvim with :W - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/d31c78468049de69e0eccfe6aeacf5a787fe797d.html">d31c78468049de69e0eccfe6aeacf5a787fe797d</a>
+<b>parent</b> <a href="../commit/70b47fcce790d489328e4e2a9e0773660a4528b5.html">70b47fcce790d489328e4e2a9e0773660a4528b5</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.dev">hi@ybbond.dev</a>&gt;
+<b>Date:</b>   Thu,  7 Jan 2021 02:58:29 +0700
+
+add no formatting save for nvim with :W
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.config/nvim/init.vim</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+</table></pre></div><p>1 file changed, 1 insertion(<span id="plus">+</span>), 0 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a> b/<a href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -310,6 +310,7 @@ nnoremap gB :bprevious&lt;cr&gt;
+</a>   nmap &lt;leader&gt;. :call CocAction(&quot;codeAction&quot;)&lt;cr&gt;
+ 
+   command! GC CocList gstatus
+<a href="#h0-0-3" id="h0-0-3" class="i">+  command! W noa w
+</a> 
+ &quot; |git-messenger|
+   nmap &lt;C-w&gt;m &lt;Plug&gt;(git-messenger)
+</pre>
+</div>
+</div>
+</body>
+</html>
