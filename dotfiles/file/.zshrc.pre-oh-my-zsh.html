@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>.zshrc.pre-oh-my-zsh - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<p> .zshrc.pre-oh-my-zsh (7049B)</p><hr/><pre id="blob">
+<a href="#l1" class="line" id="l1">      1</a> ########################################################################
+<a href="#l2" class="line" id="l2">      2</a> #                     EXPORTS
+<a href="#l3" class="line" id="l3">      3</a> ########################################################################
+<a href="#l4" class="line" id="l4">      4</a> 
+<a href="#l5" class="line" id="l5">      5</a> export EDITOR=nvim
+<a href="#l6" class="line" id="l6">      6</a> export SHELL=zsh
+<a href="#l7" class="line" id="l7">      7</a> export LANG=en_US.UTF-8
+<a href="#l8" class="line" id="l8">      8</a> export TERM=screen-256color
+<a href="#l9" class="line" id="l9">      9</a> 
+<a href="#l10" class="line" id="l10">     10</a> export PATH=$HOME/bin:/usr/local/bin:$PATH
+<a href="#l11" class="line" id="l11">     11</a> export PATH=&quot;/usr/local/sbin:$PATH&quot;
+<a href="#l12" class="line" id="l12">     12</a> # export PATH=$HOME/.local/bin:$PATH
+<a href="#l13" class="line" id="l13">     13</a> 
+<a href="#l14" class="line" id="l14">     14</a> export PATH=$PATH:$HOME/go/bin
+<a href="#l15" class="line" id="l15">     15</a> export PATH=$PATH:$HOME/.cargo/bin
+<a href="#l16" class="line" id="l16">     16</a> # export PATH=$PATH:/usr/local/bin
+<a href="#l17" class="line" id="l17">     17</a> export PATH=/.config/yarn/global/node_modules/.bin:$PATH./node_modules/.bin:$HOME/.yarn/bin:$HOME
+<a href="#l18" class="line" id="l18">     18</a> export PATH=/usr/local/opt/openssl/bin:$PATH
+<a href="#l19" class="line" id="l19">     19</a> export PATH=$PATH:$KUMPATH/yowez-cli/bin
+<a href="#l20" class="line" id="l20">     20</a> export GOPATH=$HOME/go
+<a href="#l21" class="line" id="l21">     21</a> export PATH=$GOPATH/bin:$PATH
+<a href="#l22" class="line" id="l22">     22</a> export PATH=$HOME/.nimble/bin:$PATH
+<a href="#l23" class="line" id="l23">     23</a> export PATH=&quot;/Applications/Emacs.app/Contents/MacOS:$PATH&quot;
+<a href="#l24" class="line" id="l24">     24</a> export PATH=&quot;$HOME/.emacs.d/bin:$PATH&quot;
+<a href="#l25" class="line" id="l25">     25</a> # export INITVIM=$HOME/.config/nvim/init.vim
+<a href="#l26" class="line" id="l26">     26</a> # export PATH=$HOME/bin:$PATH
+<a href="#l27" class="line" id="l27">     27</a> 
+<a href="#l28" class="line" id="l28">     28</a> export BAT_THEME=&quot;gruvbox-light&quot;
+<a href="#l29" class="line" id="l29">     29</a> 
+<a href="#l30" class="line" id="l30">     30</a> export ANDROID_HOME=${HOME}/Library/Android/sdk
+<a href="#l31" class="line" id="l31">     31</a> export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home
+<a href="#l32" class="line" id="l32">     32</a> export PATH=${PATH}:${ANDROID_HOME}/emulator
+<a href="#l33" class="line" id="l33">     33</a> export PATH=${PATH}:${ANDROID_HOME}/tool
+<a href="#l34" class="line" id="l34">     34</a> export PATH=&quot;${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools&quot;
+<a href="#l35" class="line" id="l35">     35</a> 
+<a href="#l36" class="line" id="l36">     36</a> export SCRIPT=~/Library/Mobile\ Documents/com\~apple\~ScriptEditor2/Documents
+<a href="#l37" class="line" id="l37">     37</a> 
+<a href="#l38" class="line" id="l38">     38</a> ########################################################################
+<a href="#l39" class="line" id="l39">     39</a> #                     FUNCTIONS
+<a href="#l40" class="line" id="l40">     40</a> ########################################################################
+<a href="#l41" class="line" id="l41">     41</a> 
+<a href="#l42" class="line" id="l42">     42</a> # retry command after n times
+<a href="#l43" class="line" id="l43">     43</a> function gagal {
+<a href="#l44" class="line" id="l44">     44</a>   echo $1 &gt;&amp;2
+<a href="#l45" class="line" id="l45">     45</a>   exit 1
+<a href="#l46" class="line" id="l46">     46</a> }
+<a href="#l47" class="line" id="l47">     47</a> function kantal {
+<a href="#l48" class="line" id="l48">     48</a>   local n=1
+<a href="#l49" class="line" id="l49">     49</a>   local max=&quot;$1&quot;; shift
+<a href="#l50" class="line" id="l50">     50</a>   local delay=3
+<a href="#l51" class="line" id="l51">     51</a>   while true; do
+<a href="#l52" class="line" id="l52">     52</a>     &quot;$@&quot; &amp;&amp; break || {
+<a href="#l53" class="line" id="l53">     53</a>       if [[ $n -lt $max ]]; then
+<a href="#l54" class="line" id="l54">     54</a>         ((n++))
+<a href="#l55" class="line" id="l55">     55</a>         echo &quot;Gagal nih. OTW percobaan ke $n/$max:&quot;
+<a href="#l56" class="line" id="l56">     56</a>         sleep $delay;
+<a href="#l57" class="line" id="l57">     57</a>       else
+<a href="#l58" class="line" id="l58">     58</a>         gagal &quot;Gagal muluk abis $n kali coba.&quot;
+<a href="#l59" class="line" id="l59">     59</a>       fi
+<a href="#l60" class="line" id="l60">     60</a>     }
+<a href="#l61" class="line" id="l61">     61</a>   done
+<a href="#l62" class="line" id="l62">     62</a> }
+<a href="#l63" class="line" id="l63">     63</a> 
+<a href="#l64" class="line" id="l64">     64</a> # test
+<a href="#l65" class="line" id="l65">     65</a> function test_kantal {
+<a href="#l66" class="line" id="l66">     66</a>   echo &quot;your first argument $1&quot;
+<a href="#l67" class="line" id="l67">     67</a>   echo &quot;your @ argument $@&quot;
+<a href="#l68" class="line" id="l68">     68</a>   echo &quot;your 0 argument $0&quot;
+<a href="#l69" class="line" id="l69">     69</a>   local first=&quot;$1&quot;; shift
+<a href="#l70" class="line" id="l70">     70</a>   echo &quot;now your first argument $1&quot;
+<a href="#l71" class="line" id="l71">     71</a>   echo &quot;now your @ argument $@&quot;
+<a href="#l72" class="line" id="l72">     72</a> }
+<a href="#l73" class="line" id="l73">     73</a> 
+<a href="#l74" class="line" id="l74">     74</a> function tempjson {
+<a href="#l75" class="line" id="l75">     75</a>   nvim ~/tempjson$1.json
+<a href="#l76" class="line" id="l76">     76</a> }
+<a href="#l77" class="line" id="l77">     77</a> 
+<a href="#l78" class="line" id="l78">     78</a> function commit {
+<a href="#l79" class="line" id="l79">     79</a>   git add . &amp;&amp; git commit -m &quot;$1&quot;
+<a href="#l80" class="line" id="l80">     80</a> }
+<a href="#l81" class="line" id="l81">     81</a> 
+<a href="#l82" class="line" id="l82">     82</a> nn ()
+<a href="#l83" class="line" id="l83">     83</a> {
+<a href="#l84" class="line" id="l84">     84</a>     # Block nesting of nnn in subshells
+<a href="#l85" class="line" id="l85">     85</a>     if [ -n $NNNLVL ] &amp;&amp; [ &quot;${NNNLVL:-0}&quot; -ge 1 ]; then
+<a href="#l86" class="line" id="l86">     86</a>         echo &quot;nnn is already running&quot;
+<a href="#l87" class="line" id="l87">     87</a>         return
+<a href="#l88" class="line" id="l88">     88</a>     fi
+<a href="#l89" class="line" id="l89">     89</a> 
+<a href="#l90" class="line" id="l90">     90</a>     # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
+<a href="#l91" class="line" id="l91">     91</a>     # To cd on quit only on ^G, remove the &quot;export&quot; as in:
+<a href="#l92" class="line" id="l92">     92</a>     #     NNN_TMPFILE=&quot;${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd&quot;
+<a href="#l93" class="line" id="l93">     93</a>     # NOTE: NNN_TMPFILE is fixed, should not be modified
+<a href="#l94" class="line" id="l94">     94</a>     NNN_TMPFILE=&quot;${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd&quot;
+<a href="#l95" class="line" id="l95">     95</a> 
+<a href="#l96" class="line" id="l96">     96</a>     # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+<a href="#l97" class="line" id="l97">     97</a>     # stty start undef
+<a href="#l98" class="line" id="l98">     98</a>     # stty stop undef
+<a href="#l99" class="line" id="l99">     99</a>     # stty lwrap undef
+<a href="#l100" class="line" id="l100">    100</a>     # stty lnext undef
+<a href="#l101" class="line" id="l101">    101</a> 
+<a href="#l102" class="line" id="l102">    102</a>     nnn -deo &quot;$@&quot;
+<a href="#l103" class="line" id="l103">    103</a> 
+<a href="#l104" class="line" id="l104">    104</a>     if [ -f &quot;$NNN_TMPFILE&quot; ]; then
+<a href="#l105" class="line" id="l105">    105</a>             . &quot;$NNN_TMPFILE&quot;
+<a href="#l106" class="line" id="l106">    106</a>             rm -f &quot;$NNN_TMPFILE&quot; &gt; /dev/null
+<a href="#l107" class="line" id="l107">    107</a>     fi
+<a href="#l108" class="line" id="l108">    108</a> }
+<a href="#l109" class="line" id="l109">    109</a> 
+<a href="#l110" class="line" id="l110">    110</a> export NNN_USE_EDITOR=1
+<a href="#l111" class="line" id="l111">    111</a> export NNN_TRASH=1
+<a href="#l112" class="line" id="l112">    112</a> [ -n &quot;$NNNLVL&quot; ] &amp;&amp; PS1=&quot;N$NNNLVL $PS1&quot;
+<a href="#l113" class="line" id="l113">    113</a> 
+<a href="#l114" class="line" id="l114">    114</a> 
+<a href="#l115" class="line" id="l115">    115</a> ########################################################################
+<a href="#l116" class="line" id="l116">    116</a> #                     ALIASES
+<a href="#l117" class="line" id="l117">    117</a> ########################################################################
+<a href="#l118" class="line" id="l118">    118</a> 
+<a href="#l119" class="line" id="l119">    119</a> eval &quot;$(hub alias -s)&quot;
+<a href="#l120" class="line" id="l120">    120</a> 
+<a href="#l121" class="line" id="l121">    121</a> # projects
+<a href="#l122" class="line" id="l122">    122</a> alias kapp=&quot;cd ${KUMPATH}/app&quot;
+<a href="#l123" class="line" id="l123">    123</a> alias kweb=&quot;cd ${KUMPATH}/web&quot;
+<a href="#l124" class="line" id="l124">    124</a> alias kmag=&quot;cd ${KUMPATH}/dashboard&quot;
+<a href="#l125" class="line" id="l125">    125</a> alias kwid=&quot;cd ${KUMPATH}/widget&quot;
+<a href="#l126" class="line" id="l126">    126</a> alias kfer=&quot;cd ${KUMPATH}/ferdi&quot;
+<a href="#l127" class="line" id="l127">    127</a> alias uikit=&quot;cd ${KUMPATH}/js/packages/kumparan-uikit&quot;
+<a href="#l128" class="line" id="l128">    128</a> alias slatep=&quot;cd ${KUMPATH}/js/packages/slate-plugins&quot;
+<a href="#l129" class="line" id="l129">    129</a> alias ktrack=&quot;cd ${KUMPATH}/js/packages/kumparan-tracker&quot;
+<a href="#l130" class="line" id="l130">    130</a> alias ybbond=&quot;cd ${YBPATH}/ybbond&quot;
+<a href="#l131" class="line" id="l131">    131</a> alias ybbold=&quot;cd ${YBPATH}/old-ybbond&quot;
+<a href="#l132" class="line" id="l132">    132</a> alias ybreason=&quot;cd ${YBPATH}/ybbond-reason&quot;
+<a href="#l133" class="line" id="l133">    133</a> alias ftex=&quot;cd ${YBPATH}/latex&quot;
+<a href="#l134" class="line" id="l134">    134</a> alias todo=&quot;nvim ~/todo.md&quot;
+<a href="#l135" class="line" id="l135">    135</a> alias tempbin=&quot;nvim ~/tempbin.md&quot;
+<a href="#l136" class="line" id="l136">    136</a> alias personal=&quot;nvim ~/personal.md&quot;
+<a href="#l137" class="line" id="l137">    137</a> alias mine=&quot;nvim ~/Library/Mobile\ Documents/27N4MQEA55~pro~writer/Documents&quot;
+<a href="#l138" class="line" id="l138">    138</a> alias fetchwm=&quot;WEBMENTIONS_TOKEN=${WMTOKEN} node ${YBPATH}/ybbond/webmentions.js&quot;
+<a href="#l139" class="line" id="l139">    139</a> 
+<a href="#l140" class="line" id="l140">    140</a> # settings
+<a href="#l141" class="line" id="l141">    141</a> alias zshrc=&quot;nvim ~/.zshrc&quot;
+<a href="#l142" class="line" id="l142">    142</a> alias vimrc=&quot;vim ~/.vimrc&quot;
+<a href="#l143" class="line" id="l143">    143</a> alias bashpro=&quot;nvim ~/.bash_profile&quot;
+<a href="#l144" class="line" id="l144">    144</a> alias bashrc=&quot;nvim ~/.bashrc&quot;
+<a href="#l145" class="line" id="l145">    145</a> alias neorc=&quot;nvim ~/.config/nvim/init.vim&quot;
+<a href="#l146" class="line" id="l146">    146</a> 
+<a href="#l147" class="line" id="l147">    147</a> # git
+<a href="#l148" class="line" id="l148">    148</a> alias wip=&quot;git add . &amp;&amp; git commit -m &#39;wip&#39;&quot;
+<a href="#l149" class="line" id="l149">    149</a> alias rehead=&quot;git reset HEAD~&quot;
+<a href="#l150" class="line" id="l150">    150</a> alias lg=&quot;lazygit&quot;
+<a href="#l151" class="line" id="l151">    151</a> 
+<a href="#l152" class="line" id="l152">    152</a> # misc
+<a href="#l153" class="line" id="l153">    153</a> alias ld=&quot;lazydocker&quot;
+<a href="#l154" class="line" id="l154">    154</a> alias pixel3a=&quot;~/Library/Android/sdk/emulator/emulator -avd Pixel_3a_API_29 -netdelay none -netspeed full&quot;
+<a href="#l155" class="line" id="l155">    155</a> alias pixelxl=&quot;~/Library/Android/sdk/emulator/emulator -avd Pixel_XL_API_30 -netdelay none -netspeed full&quot;
+<a href="#l156" class="line" id="l156">    156</a> 
+<a href="#l157" class="line" id="l157">    157</a> alias cdb=&quot;cd ..&quot;
+<a href="#l158" class="line" id="l158">    158</a> alias konak=&quot;kantal 10 yarn add&quot;
+<a href="#l159" class="line" id="l159">    159</a> 
+<a href="#l160" class="line" id="l160">    160</a> # better cli
+<a href="#l161" class="line" id="l161">    161</a> alias ls=&#39;exa&#39;
+<a href="#l162" class="line" id="l162">    162</a> alias top=&#39;btm --color=default-light&#39;
+<a href="#l163" class="line" id="l163">    163</a> alias cat=&#39;alias cat=&quot;bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &amp;&gt; /dev/null &amp;&amp; echo default || echo GitHub)&quot;&#39;
+<a href="#l164" class="line" id="l164">    164</a> # alias find=&#39;fd&#39;
+<a href="#l165" class="line" id="l165">    165</a> alias du=&#39;ncdu --color dark -rr&#39;
+<a href="#l166" class="line" id="l166">    166</a> 
+<a href="#l167" class="line" id="l167">    167</a> alias tarex=&#39;tar -xzf&#39;
+<a href="#l168" class="line" id="l168">    168</a> 
+<a href="#l169" class="line" id="l169">    169</a> source &lt;(lab completion zsh)
+<a href="#l170" class="line" id="l170">    170</a> 
+<a href="#l171" class="line" id="l171">    171</a> 
+<a href="#l172" class="line" id="l172">    172</a> ########################################################################
+<a href="#l173" class="line" id="l173">    173</a> #                     SPACESHIP
+<a href="#l174" class="line" id="l174">    174</a> ########################################################################
+<a href="#l175" class="line" id="l175">    175</a> 
+<a href="#l176" class="line" id="l176">    176</a> SPACESHIP_PROMPT_ORDER=(
+<a href="#l177" class="line" id="l177">    177</a>     battery
+<a href="#l178" class="line" id="l178">    178</a>     time
+<a href="#l179" class="line" id="l179">    179</a>     user
+<a href="#l180" class="line" id="l180">    180</a>     dir
+<a href="#l181" class="line" id="l181">    181</a>     host
+<a href="#l182" class="line" id="l182">    182</a>     git
+<a href="#l183" class="line" id="l183">    183</a>     exec_time
+<a href="#l184" class="line" id="l184">    184</a>     jobs
+<a href="#l185" class="line" id="l185">    185</a>     exit_code
+<a href="#l186" class="line" id="l186">    186</a>     vi_mode
+<a href="#l187" class="line" id="l187">    187</a>     char
+<a href="#l188" class="line" id="l188">    188</a>   )
+<a href="#l189" class="line" id="l189">    189</a> SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
+<a href="#l190" class="line" id="l190">    190</a> SPACESHIP_PROMPT_SEPARATE_LINE=false
+<a href="#l191" class="line" id="l191">    191</a> SPACESHIP_BATTERY_SHOW=always
+<a href="#l192" class="line" id="l192">    192</a> SPACESHIP_BATTERY_PREFIX=&#39;[&#39;
+<a href="#l193" class="line" id="l193">    193</a> SPACESHIP_BATTERY_SUFFIX=&#39;]&#39;
+<a href="#l194" class="line" id="l194">    194</a> SPACESHIP_BATTERY_THRESHOLD=100
+<a href="#l195" class="line" id="l195">    195</a> SPACESHIP_GIT_PREFIX=&#39;[&#39;
+<a href="#l196" class="line" id="l196">    196</a> SPACESHIP_GIT_SUFFIX=&#39;]&#39;
+<a href="#l197" class="line" id="l197">    197</a> SPACESHIP_GIT_BRANCH_PREFIX=&#39;•&#39;
+<a href="#l198" class="line" id="l198">    198</a> SPACESHIP_GIT_BRANCH_SUFFIX=&#39;•&#39;
+<a href="#l199" class="line" id="l199">    199</a> SPACESHIP_GIT_STATUS_PREFIX=&#39;&lt;&#39;
+<a href="#l200" class="line" id="l200">    200</a> SPACESHIP_GIT_STATUS_SUFFIX=&#39;&gt;&#39;
+<a href="#l201" class="line" id="l201">    201</a> SPACESHIP_DIR_PREFIX=&#39;[&#39;
+<a href="#l202" class="line" id="l202">    202</a> SPACESHIP_DIR_SUFFIX=&#39;]&#39;
+<a href="#l203" class="line" id="l203">    203</a> SPACESHIP_CHAR_SYMBOL=&#39;λ&#39;
+<a href="#l204" class="line" id="l204">    204</a> SPACESHIP_CHAR_PREFIX=&#39; &#39;
+<a href="#l205" class="line" id="l205">    205</a> SPACESHIP_CHAR_SUFFIX=&#39; &#39;
+<a href="#l206" class="line" id="l206">    206</a> SPACESHIP_TIME_SHOW=true
+<a href="#l207" class="line" id="l207">    207</a> SPACESHIP_TIME_PREFIX=&#39;[&#39;
+<a href="#l208" class="line" id="l208">    208</a> SPACESHIP_TIME_SUFFIX=&#39;]&#39;
+<a href="#l209" class="line" id="l209">    209</a> SPACESHIP_VI_MODE_PREFIX=&#39;&#39;
+<a href="#l210" class="line" id="l210">    210</a> SPACESHIP_VI_MODE_COLOR=&#39;gray&#39;
+<a href="#l211" class="line" id="l211">    211</a> 
+<a href="#l212" class="line" id="l212">    212</a> precmd () {
+<a href="#l213" class="line" id="l213">    213</a>   echo -n -e &quot;\a&quot;
+<a href="#l214" class="line" id="l214">    214</a> }
+<a href="#l215" class="line" id="l215">    215</a> 
+<a href="#l216" class="line" id="l216">    216</a> # # Change cursor shape for different vi modes.
+<a href="#l217" class="line" id="l217">    217</a> # function zle-keymap-select {
+<a href="#l218" class="line" id="l218">    218</a> #   if [[ ${KEYMAP} == vicmd ]] ||
+<a href="#l219" class="line" id="l219">    219</a> #      [[ $1 = &#39;block&#39; ]]; then
+<a href="#l220" class="line" id="l220">    220</a> #     echo -ne &#39;\e[1 q&#39;
+<a href="#l221" class="line" id="l221">    221</a> 
+<a href="#l222" class="line" id="l222">    222</a> #   elif [[ ${KEYMAP} == main ]] ||
+<a href="#l223" class="line" id="l223">    223</a> #        [[ ${KEYMAP} == viins ]] ||
+<a href="#l224" class="line" id="l224">    224</a> #        [[ ${KEYMAP} = &#39;&#39; ]] ||
+<a href="#l225" class="line" id="l225">    225</a> #        [[ $1 = &#39;beam&#39; ]]; then
+<a href="#l226" class="line" id="l226">    226</a> #     echo -ne &#39;\e[5 q&#39;
+<a href="#l227" class="line" id="l227">    227</a> #   fi
+<a href="#l228" class="line" id="l228">    228</a> # }
+<a href="#l229" class="line" id="l229">    229</a> # zle -N zle-keymap-select
+<a href="#l230" class="line" id="l230">    230</a> # _fix_cursor() {
+<a href="#l231" class="line" id="l231">    231</a> #    echo -ne &#39;\e[5 q&#39;
+<a href="#l232" class="line" id="l232">    232</a> # }
+<a href="#l233" class="line" id="l233">    233</a> # precmd_functions+=(_fix_cursor)
+<a href="#l234" class="line" id="l234">    234</a> 
+<a href="#l235" class="line" id="l235">    235</a> 
+<a href="#l236" class="line" id="l236">    236</a> #   * To start using RVM you need to run `source /Users/yohanesbandung/.rvm/scripts/rvm`
+<a href="#l237" class="line" id="l237">    237</a> #     in all your open shell windows, in rare cases you need to reopen all shell windows.
+<a href="#l238" class="line" id="l238">    238</a> #   * To start using rails you need to run `rails new &lt;project_dir&gt;`.
+<a href="#l239" class="line" id="l239">    239</a> 
+<a href="#l240" class="line" id="l240">    240</a> 
+<a href="#l241" class="line" id="l241">    241</a> 
+<a href="#l242" class="line" id="l242">    242</a> alias config=$CONFTREE
+<a href="#l243" class="line" id="l243">    243</a> 
+<a href="#l244" class="line" id="l244">    244</a> # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+<a href="#l245" class="line" id="l245">    245</a> export PATH=&quot;$PATH:$HOME/.rvm/bin&quot;
+<a href="#l246" class="line" id="l246">    246</a> 
+<a href="#l247" class="line" id="l247">    247</a> export N_PREFIX=&quot;$HOME/n&quot;; [[ :$PATH: == *&quot;:$N_PREFIX/bin:&quot;* ]] || PATH+=&quot;:$N_PREFIX/bin&quot;  # Added by n-install (see http://git.io/n-install-repo).
+<a href="#l248" class="line" id="l248">    248</a> 
+<a href="#l249" class="line" id="l249">    249</a> [ -f ~/.fzf.zsh ] &amp;&amp; source ~/.fzf.zsh
+<a href="#l250" class="line" id="l250">    250</a> 
+<a href="#l251" class="line" id="l251">    251</a> source /Users/yohanesbandung/Library/Preferences/org.dystroy.broot/launcher/bash/br
+</pre>
+</div>
+</body>
+</html>

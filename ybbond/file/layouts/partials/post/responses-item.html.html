@@ -15,7 +15,7 @@
 <a href="../../../../index.html">Log</a> | <a href="../../../../files.html">Files</a> | <a href="../../../../refs.html">Refs</a> | <a href="../../../../file/README.md.html">README</a> | <a href="../../../../file/LICENSE.md.html">LICENSE</a> | <a href="../../../../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> responses-item.html (2040B)</p><hr/><pre id="blob">
+<p> responses-item.html (2162B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> {{ $dateformat := .Date.Format &quot;2006-01-02 15:04&quot; }}
 <a href="#l2" class="line" id="l2">      2</a> {{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
 <a href="#l3" class="line" id="l3">      3</a> {{ $author := &quot;&quot;}}
@@ -24,7 +24,7 @@
 <a href="#l6" class="line" id="l6">      6</a> {{ end }}
 <a href="#l7" class="line" id="l7">      7</a> {{ $title := print &quot;In response to &quot; &quot;«&quot; .Params.Destination.Title &quot;»&quot; $author }}
 <a href="#l8" class="line" id="l8">      8</a> &lt;div class=&quot;content responses h-entry&quot; id={{ $idslug }}&gt;
-<a href="#l9" class="line" id="l9">      9</a>   &lt;h1 class=&quot;p-name&quot;&gt;{{ $title }}&lt;/h1&gt;
+<a href="#l9" class="line" id="l9">      9</a>   &lt;a class=&quot;no-outline&quot; data-goatcounter-click=&quot;cl-response-title&quot; href={{ .Permalink }}&gt;&lt;h1 class=&quot;p-name&quot; class=&quot;listing__post__title&quot; &gt;{{ $title }}&lt;/h1&gt;&lt;/a&gt;
 <a href="#l10" class="line" id="l10">     10</a>   &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
 <a href="#l11" class="line" id="l11">     11</a>     {{ $permalink := .Permalink }}
 <a href="#l12" class="line" id="l12">     12</a>     {{ $title := .Title }}
@@ -56,7 +56,8 @@
 <a href="#l38" class="line" id="l38">     38</a>   &lt;div class=&quot;responses__content e-content p-content&quot;&gt;
 <a href="#l39" class="line" id="l39">     39</a>     {{ partial &quot;components/content.html&quot; .Content }}
 <a href="#l40" class="line" id="l40">     40</a>   &lt;/div&gt;
-<a href="#l41" class="line" id="l41">     41</a> &lt;/div&gt;</pre>
+<a href="#l41" class="line" id="l41">     41</a> &lt;/div&gt;
+</pre>
 </div>
 </body>
 </html>

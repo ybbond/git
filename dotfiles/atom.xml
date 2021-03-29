@@ -4,6 +4,44 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>59fe11e0a64c0527829cd1319d48f6b269fac76c</id>
+<published>2021-03-29T10:48:58Z</published>
+<updated>2021-03-29T10:48:58Z</updated>
+<title type="text">update to latest</title>
+<link rel="alternate" type="text/html" href="commit/59fe11e0a64c0527829cd1319d48f6b269fac76c.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.id</email>
+</author>
+<content type="text">commit 59fe11e0a64c0527829cd1319d48f6b269fac76c
+parent 8a43c52d313b39295041774aa1b48d5116add95d
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.id&gt;
+Date:   Mon, 29 Mar 2021 17:48:58 +0700
+
+update to latest
+
+</content>
+</entry>
+<entry>
+<id>8a43c52d313b39295041774aa1b48d5116add95d</id>
+<published>2021-01-26T04:17:16Z</published>
+<updated>2021-01-26T04:17:16Z</updated>
+<title type="text">update zshrc</title>
+<link rel="alternate" type="text/html" href="commit/8a43c52d313b39295041774aa1b48d5116add95d.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.id</email>
+</author>
+<content type="text">commit 8a43c52d313b39295041774aa1b48d5116add95d
+parent cb037df6088441e49c22a2606233562d78f6d417
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.id&gt;
+Date:   Tue, 26 Jan 2021 11:17:16 +0700
+
+update zshrc
+
+</content>
+</entry>
+<entry>
 <id>cb037df6088441e49c22a2606233562d78f6d417</id>
 <published>2021-01-07T02:24:02Z</published>
 <updated>2021-01-07T02:24:02Z</updated>
