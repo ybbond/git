@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Revert &quot;Fetch webmentions&quot; - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/33970616f379fa1a356d06853cb874ebb4d7b389.html">33970616f379fa1a356d06853cb874ebb4d7b389</a>
+<b>parent</b> <a href="../commit/f18c92c8984fee62a852639c48c5e451b2deee3a.html">f18c92c8984fee62a852639c48c5e451b2deee3a</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Thu, 20 May 2021 01:56:20 +0700
+
+Revert &quot;Fetch webmentions&quot;
+
+This reverts commit 61d6178f7c8aea61ea70fb92a9dd9e55a9608965.
+
+<b>Diffstat:</b>
+<table><tr><td class="D">D</td><td><a href="#h0">data/webmentions/notes--06-february-2021.json</a></td><td> | </td><td class="num">30</td><td><span class="i"></span><span class="d">------------------------------</span></td></tr>
+</table></pre></div><p>1 file changed, 0 insertions(<span id="plus">+</span>), 30 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/data/webmentions/notes--06-february-2021.json.html">data/webmentions/notes--06-february-2021.json</a> b/<a href="../file/data/webmentions/notes--06-february-2021.json.html">data/webmentions/notes--06-february-2021.json</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,29 +0,0 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="d">-[
+</a><a href="#h0-0-1" id="h0-0-1" class="d">-  {
+</a><a href="#h0-0-2" id="h0-0-2" class="d">-    &quot;type&quot;: &quot;entry&quot;,
+</a><a href="#h0-0-3" id="h0-0-3" class="d">-    &quot;author&quot;: {
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-      &quot;type&quot;: &quot;card&quot;,
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-      &quot;name&quot;: &quot;Yohanes Bandung Bond.&quot;,
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-      &quot;photo&quot;: &quot;&quot;,
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-      &quot;url&quot;: &quot;https://ybbond.id&quot;
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-    },
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-    &quot;url&quot;: &quot;https://ybbond.id/responses/response-20210520121440/&quot;,
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-    &quot;published&quot;: &quot;2021-05-20T00:14:40+07:00&quot;,
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-    &quot;wm-received&quot;: &quot;2021-05-19T17:30:28Z&quot;,
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-    &quot;wm-id&quot;: 1163928,
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-    &quot;wm-source&quot;: &quot;https://ybbond.id/responses/response-20210520121440/&quot;,
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-    &quot;wm-target&quot;: &quot;https://ybbond.id/notes/06-february-2021/&quot;,
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-    &quot;syndication&quot;: [
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-      &quot;https://ybbond.id/responses/response-20210520121440/&quot;
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-    ],
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-    &quot;content&quot;: {
+</a><a href="#h0-0-19" id="h0-0-19" class="d">-      &quot;text&quot;: &quot;In response to «Notes about Remarkbox» by «YBBond»\nI removed the integration with Remarkbox on this site.\nTurns out I rarely get comment, only 2 ever since the initial integration. The service is also unreliable. Since last month, I cannot log into their dashboard.&quot;
+</a><a href="#h0-0-20" id="h0-0-20" class="d">-    },
+</a><a href="#h0-0-21" id="h0-0-21" class="d">-    &quot;in-reply-to&quot;: &quot;https://ybbond.id/notes/06-february-2021/&quot;,
+</a><a href="#h0-0-22" id="h0-0-22" class="d">-    &quot;wm-property&quot;: &quot;in-reply-to&quot;,
+</a><a href="#h0-0-23" id="h0-0-23" class="d">-    &quot;wm-private&quot;: false,
+</a><a href="#h0-0-24" id="h0-0-24" class="d">-    &quot;rels&quot;: {
+</a><a href="#h0-0-25" id="h0-0-25" class="d">-      &quot;canonical&quot;: &quot;https://ybbond.id/responses/response-20210520121440/&quot;
+</a><a href="#h0-0-26" id="h0-0-26" class="d">-    }
+</a><a href="#h0-0-27" id="h0-0-27" class="d">-  }
+</a><a href="#h0-0-28" id="h0-0-28" class="d">-]</a><a href="#h0-0-29" id="h0-0-29" class="d">-
+\ No newline at end of file
+</a></pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: include u-photo in webmention, also restore GitHub workflow cron - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/940f5fe7d4c868e3e681b06e4d92ee92b9c18c69.html">940f5fe7d4c868e3e681b06e4d92ee92b9c18c69</a>
+<b>parent</b> <a href="../commit/31d22316a77aa305c663f146c3a87f3d447fd301.html">31d22316a77aa305c663f146c3a87f3d447fd301</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Thu, 20 May 2021 02:25:11 +0700
+
+refactor: include u-photo in webmention, also restore GitHub workflow cron
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.github/workflows/webmentions.yml</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">data/webmentions/notes--06-february-2021.json</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">layouts/_default/list.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">layouts/_default/single.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">layouts/partials/components/h-card.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">layouts/partials/post/notes-item.html</a></td><td> | </td><td class="num">8</td><td><span class="i">+</span><span class="d">-------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">layouts/partials/post/responses-item.html</a></td><td> | </td><td class="num">7</td><td><span class="i">+</span><span class="d">------</span></td></tr>
+</table></pre></div><p>7 files changed, 7 insertions(<span id="plus">+</span>), 18 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.github/workflows/webmentions.yml.html">.github/workflows/webmentions.yml</a> b/<a href="../file/.github/workflows/webmentions.yml.html">.github/workflows/webmentions.yml</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -2,7 +2,7 @@ name: Webmentions
+</a> 
+ on:
+   schedule:
+<a href="#h0-0-3" id="h0-0-3" class="d">-    - cron: &quot;*/5 * * * *&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    - cron: &quot;0 */3 * * *&quot;
+</a> 
+ jobs:
+   webmentions:
+<b>diff --git a/<a id="h1" href="../file/data/webmentions/notes--06-february-2021.json.html">data/webmentions/notes--06-february-2021.json</a> b/<a href="../file/data/webmentions/notes--06-february-2021.json.html">data/webmentions/notes--06-february-2021.json</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -4,7 +4,7 @@
+</a>     &quot;author&quot;: {
+       &quot;type&quot;: &quot;card&quot;,
+       &quot;name&quot;: &quot;Yohanes Bandung Bond.&quot;,
+<a href="#h1-0-3" id="h1-0-3" class="d">-      &quot;photo&quot;: &quot;&quot;,
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+      &quot;photo&quot;: &quot;https://ybbond.id/logo.png&quot;,
+</a>       &quot;url&quot;: &quot;https://ybbond.id&quot;
+     },
+     &quot;url&quot;: &quot;https://ybbond.id/responses/response-20210520121441/&quot;,
+<b>diff --git a/<a id="h2" href="../file/layouts/_default/list.html.html">layouts/_default/list.html</a> b/<a href="../file/layouts/_default/list.html.html">layouts/_default/list.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,7 +1,7 @@
+</a> {{ define &quot;main&quot; }}
+   &lt;div class=&quot;h-feed&quot;&gt;
+     &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+<a href="#h2-0-3" id="h2-0-3" class="d">-      &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} alt=&quot;Weird photo of yohanes bandung&quot; /&gt;
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+      &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} /&gt;
+</a>       &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+       &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+       &lt;a rel=&quot;syndication&quot; class=&quot;u-syndication&quot; href={{ .Permalink }}&gt;{{ .Title }}&lt;/a&gt;
+<b>diff --git a/<a id="h3" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -15,7 +15,7 @@
+</a>     &lt;article class=&quot;content h-entry&quot;&gt;
+       &lt;h1 class=&quot;p-name&quot;&gt;{{ .Title }}&lt;/h1&gt;
+       &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+<a href="#h3-0-3" id="h3-0-3" class="d">-        &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} alt=&quot;Weird photo of yohanes bandung&quot; /&gt;
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+        &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} /&gt;
+</a>         &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+         &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+         &lt;a rel=&quot;syndication&quot; class=&quot;u-syndication&quot; href={{ .Permalink }}&gt;{{ .Title }}&lt;/a&gt;
+<b>diff --git a/<a id="h4" href="../file/layouts/partials/components/h-card.html.html">layouts/partials/components/h-card.html</a> b/<a href="../file/layouts/partials/components/h-card.html.html">layouts/partials/components/h-card.html</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -1,7 +1,7 @@
+</a> &lt;div class=&quot;hcard&quot;&gt;
+   &lt;div class=&quot;hcard__description&quot;&gt;&lt;p&gt;My &lt;a href=&quot;http://microformats.org/wiki/representative-h-card-authoring&quot;&gt;h-card&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+ &lt;div id=&quot;h-card&quot; class=&quot;h-card&quot;&gt;
+<a href="#h4-0-3" id="h4-0-3" class="d">-  &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} alt=&quot;Photo of {{ .Site.Params.Author }}&quot; /&gt;
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+  &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} /&gt;
+</a>   &lt;a class=&quot;p-name u-url u-uid&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;me&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+   &lt;br&gt;
+   &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+<b>diff --git a/<a id="h5" href="../file/layouts/partials/post/notes-item.html.html">layouts/partials/post/notes-item.html</a> b/<a href="../file/layouts/partials/post/notes-item.html.html">layouts/partials/post/notes-item.html</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -2,13 +2,7 @@
+</a> {{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
+ &lt;div class=&quot;content notes h-entry&quot; id={{ $idslug }}&gt;
+   &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+<a href="#h5-0-3" id="h5-0-3" class="d">-    {{ $permalink := .Permalink }}
+</a><a href="#h5-0-4" id="h5-0-4" class="d">-    {{ $title := .Title }}
+</a><a href="#h5-0-5" id="h5-0-5" class="d">-    {{ with .Params.Image.Src }}
+</a><a href="#h5-0-6" id="h5-0-6" class="d">-      {{ $filename := . | safeURL }}
+</a><a href="#h5-0-7" id="h5-0-7" class="d">-      {{ $original := printf &quot;%s%s&quot; $permalink $filename }}
+</a><a href="#h5-0-8" id="h5-0-8" class="d">-      &lt;img class=&quot;u-photo&quot; hidden=&quot;&quot; src={{ $original }} alt=&quot;Illustration of {{ $title }}&quot; /&gt;
+</a><a href="#h5-0-9" id="h5-0-9" class="d">-    {{ end }}
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+    &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} /&gt;
+</a>     &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+     &lt;br&gt;
+     &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+<b>diff --git a/<a id="h6" href="../file/layouts/partials/post/responses-item.html.html">layouts/partials/post/responses-item.html</a> b/<a href="../file/layouts/partials/post/responses-item.html.html">layouts/partials/post/responses-item.html</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -7,12 +7,7 @@
+</a> {{ $title := print &quot;In response to &quot; &quot;«&quot; .Params.Destination.Title &quot;»&quot; $author }}
+ &lt;div class=&quot;content responses h-entry&quot; id={{ $idslug }}&gt;
+   &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+<a href="#h6-0-3" id="h6-0-3" class="d">-    {{ $permalink := .Permalink }}
+</a><a href="#h6-0-4" id="h6-0-4" class="d">-    {{ with .Params.Image.Src }}
+</a><a href="#h6-0-5" id="h6-0-5" class="d">-      {{ $filename := . | safeURL }}
+</a><a href="#h6-0-6" id="h6-0-6" class="d">-      {{ $original := printf &quot;%s%s&quot; $permalink $filename }}
+</a><a href="#h6-0-7" id="h6-0-7" class="d">-      &lt;img class=&quot;u-photo&quot; hidden=&quot;&quot; src={{ $original }} alt=&quot;Illustration of {{ .Title }}&quot; /&gt;
+</a><a href="#h6-0-8" id="h6-0-8" class="d">-    {{ end }}
+</a><a href="#h6-0-9" id="h6-0-9" class="i">+    &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} /&gt;
+</a>     &lt;a class=&quot;p-name&quot; href={{ .Permalink }}&gt;{{ $title }}&lt;/a&gt;
+     &lt;br&gt;
+     &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+</pre>
+</div>
+</div>
+</body>
+</html>

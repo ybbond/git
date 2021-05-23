@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: responsive image in many ratio - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/2238894f1155632283d377b030c8dfe3f14db1c8.html">2238894f1155632283d377b030c8dfe3f14db1c8</a>
+<b>parent</b> <a href="../commit/af2f63ac1820b3828089d2d7e971303eb1edd6f6.html">af2f63ac1820b3828089d2d7e971303eb1edd6f6</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Sat,  3 Apr 2021 19:56:45 +0700
+
+refactor: responsive image in many ratio
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.css</a></td><td> | </td><td class="num">5</td><td><span class="i"></span><span class="d">-----</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">assets/main.css</a></td><td> | </td><td class="num">4</td><td><span class="i">++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">assets/responsive.css</a></td><td> | </td><td class="num">149</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">content/archives/Plastik Sepele Kan/index.md</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">content/posts/Inclusive Content Sharing/medium-paywall.gif</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">layouts/_default/_markup/render-heading.html</a></td><td> | </td><td class="num">11</td><td><span class="i">++</span><span class="d">---------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">layouts/_default/_markup/render-heading.rss.xml</a></td><td> | </td><td class="num">3</td><td><span class="i">++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h7">layouts/_default/_markup/render-image.html</a></td><td> | </td><td class="num">50</td><td><span class="i">++++++++++++</span><span class="d">--------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h8">layouts/_default/_markup/render-image.rss.xml</a></td><td> | </td><td class="num">4</td><td><span class="i">+</span><span class="d">---</span></td></tr>
+</table></pre></div><p>9 files changed, 171 insertions(<span id="plus">+</span>), 57 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.css.html">assets/content.css</a> b/<a href="../file/assets/content.css.html">assets/content.css</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -178,8 +178,3 @@
+</a> .responses__subtitle a {
+   font-family: var(--font-mono);
+ }
+<a href="#h0-0-3" id="h0-0-3" class="d">-
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-.image-figure {
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-  margin-top: 1.5rem;
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-  margin-bottom: 1.5rem;
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-}
+</a><b>diff --git a/<a id="h1" href="../file/assets/main.css.html">assets/main.css</a> b/<a href="../file/assets/main.css.html">assets/main.css</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -86,7 +86,11 @@ time[title] {
+</a>   cursor: help;
+ }
+ 
+<a href="#h1-0-3" id="h1-0-3" class="i">+.view-full-size {
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  position: relative;
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+}
+</a> .view-full-size svg {
+<a href="#h1-0-7" id="h1-0-7" class="i">+  position: absolute;
+</a>   width: .9em;
+   height: .9em;
+ }
+<b>diff --git a/<a id="h2" href="../file/assets/responsive.css.html">assets/responsive.css</a> b/<a href="../file/assets/responsive.css.html">assets/responsive.css</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -8,6 +8,39 @@
+</a>   .header__title:not(h1) {
+     margin-top: 1.4em;
+   }
+<a href="#h2-0-3" id="h2-0-3" class="i">+
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  /* content */
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+  .image-figure {
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+    margin-top: 1.5rem;
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+    margin-bottom: 1.5rem;
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+  }
+</a><a href="#h2-0-9" id="h2-0-9" class="i">+
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+  .image-figure div.portrait {
+</a><a href="#h2-0-11" id="h2-0-11" class="i">+    width: 360px;
+</a><a href="#h2-0-12" id="h2-0-12" class="i">+    height: 520px;
+</a><a href="#h2-0-13" id="h2-0-13" class="i">+  }
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+  .image-figure div.landscape {
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+    width: 520px;
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+  }
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+  .image-figure div.landscape.r79 {
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+    height: 490px;
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+  }
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+  .image-figure div.landscape.r72 {
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+    height: 420px;
+</a><a href="#h2-0-22" id="h2-0-22" class="i">+  }
+</a><a href="#h2-0-23" id="h2-0-23" class="i">+  .image-figure div.landscape.r68 {
+</a><a href="#h2-0-24" id="h2-0-24" class="i">+    height: 370px;
+</a><a href="#h2-0-25" id="h2-0-25" class="i">+  }
+</a><a href="#h2-0-26" id="h2-0-26" class="i">+  .image-figure div.landscape.r58 {
+</a><a href="#h2-0-27" id="h2-0-27" class="i">+    height: 320px;
+</a><a href="#h2-0-28" id="h2-0-28" class="i">+  }
+</a><a href="#h2-0-29" id="h2-0-29" class="i">+  .image-figure div.landscape.r48 {
+</a><a href="#h2-0-30" id="h2-0-30" class="i">+    height: 250px;
+</a><a href="#h2-0-31" id="h2-0-31" class="i">+  }
+</a><a href="#h2-0-32" id="h2-0-32" class="i">+  .image-figure div.r1 {
+</a><a href="#h2-0-33" id="h2-0-33" class="i">+    width: 360px;
+</a><a href="#h2-0-34" id="h2-0-34" class="i">+    height: 390px;
+</a><a href="#h2-0-35" id="h2-0-35" class="i">+  }
+</a> }
+ 
+ @media (max-width: 599px) {
+<a href="#h2-1" id="h2-1" class="h">@@ -44,6 +77,36 @@
+</a>   .notes__title__separator {
+     display: none;
+   }
+<a href="#h2-1-3" id="h2-1-3" class="i">+  .image-figure {
+</a><a href="#h2-1-4" id="h2-1-4" class="i">+    margin-left: auto;
+</a><a href="#h2-1-5" id="h2-1-5" class="i">+    margin-right: auto;
+</a><a href="#h2-1-6" id="h2-1-6" class="i">+  }
+</a><a href="#h2-1-7" id="h2-1-7" class="i">+  .image-figure div.portrait {
+</a><a href="#h2-1-8" id="h2-1-8" class="i">+    width: 275px;
+</a><a href="#h2-1-9" id="h2-1-9" class="i">+    height: 420px;
+</a><a href="#h2-1-10" id="h2-1-10" class="i">+  }
+</a><a href="#h2-1-11" id="h2-1-11" class="i">+  .image-figure div.landscape {
+</a><a href="#h2-1-12" id="h2-1-12" class="i">+    width: 350px;
+</a><a href="#h2-1-13" id="h2-1-13" class="i">+  }
+</a><a href="#h2-1-14" id="h2-1-14" class="i">+  .image-figure div.landscape.r79 {
+</a><a href="#h2-1-15" id="h2-1-15" class="i">+    height: 350px;
+</a><a href="#h2-1-16" id="h2-1-16" class="i">+  }
+</a><a href="#h2-1-17" id="h2-1-17" class="i">+  .image-figure div.landscape.r72 {
+</a><a href="#h2-1-18" id="h2-1-18" class="i">+    height: 300px;
+</a><a href="#h2-1-19" id="h2-1-19" class="i">+  }
+</a><a href="#h2-1-20" id="h2-1-20" class="i">+  .image-figure div.landscape.r68 {
+</a><a href="#h2-1-21" id="h2-1-21" class="i">+    height: 275px;
+</a><a href="#h2-1-22" id="h2-1-22" class="i">+  }
+</a><a href="#h2-1-23" id="h2-1-23" class="i">+  .image-figure div.landscape.r58 {
+</a><a href="#h2-1-24" id="h2-1-24" class="i">+    height: 240px;
+</a><a href="#h2-1-25" id="h2-1-25" class="i">+  }
+</a><a href="#h2-1-26" id="h2-1-26" class="i">+  .image-figure div.landscape.r48 {
+</a><a href="#h2-1-27" id="h2-1-27" class="i">+    height: 200px;
+</a><a href="#h2-1-28" id="h2-1-28" class="i">+  }
+</a><a href="#h2-1-29" id="h2-1-29" class="i">+  .image-figure div.r1 {
+</a><a href="#h2-1-30" id="h2-1-30" class="i">+    width: 350px;
+</a><a href="#h2-1-31" id="h2-1-31" class="i">+    height: 390px;
+</a><a href="#h2-1-32" id="h2-1-32" class="i">+  }
+</a> 
+   /* header */
+   .header__title {
+<a href="#h2-2" id="h2-2" class="h">@@ -79,6 +142,34 @@
+</a> }
+ 
+ @media (max-width: 400px) {
+<a href="#h2-2-3" id="h2-2-3" class="i">+  /* content */
+</a><a href="#h2-2-4" id="h2-2-4" class="i">+  .image-figure div.portrait {
+</a><a href="#h2-2-5" id="h2-2-5" class="i">+    width: 250px;
+</a><a href="#h2-2-6" id="h2-2-6" class="i">+    height: 380px;
+</a><a href="#h2-2-7" id="h2-2-7" class="i">+  }
+</a><a href="#h2-2-8" id="h2-2-8" class="i">+  .image-figure div.landscape {
+</a><a href="#h2-2-9" id="h2-2-9" class="i">+    width: 300px;
+</a><a href="#h2-2-10" id="h2-2-10" class="i">+  }
+</a><a href="#h2-2-11" id="h2-2-11" class="i">+  .image-figure div.landscape.r79 {
+</a><a href="#h2-2-12" id="h2-2-12" class="i">+    height: 290px;
+</a><a href="#h2-2-13" id="h2-2-13" class="i">+  }
+</a><a href="#h2-2-14" id="h2-2-14" class="i">+  .image-figure div.landscape.r72 {
+</a><a href="#h2-2-15" id="h2-2-15" class="i">+    height: 270px;
+</a><a href="#h2-2-16" id="h2-2-16" class="i">+  }
+</a><a href="#h2-2-17" id="h2-2-17" class="i">+  .image-figure div.landscape.r68 {
+</a><a href="#h2-2-18" id="h2-2-18" class="i">+    height: 250px;
+</a><a href="#h2-2-19" id="h2-2-19" class="i">+  }
+</a><a href="#h2-2-20" id="h2-2-20" class="i">+  .image-figure div.landscape.r58 {
+</a><a href="#h2-2-21" id="h2-2-21" class="i">+    height: 220px;
+</a><a href="#h2-2-22" id="h2-2-22" class="i">+  }
+</a><a href="#h2-2-23" id="h2-2-23" class="i">+  .image-figure div.landscape.r48 {
+</a><a href="#h2-2-24" id="h2-2-24" class="i">+    height: 170px;
+</a><a href="#h2-2-25" id="h2-2-25" class="i">+  }
+</a><a href="#h2-2-26" id="h2-2-26" class="i">+  .image-figure div.r1 {
+</a><a href="#h2-2-27" id="h2-2-27" class="i">+    width: 290px;
+</a><a href="#h2-2-28" id="h2-2-28" class="i">+    height: 325px;
+</a><a href="#h2-2-29" id="h2-2-29" class="i">+  }
+</a><a href="#h2-2-30" id="h2-2-30" class="i">+
+</a>   /* footer */
+   .footer__nav__right a {
+     padding: 0 0.15rem;
+<a href="#h2-3" id="h2-3" class="h">@@ -98,5 +189,62 @@
+</a>   .header__menu__list__item {
+     font-size: 0.8rem;
+   }
+<a href="#h2-3-3" id="h2-3-3" class="i">+
+</a><a href="#h2-3-4" id="h2-3-4" class="i">+  /* content */
+</a><a href="#h2-3-5" id="h2-3-5" class="i">+  .image-figure div.portrait {
+</a><a href="#h2-3-6" id="h2-3-6" class="i">+    width: 240px;
+</a><a href="#h2-3-7" id="h2-3-7" class="i">+    height: 370px;
+</a><a href="#h2-3-8" id="h2-3-8" class="i">+  }
+</a><a href="#h2-3-9" id="h2-3-9" class="i">+  .image-figure div.landscape {
+</a><a href="#h2-3-10" id="h2-3-10" class="i">+    width: 280px;
+</a><a href="#h2-3-11" id="h2-3-11" class="i">+  }
+</a><a href="#h2-3-12" id="h2-3-12" class="i">+  .image-figure div.landscape.r79 {
+</a><a href="#h2-3-13" id="h2-3-13" class="i">+    height: 280px;
+</a><a href="#h2-3-14" id="h2-3-14" class="i">+  }
+</a><a href="#h2-3-15" id="h2-3-15" class="i">+  .image-figure div.landscape.r72 {
+</a><a href="#h2-3-16" id="h2-3-16" class="i">+    height: 260px;
+</a><a href="#h2-3-17" id="h2-3-17" class="i">+  }
+</a><a href="#h2-3-18" id="h2-3-18" class="i">+  .image-figure div.landscape.r68 {
+</a><a href="#h2-3-19" id="h2-3-19" class="i">+    height: 240px;
+</a><a href="#h2-3-20" id="h2-3-20" class="i">+  }
+</a><a href="#h2-3-21" id="h2-3-21" class="i">+  .image-figure div.landscape.r58 {
+</a><a href="#h2-3-22" id="h2-3-22" class="i">+    height: 200px;
+</a><a href="#h2-3-23" id="h2-3-23" class="i">+  }
+</a><a href="#h2-3-24" id="h2-3-24" class="i">+  .image-figure div.landscape.r48 {
+</a><a href="#h2-3-25" id="h2-3-25" class="i">+    height: 160px;
+</a><a href="#h2-3-26" id="h2-3-26" class="i">+  }
+</a><a href="#h2-3-27" id="h2-3-27" class="i">+  .image-figure div.r1 {
+</a><a href="#h2-3-28" id="h2-3-28" class="i">+    width: 270px;
+</a><a href="#h2-3-29" id="h2-3-29" class="i">+    height: 310px;
+</a><a href="#h2-3-30" id="h2-3-30" class="i">+  }
+</a> }
+ 
+<a href="#h2-3-33" id="h2-3-33" class="i">+@media(max-width: 320px) {
+</a><a href="#h2-3-34" id="h2-3-34" class="i">+  /* content */
+</a><a href="#h2-3-35" id="h2-3-35" class="i">+  .image-figure div.portrait {
+</a><a href="#h2-3-36" id="h2-3-36" class="i">+    width: 230px;
+</a><a href="#h2-3-37" id="h2-3-37" class="i">+    height: 360px;
+</a><a href="#h2-3-38" id="h2-3-38" class="i">+  }
+</a><a href="#h2-3-39" id="h2-3-39" class="i">+  .image-figure div.landscape {
+</a><a href="#h2-3-40" id="h2-3-40" class="i">+    width: 250px;
+</a><a href="#h2-3-41" id="h2-3-41" class="i">+  }
+</a><a href="#h2-3-42" id="h2-3-42" class="i">+  .image-figure div.landscape.r79 {
+</a><a href="#h2-3-43" id="h2-3-43" class="i">+    height: 250px;
+</a><a href="#h2-3-44" id="h2-3-44" class="i">+  }
+</a><a href="#h2-3-45" id="h2-3-45" class="i">+  .image-figure div.landscape.r72 {
+</a><a href="#h2-3-46" id="h2-3-46" class="i">+    height: 240px;
+</a><a href="#h2-3-47" id="h2-3-47" class="i">+  }
+</a><a href="#h2-3-48" id="h2-3-48" class="i">+  .image-figure div.landscape.r68 {
+</a><a href="#h2-3-49" id="h2-3-49" class="i">+    height: 230px;
+</a><a href="#h2-3-50" id="h2-3-50" class="i">+  }
+</a><a href="#h2-3-51" id="h2-3-51" class="i">+  .image-figure div.landscape.r58 {
+</a><a href="#h2-3-52" id="h2-3-52" class="i">+    height: 200px;
+</a><a href="#h2-3-53" id="h2-3-53" class="i">+  }
+</a><a href="#h2-3-54" id="h2-3-54" class="i">+  .image-figure div.landscape.r48 {
+</a><a href="#h2-3-55" id="h2-3-55" class="i">+    height: 150px;
+</a><a href="#h2-3-56" id="h2-3-56" class="i">+  }
+</a><a href="#h2-3-57" id="h2-3-57" class="i">+  .image-figure div.r1 {
+</a><a href="#h2-3-58" id="h2-3-58" class="i">+    width: 250px;
+</a><a href="#h2-3-59" id="h2-3-59" class="i">+    height: 290px;
+</a><a href="#h2-3-60" id="h2-3-60" class="i">+  }
+</a><a href="#h2-3-61" id="h2-3-61" class="i">+}</a><a href="#h2-3-62" id="h2-3-62" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h3" href="../file/content/archives/Plastik Sepele Kan/index.md.html">content/archives/Plastik Sepele Kan/index.md</a> b/<a href="../file/content/archives/Plastik Sepele Kan/index.md.html">content/archives/Plastik Sepele Kan/index.md</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -17,7 +17,7 @@ Tadi gua baru baca koran Kompas minggu lalu, liat iklan hape, terus langsung nga
+</a> 
+ **Serius**, di koran ada berita: plastik kresek(dinamain dari bunyinya) bakal dicatok tarif minimal Rp 200 di kota tertentu, lebih murah daripada di Balikpapan harganya cenggo(tadinya malah goceng).
+ 
+<a href="#h3-0-3" id="h3-0-3" class="d">-![](vin-diesel.jpeg &quot;picture of Vin Diesel meme in Indonesian&quot;)
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+![Picture of Vin Diesel meme in Indonesian](vin-diesel.jpeg &quot;picture of Vin Diesel meme in Indonesian&quot;)
+</a> 
+ (Di sini gua akan mengandaikan jika harga plastik yang dicatok retailer sama kaya di Balikpapan, Rp 1500) Mengingat mental orang normal yang protes bensin—jelas bermanfaat buat pacaran, nongkrong, bikin areng pas bakar ayam— sempet naik jadi Rp 9000, gimana kalo benda sepele yang biasa dikasih gratis—kadang malah diminta dobel— dikasih harga? Kebayang gimana reaksi orang yang biasanya cuma beli Royco 2 sachet aja pake minta diplastikin.
+ 
+<b>diff --git a/<a id="h4" href="../file/content/posts/Inclusive Content Sharing/medium-paywall.gif.html">content/posts/Inclusive Content Sharing/medium-paywall.gif</a> b/<a href="../file/content/posts/Inclusive Content Sharing/medium-paywall.gif.html">content/posts/Inclusive Content Sharing/medium-paywall.gif</a></b>
+Binary files differ.
+<b>diff --git a/<a id="h5" href="../file/layouts/_default/_markup/render-heading.html.html">layouts/_default/_markup/render-heading.html</a> b/<a href="../file/layouts/_default/_markup/render-heading.html.html">layouts/_default/_markup/render-heading.html</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -1,8 +1 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="d">-{{ $href := .Anchor | safeURL }}
+</a><a href="#h5-0-1" id="h5-0-1" class="d">-{{ $hashrepeat := &quot;#&quot; | strings.Repeat .Level }}
+</a><a href="#h5-0-2" id="h5-0-2" class="d">-&lt;h{{ .Level }} id=&quot;{{ $href }}&quot;&gt;
+</a><a href="#h5-0-3" id="h5-0-3" class="d">-  &lt;a class=&quot;before-hash h{{ .Level }}&quot; href=&quot;#{{ $href }}&quot;&gt;
+</a><a href="#h5-0-4" id="h5-0-4" class="d">-    {{ $hashrepeat }}
+</a><a href="#h5-0-5" id="h5-0-5" class="d">-  &lt;/a&gt;{{ .Text | safeHTML }} 
+</a><a href="#h5-0-6" id="h5-0-6" class="d">-  &lt;a class=&quot;headline-hash&quot; href=&quot;#{{ $href }}&quot;&gt;#&lt;/a&gt;
+</a><a href="#h5-0-7" id="h5-0-7" class="d">-&lt;/h{{ .Level }}&gt;</a><a href="#h5-0-8" id="h5-0-8" class="d">-
+\ No newline at end of file
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+{{ $href := .Anchor | safeURL }}{{ $hashrepeat := &quot;#&quot; | strings.Repeat .Level }}&lt;h{{ .Level }} id=&quot;{{ $href }}&quot;&gt;&lt;a class=&quot;before-hash h{{ .Level }}&quot; href=&quot;#{{ $href }}&quot;&gt;{{ $hashrepeat }}&lt;/a&gt;{{ .Text | safeHTML }}&lt;a class=&quot;headline-hash&quot; href=&quot;#{{ $href }}&quot;&gt;#&lt;/a&gt;&lt;/h{{ .Level }}&gt;</a><a href="#h5-0-10" id="h5-0-10" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h6" href="../file/layouts/_default/_markup/render-heading.rss.xml.html">layouts/_default/_markup/render-heading.rss.xml</a> b/<a href="../file/layouts/_default/_markup/render-heading.rss.xml.html">layouts/_default/_markup/render-heading.rss.xml</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -1 +1 @@
+</a><a href="#h6-0-0" id="h6-0-0" class="d">-&lt;h{{ .Level }}&gt;{{ .Text | safeHTML }}&lt;/h{{ .Level }}&gt;
+</a><a href="#h6-0-1" id="h6-0-1" class="i">+&lt;h{{ .Level }}&gt;{{ .Text | safeHTML }}&lt;/h{{ .Level }}&gt;</a><a href="#h6-0-2" id="h6-0-2" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h7" href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a> b/<a href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -1,47 +1,21 @@
+</a><a href="#h7-0-0" id="h7-0-0" class="d">-{{ $image := (.Page.Resources.GetMatch  .Destination) }}
+</a><a href="#h7-0-1" id="h7-0-1" class="d">-{{ $alt := .Text }}
+</a><a href="#h7-0-2" id="h7-0-2" class="d">-{{ $title := &quot;&quot; }}
+</a><a href="#h7-0-3" id="h7-0-3" class="d">-{{ if ne .Text &quot;&quot; }}
+</a><a href="#h7-0-4" id="h7-0-4" class="d">-  {{ $title = .Text }}
+</a><a href="#h7-0-5" id="h7-0-5" class="d">-{{ end }}
+</a><a href="#h7-0-6" id="h7-0-6" class="d">-{{ if ne .Title &quot;&quot; }}
+</a><a href="#h7-0-7" id="h7-0-7" class="d">-  {{ $title = .Title }}
+</a><a href="#h7-0-8" id="h7-0-8" class="d">-{{ end }}
+</a><a href="#h7-0-9" id="h7-0-9" class="i">+{{ $image := (.Page.Resources.GetMatch  .Destination) }}{{ $alt := .Text }}{{ $title := &quot;&quot; }} {{- if ne .Text &quot;&quot; }}{{ $title = .Text }}{{- end }}{{ if ne .Title &quot;&quot; -}}{{ $title = .Title }}{{ end -}}{{ $ratio := &quot;r68&quot; }}{{ $orientation := &quot;portrait&quot; }}{{ $size := &quot;normal&quot; }}
+</a> 
+<a href="#h7-0-11" id="h7-0-11" class="d">-{{ $width := &quot;380px&quot; }}
+</a><a href="#h7-0-12" id="h7-0-12" class="d">-{{ $height := &quot;520px&quot; }}
+</a><a href="#h7-0-13" id="h7-0-13" class="d">-{{ $orientation := &quot;portrait&quot; }}
+</a><a href="#h7-0-14" id="h7-0-14" class="d">-
+</a><a href="#h7-0-15" id="h7-0-15" class="d">-{{- if gt $image.Width $image.Height -}}
+</a><a href="#h7-0-16" id="h7-0-16" class="d">-  {{ $orientation = &quot;landscape&quot; }}
+</a><a href="#h7-0-17" id="h7-0-17" class="d">-  {{ $width = &quot;520px&quot; }}
+</a><a href="#h7-0-18" id="h7-0-18" class="d">-  {{ $height = &quot;380px&quot; }}
+</a><a href="#h7-0-19" id="h7-0-19" class="d">-    {{ if gt &quot;300&quot; $image.Width -}}
+</a><a href="#h7-0-20" id="h7-0-20" class="d">-      {{ $width = &quot;300px&quot; }}
+</a><a href="#h7-0-21" id="h7-0-21" class="d">-      {{ $height = &quot;170px&quot; }}
+</a><a href="#h7-0-22" id="h7-0-22" class="d">-    {{ end -}}
+</a><a href="#h7-0-23" id="h7-0-23" class="d">-{{- end -}}
+</a><a href="#h7-0-24" id="h7-0-24" class="d">-
+</a><a href="#h7-0-25" id="h7-0-25" class="d">-{{- if eq $orientation &quot;portrait&quot; -}}
+</a><a href="#h7-0-26" id="h7-0-26" class="d">-  {{ if gt &quot;300&quot; $image.Height -}}
+</a><a href="#h7-0-27" id="h7-0-27" class="d">-    {{ $width = &quot;170px&quot; }}
+</a><a href="#h7-0-28" id="h7-0-28" class="d">-    {{ $height = &quot;300px&quot; }}
+</a><a href="#h7-0-29" id="h7-0-29" class="d">-  {{ end -}}
+</a><a href="#h7-0-30" id="h7-0-30" class="d">-{{- end -}}
+</a><a href="#h7-0-31" id="h7-0-31" class="i">+{{- if gt $image.Width $image.Height -}}{{ $orientation = &quot;landscape&quot; }} {{ if gt &quot;0.58&quot; (div (float $image.Height) $image.Width) }}{{ $ratio = &quot;r58&quot; }}{{ end }} {{ if gt &quot;0.48&quot; (div (float $image.Height) $image.Width) }}{{ $ratio = &quot;r48&quot; }}{{ end }} {{ if gt (div (float $image.Height) $image.Width) &quot;0.68&quot; }}{{ $ratio = &quot;r68&quot; }}{{ end }} {{ if gt (div (float $image.Height) $image.Width) &quot;0.72&quot; }}{{ $ratio = &quot;r72&quot; }}{{ end }} {{ if gt (div (float $image.Height) $image.Width) &quot;0.79&quot; }}{{ $ratio = &quot;r79&quot; }}{{ end }} {{- end -}}
+</a><a href="#h7-0-32" id="h7-0-32" class="i">+{{ if eq (div (float $image.Height) $image.Width) 1.00 }}{{ $ratio = &quot;r1&quot; }}{{ end }}{{- if eq $orientation &quot;portrait&quot; -}}{{ if gt &quot;300&quot; $image.Height -}}{{ $size = &quot;small&quot; }}{{ end -}}{{- end -}}{{- if eq $orientation &quot;landscape&quot; -}}{{ if gt &quot;300&quot; $image.Width -}}{{ $size = &quot;small&quot; }}{{ end -}}{{- end -}}
+</a> 
+ &lt;figure class=&quot;image-figure&quot;&gt;
+   &lt;center&gt;
+<a href="#h7-0-36" id="h7-0-36" class="d">-    &lt;div style=&quot;width: {{ $width }};height: {{ $height }};&quot;&gt;
+</a><a href="#h7-0-37" id="h7-0-37" class="d">-      &lt;img
+</a><a href="#h7-0-38" id="h7-0-38" class="d">-        src=&quot;{{ $image.RelPermalink }}&quot;
+</a><a href="#h7-0-39" id="h7-0-39" class="d">-        style=&quot;max-width: 100%; height: auto;&quot;
+</a><a href="#h7-0-40" id="h7-0-40" class="d">-        alt={{ .Text | safeHTML }}
+</a><a href="#h7-0-41" id="h7-0-41" class="d">-        title={{ .Text | safeHTML }}
+</a><a href="#h7-0-42" id="h7-0-42" class="d">-      /&gt;
+</a><a href="#h7-0-43" id="h7-0-43" class="i">+    &lt;div style=&quot;display:flex;flex-direction:column;justify-content:space-between;&quot; class=&quot;{{ $orientation }} {{ $ratio }} {{ $size }}&quot;&gt;
+</a><a href="#h7-0-44" id="h7-0-44" class="i">+      &lt;div style=&quot;flex:1;display:flex;flex-direction:column;justify-content:center;&quot;&gt;&lt;img
+</a><a href="#h7-0-45" id="h7-0-45" class="i">+          src=&quot;{{ $image.RelPermalink }}&quot;
+</a><a href="#h7-0-46" id="h7-0-46" class="i">+          style=&quot;max-width: 100%; height: auto;&quot;
+</a><a href="#h7-0-47" id="h7-0-47" class="i">+          alt={{ .Text | safeHTML }}
+</a><a href="#h7-0-48" id="h7-0-48" class="i">+          title={{ .Text | safeHTML }}
+</a><a href="#h7-0-49" id="h7-0-49" class="i">+        /&gt;&lt;/div&gt;
+</a>       &lt;figcaption&gt;
+         &lt;em&gt;{{ .Text | safeHTML }} &amp;nbsp;
+<a href="#h7-0-52" id="h7-0-52" class="d">-          &lt;a title=&quot;Link to open full image.&quot; href=&quot;{{ $image.RelPermalink }}&quot; class=&quot;view-full-size&quot;&gt;
+</a><a href="#h7-0-53" id="h7-0-53" class="d">-            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 120 120&quot;&gt;&lt;path d=&quot;M71.2 48.8c1.6 1.6 4.1 1.6 5.6 0L112 13.6V32c0 2.4 2.2 4.4 4.7 3.9 2-.3 3.3-2.2 3.3-4.2V4c0-2.2-1.8-4-4-4H88.2c-2 0-3.8 1.4-4.2 3.3-.4 2.5 1.6 4.7 4 4.7h18.4L71.2 43.2c-1.6 1.6-1.6 4.1 0 5.6zm20.8-.9V104c0 4.4-3.6 8-8 8H16c-4.4 0-8-3.6-8-8V36c0-4.4 3.6-8 8-8h56.1c1.1 0 2.1-.4 2.8-1.2l5.1-5.1c.6-.6.2-1.7-.7-1.7H12C5.4 20 0 25.4 0 32v76c0 6.6 5.4 12 12 12h76c6.6 0 12-5.4 12-12V40.6c0-.9-1.1-1.3-1.7-.7L93.2 45c-.8.8-1.2 1.8-1.2 2.9z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;
+</a><a href="#h7-0-54" id="h7-0-54" class="i">+          &lt;a title=&quot;Link to open full image.&quot; href=&quot;{{ $image.RelPermalink }}&quot; class=&quot;view-full-size no-outline&quot;&gt;
+</a><a href="#h7-0-55" id="h7-0-55" class="i">+            &lt;wrap&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 120 120&quot;&gt;&lt;path d=&quot;M71.2 48.8c1.6 1.6 4.1 1.6 5.6 0L112 13.6V32c0 2.4 2.2 4.4 4.7 3.9 2-.3 3.3-2.2 3.3-4.2V4c0-2.2-1.8-4-4-4H88.2c-2 0-3.8 1.4-4.2 3.3-.4 2.5 1.6 4.7 4 4.7h18.4L71.2 43.2c-1.6 1.6-1.6 4.1 0 5.6zm20.8-.9V104c0 4.4-3.6 8-8 8H16c-4.4 0-8-3.6-8-8V36c0-4.4 3.6-8 8-8h56.1c1.1 0 2.1-.4 2.8-1.2l5.1-5.1c.6-.6.2-1.7-.7-1.7H12C5.4 20 0 25.4 0 32v76c0 6.6 5.4 12 12 12h76c6.6 0 12-5.4 12-12V40.6c0-.9-1.1-1.3-1.7-.7L93.2 45c-.8.8-1.2 1.8-1.2 2.9z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/wrap&gt;
+</a>           &lt;/a&gt;
+         &lt;/em&gt;
+       &lt;/figcaption&gt;
+<b>diff --git a/<a id="h8" href="../file/layouts/_default/_markup/render-image.rss.xml.html">layouts/_default/_markup/render-image.rss.xml</a> b/<a href="../file/layouts/_default/_markup/render-image.rss.xml.html">layouts/_default/_markup/render-image.rss.xml</a></b>
+<a href="#h8-0" id="h8-0" class="h">@@ -1,6 +1,4 @@
+</a><a href="#h8-0-0" id="h8-0-0" class="d">-{{ $image := (.Page.Resources.GetMatch  .Destination) }}
+</a><a href="#h8-0-1" id="h8-0-1" class="d">-
+</a><a href="#h8-0-2" id="h8-0-2" class="d">-&lt;figure&gt;
+</a><a href="#h8-0-3" id="h8-0-3" class="i">+{{ $image := (.Page.Resources.GetMatch  .Destination) }}&lt;figure&gt;
+</a>   &lt;center&gt;
+   &lt;img
+     src=&quot;{{ $image.RelPermalink }}&quot;
+</pre>
+</div>
+</div>
+</body>
+</html>

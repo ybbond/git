@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: reduce interval for GitHub Actions webmentions - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/d0de59d7c44bf2dce35939dc09e4fd9338d934b3.html">d0de59d7c44bf2dce35939dc09e4fd9338d934b3</a>
+<b>parent</b> <a href="../commit/bcdf41288684be47921e5237a82d12d5c8ab7439.html">bcdf41288684be47921e5237a82d12d5c8ab7439</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Thu, 20 May 2021 00:34:17 +0700
+
+refactor: reduce interval for GitHub Actions webmentions
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.github/workflows/webmentions.yml</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre></div><p>1 file changed, 1 insertion(<span id="plus">+</span>), 1 deletion(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.github/workflows/webmentions.yml.html">.github/workflows/webmentions.yml</a> b/<a href="../file/.github/workflows/webmentions.yml.html">.github/workflows/webmentions.yml</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -2,7 +2,7 @@ name: Webmentions
+</a> 
+ on:
+   schedule:
+<a href="#h0-0-3" id="h0-0-3" class="d">-    - cron: &quot;0 */6 * * *&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    - cron: &quot;*/15 * * * *&quot;
+</a> 
+ jobs:
+   webmentions:
+</pre>
+</div>
+</div>
+</body>
+</html>

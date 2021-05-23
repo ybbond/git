@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>update terminal configs, remove doom - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/ef5973455b4062134db81bb3b2d1dfd636a56bcb.html">ef5973455b4062134db81bb3b2d1dfd636a56bcb</a>
+<b>parent</b> <a href="../commit/59fe11e0a64c0527829cd1319d48f6b269fac76c.html">59fe11e0a64c0527829cd1319d48f6b269fac76c</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Wed,  5 May 2021 23:26:32 +0700
+
+update terminal configs, remove doom
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.config/nvim/coc-settings.json</a></td><td> | </td><td class="num">82</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++</span><span class="d">----------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.config/nvim/init.vim</a></td><td> | </td><td class="num">23</td><td><span class="i">+++++++++++++++++</span><span class="d">------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h2">.doom.d/config.el</a></td><td> | </td><td class="num">255</td><td><span class="i"></span><span class="d">-------------------------------------------------------------------------------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h3">.doom.d/init.el</a></td><td> | </td><td class="num">183</td><td><span class="i"></span><span class="d">-------------------------------------------------------------------------------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h4">.doom.d/packages.el</a></td><td> | </td><td class="num">53</td><td><span class="i"></span><span class="d">-----------------------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h5">.gitconfig</a></td><td> | </td><td class="num">6</td><td><span class="i">+++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">.hammerspoon/init.lua</a></td><td> | </td><td class="num">386</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++</span><span class="d">------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h7">.vimrc</a></td><td> | </td><td class="num">51</td><td><span class="i">+++++++++++++++++++++++++++++++++</span><span class="d">------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h8">.zshrc</a></td><td> | </td><td class="num">57</td><td><span class="i">++++++++++++++++++++++++++++</span><span class="d">-----------------------------</span></td></tr>
+</table></pre></div><p>9 files changed, 332 insertions(<span id="plus">+</span>), 764 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.config/nvim/coc-settings.json.html">.config/nvim/coc-settings.json</a> b/<a href="../file/.config/nvim/coc-settings.json.html">.config/nvim/coc-settings.json</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -46,47 +46,47 @@
+</a>       &quot;command&quot;: &quot;/Users/yohanesbandung/bin/reason-language-server&quot;,
+       &quot;filetypes&quot;: [&quot;reason&quot;, &quot;ocaml&quot;]
+     },
+<a href="#h0-0-3" id="h0-0-3" class="d">-    &quot;ccls&quot;: {
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-      &quot;command&quot;: &quot;ccls&quot;,
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-      &quot;filetypes&quot;: [&quot;c&quot;, &quot;cpp&quot;, &quot;objc&quot;, &quot;objcpp&quot;],
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-      &quot;rootPatterns&quot;: [
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-        &quot;.ccls&quot;,
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-        &quot;compile_commands.json&quot;,
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-        &quot;.vim/&quot;,
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-        &quot;.git/&quot;,
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-        &quot;.hg/&quot;
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-      ],
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-      &quot;initializationOptions&quot;: {
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-        &quot;cache&quot;: {
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-          &quot;directory&quot;: &quot;/tmp/ccls&quot;
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-        },
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-        &quot;clang&quot;: {
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-          &quot;resourceDir&quot;: &quot;/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0&quot;,
+</a><a href="#h0-0-19" id="h0-0-19" class="d">-          &quot;extraArgs&quot;: [
+</a><a href="#h0-0-20" id="h0-0-20" class="d">-            &quot;-isystem&quot;,
+</a><a href="#h0-0-21" id="h0-0-21" class="d">-            &quot;/usr/local/include&quot;,
+</a><a href="#h0-0-22" id="h0-0-22" class="d">-            &quot;-L&quot;,
+</a><a href="#h0-0-23" id="h0-0-23" class="d">-            &quot;/usr/local/lib&quot;,
+</a><a href="#h0-0-24" id="h0-0-24" class="d">-            &quot;-l&quot;,
+</a><a href="#h0-0-25" id="h0-0-25" class="d">-            &quot;SDL2&quot;,
+</a><a href="#h0-0-26" id="h0-0-26" class="d">-            &quot;-isystem&quot;,
+</a><a href="#h0-0-27" id="h0-0-27" class="d">-            &quot;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1&quot;,
+</a><a href="#h0-0-28" id="h0-0-28" class="d">-            &quot;-isystem&quot;,
+</a><a href="#h0-0-29" id="h0-0-29" class="d">-            &quot;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include&quot;,
+</a><a href="#h0-0-30" id="h0-0-30" class="d">-            &quot;-isystem&quot;,
+</a><a href="#h0-0-31" id="h0-0-31" class="d">-            &quot;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include&quot;,
+</a><a href="#h0-0-32" id="h0-0-32" class="d">-            &quot;-isystem&quot;,
+</a><a href="#h0-0-33" id="h0-0-33" class="d">-            &quot;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include&quot;,
+</a><a href="#h0-0-34" id="h0-0-34" class="d">-            &quot;-isystem&quot;,
+</a><a href="#h0-0-35" id="h0-0-35" class="d">-            &quot;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;,
+</a><a href="#h0-0-36" id="h0-0-36" class="d">-            &quot;-isystem&quot;,
+</a><a href="#h0-0-37" id="h0-0-37" class="d">-            &quot;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1&quot;,
+</a><a href="#h0-0-38" id="h0-0-38" class="d">-            &quot;-I&quot;,
+</a><a href="#h0-0-39" id="h0-0-39" class="d">-            &quot;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/&quot;
+</a><a href="#h0-0-40" id="h0-0-40" class="d">-          ]
+</a><a href="#h0-0-41" id="h0-0-41" class="d">-        }
+</a><a href="#h0-0-42" id="h0-0-42" class="d">-      }
+</a><a href="#h0-0-43" id="h0-0-43" class="d">-    },
+</a><a href="#h0-0-44" id="h0-0-44" class="i">+    //&quot;ccls&quot;: {
+</a><a href="#h0-0-45" id="h0-0-45" class="i">+    //  &quot;command&quot;: &quot;ccls&quot;,
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+    //  &quot;filetypes&quot;: [&quot;c&quot;, &quot;cpp&quot;, &quot;objc&quot;, &quot;objcpp&quot;],
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+    //  &quot;rootPatterns&quot;: [
+</a><a href="#h0-0-48" id="h0-0-48" class="i">+    //    &quot;.ccls&quot;,
+</a><a href="#h0-0-49" id="h0-0-49" class="i">+    //    &quot;compile_commands.json&quot;,
+</a><a href="#h0-0-50" id="h0-0-50" class="i">+    //    &quot;.vim/&quot;,
+</a><a href="#h0-0-51" id="h0-0-51" class="i">+    //    &quot;.git/&quot;,
+</a><a href="#h0-0-52" id="h0-0-52" class="i">+    //    &quot;.hg/&quot;
+</a><a href="#h0-0-53" id="h0-0-53" class="i">+    //  ],
+</a><a href="#h0-0-54" id="h0-0-54" class="i">+    //  &quot;initializationOptions&quot;: {
+</a><a href="#h0-0-55" id="h0-0-55" class="i">+    //    &quot;cache&quot;: {
+</a><a href="#h0-0-56" id="h0-0-56" class="i">+    //      &quot;directory&quot;: &quot;/tmp/ccls&quot;
+</a><a href="#h0-0-57" id="h0-0-57" class="i">+    //    },
+</a><a href="#h0-0-58" id="h0-0-58" class="i">+    //    &quot;clang&quot;: {
+</a><a href="#h0-0-59" id="h0-0-59" class="i">+    //      &quot;resourceDir&quot;: &quot;/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0&quot;,
+</a><a href="#h0-0-60" id="h0-0-60" class="i">+    //      &quot;extraArgs&quot;: [
+</a><a href="#h0-0-61" id="h0-0-61" class="i">+    //        &quot;-isystem&quot;,
+</a><a href="#h0-0-62" id="h0-0-62" class="i">+    //        &quot;/usr/local/include&quot;,
+</a><a href="#h0-0-63" id="h0-0-63" class="i">+    //        &quot;-L&quot;,
+</a><a href="#h0-0-64" id="h0-0-64" class="i">+    //        &quot;/usr/local/lib&quot;,
+</a><a href="#h0-0-65" id="h0-0-65" class="i">+    //        &quot;-l&quot;,
+</a><a href="#h0-0-66" id="h0-0-66" class="i">+    //        &quot;SDL2&quot;,
+</a><a href="#h0-0-67" id="h0-0-67" class="i">+    //        &quot;-isystem&quot;,
+</a><a href="#h0-0-68" id="h0-0-68" class="i">+    //        &quot;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1&quot;,
+</a><a href="#h0-0-69" id="h0-0-69" class="i">+    //        &quot;-isystem&quot;,
+</a><a href="#h0-0-70" id="h0-0-70" class="i">+    //        &quot;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include&quot;,
+</a><a href="#h0-0-71" id="h0-0-71" class="i">+    //        &quot;-isystem&quot;,
+</a><a href="#h0-0-72" id="h0-0-72" class="i">+    //        &quot;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include&quot;,
+</a><a href="#h0-0-73" id="h0-0-73" class="i">+    //        &quot;-isystem&quot;,
+</a><a href="#h0-0-74" id="h0-0-74" class="i">+    //        &quot;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include&quot;,
+</a><a href="#h0-0-75" id="h0-0-75" class="i">+    //        &quot;-isystem&quot;,
+</a><a href="#h0-0-76" id="h0-0-76" class="i">+    //        &quot;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;,
+</a><a href="#h0-0-77" id="h0-0-77" class="i">+    //        &quot;-isystem&quot;,
+</a><a href="#h0-0-78" id="h0-0-78" class="i">+    //        &quot;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1&quot;,
+</a><a href="#h0-0-79" id="h0-0-79" class="i">+    //        &quot;-I&quot;,
+</a><a href="#h0-0-80" id="h0-0-80" class="i">+    //        &quot;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/&quot;
+</a><a href="#h0-0-81" id="h0-0-81" class="i">+    //      ]
+</a><a href="#h0-0-82" id="h0-0-82" class="i">+    //    }
+</a><a href="#h0-0-83" id="h0-0-83" class="i">+    //  }
+</a><a href="#h0-0-84" id="h0-0-84" class="i">+    //},
+</a>     &quot;golang&quot;: {
+       &quot;command&quot;: &quot;gopls&quot;,
+       &quot;args&quot;: [],
+<b>diff --git a/<a id="h1" href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a> b/<a href="../file/.config/nvim/init.vim.html">.config/nvim/init.vim</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -259,6 +259,9 @@ nnoremap &lt;expr&gt; 0 &amp;wrap == 1 ? &#39;g0&#39; : &#39;0&#39;
+</a> &quot;                      NORMAL MODE
+ &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+ 
+<a href="#h1-0-3" id="h1-0-3" class="i">+&quot; keep asterisk and pound to be case sensitive
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+nnoremap &lt;leader&gt;* :let @/=&#39;\C\&lt;&#39; . expand(&#39;&lt;cword&gt;&#39;) . &#39;\&gt;&#39;&lt;CR&gt;:let v:searchforward=1&lt;CR&gt;n
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+nnoremap &lt;leader&gt;# :let @/=&#39;\C\&lt;&#39; . expand(&#39;&lt;cword&gt;&#39;) . &#39;\&gt;&#39;&lt;CR&gt;:let v:searchforward=0&lt;CR&gt;n
+</a> 
+ &quot; reload all opened buffer
+ nnoremap &lt;leader&gt;br :bufdo e&lt;cr&gt;
+<a href="#h1-1" id="h1-1" class="h">@@ -340,21 +343,28 @@ nnoremap gB :bprevious&lt;cr&gt;
+</a>     \ rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color &quot;always&quot;
+     \ -g &quot;*.{css,js,jsx,ts,tsx,json,re,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}&quot;
+     \ -g &quot;!{.git,node_modules,coverage,vendor,build}/*&quot; &#39;
+<a href="#h1-1-3" id="h1-1-3" class="d">-  &quot; command! -bang -nargs=* Strings call fzf#vim#grep(g:rg_command .shellescape(&lt;q-args&gt;), 1, &lt;bang&gt;0)
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+
+</a><a href="#h1-1-5" id="h1-1-5" class="i">+  &quot; NOTES
+</a><a href="#h1-1-6" id="h1-1-6" class="i">+  &quot; the {&#39;options&#39;: &#39;-e&#39;} limits to only search literal text https://github.com/BurntSushi/ripgrep/issues/1119
+</a><a href="#h1-1-7" id="h1-1-7" class="i">+  &quot; the {&#39;options&#39;: &#39;--delimiter : --nth 4..&#39;} option limit the string search only for file content
+</a>   command! -bang -nargs=* StringsAll
+   \ call fzf#vim#grep(
+   \   &#39;rg --column --line-number --hidden --no-ignore --no-heading --color=always --smart-case -- &#39;.shellescape(&lt;q-args&gt;), 1,
+   \   fzf#vim#with_preview({&#39;options&#39;: &#39;--preview-window=down:50% --layout=reverse --delimiter : --nth 4..&#39;}), &lt;bang&gt;0)
+<a href="#h1-1-12" id="h1-1-12" class="i">+  &quot; OLD
+</a><a href="#h1-1-13" id="h1-1-13" class="i">+  &quot; command! -bang -nargs=* Strings call fzf#vim#grep(g:rg_command .shellescape(&lt;q-args&gt;), 1, &lt;bang&gt;0)
+</a>   command! -bang -nargs=* Strings
+   \ call fzf#vim#grep(
+   \   &#39;rg --column --line-number --hidden --glob &quot;!{.git,node_modules,flow-typed,operation-types.flow.js,generatedTypes}&quot; --no-heading --color=always --smart-case -- &#39;.shellescape(&lt;q-args&gt;), 1,
+   \   fzf#vim#with_preview({&#39;options&#39;: &#39;--preview-window=down:50% --layout=reverse --delimiter : --nth 4..&#39;}), &lt;bang&gt;0)
+<a href="#h1-1-18" id="h1-1-18" class="d">-  command! -bang -nargs=* StringsAndFile
+</a><a href="#h1-1-19" id="h1-1-19" class="i">+  command! -bang -nargs=* StringsWhole
+</a><a href="#h1-1-20" id="h1-1-20" class="i">+  \ call fzf#vim#grep(
+</a><a href="#h1-1-21" id="h1-1-21" class="i">+  \   &#39;rg --column --line-number --hidden --glob &quot;!{.git,node_modules,flow-typed,operation-types.flow.js,generatedTypes}&quot; --no-heading --color=always --smart-case -- &#39;.shellescape(&lt;q-args&gt;), 1,
+</a><a href="#h1-1-22" id="h1-1-22" class="i">+  \   fzf#vim#with_preview({&#39;options&#39;: &#39;-e --preview-window=down:50% --layout=reverse --delimiter : --nth 4..&#39;}), &lt;bang&gt;0)
+</a><a href="#h1-1-23" id="h1-1-23" class="i">+  command! -bang -nargs=* StringsAndFileWhole
+</a>   \ call fzf#vim#grep(
+   \   &#39;rg --column --line-number --hidden --glob &quot;!{.git,node_modules,flow-typed,operation-types.flow.js,generatedTypes}&quot; --no-heading --color=always --smart-case -- &#39;.shellescape(&lt;q-args&gt;), 1,
+<a href="#h1-1-26" id="h1-1-26" class="d">-  \   fzf#vim#with_preview({&#39;options&#39;: &#39;--preview-window=down:50% --layout=reverse&#39;}), &lt;bang&gt;0)
+</a><a href="#h1-1-27" id="h1-1-27" class="d">-  &quot; the {&#39;options&#39;: &#39;--delimiter : --nth 4..&#39;} option limit the string search
+</a><a href="#h1-1-28" id="h1-1-28" class="d">-  &quot; only for file content
+</a><a href="#h1-1-29" id="h1-1-29" class="i">+  \   fzf#vim#with_preview({&#39;options&#39;: &#39;-e --preview-window=down:50% --layout=reverse&#39;}), &lt;bang&gt;0)
+</a> 
+   command! -bang -nargs=? -complete=dir FilesAll
+     \ call fzf#vim#files(&lt;q-args&gt;, fzf#vim#with_preview({&#39;options&#39;: [&#39;--preview-window=down:50%&#39;, &#39;--layout=reverse&#39;, &#39;--info=inline&#39;]}), &lt;bang&gt;0)
+<a href="#h1-2" id="h1-2" class="h">@@ -364,7 +374,8 @@ nnoremap gB :bprevious&lt;cr&gt;
+</a>   &quot; nnoremap &lt;C-o&gt; :Strings&lt;cr&gt;
+   &quot; nnoremap &lt;C-i&gt; :Files&lt;cr&gt;
+   noremap &lt;C-i&gt; :Strings&lt;cr&gt;
+<a href="#h1-2-3" id="h1-2-3" class="d">-  noremap &lt;C-s&gt; :StringsAndFile&lt;cr&gt;
+</a><a href="#h1-2-4" id="h1-2-4" class="i">+  noremap &lt;C-s&gt; :StringsWhole&lt;cr&gt;
+</a><a href="#h1-2-5" id="h1-2-5" class="i">+  noremap &lt;leader&gt;&lt;C-s&gt; :StringsAndFileWhole&lt;cr&gt;
+</a>   noremap &lt;leader&gt;&lt;C-i&gt; :StringsAll&lt;cr&gt;
+   noremap &lt;C-p&gt; :Files --cached --others --exclude-standard&lt;cr&gt;
+   noremap &lt;leader&gt;&lt;C-p&gt; :FilesAll&lt;cr&gt;
+<b>diff --git a/<a id="h2" href="../file/.doom.d/config.el.html">.doom.d/config.el</a> b/<a href="../file/.doom.d/config.el.html">.doom.d/config.el</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,255 +0,0 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+</a><a href="#h2-0-1" id="h2-0-1" class="d">-
+</a><a href="#h2-0-2" id="h2-0-2" class="d">-;; Place your private configuration here! Remember, you do not need to run &#39;doom
+</a><a href="#h2-0-3" id="h2-0-3" class="d">-;; sync&#39; after modifying this file!
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-
+</a><a href="#h2-0-6" id="h2-0-6" class="d">-;; Some functionality uses this to identify you, e.g. GPG configuration, email
+</a><a href="#h2-0-7" id="h2-0-7" class="d">-;; clients, file templates and snippets.
+</a><a href="#h2-0-8" id="h2-0-8" class="d">-(setq user-full-name &quot;Yohanes Bandung Bondowoso&quot;
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-      user-mail-address &quot;hi@ybbond.dev&quot;)
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-;; are the three important ones:
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-;;
+</a><a href="#h2-0-14" id="h2-0-14" class="d">-;; + `doom-font&#39;
+</a><a href="#h2-0-15" id="h2-0-15" class="d">-;; + `doom-variable-pitch-font&#39;
+</a><a href="#h2-0-16" id="h2-0-16" class="d">-;; + `doom-big-font&#39; -- used for `doom-big-font-mode&#39;; use this for
+</a><a href="#h2-0-17" id="h2-0-17" class="d">-;;   presentations or streaming.
+</a><a href="#h2-0-18" id="h2-0-18" class="d">-;;
+</a><a href="#h2-0-19" id="h2-0-19" class="d">-;; They all accept either a font-spec, font string (&quot;Input Mono-12&quot;), or xlfd
+</a><a href="#h2-0-20" id="h2-0-20" class="d">-;; font string. You generally only need these two:
+</a><a href="#h2-0-21" id="h2-0-21" class="d">-;; (setq doom-font (font-spec :family &quot;monospace&quot; :size 12 :weight &#39;semi-light)
+</a><a href="#h2-0-22" id="h2-0-22" class="d">-;;       doom-variable-pitch-font (font-spec :family &quot;sans&quot; :size 13))
+</a><a href="#h2-0-23" id="h2-0-23" class="d">-
+</a><a href="#h2-0-24" id="h2-0-24" class="d">-(setq doom-theme &#39;doom-gruvbox)
+</a><a href="#h2-0-25" id="h2-0-25" class="d">-
+</a><a href="#h2-0-26" id="h2-0-26" class="d">-(setq display-line-numbers-type &#39;relative)
+</a><a href="#h2-0-27" id="h2-0-27" class="d">-(setq whitespace-action &#39;(auto-cleanup))
+</a><a href="#h2-0-28" id="h2-0-28" class="d">-(setq savehist-mode -1)
+</a><a href="#h2-0-29" id="h2-0-29" class="d">-
+</a><a href="#h2-0-30" id="h2-0-30" class="d">-(setq company-idle-delay nil)
+</a><a href="#h2-0-31" id="h2-0-31" class="d">-
+</a><a href="#h2-0-32" id="h2-0-32" class="d">-(setq org_dir &quot;~/Dropbox/org/&quot;)
+</a><a href="#h2-0-33" id="h2-0-33" class="d">-(setq org-adapt-indentation nil)
+</a><a href="#h2-0-34" id="h2-0-34" class="d">-
+</a><a href="#h2-0-35" id="h2-0-35" class="d">-(global-set-key (kbd &quot;s-b&quot;) &#39;ivy-switch-buffer)
+</a><a href="#h2-0-36" id="h2-0-36" class="d">-(global-set-key (kbd &quot;s-K&quot;) &#39;kill-buffer)
+</a><a href="#h2-0-37" id="h2-0-37" class="d">-(global-set-key (kbd &quot;s-l&quot;) &#39;org-roam-find-file)
+</a><a href="#h2-0-38" id="h2-0-38" class="d">-
+</a><a href="#h2-0-39" id="h2-0-39" class="d">-;; Better Copy-Paste and Clipboard Handling
+</a><a href="#h2-0-40" id="h2-0-40" class="d">-;; Disable Emacs&#39; integration of killring with clipboard
+</a><a href="#h2-0-41" id="h2-0-41" class="d">-(setq select-enable-clipboard nil)
+</a><a href="#h2-0-42" id="h2-0-42" class="d">-;; Remove hook for clipboard configurations from Emacs to command mode
+</a><a href="#h2-0-43" id="h2-0-43" class="d">-(remove-hook &#39;tty-setup-hook &#39;doom-init-clipboard-in-tty-emacs-h)
+</a><a href="#h2-0-44" id="h2-0-44" class="d">-;; Enable ⌘+c and ⌘+v for clipboard handling
+</a><a href="#h2-0-45" id="h2-0-45" class="d">-(defun rc-clipboard-yank ()
+</a><a href="#h2-0-46" id="h2-0-46" class="d">-  &quot;Copies the active region to the system clipboard.&quot;
+</a><a href="#h2-0-47" id="h2-0-47" class="d">-  (interactive)
+</a><a href="#h2-0-48" id="h2-0-48" class="d">-  (when (region-active-p)
+</a><a href="#h2-0-49" id="h2-0-49" class="d">-    (gui-set-selection &#39;CLIPBOARD
+</a><a href="#h2-0-50" id="h2-0-50" class="d">-      (buffer-substring (region-beginning) (region-end)))))
+</a><a href="#h2-0-51" id="h2-0-51" class="d">-(defun rc-clipboard-paste ()
+</a><a href="#h2-0-52" id="h2-0-52" class="d">-  &quot;Pastes text from the system clipboard.&quot;
+</a><a href="#h2-0-53" id="h2-0-53" class="d">-  (interactive)
+</a><a href="#h2-0-54" id="h2-0-54" class="d">-  (let ((text (gui-get-selection &#39;CLIPBOARD)))
+</a><a href="#h2-0-55" id="h2-0-55" class="d">-    (when text (insert-for-yank text))))
+</a><a href="#h2-0-56" id="h2-0-56" class="d">-(map! :v &quot;s-c&quot; #&#39;rc-clipboard-yank
+</a><a href="#h2-0-57" id="h2-0-57" class="d">-      :nvi &quot;s-v&quot; #&#39;rc-clipboard-paste)
+</a><a href="#h2-0-58" id="h2-0-58" class="d">-(define-key! :keymaps &#39;(evil-ex-completion-map) &quot;s-v&quot; #&#39;rc-clipboard-paste)
+</a><a href="#h2-0-59" id="h2-0-59" class="d">-(define-key! :keymaps +default-minibuffer-maps &quot;s-v&quot; #&#39;rc-clipboard-paste)
+</a><a href="#h2-0-60" id="h2-0-60" class="d">-
+</a><a href="#h2-0-61" id="h2-0-61" class="d">-;; General Configurations
+</a><a href="#h2-0-62" id="h2-0-62" class="d">-;; (use-package! general
+</a><a href="#h2-0-63" id="h2-0-63" class="d">-;;   :config
+</a><a href="#h2-0-64" id="h2-0-64" class="d">-;;   (general-evil-setup))
+</a><a href="#h2-0-65" id="h2-0-65" class="d">-
+</a><a href="#h2-0-66" id="h2-0-66" class="d">-;; Evil
+</a><a href="#h2-0-67" id="h2-0-67" class="d">-(use-package! evil
+</a><a href="#h2-0-68" id="h2-0-68" class="d">-  :init
+</a><a href="#h2-0-69" id="h2-0-69" class="d">-  (setq evil-move-cursor-back nil)
+</a><a href="#h2-0-70" id="h2-0-70" class="d">-  ;; (setq evil-respect-visual-line-mode t)
+</a><a href="#h2-0-71" id="h2-0-71" class="d">-  (setq evil-kill-on-visual-paste nil)
+</a><a href="#h2-0-72" id="h2-0-72" class="d">-  (setq evil-disable-insert-state-bindings t))
+</a><a href="#h2-0-73" id="h2-0-73" class="d">-  ;; :general
+</a><a href="#h2-0-74" id="h2-0-74" class="d">-  ;; ([remap evil-emacs-state] &#39;evil-normal-state)
+</a><a href="#h2-0-75" id="h2-0-75" class="d">-  ;; (general-nmap &quot;j&quot; &#39;evil-next-visual-line)
+</a><a href="#h2-0-76" id="h2-0-76" class="d">-  ;; (general-nmap &quot;k&quot; &#39;evil-previous-visual-line)
+</a><a href="#h2-0-77" id="h2-0-77" class="d">-  ;; (general-nmap &quot;gj&quot; &#39;evil-next-line)
+</a><a href="#h2-0-78" id="h2-0-78" class="d">-  ;; (general-nmap &quot;gk&quot; &#39;evil-previous-line)
+</a><a href="#h2-0-79" id="h2-0-79" class="d">-  ;; (general-imap &quot;C-f&quot; &#39;delete-forward-char))
+</a><a href="#h2-0-80" id="h2-0-80" class="d">-(map! :after evil
+</a><a href="#h2-0-81" id="h2-0-81" class="d">-      :map evil-normal-state-map
+</a><a href="#h2-0-82" id="h2-0-82" class="d">-      &quot;C-z&quot; &#39;evil-normal-state
+</a><a href="#h2-0-83" id="h2-0-83" class="d">-      &quot;j&quot; &#39;evil-next-visual-line
+</a><a href="#h2-0-84" id="h2-0-84" class="d">-      &quot;k&quot; &#39;evil-previous-visual-line
+</a><a href="#h2-0-85" id="h2-0-85" class="d">-      &quot;gj&quot; &#39;evil-next-line
+</a><a href="#h2-0-86" id="h2-0-86" class="d">-      &quot;gk&quot; &#39;evil-previous-line
+</a><a href="#h2-0-87" id="h2-0-87" class="d">-      :map evil-insert-state-map
+</a><a href="#h2-0-88" id="h2-0-88" class="d">-      &quot;C-f&quot; &#39;delete-forward-char
+</a><a href="#h2-0-89" id="h2-0-89" class="d">-      &quot;C-z&quot; &#39;evil-normal-state)
+</a><a href="#h2-0-90" id="h2-0-90" class="d">-
+</a><a href="#h2-0-91" id="h2-0-91" class="d">-;; Snipe
+</a><a href="#h2-0-92" id="h2-0-92" class="d">-(after! evil-snipe
+</a><a href="#h2-0-93" id="h2-0-93" class="d">-  (setq evil-snipe-smart-case t)
+</a><a href="#h2-0-94" id="h2-0-94" class="d">-  (setq evil-snipe-scope &#39;whole-buffer)
+</a><a href="#h2-0-95" id="h2-0-95" class="d">-  (setq evil-snipe-auto-scroll t)
+</a><a href="#h2-0-96" id="h2-0-96" class="d">-  (setq evil-snipe-repeat-keys t)
+</a><a href="#h2-0-97" id="h2-0-97" class="d">-  (setq evil-snipe-repeat-scope &#39;whole-buffer))
+</a><a href="#h2-0-98" id="h2-0-98" class="d">-
+</a><a href="#h2-0-99" id="h2-0-99" class="d">-;; Ivy
+</a><a href="#h2-0-100" id="h2-0-100" class="d">-(map! :after ivy
+</a><a href="#h2-0-101" id="h2-0-101" class="d">-  :map ivy-minibuffer-map
+</a><a href="#h2-0-102" id="h2-0-102" class="d">-  &quot;S-SPC&quot; nil
+</a><a href="#h2-0-103" id="h2-0-103" class="d">-  &quot;C-SPC&quot; &#39;ivy-restrict-to-matches)
+</a><a href="#h2-0-104" id="h2-0-104" class="d">-
+</a><a href="#h2-0-105" id="h2-0-105" class="d">-;; Dired
+</a><a href="#h2-0-106" id="h2-0-106" class="d">-(after! dired
+</a><a href="#h2-0-107" id="h2-0-107" class="d">-  ;; (setq dired-listing-switches &quot;-aBhl --group-directories-first&quot;
+</a><a href="#h2-0-108" id="h2-0-108" class="d">-  (setq dired-listing-switches &quot;-aBhl&quot;
+</a><a href="#h2-0-109" id="h2-0-109" class="d">-        dired-dwim-target t
+</a><a href="#h2-0-110" id="h2-0-110" class="d">-        dired-recursive-copies (quote always)
+</a><a href="#h2-0-111" id="h2-0-111" class="d">-        dired-recursive-deletes (quote top)))
+</a><a href="#h2-0-112" id="h2-0-112" class="d">-
+</a><a href="#h2-0-113" id="h2-0-113" class="d">-;; Deft
+</a><a href="#h2-0-114" id="h2-0-114" class="d">-(use-package! deft
+</a><a href="#h2-0-115" id="h2-0-115" class="d">-  :after org
+</a><a href="#h2-0-116" id="h2-0-116" class="d">-  :config
+</a><a href="#h2-0-117" id="h2-0-117" class="d">-  (setq deft-recursive t)
+</a><a href="#h2-0-118" id="h2-0-118" class="d">-  ;; (setq deft-use-filter-string-for-filename t)
+</a><a href="#h2-0-119" id="h2-0-119" class="d">-  (setq deft-default-extension &quot;org&quot;)
+</a><a href="#h2-0-120" id="h2-0-120" class="d">-  (setq deft-incremental-search t)
+</a><a href="#h2-0-121" id="h2-0-121" class="d">-  (setq deft-directory org_dir)
+</a><a href="#h2-0-122" id="h2-0-122" class="d">-  (add-hook &#39;after-init-hook &#39;org-roam-db-build-cache)
+</a><a href="#h2-0-123" id="h2-0-123" class="d">-  :bind
+</a><a href="#h2-0-124" id="h2-0-124" class="d">-  (&quot;s-d&quot; . deft))
+</a><a href="#h2-0-125" id="h2-0-125" class="d">-
+</a><a href="#h2-0-126" id="h2-0-126" class="d">-;; Org-roam
+</a><a href="#h2-0-127" id="h2-0-127" class="d">-(use-package! org-roam
+</a><a href="#h2-0-128" id="h2-0-128" class="d">-  :hook
+</a><a href="#h2-0-129" id="h2-0-129" class="d">-  (after-init . org-roam-mode))
+</a><a href="#h2-0-130" id="h2-0-130" class="d">-(after! org-roam
+</a><a href="#h2-0-131" id="h2-0-131" class="d">-  (add-hook &#39;after-init-hook &#39;org-roam-mode)
+</a><a href="#h2-0-132" id="h2-0-132" class="d">-  :config
+</a><a href="#h2-0-133" id="h2-0-133" class="d">-  (setq org-roam-directory org_dir)
+</a><a href="#h2-0-134" id="h2-0-134" class="d">-  (setq org-roam-db-location &quot;~/org/org-roam.db&quot;)
+</a><a href="#h2-0-135" id="h2-0-135" class="d">-  (setq org-roam-link-title-format &quot;[[%s]]&quot;)
+</a><a href="#h2-0-136" id="h2-0-136" class="d">-  (set-company-backend! &#39;org-mode &#39;(company-capf))
+</a><a href="#h2-0-137" id="h2-0-137" class="d">-
+</a><a href="#h2-0-138" id="h2-0-138" class="d">-  (setq org-roam-dailies-capture-templates
+</a><a href="#h2-0-139" id="h2-0-139" class="d">-    &#39;((&quot;d&quot; &quot;daily&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-0-140" id="h2-0-140" class="d">-      &quot;%?&quot;
+</a><a href="#h2-0-141" id="h2-0-141" class="d">-      :file-name &quot;%&lt;%Y-%m-%d&gt;&quot;
+</a><a href="#h2-0-142" id="h2-0-142" class="d">-      :immediate-finish t
+</a><a href="#h2-0-143" id="h2-0-143" class="d">-      :head &quot;#+title: %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;
+</a><a href="#h2-0-144" id="h2-0-144" class="d">-#+roam_tags: journals\n
+</a><a href="#h2-0-145" id="h2-0-145" class="d">-\n
+</a><a href="#h2-0-146" id="h2-0-146" class="d">-* %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;&quot;
+</a><a href="#h2-0-147" id="h2-0-147" class="d">-      :unnarrowed t)))
+</a><a href="#h2-0-148" id="h2-0-148" class="d">-
+</a><a href="#h2-0-149" id="h2-0-149" class="d">-  (setq org-roam-capture-templates
+</a><a href="#h2-0-150" id="h2-0-150" class="d">-        &#39;((&quot;d&quot; &quot;default&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-0-151" id="h2-0-151" class="d">-           &quot;%?&quot;
+</a><a href="#h2-0-152" id="h2-0-152" class="d">-           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h2-0-153" id="h2-0-153" class="d">-           :head &quot;#+title: ${title}\n&quot;
+</a><a href="#h2-0-154" id="h2-0-154" class="d">-           :immediate-finish t
+</a><a href="#h2-0-155" id="h2-0-155" class="d">-           :unnarrowed t)
+</a><a href="#h2-0-156" id="h2-0-156" class="d">-          (&quot;k&quot; &quot;kumparan&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-0-157" id="h2-0-157" class="d">-           &quot;%?&quot;
+</a><a href="#h2-0-158" id="h2-0-158" class="d">-           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h2-0-159" id="h2-0-159" class="d">-           :head &quot;#+title: ${title}
+</a><a href="#h2-0-160" id="h2-0-160" class="d">-#+roam_tags: kumparan
+</a><a href="#h2-0-161" id="h2-0-161" class="d">-- backlinks :: [[file:20200630143644-kumparan.org][kumparan]]&quot;
+</a><a href="#h2-0-162" id="h2-0-162" class="d">-           :immediate-finish t
+</a><a href="#h2-0-163" id="h2-0-163" class="d">-           :unnarrowed t)
+</a><a href="#h2-0-164" id="h2-0-164" class="d">-          (&quot;c&quot; &quot;companies&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-0-165" id="h2-0-165" class="d">-           &quot;%?&quot;
+</a><a href="#h2-0-166" id="h2-0-166" class="d">-           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h2-0-167" id="h2-0-167" class="d">-           :head &quot;#+title: ${title}
+</a><a href="#h2-0-168" id="h2-0-168" class="d">-#+roam_tags: companies\n&quot;
+</a><a href="#h2-0-169" id="h2-0-169" class="d">-           :immediate-finish t
+</a><a href="#h2-0-170" id="h2-0-170" class="d">-           :unnarrowed t)
+</a><a href="#h2-0-171" id="h2-0-171" class="d">-          (&quot;m&quot; &quot;medias&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-0-172" id="h2-0-172" class="d">-           &quot;%?&quot;
+</a><a href="#h2-0-173" id="h2-0-173" class="d">-           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h2-0-174" id="h2-0-174" class="d">-           :head &quot;#+title: ${title}
+</a><a href="#h2-0-175" id="h2-0-175" class="d">-#+roam_tags: medias\n&quot;
+</a><a href="#h2-0-176" id="h2-0-176" class="d">-           :immediate-finish t
+</a><a href="#h2-0-177" id="h2-0-177" class="d">-           :unnarrowed t)
+</a><a href="#h2-0-178" id="h2-0-178" class="d">-          (&quot;p&quot; &quot;products&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-0-179" id="h2-0-179" class="d">-           &quot;%?&quot;
+</a><a href="#h2-0-180" id="h2-0-180" class="d">-           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h2-0-181" id="h2-0-181" class="d">-           :head &quot;#+title: ${title}
+</a><a href="#h2-0-182" id="h2-0-182" class="d">-#+roam_tags: products\n&quot;
+</a><a href="#h2-0-183" id="h2-0-183" class="d">-           :immediate-finish t
+</a><a href="#h2-0-184" id="h2-0-184" class="d">-           :unnarrowed t)
+</a><a href="#h2-0-185" id="h2-0-185" class="d">-          (&quot;i&quot; &quot;people&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-0-186" id="h2-0-186" class="d">-           &quot;%?&quot;
+</a><a href="#h2-0-187" id="h2-0-187" class="d">-           :file-name &quot;%&lt;%Y%m%d%H%M%S&gt;-${slug}&quot;
+</a><a href="#h2-0-188" id="h2-0-188" class="d">-           :head &quot;#+title: ${title}
+</a><a href="#h2-0-189" id="h2-0-189" class="d">-#+roam_tags: people\n&quot;
+</a><a href="#h2-0-190" id="h2-0-190" class="d">-           :immediate-finish t
+</a><a href="#h2-0-191" id="h2-0-191" class="d">-           :unnarrowed t))))
+</a><a href="#h2-0-192" id="h2-0-192" class="d">-
+</a><a href="#h2-0-193" id="h2-0-193" class="d">-;; Org-journal
+</a><a href="#h2-0-194" id="h2-0-194" class="d">-(use-package! org-journal
+</a><a href="#h2-0-195" id="h2-0-195" class="d">-  :bind
+</a><a href="#h2-0-196" id="h2-0-196" class="d">-  (&quot;C-c j&quot; . org-journal-new-entry)
+</a><a href="#h2-0-197" id="h2-0-197" class="d">-  (&quot;C-c b&quot; . org-journal-previous-entry)
+</a><a href="#h2-0-198" id="h2-0-198" class="d">-  (&quot;C-c f&quot; . org-journal-next-entry)
+</a><a href="#h2-0-199" id="h2-0-199" class="d">-  :config
+</a><a href="#h2-0-200" id="h2-0-200" class="d">-  (setq org-journal-dir org_dir
+</a><a href="#h2-0-201" id="h2-0-201" class="d">-        org-journal-date-prefix &quot;#+title: &quot;
+</a><a href="#h2-0-202" id="h2-0-202" class="d">-        org-journal-file-format &quot;%Y-%m-%d.org&quot;
+</a><a href="#h2-0-203" id="h2-0-203" class="d">-        org-journal-date-format &quot;%A, %d %B %Y\n&quot;))
+</a><a href="#h2-0-204" id="h2-0-204" class="d">-
+</a><a href="#h2-0-205" id="h2-0-205" class="d">-;; Org-mode
+</a><a href="#h2-0-206" id="h2-0-206" class="d">-(after! org
+</a><a href="#h2-0-207" id="h2-0-207" class="d">-  :init
+</a><a href="#h2-0-208" id="h2-0-208" class="d">-  (require &#39;find-lisp)
+</a><a href="#h2-0-209" id="h2-0-209" class="d">-  (setq org-agenda-files (find-lisp-find-files org_dir &quot;tasks\.org$&quot;))
+</a><a href="#h2-0-210" id="h2-0-210" class="d">-  (setq org-agenda-start-with-log-mode &#39;(state))
+</a><a href="#h2-0-211" id="h2-0-211" class="d">-  (setq org-agenda-start-day &quot;-9d&quot;)
+</a><a href="#h2-0-212" id="h2-0-212" class="d">-  (map! :map org-mode-map
+</a><a href="#h2-0-213" id="h2-0-213" class="d">-        :n &quot;gj&quot; #&#39;evil-next-line
+</a><a href="#h2-0-214" id="h2-0-214" class="d">-        :n &quot;gk&quot; #&#39;evil-previous-line
+</a><a href="#h2-0-215" id="h2-0-215" class="d">-        :n &quot;M-j&quot; #&#39;org-metadown
+</a><a href="#h2-0-216" id="h2-0-216" class="d">-        :n &quot;M-k&quot; #&#39;org-metaup
+</a><a href="#h2-0-217" id="h2-0-217" class="d">-        :n &quot;C-s-r&quot; #&#39;org-roam-insert
+</a><a href="#h2-0-218" id="h2-0-218" class="d">-        :i &quot;C-s-r&quot; #&#39;org-roam-insert
+</a><a href="#h2-0-219" id="h2-0-219" class="d">-        :n &quot;s-r&quot; #&#39;org-roam-buffer-toggle-display
+</a><a href="#h2-0-220" id="h2-0-220" class="d">-        :i &quot;s-r&quot; #&#39;org-roam-buffer-toggle-display)
+</a><a href="#h2-0-221" id="h2-0-221" class="d">-  :config
+</a><a href="#h2-0-222" id="h2-0-222" class="d">-  (setq org-directory org_dir
+</a><a href="#h2-0-223" id="h2-0-223" class="d">-        org-ellipsis &quot; ▼ &quot;
+</a><a href="#h2-0-224" id="h2-0-224" class="d">-        org-id-link-to-org-use-id nil
+</a><a href="#h2-0-225" id="h2-0-225" class="d">-        org-pretty-entities t
+</a><a href="#h2-0-226" id="h2-0-226" class="d">-        org-log-done &#39;note
+</a><a href="#h2-0-227" id="h2-0-227" class="d">-        org-log-into-drawer t
+</a><a href="#h2-0-228" id="h2-0-228" class="d">-        org-log-refile t
+</a><a href="#h2-0-229" id="h2-0-229" class="d">-        org-src-fontify-natively t
+</a><a href="#h2-0-230" id="h2-0-230" class="d">-        org-hide-emphasis-markers t)
+</a><a href="#h2-0-231" id="h2-0-231" class="d">-  (setq org-todo-keywords
+</a><a href="#h2-0-232" id="h2-0-232" class="d">-        &#39;((sequence &quot;TODO(t!)&quot; &quot;INPROGRESS(p!)&quot; &quot;INTEST(i!)&quot; &quot;FEEDBACK(f!)&quot; &quot;HOLD(h!)&quot; &quot;|&quot; &quot;MERGED(m!)&quot; &quot;DONE(d@/!)&quot; &quot;CANCELLED(c!)&quot;)
+</a><a href="#h2-0-233" id="h2-0-233" class="d">-          (sequence &quot;[ ](T)&quot; &quot;[-](S)&quot; &quot;[?](W)&quot; &quot;|&quot; &quot;[X](D)&quot;)))
+</a><a href="#h2-0-234" id="h2-0-234" class="d">-  (setq org-todo-keyword-faces
+</a><a href="#h2-0-235" id="h2-0-235" class="d">-        &#39;((&quot;TODO&quot; :foreground &quot;ffff00&quot; :weight normal :underline t)
+</a><a href="#h2-0-236" id="h2-0-236" class="d">-          (&quot;INPROGRESS&quot; :foreground &quot;#e39ff6&quot; :weight normal :underline t)
+</a><a href="#h2-0-237" id="h2-0-237" class="d">-          (&quot;INTEST&quot; :foreground &quot;#0098dd&quot; :weight normal :underline t)
+</a><a href="#h2-0-238" id="h2-0-238" class="d">-          (&quot;FEEDBACK&quot; :foreground &quot;#0098ee&quot; :weight normal :underline t)
+</a><a href="#h2-0-239" id="h2-0-239" class="d">-          (&quot;HOLD&quot; :foreground &quot;#9f7efe&quot; :weight normal :underline t)
+</a><a href="#h2-0-240" id="h2-0-240" class="d">-          (&quot;MERGED&quot; :foreground &quot;#50a14f&quot; :weight normal :underline t)
+</a><a href="#h2-0-241" id="h2-0-241" class="d">-          (&quot;DONE&quot; :foreground &quot;#50a14f&quot; :weight bold :underline t)
+</a><a href="#h2-0-242" id="h2-0-242" class="d">-          (&quot;CANCELLED&quot; :foreground &quot;#ff6480&quot; :weight normal :underline t)
+</a><a href="#h2-0-243" id="h2-0-243" class="d">-          (&quot;[-]&quot; :foreground &quot;#e39ff6&quot; :weight bold)
+</a><a href="#h2-0-244" id="h2-0-244" class="d">-          (&quot;[?]&quot; :foreground &quot;#9f7efe&quot; :weight bold)))
+</a><a href="#h2-0-245" id="h2-0-245" class="d">-  (setq org-roam-dailies-capture-templates
+</a><a href="#h2-0-246" id="h2-0-246" class="d">-    &#39;((&quot;d&quot; &quot;daily&quot; plain (function org-roam-capture--get-point)
+</a><a href="#h2-0-247" id="h2-0-247" class="d">-      &quot;%?&quot;
+</a><a href="#h2-0-248" id="h2-0-248" class="d">-      :file-name &quot;%&lt;%Y-%m-%d&gt;&quot;
+</a><a href="#h2-0-249" id="h2-0-249" class="d">-      :immediate-finish t
+</a><a href="#h2-0-250" id="h2-0-250" class="d">-      :head &quot;#+title: %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;
+</a><a href="#h2-0-251" id="h2-0-251" class="d">-#+roam_tags: journals\n
+</a><a href="#h2-0-252" id="h2-0-252" class="d">-\n
+</a><a href="#h2-0-253" id="h2-0-253" class="d">-* %&lt;%A&gt;, %&lt;%d&gt; %&lt;%B&gt; %&lt;%Y&gt;&quot;
+</a><a href="#h2-0-254" id="h2-0-254" class="d">-      :unnarrowed t))))
+</a><b>diff --git a/<a id="h3" href="../file/.doom.d/init.el.html">.doom.d/init.el</a> b/<a href="../file/.doom.d/init.el.html">.doom.d/init.el</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -1,183 +0,0 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="d">-;;; init.el -*- lexical-binding: t; -*-
+</a><a href="#h3-0-1" id="h3-0-1" class="d">-
+</a><a href="#h3-0-2" id="h3-0-2" class="d">-;; This file controls what Doom modules are enabled and what order they load
+</a><a href="#h3-0-3" id="h3-0-3" class="d">-;; in. Remember to run &#39;doom sync&#39; after modifying it!
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-
+</a><a href="#h3-0-5" id="h3-0-5" class="d">-;; NOTE Press &#39;SPC h d h&#39; (or &#39;C-h d h&#39; for non-vim users) to access Doom&#39;s
+</a><a href="#h3-0-6" id="h3-0-6" class="d">-;;      documentation. There you&#39;ll find a &quot;Module Index&quot; link where you&#39;ll find
+</a><a href="#h3-0-7" id="h3-0-7" class="d">-;;      a comprehensive list of Doom&#39;s modules and what flags they support.
+</a><a href="#h3-0-8" id="h3-0-8" class="d">-
+</a><a href="#h3-0-9" id="h3-0-9" class="d">-;; NOTE Move your cursor over a module&#39;s name (or its flags) and press &#39;K&#39; (or
+</a><a href="#h3-0-10" id="h3-0-10" class="d">-;;      &#39;C-c c k&#39; for non-vim users) to view its documentation. This works on
+</a><a href="#h3-0-11" id="h3-0-11" class="d">-;;      flags as well (those symbols that start with a plus).
+</a><a href="#h3-0-12" id="h3-0-12" class="d">-;;
+</a><a href="#h3-0-13" id="h3-0-13" class="d">-;;      Alternatively, press &#39;gd&#39; (or &#39;C-c c d&#39;) on a module to browse its
+</a><a href="#h3-0-14" id="h3-0-14" class="d">-;;      directory (for easy access to its source code).
+</a><a href="#h3-0-15" id="h3-0-15" class="d">-
+</a><a href="#h3-0-16" id="h3-0-16" class="d">-(doom! :input
+</a><a href="#h3-0-17" id="h3-0-17" class="d">-       ;;chinese
+</a><a href="#h3-0-18" id="h3-0-18" class="d">-       ;;japanese
+</a><a href="#h3-0-19" id="h3-0-19" class="d">-       ;;layout            ; auie,ctsrnm is the superior home row
+</a><a href="#h3-0-20" id="h3-0-20" class="d">-
+</a><a href="#h3-0-21" id="h3-0-21" class="d">-       :completion
+</a><a href="#h3-0-22" id="h3-0-22" class="d">-       (company +childframe)           ; the ultimate code completion backend
+</a><a href="#h3-0-23" id="h3-0-23" class="d">-       ;;helm              ; the *other* search engine for love and life
+</a><a href="#h3-0-24" id="h3-0-24" class="d">-       ;;ido               ; the other *other* search engine...
+</a><a href="#h3-0-25" id="h3-0-25" class="d">-       ivy               ; a search engine for love and life
+</a><a href="#h3-0-26" id="h3-0-26" class="d">-
+</a><a href="#h3-0-27" id="h3-0-27" class="d">-       :ui
+</a><a href="#h3-0-28" id="h3-0-28" class="d">-       deft              ; notational velocity for Emacs
+</a><a href="#h3-0-29" id="h3-0-29" class="d">-       doom              ; what makes DOOM look the way it does
+</a><a href="#h3-0-30" id="h3-0-30" class="d">-       ;; doom-dashboard    ; a nifty splash screen for Emacs
+</a><a href="#h3-0-31" id="h3-0-31" class="d">-       ;; doom-quit         ; DOOM quit-message prompts when you quit Emacs
+</a><a href="#h3-0-32" id="h3-0-32" class="d">-       ;;fill-column       ; a `fill-column&#39; indicator
+</a><a href="#h3-0-33" id="h3-0-33" class="d">-       hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
+</a><a href="#h3-0-34" id="h3-0-34" class="d">-       ;;hydra
+</a><a href="#h3-0-35" id="h3-0-35" class="d">-       ;;indent-guides     ; highlighted indent columns
+</a><a href="#h3-0-36" id="h3-0-36" class="d">-       ;;ligatures         ; ligatures and symbols to make your code pretty again
+</a><a href="#h3-0-37" id="h3-0-37" class="d">-       ;;minimap           ; show a map of the code on the side
+</a><a href="#h3-0-38" id="h3-0-38" class="d">-       modeline          ; snazzy, Atom-inspired modeline, plus API
+</a><a href="#h3-0-39" id="h3-0-39" class="d">-       ;;nav-flash         ; blink cursor line after big motions
+</a><a href="#h3-0-40" id="h3-0-40" class="d">-       ;;neotree           ; a project drawer, like NERDTree for vim
+</a><a href="#h3-0-41" id="h3-0-41" class="d">-       ophints           ; highlight the region an operation acts on
+</a><a href="#h3-0-42" id="h3-0-42" class="d">-       (popup +defaults)   ; tame sudden yet inevitable temporary windows
+</a><a href="#h3-0-43" id="h3-0-43" class="d">-       ;;tabs              ; a tab bar for Emacs
+</a><a href="#h3-0-44" id="h3-0-44" class="d">-       ;;treemacs          ; a project drawer, like neotree but cooler
+</a><a href="#h3-0-45" id="h3-0-45" class="d">-       ;;unicode           ; extended unicode support for various languages
+</a><a href="#h3-0-46" id="h3-0-46" class="d">-       vc-gutter         ; vcs diff in the fringe
+</a><a href="#h3-0-47" id="h3-0-47" class="d">-       vi-tilde-fringe   ; fringe tildes to mark beyond EOB
+</a><a href="#h3-0-48" id="h3-0-48" class="d">-       ;;window-select     ; visually switch windows
+</a><a href="#h3-0-49" id="h3-0-49" class="d">-       workspaces        ; tab emulation, persistence &amp; separate workspaces
+</a><a href="#h3-0-50" id="h3-0-50" class="d">-       ;;zen               ; distraction-free coding or writing
+</a><a href="#h3-0-51" id="h3-0-51" class="d">-
+</a><a href="#h3-0-52" id="h3-0-52" class="d">-       :editor
+</a><a href="#h3-0-53" id="h3-0-53" class="d">-       (evil +everywhere); come to the dark side, we have cookies
+</a><a href="#h3-0-54" id="h3-0-54" class="d">-       file-templates    ; auto-snippets for empty files
+</a><a href="#h3-0-55" id="h3-0-55" class="d">-       fold              ; (nigh) universal code folding
+</a><a href="#h3-0-56" id="h3-0-56" class="d">-       ;;(format +onsave)  ; automated prettiness
+</a><a href="#h3-0-57" id="h3-0-57" class="d">-       ;;god               ; run Emacs commands without modifier keys
+</a><a href="#h3-0-58" id="h3-0-58" class="d">-       ;;lispy             ; vim for lisp, for people who don&#39;t like vim
+</a><a href="#h3-0-59" id="h3-0-59" class="d">-       ;;multiple-cursors  ; editing in many places at once
+</a><a href="#h3-0-60" id="h3-0-60" class="d">-       ;;objed             ; text object editing for the innocent
+</a><a href="#h3-0-61" id="h3-0-61" class="d">-       ;;parinfer          ; turn lisp into python, sort of
+</a><a href="#h3-0-62" id="h3-0-62" class="d">-       ;;rotate-text       ; cycle region at point between text candidates
+</a><a href="#h3-0-63" id="h3-0-63" class="d">-       snippets          ; my elves. They type so I don&#39;t have to
+</a><a href="#h3-0-64" id="h3-0-64" class="d">-       ;;word-wrap         ; soft wrapping with language-aware indent
+</a><a href="#h3-0-65" id="h3-0-65" class="d">-
+</a><a href="#h3-0-66" id="h3-0-66" class="d">-       :emacs
+</a><a href="#h3-0-67" id="h3-0-67" class="d">-       dired             ; making dired pretty [functional]
+</a><a href="#h3-0-68" id="h3-0-68" class="d">-       electric          ; smarter, keyword-based electric-indent
+</a><a href="#h3-0-69" id="h3-0-69" class="d">-       ;;ibuffer         ; interactive buffer management
+</a><a href="#h3-0-70" id="h3-0-70" class="d">-       undo              ; persistent, smarter undo for your inevitable mistakes
+</a><a href="#h3-0-71" id="h3-0-71" class="d">-       vc                ; version-control and Emacs, sitting in a tree
+</a><a href="#h3-0-72" id="h3-0-72" class="d">-
+</a><a href="#h3-0-73" id="h3-0-73" class="d">-       :term
+</a><a href="#h3-0-74" id="h3-0-74" class="d">-       ;;eshell            ; the elisp shell that works everywhere
+</a><a href="#h3-0-75" id="h3-0-75" class="d">-       ;;shell             ; simple shell REPL for Emacs
+</a><a href="#h3-0-76" id="h3-0-76" class="d">-       ;;term              ; basic terminal emulator for Emacs
+</a><a href="#h3-0-77" id="h3-0-77" class="d">-       ;;vterm             ; the best terminal emulation in Emacs
+</a><a href="#h3-0-78" id="h3-0-78" class="d">-
+</a><a href="#h3-0-79" id="h3-0-79" class="d">-       :checkers
+</a><a href="#h3-0-80" id="h3-0-80" class="d">-       syntax              ; tasing you for every semicolon you forget
+</a><a href="#h3-0-81" id="h3-0-81" class="d">-       ;;spell             ; tasing you for misspelling mispelling
+</a><a href="#h3-0-82" id="h3-0-82" class="d">-       ;;grammar           ; tasing grammar mistake every you make
+</a><a href="#h3-0-83" id="h3-0-83" class="d">-
+</a><a href="#h3-0-84" id="h3-0-84" class="d">-       :tools
+</a><a href="#h3-0-85" id="h3-0-85" class="d">-       ;;ansible
+</a><a href="#h3-0-86" id="h3-0-86" class="d">-       ;;debugger          ; FIXME stepping through code, to help you add bugs
+</a><a href="#h3-0-87" id="h3-0-87" class="d">-       ;;direnv
+</a><a href="#h3-0-88" id="h3-0-88" class="d">-       ;;docker
+</a><a href="#h3-0-89" id="h3-0-89" class="d">-       ;;editorconfig      ; let someone else argue about tabs vs spaces
+</a><a href="#h3-0-90" id="h3-0-90" class="d">-       ;;ein               ; tame Jupyter notebooks with emacs
+</a><a href="#h3-0-91" id="h3-0-91" class="d">-       (eval +overlay)     ; run code, run (also, repls)
+</a><a href="#h3-0-92" id="h3-0-92" class="d">-       ;;gist              ; interacting with github gists
+</a><a href="#h3-0-93" id="h3-0-93" class="d">-       lookup              ; navigate your code and its documentation
+</a><a href="#h3-0-94" id="h3-0-94" class="d">-       ;;lsp
+</a><a href="#h3-0-95" id="h3-0-95" class="d">-       magit             ; a git porcelain for Emacs
+</a><a href="#h3-0-96" id="h3-0-96" class="d">-       ;;make              ; run make tasks from Emacs
+</a><a href="#h3-0-97" id="h3-0-97" class="d">-       ;;pass              ; password manager for nerds
+</a><a href="#h3-0-98" id="h3-0-98" class="d">-       ;;pdf               ; pdf enhancements
+</a><a href="#h3-0-99" id="h3-0-99" class="d">-       ;;prodigy           ; FIXME managing external services &amp; code builders
+</a><a href="#h3-0-100" id="h3-0-100" class="d">-       ;;rgb               ; creating color strings
+</a><a href="#h3-0-101" id="h3-0-101" class="d">-       ;;taskrunner        ; taskrunner for all your projects
+</a><a href="#h3-0-102" id="h3-0-102" class="d">-       ;;terraform         ; infrastructure as code
+</a><a href="#h3-0-103" id="h3-0-103" class="d">-       ;;tmux              ; an API for interacting with tmux
+</a><a href="#h3-0-104" id="h3-0-104" class="d">-       ;;upload            ; map local to remote projects via ssh/ftp
+</a><a href="#h3-0-105" id="h3-0-105" class="d">-
+</a><a href="#h3-0-106" id="h3-0-106" class="d">-       :os
+</a><a href="#h3-0-107" id="h3-0-107" class="d">-       (:if IS-MAC macos)  ; improve compatibility with macOS
+</a><a href="#h3-0-108" id="h3-0-108" class="d">-       ;;tty               ; improve the terminal Emacs experience
+</a><a href="#h3-0-109" id="h3-0-109" class="d">-
+</a><a href="#h3-0-110" id="h3-0-110" class="d">-       :lang
+</a><a href="#h3-0-111" id="h3-0-111" class="d">-       ;;agda              ; types of types of types of types...
+</a><a href="#h3-0-112" id="h3-0-112" class="d">-       ;;cc                ; C/C++/Obj-C madness
+</a><a href="#h3-0-113" id="h3-0-113" class="d">-       ;;clojure           ; java with a lisp
+</a><a href="#h3-0-114" id="h3-0-114" class="d">-       ;;common-lisp       ; if you&#39;ve seen one lisp, you&#39;ve seen them all
+</a><a href="#h3-0-115" id="h3-0-115" class="d">-       ;;coq               ; proofs-as-programs
+</a><a href="#h3-0-116" id="h3-0-116" class="d">-       ;;crystal           ; ruby at the speed of c
+</a><a href="#h3-0-117" id="h3-0-117" class="d">-       ;;csharp            ; unity, .NET, and mono shenanigans
+</a><a href="#h3-0-118" id="h3-0-118" class="d">-       ;;data              ; config/data formats
+</a><a href="#h3-0-119" id="h3-0-119" class="d">-       ;;(dart +flutter)   ; paint ui and not much else
+</a><a href="#h3-0-120" id="h3-0-120" class="d">-       ;;elixir            ; erlang done right
+</a><a href="#h3-0-121" id="h3-0-121" class="d">-       ;;elm               ; care for a cup of TEA?
+</a><a href="#h3-0-122" id="h3-0-122" class="d">-       emacs-lisp        ; drown in parentheses
+</a><a href="#h3-0-123" id="h3-0-123" class="d">-       ;;erlang            ; an elegant language for a more civilized age
+</a><a href="#h3-0-124" id="h3-0-124" class="d">-       ;;ess               ; emacs speaks statistics
+</a><a href="#h3-0-125" id="h3-0-125" class="d">-       ;;faust             ; dsp, but you get to keep your soul
+</a><a href="#h3-0-126" id="h3-0-126" class="d">-       ;;fsharp            ; ML stands for Microsoft&#39;s Language
+</a><a href="#h3-0-127" id="h3-0-127" class="d">-       ;;fstar             ; (dependent) types and (monadic) effects and Z3
+</a><a href="#h3-0-128" id="h3-0-128" class="d">-       ;;gdscript          ; the language you waited for
+</a><a href="#h3-0-129" id="h3-0-129" class="d">-       ;;(go +lsp)         ; the hipster dialect
+</a><a href="#h3-0-130" id="h3-0-130" class="d">-       ;;(haskell +dante)  ; a language that&#39;s lazier than I am
+</a><a href="#h3-0-131" id="h3-0-131" class="d">-       ;;hy                ; readability of scheme w/ speed of python
+</a><a href="#h3-0-132" id="h3-0-132" class="d">-       ;;idris             ;
+</a><a href="#h3-0-133" id="h3-0-133" class="d">-       ;;json              ; At least it ain&#39;t XML
+</a><a href="#h3-0-134" id="h3-0-134" class="d">-       ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
+</a><a href="#h3-0-135" id="h3-0-135" class="d">-       ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
+</a><a href="#h3-0-136" id="h3-0-136" class="d">-       ;;julia             ; a better, faster MATLAB
+</a><a href="#h3-0-137" id="h3-0-137" class="d">-       ;;kotlin            ; a better, slicker Java(Script)
+</a><a href="#h3-0-138" id="h3-0-138" class="d">-       ;;latex             ; writing papers in Emacs has never been so fun
+</a><a href="#h3-0-139" id="h3-0-139" class="d">-       ;;lean
+</a><a href="#h3-0-140" id="h3-0-140" class="d">-       ;;factor
+</a><a href="#h3-0-141" id="h3-0-141" class="d">-       ;;ledger            ; an accounting system in Emacs
+</a><a href="#h3-0-142" id="h3-0-142" class="d">-       ;;lua               ; one-based indices? one-based indices
+</a><a href="#h3-0-143" id="h3-0-143" class="d">-       markdown          ; writing docs for people to ignore
+</a><a href="#h3-0-144" id="h3-0-144" class="d">-       ;;nim               ; python + lisp at the speed of c
+</a><a href="#h3-0-145" id="h3-0-145" class="d">-       ;;nix               ; I hereby declare &quot;nix geht mehr!&quot;
+</a><a href="#h3-0-146" id="h3-0-146" class="d">-       ;;ocaml             ; an objective camel
+</a><a href="#h3-0-147" id="h3-0-147" class="d">-       (org +journal)               ; organize your plain life in plain text
+</a><a href="#h3-0-148" id="h3-0-148" class="d">-       ;;php               ; perl&#39;s insecure younger brother
+</a><a href="#h3-0-149" id="h3-0-149" class="d">-       ;;plantuml          ; diagrams for confusing people more
+</a><a href="#h3-0-150" id="h3-0-150" class="d">-       ;;purescript        ; javascript, but functional
+</a><a href="#h3-0-151" id="h3-0-151" class="d">-       ;;python            ; beautiful is better than ugly
+</a><a href="#h3-0-152" id="h3-0-152" class="d">-       ;;qt                ; the &#39;cutest&#39; gui framework ever
+</a><a href="#h3-0-153" id="h3-0-153" class="d">-       ;;racket            ; a DSL for DSLs
+</a><a href="#h3-0-154" id="h3-0-154" class="d">-       ;;raku              ; the artist formerly known as perl6
+</a><a href="#h3-0-155" id="h3-0-155" class="d">-       ;;rest              ; Emacs as a REST client
+</a><a href="#h3-0-156" id="h3-0-156" class="d">-       ;;rst               ; ReST in peace
+</a><a href="#h3-0-157" id="h3-0-157" class="d">-       ;;(ruby +rails)     ; 1.step {|i| p &quot;Ruby is #{i.even? ? &#39;love&#39; : &#39;life&#39;}&quot;}
+</a><a href="#h3-0-158" id="h3-0-158" class="d">-       ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+</a><a href="#h3-0-159" id="h3-0-159" class="d">-       ;;scala             ; java, but good
+</a><a href="#h3-0-160" id="h3-0-160" class="d">-       ;;scheme            ; a fully conniving family of lisps
+</a><a href="#h3-0-161" id="h3-0-161" class="d">-       sh                ; she sells {ba,z,fi}sh shells on the C xor
+</a><a href="#h3-0-162" id="h3-0-162" class="d">-       ;;sml
+</a><a href="#h3-0-163" id="h3-0-163" class="d">-       ;;solidity          ; do you need a blockchain? No.
+</a><a href="#h3-0-164" id="h3-0-164" class="d">-       ;;swift             ; who asked for emoji variables?
+</a><a href="#h3-0-165" id="h3-0-165" class="d">-       ;;terra             ; Earth and Moon in alignment for performance.
+</a><a href="#h3-0-166" id="h3-0-166" class="d">-       ;;web               ; the tubes
+</a><a href="#h3-0-167" id="h3-0-167" class="d">-       ;;yaml              ; JSON, but readable
+</a><a href="#h3-0-168" id="h3-0-168" class="d">-
+</a><a href="#h3-0-169" id="h3-0-169" class="d">-       :email
+</a><a href="#h3-0-170" id="h3-0-170" class="d">-       ;;(mu4e +gmail)
+</a><a href="#h3-0-171" id="h3-0-171" class="d">-       ;;notmuch
+</a><a href="#h3-0-172" id="h3-0-172" class="d">-       ;;(wanderlust +gmail)
+</a><a href="#h3-0-173" id="h3-0-173" class="d">-
+</a><a href="#h3-0-174" id="h3-0-174" class="d">-       :app
+</a><a href="#h3-0-175" id="h3-0-175" class="d">-       ;;calendar
+</a><a href="#h3-0-176" id="h3-0-176" class="d">-       ;;irc               ; how neckbeards socialize
+</a><a href="#h3-0-177" id="h3-0-177" class="d">-       ;;(rss +org)        ; emacs as an RSS reader
+</a><a href="#h3-0-178" id="h3-0-178" class="d">-       ;;twitter           ; twitter client https://twitter.com/vnought
+</a><a href="#h3-0-179" id="h3-0-179" class="d">-
+</a><a href="#h3-0-180" id="h3-0-180" class="d">-       :config
+</a><a href="#h3-0-181" id="h3-0-181" class="d">-       ;;literate
+</a><a href="#h3-0-182" id="h3-0-182" class="d">-       (default +bindings +smartparens))
+</a><b>diff --git a/<a id="h4" href="../file/.doom.d/packages.el.html">.doom.d/packages.el</a> b/<a href="../file/.doom.d/packages.el.html">.doom.d/packages.el</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -1,53 +0,0 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="d">-;; -*- no-byte-compile: t; -*-
+</a><a href="#h4-0-1" id="h4-0-1" class="d">-;;; $DOOMDIR/packages.el
+</a><a href="#h4-0-2" id="h4-0-2" class="d">-
+</a><a href="#h4-0-3" id="h4-0-3" class="d">-;; To install a package with Doom you must declare them here and run &#39;doom sync&#39;
+</a><a href="#h4-0-4" id="h4-0-4" class="d">-;; on the command line, then restart Emacs for the changes to take effect -- or
+</a><a href="#h4-0-5" id="h4-0-5" class="d">-;; use &#39;M-x doom/reload&#39;.
+</a><a href="#h4-0-6" id="h4-0-6" class="d">-
+</a><a href="#h4-0-7" id="h4-0-7" class="d">-
+</a><a href="#h4-0-8" id="h4-0-8" class="d">-;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
+</a><a href="#h4-0-9" id="h4-0-9" class="d">-;(package! some-package)
+</a><a href="#h4-0-10" id="h4-0-10" class="d">-
+</a><a href="#h4-0-11" id="h4-0-11" class="d">-;; To install a package directly from a remote git repo, you must specify a
+</a><a href="#h4-0-12" id="h4-0-12" class="d">-;; `:recipe&#39;. You&#39;ll find documentation on what `:recipe&#39; accepts here:
+</a><a href="#h4-0-13" id="h4-0-13" class="d">-;; https://github.com/raxod502/straight.el#the-recipe-format
+</a><a href="#h4-0-14" id="h4-0-14" class="d">-;(package! another-package
+</a><a href="#h4-0-15" id="h4-0-15" class="d">-;  :recipe (:host github :repo &quot;username/repo&quot;))
+</a><a href="#h4-0-16" id="h4-0-16" class="d">-
+</a><a href="#h4-0-17" id="h4-0-17" class="d">-;; If the package you are trying to install does not contain a PACKAGENAME.el
+</a><a href="#h4-0-18" id="h4-0-18" class="d">-;; file, or is located in a subdirectory of the repo, you&#39;ll need to specify
+</a><a href="#h4-0-19" id="h4-0-19" class="d">-;; `:files&#39; in the `:recipe&#39;:
+</a><a href="#h4-0-20" id="h4-0-20" class="d">-;(package! this-package
+</a><a href="#h4-0-21" id="h4-0-21" class="d">-;  :recipe (:host github :repo &quot;username/repo&quot;
+</a><a href="#h4-0-22" id="h4-0-22" class="d">-;           :files (&quot;some-file.el&quot; &quot;src/lisp/*.el&quot;)))
+</a><a href="#h4-0-23" id="h4-0-23" class="d">-
+</a><a href="#h4-0-24" id="h4-0-24" class="d">-;; If you&#39;d like to disable a package included with Doom, you can do so here
+</a><a href="#h4-0-25" id="h4-0-25" class="d">-;; with the `:disable&#39; property:
+</a><a href="#h4-0-26" id="h4-0-26" class="d">-;(package! builtin-package :disable t)
+</a><a href="#h4-0-27" id="h4-0-27" class="d">-
+</a><a href="#h4-0-28" id="h4-0-28" class="d">-;; You can override the recipe of a built in package without having to specify
+</a><a href="#h4-0-29" id="h4-0-29" class="d">-;; all the properties for `:recipe&#39;. These will inherit the rest of its recipe
+</a><a href="#h4-0-30" id="h4-0-30" class="d">-;; from Doom or MELPA/ELPA/Emacsmirror:
+</a><a href="#h4-0-31" id="h4-0-31" class="d">-;(package! builtin-package :recipe (:nonrecursive t))
+</a><a href="#h4-0-32" id="h4-0-32" class="d">-;(package! builtin-package-2 :recipe (:repo &quot;myfork/package&quot;))
+</a><a href="#h4-0-33" id="h4-0-33" class="d">-
+</a><a href="#h4-0-34" id="h4-0-34" class="d">-;; Specify a `:branch&#39; to install a package from a particular branch or tag.
+</a><a href="#h4-0-35" id="h4-0-35" class="d">-;; This is required for some packages whose default branch isn&#39;t &#39;master&#39; (which
+</a><a href="#h4-0-36" id="h4-0-36" class="d">-;; our package manager can&#39;t deal with; see raxod502/straight.el#279)
+</a><a href="#h4-0-37" id="h4-0-37" class="d">-;(package! builtin-package :recipe (:branch &quot;develop&quot;))
+</a><a href="#h4-0-38" id="h4-0-38" class="d">-
+</a><a href="#h4-0-39" id="h4-0-39" class="d">-;; Use `:pin&#39; to specify a particular commit to install.
+</a><a href="#h4-0-40" id="h4-0-40" class="d">-;(package! builtin-package :pin &quot;1a2b3c4d5e&quot;)
+</a><a href="#h4-0-41" id="h4-0-41" class="d">-
+</a><a href="#h4-0-42" id="h4-0-42" class="d">-
+</a><a href="#h4-0-43" id="h4-0-43" class="d">-;; Doom&#39;s packages are pinned to a specific commit and updated from release to
+</a><a href="#h4-0-44" id="h4-0-44" class="d">-;; release. The `unpin!&#39; macro allows you to unpin single packages...
+</a><a href="#h4-0-45" id="h4-0-45" class="d">-;(unpin! pinned-package)
+</a><a href="#h4-0-46" id="h4-0-46" class="d">-;; ...or multiple packages
+</a><a href="#h4-0-47" id="h4-0-47" class="d">-;(unpin! pinned-package another-pinned-package)
+</a><a href="#h4-0-48" id="h4-0-48" class="d">-;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
+</a><a href="#h4-0-49" id="h4-0-49" class="d">-;(unpin! t)
+</a><a href="#h4-0-50" id="h4-0-50" class="d">-
+</a><a href="#h4-0-51" id="h4-0-51" class="d">-(package! org-roam
+</a><a href="#h4-0-52" id="h4-0-52" class="d">-  :recipe (:host github :repo &quot;org-roam/org-roam&quot;))
+</a><b>diff --git a/<a id="h5" href="../file/.gitconfig.html">.gitconfig</a> b/<a href="../file/.gitconfig.html">.gitconfig</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -15,9 +15,9 @@
+</a>   hist40 = &quot;--no-pager log --pretty=format:&#39;%C(yellow)%h%C(reset) %C(green)%ad%C(reset) | %C(reset)%s %C(bold)[%an]%C(reset) %C(blue)%d%C(reset)&#39; --graph --date=short --max-count=40&quot;
+ 
+ [user]
+<a href="#h5-0-3" id="h5-0-3" class="d">-  name = Yohanes Bandung Bondowoso
+</a><a href="#h5-0-4" id="h5-0-4" class="d">-  email = hi@ybbond.id
+</a><a href="#h5-0-5" id="h5-0-5" class="d">-  signingkey = 56DAADB152461C806792DBAB84773B93988681A0
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+	name = Yohanes Bandung Bondowoso
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+	email = hi@ybbond.id
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+	signingkey = 56DAADB152461C806792DBAB84773B93988681A0
+</a> 
+ [filter &quot;lfs&quot;]
+   clean = git-lfs clean -- %f
+<b>diff --git a/<a id="h6" href="../file/.hammerspoon/init.lua.html">.hammerspoon/init.lua</a> b/<a href="../file/.hammerspoon/init.lua.html">.hammerspoon/init.lua</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -1,177 +1,210 @@
+</a><a href="#h6-0-0" id="h6-0-0" class="d">--- option + ctrl + h to make active window half to the left
+</a><a href="#h6-0-1" id="h6-0-1" class="d">-hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;H&quot;, function()
+</a><a href="#h6-0-2" id="h6-0-2" class="d">-  local win = hs.window.focusedWindow()
+</a><a href="#h6-0-3" id="h6-0-3" class="d">-  local f = win:frame()
+</a><a href="#h6-0-4" id="h6-0-4" class="d">-  local screen = win:screen()
+</a><a href="#h6-0-5" id="h6-0-5" class="d">-  local max = screen:frame()
+</a><a href="#h6-0-6" id="h6-0-6" class="d">-
+</a><a href="#h6-0-7" id="h6-0-7" class="d">-  f.x = max.x
+</a><a href="#h6-0-8" id="h6-0-8" class="d">-  f.y = max.y
+</a><a href="#h6-0-9" id="h6-0-9" class="d">-  f.w = max.w / 2
+</a><a href="#h6-0-10" id="h6-0-10" class="d">-  f.h = max.h
+</a><a href="#h6-0-11" id="h6-0-11" class="d">-  win:setFrame(f)
+</a><a href="#h6-0-12" id="h6-0-12" class="d">-end)
+</a><a href="#h6-0-13" id="h6-0-13" class="d">-
+</a><a href="#h6-0-14" id="h6-0-14" class="d">--- option + ctrl + l to make active window half to the right
+</a><a href="#h6-0-15" id="h6-0-15" class="d">-hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;L&quot;, function()
+</a><a href="#h6-0-16" id="h6-0-16" class="d">-  local win = hs.window.focusedWindow()
+</a><a href="#h6-0-17" id="h6-0-17" class="d">-  local f = win:frame()
+</a><a href="#h6-0-18" id="h6-0-18" class="d">-  local screen = win:screen()
+</a><a href="#h6-0-19" id="h6-0-19" class="d">-  local max = screen:frame()
+</a><a href="#h6-0-20" id="h6-0-20" class="d">-
+</a><a href="#h6-0-21" id="h6-0-21" class="d">-  f.x = max.x + (max.w / 2)
+</a><a href="#h6-0-22" id="h6-0-22" class="d">-  f.y = max.y
+</a><a href="#h6-0-23" id="h6-0-23" class="d">-  f.w = max.w / 2
+</a><a href="#h6-0-24" id="h6-0-24" class="d">-  f.h = max.h
+</a><a href="#h6-0-25" id="h6-0-25" class="d">-  win:setFrame(f)
+</a><a href="#h6-0-26" id="h6-0-26" class="d">-end)
+</a><a href="#h6-0-27" id="h6-0-27" class="d">-
+</a><a href="#h6-0-28" id="h6-0-28" class="d">--- option + ctrl + j to make active window two-third to the left
+</a><a href="#h6-0-29" id="h6-0-29" class="d">-hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;J&quot;, function()
+</a><a href="#h6-0-30" id="h6-0-30" class="d">-  local win = hs.window.focusedWindow()
+</a><a href="#h6-0-31" id="h6-0-31" class="d">-  local f = win:frame()
+</a><a href="#h6-0-32" id="h6-0-32" class="d">-  local screen = win:screen()
+</a><a href="#h6-0-33" id="h6-0-33" class="d">-  local max = screen:frame()
+</a><a href="#h6-0-34" id="h6-0-34" class="d">-
+</a><a href="#h6-0-35" id="h6-0-35" class="d">-  f.x = max.x
+</a><a href="#h6-0-36" id="h6-0-36" class="d">-  f.y = max.y
+</a><a href="#h6-0-37" id="h6-0-37" class="d">-  f.w = max.w * (2/3)
+</a><a href="#h6-0-38" id="h6-0-38" class="d">-  f.h = max.h
+</a><a href="#h6-0-39" id="h6-0-39" class="d">-  win:setFrame(f)
+</a><a href="#h6-0-40" id="h6-0-40" class="d">-end)
+</a><a href="#h6-0-41" id="h6-0-41" class="d">-
+</a><a href="#h6-0-42" id="h6-0-42" class="d">--- option + ctrl + k to make active window two-third to the right
+</a><a href="#h6-0-43" id="h6-0-43" class="d">-hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;K&quot;, function()
+</a><a href="#h6-0-44" id="h6-0-44" class="d">-  local win = hs.window.focusedWindow()
+</a><a href="#h6-0-45" id="h6-0-45" class="d">-  local f = win:frame()
+</a><a href="#h6-0-46" id="h6-0-46" class="d">-  local screen = win:screen()
+</a><a href="#h6-0-47" id="h6-0-47" class="d">-  local max = screen:frame()
+</a><a href="#h6-0-48" id="h6-0-48" class="d">-
+</a><a href="#h6-0-49" id="h6-0-49" class="d">-  f.x = max.x + (max.w * (1/3))
+</a><a href="#h6-0-50" id="h6-0-50" class="d">-  f.y = max.y
+</a><a href="#h6-0-51" id="h6-0-51" class="d">-  f.w = max.w * (2/3)
+</a><a href="#h6-0-52" id="h6-0-52" class="d">-  f.h = max.h
+</a><a href="#h6-0-53" id="h6-0-53" class="d">-  win:setFrame(f)
+</a><a href="#h6-0-54" id="h6-0-54" class="d">-end)
+</a><a href="#h6-0-55" id="h6-0-55" class="d">-
+</a><a href="#h6-0-56" id="h6-0-56" class="d">--- option + ctrl + i to make active window one-third to the right
+</a><a href="#h6-0-57" id="h6-0-57" class="d">-hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;I&quot;, function()
+</a><a href="#h6-0-58" id="h6-0-58" class="d">-  local win = hs.window.focusedWindow()
+</a><a href="#h6-0-59" id="h6-0-59" class="d">-  local f = win:frame()
+</a><a href="#h6-0-60" id="h6-0-60" class="d">-  local screen = win:screen()
+</a><a href="#h6-0-61" id="h6-0-61" class="d">-  local max = screen:frame()
+</a><a href="#h6-0-62" id="h6-0-62" class="d">-
+</a><a href="#h6-0-63" id="h6-0-63" class="d">-  f.x = max.x + (max.w * (2/3))
+</a><a href="#h6-0-64" id="h6-0-64" class="d">-  f.y = max.y
+</a><a href="#h6-0-65" id="h6-0-65" class="d">-  f.w = max.w * (1/3)
+</a><a href="#h6-0-66" id="h6-0-66" class="d">-  f.h = max.h
+</a><a href="#h6-0-67" id="h6-0-67" class="d">-  win:setFrame(f)
+</a><a href="#h6-0-68" id="h6-0-68" class="d">-end)
+</a><a href="#h6-0-69" id="h6-0-69" class="d">-
+</a><a href="#h6-0-70" id="h6-0-70" class="d">--- option + ctrl + u to make active window one-third to the left
+</a><a href="#h6-0-71" id="h6-0-71" class="d">-hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;U&quot;, function()
+</a><a href="#h6-0-72" id="h6-0-72" class="d">-  local win = hs.window.focusedWindow()
+</a><a href="#h6-0-73" id="h6-0-73" class="d">-  local f = win:frame()
+</a><a href="#h6-0-74" id="h6-0-74" class="d">-  local screen = win:screen()
+</a><a href="#h6-0-75" id="h6-0-75" class="d">-  local max = screen:frame()
+</a><a href="#h6-0-76" id="h6-0-76" class="d">-
+</a><a href="#h6-0-77" id="h6-0-77" class="d">-  f.x = max.x
+</a><a href="#h6-0-78" id="h6-0-78" class="d">-  f.y = max.y
+</a><a href="#h6-0-79" id="h6-0-79" class="d">-  f.w = max.w * (1/3)
+</a><a href="#h6-0-80" id="h6-0-80" class="d">-  f.h = max.h
+</a><a href="#h6-0-81" id="h6-0-81" class="d">-  win:setFrame(f)
+</a><a href="#h6-0-82" id="h6-0-82" class="d">-end)
+</a><a href="#h6-0-83" id="h6-0-83" class="d">-
+</a><a href="#h6-0-84" id="h6-0-84" class="d">--- option + ctrl + s to make active window three-fourth to the left
+</a><a href="#h6-0-85" id="h6-0-85" class="d">-hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;S&quot;, function()
+</a><a href="#h6-0-86" id="h6-0-86" class="d">-  local win = hs.window.focusedWindow()
+</a><a href="#h6-0-87" id="h6-0-87" class="d">-  local f = win:frame()
+</a><a href="#h6-0-88" id="h6-0-88" class="d">-  local screen = win:screen()
+</a><a href="#h6-0-89" id="h6-0-89" class="d">-  local max = screen:frame()
+</a><a href="#h6-0-90" id="h6-0-90" class="d">-
+</a><a href="#h6-0-91" id="h6-0-91" class="d">-  f.x = max.x
+</a><a href="#h6-0-92" id="h6-0-92" class="d">-  f.y = max.y
+</a><a href="#h6-0-93" id="h6-0-93" class="d">-  f.w = max.w * (3/4)
+</a><a href="#h6-0-94" id="h6-0-94" class="d">-  f.h = max.h
+</a><a href="#h6-0-95" id="h6-0-95" class="d">-  win:setFrame(f)
+</a><a href="#h6-0-96" id="h6-0-96" class="d">-end)
+</a><a href="#h6-0-97" id="h6-0-97" class="d">-
+</a><a href="#h6-0-98" id="h6-0-98" class="d">--- option + ctrl + d to make active window aligned right
+</a><a href="#h6-0-99" id="h6-0-99" class="d">-hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;D&quot;, function()
+</a><a href="#h6-0-100" id="h6-0-100" class="d">-  local win = hs.window.focusedWindow()
+</a><a href="#h6-0-101" id="h6-0-101" class="d">-  local f = win:frame()
+</a><a href="#h6-0-102" id="h6-0-102" class="d">-  local screen = win:screen()
+</a><a href="#h6-0-103" id="h6-0-103" class="d">-  local max = screen:frame()
+</a><a href="#h6-0-104" id="h6-0-104" class="d">-
+</a><a href="#h6-0-105" id="h6-0-105" class="d">-  f.x = max.x + max.w - f.w
+</a><a href="#h6-0-106" id="h6-0-106" class="d">-  f.y = max.y
+</a><a href="#h6-0-107" id="h6-0-107" class="d">-  win:setFrame(f)
+</a><a href="#h6-0-108" id="h6-0-108" class="d">-end)
+</a><a href="#h6-0-109" id="h6-0-109" class="d">-
+</a><a href="#h6-0-110" id="h6-0-110" class="d">--- option + ctrl + c to make active window centered
+</a><a href="#h6-0-111" id="h6-0-111" class="d">-hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;C&quot;, function()
+</a><a href="#h6-0-112" id="h6-0-112" class="d">-  local win = hs.window.focusedWindow()
+</a><a href="#h6-0-113" id="h6-0-113" class="d">-  local f = win:frame()
+</a><a href="#h6-0-114" id="h6-0-114" class="d">-  local screen = win:screen()
+</a><a href="#h6-0-115" id="h6-0-115" class="d">-  local max = screen:frame()
+</a><a href="#h6-0-116" id="h6-0-116" class="d">-
+</a><a href="#h6-0-117" id="h6-0-117" class="d">-  -- f.x = max.x + (max.w * (1/6))
+</a><a href="#h6-0-118" id="h6-0-118" class="d">-  -- f.y = max.y + (max.h * (1/6))
+</a><a href="#h6-0-119" id="h6-0-119" class="d">-  -- f.w = max.w * (2/3)
+</a><a href="#h6-0-120" id="h6-0-120" class="d">-  -- f.h = max.h * (2/3)
+</a><a href="#h6-0-121" id="h6-0-121" class="d">-  -- f.x = max.x + (max.w * (1/8))
+</a><a href="#h6-0-122" id="h6-0-122" class="d">-  -- f.y = max.y + (max.h * (1/8))
+</a><a href="#h6-0-123" id="h6-0-123" class="d">-  -- f.w = max.w * (3/4)
+</a><a href="#h6-0-124" id="h6-0-124" class="d">-  -- f.h = max.h * (3/4)
+</a><a href="#h6-0-125" id="h6-0-125" class="d">-  f.x = max.x + (max.w * (3/16))
+</a><a href="#h6-0-126" id="h6-0-126" class="d">-  f.y = max.y + (max.h * (2/16))
+</a><a href="#h6-0-127" id="h6-0-127" class="d">-  f.w = max.w * (5/8)
+</a><a href="#h6-0-128" id="h6-0-128" class="d">-  f.h = max.h * (6/8)
+</a><a href="#h6-0-129" id="h6-0-129" class="d">-  win:setFrame(f)
+</a><a href="#h6-0-130" id="h6-0-130" class="d">-end)
+</a><a href="#h6-0-131" id="h6-0-131" class="d">-
+</a><a href="#h6-0-132" id="h6-0-132" class="d">--- option + ctrl + enter to make active window maximized
+</a><a href="#h6-0-133" id="h6-0-133" class="d">-hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;Return&quot;, function()
+</a><a href="#h6-0-134" id="h6-0-134" class="d">-  local win = hs.window.focusedWindow()
+</a><a href="#h6-0-135" id="h6-0-135" class="d">-  local f = win:frame()
+</a><a href="#h6-0-136" id="h6-0-136" class="d">-  local screen = win:screen()
+</a><a href="#h6-0-137" id="h6-0-137" class="d">-  local max = screen:frame()
+</a><a href="#h6-0-138" id="h6-0-138" class="d">-
+</a><a href="#h6-0-139" id="h6-0-139" class="d">-  f.x = max.x
+</a><a href="#h6-0-140" id="h6-0-140" class="d">-  f.y = max.y
+</a><a href="#h6-0-141" id="h6-0-141" class="d">-  f.w = max.w
+</a><a href="#h6-0-142" id="h6-0-142" class="d">-  f.h = max.h
+</a><a href="#h6-0-143" id="h6-0-143" class="d">-  win:setFrame(f)
+</a><a href="#h6-0-144" id="h6-0-144" class="d">-end)
+</a><a href="#h6-0-145" id="h6-0-145" class="d">-
+</a><a href="#h6-0-146" id="h6-0-146" class="d">--- option + ctrl + N to make active window centered tall
+</a><a href="#h6-0-147" id="h6-0-147" class="d">-hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;N&quot;, function()
+</a><a href="#h6-0-148" id="h6-0-148" class="d">-  local win = hs.window.focusedWindow()
+</a><a href="#h6-0-149" id="h6-0-149" class="d">-  local f = win:frame()
+</a><a href="#h6-0-150" id="h6-0-150" class="d">-  local screen = win:screen()
+</a><a href="#h6-0-151" id="h6-0-151" class="d">-  local max = screen:frame()
+</a><a href="#h6-0-152" id="h6-0-152" class="d">-
+</a><a href="#h6-0-153" id="h6-0-153" class="d">-  f.x = max.x + (max.w * (4/16))
+</a><a href="#h6-0-154" id="h6-0-154" class="d">-  f.w = max.w * (4/8)
+</a><a href="#h6-0-155" id="h6-0-155" class="d">-  f.y = max.y
+</a><a href="#h6-0-156" id="h6-0-156" class="d">-  f.h = max.h
+</a><a href="#h6-0-157" id="h6-0-157" class="d">-  win:setFrame(f)
+</a><a href="#h6-0-158" id="h6-0-158" class="d">-end)
+</a><a href="#h6-0-159" id="h6-0-159" class="d">-
+</a><a href="#h6-0-160" id="h6-0-160" class="d">--- layoutWatcher = hs.eventtap.new({hs.eventtap.event.types.flagsChanged}, function(e)
+</a><a href="#h6-0-161" id="h6-0-161" class="d">---     local flags = e:getFlags()
+</a><a href="#h6-0-162" id="h6-0-162" class="d">---     if flags.cmd and not (flags.alt or flags.shift or flags.ctrl or flags.fn) then
+</a><a href="#h6-0-163" id="h6-0-163" class="d">---         local keyCode = e:getKeyCode()
+</a><a href="#h6-0-164" id="h6-0-164" class="d">---         if keyCode == 0x37 then
+</a><a href="#h6-0-165" id="h6-0-165" class="d">---             hs.alert.show(&quot;left cmd key&quot;)
+</a><a href="#h6-0-166" id="h6-0-166" class="d">---         elseif keyCode == 0x36 then
+</a><a href="#h6-0-167" id="h6-0-167" class="d">---             hs.alert.show(&quot;right cmd key&quot;)
+</a><a href="#h6-0-168" id="h6-0-168" class="d">---         end
+</a><a href="#h6-0-169" id="h6-0-169" class="d">---     end
+</a><a href="#h6-0-170" id="h6-0-170" class="d">--- end):start()
+</a><a href="#h6-0-171" id="h6-0-171" class="d">-
+</a><a href="#h6-0-172" id="h6-0-172" class="d">--- option + ctrl + r to reload config
+</a><a href="#h6-0-173" id="h6-0-173" class="d">-hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;R&quot;, function()
+</a><a href="#h6-0-174" id="h6-0-174" class="i">+local hyper = {&#39;cmd&#39;, &#39;alt&#39;, &#39;ctrl&#39;, &#39;shift&#39;}
+</a><a href="#h6-0-175" id="h6-0-175" class="i">+
+</a><a href="#h6-0-176" id="h6-0-176" class="i">+-- Load and create a new switcher
+</a><a href="#h6-0-177" id="h6-0-177" class="i">+local HyperKey = hs.loadSpoon(&quot;HyperKey&quot;)
+</a><a href="#h6-0-178" id="h6-0-178" class="i">+hyperKey = HyperKey:new(hyper)
+</a><a href="#h6-0-179" id="h6-0-179" class="i">+
+</a><a href="#h6-0-180" id="h6-0-180" class="i">+-- Bind some applications to keys
+</a><a href="#h6-0-181" id="h6-0-181" class="i">+hyperKey
+</a><a href="#h6-0-182" id="h6-0-182" class="i">+  :bind(&#39;l&#39;):toApplication(&#39;/Applications/FSNotes.app&#39;)
+</a><a href="#h6-0-183" id="h6-0-183" class="i">+
+</a><a href="#h6-0-184" id="h6-0-184" class="i">+-- Bind some functions to keys
+</a><a href="#h6-0-185" id="h6-0-185" class="i">+local reloadHammerspoon = function()
+</a><a href="#h6-0-186" id="h6-0-186" class="i">+  -- hs.application.launchOrFocus(&quot;Hammerspoon&quot;)
+</a>   hs.reload()
+<a href="#h6-0-188" id="h6-0-188" class="d">-end)
+</a><a href="#h6-0-189" id="h6-0-189" class="d">-hs.alert.show(&quot;Config loaded&quot;)
+</a><a href="#h6-0-190" id="h6-0-190" class="i">+end
+</a><a href="#h6-0-191" id="h6-0-191" class="i">+
+</a><a href="#h6-0-192" id="h6-0-192" class="i">+hyperKey
+</a><a href="#h6-0-193" id="h6-0-193" class="i">+  :bind(&#39;r&#39;):toFunction(&quot;Reload Hammerspoon&quot;, reloadHammerspoon)
+</a><a href="#h6-0-194" id="h6-0-194" class="i">+
+</a><a href="#h6-0-195" id="h6-0-195" class="i">+--------------------------------------------------------------------
+</a><a href="#h6-0-196" id="h6-0-196" class="i">+--                     screen manipulation
+</a><a href="#h6-0-197" id="h6-0-197" class="i">+--------------------------------------------------------------------
+</a><a href="#h6-0-198" id="h6-0-198" class="i">+
+</a><a href="#h6-0-199" id="h6-0-199" class="i">+-- -- option + ctrl + h to make active window half to the left
+</a><a href="#h6-0-200" id="h6-0-200" class="i">+-- hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;H&quot;, function()
+</a><a href="#h6-0-201" id="h6-0-201" class="i">+--   local win = hs.window.focusedWindow()
+</a><a href="#h6-0-202" id="h6-0-202" class="i">+--   local f = win:frame()
+</a><a href="#h6-0-203" id="h6-0-203" class="i">+--   local screen = win:screen()
+</a><a href="#h6-0-204" id="h6-0-204" class="i">+--   local max = screen:frame()
+</a><a href="#h6-0-205" id="h6-0-205" class="i">+
+</a><a href="#h6-0-206" id="h6-0-206" class="i">+--   f.x = max.x
+</a><a href="#h6-0-207" id="h6-0-207" class="i">+--   f.y = max.y
+</a><a href="#h6-0-208" id="h6-0-208" class="i">+--   f.w = max.w / 2
+</a><a href="#h6-0-209" id="h6-0-209" class="i">+--   f.h = max.h
+</a><a href="#h6-0-210" id="h6-0-210" class="i">+--   win:setFrame(f)
+</a><a href="#h6-0-211" id="h6-0-211" class="i">+-- end)
+</a><a href="#h6-0-212" id="h6-0-212" class="i">+
+</a><a href="#h6-0-213" id="h6-0-213" class="i">+-- -- option + ctrl + l to make active window half to the right
+</a><a href="#h6-0-214" id="h6-0-214" class="i">+-- hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;L&quot;, function()
+</a><a href="#h6-0-215" id="h6-0-215" class="i">+--   local win = hs.window.focusedWindow()
+</a><a href="#h6-0-216" id="h6-0-216" class="i">+--   local f = win:frame()
+</a><a href="#h6-0-217" id="h6-0-217" class="i">+--   local screen = win:screen()
+</a><a href="#h6-0-218" id="h6-0-218" class="i">+--   local max = screen:frame()
+</a><a href="#h6-0-219" id="h6-0-219" class="i">+
+</a><a href="#h6-0-220" id="h6-0-220" class="i">+--   f.x = max.x + (max.w / 2)
+</a><a href="#h6-0-221" id="h6-0-221" class="i">+--   f.y = max.y
+</a><a href="#h6-0-222" id="h6-0-222" class="i">+--   f.w = max.w / 2
+</a><a href="#h6-0-223" id="h6-0-223" class="i">+--   f.h = max.h
+</a><a href="#h6-0-224" id="h6-0-224" class="i">+--   win:setFrame(f)
+</a><a href="#h6-0-225" id="h6-0-225" class="i">+-- end)
+</a><a href="#h6-0-226" id="h6-0-226" class="i">+
+</a><a href="#h6-0-227" id="h6-0-227" class="i">+-- -- option + ctrl + j to make active window two-third to the left
+</a><a href="#h6-0-228" id="h6-0-228" class="i">+-- hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;J&quot;, function()
+</a><a href="#h6-0-229" id="h6-0-229" class="i">+--   local win = hs.window.focusedWindow()
+</a><a href="#h6-0-230" id="h6-0-230" class="i">+--   local f = win:frame()
+</a><a href="#h6-0-231" id="h6-0-231" class="i">+--   local screen = win:screen()
+</a><a href="#h6-0-232" id="h6-0-232" class="i">+--   local max = screen:frame()
+</a><a href="#h6-0-233" id="h6-0-233" class="i">+
+</a><a href="#h6-0-234" id="h6-0-234" class="i">+--   f.x = max.x
+</a><a href="#h6-0-235" id="h6-0-235" class="i">+--   f.y = max.y
+</a><a href="#h6-0-236" id="h6-0-236" class="i">+--   f.w = max.w * (2/3)
+</a><a href="#h6-0-237" id="h6-0-237" class="i">+--   f.h = max.h
+</a><a href="#h6-0-238" id="h6-0-238" class="i">+--   win:setFrame(f)
+</a><a href="#h6-0-239" id="h6-0-239" class="i">+-- end)
+</a><a href="#h6-0-240" id="h6-0-240" class="i">+
+</a><a href="#h6-0-241" id="h6-0-241" class="i">+-- -- option + ctrl + k to make active window two-third to the right
+</a><a href="#h6-0-242" id="h6-0-242" class="i">+-- hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;K&quot;, function()
+</a><a href="#h6-0-243" id="h6-0-243" class="i">+--   local win = hs.window.focusedWindow()
+</a><a href="#h6-0-244" id="h6-0-244" class="i">+--   local f = win:frame()
+</a><a href="#h6-0-245" id="h6-0-245" class="i">+--   local screen = win:screen()
+</a><a href="#h6-0-246" id="h6-0-246" class="i">+--   local max = screen:frame()
+</a><a href="#h6-0-247" id="h6-0-247" class="i">+
+</a><a href="#h6-0-248" id="h6-0-248" class="i">+--   f.x = max.x + (max.w * (1/3))
+</a><a href="#h6-0-249" id="h6-0-249" class="i">+--   f.y = max.y
+</a><a href="#h6-0-250" id="h6-0-250" class="i">+--   f.w = max.w * (2/3)
+</a><a href="#h6-0-251" id="h6-0-251" class="i">+--   f.h = max.h
+</a><a href="#h6-0-252" id="h6-0-252" class="i">+--   win:setFrame(f)
+</a><a href="#h6-0-253" id="h6-0-253" class="i">+-- end)
+</a><a href="#h6-0-254" id="h6-0-254" class="i">+
+</a><a href="#h6-0-255" id="h6-0-255" class="i">+-- -- option + ctrl + i to make active window one-third to the right
+</a><a href="#h6-0-256" id="h6-0-256" class="i">+-- hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;I&quot;, function()
+</a><a href="#h6-0-257" id="h6-0-257" class="i">+--   local win = hs.window.focusedWindow()
+</a><a href="#h6-0-258" id="h6-0-258" class="i">+--   local f = win:frame()
+</a><a href="#h6-0-259" id="h6-0-259" class="i">+--   local screen = win:screen()
+</a><a href="#h6-0-260" id="h6-0-260" class="i">+--   local max = screen:frame()
+</a><a href="#h6-0-261" id="h6-0-261" class="i">+
+</a><a href="#h6-0-262" id="h6-0-262" class="i">+--   f.x = max.x + (max.w * (2/3))
+</a><a href="#h6-0-263" id="h6-0-263" class="i">+--   f.y = max.y
+</a><a href="#h6-0-264" id="h6-0-264" class="i">+--   f.w = max.w * (1/3)
+</a><a href="#h6-0-265" id="h6-0-265" class="i">+--   f.h = max.h
+</a><a href="#h6-0-266" id="h6-0-266" class="i">+--   win:setFrame(f)
+</a><a href="#h6-0-267" id="h6-0-267" class="i">+-- end)
+</a><a href="#h6-0-268" id="h6-0-268" class="i">+
+</a><a href="#h6-0-269" id="h6-0-269" class="i">+-- -- option + ctrl + u to make active window one-third to the left
+</a><a href="#h6-0-270" id="h6-0-270" class="i">+-- hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;U&quot;, function()
+</a><a href="#h6-0-271" id="h6-0-271" class="i">+--   local win = hs.window.focusedWindow()
+</a><a href="#h6-0-272" id="h6-0-272" class="i">+--   local f = win:frame()
+</a><a href="#h6-0-273" id="h6-0-273" class="i">+--   local screen = win:screen()
+</a><a href="#h6-0-274" id="h6-0-274" class="i">+--   local max = screen:frame()
+</a><a href="#h6-0-275" id="h6-0-275" class="i">+
+</a><a href="#h6-0-276" id="h6-0-276" class="i">+--   f.x = max.x
+</a><a href="#h6-0-277" id="h6-0-277" class="i">+--   f.y = max.y
+</a><a href="#h6-0-278" id="h6-0-278" class="i">+--   f.w = max.w * (1/3)
+</a><a href="#h6-0-279" id="h6-0-279" class="i">+--   f.h = max.h
+</a><a href="#h6-0-280" id="h6-0-280" class="i">+--   win:setFrame(f)
+</a><a href="#h6-0-281" id="h6-0-281" class="i">+-- end)
+</a><a href="#h6-0-282" id="h6-0-282" class="i">+
+</a><a href="#h6-0-283" id="h6-0-283" class="i">+-- -- option + ctrl + s to make active window three-fourth to the left
+</a><a href="#h6-0-284" id="h6-0-284" class="i">+-- hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;S&quot;, function()
+</a><a href="#h6-0-285" id="h6-0-285" class="i">+--   local win = hs.window.focusedWindow()
+</a><a href="#h6-0-286" id="h6-0-286" class="i">+--   local f = win:frame()
+</a><a href="#h6-0-287" id="h6-0-287" class="i">+--   local screen = win:screen()
+</a><a href="#h6-0-288" id="h6-0-288" class="i">+--   local max = screen:frame()
+</a><a href="#h6-0-289" id="h6-0-289" class="i">+
+</a><a href="#h6-0-290" id="h6-0-290" class="i">+--   f.x = max.x
+</a><a href="#h6-0-291" id="h6-0-291" class="i">+--   f.y = max.y
+</a><a href="#h6-0-292" id="h6-0-292" class="i">+--   f.w = max.w * (3/4)
+</a><a href="#h6-0-293" id="h6-0-293" class="i">+--   f.h = max.h
+</a><a href="#h6-0-294" id="h6-0-294" class="i">+--   win:setFrame(f)
+</a><a href="#h6-0-295" id="h6-0-295" class="i">+-- end)
+</a><a href="#h6-0-296" id="h6-0-296" class="i">+
+</a><a href="#h6-0-297" id="h6-0-297" class="i">+-- -- option + ctrl + d to make active window aligned right
+</a><a href="#h6-0-298" id="h6-0-298" class="i">+-- hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;D&quot;, function()
+</a><a href="#h6-0-299" id="h6-0-299" class="i">+--   local win = hs.window.focusedWindow()
+</a><a href="#h6-0-300" id="h6-0-300" class="i">+--   local f = win:frame()
+</a><a href="#h6-0-301" id="h6-0-301" class="i">+--   local screen = win:screen()
+</a><a href="#h6-0-302" id="h6-0-302" class="i">+--   local max = screen:frame()
+</a><a href="#h6-0-303" id="h6-0-303" class="i">+
+</a><a href="#h6-0-304" id="h6-0-304" class="i">+--   f.x = max.x + max.w - f.w
+</a><a href="#h6-0-305" id="h6-0-305" class="i">+--   f.y = max.y
+</a><a href="#h6-0-306" id="h6-0-306" class="i">+--   win:setFrame(f)
+</a><a href="#h6-0-307" id="h6-0-307" class="i">+-- end)
+</a><a href="#h6-0-308" id="h6-0-308" class="i">+
+</a><a href="#h6-0-309" id="h6-0-309" class="i">+-- -- option + ctrl + c to make active window centered
+</a><a href="#h6-0-310" id="h6-0-310" class="i">+-- hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;C&quot;, function()
+</a><a href="#h6-0-311" id="h6-0-311" class="i">+--   local win = hs.window.focusedWindow()
+</a><a href="#h6-0-312" id="h6-0-312" class="i">+--   local f = win:frame()
+</a><a href="#h6-0-313" id="h6-0-313" class="i">+--   local screen = win:screen()
+</a><a href="#h6-0-314" id="h6-0-314" class="i">+--   local max = screen:frame()
+</a><a href="#h6-0-315" id="h6-0-315" class="i">+
+</a><a href="#h6-0-316" id="h6-0-316" class="i">+--   -- f.x = max.x + (max.w * (1/6))
+</a><a href="#h6-0-317" id="h6-0-317" class="i">+--   -- f.y = max.y + (max.h * (1/6))
+</a><a href="#h6-0-318" id="h6-0-318" class="i">+--   -- f.w = max.w * (2/3)
+</a><a href="#h6-0-319" id="h6-0-319" class="i">+--   -- f.h = max.h * (2/3)
+</a><a href="#h6-0-320" id="h6-0-320" class="i">+--   -- f.x = max.x + (max.w * (1/8))
+</a><a href="#h6-0-321" id="h6-0-321" class="i">+--   -- f.y = max.y + (max.h * (1/8))
+</a><a href="#h6-0-322" id="h6-0-322" class="i">+--   -- f.w = max.w * (3/4)
+</a><a href="#h6-0-323" id="h6-0-323" class="i">+--   -- f.h = max.h * (3/4)
+</a><a href="#h6-0-324" id="h6-0-324" class="i">+--   f.x = max.x + (max.w * (3/16))
+</a><a href="#h6-0-325" id="h6-0-325" class="i">+--   f.y = max.y + (max.h * (2/16))
+</a><a href="#h6-0-326" id="h6-0-326" class="i">+--   f.w = max.w * (5/8)
+</a><a href="#h6-0-327" id="h6-0-327" class="i">+--   f.h = max.h * (6/8)
+</a><a href="#h6-0-328" id="h6-0-328" class="i">+--   win:setFrame(f)
+</a><a href="#h6-0-329" id="h6-0-329" class="i">+-- end)
+</a><a href="#h6-0-330" id="h6-0-330" class="i">+
+</a><a href="#h6-0-331" id="h6-0-331" class="i">+-- -- option + ctrl + c to make active window centered smaller
+</a><a href="#h6-0-332" id="h6-0-332" class="i">+-- hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;, &quot;shift&quot;}, &quot;C&quot;, function()
+</a><a href="#h6-0-333" id="h6-0-333" class="i">+--   local win = hs.window.focusedWindow()
+</a><a href="#h6-0-334" id="h6-0-334" class="i">+--   local f = win:frame()
+</a><a href="#h6-0-335" id="h6-0-335" class="i">+--   local screen = win:screen()
+</a><a href="#h6-0-336" id="h6-0-336" class="i">+--   local max = screen:frame()
+</a><a href="#h6-0-337" id="h6-0-337" class="i">+
+</a><a href="#h6-0-338" id="h6-0-338" class="i">+--   f.x = max.x + (max.w * (5/16))
+</a><a href="#h6-0-339" id="h6-0-339" class="i">+--   f.y = max.y + (max.h * (2/16))
+</a><a href="#h6-0-340" id="h6-0-340" class="i">+--   f.w = max.w * (3/8)
+</a><a href="#h6-0-341" id="h6-0-341" class="i">+--   f.h = max.h * (6/8)
+</a><a href="#h6-0-342" id="h6-0-342" class="i">+--   win:setFrame(f)
+</a><a href="#h6-0-343" id="h6-0-343" class="i">+-- end)
+</a><a href="#h6-0-344" id="h6-0-344" class="i">+
+</a><a href="#h6-0-345" id="h6-0-345" class="i">+-- -- option + ctrl + enter to make active window maximized
+</a><a href="#h6-0-346" id="h6-0-346" class="i">+-- hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;Return&quot;, function()
+</a><a href="#h6-0-347" id="h6-0-347" class="i">+--   local win = hs.window.focusedWindow()
+</a><a href="#h6-0-348" id="h6-0-348" class="i">+--   local f = win:frame()
+</a><a href="#h6-0-349" id="h6-0-349" class="i">+--   local screen = win:screen()
+</a><a href="#h6-0-350" id="h6-0-350" class="i">+--   local max = screen:frame()
+</a><a href="#h6-0-351" id="h6-0-351" class="i">+
+</a><a href="#h6-0-352" id="h6-0-352" class="i">+--   f.x = max.x
+</a><a href="#h6-0-353" id="h6-0-353" class="i">+--   f.y = max.y
+</a><a href="#h6-0-354" id="h6-0-354" class="i">+--   f.w = max.w
+</a><a href="#h6-0-355" id="h6-0-355" class="i">+--   f.h = max.h
+</a><a href="#h6-0-356" id="h6-0-356" class="i">+--   win:setFrame(f)
+</a><a href="#h6-0-357" id="h6-0-357" class="i">+-- end)
+</a><a href="#h6-0-358" id="h6-0-358" class="i">+
+</a><a href="#h6-0-359" id="h6-0-359" class="i">+-- -- option + ctrl + N to make active window centered tall
+</a><a href="#h6-0-360" id="h6-0-360" class="i">+-- hs.hotkey.bind({&quot;alt&quot;, &quot;ctrl&quot;}, &quot;N&quot;, function()
+</a><a href="#h6-0-361" id="h6-0-361" class="i">+--   local win = hs.window.focusedWindow()
+</a><a href="#h6-0-362" id="h6-0-362" class="i">+--   local f = win:frame()
+</a><a href="#h6-0-363" id="h6-0-363" class="i">+--   local screen = win:screen()
+</a><a href="#h6-0-364" id="h6-0-364" class="i">+--   local max = screen:frame()
+</a><a href="#h6-0-365" id="h6-0-365" class="i">+
+</a><a href="#h6-0-366" id="h6-0-366" class="i">+--   f.x = max.x + (max.w * (4/16))
+</a><a href="#h6-0-367" id="h6-0-367" class="i">+--   f.w = max.w * (4/8)
+</a><a href="#h6-0-368" id="h6-0-368" class="i">+--   f.y = max.y
+</a><a href="#h6-0-369" id="h6-0-369" class="i">+--   f.h = max.h
+</a><a href="#h6-0-370" id="h6-0-370" class="i">+--   win:setFrame(f)
+</a><a href="#h6-0-371" id="h6-0-371" class="i">+-- end)
+</a><a href="#h6-0-372" id="h6-0-372" class="i">+
+</a><a href="#h6-0-373" id="h6-0-373" class="i">+-- -- layoutWatcher = hs.eventtap.new({hs.eventtap.event.types.flagsChanged}, function(e)
+</a><a href="#h6-0-374" id="h6-0-374" class="i">+-- --     local flags = e:getFlags()
+</a><a href="#h6-0-375" id="h6-0-375" class="i">+-- --     if flags.cmd and not (flags.alt or flags.shift or flags.ctrl or flags.fn) then
+</a><a href="#h6-0-376" id="h6-0-376" class="i">+-- --         local keyCode = e:getKeyCode()
+</a><a href="#h6-0-377" id="h6-0-377" class="i">+-- --         if keyCode == 0x37 then
+</a><a href="#h6-0-378" id="h6-0-378" class="i">+-- --             hs.alert.show(&quot;left cmd key&quot;)
+</a><a href="#h6-0-379" id="h6-0-379" class="i">+-- --         elseif keyCode == 0x36 then
+</a><a href="#h6-0-380" id="h6-0-380" class="i">+-- --             hs.alert.show(&quot;right cmd key&quot;)
+</a><a href="#h6-0-381" id="h6-0-381" class="i">+-- --         end
+</a><a href="#h6-0-382" id="h6-0-382" class="i">+-- --     end
+</a><a href="#h6-0-383" id="h6-0-383" class="i">+-- -- end):start()
+</a><a href="#h6-0-384" id="h6-0-384" class="i">+
+</a><a href="#h6-0-385" id="h6-0-385" class="i">+hs.alert.show(&quot;Config loaded&quot;)</a><a href="#h6-0-386" id="h6-0-386" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h7" href="../file/.vimrc.html">.vimrc</a> b/<a href="../file/.vimrc.html">.vimrc</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -23,11 +23,41 @@ set hlsearch
+</a> 
+ nnoremap &lt;LEADER&gt;&lt;SPACE&gt; :nohlsearch&lt;CR&gt;
+ nnoremap &lt;LEADER&gt;% :source %&lt;CR&gt;
+<a href="#h7-0-3" id="h7-0-3" class="d">-inoremap jk &lt;ESC&gt;
+</a> nnoremap j gj
+ nnoremap k gk
+<a href="#h7-0-6" id="h7-0-6" class="d">-vnoremap j gj
+</a><a href="#h7-0-7" id="h7-0-7" class="d">-vnoremap k gk
+</a><a href="#h7-0-8" id="h7-0-8" class="i">+
+</a><a href="#h7-0-9" id="h7-0-9" class="i">+inoremap jk &lt;ESC&gt;
+</a><a href="#h7-0-10" id="h7-0-10" class="i">+inoremap &lt;C-D&gt; &lt;DEL&gt;
+</a><a href="#h7-0-11" id="h7-0-11" class="i">+
+</a><a href="#h7-0-12" id="h7-0-12" class="i">+&quot; navigating buffers
+</a><a href="#h7-0-13" id="h7-0-13" class="i">+nnoremap gb :bnext&lt;cr&gt;
+</a><a href="#h7-0-14" id="h7-0-14" class="i">+nnoremap gB :bprevious&lt;cr&gt;
+</a><a href="#h7-0-15" id="h7-0-15" class="i">+
+</a><a href="#h7-0-16" id="h7-0-16" class="i">+augroup numbertoggle
+</a><a href="#h7-0-17" id="h7-0-17" class="i">+  if &amp;number == 1
+</a><a href="#h7-0-18" id="h7-0-18" class="i">+    autocmd!
+</a><a href="#h7-0-19" id="h7-0-19" class="i">+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+</a><a href="#h7-0-20" id="h7-0-20" class="i">+    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+</a><a href="#h7-0-21" id="h7-0-21" class="i">+  endif
+</a><a href="#h7-0-22" id="h7-0-22" class="i">+augroup end
+</a><a href="#h7-0-23" id="h7-0-23" class="i">+
+</a><a href="#h7-0-24" id="h7-0-24" class="i">+function ToggleNumberToggle(numberVar)
+</a><a href="#h7-0-25" id="h7-0-25" class="i">+  &quot; Reset group
+</a><a href="#h7-0-26" id="h7-0-26" class="i">+  augroup numbertoggle
+</a><a href="#h7-0-27" id="h7-0-27" class="i">+    autocmd!
+</a><a href="#h7-0-28" id="h7-0-28" class="i">+  augroup end
+</a><a href="#h7-0-29" id="h7-0-29" class="i">+
+</a><a href="#h7-0-30" id="h7-0-30" class="i">+  &quot; Enable if toggled on
+</a><a href="#h7-0-31" id="h7-0-31" class="i">+  if a:numberVar
+</a><a href="#h7-0-32" id="h7-0-32" class="i">+    augroup numbertoggle
+</a><a href="#h7-0-33" id="h7-0-33" class="i">+      if &amp;number == 1
+</a><a href="#h7-0-34" id="h7-0-34" class="i">+        autocmd!
+</a><a href="#h7-0-35" id="h7-0-35" class="i">+        autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+</a><a href="#h7-0-36" id="h7-0-36" class="i">+        autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+</a><a href="#h7-0-37" id="h7-0-37" class="i">+      endif
+</a><a href="#h7-0-38" id="h7-0-38" class="i">+    augroup end
+</a><a href="#h7-0-39" id="h7-0-39" class="i">+  endif
+</a><a href="#h7-0-40" id="h7-0-40" class="i">+endfunction
+</a> 
+ if !isdirectory($HOME.&quot;/.vim&quot;)
+   call mkdir($HOME.&quot;/.vim&quot;, &quot;&quot;, 0770)
+<a href="#h7-1" id="h7-1" class="h">@@ -42,19 +72,4 @@ if has (&#39;persistent_undo&#39;)
+</a>   set undoreload=500
+ endif
+ 
+<a href="#h7-1-3" id="h7-1-3" class="d">-if exists(&#39;$TMUX&#39;)
+</a><a href="#h7-1-4" id="h7-1-4" class="d">-  &quot; tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
+</a><a href="#h7-1-5" id="h7-1-5" class="d">-  let &amp;t_SI .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[5 q\&lt;Esc&gt;\\&quot;
+</a><a href="#h7-1-6" id="h7-1-6" class="d">-  let &amp;t_SR .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[4 q\&lt;Esc&gt;\\&quot;
+</a><a href="#h7-1-7" id="h7-1-7" class="d">-  let &amp;t_EI .= &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[1 q\&lt;Esc&gt;\\&quot;
+</a><a href="#h7-1-8" id="h7-1-8" class="d">-  autocmd VimLeave * silent !echo -ne &quot;\033Ptmux;\033\033[0 q\033\\&quot;
+</a><a href="#h7-1-9" id="h7-1-9" class="d">-else
+</a><a href="#h7-1-10" id="h7-1-10" class="d">-  &quot; make the ^[ sign with:
+</a><a href="#h7-1-11" id="h7-1-11" class="d">-  &quot; (INSERT MODE) &lt;C-v&gt;&lt;ESC&gt;
+</a><a href="#h7-1-12" id="h7-1-12" class="d">-  &quot; make sure it shows different color than the rest
+</a><a href="#h7-1-13" id="h7-1-13" class="d">-  set t_SI=[5\ q
+</a><a href="#h7-1-14" id="h7-1-14" class="d">-  set t_SR=[4\ q
+</a><a href="#h7-1-15" id="h7-1-15" class="d">-  set t_EI=[1\ q
+</a><a href="#h7-1-16" id="h7-1-16" class="d">-endif
+</a><a href="#h7-1-17" id="h7-1-17" class="d">-
+</a> set rtp+=/usr/local/opt/fzf
+<b>diff --git a/<a id="h8" href="../file/.zshrc.html">.zshrc</a> b/<a href="../file/.zshrc.html">.zshrc</a></b>
+<a href="#h8-0" id="h8-0" class="h">@@ -25,9 +25,10 @@ SPACESHIP_PROMPT_ORDER=(
+</a>     exec_time
+     jobs
+     exit_code
+<a href="#h8-0-3" id="h8-0-3" class="d">-    # vi_mode
+</a><a href="#h8-0-4" id="h8-0-4" class="i">+    vi_mode
+</a>     char
+   )
+<a href="#h8-0-7" id="h8-0-7" class="i">+
+</a> SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
+ SPACESHIP_PROMPT_SEPARATE_LINE=false
+ SPACESHIP_BATTERY_SHOW=always
+<a href="#h8-1" id="h8-1" class="h">@@ -41,6 +42,7 @@ SPACESHIP_GIT_SUFFIX=&#39;]&#39;
+</a> SPACESHIP_GIT_BRANCH_PREFIX=&#39;•&#39;
+ SPACESHIP_GIT_BRANCH_SUFFIX=&#39;•&#39;
+ # SPACESHIP_GIT_STATUS_COLOR=&#39;#da2c20&#39;
+<a href="#h8-1-3" id="h8-1-3" class="i">+SPACESHIP_VI_MODE_COLOR=grey
+</a> SPACESHIP_GIT_STATUS_PREFIX=&#39;&lt;&#39;
+ SPACESHIP_GIT_STATUS_SUFFIX=&#39;&gt;&#39;
+ SPACESHIP_DIR_PREFIX=&#39;[&#39;
+<a href="#h8-2" id="h8-2" class="h">@@ -175,6 +177,9 @@ bindkey -M viins &#39;^F&#39; autosuggest-accept
+</a> bindkey -M viins &#39;^P&#39; history-substring-search-up
+ bindkey -M viins &#39;^N&#39; history-substring-search-down
+ 
+<a href="#h8-2-3" id="h8-2-3" class="i">+if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then
+</a><a href="#h8-2-4" id="h8-2-4" class="i">+  eval &quot;$(pyenv init -)&quot;
+</a><a href="#h8-2-5" id="h8-2-5" class="i">+fi
+</a> 
+ ########################################################################
+ #                     END OF BANDUNG&#39;s EXPORTS
+<a href="#h8-3" id="h8-3" class="h">@@ -216,14 +221,6 @@ function test_kantal {
+</a>   echo &quot;now your @ argument $@&quot;
+ }
+ 
+<a href="#h8-3-3" id="h8-3-3" class="d">-function tempjson {
+</a><a href="#h8-3-4" id="h8-3-4" class="d">-  nvim ~/tempjson$1.json
+</a><a href="#h8-3-5" id="h8-3-5" class="d">-}
+</a><a href="#h8-3-6" id="h8-3-6" class="d">-
+</a><a href="#h8-3-7" id="h8-3-7" class="d">-function commit {
+</a><a href="#h8-3-8" id="h8-3-8" class="d">-  git add . &amp;&amp; git commit -m &quot;$1&quot;
+</a><a href="#h8-3-9" id="h8-3-9" class="d">-}
+</a><a href="#h8-3-10" id="h8-3-10" class="d">-
+</a> nn ()
+ {
+     # Block nesting of nnn in subshells
+<a href="#h8-4" id="h8-4" class="h">@@ -264,7 +261,7 @@ export NNN_TRASH=1
+</a> #                     START OF BANDUNG&#39;s ALIASES
+ ########################################################################
+ 
+<a href="#h8-4-3" id="h8-4-3" class="d">-eval &quot;$(hub alias -s)&quot;
+</a><a href="#h8-4-4" id="h8-4-4" class="i">+# eval &quot;$(hub alias -s)&quot;
+</a> 
+ # projects
+ alias kapp=&quot;cd ${KUMPATH}/app&quot;
+<a href="#h8-5" id="h8-5" class="h">@@ -326,25 +323,27 @@ bindkey -M viins &#39;jk&#39; vi-cmd-mode
+</a> KEYTIMEOUT=10
+ 
+ # Change cursor shape for different vi modes.
+<a href="#h8-5-3" id="h8-5-3" class="d">-function zle-keymap-select {
+</a><a href="#h8-5-4" id="h8-5-4" class="d">-  if [[ ${KEYMAP} == vicmd ]] ||
+</a><a href="#h8-5-5" id="h8-5-5" class="d">-     [[ $1 = &#39;block&#39; ]]; then
+</a><a href="#h8-5-6" id="h8-5-6" class="d">-    echo -ne &#39;\e[1 q&#39;
+</a><a href="#h8-5-7" id="h8-5-7" class="d">-
+</a><a href="#h8-5-8" id="h8-5-8" class="d">-  elif [[ ${KEYMAP} == main ]] ||
+</a><a href="#h8-5-9" id="h8-5-9" class="d">-       [[ ${KEYMAP} == viins ]] ||
+</a><a href="#h8-5-10" id="h8-5-10" class="d">-       [[ ${KEYMAP} = &#39;&#39; ]] ||
+</a><a href="#h8-5-11" id="h8-5-11" class="d">-       [[ $1 = &#39;beam&#39; ]]; then
+</a><a href="#h8-5-12" id="h8-5-12" class="d">-    echo -ne &#39;\e[5 q&#39;
+</a><a href="#h8-5-13" id="h8-5-13" class="d">-  fi
+</a><a href="#h8-5-14" id="h8-5-14" class="d">-}
+</a><a href="#h8-5-15" id="h8-5-15" class="d">-zle -N zle-keymap-select
+</a><a href="#h8-5-16" id="h8-5-16" class="d">-
+</a><a href="#h8-5-17" id="h8-5-17" class="d">-_fix_cursor() {
+</a><a href="#h8-5-18" id="h8-5-18" class="d">-   echo -ne &#39;\e[5 q&#39;
+</a><a href="#h8-5-19" id="h8-5-19" class="d">-}
+</a><a href="#h8-5-20" id="h8-5-20" class="d">-
+</a><a href="#h8-5-21" id="h8-5-21" class="d">-precmd_functions+=(_fix_cursor)
+</a><a href="#h8-5-22" id="h8-5-22" class="i">+# function zle-keymap-select {
+</a><a href="#h8-5-23" id="h8-5-23" class="i">+#   if [[ ${KEYMAP} == vicmd ]] ||
+</a><a href="#h8-5-24" id="h8-5-24" class="i">+#      [[ $1 = &#39;block&#39; ]]; then
+</a><a href="#h8-5-25" id="h8-5-25" class="i">+#     echo -ne &#39;\e[1 q&#39;
+</a><a href="#h8-5-26" id="h8-5-26" class="i">+
+</a><a href="#h8-5-27" id="h8-5-27" class="i">+#   elif [[ ${KEYMAP} == main ]] ||
+</a><a href="#h8-5-28" id="h8-5-28" class="i">+#        [[ ${KEYMAP} == viins ]] ||
+</a><a href="#h8-5-29" id="h8-5-29" class="i">+#        [[ ${KEYMAP} = &#39;&#39; ]] ||
+</a><a href="#h8-5-30" id="h8-5-30" class="i">+#        [[ $1 = &#39;beam&#39; ]]; then
+</a><a href="#h8-5-31" id="h8-5-31" class="i">+#     echo -ne &#39;\e[5 q&#39;
+</a><a href="#h8-5-32" id="h8-5-32" class="i">+#   fi
+</a><a href="#h8-5-33" id="h8-5-33" class="i">+# }
+</a><a href="#h8-5-34" id="h8-5-34" class="i">+# zle -N zle-keymap-select
+</a><a href="#h8-5-35" id="h8-5-35" class="i">+
+</a><a href="#h8-5-36" id="h8-5-36" class="i">+# _fix_cursor() {
+</a><a href="#h8-5-37" id="h8-5-37" class="i">+#    echo -ne &#39;\e[5 q&#39;
+</a><a href="#h8-5-38" id="h8-5-38" class="i">+# }
+</a><a href="#h8-5-39" id="h8-5-39" class="i">+
+</a><a href="#h8-5-40" id="h8-5-40" class="i">+# precmd_functions+=(_fix_cursor)
+</a><a href="#h8-5-41" id="h8-5-41" class="i">+
+</a><a href="#h8-5-42" id="h8-5-42" class="i">+eval spaceship_vi_mode_enable
+</a> 
+ precmd () {
+   echo -n -e &quot;\a&quot;
+</pre>
+</div>
+</div>
+</body>
+</html>

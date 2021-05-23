@@ -15,7 +15,7 @@
 <a href="../../../index.html">Log</a> | <a href="../../../files.html">Files</a> | <a href="../../../refs.html">Refs</a> | <a href="../../../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> kitty-light.conf (38877B)</p><hr/><pre id="blob">
+<p> kitty-light.conf (38980B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> # vim:fileencoding=utf-8:ft=conf:foldmethod=marker
 <a href="#l2" class="line" id="l2">      2</a> 
 <a href="#l3" class="line" id="l3">      3</a> #: Fonts {{{
@@ -61,7 +61,7 @@
 <a href="#l43" class="line" id="l43">     43</a> #: Font size (in pts)
 <a href="#l44" class="line" id="l44">     44</a> 
 <a href="#l45" class="line" id="l45">     45</a> adjust_line_height  0
-<a href="#l46" class="line" id="l46">     46</a> adjust_column_width 0
+<a href="#l46" class="line" id="l46">     46</a> # adjust_column_width 93%
 <a href="#l47" class="line" id="l47">     47</a> 
 <a href="#l48" class="line" id="l48">     48</a> #: Change the size of each character cell kitty renders. You can use
 <a href="#l49" class="line" id="l49">     49</a> #: either numbers, which are interpreted as pixels or percentages
@@ -111,7 +111,7 @@
 <a href="#l93" class="line" id="l93">     93</a> # cursor #a89984
 <a href="#l94" class="line" id="l94">     94</a> 
 <a href="#l95" class="line" id="l95">     95</a> # gruvbox-light
-<a href="#l96" class="line" id="l96">     96</a> cursor #4c4c4c
+<a href="#l96" class="line" id="l96">     96</a> cursor #16BDEC
 <a href="#l97" class="line" id="l97">     97</a> 
 <a href="#l98" class="line" id="l98">     98</a> #: Default cursor color
 <a href="#l99" class="line" id="l99">     99</a> 
@@ -168,7 +168,7 @@
 <a href="#l150" class="line" id="l150">    150</a> #: 2500 lines per megabyte at 100 chars per line. A value of zero or
 <a href="#l151" class="line" id="l151">    151</a> #: less disables this feature. The maximum allowed size is 4GB.
 <a href="#l152" class="line" id="l152">    152</a> 
-<a href="#l153" class="line" id="l153">    153</a> wheel_scroll_multiplier 5.0
+<a href="#l153" class="line" id="l153">    153</a> wheel_scroll_multiplier 3.0
 <a href="#l154" class="line" id="l154">    154</a> 
 <a href="#l155" class="line" id="l155">    155</a> #: Modify the amount scrolled by the mouse wheel. Note this is only
 <a href="#l156" class="line" id="l156">    156</a> #: used for low precision scrolling devices, not for high precision
@@ -194,8 +194,8 @@
 <a href="#l176" class="line" id="l176">    176</a> #: robustly with the ever-changing sea of bugs that is Cocoa is too
 <a href="#l177" class="line" id="l177">    177</a> #: much effort.
 <a href="#l178" class="line" id="l178">    178</a> 
-<a href="#l179" class="line" id="l179">    179</a> url_color             #d65c0d
-<a href="#l180" class="line" id="l180">    180</a> url_style curly
+<a href="#l179" class="line" id="l179">    179</a> url_color             #67737F
+<a href="#l180" class="line" id="l180">    180</a> url_style             curly
 <a href="#l181" class="line" id="l181">    181</a> 
 <a href="#l182" class="line" id="l182">    182</a> #: The color and style for highlighting URLs on mouse-over. url_style
 <a href="#l183" class="line" id="l183">    183</a> #: can be one of: none, single, double, curly
@@ -510,12 +510,12 @@
 <a href="#l492" class="line" id="l492">    492</a> #: Color scheme {{{
 <a href="#l493" class="line" id="l493">    493</a> 
 <a href="#l494" class="line" id="l494">    494</a> # gruvbox-dark
-<a href="#l495" class="line" id="l495">    495</a> # background #272727
-<a href="#l496" class="line" id="l496">    496</a> # foreground #ebdbb2
+<a href="#l495" class="line" id="l495">    495</a> # background #343d46
+<a href="#l496" class="line" id="l496">    496</a> # foreground #d8dee9
 <a href="#l497" class="line" id="l497">    497</a> 
 <a href="#l498" class="line" id="l498">    498</a> # gruvbox-light
 <a href="#l499" class="line" id="l499">    499</a> background #ffffff
-<a href="#l500" class="line" id="l500">    500</a> foreground #4c4c4c
+<a href="#l500" class="line" id="l500">    500</a> foreground #5b6673
 <a href="#l501" class="line" id="l501">    501</a> 
 <a href="#l502" class="line" id="l502">    502</a> #: The foreground and background colors
 <a href="#l503" class="line" id="l503">    503</a> 
@@ -558,10 +558,10 @@
 <a href="#l540" class="line" id="l540">    540</a> #: means to leave the color unchanged.
 <a href="#l541" class="line" id="l541">    541</a> 
 <a href="#l542" class="line" id="l542">    542</a> # gruvbox-dark
-<a href="#l543" class="line" id="l543">    543</a> # selection_background #ebdbb2
+<a href="#l543" class="line" id="l543">    543</a> # selection_background #596673
 <a href="#l544" class="line" id="l544">    544</a> 
 <a href="#l545" class="line" id="l545">    545</a> # gruvbox-light
-<a href="#l546" class="line" id="l546">    546</a> selection_background #d6d6d6
+<a href="#l546" class="line" id="l546">    546</a> selection_background #f0ede4
 <a href="#l547" class="line" id="l547">    547</a> 
 <a href="#l548" class="line" id="l548">    548</a> #: The background for text selected with the mouse.
 <a href="#l549" class="line" id="l549">    549</a> 
@@ -573,82 +573,82 @@
 <a href="#l555" class="line" id="l555">    555</a> # Black
 <a href="#l556" class="line" id="l556">    556</a> 
 <a href="#l557" class="line" id="l557">    557</a> # gruvbox-dark
-<a href="#l558" class="line" id="l558">    558</a> # color0   #272727
-<a href="#l559" class="line" id="l559">    559</a> # color8   #928373
+<a href="#l558" class="line" id="l558">    558</a> # color0   #000000
+<a href="#l559" class="line" id="l559">    559</a> # color8   #333333
 <a href="#l560" class="line" id="l560">    560</a> 
 <a href="#l561" class="line" id="l561">    561</a> # gruvbox-light
 <a href="#l562" class="line" id="l562">    562</a> color0 #000000
-<a href="#l563" class="line" id="l563">    563</a> color8 #000000
+<a href="#l563" class="line" id="l563">    563</a> color8 #323232
 <a href="#l564" class="line" id="l564">    564</a> 
 <a href="#l565" class="line" id="l565">    565</a> # Red
 <a href="#l566" class="line" id="l566">    566</a> 
 <a href="#l567" class="line" id="l567">    567</a> # gruvbox-dark
-<a href="#l568" class="line" id="l568">    568</a> # color1   #cc231c
-<a href="#l569" class="line" id="l569">    569</a> # color9   #fb4833
+<a href="#l568" class="line" id="l568">    568</a> # color1   #ec5f66
+<a href="#l569" class="line" id="l569">    569</a> # color9   #ec5f66
 <a href="#l570" class="line" id="l570">    570</a> 
 <a href="#l571" class="line" id="l571">    571</a> # gruvbox-light
-<a href="#l572" class="line" id="l572">    572</a> color1 #c82828
-<a href="#l573" class="line" id="l573">    573</a> color9 #c82828
+<a href="#l572" class="line" id="l572">    572</a> color1 #ff3333
+<a href="#l573" class="line" id="l573">    573</a> color9 #ff6565
 <a href="#l574" class="line" id="l574">    574</a> 
 <a href="#l575" class="line" id="l575">    575</a> # Green
 <a href="#l576" class="line" id="l576">    576</a> 
 <a href="#l577" class="line" id="l577">    577</a> # gruvbox-dark
-<a href="#l578" class="line" id="l578">    578</a> # color2   #989719
-<a href="#l579" class="line" id="l579">    579</a> # color10  #b8ba25
+<a href="#l578" class="line" id="l578">    578</a> # color2   #99c794
+<a href="#l579" class="line" id="l579">    579</a> # color10  #99c794
 <a href="#l580" class="line" id="l580">    580</a> 
 <a href="#l581" class="line" id="l581">    581</a> # gruvbox-light
-<a href="#l582" class="line" id="l582">    582</a> color2 #708b00
-<a href="#l583" class="line" id="l583">    583</a> color10 #708b00
+<a href="#l582" class="line" id="l582">    582</a> color2  #86b200
+<a href="#l583" class="line" id="l583">    583</a> color10 #b8e532
 <a href="#l584" class="line" id="l584">    584</a> 
 <a href="#l585" class="line" id="l585">    585</a> # Yellow
 <a href="#l586" class="line" id="l586">    586</a> 
 <a href="#l587" class="line" id="l587">    587</a> # gruvbox-dark
-<a href="#l588" class="line" id="l588">    588</a> # color3   #d79920
-<a href="#l589" class="line" id="l589">    589</a> # color11  #fabc2e
+<a href="#l588" class="line" id="l588">    588</a> # color3   #fac761
+<a href="#l589" class="line" id="l589">    589</a> # color11  #fac761
 <a href="#l590" class="line" id="l590">    590</a> 
 <a href="#l591" class="line" id="l591">    591</a> # gruvbox-light
-<a href="#l592" class="line" id="l592">    592</a> color3 #e9b600
-<a href="#l593" class="line" id="l593">    593</a> color11 #e9b600
+<a href="#l592" class="line" id="l592">    592</a> color3  #f19618
+<a href="#l593" class="line" id="l593">    593</a> color11 #ffc849
 <a href="#l594" class="line" id="l594">    594</a> 
 <a href="#l595" class="line" id="l595">    595</a> # Blue
 <a href="#l596" class="line" id="l596">    596</a> 
 <a href="#l597" class="line" id="l597">    597</a> # gruvbox-dark
-<a href="#l598" class="line" id="l598">    598</a> # color4  #448488
-<a href="#l599" class="line" id="l599">    599</a> # color12 #83a597
+<a href="#l598" class="line" id="l598">    598</a> # color4  #6699cc
+<a href="#l599" class="line" id="l599">    599</a> # color12 #6699cc
 <a href="#l600" class="line" id="l600">    600</a> 
 <a href="#l601" class="line" id="l601">    601</a> # gruvbox-light
-<a href="#l602" class="line" id="l602">    602</a> color4 #4170ae
-<a href="#l603" class="line" id="l603">    603</a> color12 #4170ae
+<a href="#l602" class="line" id="l602">    602</a> color4  #41a6d9
+<a href="#l603" class="line" id="l603">    603</a> color12 #73d7ff
 <a href="#l604" class="line" id="l604">    604</a> 
 <a href="#l605" class="line" id="l605">    605</a> # Magenta
 <a href="#l606" class="line" id="l606">    606</a> 
 <a href="#l607" class="line" id="l607">    607</a> # gruvbox-dark
-<a href="#l608" class="line" id="l608">    608</a> # color5   #b16185
-<a href="#l609" class="line" id="l609">    609</a> # color13  #d3859a
+<a href="#l608" class="line" id="l608">    608</a> # color5   #c695c6
+<a href="#l609" class="line" id="l609">    609</a> # color13  #c695c6
 <a href="#l610" class="line" id="l610">    610</a> 
 <a href="#l611" class="line" id="l611">    611</a> # gruvbox-light
-<a href="#l612" class="line" id="l612">    612</a> color5 #8958a7
-<a href="#l613" class="line" id="l613">    613</a> color13 #8958a7
+<a href="#l612" class="line" id="l612">    612</a> color5  #f07078
+<a href="#l613" class="line" id="l613">    613</a> color13 #ffa3aa
 <a href="#l614" class="line" id="l614">    614</a> 
 <a href="#l615" class="line" id="l615">    615</a> # Cyan
 <a href="#l616" class="line" id="l616">    616</a> 
 <a href="#l617" class="line" id="l617">    617</a> # gruvbox-dark
-<a href="#l618" class="line" id="l618">    618</a> # color6   #689d69
-<a href="#l619" class="line" id="l619">    619</a> # color14  #8ec07b
+<a href="#l618" class="line" id="l618">    618</a> # color6   #5fb4b4
+<a href="#l619" class="line" id="l619">    619</a> # color14  #5fb4b4
 <a href="#l620" class="line" id="l620">    620</a> 
 <a href="#l621" class="line" id="l621">    621</a> # gruvbox-light
-<a href="#l622" class="line" id="l622">    622</a> color6 #3d999f
-<a href="#l623" class="line" id="l623">    623</a> color14 #3d999f
+<a href="#l622" class="line" id="l622">    622</a> color6  #4cbe99
+<a href="#l623" class="line" id="l623">    623</a> color14 #7ff0cb
 <a href="#l624" class="line" id="l624">    624</a> 
 <a href="#l625" class="line" id="l625">    625</a> # White
 <a href="#l626" class="line" id="l626">    626</a> 
 <a href="#l627" class="line" id="l627">    627</a> # gruvbox-dark
-<a href="#l628" class="line" id="l628">    628</a> # color7   #a89983
-<a href="#l629" class="line" id="l629">    629</a> # color15  #ebdbb2
+<a href="#l628" class="line" id="l628">    628</a> # color7   #FFFFFF
+<a href="#l629" class="line" id="l629">    629</a> # color15  #FFFFFF
 <a href="#l630" class="line" id="l630">    630</a> 
 <a href="#l631" class="line" id="l631">    631</a> # gruvbox-light
-<a href="#l632" class="line" id="l632">    632</a> color7 #fffefe
-<a href="#l633" class="line" id="l633">    633</a> color15 #fffefe
+<a href="#l632" class="line" id="l632">    632</a> color7  #fafafa
+<a href="#l633" class="line" id="l633">    633</a> color15 #fafafa
 <a href="#l634" class="line" id="l634">    634</a> 
 <a href="#l635" class="line" id="l635">    635</a> #: }}}
 <a href="#l636" class="line" id="l636">    636</a> 
@@ -1075,7 +1075,7 @@
 <a href="#l1057" class="line" id="l1057">   1057</a> #: external program or insert it into the terminal or copy it to the
 <a href="#l1058" class="line" id="l1058">   1058</a> #: clipboard.
 <a href="#l1059" class="line" id="l1059">   1059</a> 
-<a href="#l1060" class="line" id="l1060">   1060</a> map kitty_mod+e kitten hints
+<a href="#l1060" class="line" id="l1060">   1060</a> map kitty_mod+e kitten hints --hints-foreground-color black --hints-background-color yellow --hints-text-color black
 <a href="#l1061" class="line" id="l1061">   1061</a> 
 <a href="#l1062" class="line" id="l1062">   1062</a> #: Open a currently visible URL using the keyboard. The program used
 <a href="#l1063" class="line" id="l1063">   1063</a> #: to open the URL is specified in open_url_with.
@@ -1162,10 +1162,10 @@
 <a href="#l1144" class="line" id="l1144">   1144</a> map super+7 send_text all \x007
 <a href="#l1145" class="line" id="l1145">   1145</a> map super+8 send_text all \x008
 <a href="#l1146" class="line" id="l1146">   1146</a> map super+9 send_text all \x009
-<a href="#l1147" class="line" id="l1147">   1147</a> map ctrl+shift+tab send_text all \x00_
-<a href="#l1148" class="line" id="l1148">   1148</a> map ctrl+tab send_text all \x00+
-<a href="#l1149" class="line" id="l1149">   1149</a> map super+shift+left send_text all \x00p
-<a href="#l1150" class="line" id="l1150">   1150</a> map super+shift+right send_text all \x00n
+<a href="#l1147" class="line" id="l1147">   1147</a> map ctrl+shift+tab send_text all \x00p
+<a href="#l1148" class="line" id="l1148">   1148</a> map ctrl+tab send_text all \x00n
+<a href="#l1149" class="line" id="l1149">   1149</a> map super+shift+[ send_text all \x00_
+<a href="#l1150" class="line" id="l1150">   1150</a> map super+shift+] send_text all \x00+
 <a href="#l1151" class="line" id="l1151">   1151</a> map super+shift+; send_text all \x00:
 <a href="#l1152" class="line" id="l1152">   1152</a> 
 <a href="#l1153" class="line" id="l1153">   1153</a> 

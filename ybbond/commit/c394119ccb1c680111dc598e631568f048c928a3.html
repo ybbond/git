@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: handle no image for webmention - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/c394119ccb1c680111dc598e631568f048c928a3.html">c394119ccb1c680111dc598e631568f048c928a3</a>
+<b>parent</b> <a href="../commit/810829c8a8df9958d6decbede014e2b7a888e8e8.html">810829c8a8df9958d6decbede014e2b7a888e8e8</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Thu, 20 May 2021 14:23:02 +0700
+
+refactor: handle no image for webmention
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/main.css</a></td><td> | </td><td class="num">9</td><td><span class="i">++++++++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">layouts/partials/post/webmentions-handler.html</a></td><td> | </td><td class="num">45</td><td><span class="i">++++++++++++++++++++++++++++</span><span class="d">-----------------</span></td></tr>
+</table></pre></div><p>2 files changed, 36 insertions(<span id="plus">+</span>), 18 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/main.css.html">assets/main.css</a> b/<a href="../file/assets/main.css.html">assets/main.css</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -229,11 +229,18 @@ a.wm-avatar {
+</a>   font-size: 0.6rem;
+   margin-right: 0.4rem;
+ }
+<a href="#h0-0-3" id="h0-0-3" class="d">-img.wm-avatar {
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+img.wm-avatar, div.wm-avatar {
+</a>   width: 2rem;
+   height: 2rem;
+   border-radius: 1rem;
+ }
+<a href="#h0-0-9" id="h0-0-9" class="i">+div.wm-avatar {
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+  font-size: 1rem;
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+  display: flex;
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+  justify-content: center;
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+  align-items: center;
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+  border: solid 1px;
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+}
+</a> 
+ .wm-reply {
+   margin-bottom: 1rem;
+<b>diff --git a/<a id="h1" href="../file/layouts/partials/post/webmentions-handler.html.html">layouts/partials/post/webmentions-handler.html</a> b/<a href="../file/layouts/partials/post/webmentions-handler.html.html">layouts/partials/post/webmentions-handler.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -9,11 +9,15 @@
+</a>           title=&quot;Photo of {{ $like.author.name }}&quot;
+           class=&quot;wm-avatar&quot;
+         &gt;
+<a href="#h1-0-3" id="h1-0-3" class="d">-          &lt;img
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-            src=&quot;{{ $like.author.photo }}&quot;
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-            alt=&quot;Photo of {{ $like.author.name }}&quot;
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-            class=&quot;wm-avatar&quot;
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-          /&gt;
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+          {{- if $like.author.photo }}
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+            &lt;img
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+              src=&quot;{{ $like.author.photo }}&quot;
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+              alt=&quot;Photo of {{ $like.author.name }}&quot;
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+              class=&quot;wm-avatar&quot;
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+            /&gt;
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+          {{- else }}
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+            &lt;div class=&quot;wm-avatar&quot;&gt;?&lt;/div&gt;
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+          {{- end }}
+</a>         &lt;/a&gt;
+       {{- end }}
+     {{ end -}}
+<a href="#h1-1" id="h1-1" class="h">@@ -27,11 +31,15 @@
+</a>           title=&quot;Photo of {{ $like.author.name }}&quot;
+           class=&quot;wm-avatar&quot;
+         &gt;
+<a href="#h1-1-3" id="h1-1-3" class="d">-          &lt;img
+</a><a href="#h1-1-4" id="h1-1-4" class="d">-            src=&quot;{{ $like.author.photo }}&quot;
+</a><a href="#h1-1-5" id="h1-1-5" class="d">-            alt=&quot;Photo of {{ $like.author.name }}&quot;
+</a><a href="#h1-1-6" id="h1-1-6" class="d">-            class=&quot;wm-avatar&quot;
+</a><a href="#h1-1-7" id="h1-1-7" class="d">-          /&gt;
+</a><a href="#h1-1-8" id="h1-1-8" class="i">+          {{- if $like.author.photo }}
+</a><a href="#h1-1-9" id="h1-1-9" class="i">+            &lt;img
+</a><a href="#h1-1-10" id="h1-1-10" class="i">+              src=&quot;{{ $like.author.photo }}&quot;
+</a><a href="#h1-1-11" id="h1-1-11" class="i">+              alt=&quot;Photo of {{ $like.author.name }}&quot;
+</a><a href="#h1-1-12" id="h1-1-12" class="i">+              class=&quot;wm-avatar&quot;
+</a><a href="#h1-1-13" id="h1-1-13" class="i">+            /&gt;
+</a><a href="#h1-1-14" id="h1-1-14" class="i">+          {{- else }}
+</a><a href="#h1-1-15" id="h1-1-15" class="i">+            &lt;div class=&quot;wm-avatar&quot;&gt;?&lt;/div&gt;
+</a><a href="#h1-1-16" id="h1-1-16" class="i">+          {{- end }}
+</a>         &lt;/a&gt;
+       {{- end }}
+     {{ end -}}
+<a href="#h1-2" id="h1-2" class="h">@@ -48,11 +56,15 @@
+</a>                   title=&quot;Photo of {{ $reply.author.name }}&quot;
+                   class=&quot;wm-avatar&quot;
+                 &gt;
+<a href="#h1-2-3" id="h1-2-3" class="d">-                  &lt;img
+</a><a href="#h1-2-4" id="h1-2-4" class="d">-                    src=&quot;{{ $reply.author.photo }}&quot;
+</a><a href="#h1-2-5" id="h1-2-5" class="d">-                    alt=&quot;Photo of {{ $reply.author.name }}&quot;
+</a><a href="#h1-2-6" id="h1-2-6" class="d">-                    class=&quot;wm-avatar&quot;
+</a><a href="#h1-2-7" id="h1-2-7" class="d">-                  /&gt;
+</a><a href="#h1-2-8" id="h1-2-8" class="i">+                  {{- if $reply.author.photo }}
+</a><a href="#h1-2-9" id="h1-2-9" class="i">+                    &lt;img
+</a><a href="#h1-2-10" id="h1-2-10" class="i">+                      src=&quot;{{ $reply.author.photo }}&quot;
+</a><a href="#h1-2-11" id="h1-2-11" class="i">+                      alt=&quot;Photo of {{ $reply.author.name }}&quot;
+</a><a href="#h1-2-12" id="h1-2-12" class="i">+                      class=&quot;wm-avatar&quot;
+</a><a href="#h1-2-13" id="h1-2-13" class="i">+                    /&gt;
+</a><a href="#h1-2-14" id="h1-2-14" class="i">+                  {{- else }}
+</a><a href="#h1-2-15" id="h1-2-15" class="i">+                    &lt;div class=&quot;wm-avatar&quot;&gt;?&lt;/div&gt;
+</a><a href="#h1-2-16" id="h1-2-16" class="i">+                  {{- end }}
+</a>                 &lt;/a&gt;
+                 &lt;a
+                   href=&quot;{{ $reply.author.url }}&quot;
+<a href="#h1-3" id="h1-3" class="h">@@ -78,4 +90,4 @@
+</a>       &lt;/div&gt;
+     {{ end }}
+   &lt;/div&gt;
+<a href="#h1-3-3" id="h1-3-3" class="d">-{{ end }}</a><a href="#h1-3-4" id="h1-3-4" class="d">-
+\ No newline at end of file
+</a><a href="#h1-3-5" id="h1-3-5" class="i">+{{ end }}
+</a></pre>
+</div>
+</div>
+</body>
+</html>

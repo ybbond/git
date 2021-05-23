@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>zsh and git config updates - dotfiles - feels like ${HOME}
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">feels like ${HOME}
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/6979cc18a5021170e85e286b12bb6253a2773bee.html">6979cc18a5021170e85e286b12bb6253a2773bee</a>
+<b>parent</b> <a href="../commit/2a08731e12f40457eef0ba246022ce200964af9e.html">2a08731e12f40457eef0ba246022ce200964af9e</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Sun, 23 May 2021 15:37:40 +0700
+
+zsh and git config updates
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.gitconfig</a></td><td> | </td><td class="num">23</td><td><span class="i">+++++++++++++</span><span class="d">----------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">.zshrc</a></td><td> | </td><td class="num">17</td><td><span class="i">++++++++++</span><span class="d">-------</span></td></tr>
+</table></pre></div><p>2 files changed, 23 insertions(<span id="plus">+</span>), 17 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/.gitconfig.html">.gitconfig</a> b/<a href="../file/.gitconfig.html">.gitconfig</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -13,6 +13,8 @@
+</a>   ; histi = &quot;log --pretty=format:&#39;%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)&#39; --graph --date=short --max-count=20&quot;
+   hist = &quot;--no-pager log --pretty=format:&#39;%C(yellow)%h%C(reset) %C(green)%ad%C(reset) | %C(reset)%s %C(bold)[%an]%C(reset) %C(blue)%d%C(reset)&#39; --graph --date=short --max-count=20&quot;
+   hist40 = &quot;--no-pager log --pretty=format:&#39;%C(yellow)%h%C(reset) %C(green)%ad%C(reset) | %C(reset)%s %C(bold)[%an]%C(reset) %C(blue)%d%C(reset)&#39; --graph --date=short --max-count=40&quot;
+<a href="#h0-0-3" id="h0-0-3" class="i">+  lab = &quot;!lab&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  hub = &quot;!hub&quot;
+</a> 
+ [user]
+ 	name = Yohanes Bandung Bondowoso
+<a href="#h0-1" id="h0-1" class="h">@@ -30,7 +32,8 @@
+</a> 
+ [core]
+   excludesfile = /Users/yohanesbandung/.gitignore_global
+<a href="#h0-1-3" id="h0-1-3" class="d">-  pager = delta --light
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+  pager = cat
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+  ; pager = delta --light
+</a> 
+ [commit]
+   template = /Users/yohanesbandung/.stCommitMsg
+<a href="#h0-2" id="h0-2" class="h">@@ -38,14 +41,14 @@
+</a> [fetch]
+   prune = false
+ 
+<a href="#h0-2-3" id="h0-2-3" class="d">-[interactive]
+</a><a href="#h0-2-4" id="h0-2-4" class="d">-  diffFilter = delta --color-only --light
+</a><a href="#h0-2-5" id="h0-2-5" class="i">+; [interactive]
+</a><a href="#h0-2-6" id="h0-2-6" class="i">+;   diffFilter = delta --color-only --light
+</a> 
+<a href="#h0-2-8" id="h0-2-8" class="d">-[delta]
+</a><a href="#h0-2-9" id="h0-2-9" class="d">-  features = side-by-side line-numbers decorations
+</a><a href="#h0-2-10" id="h0-2-10" class="d">-  whitespace-error-style = 22 reverse
+</a><a href="#h0-2-11" id="h0-2-11" class="i">+; [delta]
+</a><a href="#h0-2-12" id="h0-2-12" class="i">+;   features = side-by-side line-numbers decorations
+</a><a href="#h0-2-13" id="h0-2-13" class="i">+;   whitespace-error-style = 22 reverse
+</a> 
+<a href="#h0-2-15" id="h0-2-15" class="d">-[delta &quot;decorations&quot;]
+</a><a href="#h0-2-16" id="h0-2-16" class="d">-  commit-decoration-style = bold yellow box ul
+</a><a href="#h0-2-17" id="h0-2-17" class="d">-  file-style = bold yellow ul
+</a><a href="#h0-2-18" id="h0-2-18" class="d">-  file-decoration-style = none
+</a><a href="#h0-2-19" id="h0-2-19" class="i">+; [delta &quot;decorations&quot;]
+</a><a href="#h0-2-20" id="h0-2-20" class="i">+;   commit-decoration-style = bold yellow box ul
+</a><a href="#h0-2-21" id="h0-2-21" class="i">+;   file-style = bold yellow ul
+</a><a href="#h0-2-22" id="h0-2-22" class="i">+;   file-decoration-style = none
+</a><b>diff --git a/<a id="h1" href="../file/.zshrc.html">.zshrc</a> b/<a href="../file/.zshrc.html">.zshrc</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -87,7 +87,7 @@ SPACESHIP_TIME_SUFFIX=&#39;]&#39;
+</a> # DISABLE_LS_COLORS=&quot;true&quot;
+ 
+ # Uncomment the following line to disable auto-setting terminal title.
+<a href="#h1-0-3" id="h1-0-3" class="d">-# DISABLE_AUTO_TITLE=&quot;true&quot;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+DISABLE_AUTO_TITLE=&quot;true&quot;
+</a> 
+ # Uncomment the following line to enable command auto-correction.
+ # ENABLE_CORRECTION=&quot;true&quot;
+<a href="#h1-1" id="h1-1" class="h">@@ -118,7 +118,9 @@ SPACESHIP_TIME_SUFFIX=&#39;]&#39;
+</a> # Custom plugins may be added to $ZSH_CUSTOM/plugins/
+ # Example format: plugins=(rails git textmate ruby lighthouse)
+ # Add wisely, as too many plugins slow down shell startup.
+<a href="#h1-1-3" id="h1-1-3" class="d">-plugins=(git npm yarn zsh-autosuggestions zsh-syntax-highlighting history-substring-search zsh-vi-mode)
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+plugins=(git npm yarn zsh-autosuggestions zsh-syntax-highlighting history-substring-search vi-mode)
+</a><a href="#h1-1-5" id="h1-1-5" class="i">+
+</a><a href="#h1-1-6" id="h1-1-6" class="i">+bindkey -M viins &#39;jk&#39; vi-cmd-mode
+</a> 
+ source $ZSH/oh-my-zsh.sh
+ 
+<a href="#h1-2" id="h1-2" class="h">@@ -152,7 +154,8 @@ export PATH=&quot;$HOME/.emacs.d/bin:$PATH&quot;
+</a> # export PATH=$HOME/bin:$PATH
+ 
+ # export BAT_THEME=&quot;Monokai Extended Bright&quot;
+<a href="#h1-2-3" id="h1-2-3" class="d">-export BAT_THEME=&quot;GitHub&quot;
+</a><a href="#h1-2-4" id="h1-2-4" class="i">+# export BAT_THEME=&quot;GitHub&quot;
+</a><a href="#h1-2-5" id="h1-2-5" class="i">+export BAT_THEME=&quot;Coldark-Dark&quot;
+</a> 
+ export ANDROID_HOME=${HOME}/Library/Android/sdk
+ export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home
+<a href="#h1-3" id="h1-3" class="h">@@ -284,20 +287,20 @@ alias rehead=&quot;git reset HEAD~&quot;
+</a> alias lg=&quot;lazygit&quot;
+ 
+ # misc
+<a href="#h1-3-3" id="h1-3-3" class="d">-alias nexus5x=&quot;~/Library/Android/sdk/emulator/emulator -avd Nexus_5X_API_25 -netdelay none -netspeed full&quot;
+</a><a href="#h1-3-4" id="h1-3-4" class="i">+alias nexus5x=&quot;~/Library/Android/sdk/emulator/emulator -avd Nexus_5X_API_29 -netdelay none -netspeed full&quot;
+</a> alias konak=&quot;kantal 10 yarn add&quot;
+ 
+ alias cdb=&quot;cd ..&quot;
+ 
+ # better cli
+ alias ls=&#39;exa&#39;
+<a href="#h1-3-11" id="h1-3-11" class="d">-# alias top=&#39;btm --color=default-light&#39;
+</a><a href="#h1-3-12" id="h1-3-12" class="d">-# alias cat=&quot;bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &amp;&gt; /dev/null &amp;&amp; echo default || echo GitHub)&quot;
+</a><a href="#h1-3-13" id="h1-3-13" class="d">-alias top=&#39;btm&#39;
+</a> alias cat=&quot;bat&quot;
+ alias find=&#39;fd&#39;
+ alias du=&#39;ncdu --color dark -rr&#39;
+ 
+<a href="#h1-3-18" id="h1-3-18" class="i">+alias set_dark=&quot;cp ~/.tmux-dark.conf ~/.tmux.conf &amp;&amp; cp ~/.config/kitty/kitty-dark.conf ~/.config/kitty/kitty.conf&quot;
+</a><a href="#h1-3-19" id="h1-3-19" class="i">+alias set_light=&quot;cp ~/.tmux-light.conf ~/.tmux.conf &amp;&amp; cp ~/.config/kitty/kitty-light.conf ~/.config/kitty/kitty.conf&quot;
+</a><a href="#h1-3-20" id="h1-3-20" class="i">+
+</a> source &lt;(lab completion zsh)
+ 
+ ########################################################################
+</pre>
+</div>
+</div>
+</body>
+</html>

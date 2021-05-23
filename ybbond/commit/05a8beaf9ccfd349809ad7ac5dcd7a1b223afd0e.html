@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: update goatcounter binary - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/05a8beaf9ccfd349809ad7ac5dcd7a1b223afd0e.html">05a8beaf9ccfd349809ad7ac5dcd7a1b223afd0e</a>
+<b>parent</b> <a href="../commit/61d6178f7c8aea61ea70fb92a9dd9e55a9608965.html">61d6178f7c8aea61ea70fb92a9dd9e55a9608965</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Thu, 20 May 2021 01:54:47 +0700
+
+refactor: update goatcounter binary
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/partials/components/goatcounter.html</a></td><td> | </td><td class="num">12</td><td><span class="i">++++++++</span><span class="d">----</span></td></tr>
+</table></pre></div><p>1 file changed, 8 insertions(<span id="plus">+</span>), 4 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/partials/components/goatcounter.html.html">layouts/partials/components/goatcounter.html</a> b/<a href="../file/layouts/partials/components/goatcounter.html.html">layouts/partials/components/goatcounter.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -22,6 +22,8 @@ window.goatcounter = {endpoint: &#39;https://stats.ybbond.id/count&#39;}
+</a> 				window.goatcounter[k] = set[k]
+ 	}
+ 
+<a href="#h0-0-3" id="h0-0-3" class="i">+	var enc = encodeURIComponent
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+
+</a> 	// Get all data we&#39;re going to send off to the counter endpoint.
+ 	var get_data = function(vars) {
+ 		var data = {
+<a href="#h0-1" id="h0-1" class="h">@@ -73,7 +75,7 @@ window.goatcounter = {endpoint: &#39;https://stats.ybbond.id/count&#39;}
+</a> 		var p = []
+ 		for (var k in obj)
+ 			if (obj[k] !== &#39;&#39; &amp;&amp; obj[k] !== null &amp;&amp; obj[k] !== undefined &amp;&amp; obj[k] !== false)
+<a href="#h0-1-3" id="h0-1-3" class="d">-				p.push(encodeURIComponent(k) + &#39;=&#39; + encodeURIComponent(obj[k]))
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+				p.push(enc(k) + &#39;=&#39; + enc(obj[k]))
+</a> 		return &#39;?&#39; + p.join(&#39;&amp;&#39;)
+ 	}
+ 
+<a href="#h0-2" id="h0-2" class="h">@@ -118,7 +120,7 @@ window.goatcounter = {endpoint: &#39;https://stats.ybbond.id/count&#39;}
+</a> 			return &#39;visibilityState&#39;
+ 		if (!goatcounter.allow_frame &amp;&amp; location !== parent.location)
+ 			return &#39;frame&#39;
+<a href="#h0-2-3" id="h0-2-3" class="d">-		if (!goatcounter.allow_local &amp;&amp; location.hostname.match(/(localhost$|^127\.|^10\.|^172\.(1[6-9]|2[0-9]|3[0-1])\.|^192\.168\.)/))
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+		if (!goatcounter.allow_local &amp;&amp; location.hostname.match(/(localhost$|^127\.|^10\.|^172\.(1[6-9]|2[0-9]|3[0-1])\.|^192\.168\.|^0\.0\.0\.0$)/))
+</a> 			return &#39;localhost&#39;
+ 		if (!goatcounter.allow_local &amp;&amp; location.protocol === &#39;file:&#39;)
+ 			return &#39;localfile&#39;
+<a href="#h0-3" id="h0-3" class="h">@@ -206,9 +208,11 @@ window.goatcounter = {endpoint: &#39;https://stats.ybbond.id/count&#39;}
+</a> 			opt.path   = opt.path   || get_path()
+ 			opt.attr   = opt.attr   || {width: &#39;200&#39;, height: (opt.no_branding ? &#39;60&#39; : &#39;80&#39;)}
+ 
+<a href="#h0-3-3" id="h0-3-3" class="d">-			opt.attr[&#39;src&#39;] = get_endpoint() + &#39;er/&#39; + encodeURIComponent(opt.path) + &#39;.&#39; + opt.type + &#39;?&#39;
+</a><a href="#h0-3-4" id="h0-3-4" class="i">+			opt.attr[&#39;src&#39;] = get_endpoint() + &#39;er/&#39; + enc(opt.path) + &#39;.&#39; + enc(opt.type) + &#39;?&#39;
+</a> 			if (opt.no_branding) opt.attr[&#39;src&#39;] += &#39;&amp;no_branding=1&#39;
+<a href="#h0-3-6" id="h0-3-6" class="d">-			if (opt.style)       opt.attr[&#39;src&#39;] += &#39;&amp;style=&#39; + encodeURIComponent(opt.style)
+</a><a href="#h0-3-7" id="h0-3-7" class="i">+			if (opt.style)       opt.attr[&#39;src&#39;] += &#39;&amp;style=&#39; + enc(opt.style)
+</a><a href="#h0-3-8" id="h0-3-8" class="i">+			if (opt.start)       opt.attr[&#39;src&#39;] += &#39;&amp;start=&#39; + enc(opt.start)
+</a><a href="#h0-3-9" id="h0-3-9" class="i">+			if (opt.end)         opt.attr[&#39;src&#39;] += &#39;&amp;end=&#39;   + enc(opt.end)
+</a> 
+ 			var tag = {png: &#39;img&#39;, svg: &#39;img&#39;, html: &#39;iframe&#39;}[opt.type]
+ 			if (!tag)
+</pre>
+</div>
+</div>
+</body>
+</html>

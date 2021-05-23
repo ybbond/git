@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: remove remarkbox - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/775fc528bb1ebd870cf76585fbf5bf88cde8310c.html">775fc528bb1ebd870cf76585fbf5bf88cde8310c</a>
+<b>parent</b> <a href="../commit/733d071cc6ddd25db27d3836c9a7499384d7dd62.html">733d071cc6ddd25db27d3836c9a7499384d7dd62</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Thu, 20 May 2021 00:07:06 +0700
+
+refactor: remove remarkbox
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/_default/single.html</a></td><td> | </td><td class="num">8</td><td><span class="i">++</span><span class="d">------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h1">layouts/partials/post/remarkbox.html</a></td><td> | </td><td class="num">48</td><td><span class="i"></span><span class="d">------------------------------------------------</span></td></tr>
+</table></pre></div><p>2 files changed, 2 insertions(<span id="plus">+</span>), 54 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,16 +1,13 @@
+</a> {{ define &quot;main&quot; }}
+<a href="#h0-0-1" id="h0-0-1" class="d">-  {{ .Scratch.Set &quot;scope&quot; &quot;single&quot; }}
+</a>   {{ if eq .Type &quot;notes&quot; }}
+<a href="#h0-0-3" id="h0-0-3" class="d">-    &lt;article&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    &lt;article class=&quot;single__micro&quot;&gt;
+</a>       {{- partial &quot;post/notes-item.html&quot; . -}}
+       {{ partial &quot;post/webmentions-handler.html&quot; . }}
+<a href="#h0-0-7" id="h0-0-7" class="d">-      {{ partial &quot;post/remarkbox.html&quot; . }}
+</a>     &lt;/article&gt;
+   {{ else if eq .Type &quot;responses&quot; }}
+<a href="#h0-0-10" id="h0-0-10" class="d">-    &lt;article&gt;
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+    &lt;article class=&quot;single__micro&quot;&gt;
+</a>       {{- partial &quot;post/responses-item.html&quot; . -}}
+       {{ partial &quot;post/webmentions-handler.html&quot; . }}
+<a href="#h0-0-14" id="h0-0-14" class="d">-      {{ partial &quot;post/remarkbox.html&quot; . }}
+</a>     &lt;/article&gt;
+   {{ else }}
+     &lt;article class=&quot;content h-entry&quot;&gt;
+<a href="#h0-1" id="h0-1" class="h">@@ -58,7 +55,6 @@
+</a> 
+       {{- if ne .Type &quot;page&quot; }}
+         {{ partial &quot;post/webmentions-handler.html&quot; . }}
+<a href="#h0-1-3" id="h0-1-3" class="d">-        {{ partial &quot;post/remarkbox.html&quot; . }}
+</a>       {{- else }}
+         &lt;br&gt;
+         &lt;br&gt;
+<b>diff --git a/<a id="h1" href="../file/layouts/partials/post/remarkbox.html.html">layouts/partials/post/remarkbox.html</a> b/<a href="../file/layouts/partials/post/remarkbox.html.html">layouts/partials/post/remarkbox.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,48 +0,0 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="d">-&lt;!-- Remarkbox - Your readers want to communicate with you --&gt;
+</a><a href="#h1-0-1" id="h1-0-1" class="d">-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+</a><a href="#h1-0-2" id="h1-0-2" class="d">-&lt;hr /&gt;
+</a><a href="#h1-0-3" id="h1-0-3" class="d">-&lt;h3 class=&quot;footnotes__text&quot;&gt;Comments:&lt;/h3&gt;
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-&lt;div id=&quot;remarkbox-div&quot;&gt;
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-  &lt;noscript&gt;
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-    &lt;iframe id=remarkbox-iframe src=&quot;https://my.remarkbox.com/embed?nojs=true&quot; style=&quot;height:600px;width:100%;border:none!important&quot; tabindex=0&gt;&lt;/iframe&gt;
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-  &lt;/noscript&gt;
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-&lt;/div&gt;
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-&lt;script src=&quot;https://my.remarkbox.com/static/js/iframe-resizer/iframeResizer.min.js&quot;&gt;&lt;/script&gt;
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-&lt;script&gt;
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-  const rb_owner_key = &quot;372c6a71-6844-11eb-8f74-040140774501&quot;;
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-  let thread_uri = window.location.href;
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-  if (thread_uri.startsWith(&#39;http://localhost:1313&#39;)) {
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-    thread_uri = &#39;https://ybbond.id&#39; + thread_uri.substring(21);
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-  }
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-  const thread_title = window.document.title;
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-  const thread_fragment = window.location.hash;
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-  // rb owner was here.
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-  const rb_src = &quot;https://my.remarkbox.com/embed&quot; +
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-      &quot;?rb_owner_key=&quot; + rb_owner_key +
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-      &quot;&amp;thread_title=&quot; + encodeURI(thread_title) +
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-      &quot;&amp;thread_uri=&quot; + encodeURIComponent(thread_uri) +
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-      thread_fragment;
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-  function create_remarkbox_iframe() {
+</a><a href="#h1-0-27" id="h1-0-27" class="d">-    var ifrm = document.createElement(&quot;iframe&quot;);
+</a><a href="#h1-0-28" id="h1-0-28" class="d">-    ifrm.setAttribute(&quot;id&quot;, &quot;remarkbox-iframe&quot;);
+</a><a href="#h1-0-29" id="h1-0-29" class="d">-    ifrm.setAttribute(&quot;scrolling&quot;, &quot;no&quot;);
+</a><a href="#h1-0-30" id="h1-0-30" class="d">-    ifrm.setAttribute(&quot;src&quot;, rb_src);
+</a><a href="#h1-0-31" id="h1-0-31" class="d">-    ifrm.setAttribute(&quot;frameborder&quot;, &quot;0&quot;);
+</a><a href="#h1-0-32" id="h1-0-32" class="d">-    ifrm.setAttribute(&quot;tabindex&quot;, &quot;0&quot;);
+</a><a href="#h1-0-33" id="h1-0-33" class="d">-    ifrm.setAttribute(&quot;title&quot;, &quot;Remarkbox&quot;);
+</a><a href="#h1-0-34" id="h1-0-34" class="d">-    ifrm.style.width = &quot;100%&quot;;
+</a><a href="#h1-0-35" id="h1-0-35" class="d">-    document.getElementById(&quot;remarkbox-div&quot;).appendChild(ifrm);
+</a><a href="#h1-0-36" id="h1-0-36" class="d">-  }
+</a><a href="#h1-0-37" id="h1-0-37" class="d">-  create_remarkbox_iframe();
+</a><a href="#h1-0-38" id="h1-0-38" class="d">-  iFrameResize(
+</a><a href="#h1-0-39" id="h1-0-39" class="d">-    {
+</a><a href="#h1-0-40" id="h1-0-40" class="d">-      checkOrigin: [&quot;https://my.remarkbox.com&quot;],
+</a><a href="#h1-0-41" id="h1-0-41" class="d">-      inPageLinks: true,
+</a><a href="#h1-0-42" id="h1-0-42" class="d">-      initCallback: function(e) {e.iFrameResizer.moveToAnchor(thread_fragment)}
+</a><a href="#h1-0-43" id="h1-0-43" class="d">-    },
+</a><a href="#h1-0-44" id="h1-0-44" class="d">-    document.getElementById(&quot;remarkbox-iframe&quot;)
+</a><a href="#h1-0-45" id="h1-0-45" class="d">-  );
+</a><a href="#h1-0-46" id="h1-0-46" class="d">-&lt;/script&gt;
+</a><a href="#h1-0-47" id="h1-0-47" class="d">-&lt;/div&gt;
+</a></pre>
+</div>
+</div>
+</body>
+</html>

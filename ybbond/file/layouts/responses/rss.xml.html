@@ -50,10 +50,10 @@
 <a href="#l32" class="line" id="l32">     32</a>     {{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
 <a href="#l33" class="line" id="l33">     33</a>     &lt;item&gt;
 <a href="#l34" class="line" id="l34">     34</a>       &lt;title&gt;{{ .Title }}&lt;/title&gt;
-<a href="#l35" class="line" id="l35">     35</a>       &lt;link&gt;{{ .Site.BaseURL }}responses#{{ $idslug }}&lt;/link&gt;
+<a href="#l35" class="line" id="l35">     35</a>       &lt;link&gt;{{ .Site.BaseURL }}responses/{{ $idslug }}&lt;/link&gt;
 <a href="#l36" class="line" id="l36">     36</a>       &lt;pubDate&gt;{{ .Date.Format &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; | safeHTML }}&lt;/pubDate&gt;
 <a href="#l37" class="line" id="l37">     37</a>       {{ with .Site.Author.email }}&lt;author&gt;{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}&lt;/author&gt;{{end}}
-<a href="#l38" class="line" id="l38">     38</a>       &lt;guid isPermaLink=&quot;true&quot;&gt;{{ .Site.BaseURL }}responses#{{ $idslug }}&lt;/guid&gt;
+<a href="#l38" class="line" id="l38">     38</a>       &lt;guid isPermaLink=&quot;true&quot;&gt;{{ .Site.BaseURL }}responses/{{ $idslug }}&lt;/guid&gt;
 <a href="#l39" class="line" id="l39">     39</a>       &lt;description&gt;{{ .Content | html }}&lt;/description&gt;
 <a href="#l40" class="line" id="l40">     40</a>     &lt;/item&gt;
 <a href="#l41" class="line" id="l41">     41</a>     {{ end }}

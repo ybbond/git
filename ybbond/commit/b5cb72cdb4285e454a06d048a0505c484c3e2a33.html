@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>feature: add comment by remarkbox - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/b5cb72cdb4285e454a06d048a0505c484c3e2a33.html">b5cb72cdb4285e454a06d048a0505c484c3e2a33</a>
+<b>parent</b> <a href="../commit/3b88bbf78b8977d770f90785573368ecd51e6e91.html">3b88bbf78b8977d770f90785573368ecd51e6e91</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Sat,  6 Feb 2021 13:38:27 +0700
+
+feature: add comment by remarkbox
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/_default/single.html</a></td><td> | </td><td class="num">6</td><td><span class="i">++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">layouts/partials/head/auth-links.html</a></td><td> | </td><td class="num">4</td><td><span class="i">+++</span><span class="d">-</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h2">layouts/partials/post/remarkbox.html</a></td><td> | </td><td class="num">41</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre></div><p>3 files changed, 48 insertions(<span id="plus">+</span>), 3 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -43,16 +43,18 @@
+</a>           {{ end }}
+         &lt;/p&gt;
+         {{ if ne .Type &quot;page&quot; -}}
+<a href="#h0-0-3" id="h0-0-3" class="i">+          &lt;p class=&quot;hcard-bottom&quot;&gt;If you have any feedback, please comment below or contact me at &lt;a title=&quot;Open default mail client and add my email as recipient&quot; href=&quot;mailto:hi@ybbond.id&quot;&gt;hi@ybbond.id&lt;/a&gt;&lt;/p&gt;
+</a>           {{- if isset .Params.Twitter &quot;link&quot; }}
+<a href="#h0-0-5" id="h0-0-5" class="d">-          &lt;p class=&quot;twitter-link&quot;&gt;&lt;strong&gt;Comment is unavailable for now&lt;/strong&gt;, sorry :( You can reply this tweet, that will be linked to this post: &lt;a target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot; href={{ .Params.Twitter.Link }}&gt;»Twitter Link«&amp;nbsp;&lt;i class=&quot;fab fa-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+          &lt;p class=&quot;twitter-link&quot;&gt;You can also reply this tweet, that will be linked to this post: &lt;a target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot; href={{ .Params.Twitter.Link }}&gt;»Twitter Link«&amp;nbsp;&lt;i class=&quot;fab fa-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
+</a>             {{ if isset .Params.Mastodon &quot;link&quot; -}}
+             &lt;p class=&quot;mastodon-link&quot;&gt;If you prefer fediverse, you can reply this Toot instead: &lt;a target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot; href={{ .Params.Mastodon.Link }}&gt;»Mastodon Link«&lt;/a&gt;&lt;/p&gt;
+             {{ end -}}
+           {{- end }}
+<a href="#h0-0-11" id="h0-0-11" class="d">-          &lt;p class=&quot;hcard-bottom&quot;&gt;If you have any feedback, please contact me at &lt;a title=&quot;Open default mail client and add my email as recipient&quot; href=&quot;mailto:hi@ybbond.id&quot;&gt;hi@ybbond.id&lt;/a&gt;&lt;/p&gt;
+</a>         {{ end -}}
+       &lt;/div&gt;
+ 
+<a href="#h0-0-15" id="h0-0-15" class="i">+      {{ partial &quot;post/remarkbox.html&quot; . }}
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+
+</a>       {{- if ne .Type &quot;page&quot; }}
+         {{ partial &quot;post/webmentions-handler.html&quot; . }}
+       {{- else }}
+<b>diff --git a/<a id="h1" href="../file/layouts/partials/head/auth-links.html.html">layouts/partials/head/auth-links.html</a> b/<a href="../file/layouts/partials/head/auth-links.html.html">layouts/partials/head/auth-links.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,10 +1,12 @@
+</a> &lt;link rel=&quot;webmention&quot; href=&quot;https://webmention.io/ybbond.id/webmention&quot; /&gt;
+ &lt;link rel=&quot;pingback&quot; href=&quot;https://webmention.io/ybbond.id/xmlrpc&quot; /&gt;
+ 
+<a href="#h1-0-3" id="h1-0-3" class="i">+&lt;!--
+</a> &lt;link rel=&quot;authorization_endpoint&quot; href=&quot;https://indieauth.com/auth&quot;&gt;
+ &lt;link rel=&quot;token_endpoint&quot; href=&quot;https://tokens.indieauth.com/token&quot;&gt;
+<a href="#h1-0-6" id="h1-0-6" class="i">+--&gt;
+</a> 
+<a href="#h1-0-8" id="h1-0-8" class="d">-&lt;link rel=&quot;microsub&quot; href=&quot;https://aperture.p3k.io/microsub/522&quot;&gt;
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+&lt;link rel=&quot;microsub&quot; href=&quot;https://aperture.p3k.io/microsub/603&quot;&gt;
+</a> 
+ &lt;link data-hint=&quot;Twitter&quot; title=&quot;Twitter&quot; href=&quot;https://twitter.com/{{ .Site.Params.Twitter }}&quot; rel=&quot;me&quot; /&gt;
+ &lt;link data-hint=&quot;GitHub&quot; title=&quot;GitHub&quot; href=&quot;https://github.com/{{ .Site.Params.Github }}&quot; rel=&quot;me&quot; /&gt;
+<b>diff --git a/<a id="h2" href="../file/layouts/partials/post/remarkbox.html.html">layouts/partials/post/remarkbox.html</a> b/<a href="../file/layouts/partials/post/remarkbox.html.html">layouts/partials/post/remarkbox.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -0,0 +1,41 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="i">+&lt;!-- Remarkbox - Your readers want to communicate with you --&gt;
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+&lt;div id=&quot;remarkbox-div&quot;&gt;
+</a><a href="#h2-0-2" id="h2-0-2" class="i">+  &lt;noscript&gt;
+</a><a href="#h2-0-3" id="h2-0-3" class="i">+    &lt;iframe id=remarkbox-iframe src=&quot;https://my.remarkbox.com/embed?nojs=true&quot; style=&quot;height:600px;width:100%;border:none!important&quot; tabindex=0&gt;&lt;/iframe&gt;
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  &lt;/noscript&gt;
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+&lt;/div&gt;
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+&lt;script src=&quot;https://my.remarkbox.com/static/js/iframe-resizer/iframeResizer.min.js&quot;&gt;&lt;/script&gt;
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+&lt;script&gt;
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+  var rb_owner_key = &quot;372c6a71-6844-11eb-8f74-040140774501&quot;;
+</a><a href="#h2-0-9" id="h2-0-9" class="i">+  var thread_uri = window.location.href;
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+  var thread_title = window.document.title;
+</a><a href="#h2-0-11" id="h2-0-11" class="i">+  var thread_fragment = window.location.hash;
+</a><a href="#h2-0-12" id="h2-0-12" class="i">+
+</a><a href="#h2-0-13" id="h2-0-13" class="i">+  // rb owner was here.
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+  var rb_src = &quot;https://my.remarkbox.com/embed&quot; + 
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+      &quot;?rb_owner_key=&quot; + rb_owner_key +
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+      &quot;&amp;thread_title=&quot; + encodeURI(thread_title) +
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+      &quot;&amp;thread_uri=&quot; + encodeURIComponent(thread_uri) + 
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+      thread_fragment;
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+  function create_remarkbox_iframe() {
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+    var ifrm = document.createElement(&quot;iframe&quot;);
+</a><a href="#h2-0-22" id="h2-0-22" class="i">+    ifrm.setAttribute(&quot;id&quot;, &quot;remarkbox-iframe&quot;);
+</a><a href="#h2-0-23" id="h2-0-23" class="i">+    ifrm.setAttribute(&quot;scrolling&quot;, &quot;no&quot;);
+</a><a href="#h2-0-24" id="h2-0-24" class="i">+    ifrm.setAttribute(&quot;src&quot;, rb_src);
+</a><a href="#h2-0-25" id="h2-0-25" class="i">+    ifrm.setAttribute(&quot;frameborder&quot;, &quot;0&quot;);
+</a><a href="#h2-0-26" id="h2-0-26" class="i">+    ifrm.setAttribute(&quot;tabindex&quot;, &quot;0&quot;);
+</a><a href="#h2-0-27" id="h2-0-27" class="i">+    ifrm.setAttribute(&quot;title&quot;, &quot;Remarkbox&quot;);
+</a><a href="#h2-0-28" id="h2-0-28" class="i">+    ifrm.style.width = &quot;100%&quot;;
+</a><a href="#h2-0-29" id="h2-0-29" class="i">+    document.getElementById(&quot;remarkbox-div&quot;).appendChild(ifrm);
+</a><a href="#h2-0-30" id="h2-0-30" class="i">+  }
+</a><a href="#h2-0-31" id="h2-0-31" class="i">+  create_remarkbox_iframe();
+</a><a href="#h2-0-32" id="h2-0-32" class="i">+  iFrameResize(
+</a><a href="#h2-0-33" id="h2-0-33" class="i">+    {
+</a><a href="#h2-0-34" id="h2-0-34" class="i">+      checkOrigin: [&quot;https://my.remarkbox.com&quot;],
+</a><a href="#h2-0-35" id="h2-0-35" class="i">+      inPageLinks: true,
+</a><a href="#h2-0-36" id="h2-0-36" class="i">+      initCallback: function(e) {e.iFrameResizer.moveToAnchor(thread_fragment)}
+</a><a href="#h2-0-37" id="h2-0-37" class="i">+    },
+</a><a href="#h2-0-38" id="h2-0-38" class="i">+    document.getElementById(&quot;remarkbox-iframe&quot;)
+</a><a href="#h2-0-39" id="h2-0-39" class="i">+  );
+</a><a href="#h2-0-40" id="h2-0-40" class="i">+&lt;/script&gt;
+</a></pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: enable aperture sign in - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/28e2e5e04798543acc30ed0a7d2de7dfa93d6e92.html">28e2e5e04798543acc30ed0a7d2de7dfa93d6e92</a>
+<b>parent</b> <a href="../commit/5ff6ecdb511b481021c5fa3d0029ab4c2bda268c.html">5ff6ecdb511b481021c5fa3d0029ab4c2bda268c</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Fri,  2 Apr 2021 02:15:42 +0700
+
+refactor: enable aperture sign in
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/_default/baseof.html</a></td><td> | </td><td class="num">38</td><td><span class="i">+++++++++++++++++</span><span class="d">---------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">layouts/partials/head/auth-links.html</a></td><td> | </td><td class="num">5</td><td><span class="i">+</span><span class="d">----</span></td></tr>
+</table></pre></div><p>2 files changed, 18 insertions(<span id="plus">+</span>), 25 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/_default/baseof.html.html">layouts/_default/baseof.html</a> b/<a href="../file/layouts/_default/baseof.html.html">layouts/_default/baseof.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,23 +1,19 @@
+</a> &lt;!DOCTYPE html&gt;
+<a href="#h0-0-1" id="h0-0-1" class="d">-&lt;html ⚡
+</a><a href="#h0-0-2" id="h0-0-2" class="d">-  lang=&quot;{{ .Site.LanguageCode | default &quot;en-us&quot; }}&quot;
+</a><a href="#h0-0-3" id="h0-0-3" class="d">-  class=&quot;theme-dark&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-  id=&quot;main-theme&quot;
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-&gt;
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-  &lt;head&gt;
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-    {{ partial &quot;head/head.html&quot; . }}
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-  &lt;/head&gt;
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-  &lt;body&gt;
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-    &lt;header class=&quot;header&quot;&gt;
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-      {{ partial &quot;header/header.html&quot; . }}
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-    &lt;/header&gt;
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-    &lt;main class=&quot;main&quot;&gt;
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-      {{ block &quot;main&quot; . }}{{ end }}
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-    &lt;/main&gt;
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-    &lt;hr class=&quot;footer__separator&quot;&gt;
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-    &lt;footer class=&quot;footer&quot;&gt;
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-      {{ partial &quot;footer/footer.html&quot; . }}
+</a><a href="#h0-0-19" id="h0-0-19" class="d">-    &lt;/footer&gt;
+</a><a href="#h0-0-20" id="h0-0-20" class="d">-    {{ partial &quot;components/goatcounter.html&quot; . }}
+</a><a href="#h0-0-21" id="h0-0-21" class="d">-  &lt;/body&gt;
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+&lt;html lang=&quot;{{ .Site.LanguageCode | default &quot;en-us&quot; }}&quot;&gt;
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+&lt;head&gt;
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+  {{ partial &quot;head/head.html&quot; . }}
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+&lt;/head&gt;
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+&lt;body&gt;
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+  &lt;header class=&quot;header&quot;&gt;
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+    {{ partial &quot;header/header.html&quot; . }}
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+  &lt;/header&gt;
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+  &lt;main class=&quot;main&quot;&gt;
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+    {{ block &quot;main&quot; . }}{{ end }}
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+  &lt;/main&gt;
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+  &lt;hr class=&quot;footer__separator&quot;&gt;
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+  &lt;footer class=&quot;footer&quot;&gt;
+</a><a href="#h0-0-35" id="h0-0-35" class="i">+    {{ partial &quot;footer/footer.html&quot; . }}
+</a><a href="#h0-0-36" id="h0-0-36" class="i">+  &lt;/footer&gt;
+</a><a href="#h0-0-37" id="h0-0-37" class="i">+  {{ partial &quot;components/goatcounter.html&quot; . }}
+</a><a href="#h0-0-38" id="h0-0-38" class="i">+&lt;/body&gt;
+</a> &lt;/html&gt;
+<b>diff --git a/<a id="h1" href="../file/layouts/partials/head/auth-links.html.html">layouts/partials/head/auth-links.html</a> b/<a href="../file/layouts/partials/head/auth-links.html.html">layouts/partials/head/auth-links.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,10 +1,8 @@
+</a> &lt;link rel=&quot;webmention&quot; href=&quot;https://webmention.io/ybbond.id/webmention&quot; /&gt;
+ &lt;link rel=&quot;pingback&quot; href=&quot;https://webmention.io/ybbond.id/xmlrpc&quot; /&gt;
+ 
+<a href="#h1-0-3" id="h1-0-3" class="d">-&lt;!--
+</a> &lt;link rel=&quot;authorization_endpoint&quot; href=&quot;https://indieauth.com/auth&quot;&gt;
+ &lt;link rel=&quot;token_endpoint&quot; href=&quot;https://tokens.indieauth.com/token&quot;&gt;
+<a href="#h1-0-6" id="h1-0-6" class="d">---&gt;
+</a> 
+ &lt;link rel=&quot;microsub&quot; href=&quot;https://aperture.p3k.io/microsub/603&quot;&gt;
+ 
+<a href="#h1-1" id="h1-1" class="h">@@ -17,4 +15,4 @@
+</a> 
+ 
+ &lt;link rel=&quot;openid.delegate&quot; href=&quot;https://ybbond.id/&quot; /&gt;
+<a href="#h1-1-3" id="h1-1-3" class="d">-&lt;link rel=&quot;openid.server&quot; href=&quot;https://openid.indieauth.com/openid&quot; /&gt;</a><a href="#h1-1-4" id="h1-1-4" class="d">-
+\ No newline at end of file
+</a><a href="#h1-1-5" id="h1-1-5" class="i">+&lt;link rel=&quot;openid.server&quot; href=&quot;https://openid.indieauth.com/openid&quot; /&gt;
+</a></pre>
+</div>
+</div>
+</body>
+</html>

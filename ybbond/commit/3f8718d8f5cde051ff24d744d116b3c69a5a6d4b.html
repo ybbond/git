@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: prepare for presentations :D - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/3f8718d8f5cde051ff24d744d116b3c69a5a6d4b.html">3f8718d8f5cde051ff24d744d116b3c69a5a6d4b</a>
+<b>parent</b> <a href="../commit/a8aea558263fb9963667852b87c48d40f8929cf3.html">a8aea558263fb9963667852b87c48d40f8929cf3</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Fri, 21 May 2021 14:37:47 +0700
+
+refactor: prepare for presentations :D
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/partials/post/responses-item.html</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre></div><p>1 file changed, 1 insertion(<span id="plus">+</span>), 1 deletion(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/partials/post/responses-item.html.html">layouts/partials/post/responses-item.html</a> b/<a href="../file/layouts/partials/post/responses-item.html.html">layouts/partials/post/responses-item.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -25,7 +25,7 @@
+</a>     &lt;/a&gt;
+   &lt;/p&gt;
+   &lt;div class=&quot;responses__content&quot;&gt;
+<a href="#h0-0-3" id="h0-0-3" class="d">-    &lt;p class=&quot;responses__original&quot;&gt;&lt;a class=&quot;u-in-reply-to&quot; href={{ .Params.Destination.Url }}&gt;{{ $title }}&lt;/a&gt;&lt;/p&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    &lt;p class=&quot;responses__original&quot;&gt;&lt;a class=&quot;u-in-reply-to&quot; href={{ .Params.Destination.Url }} rel=&quot;noopenner noreferrer nofollow&quot;&gt;{{ $title }}&lt;/a&gt;&lt;/p&gt;
+</a>     &lt;div class=&quot;e-content&quot;&gt;
+       {{ if eq ($.Scratch.Get &quot;scope&quot;) &quot;single&quot; }}
+         {{ partial &quot;components/content.html&quot; .Content }}
+</pre>
+</div>
+</div>
+</body>
+</html>

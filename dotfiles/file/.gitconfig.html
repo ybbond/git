@@ -15,7 +15,7 @@
 <a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> .gitconfig (1746B)</p><hr/><pre id="blob">
+<p> .gitconfig (1807B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> [alias]
 <a href="#l2" class="line" id="l2">      2</a>   s = status -s
 <a href="#l3" class="line" id="l3">      3</a>   b = branch --sort=-committerdate
@@ -31,42 +31,45 @@
 <a href="#l13" class="line" id="l13">     13</a>   ; histi = &quot;log --pretty=format:&#39;%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)&#39; --graph --date=short --max-count=20&quot;
 <a href="#l14" class="line" id="l14">     14</a>   hist = &quot;--no-pager log --pretty=format:&#39;%C(yellow)%h%C(reset) %C(green)%ad%C(reset) | %C(reset)%s %C(bold)[%an]%C(reset) %C(blue)%d%C(reset)&#39; --graph --date=short --max-count=20&quot;
 <a href="#l15" class="line" id="l15">     15</a>   hist40 = &quot;--no-pager log --pretty=format:&#39;%C(yellow)%h%C(reset) %C(green)%ad%C(reset) | %C(reset)%s %C(bold)[%an]%C(reset) %C(blue)%d%C(reset)&#39; --graph --date=short --max-count=40&quot;
-<a href="#l16" class="line" id="l16">     16</a> 
-<a href="#l17" class="line" id="l17">     17</a> [user]
-<a href="#l18" class="line" id="l18">     18</a>   name = Yohanes Bandung Bondowoso
-<a href="#l19" class="line" id="l19">     19</a>   email = hi@ybbond.id
-<a href="#l20" class="line" id="l20">     20</a>   signingkey = 56DAADB152461C806792DBAB84773B93988681A0
-<a href="#l21" class="line" id="l21">     21</a> 
-<a href="#l22" class="line" id="l22">     22</a> [filter &quot;lfs&quot;]
-<a href="#l23" class="line" id="l23">     23</a>   clean = git-lfs clean -- %f
-<a href="#l24" class="line" id="l24">     24</a>   smudge = git-lfs smudge -- %f
-<a href="#l25" class="line" id="l25">     25</a>   process = git-lfs filter-process
-<a href="#l26" class="line" id="l26">     26</a>   required = true
-<a href="#l27" class="line" id="l27">     27</a> 
-<a href="#l28" class="line" id="l28">     28</a> [gpg]
-<a href="#l29" class="line" id="l29">     29</a>   program = /usr/local/bin/gpg
-<a href="#l30" class="line" id="l30">     30</a> 
-<a href="#l31" class="line" id="l31">     31</a> [core]
-<a href="#l32" class="line" id="l32">     32</a>   excludesfile = /Users/yohanesbandung/.gitignore_global
-<a href="#l33" class="line" id="l33">     33</a>   pager = delta --light
-<a href="#l34" class="line" id="l34">     34</a> 
-<a href="#l35" class="line" id="l35">     35</a> [commit]
-<a href="#l36" class="line" id="l36">     36</a>   template = /Users/yohanesbandung/.stCommitMsg
+<a href="#l16" class="line" id="l16">     16</a>   lab = &quot;!lab&quot;
+<a href="#l17" class="line" id="l17">     17</a>   hub = &quot;!hub&quot;
+<a href="#l18" class="line" id="l18">     18</a> 
+<a href="#l19" class="line" id="l19">     19</a> [user]
+<a href="#l20" class="line" id="l20">     20</a> 	name = Yohanes Bandung Bondowoso
+<a href="#l21" class="line" id="l21">     21</a> 	email = hi@ybbond.id
+<a href="#l22" class="line" id="l22">     22</a> 	signingkey = 56DAADB152461C806792DBAB84773B93988681A0
+<a href="#l23" class="line" id="l23">     23</a> 
+<a href="#l24" class="line" id="l24">     24</a> [filter &quot;lfs&quot;]
+<a href="#l25" class="line" id="l25">     25</a>   clean = git-lfs clean -- %f
+<a href="#l26" class="line" id="l26">     26</a>   smudge = git-lfs smudge -- %f
+<a href="#l27" class="line" id="l27">     27</a>   process = git-lfs filter-process
+<a href="#l28" class="line" id="l28">     28</a>   required = true
+<a href="#l29" class="line" id="l29">     29</a> 
+<a href="#l30" class="line" id="l30">     30</a> [gpg]
+<a href="#l31" class="line" id="l31">     31</a>   program = /usr/local/bin/gpg
+<a href="#l32" class="line" id="l32">     32</a> 
+<a href="#l33" class="line" id="l33">     33</a> [core]
+<a href="#l34" class="line" id="l34">     34</a>   excludesfile = /Users/yohanesbandung/.gitignore_global
+<a href="#l35" class="line" id="l35">     35</a>   pager = cat
+<a href="#l36" class="line" id="l36">     36</a>   ; pager = delta --light
 <a href="#l37" class="line" id="l37">     37</a> 
-<a href="#l38" class="line" id="l38">     38</a> [fetch]
-<a href="#l39" class="line" id="l39">     39</a>   prune = false
+<a href="#l38" class="line" id="l38">     38</a> [commit]
+<a href="#l39" class="line" id="l39">     39</a>   template = /Users/yohanesbandung/.stCommitMsg
 <a href="#l40" class="line" id="l40">     40</a> 
-<a href="#l41" class="line" id="l41">     41</a> [interactive]
-<a href="#l42" class="line" id="l42">     42</a>   diffFilter = delta --color-only --light
+<a href="#l41" class="line" id="l41">     41</a> [fetch]
+<a href="#l42" class="line" id="l42">     42</a>   prune = false
 <a href="#l43" class="line" id="l43">     43</a> 
-<a href="#l44" class="line" id="l44">     44</a> [delta]
-<a href="#l45" class="line" id="l45">     45</a>   features = side-by-side line-numbers decorations
-<a href="#l46" class="line" id="l46">     46</a>   whitespace-error-style = 22 reverse
-<a href="#l47" class="line" id="l47">     47</a> 
-<a href="#l48" class="line" id="l48">     48</a> [delta &quot;decorations&quot;]
-<a href="#l49" class="line" id="l49">     49</a>   commit-decoration-style = bold yellow box ul
-<a href="#l50" class="line" id="l50">     50</a>   file-style = bold yellow ul
-<a href="#l51" class="line" id="l51">     51</a>   file-decoration-style = none
+<a href="#l44" class="line" id="l44">     44</a> ; [interactive]
+<a href="#l45" class="line" id="l45">     45</a> ;   diffFilter = delta --color-only --light
+<a href="#l46" class="line" id="l46">     46</a> 
+<a href="#l47" class="line" id="l47">     47</a> ; [delta]
+<a href="#l48" class="line" id="l48">     48</a> ;   features = side-by-side line-numbers decorations
+<a href="#l49" class="line" id="l49">     49</a> ;   whitespace-error-style = 22 reverse
+<a href="#l50" class="line" id="l50">     50</a> 
+<a href="#l51" class="line" id="l51">     51</a> ; [delta &quot;decorations&quot;]
+<a href="#l52" class="line" id="l52">     52</a> ;   commit-decoration-style = bold yellow box ul
+<a href="#l53" class="line" id="l53">     53</a> ;   file-style = bold yellow ul
+<a href="#l54" class="line" id="l54">     54</a> ;   file-decoration-style = none
 </pre>
 </div>
 </body>

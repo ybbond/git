@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: try to fix indieweb issue - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/9860ca90ce4ad15aa78418271dd0c2b146d38f03.html">9860ca90ce4ad15aa78418271dd0c2b146d38f03</a>
+<b>parent</b> <a href="../commit/940f5fe7d4c868e3e681b06e4d92ee92b9c18c69.html">940f5fe7d4c868e3e681b06e4d92ee92b9c18c69</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Thu, 20 May 2021 03:54:37 +0700
+
+refactor: try to fix indieweb issue
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/_default/list.html</a></td><td> | </td><td class="num">8</td><td><span class="i">++++</span><span class="d">----</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">layouts/_default/single.html</a></td><td> | </td><td class="num">8</td><td><span class="i">++++</span><span class="d">----</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">layouts/partials/components/tagitem.html</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">layouts/partials/post/notes-item.html</a></td><td> | </td><td class="num">15</td><td><span class="i">+++++</span><span class="d">----------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">layouts/partials/post/responses-item.html</a></td><td> | </td><td class="num">16</td><td><span class="i">+++++</span><span class="d">-----------</span></td></tr>
+</table></pre></div><p>5 files changed, 20 insertions(<span id="plus">+</span>), 31 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/_default/list.html.html">layouts/_default/list.html</a> b/<a href="../file/layouts/_default/list.html.html">layouts/_default/list.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,8 +1,8 @@
+</a> {{ define &quot;main&quot; }}
+   &lt;div class=&quot;h-feed&quot;&gt;
+<a href="#h0-0-2" id="h0-0-2" class="d">-    &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+</a><a href="#h0-0-3" id="h0-0-3" class="d">-      &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} /&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-      &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+    &lt;div id=&quot;h-card&quot; class=&quot;h-card u-author&quot; hidden=&quot;&quot;&gt;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+      &lt;data class=&quot;u-photo&quot; value={{ &quot;logo.png&quot; | absURL }}&gt;&lt;/data&gt;
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+      &lt;a class=&quot;p-author&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+</a>       &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+       &lt;a rel=&quot;syndication&quot; class=&quot;u-syndication&quot; href={{ .Permalink }}&gt;{{ .Title }}&lt;/a&gt;
+       &lt;span class=&quot;p-locality&quot;&gt;Jakarta&lt;/span&gt;, &lt;span class=&quot;p-country-name&quot;&gt;Indonesia&lt;/span&gt;
+<a href="#h0-1" id="h0-1" class="h">@@ -17,7 +17,7 @@
+</a>     &lt;div class=&quot;list__header content&quot;&gt;
+       {{ $isTag := eq .Type &quot;tags&quot; }}
+       {{ with .Title }}
+<a href="#h0-1-3" id="h0-1-3" class="d">-        &lt;a href={{ $selflink }} class=&quot;u-url no-outline&quot;&gt;
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+        &lt;a href={{ $selflink }} class=&quot;no-outline u-url&quot;&gt;
+</a>           &lt;h1 class=&quot;p-name&quot;&gt;
+               {{ cond $isTag &quot;Tag «&quot; nil}}{{ . }}{{ cond $isTag &quot;»&quot; nil}}
+           &lt;/h1&gt;
+<b>diff --git a/<a id="h1" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -14,9 +14,9 @@
+</a>   {{ else }}
+     &lt;article class=&quot;content h-entry&quot;&gt;
+       &lt;h1 class=&quot;p-name&quot;&gt;{{ .Title }}&lt;/h1&gt;
+<a href="#h1-0-3" id="h1-0-3" class="d">-      &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-        &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} /&gt;
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-        &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+      &lt;div id=&quot;h-card&quot; class=&quot;h-card u-author&quot; hidden=&quot;&quot;&gt;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+        &lt;data class=&quot;u-photo&quot; value={{ &quot;logo.png&quot; | absURL }}&gt;&lt;/data&gt;
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+        &lt;a class=&quot;p-author&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+</a>         &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+         &lt;a rel=&quot;syndication&quot; class=&quot;u-syndication&quot; href={{ .Permalink }}&gt;{{ .Title }}&lt;/a&gt;
+         &lt;span class=&quot;p-locality&quot;&gt;Jakarta&lt;/span&gt;, &lt;span class=&quot;p-country-name&quot;&gt;Indonesia&lt;/span&gt;
+<a href="#h1-1" id="h1-1" class="h">@@ -26,7 +26,7 @@
+</a>           {{ end }}
+         {{ end }}
+       &lt;/div&gt;
+<a href="#h1-1-3" id="h1-1-3" class="d">-      &lt;div class=&quot;p-content e-content&quot;&gt;
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+      &lt;div class=&quot;e-content&quot;&gt;
+</a>         {{ partial &quot;components/content.html&quot; .Content }}
+       &lt;/div&gt;
+ 
+<b>diff --git a/<a id="h2" href="../file/layouts/partials/components/tagitem.html.html">layouts/partials/components/tagitem.html</a> b/<a href="../file/layouts/partials/components/tagitem.html.html">layouts/partials/components/tagitem.html</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1 +1 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">-&lt;a class=&quot;tagitem&quot; href=&quot;{{ &quot;/tags/&quot; | relLangURL }}{{ . | urlize }}&quot;&gt;#{{ . }}&lt;/a&gt;</a><a href="#h2-0-1" id="h2-0-1" class="d">-
+\ No newline at end of file
+</a><a href="#h2-0-2" id="h2-0-2" class="i">+&lt;a class=&quot;tagitem p-category&quot; href=&quot;{{ &quot;/tags/&quot; | relLangURL }}{{ . | urlize }}&quot;&gt;#{{ . }}&lt;/a&gt;</a><a href="#h2-0-3" id="h2-0-3" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h3" href="../file/layouts/partials/post/notes-item.html.html">layouts/partials/post/notes-item.html</a> b/<a href="../file/layouts/partials/post/notes-item.html.html">layouts/partials/post/notes-item.html</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -1,20 +1,15 @@
+</a> {{ $dateformat := .Date.Format &quot;2006-01-02 15:04&quot; }}
+ {{ $idslug := (print &quot;date-&quot; $dateformat &quot;-&quot;) | urlize }}
+ &lt;div class=&quot;content notes h-entry&quot; id={{ $idslug }}&gt;
+<a href="#h3-0-3" id="h3-0-3" class="d">-  &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-    &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} /&gt;
+</a><a href="#h3-0-5" id="h3-0-5" class="d">-    &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+</a><a href="#h3-0-6" id="h3-0-6" class="d">-    &lt;br&gt;
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+  &lt;div id=&quot;h-card&quot; class=&quot;h-card u-author&quot; hidden=&quot;&quot;&gt;
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+    &lt;data class=&quot;u-photo&quot; value={{ &quot;logo.png&quot; | absURL }}&gt;&lt;/data&gt;
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+    &lt;a class=&quot;p-author&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+</a>     &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+<a href="#h3-0-11" id="h3-0-11" class="d">-    &lt;br&gt;
+</a>     &lt;a rel=&quot;syndication&quot; class=&quot;u-syndication&quot; href={{ .Permalink }}&gt;{{ .Title }}&lt;/a&gt;
+<a href="#h3-0-13" id="h3-0-13" class="d">-    &lt;br&gt;
+</a>     &lt;span class=&quot;p-locality&quot;&gt;Jakarta&lt;/span&gt;, &lt;span class=&quot;p-country-name&quot;&gt;Indonesia&lt;/span&gt;
+<a href="#h3-0-15" id="h3-0-15" class="d">-    &lt;br&gt;
+</a><a href="#h3-0-16" id="h3-0-16" class="d">-    &lt;a class=&quot;p-category&quot; href={{ &quot;notes/&quot; | absURL }}&gt;notes&lt;/a&gt;
+</a>   &lt;/div&gt;
+   &lt;p class=&quot;notes__title&quot;&gt;
+<a href="#h3-0-19" id="h3-0-19" class="d">-    &lt;a data-goatcounter-click=&quot;cl-note-full&quot; href={{ .Permalink }}&gt;
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+    &lt;a data-goatcounter-click=&quot;cl-note-full&quot; class=&quot;u-url&quot; href={{ .Permalink }}&gt;
+</a>       &lt;span&gt;
+         &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot; class=&quot;notes__title__date dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;
+           {{ .Date.Format &quot;02 Jan 2006&quot; }}
+<a href="#h3-1" id="h3-1" class="h">@@ -23,7 +18,7 @@
+</a>       &lt;/span&gt;
+     &lt;/a&gt;
+   &lt;/p&gt;
+<a href="#h3-1-3" id="h3-1-3" class="d">-  &lt;div class=&quot;notes__content e-content p-content p-name&quot;&gt;
+</a><a href="#h3-1-4" id="h3-1-4" class="i">+  &lt;div class=&quot;notes__content e-content p-name&quot;&gt;
+</a>     {{ .Content }}
+   &lt;/div&gt;
+ &lt;/div&gt;
+<b>diff --git a/<a id="h4" href="../file/layouts/partials/post/responses-item.html.html">layouts/partials/post/responses-item.html</a> b/<a href="../file/layouts/partials/post/responses-item.html.html">layouts/partials/post/responses-item.html</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -6,22 +6,16 @@
+</a> {{ end }}
+ {{ $title := print &quot;In response to &quot; &quot;«&quot; .Params.Destination.Title &quot;»&quot; $author }}
+ &lt;div class=&quot;content responses h-entry&quot; id={{ $idslug }}&gt;
+<a href="#h4-0-3" id="h4-0-3" class="d">-  &lt;div id=&quot;h-card&quot; class=&quot;hcard&quot; hidden=&quot;&quot;&gt;
+</a><a href="#h4-0-4" id="h4-0-4" class="d">-    &lt;img class=&quot;u-photo&quot; src={{ &quot;logo.png&quot; | absURL }} /&gt;
+</a><a href="#h4-0-5" id="h4-0-5" class="i">+  &lt;div id=&quot;h-card&quot; class=&quot;h-card u-author&quot; hidden=&quot;&quot;&gt;
+</a><a href="#h4-0-6" id="h4-0-6" class="i">+    &lt;data class=&quot;u-photo&quot; value={{ &quot;logo.png&quot; | absURL }}&gt;&lt;/data&gt;
+</a>     &lt;a class=&quot;p-name&quot; href={{ .Permalink }}&gt;{{ $title }}&lt;/a&gt;
+<a href="#h4-0-8" id="h4-0-8" class="d">-    &lt;br&gt;
+</a><a href="#h4-0-9" id="h4-0-9" class="d">-    &lt;a class=&quot;p-author h-card&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+</a><a href="#h4-0-10" id="h4-0-10" class="d">-    &lt;br&gt;
+</a><a href="#h4-0-11" id="h4-0-11" class="i">+    &lt;a class=&quot;p-author&quot; href={{ .Site.Params.MainSiteURL }} rel=&quot;author&quot;&gt;{{ substr .Site.Params.Author 0 20 }}.&lt;/a&gt;
+</a>     &lt;a class=&quot;u-email&quot; href=&quot;mailto:{{ .Site.Params.Email }}&quot;&gt;{{ .Site.Params.Email }}&lt;/a&gt;
+<a href="#h4-0-13" id="h4-0-13" class="d">-    &lt;br&gt;
+</a>     &lt;a rel=&quot;syndication&quot; class=&quot;u-syndication&quot; href={{ .Permalink }}&gt;{{ .Title }}&lt;/a&gt;
+<a href="#h4-0-15" id="h4-0-15" class="d">-    &lt;br&gt;
+</a>     &lt;span class=&quot;p-locality&quot;&gt;Jakarta&lt;/span&gt;, &lt;span class=&quot;p-country-name&quot;&gt;Indonesia&lt;/span&gt;
+<a href="#h4-0-17" id="h4-0-17" class="d">-    &lt;br&gt;
+</a><a href="#h4-0-18" id="h4-0-18" class="d">-    &lt;a class=&quot;p-category&quot; href={{ &quot;responses/&quot; | absURL }}&gt;responses&lt;/a&gt;
+</a>   &lt;/div&gt;
+   &lt;p class=&quot;responses__title&quot;&gt;
+<a href="#h4-0-21" id="h4-0-21" class="d">-    &lt;a data-goatcounter-click=&quot;cl-response-full&quot; href={{ .Permalink }}&gt;
+</a><a href="#h4-0-22" id="h4-0-22" class="i">+    &lt;a data-goatcounter-click=&quot;cl-response-full&quot; class=&quot;u-url&quot; href={{ .Permalink }}&gt;
+</a>       &lt;span&gt;
+         &lt;time title=&quot;{{ .Date.Format &quot;Monday, 02 January 2006 on 15:04:05&quot; }} GMT+7&quot; class=&quot;responses__title__date dt-published&quot; datetime=&quot;{{ .Date.Format &quot;2006-01-02T15:04:05&quot; }}+07:00&quot;&gt;
+           {{ .Date.Format &quot;02 Jan 2006&quot; }}
+<a href="#h4-1" id="h4-1" class="h">@@ -32,7 +26,7 @@
+</a>   &lt;/p&gt;
+   &lt;div class=&quot;responses__content&quot;&gt;
+     &lt;p class=&quot;responses__original&quot;&gt;&lt;a class=&quot;u-in-reply-to&quot; href={{ .Params.Destination.Url }}&gt;{{ $title }}&lt;/a&gt;&lt;/p&gt;
+<a href="#h4-1-3" id="h4-1-3" class="d">-    &lt;div class=&quot;e-content p-content&quot;&gt;
+</a><a href="#h4-1-4" id="h4-1-4" class="i">+    &lt;div class=&quot;e-content&quot;&gt;
+</a>       {{ if eq ($.Scratch.Get &quot;scope&quot;) &quot;single&quot; }}
+         {{ partial &quot;components/content.html&quot; .Content }}
+       {{ else }}
+</pre>
+</div>
+</div>
+</body>
+</html>

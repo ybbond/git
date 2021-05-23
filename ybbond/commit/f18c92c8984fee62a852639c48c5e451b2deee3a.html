@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: add in-post webmention form - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/f18c92c8984fee62a852639c48c5e451b2deee3a.html">f18c92c8984fee62a852639c48c5e451b2deee3a</a>
+<b>parent</b> <a href="../commit/05a8beaf9ccfd349809ad7ac5dcd7a1b223afd0e.html">05a8beaf9ccfd349809ad7ac5dcd7a1b223afd0e</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Thu, 20 May 2021 01:56:03 +0700
+
+refactor: add in-post webmention form
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/content.css</a></td><td> | </td><td class="num">3</td><td><span class="i">++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">assets/main.css</a></td><td> | </td><td class="num">24</td><td><span class="i">++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">assets/responsive.css</a></td><td> | </td><td class="num">9</td><td><span class="i">+++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">assets/theme.css</a></td><td> | </td><td class="num">29</td><td><span class="i">+++++++++++++++++++++++++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">layouts/_default/single.html</a></td><td> | </td><td class="num">3</td><td><span class="i">+++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h5">layouts/partials/components/webmentions-form.html</a></td><td> | </td><td class="num">29</td><td><span class="i">+++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h6">layouts/partials/post/responses-item.html</a></td><td> | </td><td class="num">14</td><td><span class="i">++++++++</span><span class="d">------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h7">layouts/partials/post/webmentions-handler.html</a></td><td> | </td><td class="num">12</td><td><span class="i"></span><span class="d">------------</span></td></tr>
+</table></pre></div><p>8 files changed, 102 insertions(<span id="plus">+</span>), 21 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/content.css.html">assets/content.css</a> b/<a href="../file/assets/content.css.html">assets/content.css</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -26,7 +26,8 @@
+</a> .content.notes.h-entry, .content.responses.h-entry {
+   /*padding: 4px 10px 1px 10px;*/
+   padding: .1px;
+<a href="#h0-0-3" id="h0-0-3" class="d">-  outline: solid 1px black;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  outline-style: solid;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+  outline-width: 1px;
+</a> }
+ 
+ .content figcaption {
+<b>diff --git a/<a id="h1" href="../file/assets/main.css.html">assets/main.css</a> b/<a href="../file/assets/main.css.html">assets/main.css</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -48,6 +48,10 @@ h1, h2, h3, h4, h5 {
+</a> h1 a, h2 a, h3 a, h4 a, h5 a {
+   font-family: var(--font-mono);
+ }
+<a href="#h1-0-3" id="h1-0-3" class="i">+input {
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+  font-family: var(--font-text);
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+  font-size: .9rem;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+}
+</a> 
+ h1:not(.header__title) {
+   font-size: 2.2rem;
+<a href="#h1-1" id="h1-1" class="h">@@ -184,6 +188,26 @@ time[title] {
+</a>   font-size: 0.9rem;
+ }
+ 
+<a href="#h1-1-3" id="h1-1-3" class="i">+.wm-form {
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+  margin: 1rem 0 2rem;
+</a><a href="#h1-1-5" id="h1-1-5" class="i">+}
+</a><a href="#h1-1-6" id="h1-1-6" class="i">+.wm-form form {
+</a><a href="#h1-1-7" id="h1-1-7" class="i">+  display: flex;
+</a><a href="#h1-1-8" id="h1-1-8" class="i">+  flex-direction: row;
+</a><a href="#h1-1-9" id="h1-1-9" class="i">+}
+</a><a href="#h1-1-10" id="h1-1-10" class="i">+.wm-form__textfield {
+</a><a href="#h1-1-11" id="h1-1-11" class="i">+  padding: .5rem;
+</a><a href="#h1-1-12" id="h1-1-12" class="i">+  flex: 1;
+</a><a href="#h1-1-13" id="h1-1-13" class="i">+}
+</a><a href="#h1-1-14" id="h1-1-14" class="i">+.wm-form__button {
+</a><a href="#h1-1-15" id="h1-1-15" class="i">+  cursor: pointer;
+</a><a href="#h1-1-16" id="h1-1-16" class="i">+  display: inline-block;
+</a><a href="#h1-1-17" id="h1-1-17" class="i">+  padding: .5rem .7rem;
+</a><a href="#h1-1-18" id="h1-1-18" class="i">+  border-style: solid;
+</a><a href="#h1-1-19" id="h1-1-19" class="i">+  border-width: 1px;
+</a><a href="#h1-1-20" id="h1-1-20" class="i">+  margin-left: .5rem;
+</a><a href="#h1-1-21" id="h1-1-21" class="i">+}
+</a><a href="#h1-1-22" id="h1-1-22" class="i">+
+</a> .wm-hr {
+   margin-bottom: 0.2rem;
+ }
+<b>diff --git a/<a id="h2" href="../file/assets/responsive.css.html">assets/responsive.css</a> b/<a href="../file/assets/responsive.css.html">assets/responsive.css</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -170,6 +170,15 @@
+</a>     height: 325px;
+   }
+ 
+<a href="#h2-0-3" id="h2-0-3" class="i">+  /* webmention */
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+  .wm-form form {
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+    flex-direction: column;
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+  }
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+  .wm-form__button {
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+    margin-top: .5rem;
+</a><a href="#h2-0-9" id="h2-0-9" class="i">+    margin-left: 0;
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+  }
+</a><a href="#h2-0-11" id="h2-0-11" class="i">+
+</a>   /* footer */
+   .footer__nav__right a {
+     padding: 0 0.15rem;
+<b>diff --git a/<a id="h3" href="../file/assets/theme.css.html">assets/theme.css</a> b/<a href="../file/assets/theme.css.html">assets/theme.css</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -51,7 +51,7 @@
+</a>   .notes:target, .responses:target {
+     outline-color: var(--light-background-hover);
+   }
+<a href="#h3-0-3" id="h3-0-3" class="d">-  .notes__title, .responses__title {
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+  .notes__title, .responses__title, .content.notes.h-entry, .content.responses.h-entry {
+</a>     background-color: var(--light-background);
+     outline-color: var(--light-text);
+   }
+<a href="#h3-1" id="h3-1" class="h">@@ -79,6 +79,18 @@
+</a>     color: var(--light-text);
+   }
+ 
+<a href="#h3-1-3" id="h3-1-3" class="i">+  /* webmention */
+</a><a href="#h3-1-4" id="h3-1-4" class="i">+  .wm-form__button {
+</a><a href="#h3-1-5" id="h3-1-5" class="i">+    background-color: var(--light-background);
+</a><a href="#h3-1-6" id="h3-1-6" class="i">+    border-color: var(--light-blue);
+</a><a href="#h3-1-7" id="h3-1-7" class="i">+    color: var(--light-blue);
+</a><a href="#h3-1-8" id="h3-1-8" class="i">+  }
+</a><a href="#h3-1-9" id="h3-1-9" class="i">+  .wm-form__button:hover {
+</a><a href="#h3-1-10" id="h3-1-10" class="i">+    background-color: var(--light-background-hover);
+</a><a href="#h3-1-11" id="h3-1-11" class="i">+    border-color: var(--light-red);
+</a><a href="#h3-1-12" id="h3-1-12" class="i">+    color: var(--light-red);
+</a><a href="#h3-1-13" id="h3-1-13" class="i">+  }
+</a><a href="#h3-1-14" id="h3-1-14" class="i">+
+</a>   /* footer */
+   .footer .hcard {
+     border: solid 1px var(--light-border);
+<a href="#h3-2" id="h3-2" class="h">@@ -141,9 +153,10 @@
+</a>   .notes:target, .responses:target {
+     outline-color: var(--dark-background-hover);
+   }
+<a href="#h3-2-3" id="h3-2-3" class="d">-  .notes__title, .responses__title {
+</a><a href="#h3-2-4" id="h3-2-4" class="i">+  .notes__title, .responses__title, .content.notes.h-entry, .content.responses.h-entry {
+</a>     background-color: var(--dark-background);
+     outline-color: var(--dark-text);
+<a href="#h3-2-7" id="h3-2-7" class="i">+    outline-width: 0.5px;
+</a>   }
+ 
+   .view-full-size svg {
+<a href="#h3-3" id="h3-3" class="h">@@ -169,6 +182,18 @@
+</a>     color: var(--dark-text);
+   }
+ 
+<a href="#h3-3-3" id="h3-3-3" class="i">+  /* webmention */
+</a><a href="#h3-3-4" id="h3-3-4" class="i">+  .wm-form__button {
+</a><a href="#h3-3-5" id="h3-3-5" class="i">+    background-color: var(--dark-background);
+</a><a href="#h3-3-6" id="h3-3-6" class="i">+    border-color: var(--dark-blue);
+</a><a href="#h3-3-7" id="h3-3-7" class="i">+    color: var(--dark-blue);
+</a><a href="#h3-3-8" id="h3-3-8" class="i">+  }
+</a><a href="#h3-3-9" id="h3-3-9" class="i">+  .wm-form__button:hover {
+</a><a href="#h3-3-10" id="h3-3-10" class="i">+    background-color: var(--dark-background-hover);
+</a><a href="#h3-3-11" id="h3-3-11" class="i">+    border-color: var(--dark-red);
+</a><a href="#h3-3-12" id="h3-3-12" class="i">+    color: var(--dark-red);
+</a><a href="#h3-3-13" id="h3-3-13" class="i">+  }
+</a><a href="#h3-3-14" id="h3-3-14" class="i">+
+</a>   /* footer */
+   .footer .hcard {
+     border: solid 1px var(--dark-border);
+<b>diff --git a/<a id="h4" href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a> b/<a href="../file/layouts/_default/single.html.html">layouts/_default/single.html</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -2,11 +2,13 @@
+</a>   {{ if eq .Type &quot;notes&quot; }}
+     &lt;article class=&quot;single__micro&quot;&gt;
+       {{- partial &quot;post/notes-item.html&quot; . -}}
+<a href="#h4-0-3" id="h4-0-3" class="i">+      {{ partial &quot;components/webmentions-form.html&quot; . }}
+</a>       {{ partial &quot;post/webmentions-handler.html&quot; . }}
+     &lt;/article&gt;
+   {{ else if eq .Type &quot;responses&quot; }}
+     &lt;article class=&quot;single__micro&quot;&gt;
+       {{- partial &quot;post/responses-item.html&quot; . -}}
+<a href="#h4-0-9" id="h4-0-9" class="i">+      {{ partial &quot;components/webmentions-form.html&quot; . }}
+</a>       {{ partial &quot;post/webmentions-handler.html&quot; . }}
+     &lt;/article&gt;
+   {{ else }}
+<a href="#h4-1" id="h4-1" class="h">@@ -54,6 +56,7 @@
+</a>       &lt;/div&gt;
+ 
+       {{- if ne .Type &quot;page&quot; }}
+<a href="#h4-1-3" id="h4-1-3" class="i">+        {{ partial &quot;components/webmentions-form.html&quot; . }}
+</a>         {{ partial &quot;post/webmentions-handler.html&quot; . }}
+       {{- else }}
+         &lt;br&gt;
+<b>diff --git a/<a id="h5" href="../file/layouts/partials/components/webmentions-form.html.html">layouts/partials/components/webmentions-form.html</a> b/<a href="../file/layouts/partials/components/webmentions-form.html.html">layouts/partials/components/webmentions-form.html</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -0,0 +1,28 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="i">+&lt;hr class=&quot;wm-hr&quot;&gt;
+</a><a href="#h5-0-1" id="h5-0-1" class="i">+&lt;h3 class=&quot;wm-title&quot; id=&quot;post-webmention-section&quot;&gt;
+</a><a href="#h5-0-2" id="h5-0-2" class="i">+  Webmentions &lt;a
+</a><a href="#h5-0-3" id="h5-0-3" class="i">+    href=&quot;https://indieweb.org/Webmention&quot;
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+    rel=&quot;noopenner noreferrer&quot;
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+    target=&quot;_blank&quot;
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+    class=&quot;no-outline&quot;
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+  &gt;?&lt;/a&gt;:
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+&lt;/h3&gt;
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+&lt;div class=&quot;wm-form&quot;&gt;
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+  &lt;form action=&quot;https://webmention.io/ybbond.id/webmention&quot; method=&quot;post&quot;&gt;
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+    &lt;input aria-label=&quot;Webmention Source&quot; name=&quot;source&quot; placeholder=&quot;Paste the URL to your response of this post!&quot; type=&quot;url&quot; required=&quot;&quot; class=&quot;wm-form__textfield&quot;&gt;
+</a><a href="#h5-0-13" id="h5-0-13" class="i">+    &lt;input name=&quot;target&quot; value=&quot;{{ .Permalink }}&quot; type=&quot;hidden&quot;&gt;
+</a><a href="#h5-0-14" id="h5-0-14" class="i">+    &lt;input value=&quot;Send Webmention&quot; type=&quot;submit&quot; class=&quot;wm-form__button&quot;&gt;
+</a><a href="#h5-0-15" id="h5-0-15" class="i">+  &lt;/form&gt;
+</a><a href="#h5-0-16" id="h5-0-16" class="i">+
+</a><a href="#h5-0-17" id="h5-0-17" class="i">+&lt;!--
+</a><a href="#h5-0-18" id="h5-0-18" class="i">+  &lt;div&gt;
+</a><a href="#h5-0-19" id="h5-0-19" class="i">+    &lt;form method=&quot;get&quot; action=&quot;https://quill.p3k.io/&quot; target=&quot;_blank&quot;&gt;
+</a><a href="#h5-0-20" id="h5-0-20" class="i">+      &lt;input type=&quot;hidden&quot; name=&quot;dontask&quot; value=&quot;1&quot;&gt;
+</a><a href="#h5-0-21" id="h5-0-21" class="i">+      &lt;input type=&quot;hidden&quot; name=&quot;me&quot; value=&quot;https://commentpara.de/&quot;&gt;
+</a><a href="#h5-0-22" id="h5-0-22" class="i">+      &lt;input type=&quot;hidden&quot; name=&quot;reply&quot; value=&quot;https://hacdias.com/micro/2021/02/re-is-it-time-to-build-my-cms-errors/&quot;&gt;
+</a><a href="#h5-0-23" id="h5-0-23" class="i">+      &lt;input type=&quot;submit&quot; value=&quot;Write a comment&quot;&gt;
+</a><a href="#h5-0-24" id="h5-0-24" class="i">+    &lt;/form&gt;
+</a><a href="#h5-0-25" id="h5-0-25" class="i">+  &lt;/div&gt;
+</a><a href="#h5-0-26" id="h5-0-26" class="i">+--&gt;
+</a><a href="#h5-0-27" id="h5-0-27" class="i">+&lt;/div&gt;</a><a href="#h5-0-28" id="h5-0-28" class="i">+
+\ No newline at end of file
+</a><b>diff --git a/<a id="h6" href="../file/layouts/partials/post/responses-item.html.html">layouts/partials/post/responses-item.html</a> b/<a href="../file/layouts/partials/post/responses-item.html.html">layouts/partials/post/responses-item.html</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -35,12 +35,14 @@
+</a>       &lt;/span&gt;
+     &lt;/a&gt;
+   &lt;/p&gt;
+<a href="#h6-0-3" id="h6-0-3" class="d">-  &lt;div class=&quot;responses__content e-content p-content&quot;&gt;
+</a><a href="#h6-0-4" id="h6-0-4" class="i">+  &lt;div class=&quot;responses__content&quot;&gt;
+</a>     &lt;p class=&quot;responses__original&quot;&gt;&lt;a class=&quot;u-in-reply-to&quot; href={{ .Params.Destination.Url }}&gt;{{ $title }}&lt;/a&gt;&lt;/p&gt;
+<a href="#h6-0-6" id="h6-0-6" class="d">-    {{ if eq ($.Scratch.Get &quot;scope&quot;) &quot;single&quot; }}
+</a><a href="#h6-0-7" id="h6-0-7" class="d">-      {{ partial &quot;components/content.html&quot; .Content }}
+</a><a href="#h6-0-8" id="h6-0-8" class="d">-    {{ else }}
+</a><a href="#h6-0-9" id="h6-0-9" class="d">-      {{ partial &quot;components/preview.html&quot; .Content }}
+</a><a href="#h6-0-10" id="h6-0-10" class="d">-    {{ end }}
+</a><a href="#h6-0-11" id="h6-0-11" class="i">+    &lt;div class=&quot;e-content p-content&quot;&gt;
+</a><a href="#h6-0-12" id="h6-0-12" class="i">+      {{ if eq ($.Scratch.Get &quot;scope&quot;) &quot;single&quot; }}
+</a><a href="#h6-0-13" id="h6-0-13" class="i">+        {{ partial &quot;components/content.html&quot; .Content }}
+</a><a href="#h6-0-14" id="h6-0-14" class="i">+      {{ else }}
+</a><a href="#h6-0-15" id="h6-0-15" class="i">+        {{ partial &quot;components/preview.html&quot; .Content }}
+</a><a href="#h6-0-16" id="h6-0-16" class="i">+      {{ end }}
+</a><a href="#h6-0-17" id="h6-0-17" class="i">+    &lt;/div&gt;
+</a>   &lt;/div&gt;
+ &lt;/div&gt;
+<b>diff --git a/<a id="h7" href="../file/layouts/partials/post/webmentions-handler.html.html">layouts/partials/post/webmentions-handler.html</a> b/<a href="../file/layouts/partials/post/webmentions-handler.html.html">layouts/partials/post/webmentions-handler.html</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -1,17 +1,5 @@
+</a> {{ with index $.Site.Data.webmentions (replace (trim .RelPermalink &quot;/&quot;) &quot;/&quot; &quot;--&quot;) }}
+<a href="#h7-0-1" id="h7-0-1" class="d">-  &lt;hr class=&quot;wm-hr&quot;&gt;
+</a>   &lt;div class=&quot;wm-div&quot;&gt;
+<a href="#h7-0-3" id="h7-0-3" class="d">-    {{- with where . &quot;wm-property&quot; &quot;in&quot; (slice &quot;like-of&quot; &quot;repost-of&quot; &quot;bookmark-of&quot; &quot;rsvp&quot; &quot;in-reply-to&quot; &quot;mention-of&quot;) }}
+</a><a href="#h7-0-4" id="h7-0-4" class="d">-      &lt;h3 class=&quot;wm-title&quot;&gt;
+</a><a href="#h7-0-5" id="h7-0-5" class="d">-        Webmentions &lt;a
+</a><a href="#h7-0-6" id="h7-0-6" class="d">-          href=&quot;https://indieweb.org/Webmention&quot;
+</a><a href="#h7-0-7" id="h7-0-7" class="d">-          rel=&quot;noopenner noreferrer&quot;
+</a><a href="#h7-0-8" id="h7-0-8" class="d">-          target=&quot;_blank&quot;
+</a><a href="#h7-0-9" id="h7-0-9" class="d">-          class=&quot;no-outline&quot;
+</a><a href="#h7-0-10" id="h7-0-10" class="d">-        &gt;?&lt;/a&gt;:
+</a><a href="#h7-0-11" id="h7-0-11" class="d">-      &lt;/h3&gt;
+</a><a href="#h7-0-12" id="h7-0-12" class="d">-    {{- end }}
+</a><a href="#h7-0-13" id="h7-0-13" class="d">-
+</a>     {{ with where . &quot;wm-property&quot; &quot;in&quot; (slice &quot;repost-of&quot; &quot;bookmark-of&quot; &quot;rsvp&quot;) -}}
+       &lt;p class=&quot;wm-subtitle&quot;&gt;Reposted/Boosted by:&lt;/p&gt;
+       {{- range . }}
+</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: remove lazyimage script, fix remarkbox and goatcounter, fix rss - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/c1f22fed9b23c32095544a5f2d5a7645c429f93f.html">c1f22fed9b23c32095544a5f2d5a7645c429f93f</a>
+<b>parent</b> <a href="../commit/28e2e5e04798543acc30ed0a7d2de7dfa93d6e92.html">28e2e5e04798543acc30ed0a7d2de7dfa93d6e92</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Fri,  2 Apr 2021 05:19:38 +0700
+
+refactor: remove lazyimage script, fix remarkbox and goatcounter, fix rss
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">assets/main.css</a></td><td> | </td><td class="num">9</td><td><span class="i">+++++++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">assets/theme.css</a></td><td> | </td><td class="num">8</td><td><span class="i">++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">content/about/index.md</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">layouts/_default/_markup/render-heading.rss.xml</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h4">layouts/_default/_markup/render-image.html</a></td><td> | </td><td class="num">78</td><td><span class="i">++++++++++++++++++</span><span class="d">------------------------------------------------------------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h5">layouts/_default/_markup/render-image.rss.xml</a></td><td> | </td><td class="num">15</td><td><span class="i">+++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="D">D</td><td><a href="#h6">layouts/_default/_markup/render-link.html</a></td><td> | </td><td class="num">54</td><td><span class="i"></span><span class="d">------------------------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h7">layouts/partials/components/goatcounter.html</a></td><td> | </td><td class="num">95</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d">---------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h8">layouts/partials/head/auth-links.html</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h9">layouts/partials/head/head.html</a></td><td> | </td><td class="num">4</td><td><span class="i"></span><span class="d">----</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h10">layouts/partials/post/remarkbox.html</a></td><td> | </td><td class="num">18</td><td><span class="i">++++++++++</span><span class="d">--------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h11">static/lazyImage.js</a></td><td> | </td><td class="num">3</td><td><span class="i"></span><span class="d">---</span></td></tr>
+</table></pre></div><p>12 files changed, 117 insertions(<span id="plus">+</span>), 172 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/assets/main.css.html">assets/main.css</a> b/<a href="../file/assets/main.css.html">assets/main.css</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -59,7 +59,7 @@ a {
+</a> a:hover:not(.wm-avatar):not(.no-hover):not(.no-outline):not(.footnote-ref),
+ a#active:not(.no-outline):not(.footnote-ref) {
+   outline-style: solid;
+<a href="#h0-0-3" id="h0-0-3" class="d">-  outline-width: 0.3rem;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  outline-width: 0.2rem;
+</a> }
+ a.button {
+   display: inline-block;
+<a href="#h0-1" id="h0-1" class="h">@@ -86,10 +86,15 @@ time[title] {
+</a>   cursor: help;
+ }
+ 
+<a href="#h0-1-3" id="h0-1-3" class="i">+.view-full-size svg {
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+  width: .9em;
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+  height: .9em;
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+}
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+
+</a> .listing__post {
+   width: 100%;
+   display: inline-block;
+<a href="#h0-1-11" id="h0-1-11" class="d">-  padding: 0.5rem 0 0.7rem;
+</a><a href="#h0-1-12" id="h0-1-12" class="i">+  padding: 0.3rem 0;
+</a> }
+ .listing__post__title {
+   margin: 0.01rem;
+<b>diff --git a/<a id="h1" href="../file/assets/theme.css.html">assets/theme.css</a> b/<a href="../file/assets/theme.css.html">assets/theme.css</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -55,6 +55,10 @@
+</a>     outline-color: var(--light-background-hover);
+   }
+ 
+<a href="#h1-0-3" id="h1-0-3" class="i">+  .view-full-size svg {
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+    fill: var(--light-red);
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+  }
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+
+</a>   .content ol li span:before {
+     color: var(--light-red);
+   }
+<a href="#h1-1" id="h1-1" class="h">@@ -140,6 +144,10 @@
+</a>     outline-color: var(--dark-background-hover);
+   }
+ 
+<a href="#h1-1-3" id="h1-1-3" class="i">+  .view-full-size svg {
+</a><a href="#h1-1-4" id="h1-1-4" class="i">+    fill: var(--dark-red);
+</a><a href="#h1-1-5" id="h1-1-5" class="i">+  }
+</a><a href="#h1-1-6" id="h1-1-6" class="i">+
+</a>   .content ol li span:before {
+     color: var(--dark-red);
+   }
+<b>diff --git a/<a id="h2" href="../file/content/about/index.md.html">content/about/index.md</a> b/<a href="../file/content/about/index.md.html">content/about/index.md</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -6,7 +6,7 @@ description: &quot;Hi, my name is Yohanes Bandung Bondowoso&quot;
+</a> 
+ People call me **Bandung**. ૮ ・ﻌ・ა
+ 
+<a href="#h2-0-3" id="h2-0-3" class="d">-![photo by Soraya Azizah](bandung-mosh-on-tarintih.jpg &quot;Photo of Bandung a moment before crowd-surfing on a band performance&quot;)
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+![photo by &lt;a rel=&quot;nofollow noreferrer&quot; title=&quot;Link to Soraya Azizah Instagram profile&quot; href=&quot;https://www.instagram.com/bysorayaazizah/&quot;&gt;Soraya Azizah&lt;/a&gt;](bandung-mosh-on-tarintih.jpg &quot;Photo of Bandung a moment before crowd-surfing on a band performance&quot;)
+</a> 
+ I am a software engineer that value and strive for good design, privacy and enjoyable services. I like to experiment with development tools or paradigms, to read, try applications, gathering informations to further enhance my expertise at my job and inspirations to make my life easier.
+ 
+<b>diff --git a/<a id="h3" href="../file/layouts/_default/_markup/render-heading.rss.xml.html">layouts/_default/_markup/render-heading.rss.xml</a> b/<a href="../file/layouts/_default/_markup/render-heading.rss.xml.html">layouts/_default/_markup/render-heading.rss.xml</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+&lt;h{{ .Level }}&gt;{{ .Text | safeHTML }}&lt;/h{{ .Level }}&gt;
+</a><b>diff --git a/<a id="h4" href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a> b/<a href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -7,73 +7,31 @@
+</a> {{ if ne .Title &quot;&quot; }}
+   {{ $title = .Title }}
+ {{ end }}
+<a href="#h4-0-3" id="h4-0-3" class="d">-{{ $placeholder := ($image.Resize &quot;48x q20&quot;) | images.Filter (images.GaussianBlur 6) }}
+</a><a href="#h4-0-4" id="h4-0-4" class="d">-{{ $src := $image }}
+</a><a href="#h4-0-5" id="h4-0-5" class="d">-{{ $src_set := &quot;&quot;}}
+</a> 
+<a href="#h4-0-7" id="h4-0-7" class="d">-{{ $src_set = (print $image.RelPermalink &quot; &quot; $image.Width &quot;w&quot;) }}
+</a><a href="#h4-0-8" id="h4-0-8" class="d">-{{ $src := $image }}
+</a><a href="#h4-0-9" id="h4-0-9" class="d">-
+</a><a href="#h4-0-10" id="h4-0-10" class="d">-{{ if ge $image.Width &quot;500&quot;}}
+</a><a href="#h4-0-11" id="h4-0-11" class="d">-{{ $x_small := $image.Resize &quot;500x&quot; }}
+</a><a href="#h4-0-12" id="h4-0-12" class="d">-{{ $src_set = (print $src_set &quot;, &quot;  $x_small.RelPermalink &quot; 500w&quot;) }}
+</a><a href="#h4-0-13" id="h4-0-13" class="d">-{{ end }}
+</a><a href="#h4-0-14" id="h4-0-14" class="d">-
+</a><a href="#h4-0-15" id="h4-0-15" class="d">-{{ if ge $image.Width &quot;800&quot;}}
+</a><a href="#h4-0-16" id="h4-0-16" class="d">-{{ $small := $image.Resize &quot;800x&quot; }}
+</a><a href="#h4-0-17" id="h4-0-17" class="d">-{{ $src_set = (print $src_set &quot;, &quot; $small.RelPermalink &quot; 800w&quot;) }}
+</a><a href="#h4-0-18" id="h4-0-18" class="d">-{{ end }}
+</a><a href="#h4-0-19" id="h4-0-19" class="d">-
+</a><a href="#h4-0-20" id="h4-0-20" class="d">-{{ if ge $image.Width &quot;1200&quot;}}
+</a><a href="#h4-0-21" id="h4-0-21" class="d">-{{ $medium := $image.Resize &quot;1200x&quot; }}
+</a><a href="#h4-0-22" id="h4-0-22" class="d">-{{ $src_set = (print $src_set &quot;, &quot; $medium.RelPermalink &quot; 1200w&quot;) }}
+</a><a href="#h4-0-23" id="h4-0-23" class="d">-{{ end }}
+</a><a href="#h4-0-24" id="h4-0-24" class="d">-
+</a><a href="#h4-0-25" id="h4-0-25" class="d">-{{ if gt $image.Width &quot;1500&quot;}}
+</a><a href="#h4-0-26" id="h4-0-26" class="d">-{{ $large := $image.Resize &quot;1500x&quot; }}
+</a><a href="#h4-0-27" id="h4-0-27" class="d">-{{ $src_set = (print $src_set &quot;, &quot; $large.RelPermalink &quot; 1500w&quot;) }}
+</a><a href="#h4-0-28" id="h4-0-28" class="d">-{{ end }}
+</a><a href="#h4-0-29" id="h4-0-29" class="d">-
+</a><a href="#h4-0-30" id="h4-0-30" class="d">-{{ $figure_class := &quot;image-figure&quot; }}
+</a><a href="#h4-0-31" id="h4-0-31" class="i">+{{ $width := &quot;400px&quot; }}
+</a><a href="#h4-0-32" id="h4-0-32" class="i">+{{ $height := &quot;520px&quot; }}
+</a> 
+<a href="#h4-0-34" id="h4-0-34" class="i">+{{- if gt $image.Width $image.Height }}
+</a><a href="#h4-0-35" id="h4-0-35" class="i">+{{ $width = &quot;520px&quot; }}
+</a><a href="#h4-0-36" id="h4-0-36" class="i">+{{ $height = &quot;380px&quot; }}
+</a><a href="#h4-0-37" id="h4-0-37" class="i">+{{- end }}
+</a> 
+<a href="#h4-0-39" id="h4-0-39" class="d">-&lt;noscript&gt;
+</a><a href="#h4-0-40" id="h4-0-40" class="d">-  &lt;style&gt;
+</a><a href="#h4-0-41" id="h4-0-41" class="d">-    figure.lazy {
+</a><a href="#h4-0-42" id="h4-0-42" class="d">-      display: none;
+</a><a href="#h4-0-43" id="h4-0-43" class="d">-    }
+</a><a href="#h4-0-44" id="h4-0-44" class="d">-  &lt;/style&gt;
+</a><a href="#h4-0-45" id="h4-0-45" class="d">-  &lt;figure class=&quot;{{ $figure_class }}&quot;&gt;
+</a><a href="#h4-0-46" id="h4-0-46" class="d">-    &lt;center&gt;
+</a><a href="#h4-0-47" id="h4-0-47" class="i">+&lt;figure class=&quot;image-figure&quot;&gt;
+</a><a href="#h4-0-48" id="h4-0-48" class="i">+  &lt;center&gt;
+</a><a href="#h4-0-49" id="h4-0-49" class="i">+    &lt;div style=&quot;width: {{ $width }};height: {{ $height }};&quot;&gt;
+</a>       &lt;img
+<a href="#h4-0-51" id="h4-0-51" class="d">-        src=&quot;{{ $src.RelPermalink }}&quot;
+</a><a href="#h4-0-52" id="h4-0-52" class="i">+        src=&quot;{{ $image.RelPermalink }}&quot;
+</a>         style=&quot;max-width: 100%; height: auto;&quot;
+<a href="#h4-0-54" id="h4-0-54" class="d">-        alt={{ $title }}
+</a><a href="#h4-0-55" id="h4-0-55" class="d">-        title={{ $title }}
+</a><a href="#h4-0-56" id="h4-0-56" class="i">+        alt={{ .Text | safeHTML }}
+</a><a href="#h4-0-57" id="h4-0-57" class="i">+        title={{ .Text | safeHTML }}
+</a>       /&gt;
+       &lt;figcaption&gt;
+<a href="#h4-0-60" id="h4-0-60" class="d">-      &lt;em&gt;{{ .Text }}
+</a><a href="#h4-0-61" id="h4-0-61" class="d">-        &lt;a title=&quot;{{ $title }}&quot; href=&quot;{{ $image.RelPermalink }}&quot;&gt;
+</a><a href="#h4-0-62" id="h4-0-62" class="d">-          &lt;i class=&quot;no-sup fab fa-font-awesome-flag&quot;&gt;&lt;/i&gt;
+</a><a href="#h4-0-63" id="h4-0-63" class="d">-        &lt;/a&gt;
+</a><a href="#h4-0-64" id="h4-0-64" class="d">-      &lt;/em&gt;
+</a><a href="#h4-0-65" id="h4-0-65" class="i">+        &lt;em&gt;{{ .Text | safeHTML }} &amp;nbsp;
+</a><a href="#h4-0-66" id="h4-0-66" class="i">+          &lt;a title=&quot;Link to open full image.&quot; href=&quot;{{ $image.RelPermalink }}&quot; class=&quot;view-full-size&quot;&gt;
+</a><a href="#h4-0-67" id="h4-0-67" class="i">+            &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 120 120&quot;&gt;&lt;path d=&quot;M71.2 48.8c1.6 1.6 4.1 1.6 5.6 0L112 13.6V32c0 2.4 2.2 4.4 4.7 3.9 2-.3 3.3-2.2 3.3-4.2V4c0-2.2-1.8-4-4-4H88.2c-2 0-3.8 1.4-4.2 3.3-.4 2.5 1.6 4.7 4 4.7h18.4L71.2 43.2c-1.6 1.6-1.6 4.1 0 5.6zm20.8-.9V104c0 4.4-3.6 8-8 8H16c-4.4 0-8-3.6-8-8V36c0-4.4 3.6-8 8-8h56.1c1.1 0 2.1-.4 2.8-1.2l5.1-5.1c.6-.6.2-1.7-.7-1.7H12C5.4 20 0 25.4 0 32v76c0 6.6 5.4 12 12 12h76c6.6 0 12-5.4 12-12V40.6c0-.9-1.1-1.3-1.7-.7L93.2 45c-.8.8-1.2 1.8-1.2 2.9z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;
+</a><a href="#h4-0-68" id="h4-0-68" class="i">+          &lt;/a&gt;
+</a><a href="#h4-0-69" id="h4-0-69" class="i">+        &lt;/em&gt;
+</a>       &lt;/figcaption&gt;
+<a href="#h4-0-71" id="h4-0-71" class="d">-    &lt;/center&gt;
+</a><a href="#h4-0-72" id="h4-0-72" class="d">-  &lt;/figure&gt;
+</a><a href="#h4-0-73" id="h4-0-73" class="d">-&lt;/noscript&gt;
+</a><a href="#h4-0-74" id="h4-0-74" class="d">-
+</a><a href="#h4-0-75" id="h4-0-75" class="d">-&lt;figure class=&quot;{{ $figure_class }} lazy&quot;&gt;
+</a><a href="#h4-0-76" id="h4-0-76" class="d">-  &lt;center&gt;
+</a><a href="#h4-0-77" id="h4-0-77" class="d">-    &lt;img class=&quot;lazyload&quot; data-sizes=&quot;auto&quot; src=&quot;{{ $src.RelPermalink }}&quot;
+</a><a href="#h4-0-78" id="h4-0-78" class="d">-      style=&quot;max-width: 100%; height: auto;&quot;
+</a><a href="#h4-0-79" id="h4-0-79" class="d">-      srcset=&quot;data:image/jpeg;base64,{{ $placeholder.Content | base64Encode }}&quot; data-src=&quot;{{ $src.RelPermalink }}&quot;
+</a><a href="#h4-0-80" id="h4-0-80" class="d">-      data-srcset=&quot;{{ $src_set }}&quot; width=&quot;{{ $image.Width }}&quot; height=&quot;{{ $image.Height }}&quot; alt={{ $title }} title={{ $title }} /&gt;
+</a><a href="#h4-0-81" id="h4-0-81" class="d">-    &lt;figcaption&gt;
+</a><a href="#h4-0-82" id="h4-0-82" class="d">-      &lt;em&gt;{{ .Text | safeHTML }}
+</a><a href="#h4-0-83" id="h4-0-83" class="d">-        &lt;a title=&quot;{{ $title }}&quot; href=&quot;{{ $image.RelPermalink }}&quot;&gt;
+</a><a href="#h4-0-84" id="h4-0-84" class="d">-          &lt;i class=&quot;no-sup fab fa-font-awesome-flag&quot;&gt;&lt;/i&gt;
+</a><a href="#h4-0-85" id="h4-0-85" class="d">-        &lt;/a&gt;
+</a><a href="#h4-0-86" id="h4-0-86" class="d">-      &lt;/em&gt;
+</a><a href="#h4-0-87" id="h4-0-87" class="d">-    &lt;/figcaption&gt;
+</a><a href="#h4-0-88" id="h4-0-88" class="i">+    &lt;/div&gt;
+</a>   &lt;/center&gt;
+ &lt;/figure&gt;
+<b>diff --git a/<a id="h5" href="../file/layouts/_default/_markup/render-image.rss.xml.html">layouts/_default/_markup/render-image.rss.xml</a> b/<a href="../file/layouts/_default/_markup/render-image.rss.xml.html">layouts/_default/_markup/render-image.rss.xml</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -0,0 +1,15 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="i">+{{ $image := (.Page.Resources.GetMatch  .Destination) }}
+</a><a href="#h5-0-1" id="h5-0-1" class="i">+
+</a><a href="#h5-0-2" id="h5-0-2" class="i">+&lt;figure&gt;
+</a><a href="#h5-0-3" id="h5-0-3" class="i">+  &lt;center&gt;
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+  &lt;img
+</a><a href="#h5-0-5" id="h5-0-5" class="i">+    src=&quot;{{ $image.RelPermalink }}&quot;
+</a><a href="#h5-0-6" id="h5-0-6" class="i">+    style=&quot;max-width: 100%; height: auto;&quot;
+</a><a href="#h5-0-7" id="h5-0-7" class="i">+    alt={{ .Text | safeHTML }}
+</a><a href="#h5-0-8" id="h5-0-8" class="i">+    title={{ .Text | safeHTML }}
+</a><a href="#h5-0-9" id="h5-0-9" class="i">+  /&gt;
+</a><a href="#h5-0-10" id="h5-0-10" class="i">+  &lt;figcaption&gt;
+</a><a href="#h5-0-11" id="h5-0-11" class="i">+    &lt;em&gt;{{ .Text | safeHTML }}&lt;/em&gt;
+</a><a href="#h5-0-12" id="h5-0-12" class="i">+  &lt;/figcaption&gt;
+</a><a href="#h5-0-13" id="h5-0-13" class="i">+  &lt;/center&gt;
+</a><a href="#h5-0-14" id="h5-0-14" class="i">+&lt;/figure&gt;
+</a><b>diff --git a/<a id="h6" href="../file/layouts/_default/_markup/render-link.html.html">layouts/_default/_markup/render-link.html</a> b/<a href="../file/layouts/_default/_markup/render-link.html.html">layouts/_default/_markup/render-link.html</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -1,54 +0,0 @@
+</a><a href="#h6-0-0" id="h6-0-0" class="d">-&lt;a href=&quot;{{ .Destination | safeURL }}&quot;
+</a><a href="#h6-0-1" id="h6-0-1" class="d">-  {{ $brand := &quot;font-awesome-flag&quot; }}
+</a><a href="#h6-0-2" id="h6-0-2" class="d">-  {{ $title := .Title }}
+</a><a href="#h6-0-3" id="h6-0-3" class="d">-
+</a><a href="#h6-0-4" id="h6-0-4" class="d">-  {{ $root := .Page.Site.BaseURL | replaceRE &quot;^https?://(en.|www.|m.)?([^/]+).*&quot; &quot;$2&quot; }}
+</a><a href="#h6-0-5" id="h6-0-5" class="d">-  {{ $domain := .Destination | replaceRE &quot;^https?://(en.|www.|m.)?([^/]+).*&quot; &quot;$2&quot; }}
+</a><a href="#h6-0-6" id="h6-0-6" class="d">-  {{ if eq $domain &quot;github.com&quot; }}
+</a><a href="#h6-0-7" id="h6-0-7" class="d">-    {{ $brand = &quot;github&quot; }}
+</a><a href="#h6-0-8" id="h6-0-8" class="d">-  {{ else if eq $domain &quot;twitter.com&quot; }}
+</a><a href="#h6-0-9" id="h6-0-9" class="d">-    {{ $brand = &quot;twitter&quot; }}
+</a><a href="#h6-0-10" id="h6-0-10" class="d">-  {{ else if eq $domain &quot;patreon.com&quot; }}
+</a><a href="#h6-0-11" id="h6-0-11" class="d">-    {{ $brand = &quot;patreon&quot; }}
+</a><a href="#h6-0-12" id="h6-0-12" class="d">-  {{ else if eq $domain &quot;instagram.com&quot; }}
+</a><a href="#h6-0-13" id="h6-0-13" class="d">-    {{ $brand = &quot;instagram&quot; }}
+</a><a href="#h6-0-14" id="h6-0-14" class="d">-  {{ else if eq $domain &quot;kickstarter.com&quot; }}
+</a><a href="#h6-0-15" id="h6-0-15" class="d">-    {{ $brand = &quot;kickstarter&quot; }}
+</a><a href="#h6-0-16" id="h6-0-16" class="d">-  {{ else if eq $domain &quot;keybase.io&quot; }}
+</a><a href="#h6-0-17" id="h6-0-17" class="d">-    {{ $brand = &quot;keybase&quot; }}
+</a><a href="#h6-0-18" id="h6-0-18" class="d">-  {{ else if eq $domain &quot;openstreetmap.org&quot; }}
+</a><a href="#h6-0-19" id="h6-0-19" class="d">-    {{ $brand = &quot;periscope&quot; }}
+</a><a href="#h6-0-20" id="h6-0-20" class="d">-  {{ else if eq $domain &quot;apps.apple.com&quot; }}
+</a><a href="#h6-0-21" id="h6-0-21" class="d">-    {{ $brand = &quot;app-store&quot; }}
+</a><a href="#h6-0-22" id="h6-0-22" class="d">-  {{ else if eq $domain &quot;apple.stackexchange.com&quot; }}
+</a><a href="#h6-0-23" id="h6-0-23" class="d">-    {{ $brand = &quot;stack-exchange&quot; }}
+</a><a href="#h6-0-24" id="h6-0-24" class="d">-  {{ else if eq $domain &quot;news.ycombinator.com&quot; }}
+</a><a href="#h6-0-25" id="h6-0-25" class="d">-    {{ $brand = &quot;hacker-news&quot; }}
+</a><a href="#h6-0-26" id="h6-0-26" class="d">-  {{ else if eq $domain &quot;git.ybbond.id&quot; }}
+</a><a href="#h6-0-27" id="h6-0-27" class="d">-    {{ $brand = &quot;git-alt&quot; }}
+</a><a href="#h6-0-28" id="h6-0-28" class="d">-  {{ else if or (eq $domain &quot;wikipedia.com&quot;) (or (eq $domain &quot;wikipedia.com&quot;) (eq $domain &quot;id.wikipedia.org&quot;)) }}
+</a><a href="#h6-0-29" id="h6-0-29" class="d">-    {{ $brand = &quot;wikipedia-w&quot; }}
+</a><a href="#h6-0-30" id="h6-0-30" class="d">-  {{ end}}
+</a><a href="#h6-0-31" id="h6-0-31" class="d">-
+</a><a href="#h6-0-32" id="h6-0-32" class="d">-  {{ $first := truncate 1 &quot;&quot; $domain }}
+</a><a href="#h6-0-33" id="h6-0-33" class="d">-  {{ $slash := (eq $first &quot;/&quot; )}}
+</a><a href="#h6-0-34" id="h6-0-34" class="d">-  {{ $hash := (eq $first &quot;#&quot;) }}
+</a><a href="#h6-0-35" id="h6-0-35" class="d">-  {{ $not_internal := (eq true (and (and (ne $first &quot;/&quot;) (ne $first &quot;#&quot;)) (ne $domain $root))) }}
+</a><a href="#h6-0-36" id="h6-0-36" class="d">-
+</a><a href="#h6-0-37" id="h6-0-37" class="d">-    {{ if ne .Title &quot;&quot; }}
+</a><a href="#h6-0-38" id="h6-0-38" class="d">-      title=&quot;{{ .Title }}&quot;
+</a><a href="#h6-0-39" id="h6-0-39" class="d">-    {{ else if $slash }}
+</a><a href="#h6-0-40" id="h6-0-40" class="d">-      title=&quot;Internal link with text: {{ .Text | safeHTML }}&quot;
+</a><a href="#h6-0-41" id="h6-0-41" class="d">-    {{ else if $hash }}
+</a><a href="#h6-0-42" id="h6-0-42" class="d">-      title=&quot;Same post link with text: {{ .Text | safeHTML }}&quot;
+</a><a href="#h6-0-43" id="h6-0-43" class="d">-    {{ else }}
+</a><a href="#h6-0-44" id="h6-0-44" class="d">-      title=&quot;Link to {{ $domain }} with text: {{ .Text | safeHTML }}&quot;
+</a><a href="#h6-0-45" id="h6-0-45" class="d">-    {{ end }}
+</a><a href="#h6-0-46" id="h6-0-46" class="d">-    data-goatcounter-click=&quot;{{ .Text }}&quot;
+</a><a href="#h6-0-47" id="h6-0-47" class="d">-    {{ if strings.HasPrefix .Destination &quot;http&quot; }}
+</a><a href="#h6-0-48" id="h6-0-48" class="d">-      target=&quot;_blank&quot;
+</a><a href="#h6-0-49" id="h6-0-49" class="d">-      rel=&quot;noreferrer noopener&quot;
+</a><a href="#h6-0-50" id="h6-0-50" class="d">-    {{ else }}
+</a><a href="#h6-0-51" id="h6-0-51" class="d">-      data-rel=&quot;prefetch&quot;
+</a><a href="#h6-0-52" id="h6-0-52" class="d">-    {{ end }}
+</a><a href="#h6-0-53" id="h6-0-53" class="d">-&gt;{{ .Text | safeHTML }}{{if and (ne false $not_internal) (ne $domain &quot;ybbond.goatcounter.com&quot;) }}&amp;nbsp;&lt;i class=&quot;fab fa-{{ $brand }}&quot;&gt;&lt;/i&gt;{{ end }}&lt;/a&gt;
+</a><b>diff --git a/<a id="h7" href="../file/layouts/partials/components/goatcounter.html.html">layouts/partials/components/goatcounter.html</a> b/<a href="../file/layouts/partials/components/goatcounter.html.html">layouts/partials/components/goatcounter.html</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -4,14 +4,24 @@ window.goatcounter = {endpoint: &#39;https://stats.ybbond.id/count&#39;}
+</a> // GoatCounter: https://www.goatcounter.com
+ // This file (and *only* this file) is released under the ISC license:
+ // https://opensource.org/licenses/ISC
+<a href="#h7-0-3" id="h7-0-3" class="d">-(function() {
+</a><a href="#h7-0-4" id="h7-0-4" class="i">+;(function() {
+</a> 	&#39;use strict&#39;;
+ 
+<a href="#h7-0-7" id="h7-0-7" class="d">-	if (window.goatcounter &amp;&amp; window.goatcounter.vars)  // Compatibility
+</a><a href="#h7-0-8" id="h7-0-8" class="i">+	if (window.goatcounter &amp;&amp; window.goatcounter.vars)  // Compatibility with very old version; do not use.
+</a> 		window.goatcounter = window.goatcounter.vars
+ 	else
+ 		window.goatcounter = window.goatcounter || {}
+ 
+<a href="#h7-0-13" id="h7-0-13" class="i">+	// Load settings from data-goatcounter-settings.
+</a><a href="#h7-0-14" id="h7-0-14" class="i">+	var s = document.querySelector(&#39;script[data-goatcounter]&#39;)
+</a><a href="#h7-0-15" id="h7-0-15" class="i">+	if (s &amp;&amp; s.dataset.goatcounterSettings) {
+</a><a href="#h7-0-16" id="h7-0-16" class="i">+		try         { var set = JSON.parse(s.dataset.goatcounterSettings) }
+</a><a href="#h7-0-17" id="h7-0-17" class="i">+		catch (err) { console.error(&#39;invalid JSON in data-goatcounter-settings: &#39; + err) }
+</a><a href="#h7-0-18" id="h7-0-18" class="i">+		for (var k in set)
+</a><a href="#h7-0-19" id="h7-0-19" class="i">+			if ([&#39;no_onload&#39;, &#39;no_events&#39;, &#39;allow_local&#39;, &#39;allow_frame&#39;, &#39;path&#39;, &#39;title&#39;, &#39;referrer&#39;, &#39;event&#39;].indexOf(k) &gt; -1)
+</a><a href="#h7-0-20" id="h7-0-20" class="i">+				window.goatcounter[k] = set[k]
+</a><a href="#h7-0-21" id="h7-0-21" class="i">+	}
+</a><a href="#h7-0-22" id="h7-0-22" class="i">+
+</a> 	// Get all data we&#39;re going to send off to the counter endpoint.
+ 	var get_data = function(vars) {
+ 		var data = {
+<a href="#h7-1" id="h7-1" class="h">@@ -75,7 +85,7 @@ window.goatcounter = {endpoint: &#39;https://stats.ybbond.id/count&#39;}
+</a> 
+ 	// Get the endpoint to send requests to.
+ 	var get_endpoint = function() {
+<a href="#h7-1-3" id="h7-1-3" class="d">-		var s = document.querySelector(&#39;script[data-goatcounter]&#39;);
+</a><a href="#h7-1-4" id="h7-1-4" class="i">+		var s = document.querySelector(&#39;script[data-goatcounter]&#39;)
+</a> 		if (s &amp;&amp; s.dataset.goatcounter)
+ 			return s.dataset.goatcounter
+ 		return (goatcounter.endpoint || window.counter)  // counter is for compat; don&#39;t use.
+<a href="#h7-2" id="h7-2" class="h">@@ -94,6 +104,14 @@ window.goatcounter = {endpoint: &#39;https://stats.ybbond.id/count&#39;}
+</a> 		return (loc.pathname + loc.search) || &#39;/&#39;
+ 	}
+ 
+<a href="#h7-2-3" id="h7-2-3" class="i">+	// Run function after DOM is loaded.
+</a><a href="#h7-2-4" id="h7-2-4" class="i">+	var on_load = function(f) {
+</a><a href="#h7-2-5" id="h7-2-5" class="i">+		if (document.body === null)
+</a><a href="#h7-2-6" id="h7-2-6" class="i">+			document.addEventListener(&#39;DOMContentLoaded&#39;, function() { f() }, false)
+</a><a href="#h7-2-7" id="h7-2-7" class="i">+		else
+</a><a href="#h7-2-8" id="h7-2-8" class="i">+			f()
+</a><a href="#h7-2-9" id="h7-2-9" class="i">+	}
+</a><a href="#h7-2-10" id="h7-2-10" class="i">+
+</a> 	// Filter some requests that we (probably) don&#39;t want to count.
+ 	goatcounter.filter = function() {
+ 		if (&#39;visibilityState&#39; in document &amp;&amp; (document.visibilityState === &#39;prerender&#39; || document.visibilityState === &#39;hidden&#39;))
+<a href="#h7-3" id="h7-3" class="h">@@ -140,7 +158,7 @@ window.goatcounter = {endpoint: &#39;https://stats.ybbond.id/count&#39;}
+</a> 		img.setAttribute(&#39;aria-hidden&#39;, &#39;true&#39;)
+ 
+ 		var rm = function() { if (img &amp;&amp; img.parentNode) img.parentNode.removeChild(img) }
+<a href="#h7-3-3" id="h7-3-3" class="d">-		setTimeout(rm, 3000)  // In case the onload isn&#39;t triggered.
+</a><a href="#h7-3-4" id="h7-3-4" class="i">+		setTimeout(rm, 10000)  // In case the onload isn&#39;t triggered.
+</a> 		img.addEventListener(&#39;load&#39;, rm, false)
+ 		document.body.appendChild(img)
+ 	}
+<a href="#h7-4" id="h7-4" class="h">@@ -181,37 +199,39 @@ window.goatcounter = {endpoint: &#39;https://stats.ybbond.id/count&#39;}
+</a> 
+ 	// Add a &quot;visitor counter&quot; frame or image.
+ 	window.goatcounter.visit_count = function(opt) {
+<a href="#h7-4-3" id="h7-4-3" class="d">-		opt        = opt        || {}
+</a><a href="#h7-4-4" id="h7-4-4" class="d">-		opt.type   = opt.type   || &#39;html&#39;
+</a><a href="#h7-4-5" id="h7-4-5" class="d">-		opt.append = opt.append || &#39;body&#39;
+</a><a href="#h7-4-6" id="h7-4-6" class="d">-		opt.path   = opt.path   || get_path()
+</a><a href="#h7-4-7" id="h7-4-7" class="d">-		opt.attr   = opt.attr   || {width: &#39;200&#39;, height: (opt.no_branding ? &#39;60&#39; : &#39;80&#39;)}
+</a><a href="#h7-4-8" id="h7-4-8" class="d">-
+</a><a href="#h7-4-9" id="h7-4-9" class="d">-		opt.attr[&#39;src&#39;] = get_endpoint() + &#39;er/&#39; + encodeURIComponent(opt.path) + &#39;.&#39; + opt.type + &#39;?&#39;
+</a><a href="#h7-4-10" id="h7-4-10" class="d">-		if (opt.no_branding) opt.attr[&#39;src&#39;] += &#39;&amp;no_branding=1&#39;
+</a><a href="#h7-4-11" id="h7-4-11" class="d">-		if (opt.style)       opt.attr[&#39;src&#39;] += &#39;&amp;style=&#39; + encodeURIComponent(opt.style)
+</a><a href="#h7-4-12" id="h7-4-12" class="d">-
+</a><a href="#h7-4-13" id="h7-4-13" class="d">-		var tag = {png: &#39;img&#39;, svg: &#39;img&#39;, html: &#39;iframe&#39;}[opt.type]
+</a><a href="#h7-4-14" id="h7-4-14" class="d">-		if (!tag)
+</a><a href="#h7-4-15" id="h7-4-15" class="d">-			return warn(&#39;visit_count: unknown type: &#39; + opt.type)
+</a><a href="#h7-4-16" id="h7-4-16" class="d">-
+</a><a href="#h7-4-17" id="h7-4-17" class="d">-		if (opt.type === &#39;html&#39;) {
+</a><a href="#h7-4-18" id="h7-4-18" class="d">-			opt.attr[&#39;frameborder&#39;] = &#39;0&#39;
+</a><a href="#h7-4-19" id="h7-4-19" class="d">-			opt.attr[&#39;scrolling&#39;]   = &#39;no&#39;
+</a><a href="#h7-4-20" id="h7-4-20" class="d">-		}
+</a><a href="#h7-4-21" id="h7-4-21" class="i">+		on_load(function() {
+</a><a href="#h7-4-22" id="h7-4-22" class="i">+			opt        = opt        || {}
+</a><a href="#h7-4-23" id="h7-4-23" class="i">+			opt.type   = opt.type   || &#39;html&#39;
+</a><a href="#h7-4-24" id="h7-4-24" class="i">+			opt.append = opt.append || &#39;body&#39;
+</a><a href="#h7-4-25" id="h7-4-25" class="i">+			opt.path   = opt.path   || get_path()
+</a><a href="#h7-4-26" id="h7-4-26" class="i">+			opt.attr   = opt.attr   || {width: &#39;200&#39;, height: (opt.no_branding ? &#39;60&#39; : &#39;80&#39;)}
+</a><a href="#h7-4-27" id="h7-4-27" class="i">+
+</a><a href="#h7-4-28" id="h7-4-28" class="i">+			opt.attr[&#39;src&#39;] = get_endpoint() + &#39;er/&#39; + encodeURIComponent(opt.path) + &#39;.&#39; + opt.type + &#39;?&#39;
+</a><a href="#h7-4-29" id="h7-4-29" class="i">+			if (opt.no_branding) opt.attr[&#39;src&#39;] += &#39;&amp;no_branding=1&#39;
+</a><a href="#h7-4-30" id="h7-4-30" class="i">+			if (opt.style)       opt.attr[&#39;src&#39;] += &#39;&amp;style=&#39; + encodeURIComponent(opt.style)
+</a><a href="#h7-4-31" id="h7-4-31" class="i">+
+</a><a href="#h7-4-32" id="h7-4-32" class="i">+			var tag = {png: &#39;img&#39;, svg: &#39;img&#39;, html: &#39;iframe&#39;}[opt.type]
+</a><a href="#h7-4-33" id="h7-4-33" class="i">+			if (!tag)
+</a><a href="#h7-4-34" id="h7-4-34" class="i">+				return warn(&#39;visit_count: unknown type: &#39; + opt.type)
+</a><a href="#h7-4-35" id="h7-4-35" class="i">+
+</a><a href="#h7-4-36" id="h7-4-36" class="i">+			if (opt.type === &#39;html&#39;) {
+</a><a href="#h7-4-37" id="h7-4-37" class="i">+				opt.attr[&#39;frameborder&#39;] = &#39;0&#39;
+</a><a href="#h7-4-38" id="h7-4-38" class="i">+				opt.attr[&#39;scrolling&#39;]   = &#39;no&#39;
+</a><a href="#h7-4-39" id="h7-4-39" class="i">+			}
+</a> 
+<a href="#h7-4-41" id="h7-4-41" class="d">-		var d = document.createElement(tag)
+</a><a href="#h7-4-42" id="h7-4-42" class="d">-		for (var k in opt.attr)
+</a><a href="#h7-4-43" id="h7-4-43" class="d">-			d.setAttribute(k, opt.attr[k])
+</a><a href="#h7-4-44" id="h7-4-44" class="i">+			var d = document.createElement(tag)
+</a><a href="#h7-4-45" id="h7-4-45" class="i">+			for (var k in opt.attr)
+</a><a href="#h7-4-46" id="h7-4-46" class="i">+				d.setAttribute(k, opt.attr[k])
+</a> 
+<a href="#h7-4-48" id="h7-4-48" class="d">-		var p = document.querySelector(opt.append)
+</a><a href="#h7-4-49" id="h7-4-49" class="d">-		if (!p)
+</a><a href="#h7-4-50" id="h7-4-50" class="d">-			return warn(&#39;visit_count: append not found: &#39; + opt.append)
+</a><a href="#h7-4-51" id="h7-4-51" class="d">-		p.appendChild(d)
+</a><a href="#h7-4-52" id="h7-4-52" class="i">+			var p = document.querySelector(opt.append)
+</a><a href="#h7-4-53" id="h7-4-53" class="i">+			if (!p)
+</a><a href="#h7-4-54" id="h7-4-54" class="i">+				return warn(&#39;visit_count: append not found: &#39; + opt.append)
+</a><a href="#h7-4-55" id="h7-4-55" class="i">+			p.appendChild(d)
+</a><a href="#h7-4-56" id="h7-4-56" class="i">+		})
+</a> 	}
+ 
+ 	// Make it easy to skip your own views.
+<a href="#h7-4-60" id="h7-4-60" class="d">-	if (location.hash === &#39;#toggle-goatcounter&#39;)
+</a><a href="#h7-4-61" id="h7-4-61" class="i">+	if (location.hash === &#39;#toggle-goatcounter&#39;) {
+</a> 		if (localStorage.getItem(&#39;skipgc&#39;) === &#39;t&#39;) {
+ 			localStorage.removeItem(&#39;skipgc&#39;, &#39;t&#39;)
+ 			alert(&#39;GoatCounter tracking is now ENABLED in this browser.&#39;)
+<a href="#h7-5" id="h7-5" class="h">@@ -220,19 +240,14 @@ window.goatcounter = {endpoint: &#39;https://stats.ybbond.id/count&#39;}
+</a> 			localStorage.setItem(&#39;skipgc&#39;, &#39;t&#39;)
+ 			alert(&#39;GoatCounter tracking is now DISABLED in this browser until &#39; + location + &#39; is loaded again.&#39;)
+ 		}
+<a href="#h7-5-3" id="h7-5-3" class="i">+	}
+</a> 
+<a href="#h7-5-5" id="h7-5-5" class="d">-	if (!goatcounter.no_onload) {
+</a><a href="#h7-5-6" id="h7-5-6" class="d">-		var go = function() {
+</a><a href="#h7-5-7" id="h7-5-7" class="i">+	if (!goatcounter.no_onload)
+</a><a href="#h7-5-8" id="h7-5-8" class="i">+		on_load(function() {
+</a> 			goatcounter.count()
+ 			if (!goatcounter.no_events)
+ 				goatcounter.bind_events()
+<a href="#h7-5-12" id="h7-5-12" class="d">-		}
+</a><a href="#h7-5-13" id="h7-5-13" class="d">-
+</a><a href="#h7-5-14" id="h7-5-14" class="d">-		if (document.body === null)
+</a><a href="#h7-5-15" id="h7-5-15" class="d">-			document.addEventListener(&#39;DOMContentLoaded&#39;, function() { go() }, false)
+</a><a href="#h7-5-16" id="h7-5-16" class="d">-		else
+</a><a href="#h7-5-17" id="h7-5-17" class="d">-			go()
+</a><a href="#h7-5-18" id="h7-5-18" class="d">-	}
+</a><a href="#h7-5-19" id="h7-5-19" class="i">+		})
+</a> })();
+ &lt;/script&gt;
+<a href="#h7-5-22" id="h7-5-22" class="d">-&lt;noscript&gt;&lt;img src=&quot;https://stats.ybbond.id/count?p=/test-img&quot;&gt;&lt;/noscript&gt;
+</a><a href="#h7-5-23" id="h7-5-23" class="i">+&lt;noscript&gt;&lt;img src=&quot;https://stats.ybbond.id/count?p=/test-noscript&quot;&gt;&lt;/noscript&gt;
+</a><b>diff --git a/<a id="h8" href="../file/layouts/partials/head/auth-links.html.html">layouts/partials/head/auth-links.html</a> b/<a href="../file/layouts/partials/head/auth-links.html.html">layouts/partials/head/auth-links.html</a></b>
+<a href="#h8-0" id="h8-0" class="h">@@ -1,3 +1,5 @@
+</a><a href="#h8-0-0" id="h8-0-0" class="i">+&lt;link rel=&quot;webmention&quot; href=&quot;https://webmention.herokuapp.com/api/webmention&quot; /&gt;
+</a><a href="#h8-0-1" id="h8-0-1" class="i">+
+</a> &lt;link rel=&quot;webmention&quot; href=&quot;https://webmention.io/ybbond.id/webmention&quot; /&gt;
+ &lt;link rel=&quot;pingback&quot; href=&quot;https://webmention.io/ybbond.id/xmlrpc&quot; /&gt;
+ 
+<b>diff --git a/<a id="h9" href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a> b/<a href="../file/layouts/partials/head/head.html.html">layouts/partials/head/head.html</a></b>
+<a href="#h9-0" id="h9-0" class="h">@@ -16,8 +16,6 @@
+</a>     {{ printf `&lt;link rel=&quot;%s&quot; type=&quot;%s&quot; href=&quot;%s&quot; title=&quot;%s&quot; /&gt;` .Rel .MediaType.Type .Permalink $rssTitle | safeHTML }}
+ {{ end }}
+ 
+<a href="#h9-0-3" id="h9-0-3" class="d">-&lt;script type=&quot;application/javascript&quot; src=&quot;{{ .Site.BaseURL }}lazyImage.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;
+</a><a href="#h9-0-4" id="h9-0-4" class="d">-
+</a> &lt;style&gt;
+   {{ with resources.Get &quot;fonts.css&quot; | resources.Minify }}
+       {{ .Content | safeCSS }}
+<a href="#h9-1" id="h9-1" class="h">@@ -44,8 +42,6 @@
+</a>       {{ .Content | safeCSS }}
+   {{ end }}
+ &lt;/style&gt;
+<a href="#h9-1-3" id="h9-1-3" class="d">-&lt;link href=&quot;/fontawesome.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+</a><a href="#h9-1-4" id="h9-1-4" class="d">-&lt;link href=&quot;/brands.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+</a> 
+ 
+ &lt;link rel=&quot;canonical&quot; href=&quot;{{ .Permalink }}&quot; /&gt;
+<b>diff --git a/<a id="h10" href="../file/layouts/partials/post/remarkbox.html.html">layouts/partials/post/remarkbox.html</a> b/<a href="../file/layouts/partials/post/remarkbox.html.html">layouts/partials/post/remarkbox.html</a></b>
+<a href="#h10-0" id="h10-0" class="h">@@ -9,16 +9,19 @@
+</a> &lt;/div&gt;
+ &lt;script src=&quot;https://my.remarkbox.com/static/js/iframe-resizer/iframeResizer.min.js&quot;&gt;&lt;/script&gt;
+ &lt;script&gt;
+<a href="#h10-0-3" id="h10-0-3" class="d">-  var rb_owner_key = &quot;372c6a71-6844-11eb-8f74-040140774501&quot;;
+</a><a href="#h10-0-4" id="h10-0-4" class="d">-  var thread_uri = window.location.href;
+</a><a href="#h10-0-5" id="h10-0-5" class="d">-  var thread_title = window.document.title;
+</a><a href="#h10-0-6" id="h10-0-6" class="d">-  var thread_fragment = window.location.hash;
+</a><a href="#h10-0-7" id="h10-0-7" class="i">+  const rb_owner_key = &quot;372c6a71-6844-11eb-8f74-040140774501&quot;;
+</a><a href="#h10-0-8" id="h10-0-8" class="i">+  let thread_uri = window.location.href;
+</a><a href="#h10-0-9" id="h10-0-9" class="i">+  if (thread_uri.startsWith(&#39;http://localhost:1313&#39;)) {
+</a><a href="#h10-0-10" id="h10-0-10" class="i">+    thread_uri = &#39;https://ybbond.id&#39; + thread_uri.substring(21);
+</a><a href="#h10-0-11" id="h10-0-11" class="i">+  }
+</a><a href="#h10-0-12" id="h10-0-12" class="i">+  const thread_title = window.document.title;
+</a><a href="#h10-0-13" id="h10-0-13" class="i">+  const thread_fragment = window.location.hash;
+</a> 
+   // rb owner was here.
+<a href="#h10-0-16" id="h10-0-16" class="d">-  var rb_src = &quot;https://my.remarkbox.com/embed&quot; + 
+</a><a href="#h10-0-17" id="h10-0-17" class="i">+  const rb_src = &quot;https://my.remarkbox.com/embed&quot; +
+</a>       &quot;?rb_owner_key=&quot; + rb_owner_key +
+       &quot;&amp;thread_title=&quot; + encodeURI(thread_title) +
+<a href="#h10-0-20" id="h10-0-20" class="d">-      &quot;&amp;thread_uri=&quot; + encodeURIComponent(thread_uri) + 
+</a><a href="#h10-0-21" id="h10-0-21" class="i">+      &quot;&amp;thread_uri=&quot; + encodeURIComponent(thread_uri) +
+</a>       thread_fragment;
+ 
+   function create_remarkbox_iframe() {
+<a href="#h10-1" id="h10-1" class="h">@@ -42,4 +45,4 @@
+</a>     document.getElementById(&quot;remarkbox-iframe&quot;)
+   );
+ &lt;/script&gt;
+<a href="#h10-1-3" id="h10-1-3" class="d">-&lt;/div&gt;</a><a href="#h10-1-4" id="h10-1-4" class="d">-
+\ No newline at end of file
+</a><a href="#h10-1-5" id="h10-1-5" class="i">+&lt;/div&gt;
+</a><b>diff --git a/<a id="h11" href="../file/static/lazyImage.js.html">static/lazyImage.js</a> b/<a href="../file/static/lazyImage.js.html">static/lazyImage.js</a></b>
+<a href="#h11-0" id="h11-0" class="h">@@ -1,2 +0,0 @@
+</a><a href="#h11-0-0" id="h11-0-0" class="d">-/*! lazysizes - v5.2.0 */
+</a><a href="#h11-0-1" id="h11-0-1" class="d">-!function(a,b){var c=b(a,a.document,Date);a.lazySizes=c,&quot;object&quot;==typeof module&amp;&amp;module.exports&amp;&amp;(module.exports=c)}(&quot;undefined&quot;!=typeof window?window:{},function(a,b,c){&quot;use strict&quot;;var d,e;if(function(){var b,c={lazyClass:&quot;lazyload&quot;,loadedClass:&quot;lazyloaded&quot;,loadingClass:&quot;lazyloading&quot;,preloadClass:&quot;lazypreload&quot;,errorClass:&quot;lazyerror&quot;,autosizesClass:&quot;lazyautosizes&quot;,srcAttr:&quot;data-src&quot;,srcsetAttr:&quot;data-srcset&quot;,sizesAttr:&quot;data-sizes&quot;,minSize:40,customMedia:{},init:!0,expFactor:1.5,hFac:.8,loadMode:2,loadHidden:!0,ricTimeout:0,throttleDelay:125};e=a.lazySizesConfig||a.lazysizesConfig||{};for(b in c)b in e||(e[b]=c[b])}(),!b||!b.getElementsByClassName)return{init:function(){},cfg:e,noSupport:!0};var f=b.documentElement,g=a.HTMLPictureElement,h=&quot;addEventListener&quot;,i=&quot;getAttribute&quot;,j=a[h].bind(a),k=a.setTimeout,l=a.requestAnimationFrame||k,m=a.requestIdleCallback,n=/^picture$/i,o=[&quot;load&quot;,&quot;error&quot;,&quot;lazyincluded&quot;,&quot;_lazyloaded&quot;],p={},q=Array.prototype.forEach,r=function(a,b){return p[b]||(p[b]=new RegExp(&quot;(\\s|^)&quot;+b+&quot;(\\s|$)&quot;)),p[b].test(a[i](&quot;class&quot;)||&quot;&quot;)&amp;&amp;p[b]},s=function(a,b){r(a,b)||a.setAttribute(&quot;class&quot;,(a[i](&quot;class&quot;)||&quot;&quot;).trim()+&quot; &quot;+b)},t=function(a,b){var c;(c=r(a,b))&amp;&amp;a.setAttribute(&quot;class&quot;,(a[i](&quot;class&quot;)||&quot;&quot;).replace(c,&quot; &quot;))},u=function(a,b,c){var d=c?h:&quot;removeEventListener&quot;;c&amp;&amp;u(a,b),o.forEach(function(c){a[d](c,b)})},v=function(a,c,e,f,g){var h=b.createEvent(&quot;Event&quot;);return e||(e={}),e.instance=d,h.initEvent(c,!f,!g),h.detail=e,a.dispatchEvent(h),h},w=function(b,c){var d;!g&amp;&amp;(d=a.picturefill||e.pf)?(c&amp;&amp;c.src&amp;&amp;!b[i](&quot;srcset&quot;)&amp;&amp;b.setAttribute(&quot;srcset&quot;,c.src),d({reevaluate:!0,elements:[b]})):c&amp;&amp;c.src&amp;&amp;(b.src=c.src)},x=function(a,b){return(getComputedStyle(a,null)||{})[b]},y=function(a,b,c){for(c=c||a.offsetWidth;c&lt;e.minSize&amp;&amp;b&amp;&amp;!a._lazysizesWidth;)c=b.offsetWidth,b=b.parentNode;return c},z=function(){var a,c,d=[],e=[],f=d,g=function(){var b=f;for(f=d.length?e:d,a=!0,c=!1;b.length;)b.shift()();a=!1},h=function(d,e){a&amp;&amp;!e?d.apply(this,arguments):(f.push(d),c||(c=!0,(b.hidden?k:l)(g)))};return h._lsFlush=g,h}(),A=function(a,b){return b?function(){z(a)}:function(){var b=this,c=arguments;z(function(){a.apply(b,c)})}},B=function(a){var b,d=0,f=e.throttleDelay,g=e.ricTimeout,h=function(){b=!1,d=c.now(),a()},i=m&amp;&amp;g&gt;49?function(){m(h,{timeout:g}),g!==e.ricTimeout&amp;&amp;(g=e.ricTimeout)}:A(function(){k(h)},!0);return function(a){var e;(a=!0===a)&amp;&amp;(g=33),b||(b=!0,e=f-(c.now()-d),e&lt;0&amp;&amp;(e=0),a||e&lt;9?i():k(i,e))}},C=function(a){var b,d,e=99,f=function(){b=null,a()},g=function(){var a=c.now()-d;a&lt;e?k(g,e-a):(m||f)(f)};return function(){d=c.now(),b||(b=k(g,e))}},D=function(){var g,m,o,p,y,D,F,G,H,I,J,K,L=/^img$/i,M=/^iframe$/i,N=&quot;onscroll&quot;in a&amp;&amp;!/(gle|ing)bot/.test(navigator.userAgent),O=0,P=0,Q=0,R=-1,S=function(a){Q--,(!a||Q&lt;0||!a.target)&amp;&amp;(Q=0)},T=function(a){return null==K&amp;&amp;(K=&quot;hidden&quot;==x(b.body,&quot;visibility&quot;)),K||!(&quot;hidden&quot;==x(a.parentNode,&quot;visibility&quot;)&amp;&amp;&quot;hidden&quot;==x(a,&quot;visibility&quot;))},U=function(a,c){var d,e=a,g=T(a);for(G-=c,J+=c,H-=c,I+=c;g&amp;&amp;(e=e.offsetParent)&amp;&amp;e!=b.body&amp;&amp;e!=f;)(g=(x(e,&quot;opacity&quot;)||1)&gt;0)&amp;&amp;&quot;visible&quot;!=x(e,&quot;overflow&quot;)&amp;&amp;(d=e.getBoundingClientRect(),g=I&gt;d.left&amp;&amp;H&lt;d.right&amp;&amp;J&gt;d.top-1&amp;&amp;G&lt;d.bottom+1);return g},V=function(){var a,c,h,j,k,l,n,o,q,r,s,t,u=d.elements;if((p=e.loadMode)&amp;&amp;Q&lt;8&amp;&amp;(a=u.length)){for(c=0,R++;c&lt;a;c++)if(u[c]&amp;&amp;!u[c]._lazyRace)if(!N||d.prematureUnveil&amp;&amp;d.prematureUnveil(u[c]))ba(u[c]);else if((o=u[c][i](&quot;data-expand&quot;))&amp;&amp;(l=1*o)||(l=P),r||(r=!e.expand||e.expand&lt;1?f.clientHeight&gt;500&amp;&amp;f.clientWidth&gt;500?500:370:e.expand,d._defEx=r,s=r*e.expFactor,t=e.hFac,K=null,P&lt;s&amp;&amp;Q&lt;1&amp;&amp;R&gt;2&amp;&amp;p&gt;2&amp;&amp;!b.hidden?(P=s,R=0):P=p&gt;1&amp;&amp;R&gt;1&amp;&amp;Q&lt;6?r:O),q!==l&amp;&amp;(D=innerWidth+l*t,F=innerHeight+l,n=-1*l,q=l),h=u[c].getBoundingClientRect(),(J=h.bottom)&gt;=n&amp;&amp;(G=h.top)&lt;=F&amp;&amp;(I=h.right)&gt;=n*t&amp;&amp;(H=h.left)&lt;=D&amp;&amp;(J||I||H||G)&amp;&amp;(e.loadHidden||T(u[c]))&amp;&amp;(m&amp;&amp;Q&lt;3&amp;&amp;!o&amp;&amp;(p&lt;3||R&lt;4)||U(u[c],l))){if(ba(u[c]),k=!0,Q&gt;9)break}else!k&amp;&amp;m&amp;&amp;!j&amp;&amp;Q&lt;4&amp;&amp;R&lt;4&amp;&amp;p&gt;2&amp;&amp;(g[0]||e.preloadAfterLoad)&amp;&amp;(g[0]||!o&amp;&amp;(J||I||H||G||&quot;auto&quot;!=u[c][i](e.sizesAttr)))&amp;&amp;(j=g[0]||u[c]);j&amp;&amp;!k&amp;&amp;ba(j)}},W=B(V),X=function(a){var b=a.target;if(b._lazyCache)return void delete b._lazyCache;S(a),s(b,e.loadedClass),t(b,e.loadingClass),u(b,Z),v(b,&quot;lazyloaded&quot;)},Y=A(X),Z=function(a){Y({target:a.target})},$=function(a,b){try{a.contentWindow.location.replace(b)}catch(c){a.src=b}},_=function(a){var b,c=a[i](e.srcsetAttr);(b=e.customMedia[a[i](&quot;data-media&quot;)||a[i](&quot;media&quot;)])&amp;&amp;a.setAttribute(&quot;media&quot;,b),c&amp;&amp;a.setAttribute(&quot;srcset&quot;,c)},aa=A(function(a,b,c,d,f){var g,h,j,l,m,p;(m=v(a,&quot;lazybeforeunveil&quot;,b)).defaultPrevented||(d&amp;&amp;(c?s(a,e.autosizesClass):a.setAttribute(&quot;sizes&quot;,d)),h=a[i](e.srcsetAttr),g=a[i](e.srcAttr),f&amp;&amp;(j=a.parentNode,l=j&amp;&amp;n.test(j.nodeName||&quot;&quot;)),p=b.firesLoad||&quot;src&quot;in a&amp;&amp;(h||g||l),m={target:a},s(a,e.loadingClass),p&amp;&amp;(clearTimeout(o),o=k(S,2500),u(a,Z,!0)),l&amp;&amp;q.call(j.getElementsByTagName(&quot;source&quot;),_),h?a.setAttribute(&quot;srcset&quot;,h):g&amp;&amp;!l&amp;&amp;(M.test(a.nodeName)?$(a,g):a.src=g),f&amp;&amp;(h||l)&amp;&amp;w(a,{src:g})),a._lazyRace&amp;&amp;delete a._lazyRace,t(a,e.lazyClass),z(function(){var b=a.complete&amp;&amp;a.naturalWidth&gt;1;p&amp;&amp;!b||(b&amp;&amp;s(a,&quot;ls-is-cached&quot;),X(m),a._lazyCache=!0,k(function(){&quot;_lazyCache&quot;in a&amp;&amp;delete a._lazyCache},9)),&quot;lazy&quot;==a.loading&amp;&amp;Q--},!0)}),ba=function(a){if(!a._lazyRace){var b,c=L.test(a.nodeName),d=c&amp;&amp;(a[i](e.sizesAttr)||a[i](&quot;sizes&quot;)),f=&quot;auto&quot;==d;(!f&amp;&amp;m||!c||!a[i](&quot;src&quot;)&amp;&amp;!a.srcset||a.complete||r(a,e.errorClass)||!r(a,e.lazyClass))&amp;&amp;(b=v(a,&quot;lazyunveilread&quot;).detail,f&amp;&amp;E.updateElem(a,!0,a.offsetWidth),a._lazyRace=!0,Q++,aa(a,b,f,d,c))}},ca=C(function(){e.loadMode=3,W()}),da=function(){3==e.loadMode&amp;&amp;(e.loadMode=2),ca()},ea=function(){if(!m){if(c.now()-y&lt;999)return void k(ea,999);m=!0,e.loadMode=3,W(),j(&quot;scroll&quot;,da,!0)}};return{_:function(){y=c.now(),d.elements=b.getElementsByClassName(e.lazyClass),g=b.getElementsByClassName(e.lazyClass+&quot; &quot;+e.preloadClass),j(&quot;scroll&quot;,W,!0),j(&quot;resize&quot;,W,!0),j(&quot;pageshow&quot;,function(a){if(a.persisted){var c=b.querySelectorAll(&quot;.&quot;+e.loadingClass);c.length&amp;&amp;c.forEach&amp;&amp;l(function(){c.forEach(function(a){a.complete&amp;&amp;ba(a)})})}}),a.MutationObserver?new MutationObserver(W).observe(f,{childList:!0,subtree:!0,attributes:!0}):(f[h](&quot;DOMNodeInserted&quot;,W,!0),f[h](&quot;DOMAttrModified&quot;,W,!0),setInterval(W,999)),j(&quot;hashchange&quot;,W,!0),[&quot;focus&quot;,&quot;mouseover&quot;,&quot;click&quot;,&quot;load&quot;,&quot;transitionend&quot;,&quot;animationend&quot;].forEach(function(a){b[h](a,W,!0)}),/d$|^c/.test(b.readyState)?ea():(j(&quot;load&quot;,ea),b[h](&quot;DOMContentLoaded&quot;,W),k(ea,2e4)),d.elements.length?(V(),z._lsFlush()):W()},checkElems:W,unveil:ba,_aLSL:da}}(),E=function(){var a,c=A(function(a,b,c,d){var e,f,g;if(a._lazysizesWidth=d,d+=&quot;px&quot;,a.setAttribute(&quot;sizes&quot;,d),n.test(b.nodeName||&quot;&quot;))for(e=b.getElementsByTagName(&quot;source&quot;),f=0,g=e.length;f&lt;g;f++)e[f].setAttribute(&quot;sizes&quot;,d);c.detail.dataAttr||w(a,c.detail)}),d=function(a,b,d){var e,f=a.parentNode;f&amp;&amp;(d=y(a,f,d),e=v(a,&quot;lazybeforesizes&quot;,{width:d,dataAttr:!!b}),e.defaultPrevented||(d=e.detail.width)&amp;&amp;d!==a._lazysizesWidth&amp;&amp;c(a,f,e,d))},f=function(){var b,c=a.length;if(c)for(b=0;b&lt;c;b++)d(a[b])},g=C(f);return{_:function(){a=b.getElementsByClassName(e.autosizesClass),j(&quot;resize&quot;,g)},checkElems:g,updateElem:d}}(),F=function(){!F.i&amp;&amp;b.getElementsByClassName&amp;&amp;(F.i=!0,E._(),D._())};return k(function(){e.init&amp;&amp;F()}),d={cfg:e,autoSizer:E,loader:D,init:F,uP:w,aC:s,rC:t,hC:r,fire:v,gW:y,rAF:z}});</a><a href="#h11-0-2" id="h11-0-2" class="d">-
+\ No newline at end of file
+</a></pre>
+</div>
+</div>
+</body>
+</html>

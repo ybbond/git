@@ -15,30 +15,26 @@
 <a href="../../../index.html">Log</a> | <a href="../../../files.html">Files</a> | <a href="../../../refs.html">Refs</a> | <a href="../../../file/README.md.html">README</a> | <a href="../../../file/LICENSE.md.html">LICENSE</a> | <a href="../../../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
 <hr/>
 <div id="content">
-<p> baseof.html (529B)</p><hr/><pre id="blob">
+<p> baseof.html (451B)</p><hr/><pre id="blob">
 <a href="#l1" class="line" id="l1">      1</a> &lt;!DOCTYPE html&gt;
-<a href="#l2" class="line" id="l2">      2</a> &lt;html ⚡
-<a href="#l3" class="line" id="l3">      3</a>   lang=&quot;{{ .Site.LanguageCode | default &quot;en-us&quot; }}&quot;
-<a href="#l4" class="line" id="l4">      4</a>   class=&quot;theme-dark&quot;
-<a href="#l5" class="line" id="l5">      5</a>   id=&quot;main-theme&quot;
-<a href="#l6" class="line" id="l6">      6</a> &gt;
-<a href="#l7" class="line" id="l7">      7</a>   &lt;head&gt;
-<a href="#l8" class="line" id="l8">      8</a>     {{ partial &quot;head/head.html&quot; . }}
-<a href="#l9" class="line" id="l9">      9</a>   &lt;/head&gt;
-<a href="#l10" class="line" id="l10">     10</a>   &lt;body&gt;
-<a href="#l11" class="line" id="l11">     11</a>     &lt;header class=&quot;header&quot;&gt;
-<a href="#l12" class="line" id="l12">     12</a>       {{ partial &quot;header/header.html&quot; . }}
-<a href="#l13" class="line" id="l13">     13</a>     &lt;/header&gt;
-<a href="#l14" class="line" id="l14">     14</a>     &lt;main class=&quot;main&quot;&gt;
-<a href="#l15" class="line" id="l15">     15</a>       {{ block &quot;main&quot; . }}{{ end }}
-<a href="#l16" class="line" id="l16">     16</a>     &lt;/main&gt;
-<a href="#l17" class="line" id="l17">     17</a>     &lt;hr class=&quot;footer__separator&quot;&gt;
-<a href="#l18" class="line" id="l18">     18</a>     &lt;footer class=&quot;footer&quot;&gt;
-<a href="#l19" class="line" id="l19">     19</a>       {{ partial &quot;footer/footer.html&quot; . }}
-<a href="#l20" class="line" id="l20">     20</a>     &lt;/footer&gt;
-<a href="#l21" class="line" id="l21">     21</a>     {{ partial &quot;components/goatcounter.html&quot; . }}
-<a href="#l22" class="line" id="l22">     22</a>   &lt;/body&gt;
-<a href="#l23" class="line" id="l23">     23</a> &lt;/html&gt;
+<a href="#l2" class="line" id="l2">      2</a> &lt;html lang=&quot;{{ .Site.LanguageCode | default &quot;en-us&quot; }}&quot;&gt;
+<a href="#l3" class="line" id="l3">      3</a> &lt;head&gt;
+<a href="#l4" class="line" id="l4">      4</a>   {{ partial &quot;head/head.html&quot; . }}
+<a href="#l5" class="line" id="l5">      5</a> &lt;/head&gt;
+<a href="#l6" class="line" id="l6">      6</a> &lt;body&gt;
+<a href="#l7" class="line" id="l7">      7</a>   &lt;header class=&quot;header&quot;&gt;
+<a href="#l8" class="line" id="l8">      8</a>     {{ partial &quot;header/header.html&quot; . }}
+<a href="#l9" class="line" id="l9">      9</a>   &lt;/header&gt;
+<a href="#l10" class="line" id="l10">     10</a>   &lt;main class=&quot;main&quot;&gt;
+<a href="#l11" class="line" id="l11">     11</a>     {{ block &quot;main&quot; . }}{{ end }}
+<a href="#l12" class="line" id="l12">     12</a>   &lt;/main&gt;
+<a href="#l13" class="line" id="l13">     13</a>   &lt;hr class=&quot;footer__separator&quot;&gt;
+<a href="#l14" class="line" id="l14">     14</a>   &lt;footer class=&quot;footer&quot;&gt;
+<a href="#l15" class="line" id="l15">     15</a>     {{ partial &quot;footer/footer.html&quot; . }}
+<a href="#l16" class="line" id="l16">     16</a>   &lt;/footer&gt;
+<a href="#l17" class="line" id="l17">     17</a>   {{ partial &quot;components/goatcounter.html&quot; . }}
+<a href="#l18" class="line" id="l18">     18</a> &lt;/body&gt;
+<a href="#l19" class="line" id="l19">     19</a> &lt;/html&gt;
 </pre>
 </div>
 </body>

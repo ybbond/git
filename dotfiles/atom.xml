@@ -4,6 +4,101 @@
 <subtitle>feels like ${HOME}
 </subtitle>
 <entry>
+<id>6979cc18a5021170e85e286b12bb6253a2773bee</id>
+<published>2021-05-23T08:37:40Z</published>
+<updated>2021-05-23T08:37:40Z</updated>
+<title type="text">zsh and git config updates</title>
+<link rel="alternate" type="text/html" href="commit/6979cc18a5021170e85e286b12bb6253a2773bee.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.id</email>
+</author>
+<content type="text">commit 6979cc18a5021170e85e286b12bb6253a2773bee
+parent 2a08731e12f40457eef0ba246022ce200964af9e
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.id&gt;
+Date:   Sun, 23 May 2021 15:37:40 +0700
+
+zsh and git config updates
+
+</content>
+</entry>
+<entry>
+<id>2a08731e12f40457eef0ba246022ce200964af9e</id>
+<published>2021-05-23T08:36:26Z</published>
+<updated>2021-05-23T08:36:26Z</updated>
+<title type="text">separate files for kitty and tmux</title>
+<link rel="alternate" type="text/html" href="commit/2a08731e12f40457eef0ba246022ce200964af9e.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.id</email>
+</author>
+<content type="text">commit 2a08731e12f40457eef0ba246022ce200964af9e
+parent 76d35f63c9104a0736918ed8711794ed5a9a4f5e
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.id&gt;
+Date:   Sun, 23 May 2021 15:36:26 +0700
+
+separate files for kitty and tmux
+
+</content>
+</entry>
+<entry>
+<id>76d35f63c9104a0736918ed8711794ed5a9a4f5e</id>
+<published>2021-05-05T16:54:19Z</published>
+<updated>2021-05-05T16:54:19Z</updated>
+<title type="text">now using zsh-vi-key</title>
+<link rel="alternate" type="text/html" href="commit/76d35f63c9104a0736918ed8711794ed5a9a4f5e.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.id</email>
+</author>
+<content type="text">commit 76d35f63c9104a0736918ed8711794ed5a9a4f5e
+parent 0d418f8f412927b20f59f715375505dc965f6098
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.id&gt;
+Date:   Wed,  5 May 2021 23:54:19 +0700
+
+now using zsh-vi-key
+
+</content>
+</entry>
+<entry>
+<id>0d418f8f412927b20f59f715375505dc965f6098</id>
+<published>2021-05-05T16:27:37Z</published>
+<updated>2021-05-05T16:27:37Z</updated>
+<title type="text">update Sublime Text and VSCode settings, delete MailMate</title>
+<link rel="alternate" type="text/html" href="commit/0d418f8f412927b20f59f715375505dc965f6098.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.id</email>
+</author>
+<content type="text">commit 0d418f8f412927b20f59f715375505dc965f6098
+parent ef5973455b4062134db81bb3b2d1dfd636a56bcb
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.id&gt;
+Date:   Wed,  5 May 2021 23:27:37 +0700
+
+update Sublime Text and VSCode settings, delete MailMate
+
+</content>
+</entry>
+<entry>
+<id>ef5973455b4062134db81bb3b2d1dfd636a56bcb</id>
+<published>2021-05-05T16:26:32Z</published>
+<updated>2021-05-05T16:26:32Z</updated>
+<title type="text">update terminal configs, remove doom</title>
+<link rel="alternate" type="text/html" href="commit/ef5973455b4062134db81bb3b2d1dfd636a56bcb.html" />
+<author>
+<name>Yohanes Bandung Bondowoso</name>
+<email>hi@ybbond.id</email>
+</author>
+<content type="text">commit ef5973455b4062134db81bb3b2d1dfd636a56bcb
+parent 59fe11e0a64c0527829cd1319d48f6b269fac76c
+Author: Yohanes Bandung Bondowoso &lt;hi@ybbond.id&gt;
+Date:   Wed,  5 May 2021 23:26:32 +0700
+
+update terminal configs, remove doom
+
+</content>
+</entry>
+<entry>
 <id>59fe11e0a64c0527829cd1319d48f6b269fac76c</id>
 <published>2021-03-29T10:48:58Z</published>
 <updated>2021-03-29T10:48:58Z</updated>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>refactor: more responsive render-image for small images - ybbond - My site. The main domain
+</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="ybbond Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="/logo.png" alt="" width="32" height="32" /></a></td><td><h1>ybbond</h1><span class="desc">My site. The main domain
+</span></td></tr><tr><td></td><td>
+<a href="../index.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.md.html">LICENSE</a> | <a href="../file/CC-LICENSE.md.html">CC-LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<div id="pre-scroll">
+<pre><b>commit</b> <a href="../commit/af2f63ac1820b3828089d2d7e971303eb1edd6f6.html">af2f63ac1820b3828089d2d7e971303eb1edd6f6</a>
+<b>parent</b> <a href="../commit/b16005fd7e0086c99e451fa9458e109f02dbec1f.html">b16005fd7e0086c99e451fa9458e109f02dbec1f</a>
+<b>Author:</b> Yohanes Bandung Bondowoso &lt;<a href="mailto:hi@ybbond.id">hi@ybbond.id</a>&gt;
+<b>Date:</b>   Fri,  2 Apr 2021 05:41:51 +0700
+
+refactor: more responsive render-image for small images
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">layouts/_default/_markup/render-image.html</a></td><td> | </td><td class="num">23</td><td><span class="i">++++++++++++++++++</span><span class="d">-----</span></td></tr>
+</table></pre></div><p>1 file changed, 18 insertions(<span id="plus">+</span>), 5 deletions(<span id="min">-</span>)</p>
+<div id="pre-scroll">
+<pre>
+<b>diff --git a/<a id="h0" href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a> b/<a href="../file/layouts/_default/_markup/render-image.html.html">layouts/_default/_markup/render-image.html</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -8,13 +8,26 @@
+</a>   {{ $title = .Title }}
+ {{ end }}
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-{{ $width := &quot;400px&quot; }}
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+{{ $width := &quot;380px&quot; }}
+</a> {{ $height := &quot;520px&quot; }}
+<a href="#h0-0-6" id="h0-0-6" class="i">+{{ $orientation := &quot;portrait&quot; }}
+</a> 
+<a href="#h0-0-8" id="h0-0-8" class="d">-{{- if gt $image.Width $image.Height }}
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-{{ $width = &quot;520px&quot; }}
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-{{ $height = &quot;380px&quot; }}
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-{{- end }}
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+{{- if gt $image.Width $image.Height -}}
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+  {{ $orientation = &quot;landscape&quot; }}
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+  {{ $width = &quot;520px&quot; }}
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+  {{ $height = &quot;380px&quot; }}
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+    {{ if gt &quot;300&quot; $image.Width -}}
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+      {{ $width = &quot;300px&quot; }}
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+      {{ $height = &quot;170px&quot; }}
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+    {{ end -}}
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+{{- end -}}
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+{{- if eq $orientation &quot;portrait&quot; -}}
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+  {{ if gt &quot;300&quot; $image.Height -}}
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+    {{ $width = &quot;170px&quot; }}
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+    {{ $height = &quot;300px&quot; }}
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+  {{ end -}}
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+{{- end -}}
+</a> 
+ &lt;figure class=&quot;image-figure&quot;&gt;
+   &lt;center&gt;
+</pre>
+</div>
+</div>
+</body>
+</html>
